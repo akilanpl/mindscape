@@ -123,7 +123,11 @@ class CodingPolicy:
                 if interaction:
                     env.step(CodeAction("inspect_error"))
             env.step(CodeAction("finish"))
-            final = env.final_evaluate()
+            final = (
+                env.final_evaluate()
+                if task.hidden_tests is not None
+                else {"all_passed": None, "assessment": "deferred to independent benchmark backend"}
+            )
             return {
                 "task_id": task.task_id,
                 "condition": self.condition,
@@ -313,11 +317,15 @@ class ToolCodingPolicy:
                     )
                 if action and action.name == "finish" and transition and transition.valid:
                     break
-            final = env.final_evaluate()
+            final = (
+                env.final_evaluate()
+                if task.hidden_tests is not None
+                else {"all_passed": None, "assessment": "deferred to independent benchmark backend"}
+            )
             first = (
                 run_cases(self.sandbox, snapshots[0], task.hidden_tests)["all_passed"]
-                if snapshots
-                else False
+                if snapshots and task.hidden_tests is not None
+                else None
             )
             return {
                 "task_id": task.task_id,
@@ -326,6 +334,7 @@ class ToolCodingPolicy:
                 "success": final["all_passed"],
                 "first_patch_success": first,
                 "edit_attempts": len(snapshots),
+                "edit_snapshots": snapshots,
                 "attempts": attempts,
                 "repository": dict(env.files),
                 "trajectory": asdict(env.get_trajectory()),

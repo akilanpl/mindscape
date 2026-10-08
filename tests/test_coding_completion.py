@@ -60,3 +60,64 @@ def test_bounded_planner_never_certifies_hypothetical_tests():
     )
     assert env.files == state.files
     env.close()
+
+
+def test_perturbations_preserve_actual_correct_and_defective_behavior():
+    import pytest
+
+    from mindscape.coding.generator import task
+    from mindscape.coding.robustness import perturb
+    from mindscape.coding.sandbox import WasiSandbox
+    from mindscape.coding.testing import run_cases
+
+    if not Path("work/coding/runtime/python.wasm").exists():
+        pytest.skip("Optional pinned WASI runtime absent")
+    sandbox = WasiSandbox("work/coding/runtime")
+    for category in ("list_handling", "cross_file"):
+        original = task(99881, category, "test")
+        for variant in (
+            "rename_functions",
+            "rename_variables",
+            "reordered_files",
+            "reordered_tests",
+            "distractor_files",
+            "layout",
+            "formatting",
+        ):
+            changed = perturb(original, variant)
+            assert run_cases(sandbox, changed.correct_repository, changed.hidden_tests)[
+                "all_passed"
+            ]
+            assert not run_cases(sandbox, changed.repository, changed.hidden_tests)["all_passed"]
+
+
+def test_generic_model_wrapper_defers_private_assessment():
+    from types import SimpleNamespace
+
+    from mindscape.coding.generator import task
+    from mindscape.coding.integration import CodingBenchmarkModel
+
+    example = task(775511, "operator", "test")
+
+    class Policy:
+        coder = SimpleNamespace(parameter_count=17)
+
+        def solve(self, learner):
+            assert learner.hidden_tests is None
+            assert learner.correct_repository == {} and learner.ground_truth_patch == {}
+            return {
+                "repository": learner.repository,
+                "trajectory": {},
+                "model_calls": 1,
+                "wall_seconds": 0.1,
+            }
+
+    prediction = CodingBenchmarkModel(Policy()).predict(
+        {
+            "example_id": example.task_id,
+            "problem": example.problem_statement,
+            "observation": example.visible(),
+        }
+    )
+    assert prediction.diagnostics["assessment"] == "deferred"
+    assert prediction.answer == example.repository

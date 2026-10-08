@@ -18,6 +18,7 @@ import torch
 from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from mindscape.coding.policy import _model_view
 from mindscape.coding.schema import CodeTask
 
 torch.set_num_threads(4)
@@ -51,19 +52,34 @@ for t in tasks:
     transitions = trace["trajectory"]["transitions"]
     frame = next(x for x in transitions if x["action"]["name"] == "edit")
     assert frame["valid"]
-    state = frame["state_before"]
-    payload = t.visible()
+    state = transitions[2]["state_before"] if a.condition == "structured" else frame["state_before"]
+    payload = {
+        "repository": state["files"],
+        "visible_tests": t.visible_tests,
+        "task": t.problem_statement,
+        "actual_observations": [],
+    }
     payload["state"] = {
-        k: state[k] for k in ("symbols", "current_changes", "progress", "failing_tests")
+        "symbols": state["symbols"],
+        "changes": state["current_changes"],
+        "progress": state["progress"],
+        "failures": state["failing_tests"],
     }
     payload["relations"] = state["relations"]
-    payload["goal"] = state["goal"]
+    payload["goal"] = state["goal"]["description"]
     target = dict(frame["action"])
     if a.condition == "structured":
         target = {k: target[k] for k in ("path", "content")}
-        system = "You repair Python. Return JSON path and complete corrected source content."
+        system = "You are a Python repair agent. Choose a concrete source edit using the supplied evidence. Return JSON only."
+        payload["instruction"] = (
+            "Select the file that needs repair and return one JSON object with path and content containing its complete corrected Python source. Do not include hidden tests."
+        )
     else:
-        system = "You are a bounded Python repair agent. Output one JSON tool action."
+        system = "You are a bounded Python repair agent. Select and execute one tool action per turn. Output a single JSON action, no explanation."
+        payload["state"]["previous_actions"] = state["previous_actions"]
+        payload["instruction"] = (
+            "Choose exactly one tool action as JSON. Fields: name, optional path/symbol/query/content/old/new/test. For edit, content is the complete corrected Python file. Use actual visible tests to verify changes; finish when satisfied. Inspection and test actions are available; private evaluation is inaccessible."
+        )
         target = {k: v for k, v in target.items() if v is not None}
         payload["tools"] = list(state["context"]["tools"])
     if a.condition == "mindscape_c":
@@ -81,6 +97,7 @@ for t in tasks:
                 "verified_actual_experience": True,
             }
         )
+    payload = _model_view(payload)
     prompt = tokenizer.apply_chat_template(
         [{"role": "system", "content": system}, {"role": "user", "content": json.dumps(payload)}],
         tokenize=False,

@@ -1,6 +1,7 @@
 """Resumable matched gradient comparison, honest separate retrieval budgets."""
 
 import argparse
+import hashlib
 import json
 import subprocess
 import sys
@@ -18,6 +19,23 @@ root = Path(a.root)
 root.mkdir(parents=True, exist_ok=True)
 seeds = [int(s) for s in a.seeds.split(",")]
 budgets = [int(n) for n in a.budgets.split(",")]
+protocol = {
+    "model": a.model,
+    "seeds": seeds,
+    "budgets": budgets,
+    "dataset_sha256": hashlib.sha256(
+        Path("results/coding/final_dataset_v1/dataset.json").read_bytes()
+    ).hexdigest(),
+    "source_sha256": {
+        str(path): hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in sorted(Path("src/mindscape/coding").glob("*.py"))
+    },
+    "selection": "100 examples, seed11 final configuration fixed before lockbox evaluation",
+}
+protocol_path = root / "protocol.json"
+if protocol_path.exists() and json.loads(protocol_path.read_text()) != protocol:
+    raise RuntimeError("Frozen protocol differs: preserve this run and use a new output root")
+protocol_path.write_text(json.dumps(protocol, indent=2))
 # Serialize large resident models after the preexisting training pipeline.
 while not Path("results/coding/gradient_v1/manifest.json").exists():
     time.sleep(5)

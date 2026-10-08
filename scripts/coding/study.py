@@ -20,6 +20,7 @@ p.add_argument("--model", required=True)
 p.add_argument("--train", type=int, default=1000)
 p.add_argument("--locked-from")
 p.add_argument("--teacher-from")
+p.add_argument("--collect-only", action="store_true")
 p.add_argument("--test", type=int, default=20)
 p.add_argument("--budgets", default="10,25,50,100,250,500,1000")
 p.add_argument("--seeds", default="11,23,37")
@@ -110,6 +111,17 @@ if len(records) != a.train:
             cache.write_text(json.dumps(records))
             print("executed training trajectories", len(records), flush=True)
     cache.write_text(json.dumps(records))
+if a.collect_only:
+    (root / "collection_complete.json").write_text(
+        json.dumps(
+            {
+                "executed_teacher_examples": len(records),
+                "dataset_sha256": audit["dataset_sha256"],
+                "mode": "actual tuple collection; model evaluation deferred",
+            }
+        )
+    )
+    raise SystemExit(0)
 coder = LocalCoder(a.model)
 rows_path = root / "rows.jsonl"
 rows = [json.loads(x) for x in rows_path.read_text().splitlines()] if rows_path.exists() else []

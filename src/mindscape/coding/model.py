@@ -8,10 +8,11 @@ from pathlib import Path
 
 
 class LocalCoder:
-    def __init__(self, path, adapter=None):
+    def __init__(self, path, adapter=None, cache_enabled=True):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
 
+        self.cache_enabled = cache_enabled
         self.torch = torch
         torch.set_num_threads(4)
         self.path = str(Path(path).resolve())
@@ -45,7 +46,7 @@ class LocalCoder:
             ).encode()
         ).hexdigest()
         cache = Path("work/coding/generation_cache") / (key + ".json")
-        if cache.exists():
+        if self.cache_enabled and cache.exists():
             saved = json.loads(cache.read_text())
             self.timings.append(
                 {
@@ -100,11 +101,16 @@ class LocalCoder:
         )
         response = self.tokenizer.decode(generated, skip_special_tokens=True)
         cache.parent.mkdir(parents=True, exist_ok=True)
-        cache.write_text(
-            json.dumps(
-                {"response": response, "timing": self.timings[-1], "model_revision": self.revision}
+        if self.cache_enabled:
+            cache.write_text(
+                json.dumps(
+                    {
+                        "response": response,
+                        "timing": self.timings[-1],
+                        "model_revision": self.revision,
+                    }
+                )
             )
-        )
         return response
 
 
