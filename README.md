@@ -11,6 +11,12 @@ Observation → state → action → event/result → state update → verificat
 
 ## Current implementation
 
+First learned prototype now available: local NumPy answer-only MLP and trajectory-supervised
+action policy, checkpoint training/evaluation, working memory and SQLite episodic API.
+69 tests pass. See `docs/milestone_03.md` for measured development results. Singleton
+action masks force success; arithmetic-tool access differs, so no superiority is established.
+
+
 Phases 0–3: immutable typed schemas, a deterministic integer multiplication
 environment, ordered trajectories, replay verification and a command-line demonstration.
 The environment performs decimal digit/carry operations for arbitrary operand lengths,
@@ -46,7 +52,7 @@ state, final answer, independent verification, and goal status as JSON.
 
 The planned benchmark measures exact accuracy, OOD accuracy, data efficiency,
 grounded answer rate, transition validity, goal success, and compute.
-Dataset and benchmark infrastructure is implemented; no learned benchmark or data-efficiency curve exists yet. `docs/benchmark.md`
+Dataset and benchmark infrastructure is implemented; preliminary learned development evaluations now exist; no valid data-efficiency claim exists. `docs/benchmark.md`
 defines operational metrics and their denominators. Historical GPT/Gemini
 results will be documented with exact versions, datasets, dates, sources and
 protocols in a later phase. Multiplication scores cannot be compared directly
@@ -55,8 +61,8 @@ with GSM8K, MATH or MMLU scores. No historical numbers are asserted here.
 ## Roadmap
 
 Seeded datasets, checked structural splits and reference evaluation are implemented.
-Next: local model
-baselines, regimes A/B/C, fair data-efficiency studies, ablations and historical
+Regimes A/B and local task MLPs are implemented. Next: regime C, matched-tool
+controls, meaningful action choices, fair data-efficiency studies, ablations and historical
 references. Bounded hypothetical simulation, a second vertical, UI and multimodal
 observations follow only after the core experiments. Directory placeholders do
 not imply implementations.
@@ -92,3 +98,22 @@ The CLI evaluator uses a deterministic procedural reference only. Models later p
 into models/base.py and evaluation/runner.py. JSON results live under results/ and
 are never overwritten. Run IDs/times vary; datasets, predictions and scores reproduce.
 See docs/milestone_02.md for actual infrastructure checks and limitations.
+
+## Learned training and demonstration
+
+Install `.[learning]` for NumPy and optionally `.[plots]` for ReportLab charts. No pretrained
+model download is required; this prototype is a small task classifier/decoder, not an LLM.
+
+```sh
+PYTHONPATH=src python scripts/run_learning_experiment.py --dataset datasets/generated/development_v1 --output results/new_learning_run
+PYTHONPATH=src python scripts/run_learned_episode.py 19 3 --checkpoint results/new_learning_run/mindscape_n50_seed0/checkpoint --unmasked
+PYTHONPATH=src python scripts/plot_learning_curves.py results/new_learning_run
+```
+
+See `docs/training.md` for individual baseline/policy training and shared evaluation
+commands; `docs/modeling.md` documents features, architecture, memory and confounds.
+The unmasked learned policy succeeds on the saved 19×3 demonstration. The frozen
+preliminary protocol uses three seeds at 50 examples and one at 100/250. Raw measured
+curves and standalone SVGs are retained in `experiments/first_learned/`. Full checkpoints,
+logs and per-example predictions remain in `results/learned_development_v1/` locally.
+Regime C is explicitly unimplemented; no experiential learning claim is made.

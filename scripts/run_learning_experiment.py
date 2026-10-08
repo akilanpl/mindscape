@@ -30,7 +30,7 @@ def main():
         'dataset_hash': stable_hash(manifest), 'same_subset_ids': True,
         'same_test_and_validation_splits': True, 'same_seed_policy': True,
         'same_evaluator': 'mindscape.evaluation.runner.run',
-        'shared_backbone': '52 inputs -> 64 tanh units',
+        'shared_backbone': f'52 inputs -> {config["hidden"]} tanh units',
         'optimizer_steps': config['steps'], 'batch_size': config['batch_size'],
         'selection': 'minimum validation cross entropy, no test selection',
         'differences': ['baseline eight digit heads plus sign vs four action classes',

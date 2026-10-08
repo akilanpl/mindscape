@@ -1,0 +1,54 @@
+[
+  {
+    "directory": "results/learned_development_v1/controls/20261008T010707Z_f41e660126fa4dda821549a353b9334b",
+    "metrics": {
+      "experiment_id": "20261008T010707Z_f41e660126fa4dda821549a353b9334b",
+      "timestamp": "2026-10-08T01:07:07.780902+00:00",
+      "environment": "integer_multiplication",
+      "model": "numpy_mlp_trajectory_policy_v1_unmasked",
+      "regime": "trajectory_supervised",
+      "dataset_size": 50,
+      "seed": 42,
+      "split": "test",
+      "accuracy": 0.0,
+      "ood_accuracy": null,
+      "grounded_rate": 0.0,
+      "trajectory_validity": 1.0,
+      "goal_success_rate": 0.0,
+      "unsupported_rate": 1.0,
+      "training_time": null,
+      "inference_time": 0.06481516699932399,
+      "model_calls": 501,
+      "parameter_count": 3652,
+      "notes": "Untrained unmasked policy control; no training occurred; budget label is comparison context only",
+      "example_count": 500,
+      "trajectory_count": 500
+    }
+  },
+  {
+    "directory": "results/learned_development_v1/controls/20261008T010709Z_f9d6d38d9d8f48bab4fb42aa78e1738e",
+    "metrics": {
+      "experiment_id": "20261008T010709Z_f9d6d38d9d8f48bab4fb42aa78e1738e",
+      "timestamp": "2026-10-08T01:07:09.340634+00:00",
+      "environment": "integer_multiplication",
+      "model": "numpy_mlp_trajectory_policy_v1_unmasked",
+      "regime": "trajectory_supervised",
+      "dataset_size": 50,
+      "seed": 42,
+      "split": "ood_test",
+      "accuracy": 0.0,
+      "ood_accuracy": 0.0,
+      "grounded_rate": 0.0,
+      "trajectory_validity": 1.0,
+      "goal_success_rate": 0.0,
+      "unsupported_rate": 1.0,
+      "training_time": null,
+      "inference_time": 0.06545320799705223,
+      "model_calls": 500,
+      "parameter_count": 3652,
+      "notes": "Untrained unmasked policy control; no training occurred; budget label is comparison context only",
+      "example_count": 500,
+      "trajectory_count": 500
+    }
+  }
+]

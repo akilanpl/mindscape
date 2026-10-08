@@ -60,7 +60,10 @@ def train(dataset, config, output):
                 "validation_metrics": metrics}
     model = (BaselineModel if config["kind"] == "baseline" else MindscapeModel)(backend, metadata)
     model.save(output / "checkpoint")
-    (output / "config.json").write_text(json.dumps({"training": config, "dataset_manifest": manifest}, indent=2))
+    # JSON syntax is valid YAML 1.2; retain the existing JSON artifact convention too.
+    resolved_config = json.dumps({"training": config, "dataset_manifest": manifest}, indent=2)
+    (output / "config.json").write_text(resolved_config)
+    (output / "config.yaml").write_text(resolved_config)
     (output / "metadata.json").write_text(json.dumps(metadata, indent=2))
     (output / "metrics.json").write_text(json.dumps({**metrics, "training_time": elapsed}, indent=2))
     (output / "training.jsonl").write_text("".join(json.dumps(row) + "\n" for row in logs))

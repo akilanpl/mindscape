@@ -31,3 +31,19 @@ OOD accuracy, runtime and data efficiency separate. N* uses observed sizes only 
 unreached thresholds remain censored. Retain failures and every prediction file.
 Run directories record null for unmeasured training/checkpoint fields; future training
 must populate them. Final test sets must not drive tuning.
+
+## First learned development protocol
+
+Before evaluation, record fairness.json: same dataset hash/subset IDs, train/validation
+and IID/OOD sets, same hidden backbone, seeds, optimizer steps, batch size, learning
+rate, evaluator and validation-loss selection. Head sizes and supervision count differ.
+Policy-only access to exact arithmetic transitions and singleton action masks are
+major confounds. Include unmasked policy runs and raw action validation diagnostics;
+never infer architecture superiority from the forced masked execution.
+
+The fixed schedule uses budgets 50/100/250; seeds 0/1/2 at 50, seed 0 at larger budgets.
+These are development results on development_v1, not final untouched thesis results.
+The protocol and implementation are committed before evaluation. No model/prompt
+or test-set change is made in response to held-out scores. Match or explicitly vary
+procedural knowledge/tool access in later experiments. Do not compute DER from the
+masked algorithm's guaranteed accuracy. Historical reference scores remain unpopulated.
