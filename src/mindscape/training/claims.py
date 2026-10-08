@@ -1,5 +1,6 @@
 """A/B supervision and C positive-feedback replay from self-generated attempts."""
 from dataclasses import asdict
+from datetime import datetime, timezone
 import json
 from pathlib import Path
 import platform
@@ -46,7 +47,6 @@ def collect_experience(examples, model, memory, seed, attempts_per_problem=64, o
         records, tried = [], set()
         for _ in range(attempts_per_problem):
             if env.state.phase == "done":
-                successes += 1
                 break
             state = env.state
             x = policy_features(state, model.no_state, model.no_relation, model.no_goal)
@@ -79,6 +79,7 @@ def collect_experience(examples, model, memory, seed, attempts_per_problem=64, o
                           "event": {"name": "rejected_claim"}, "result": {"accepted": False},
                           "next_state": asdict(state), "reward": 0, "success": False}
             records.append(record)
+        successes += int(env.is_goal_reached())
         key = memory.store_episode(example.problem, records, env.state.answer, env.is_goal_reached(),
             {"example_id": example.example_id, "seed": seed, "condition": "experiential",
              "complete_target_received": False}, partition="train")
@@ -89,6 +90,13 @@ def collect_experience(examples, model, memory, seed, attempts_per_problem=64, o
 
 
 def train_claims(splits, manifest, config, output):
+    for key in ("budget", "hidden", "steps", "batch_size", "validation_every", "attempts_per_problem"):
+        if type(config[key]) is not int or config[key] <= 0:
+            raise ValueError(f"Invalid {key}")
+    if type(config["seed"]) is not int or config["seed"] < 0 or not 0 < config["learning_rate"] < 1:
+        raise ValueError("Invalid seed or learning rate")
+    if manifest["config"]["environment"] != "integer_multiplication_claims":
+        raise ValueError("Use the numerical-claims dataset for this learned adapter")
     output = Path(output); output.mkdir(parents=True, exist_ok=False)
     if config["condition"] not in CONDITIONS:
         raise ValueError("Unknown study condition")
@@ -126,7 +134,7 @@ def train_claims(splits, manifest, config, output):
         vx, vy = supervised_arrays(splits["validation"], config["condition"], model.no_state, model.no_relation, model.no_goal)
         logs, metrics = fit_fixed(backend, x, y, vx, vy, config["steps"], config["batch_size"], config["learning_rate"], config["seed"], config["validation_every"])
     elapsed = time.perf_counter() - began
-    metadata = {"config": config, "training_time": elapsed, "dataset_hash": stable_hash(manifest),
+    metadata = {"experiment_id": output.name, "timestamp": datetime.now(timezone.utc).isoformat(), "config": config, "training_time": elapsed, "dataset_hash": stable_hash(manifest),
         "dataset_version": manifest["dataset_version"], "training_ids": ids,
         "training_rows": len(x), "regime": "answer_only" if config["condition"] == "answer_only" else
             "trajectory_supervised" if config["condition"] == "trajectory" else "structured" if config["condition"] == "structured" else "experiential",

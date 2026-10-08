@@ -146,3 +146,58 @@ class ResearchTests(unittest.TestCase):
                 self.assertTrue((folder/'config.yaml').exists())
                 self.assertTrue((folder/'predictions.jsonl').exists())
                 if c=='experiential':self.assertEqual(meta['experience']['full_target_trajectories_received'],0)
+
+    def test_pretrained_backend_offline_contract(self):
+        from unittest.mock import patch
+        from mindscape.models.pretrained import FrozenPretrainedBackend
+        class FakeEncoder:
+            parameter_count=100
+            def __init__(self,path,allow_download=False):
+                if allow_download:raise AssertionError('Unexpected download')
+            def encode(self,texts):return np.ones((len(texts),16))
+        with patch('mindscape.models.pretrained.LocalHFEncoder',FakeEncoder):
+            backend=FrozenPretrainedBackend('local-cache',[2],8,0)
+            self.assertEqual(backend.logits(['test']).shape,(1,2))
+            with tempfile.TemporaryDirectory() as tmp:
+                path=Path(tmp)/'checkpoint';backend.save(path)
+                restored=FrozenPretrainedBackend.load(path)
+                np.testing.assert_array_equal(backend.logits(['test']),restored.logits(['test']))
+
+    def test_completion_at_final_attempt_is_counted(self):
+        from unittest.mock import patch
+        from mindscape.data.backends import get_backend
+        from mindscape.models.study import StudyModel
+        from mindscape.models.numpy_backend import NumpyMLP
+        from mindscape.memory.episodic import EpisodicMemory
+        from mindscape.training.claims import collect_experience
+        example=get_backend('integer_multiplication_claims').example({'operands':[0,1],'source':'procedural_generator','kind':'observation'},42,'train')
+        class ExploitOnly:
+            def random(self):return 1.0
+        model=StudyModel(NumpyMLP([10]*8+[2]),'experiential')
+        scores=np.zeros(101);scores[0]=10
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch('mindscape.training.claims.np.random.default_rng',return_value=ExploitOnly()),patch('mindscape.training.claims.candidate_scores',return_value=scores):
+                x,y,report=collect_experience([example],model,EpisodicMemory(Path(tmp)/'memory.sqlite'),0,2)
+        self.assertEqual(report['completed_episodes'],1)
+
+    def test_statistical_utilities(self):
+        import importlib.util
+        if importlib.util.find_spec('reportlab') is None:self.skipTest('Optional plotting dependency')
+        from scripts.analyze_research_study import wilson,mcnemar
+        low,high=wilson(0,200)
+        self.assertAlmostEqual(low,0)
+        self.assertGreater(high,0)
+        self.assertIsNone(wilson(0,0))
+        self.assertEqual(mcnemar([True,False],[False,True])['p_value'],1)
+        self.assertEqual(mcnemar([False,False],[True,True])['p_value'],.5)
+
+    def test_invalid_study_config_fails_before_writing(self):
+        from mindscape.data.generation import save_dataset,load_dataset
+        from mindscape.training.claims import train_claims
+        with tempfile.TemporaryDirectory() as tmp:
+            data=Path(tmp)/'data';save_dataset(data,self.splits,self.cfg)
+            splits,manifest=load_dataset(data)
+            cfg=dict(condition='trajectory',seed=0,budget=5,hidden=8,steps=0,batch_size=8,learning_rate=.01,validation_every=5,attempts_per_problem=10,dream=False)
+            output=Path(tmp)/'bad'
+            with self.assertRaises(ValueError):train_claims(splits,manifest,cfg,output)
+            self.assertFalse(output.exists())

@@ -136,12 +136,15 @@ def register(backend):
     REGISTRY[backend.name] = backend
 
 
+BUILTIN_BACKENDS = {"integer_multiplication_claims": "mindscape.data.claims_backend"}
+
+
 def get_backend(name):
+    if name not in REGISTRY and name in BUILTIN_BACKENDS:
+        import importlib
+        importlib.import_module(BUILTIN_BACKENDS[name])
     try:
         return REGISTRY[name]
     except KeyError as exc:
         raise ValueError(f"Unknown environment: {name}") from exc
 
-
-from mindscape.data.claims_backend import ClaimsBackend
-register(ClaimsBackend())

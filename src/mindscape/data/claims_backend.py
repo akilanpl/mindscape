@@ -55,3 +55,7 @@ class ClaimsBackend(MultiplicationBackend):
                 decision["verifier_judgment"] = transition.action.value == expected_value(transition.state_before)
         except (ValueError, TypeError, KeyError):
             diagnostics["verification_error"] = "malformed_trajectory"
+
+
+from mindscape.data.backends import register
+register(ClaimsBackend())

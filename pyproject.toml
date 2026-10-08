@@ -13,6 +13,7 @@ dependencies = []
 [project.optional-dependencies]
 learning = ["numpy>=2.0,<3"]
 plots = ["reportlab>=4,<5"]
+pretrained = ["torch>=2.2", "transformers>=4.40,<5"]
 dev = ["pytest>=8", "ruff>=0.9", "mypy>=1.14"]
 
 [tool.setuptools.packages.find]
