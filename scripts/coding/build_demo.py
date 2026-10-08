@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 source = Path("results/coding/completion_lockbox_eval_v1")
-if not (source / "complete.json").exists():
+if not any((source / marker).exists() for marker in ("complete.json","primary_complete.json")):
     raise RuntimeError("Only completed locked evidence may populate demo")
 tasks = {
     t["task_id"]: t

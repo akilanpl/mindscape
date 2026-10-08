@@ -50,7 +50,8 @@ def replay_evidence(task, trajectory, answer, sandbox, detailed=False):
 root = Path("results/coding/completion_trace_audit_v1")
 root.mkdir(parents=True, exist_ok=True)
 rows_path = Path("results/coding/completion_lockbox_eval_v1/rows.jsonl")
-if not Path("results/coding/completion_lockbox_eval_v1/complete.json").exists():
+if not any(Path("results/coding/completion_lockbox_eval_v1",marker).exists()
+           for marker in ("complete.json","primary_complete.json")):
     raise RuntimeError("Lockbox incomplete")
 tasks = {
     t["task_id"]: t
@@ -100,4 +101,9 @@ for line in rows_path.read_text().splitlines():
         f.write(json.dumps(record) + "\n")
     done.add(key)
     print("independent replay", len(done), flush=True)
-(root / "complete.json").write_text(json.dumps({"episodes": len(done), "complete": True}))
+saved = {(r["condition"],r["task_id"]) for r in map(json.loads,rows_path.read_text().splitlines())}
+if done != saved:
+    raise RuntimeError("Saved locked rows changed during audit; rerun incrementally before publication")
+(root / "complete.json").write_text(json.dumps({"episodes":len(done),"complete":True,
+    "scope":"Independent audit of all actual saved locked episodes, not unrun rows",
+    "original_four_condition_study_episodes":400,"four_condition_study_complete":len(done)==400}))

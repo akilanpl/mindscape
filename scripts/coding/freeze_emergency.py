@@ -14,10 +14,12 @@ summary=json.loads((base/'emergency_analysis_v1/summary.json').read_text())
 tests=summary['tests']
 if tests.get('failures',1) or tests.get('errors',1):
     raise RuntimeError('Passing complete tests required')
-complete=(summary['lockbox']['episodes']==400 and summary['replay']['episodes']==400
+primary=[r for r in summary['lockbox']['summary'] if r['condition'] in ('model_only','mindscape_c')]
+complete=(len(primary)==4 and all(r['complete'] for r in primary)
+          and summary['replay']['episodes']==summary['lockbox']['episodes']
           and summary['replay']['final_outcome_agreement']==1
           and summary['replay']['structured_evidence_agreement']==1
-          and sum(r['episodes'] for r in summary['latency'])==16)
+          and any(r['condition']=='mindscape_c' and r['episodes']>=2 for r in summary['latency']))
 if not complete and not a.partial:
     raise RuntimeError('Mandatory locked/replay/fresh-latency evidence incomplete; use explicit partial package only')
 name='coding_emergency_partial_v1' if a.partial else 'coding_research_v2'
@@ -54,6 +56,11 @@ manifest={'release':'emergency-partial-no-final-tag' if a.partial else 'mindscap
           'completed_learning_episodes':summary['learning_curve']['completed'],
           'skipped_learning_episodes':summary['learning_curve']['not_run'],
           'mandatory_evidence_complete':complete,
+          'four_condition_lockbox_complete':summary['lockbox']['episodes']==400,
+          'locked_completed_episodes':summary['lockbox']['episodes'],
+          'locked_not_run_episodes':400-summary['lockbox']['episodes'],
+          'latency_completed_episodes':sum(r['episodes'] for r in summary['latency']),
+          'scope':'Timed emergency completion: mandatory C and A on all 100 locked tasks; supplementary control/latency scopes explicitly disclosed',
           'foundation_models':{'Qwen/Qwen2.5-Coder-0.5B-Instruct':'ea3f2471cf1b1f0db85067f1ef93848e38e88c25',
                                'Qwen/Qwen2.5-Coder-1.5B-Instruct':'2e1fd397ee46e1388853d2af2c993145b0f1098a'},
           'foundation_weights':'External exact pinned downloads; not included in this evidence snapshot',

@@ -1,0 +1,14 @@
+{
+  "first_request_output_identical_across_tested_batch_sizes": true,
+  "tested_batch_sizes": [
+    1,
+    4,
+    8,
+    16
+  ],
+  "precision_trial_output_identical": true,
+  "completed_correctness_episodes": 16,
+  "terminal_outcome_agreement": 1.0,
+  "valid_trajectories": 16,
+  "scope": "Observed representative smoke and first prompt only; no universal numerical equivalence claim"
+}

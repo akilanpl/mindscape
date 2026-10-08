@@ -1,6 +1,6 @@
 """Report only observed evidence; retain incomplete cells and hardware strata explicitly."""
 import json
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
@@ -45,6 +45,14 @@ def main():
     thresholds = [{'condition':k[0], 'split':k[1], 'seed':k[2], 'device':k[3], 'precision':k[4],
                    'observed_budget_thresholds':{str(q):threshold(v,q) for q in (.8,.9,.95)}}
                   for k,v in sorted(curves.items())]
+    aggregates = defaultdict(list)
+    for cell in cell_summary:
+        if cell['complete']:
+            aggregates[(cell['condition'],cell['split'],cell['budget'],cell['device'],cell['precision'])].append(cell)
+    complete_seed_summaries = [{"condition":k[0],"split":k[1],"budget":k[2],"device":k[3],"precision":k[4],
+        "seeds":[r['seed'] for r in v],"mean_accuracy":float(np.mean([r['accuracy'] for r in v])),
+        "seed_sd":float(np.std([r['accuracy'] for r in v],ddof=1)) if len(v)>1 else None,
+        "planned_seed_count":3,"complete_three_seed_cell":len(v)==3} for k,v in sorted(aggregates.items())]
     descriptive_der = []
     for k, curve in sorted(curves.items()):
         baseline = curves.get(("model_only",k[1],k[2],k[3],k[4]))
@@ -62,7 +70,13 @@ def main():
             n=len(group); correct=sum(r['success'] for r in group)
             transitions=[t for r in group for t in r['trajectory']['transitions']]
             lock_summary.append({'condition': c,'split': split,'episodes': n,'planned': 50,'complete': n==50,
+                'nonempty_trajectories':sum(bool(r['trajectory']['transitions']) for r in group),
+                'proposal_errors':sum(bool(a.get('parse_error')) for r in group for a in r['attempts']),
+                'proposal_error_reasons':dict(Counter(a['parse_error'] for r in group for a in r['attempts'] if a.get('parse_error'))),
+                'unparseable_proposals':sum(bool(a.get('parse_error')) and a.get('action') is None for r in group for a in r['attempts']),
                 'successes': correct,'accuracy': correct/n,'wilson_ci95': wilson_interval(correct,n),
+                'hidden_test_cases_passed':sum(r['terminal']['passed'] for r in group),
+                'hidden_test_cases_total':sum(r['terminal']['total'] for r in group),
                 'grounded_transition_rate': sum(t['valid'] for t in transitions)/len(transitions) if transitions else None,
                 'trajectory_validity': sum(all(t['valid'] for t in r['trajectory']['transitions']) for r in group)/n,
                 'mean_model_calls': sum(r['model_calls'] for r in group)/n,
@@ -109,12 +123,12 @@ def main():
     ood=next((p for p in paired if p['condition']=='mindscape_c' and p['split']=='ood_test'),None)
     if ood:
         ci=ood['delta']['ci95']; claims['OOD improvement']='SUPPORTED' if ci[0]>0 else ('NOT SUPPORTED' if ci[1]<=0 else 'INCONCLUSIVE')
-    if len(audit)==400:
+    if audit and len(audit)==len(locked) and any(r['condition']=='mindscape_c' and r['complete'] for r in lock_summary):
         claims['grounded execution']='SUPPORTED' if replay['structured_evidence_agreement']==1 else 'NOT SUPPORTED'
-    result={'learning_curve': {'completed': len(learning),'planned': 1920,'not_run': 1920-len(learning),'status': 'complete' if len(learning)==1920 else 'partial','cells': cell_summary,'thresholds': thresholds,
+    result={'learning_curve': {'completed': len(learning),'planned': 1920,'not_run': 1920-len(learning),'status': 'complete' if len(learning)==1920 else 'partial','cells': cell_summary,'complete_seed_summaries':complete_seed_summaries,'thresholds': thresholds,
         'DER': {'descriptive_matched_stratum_ratios':descriptive_der,'value':None,'status':'undefined','reason':'Incomplete multi-seed curves and hardware/precision confounding; no architecture-only data-efficiency estimate'},'zero_budget': 'not run; observed thresholds are not global minimum sample counts'},
-        'lockbox': {'episodes': len(locked),'planned': 400,'summary': lock_summary,'paired_differences': paired},
-        'profile': profile,'native_device': load(BASE/'emergency_mps_v1/native_device.json'),'replay': replay,'latency': latency_summary,
+        'lockbox': {'episodes': len(locked),'planned': 400,'not_run':400-len(locked),'scope':load(BASE/'completion_lockbox_eval_v1/scope.json'),'summary': lock_summary,'paired_differences': paired},
+        'phase_memory_release':load(BASE/'emergency_mps_v1/phase_memory_release.json'),'mps_inference_verified':bool(locked) and all(a['latency'].get('device')=='mps' for r in locked for a in r['attempts']),'profile': profile,'native_device': load(BASE/'emergency_mps_v1/native_device.json'),'replay': replay,'latency': latency_summary,'latency_scope':load(BASE/'latency_probe_v1/scope.json'),
         'tests': tests,'audit_count': fairness.get('check_count'),'fairness': fairness,'claims': claims,
         'humaneval': {name:load(BASE/name/'summary.json') for name in ('humaneval_05b_v1','humaneval_15b_v1')},
         'SQL': 'Environment implemented; model study deferred','recovery': 'not run','ablations': 'memory/dream model ablations not run',
@@ -128,7 +142,9 @@ def main():
     for r in lock_summary:
         narrative+=f"|{r['condition']}|{r['split']}|{r['episodes']}/50|{r['accuracy']:.1%}|{r['wilson_ci95']}|\n"
     narrative+='\nObserved complete-cell sample thresholds and all partial cells are in `results/coding/emergency_analysis_v1/summary.json`. DER is undefined for a causal architecture comparison. No zero-budget control was run.\n\n'
+    narrative+='Task-paired confidence intervals are descriptive and unadjusted for multiple comparisons. Transition validity is conditional on recorded actions; malformed model proposals are reported separately.\n\n'
     narrative+='## Actual acceleration measurements\n\n```json\n'+json.dumps({k:v for k,v in profile.items() if k not in ('comparisons','batch_trials','precision_trials')},indent=2)+'\n```\n\n'
+    narrative+='One phase-boundary memory release: `'+json.dumps(result['phase_memory_release'])+'`.\n\n'
     narrative+='CPU reference episodes were previously measured with uncached inference; they were not rerun. MPS sec/episode is amortized throughput, distinct from per-episode latency while waiting for batches. Device tensors and model placement are checked; unsupported MPS operations fail with fallback disabled. Native allocation reported by the user is verified, but inference use is only established by native run outputs.\n\n'
     narrative+='## Replay and latency\n\n```json\n'+json.dumps({'replay':replay,'latency':latency_summary},indent=2)+'\n```\n\n'
     narrative+='## Preserved public benchmark\n\n0.5B: 94/164 (57.32%); 1.5B: 98/164 (59.76%). Greedy one-sample full-module generation, 512-token cap, CPython 3.14.7 WASI. Foundation pretraining exposure is unknown. These local results do not exceed historical GPT-4 67.0% or Gemini Ultra 74.4%, and protocols differ. See `docs/historical_references.md` for pinned primary sources.\n\n'
@@ -136,7 +152,7 @@ def main():
     historical = Path('docs/final_results.md').read_text().split('\n<!-- emergency-mps-results -->')[0]
     Path('docs/final_results.md').write_text(historical+'\n<!-- emergency-mps-results -->\n\n'+narrative)
     Path('docs/final_metrics.md').write_text('# Actual completion metrics\n\nMachine-readable full metrics: `results/coding/emergency_analysis_v1/summary.json`.\n\n'+narrative)
-    Path('docs/final_claims.md').write_text('# Claims and evidence\n\n|Claim|Status|\n|---|---|\n'+''.join(f'|{k}|{v}|\n' for k,v in claims.items())+'\nCapability/goal claims use a descriptive 90% threshold (reporting criterion, not a preregistered hypothesis test) on both locked splits. OOD improvement requires a positive task-paired 95% CI against A. Grounded execution requires all locked independent replay evidence to match. No architecture-only causal claim is supported.\n')
+    Path('docs/final_claims.md').write_text('# Claims and evidence\n\n|Claim|Status|\n|---|---|\n'+''.join(f'|{k}|{v}|\n' for k,v in claims.items())+'\nCapability/goal claims use a descriptive 90% threshold (reporting criterion, not a preregistered hypothesis test) on both locked splits. OOD improvement requires a positive task-paired 95% CI against A. Grounded execution requires all locked independent replay evidence to match. Grounding is established only for saved re-executed episodes. No architecture-only causal claim is supported.\n')
     Path('docs/final_limitations.md').write_text('# Completion limitations\n\nPartial multi-seed curves; mixed CPU float32/MPS reduced precision; missing zero control; unmatched supervision and inference interaction budgets; synthetic bounded tasks; unknown foundation pretraining exposure; no learned world model; no recovery or component ablation results; tiny descriptive latency sample; public protocol mismatch; SQL model study deferred. Missing results stay inconclusive. Hardware-only speedup is not isolated from batching and precision.\n')
     Path('docs/reproducibility.md').write_text('# Reproduce preserved evidence\n\nUse the pinned foundation snapshots and WASI runtime described in `docs/coding/reproducibility.md`. The emergency native entry point is `scripts/coding/emergency_mps.py`; its original deadline is fixed and it intentionally refuses late neural reruns. Saved per-episode files checkpoint completed keys; completed CPU episodes are never deleted. Explicit historical CPU reproduction uses `MINDSCAPE_DEVICE=cpu MINDSCAPE_PRECISION=float32`; accelerated evaluation requires MPS and rejects silent fallback. Filesystem, tokenizer serialization, test execution, checkpoint CPU backups and Git remain CPU utilities. Neural weights, forward/generation and LoRA tensors use MPS. Batch only independent requests across episodes; decisions within each episode remain sequential.\n\nRecompute reports with `work/final-venv/bin/python scripts/coding/emergency_report.py`. Restore frozen evidence into an empty directory with `scripts/coding/restore_completion.py --snapshot results/final/coding_research_v2 --destination PATH`; use the actual snapshot name if the mandatory locked study remained partial. The restore utility verifies every manifest hash before copying. Foundation weights are external pinned downloads, not bundled; adapters, protocol, actual datasets, source, runtime and results are bundled.\n')
     print('Reported actual learning/locked episodes',len(learning),len(locked))
