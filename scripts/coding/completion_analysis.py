@@ -201,6 +201,17 @@ summary = {
                 for split in ("test", "ood_test")
                 if any(r.get("split") == split for r in rows)
             },
+            "grounded_success_rate": float(np.mean([
+                r["success"] and all(t["valid"] for t in r["trajectory"]["transitions"])
+                and not any(a.get("parse_error") for a in r.get("attempts", []))
+                for r in rows
+            ])),
+            "valid_transition_rate": sum(
+                t["valid"] for r in rows for t in r["trajectory"]["transitions"]
+            ) / sum(len(r["trajectory"]["transitions"]) for r in rows),
+            "invalid_proposal_rate": sum(
+                bool(a.get("parse_error")) for r in rows for a in r.get("attempts", [])
+            ) / sum(len(r.get("attempts", [])) for r in rows),
             "recorded_wall_median": float(np.median([r["wall_seconds"] for r in rows])),
             "model_calls_mean": float(np.mean([r["model_calls"] for r in rows])),
         }

@@ -61,7 +61,10 @@ full = {
     for r in stress
     if r["kind"] == "ablation" and r["variant"] is None
 }
-for variant in ("no_memory", "no_dream"):
+for variant in sorted({
+    r["variant"] for r in stress
+    if r["kind"] == "ablation" and r["variant"] is not None
+}):
     removed = {
         r["task_id"]: int(r["success"])
         for r in stress
@@ -69,6 +72,31 @@ for variant in ("no_memory", "no_dream"):
     }
     # Positive effect means full exceeds removed.
     ablations[variant] = paired_delta(removed, full)
+component_deltas = {}
+for variant in ablations:
+    component_deltas[variant] = {}
+    for split in ("test", "ood_test"):
+        selected = [r for r in stress if r["kind"] == "ablation" and r["split"] == split]
+        full_rows = {r["task_id"]: r for r in selected if r["variant"] is None}
+        removed_rows = {r["task_id"]: r for r in selected if r["variant"] == variant}
+        if set(full_rows) != set(removed_rows):
+            raise RuntimeError("Unmatched ablation tasks")
+        def values(rows, field):
+            if field == "grounded_success":
+                return {
+                    key: int(row["success"] and all(
+                        t["valid"] for t in row["trajectory"]["transitions"]
+                    ) and not any(a.get("parse_error") for a in row.get("attempts", [])))
+                    for key, row in rows.items()
+                }
+            return {key: float(row[field]) for key, row in rows.items()}
+        component_deltas[variant][split] = {
+            field: paired_delta(values(removed_rows, field), values(full_rows, field))
+            for field in ("success", "grounded_success", "wall_seconds", "model_calls")
+        }
+    component_deltas[variant]["delta_direction"] = "Full minus removed; positive latency is a cost"
+    component_deltas[variant]["data_efficiency_delta"] = None
+    component_deltas[variant]["data_efficiency_scope"] = "No separate retrained ablation learning curves"
 c = metrics["final"]["mindscape_c"]
 sql_summary = {
     condition: {
@@ -203,6 +231,7 @@ scorecard = {
     },
     "second_vertical": sql_summary,
     "ablations": ablations,
+    "component_deltas": component_deltas,
     "reproducibility": {
         "tests": test,
         "fairness_checks": fairness["check_count"],
@@ -324,7 +353,7 @@ lines += [
     "",
     "## Recovery and ablations",
     "",
-    json.dumps({"recovery": metrics["recovery"], "stress": metrics["stress"]}, indent=2),
+    json.dumps({"recovery": metrics["recovery"], "stress": metrics["stress"], "component_deltas": component_deltas}, indent=2),
     "",
     "## Fresh latency and compute",
     "",

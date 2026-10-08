@@ -46,6 +46,11 @@ for label in (
 for label in ("humaneval_05b", "humaneval_15b"):
     if not (sources[label] / "summary.json").exists():
         raise RuntimeError("Incomplete " + label)
+if not (sources["analysis"] / "report_ready.json").exists():
+    raise RuntimeError("Final analysis/report not ready")
+tests = json.loads((sources["runtime_environment"] / "test_results.json").read_text())
+if tests["failures"] or tests["errors"]:
+    raise RuntimeError("Failing final tests")
 root = Path("results/final/coding_research_v2")
 if root.exists():
     raise RuntimeError("Final snapshot already exists; never overwrite")
