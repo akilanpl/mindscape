@@ -247,6 +247,20 @@ scorecard["reproducibility"]["lockbox_validation"] = json.loads(
 scorecard["reproducibility"]["dataset_reproduction"] = json.loads(
     Path("experiments/coding_completion_v2/dataset_reproduction.json").read_text()
 )
+scorecard["reproducibility"]["audit_inventory"] = {
+    "counting_rule": "Distinct audit units reported separately; not summed as independent assertions",
+    "fairness_leakage_assertions": fairness["check_count"],
+    "independent_locked_episode_replays": len(trace),
+    "checkpoint_structure_audit": json.loads(
+        (base / "completion_audits_v1/adapters.json").read_text()
+    ),
+    "training_input_audit": json.loads(
+        (base / "completion_audits_v1/training_inputs.json").read_text()
+    ),
+    "capability_boundary_probes": json.loads(
+        (base / "completion_audits_v1/runtime_probes.json").read_text()
+    ),
+}
 scorecard["targets"] = {
     "bounded_100_percent": c["successes"] == 100,
     "IID_at_least_95_percent": c["split_accuracy"]["test"] >= 0.95,
@@ -296,15 +310,15 @@ for condition, value in metrics["final"].items():
     )
 lines += [
     "",
-    "The final comparisons are paired over identical independent tasks. Each final model uses the preregistered100-task training budget/seed11. Three-seed learning curves use a separate diagnostic pool; confidence intervals and all measured cells are in the scorecard. Causal architecture isolation is not established.",
+    "The final comparisons are paired over identical independent tasks. Each final model uses the preregistered 100-task training budget / seed 11. Three-seed learning curves use a separate diagnostic pool; confidence intervals and all measured cells are in the scorecard. Causal architecture isolation is not established.",
     "",
-    f"HumanEval:0.5B {public['05b']['successes']}/164 ({public['05b']['pass@1'] * 100:.2f}%);1.5B {public['15b']['successes']}/164 ({public['15b']['pass@1'] * 100:.2f}%). Both use local greedy one-completion512-token instruction prompts and WASI; no feedback or public-score tuning.",
+    f"HumanEval: 0.5B {public['05b']['successes']}/164 ({public['05b']['pass@1'] * 100:.2f}%); 1.5B {public['15b']['successes']}/164 ({public['15b']['pass@1'] * 100:.2f}%). Both use local greedy one-completion 512-token instruction prompts and WASI; no feedback or public-score tuning.",
     "",
     "## Data efficiency",
     "",
     json.dumps({k: metrics[k] for k in ("thresholds", "DER", "normalized_log_AULC")}, indent=2),
     "",
-    "Unreached thresholds are censored. Undefined DER is not1x or infinity. Collecting5,000 verified trajectories does not mean training5,000-example gradient models. Larger gradient budgets were not executed on this CPU-only16GB system; measured training times and peak memory are recorded below.",
+    "Unreached thresholds are censored. Undefined DER is not 1x or infinity. Collecting 5,000 verified trajectories does not mean training 5,000-example gradient models. Larger gradient budgets were not executed on this CPU-only 16GB system; measured training times and peak memory are recorded below.",
     "",
     f"Measured training-loop time across retained main adapters: {scorecard['compute']['total_measured_training_seconds']:.3f}s; highest recorded peak RSS: {scorecard['compute']['peak_training_rss_bytes']} bytes. These are measurements, not projections of larger runs.",
     "",
@@ -316,15 +330,15 @@ lines += [
     "",
     json.dumps(scorecard["latency"], indent=2),
     "",
-    "Nested stage timers are inclusive and cannot be added as exclusive costs. Fresh latency contains no generation cache hits. P99 from14 tasks/condition is exploratory. Ablations preserve weights except the explicitly labeled patch-only-adapter diagnostic. Removing terminal private assessment would remove the measurement; the goal-text ablation is not that intervention.",
+    "Nested stage timers are inclusive and cannot be added as exclusive costs. Fresh latency contains no generation cache hits. P99 from 14 tasks/condition is exploratory. Ablations preserve weights except the explicitly labeled patch-only-adapter diagnostic. Removing terminal private assessment would remove the measurement; the goal-text ablation is not that intervention.",
     "",
     f"SQL portability: {json.dumps(sql_summary)}. Thirty instances from five simple query templates, zero SQL training. This measures a small interface demonstration, not general SQL competence.",
     "",
     "## Audits and limitations",
     "",
-    f"Local leakage checks: {fairness['local_leakage_status']}, {fairness['check_count']} checks. Independent trajectory replays:{len(trace)}. Overall contamination-free claim: FAIL/not established because foundation pretraining exposure is unknown.",
+    f"Local leakage checks: {fairness['local_leakage_status']}, {fairness['check_count']} checks. Independent trajectory replays: {len(trace)}. Overall contamination-free claim: FAIL/not established because foundation pretraining exposure is unknown.",
     "",
-    f"Tests: {test['pytest_passed_tests']} passed plus {test['subtests_passed']} subtests ({test['tests']} JUnit cases); failures:{test['failures']}, errors:{test['errors']}. Historical multiplication reports remain unchanged in their original sections and release.",
+    f"Tests: {test['pytest_passed_tests']} passed plus {test['subtests_passed']} subtests ({test['tests']} JUnit cases); failures: {test['failures']}, errors: {test['errors']}. Historical multiplication reports remain unchanged in their original sections and release.",
     "",
     "## Claims",
     "",
@@ -354,7 +368,7 @@ lines += [
 (docs / "final_limitations.md").write_text(
     "# Final limitations\n\n"
     + "\n".join("- " + v for v in scorecard["limitations"])
-    + "\n\nAdditional limits: small generated repositories, four hidden cases/task, few semantic templates, three adapter seeds, offline expert replay of repair actions only, static hypothetical planning, CPU-only training capped at100 unique tasks, tiny SQL portability study, noncanonical public runtime, and unknown foundation-model contamination. No general superiority over GPT/Gemini or architecture-only causal advantage is established.\n"
+    + "\n\nAdditional limits: small generated repositories, four hidden cases/task, few semantic templates, three adapter seeds, offline expert replay of repair actions only, static hypothetical planning, CPU-only training capped at 100 unique tasks, tiny SQL portability study, noncanonical public runtime, and unknown foundation-model contamination. No general superiority over GPT/Gemini or architecture-only causal advantage is established.\n"
 )
 for name in (
     "final_architecture",
