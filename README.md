@@ -155,3 +155,5 @@ backend is optional and offline by default (`.[pretrained]`); it was not used in
 experiments. Publication SVGs, raw summaries, confidence intervals, failures and fairness
 checks are committed under `experiments/research_claims_v1/`; full local records and
 checkpoints remain under `results/research_claims_v1/`. No UI was built.
+
+Cloud continuation and verified raw-artifact restoration: [migration instructions](docs/cloud_migration.md). Current primary evidence400/400; learning1122/1920, still partial.

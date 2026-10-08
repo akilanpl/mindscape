@@ -1,0 +1,18 @@
+{
+  "source_commit": "63334c115916f5ed599109fc0a86822cd8c2157a",
+  "files_verified": 17537,
+  "archive_parts": 26,
+  "compressed_bytes": 868389142,
+  "snapshot_manifest_sha256": "e448b61978a9c94bcb61320f3829259d57377c7ca6a8df54b90fdd40632e0e45",
+  "clean_restore_verified": true,
+  "json_files_parsed": 13807,
+  "json_parse_errors": 0,
+  "credential_pattern_matches": 0,
+  "locked_completed": 400,
+  "learning_completed": 1122,
+  "learning_unrun": 798,
+  "dedicated_latency_unrun": 16,
+  "tests": 130,
+  "subtests": 6,
+  "completion_tag_created": false
+}

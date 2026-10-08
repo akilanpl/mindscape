@@ -1,0 +1,135 @@
+{
+  "snapshot_manifest_sha256": "e448b61978a9c94bcb61320f3829259d57377c7ca6a8df54b90fdd40632e0e45",
+  "parts": [
+    {
+      "path": "archive-0000.part",
+      "size": 33554432,
+      "sha256": "70622dbf10998e5590735b0c9f094dab9470d5074a249227bc1480bef2c54a41"
+    },
+    {
+      "path": "archive-0001.part",
+      "size": 33554432,
+      "sha256": "877b327743f12833d2f028e46b34ac8f8f2d1b29dcf830b1228d5645b59fb9d3"
+    },
+    {
+      "path": "archive-0002.part",
+      "size": 33554432,
+      "sha256": "85152f49174a8ab839d0876e8993a1cc3d71a1e7f0fd7a31fc4b63646c11b686"
+    },
+    {
+      "path": "archive-0003.part",
+      "size": 33554432,
+      "sha256": "54a170b976b1930aecc0d20656abc132d2364d269cf0932673c83d2de684a4b1"
+    },
+    {
+      "path": "archive-0004.part",
+      "size": 33554432,
+      "sha256": "eb047f3de58a1ab9f7d6243d2fbf648ff3ae5f9be762b47ca7dfbeb4fbfbfc49"
+    },
+    {
+      "path": "archive-0005.part",
+      "size": 33554432,
+      "sha256": "d198a8073443b8b9d31f2379b4b1af6ad8acd4187619f011c909839aef32a421"
+    },
+    {
+      "path": "archive-0006.part",
+      "size": 33554432,
+      "sha256": "4e2a941e6985c1b357c288b6ad90c0c3546d020c8bc7d3a03751a494aa215944"
+    },
+    {
+      "path": "archive-0007.part",
+      "size": 33554432,
+      "sha256": "c4032b707e06383623810944c16fa02a73b69051437a0fe020764105c68e707d"
+    },
+    {
+      "path": "archive-0008.part",
+      "size": 33554432,
+      "sha256": "0cd2d25b8e053a81386b9bb9e01e3cda61fd8d757066f81090e00534b08f3640"
+    },
+    {
+      "path": "archive-0009.part",
+      "size": 33554432,
+      "sha256": "f771aaba1474bcab73179910e428bb2690ea3182fd22a7e37578e4170c0640aa"
+    },
+    {
+      "path": "archive-0010.part",
+      "size": 33554432,
+      "sha256": "c978645998cdaf80caf371df05c4aea7b05244bec758305d774ee0a67d142a7c"
+    },
+    {
+      "path": "archive-0011.part",
+      "size": 33554432,
+      "sha256": "38de430e850fa62d8ea57656e8d6fc90c8b2e9bafd056a287b46e60ec36dccd0"
+    },
+    {
+      "path": "archive-0012.part",
+      "size": 33554432,
+      "sha256": "48b5a4bf196400e9a7dd5c56c20e0d2fd57761498e62791b1c739c759ba47518"
+    },
+    {
+      "path": "archive-0013.part",
+      "size": 33554432,
+      "sha256": "21a2242f283ee60b4eb039ee995eb532ad92c29e19dea3c4b12ac5e7230660b7"
+    },
+    {
+      "path": "archive-0014.part",
+      "size": 33554432,
+      "sha256": "65979cdfdace88dad46974a61e1e852b9e6f75f6fe53f9a835e2642713f53b87"
+    },
+    {
+      "path": "archive-0015.part",
+      "size": 33554432,
+      "sha256": "0b097b36065f429c2819ecf6b5d87340ac8ddc50a8290c6f13f0924f1012a5a2"
+    },
+    {
+      "path": "archive-0016.part",
+      "size": 33554432,
+      "sha256": "81d4761647a9b9b2ce38095ac471a67668f4064ccb12498a3bfce6999c7d9788"
+    },
+    {
+      "path": "archive-0017.part",
+      "size": 33554432,
+      "sha256": "096f2dfd6b798f148c62f526ea5cf3d5cf1327a9d61ec21ddbd4dfbb549d6c36"
+    },
+    {
+      "path": "archive-0018.part",
+      "size": 33554432,
+      "sha256": "a0444d7017213b212513213732df2fc708eba84eca3b1de9f0fc1f599718990f"
+    },
+    {
+      "path": "archive-0019.part",
+      "size": 33554432,
+      "sha256": "8905d606f3285cc26bf9f50abfcc0f5aadc543614d67d6fb5cf9763bc8c536bf"
+    },
+    {
+      "path": "archive-0020.part",
+      "size": 33554432,
+      "sha256": "8b217d6a1e82c597830758f3b5985061ea0e944105437b40801f1d1a64499381"
+    },
+    {
+      "path": "archive-0021.part",
+      "size": 33554432,
+      "sha256": "5af00eaae5f8a4faf53c8bf4d0c15cd0b149dfa3d091e20285dab8237e557ae9"
+    },
+    {
+      "path": "archive-0022.part",
+      "size": 33554432,
+      "sha256": "ee9a93a86f0f5056f148bb1a747a6fdc0773e8de04fa270bbce64f6c169d59ae"
+    },
+    {
+      "path": "archive-0023.part",
+      "size": 33554432,
+      "sha256": "0b8f6b205ba90ea0a4aad315d1df9e53ec972c716aa3b344034c16a9d0be13c4"
+    },
+    {
+      "path": "archive-0024.part",
+      "size": 33554432,
+      "sha256": "d0ada11e478bd7cd87edff949ea12c243ebdd3aa2b4355d089fb28549469b799"
+    },
+    {
+      "path": "archive-0025.part",
+      "size": 29528342,
+      "sha256": "e5c8ebcce1c93d9866feac4a939f1678a2ab24745eada68d2c12e5578b458369"
+    }
+  ]
+}

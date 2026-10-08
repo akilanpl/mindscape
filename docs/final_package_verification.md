@@ -1,11 +1,7 @@
-# Verified partial package
+# Verified migration checkpoint — partial research
 
-Snapshot: `results/final/coding_emergency_partial_v1`. All 6,178 files passed inventory and SHA-256 verification and were restored into an empty directory. Source commit: `3032880`. Foundation weights remain exact pinned external downloads.
+All 17,537 frozen files passed complete inventory and SHA-256 verification and restored into an empty directory. Source commit: `63334c1`. The 26 Git archive parts contain 868,389,142 bytes; per-part and per-file hashes are shipped in `research_checkpoint/2026-10-08`. Exact pinned foundation weights use external acquisition. The verification receipt postdates the immutable snapshot; its older documentation is historical.
 
-Actual locked rows: A 100, structured 100, B 96, C 0. All 296 saved episodes passed independent state/tool/terminal replay. B OOD is a 46/50 completed subset; its descriptive scores may be affected by completion order. The mandatory C comparison is incomplete; no research-completion tag was created.
+Current evidence: A100, structured100, B100, C100; 400 unique locked pairs, all independently replayed with state/tool/terminal agreement. Learning curve1122/1920; 798 unrun. Dedicated latency0/16. No research-completion tag. All 130 tests plus6 subtests pass, scoped lint passes; 13,807 JSON/JSONL files parse without errors. No type-check task is configured. Historical repository-wide lint findings remain documented separately.
 
-I initially scheduled B ahead of C, which was the wrong priority for this deadline. The later C-priority native launch was not observed. Browser inspection unexpectedly blocked about 27 minutes. The native job stopped at its cutoff; no missing result was manufactured.
-
-Fresh latency statistics reuse the actual 16 completed MPS smoke episodes; no dedicated post-lockbox latency run occurred. The complete suite passed 129 tests plus 6 subtests, with zero failures/errors/skips.
-
-The immutable snapshot predates this verification receipt; its manifest binds the exact source and evidence bytes. No frozen file was modified.
+The earlier immutable `coding_emergency_partial_v1` package contains 6,178 verified files and older296-row evidence; it remains byte-preserved inside this checkpoint. Its earlier counts are historical, not current results.
