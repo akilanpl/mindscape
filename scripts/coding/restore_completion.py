@@ -24,7 +24,7 @@ def restore(snapshot, destination):
     manifest = json.loads((snapshot / "MANIFEST.json").read_text())
     present = {
         str(path.relative_to(snapshot)) for path in snapshot.rglob("*")
-        if path.is_file() and path.name != "MANIFEST.json"
+        if path.is_file() and path != snapshot / "MANIFEST.json"
     }
     if present != set(manifest["files"]):
         raise ValueError("Frozen file inventory differs from manifest")
