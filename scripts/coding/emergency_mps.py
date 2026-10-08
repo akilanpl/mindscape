@@ -220,7 +220,24 @@ def main():
           "start_unix": START, "deadline_unix": END, "native_pid": os.getpid()})
     teacher_records()
     coder = ResidentCoder(MODEL, precision="float16")
-    metrics = profile(coder, data)
+    saved_profile = ROOT / "profile.json"
+    if saved_profile.exists():
+        # Resume the already measured configuration, never repeat completed profiling.
+        metrics = json.loads(saved_profile.read_text())
+        coder.change_precision(metrics["precision"])
+        coder.cpu_checkpoint_state = None
+        coder.cpu_checkpoint_buffers = None
+        gc.collect()
+    else:
+        metrics = profile(coder, data)
+    # One phase-boundary release: discard precision-trial allocations, not model weights.
+    before_release = torch.mps.driver_allocated_memory()
+    torch.mps.empty_cache()
+    write(ROOT / "phase_memory_release.json", {"before_driver_bytes":before_release,
+          "after_driver_bytes":torch.mps.driver_allocated_memory(),
+          "live_allocated_bytes":torch.mps.current_allocated_memory(),
+          "reason":"Single profiling/evaluation boundary; no per-operation cache clearing",
+          "configuration_reused":saved_profile.exists(), "time_unix":time.time()})
     batch_size = metrics["selected_batch_size"]
     protocol = {"backbone": coder.base_revision, "device": "mps", "precision": coder.precision,
                 "batch_size": batch_size, "max_steps": 8, "max_edits": 3, "max_new_tokens": 256,
