@@ -1,6 +1,7 @@
 """Independently replay every locked coding trajectory before publication."""
 
 import argparse
+import hashlib
 import json
 from dataclasses import asdict
 from pathlib import Path
@@ -90,6 +91,7 @@ for line in rows_path.read_text().splitlines():
     )
     record = {
         **detail,
+        "canonical_episode_sha256":hashlib.sha256(json.dumps(row,sort_keys=True).encode()).hexdigest(),
         "key": key,
         "trajectory_valid": valid,
         "goal": goal,

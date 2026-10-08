@@ -31,7 +31,22 @@ for ax,c in zip(axes.flat,conditions,strict=True):
     if lines:
         ax.legend(fontsize=6,loc='best')
 fig.suptitle(f"Observed learning cells: {data['learning_curve']['completed']}/1920 episodes; incomplete cells omitted")
-fig.tight_layout();fig.savefig(root/'learning_partial.png',dpi=180);plt.close(fig)
+fig.tight_layout();fig.savefig(root/'learning_stratified.png',dpi=180);plt.close(fig)
+if data['learning_curve']['completed']==1920:
+    fig,axes=plt.subplots(1,2,figsize=(12,5),sharey=True)
+    for ax,split in zip(axes,('test','ood_test'),strict=True):
+        for condition in conditions:
+            cells=[r for r in data['learning_curve']['protocol_complete_seed_summaries']
+                   if r['condition']==condition and r['split']==split and r['complete_three_seed_cell']]
+            cells.sort(key=lambda r:r['budget'])
+            ax.errorbar([r['budget'] for r in cells],[100*r['mean_accuracy'] for r in cells],
+                        yerr=[100*r['seed_sd'] for r in cells],marker='o',capsize=3,label=condition)
+        ax.set_title(split);ax.set_xscale('log');ax.set_xticks([10,25,50,100],['10','25','50','100'])
+        ax.set_ylim(0,105);ax.grid(alpha=.2);ax.set_xlabel('Unique training tasks');ax.legend(fontsize=8)
+    axes[0].set_ylabel('Hidden task success (%)')
+    fig.suptitle('Complete protocol: three-seed mean ± SD; mixed CPU/MPS arithmetic, supervision differs')
+    fig.tight_layout();fig.savefig(root/'learning_curves.png',dpi=180);plt.close(fig)
+    (root/'learning_partial.png').unlink(missing_ok=True)
 locked=data['lockbox']['summary']
 if locked:
     fig,ax=plt.subplots(figsize=(10,5))
