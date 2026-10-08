@@ -36,26 +36,27 @@ def active():
             return True
 
 
-def main(wait):
+def main(wait,package_only=False):
     while active() or not (STATE/'complete.json').exists():
         if not active():
             raise RuntimeError('Native runner exited without complete evidence; inspect native log/failure before resume')
         if not wait:
             raise RuntimeError('Native evidence still running; use --wait')
         time.sleep(5)
-    python(Path('scripts/coding/verify_final_traces.py'))
-    python(Path('scripts/coding/fairness_audit.py'))
-    python(Path('scripts/coding/audit_training_inputs.py'))
-    python(Path('scripts/coding/training_token_audit.py'))
-    python(Path('scripts/coding/run_final_checks.py'))
-    run(sys.executable,'-m','compileall','-q','src','scripts','tests')
-    run(sys.executable,'-m','pip','wheel','.', '--no-deps','--no-build-isolation','--no-index','--wheel-dir','work/research_wheel')
-    if Path('build').exists():
-        shutil.rmtree('build')
-    python(Path('scripts/coding/emergency_report.py'))
-    python(Path('scripts/coding/plot_emergency.py'))
-    python(Path('scripts/coding/build_demo.py'))
-    run('node','scripts/coding/check_demo.cjs')
+    if not package_only:
+        python(Path('scripts/coding/verify_final_traces.py'))
+        python(Path('scripts/coding/fairness_audit.py'))
+        python(Path('scripts/coding/audit_training_inputs.py'))
+        python(Path('scripts/coding/training_token_audit.py'))
+        python(Path('scripts/coding/run_final_checks.py'))
+        run(sys.executable,'-m','compileall','-q','src','scripts','tests')
+        run(sys.executable,'-m','pip','wheel','.', '--no-deps','--no-build-isolation','--no-index','--wheel-dir','work/research_wheel')
+        if Path('build').exists():
+            shutil.rmtree('build')
+        python(Path('scripts/coding/emergency_report.py'))
+        python(Path('scripts/coding/plot_emergency.py'))
+        python(Path('scripts/coding/build_demo.py'))
+        run('node','scripts/coding/check_demo.cjs')
     python(Path('scripts/coding/completion_gate.py'))
     summary=json.loads((BASE/'emergency_analysis_v1/summary.json').read_text())
     shutil.copy2(BASE/'emergency_analysis_v1/summary.json','experiments/coding_completion_v2/final_summary.json')
@@ -109,9 +110,10 @@ def main(wait):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--wait',action='store_true')
+    parser.add_argument('--package-only',action='store_true',help='Reuse already completed audits/reports/tests, recheck publication gate, then package')
     args=parser.parse_args()
     try:
-        main(args.wait)
+        main(args.wait,args.package_only)
     except Exception as exc:
         (STATE/'finalization_failure.json').write_text(json.dumps({'type':type(exc).__name__,'message':str(exc),'time_unix':time.time()},indent=2))
         raise
