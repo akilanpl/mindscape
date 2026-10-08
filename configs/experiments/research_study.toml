@@ -1,0 +1,10 @@
+hidden = 64
+steps = 600
+batch_size = 64
+learning_rate = 0.003
+validation_every = 100
+attempts_per_problem = 64
+dream = true
+budgets = [10,25,50,100,250,500,1000]
+seeds = [0,1,2]
+thresholds = [0.80,0.90,0.95]

@@ -141,3 +141,7 @@ def get_backend(name):
         return REGISTRY[name]
     except KeyError as exc:
         raise ValueError(f"Unknown environment: {name}") from exc
+
+
+from mindscape.data.claims_backend import ClaimsBackend
+register(ClaimsBackend())

@@ -22,7 +22,7 @@ class BenchmarkExample:
         if form == "answer_only":
             if supervision:
                 result["answer"] = self.target_answer
-        elif form == "trajectory_supervised":
+        elif form in ("trajectory_supervised", "structured") :
             result.update(initial_state=self.initial_state, goal=self.goal)
             if supervision:
                 result.update(answer=self.target_answer, trajectory=self.target_trajectory)

@@ -14,6 +14,10 @@ class ErrorType(str, Enum):
     TIMEOUT = "timeout"
     MODEL_ERROR = "model_error"
     UNKNOWN = "unknown"
+    WRONG_ACTION = "wrong_action"
+    MALFORMED_STATE = "malformed_state"
+    TRAJECTORY_FAILURE = "trajectory_failure"
+    OTHER = "other"
 
 
 @dataclass(frozen=True)

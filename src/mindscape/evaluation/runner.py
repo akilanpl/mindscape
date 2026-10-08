@@ -73,6 +73,7 @@ def run(model, dataset, output_root, split="test", regime="experiential",
                 "hyperparameters": training_metadata.get("config"),
                 "training_metadata": training_metadata}
     (folder / "config.json").write_text(json.dumps(resolved, indent=2, sort_keys=True))
+    (folder / "config.yaml").write_text(json.dumps(resolved, indent=2, sort_keys=True))
     payload = {**asdict(result), "example_count": metrics["example_count"],
                "trajectory_count": metrics["trajectory_count"]}
     (folder / "metrics.json").write_text(json.dumps(payload, indent=2, sort_keys=True))
