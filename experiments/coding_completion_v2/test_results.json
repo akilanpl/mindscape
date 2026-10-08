@@ -1,0 +1,9 @@
+{
+  "tests": 130,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "pytest_passed_tests": 124,
+  "subtests_passed": 6,
+  "seconds": 59.181
+}

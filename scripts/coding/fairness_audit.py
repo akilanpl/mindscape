@@ -38,6 +38,27 @@ check(
     "structural_ood_holdout",
     not train_structures & {t["metadata"]["structural_category"] for t in dataset["ood_test"]},
 )
+for path in Path("results/coding/gradient_v1").glob("seed_*/training.json"):
+    training = json.loads(path.read_text())
+    expected = [t["task_id"] for t in dataset["train"][: training["samples"]]]
+    check("matched_patch_training_tasks:" + str(path), training["task_ids"] == expected)
+    check(
+        "patch_training_private_input_excluded:" + str(path),
+        not training["hidden_tests_in_training"],
+    )
+lockbox = json.loads(Path("results/coding/completion_lockbox_v1/tasks.json").read_text())
+old_seeds = {t["metadata"]["seed"] for values in dataset.values() for t in values}
+check("lockbox_excludes_all_prior_seeds", not old_seeds & {t["metadata"]["seed"] for t in lockbox})
+check("lockbox_has_100_unique_tasks", len({t["task_id"] for t in lockbox}) == 100)
+check(
+    "lockbox_structural_holdout",
+    not train_structures
+    & {
+        t["metadata"]["structural_category"]
+        for t in lockbox
+        if t["metadata"]["split"] == "ood_test"
+    },
+)
 for path in Path("results/coding/completion_gradient_v1").glob("*/seed_*/training.json"):
     training = json.loads(path.read_text())
     expected = [t["task_id"] for t in dataset["train"][: training["samples"]]]

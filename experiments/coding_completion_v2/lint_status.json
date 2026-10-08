@@ -1,0 +1,7 @@
+{
+  "historical_baseline_commit": "3e2538f",
+  "historical_full_tree_findings": 201,
+  "current_full_tree_findings": 201,
+  "new_coding_sql_and_regression_files": "PASS",
+  "new_findings_introduced": 0
+}

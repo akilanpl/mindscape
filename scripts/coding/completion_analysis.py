@@ -7,7 +7,14 @@ from pathlib import Path
 
 import numpy as np
 
-from mindscape.coding.statistics import bootstrap_mean, der, log_aulc, paired_delta, threshold
+from mindscape.coding.statistics import (
+    bootstrap_mean,
+    der,
+    log_aulc,
+    paired_delta,
+    threshold,
+    wilson_interval,
+)
 
 p = argparse.ArgumentParser()
 p.add_argument("--output", default="results/coding/completion_analysis_v1")
@@ -116,12 +123,23 @@ for condition, rows in final_cells.items():
     final_summary[condition] = {
         "success": bootstrap_mean([r["success"] for r in rows]),
         "successes": sum(r["success"] for r in rows),
+        "wilson_ci95": wilson_interval(sum(r["success"] for r in rows), len(rows)),
+        "failures": sum(not r["success"] for r in rows),
+        "per_test_pass_rate": sum(r["terminal"]["passed"] for r in rows)
+        / sum(r["terminal"]["total"] for r in rows),
+        "trajectory_validity": sum(t["valid"] for r in rows for t in r["trajectory"]["transitions"])
+        / sum(len(r["trajectory"]["transitions"]) for r in rows),
+        "invalid_action_rate": sum(
+            bool(a.get("parse_error")) for r in rows for a in r.get("attempts", [])
+        )
+        / sum(len(r.get("attempts", [])) for r in rows),
         "grounded_success": bootstrap_mean([r["success"] and valid(r) for r in rows]),
         "valid_episode_rate": np.mean([valid(r) for r in rows]),
         "success_at_1": np.mean(
             [r.get("first_patch_success", r["success"]) or False for r in rows]
         ),
-        "interactive_success_at_3": np.mean([r["success"] for r in rows]),
+        "terminal_success_with_at_most_3_edits": np.mean([r["success"] for r in rows]),
+        "interactive_success_at_5": None,
         "public_pass_k": False,
         "split_accuracy": {
             s: np.mean([r["success"] for r in rows if r["split"] == s])
@@ -132,6 +150,20 @@ latency = {}
 for condition in final_cells:
     rows = [r for r in read("latency_probe_v1") if r["condition"] == condition]
     values = {"wall_seconds": [r["wall_seconds"] for r in rows]}
+    values["first_call_ttft"] = [
+        r["attempts"][0]["latency"]["ttft"]
+        for r in rows
+        if r.get("attempts") and r["attempts"][0].get("latency", {}).get("ttft") is not None
+    ]
+    values["model_calls"] = [r["model_calls"] for r in rows]
+    values["tokens_in"] = [
+        sum(a.get("latency", {}).get("tokens_in", 0) for a in r.get("attempts", [])) for r in rows
+    ]
+    values["tokens_out"] = [
+        sum(a.get("latency", {}).get("tokens_out", 0) for a in r.get("attempts", [])) for r in rows
+    ]
+    values["trajectory_steps"] = [len(r["trajectory"]["transitions"]) for r in rows]
+    values["peak_rss_bytes"] = [r["peak_rss_bytes"] for r in rows]
     for r in rows:
         for stage, measurement in r["stages"].items():
             values.setdefault(stage, []).append(measurement["seconds"])
@@ -160,6 +192,13 @@ summary = {
             "n": len(rows),
             "successes": sum(r["success"] for r in rows),
             "accuracy": np.mean([r["success"] for r in rows]),
+            "split_accuracy": {
+                split: float(np.mean([r["success"] for r in rows if r.get("split") == split]))
+                for split in ("test", "ood_test")
+                if any(r.get("split") == split for r in rows)
+            },
+            "recorded_wall_median": float(np.median([r["wall_seconds"] for r in rows])),
+            "model_calls_mean": float(np.mean([r["model_calls"] for r in rows])),
         }
         for (k, v), rows in stress.items()
     },
@@ -171,6 +210,30 @@ summary = {
         "P99 from fourteen episodes per condition is exploratory",
         "Inference ablations retain trained weights; no causal retraining claim",
     ],
+}
+recovery = [r for r in read("stress_v1") if r["kind"] == "recovery"]
+attempts_to_success = [
+    next((i + 1 for i, v in enumerate(r.get("success_by_edit", [])) if v), None) for r in recovery
+]
+successful_attempts = [v for v in attempts_to_success if v is not None]
+summary["recovery"] = {
+    "tasks": len(recovery),
+    "success_at_k": {
+        str(k): float(
+            np.mean([r.get("interactive_success_at_k", {}).get(str(k), False) for r in recovery])
+        )
+        for k in (1, 3, 5)
+    },
+    "attempts_to_success": attempts_to_success,
+    "median_p95_successful_attempts": np.quantile(successful_attempts, [0.5, 0.95]).tolist()
+    if successful_attempts
+    else None,
+    "scope": "Four injected diagnostic faults; post-termination assessment; not public pass@k",
+}
+summary["fresh_median_overhead"] = {
+    c: latency[c]["wall_seconds"]["p50_p95_p99"][0]
+    / latency["model_only"]["wall_seconds"]["p50_p95_p99"][0]
+    for c in latency
 }
 (root / "metrics.json").write_text(json.dumps(summary, indent=2))
 print(json.dumps(summary["final"], indent=2))

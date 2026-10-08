@@ -16,3 +16,11 @@ def test_task_pairing_and_log_normalization():
     with pytest.raises(ValueError):
         paired_delta({"a": 0}, {"b": 0})
     assert log_aulc({0: 1, 10: 0.5, 100: 0.5}) == pytest.approx(0.5)
+
+
+def test_perfect_observed_accuracy_does_not_imply_perfect_population_accuracy():
+    from mindscape.coding.statistics import wilson_interval
+
+    lower, upper = wilson_interval(100, 100)
+    assert 0.96 < lower < 0.97
+    assert upper == pytest.approx(1)

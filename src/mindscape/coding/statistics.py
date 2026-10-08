@@ -19,6 +19,20 @@ def bootstrap_mean(values, seed=17, repetitions=2000):
     }
 
 
+def wilson_interval(successes, total, z=1.959963984540054):
+    if total <= 0 or not 0 <= successes <= total:
+        raise ValueError("Invalid binomial counts")
+    proportion = successes / total
+    denominator = 1 + z * z / total
+    center = (proportion + z * z / (2 * total)) / denominator
+    radius = (
+        z
+        * math.sqrt(proportion * (1 - proportion) / total + z * z / (4 * total * total))
+        / denominator
+    )
+    return [max(0.0, center - radius), min(1.0, center + radius)]
+
+
 def paired_delta(first, second):
     shared = sorted(set(first) & set(second))
     if set(first) != set(second):

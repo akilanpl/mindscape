@@ -1,6 +1,7 @@
 """Matched diagnostic ablations and executed robustness; never tune the lockbox."""
 
 import argparse
+import hashlib
 import json
 from dataclasses import replace
 from pathlib import Path
@@ -26,8 +27,22 @@ teacher = json.loads(
 )
 sandbox = WasiSandbox("work/coding/runtime")
 coder = LocalCoder(
-    a.model, adapter="results/coding/completion_gradient_v1/mindscape_c/seed_11/checkpoint_100"
+    a.model,
+    adapter="results/coding/completion_gradient_v1/mindscape_c/seed_11/checkpoint_100",
+    cache_enabled=False,
 )
+
+
+class ExplicitGoalMask:
+    def __getattr__(self, name):
+        return getattr(coder, name)
+
+    def generate(self, system, prompt, *args):
+        payload = json.loads(prompt)
+        payload.pop("goal", None)
+        return coder.generate(system, json.dumps(payload), *args)
+
+
 path = root / "rows.jsonl"
 done = (
     {tuple(json.loads(s)["key"]) for s in path.read_text().splitlines()} if path.exists() else set()
@@ -58,7 +73,11 @@ for variant in (
 ):
     for task in base:
         changed = perturb(task, variant)
-        if changed.repository == task.repository and changed.visible_tests == task.visible_tests:
+        if (
+            changed.repository == task.repository
+            and list(changed.repository) == list(task.repository)
+            and changed.visible_tests == task.visible_tests
+        ):
             continue
         cases.append(("robustness", variant, changed))
 for index, fault in enumerate(("syntax", "wrong_patch", "regression", "timeout")):
@@ -92,7 +111,7 @@ for kind, variant, task in cases:
         if run_cases(sandbox, task.repository, task.hidden_tests)["all_passed"]:
             raise RuntimeError("Perturbation removes defect")
     policy = ToolCodingPolicy(
-        coder,
+        ExplicitGoalMask() if kind == "ablation" and variant == "no_goal" else coder,
         sandbox,
         CodingMemory(episodic=teacher[:100]),
         ablation=variant if kind == "ablation" else None,
@@ -110,7 +129,9 @@ for kind, variant, task in cases:
         key=key,
         kind=kind,
         variant=variant,
+        split=task.metadata["split"],
         stages=meter.summary(),
+        generation_cache_enabled=False,
         success_by_edit=verdicts,
         assessment_timing="All private snapshot assessments occur after policy termination",
         injected_fault_execution=initial_fault,
@@ -121,4 +142,32 @@ for kind, variant, task in cases:
         f.write(json.dumps(row) + "\n")
     done.add(key)
     print(kind, variant, len(done), flush=True)
+patch_adapter = Path("results/coding/gradient_v1/seed_11/checkpoint_100")
+coder.model.load_adapter(patch_adapter, adapter_name="patch_only")
+coder.model.set_adapter("patch_only")
+coder.revision = (
+    Path(a.model).name
+    + ":patch_only:"
+    + hashlib.sha256((patch_adapter / "adapter_model.safetensors").read_bytes()).hexdigest()
+)
+for task in base:
+    key = ("ablation", "no_trajectory_supervision", task.task_id)
+    if key in done:
+        continue
+    policy = ToolCodingPolicy(coder, sandbox, CodingMemory(episodic=teacher[:100]))
+    with StageMeter() as meter:
+        row = policy.solve(task)
+    row.update(
+        key=key,
+        kind="ablation",
+        variant="no_trajectory_supervision",
+        split=task.metadata["split"],
+        stages=meter.summary(),
+        generation_cache_enabled=False,
+        ablation_scope="Patch-only trained adapter replaces action/replay adapter; same unique tasks and seed, but training inputs/labels also differ. Diagnostic, not isolated causal removal.",
+    )
+    with path.open("a") as f:
+        f.write(json.dumps(row) + "\n")
+    done.add(key)
+    print("ablation", "no_trajectory_supervision", len(done), flush=True)
 (root / "complete.json").write_text(json.dumps({"episodes": len(done), "complete": True}))
