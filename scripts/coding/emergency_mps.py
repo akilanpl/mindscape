@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 import resource
+import signal
 import time
 from pathlib import Path
 
@@ -254,16 +255,29 @@ def main():
     write(old, protocol)
     locked_root = BASE / "completion_lockbox_eval_v1"
     locked_root.mkdir(parents=True, exist_ok=True)
-    for condition in protocol["checkpoints"]:
+    for condition in ("mindscape_c","mindscape_b","model_only","structured"):
         coder.use_adapter(adapter(condition))
-        run_group(coder, lockbox, condition, locked_root / "rows.jsonl", batch_size, END - 1500,
+        run_group(coder, lockbox, condition, locked_root / "rows.jsonl", batch_size, END - (900 if condition == "mindscape_c" else 1800),
                   {"seed":11,"budget":100,"one_shot_configuration":True,
                    "adapter":str(adapter(condition)),"protocol":"emergency_mps_v1/locked_protocol.json"})
     locked = read(locked_root / "rows.jsonl")
-    if len(locked) != 400 or len({(r["condition"],r["task_id"]) for r in locked}) != 400:
-        raise RuntimeError("Mandatory locked comparison incomplete; retain actual partial rows")
-    write(locked_root / "complete.json", {"complete":True,"tasks":100,"conditions":4,"episodes":400,
-                                         "configuration_frozen_before_outcomes":True})
+    unique = {(r["condition"],r["task_id"]) for r in locked}
+    if len(unique) != len(locked):
+        raise RuntimeError("Duplicate locked keys; refuse completion")
+    required_ids = {t.task_id for t in lockbox}
+    primary_complete = all({r["task_id"] for r in locked if r["condition"] == c} == required_ids
+                           for c in ("model_only","mindscape_c"))
+    write(locked_root / "scope.json", {"completed":len(locked),"planned":400,"not_run":400-len(locked),
+          "primary_100_task_comparison_complete":primary_complete,
+          "four_condition_comparison_complete":len(locked)==400,
+          "priority":"Flagship C and matched A on all 100 fixed tasks; supplementary B control may remain partial"})
+    if not primary_complete:
+        raise RuntimeError("Mandatory 100-task flagship/matched-A comparison incomplete; retain actual partial rows")
+    write(locked_root / "primary_complete.json", {"tasks":100,"conditions":["model_only","mindscape_c"],
+          "actual_saved_episodes":len(locked),"four_condition_complete":len(locked)==400})
+    if len(locked)==400:
+        write(locked_root / "complete.json", {"complete":True,"tasks":100,"conditions":4,"episodes":400,
+                                             "configuration_frozen_before_outcomes":True})
     # Remaining curve: exact unfinished keys only. Leave thirty minutes for evidence/latency/reporting.
     curve_path = BASE / "completion_gradient_v1/rows.jsonl"
     done = {tuple(r["key"]) for r in read(curve_path)}
@@ -294,22 +308,36 @@ def main():
                                                          "mixed_hardware_precision":True})
     # One representative cache-disabled latency study, using direct sequential resident generation.
     latency_root = BASE/"latency_probe_v1";latency_root.mkdir(parents=True,exist_ok=True)
-    representatives = [CodeTask(**v) for v in data["test"][:2]+data["ood_test"][:2]]
-    for condition in protocol["checkpoints"]:
-        if time.time() >= END-900:
+    representatives = [CodeTask(**v) for v in [data[split][index] for index in range(2) for split in ("test","ood_test")]]
+    for condition in ("mindscape_c","model_only","structured","mindscape_b"):
+        if time.time() >= END-600:
             break
-        coder.use_adapter(adapter(condition));coder.deadline=END-900
+        coder.use_adapter(adapter(condition));coder.deadline=END-600
         for task in representatives:
             if any(r["condition"]==condition and r["task_id"]==task.task_id for r in read(latency_root/"rows.jsonl")):
                 continue
-            with StageMeter() as meter:
-                row = solve(task,coder,condition)
+            if time.time() >= END-600:
+                break
+            def cutoff(signum, frame):
+                raise TimeoutError("Latency deadline reached; unfinished episode not counted")
+            signal.signal(signal.SIGALRM,cutoff)
+            signal.setitimer(signal.ITIMER_REAL,max(.001,END-600-time.time()))
+            try:
+                with StageMeter() as meter:
+                    row = solve(task,coder,condition)
+            except TimeoutError:
+                print("Latency cutoff reached; preserving completed episodes",flush=True)
+                break
+            finally:
+                signal.setitimer(signal.ITIMER_REAL,0)
             row.update(stages=meter.summary(),cache_enabled=False,
                        peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
                        gpu_used=True,mps_allocated_bytes=torch.mps.current_allocated_memory(),
                        mps_driver_bytes=torch.mps.driver_allocated_memory())
             append(latency_root/"rows.jsonl",row)
     latency = read(latency_root/"rows.jsonl")
+    write(latency_root/"scope.json", {"completed":len(latency),"planned":16,"not_run":16-len(latency),
+                                       "status":"complete" if len(latency)==16 else "partial"})
     if len(latency)==16:
         write(latency_root/"complete.json", {"episodes":16,"fresh_generation":True,"cache_hits":0,
                                            "tasks_per_condition":4,"percentiles":"P50/P95; small descriptive sample"})
