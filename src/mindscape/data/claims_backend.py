@@ -52,7 +52,9 @@ class ClaimsBackend(MultiplicationBackend):
         try:
             typed = decode(ClaimTrajectory, trajectory)
             for decision, transition in zip(diagnostics.get("decisions", []), typed.transitions):
-                decision["verifier_judgment"] = transition.action.value == expected_value(transition.state_before)
+                decision["correct_action"] = expected_value(transition.state_before)
+                decision["verifier_judgment"] = transition.action.value == decision["correct_action"]
+                decision["transition_valid"] = decision["verifier_judgment"]
         except (ValueError, TypeError, KeyError):
             diagnostics["verification_error"] = "malformed_trajectory"
 

@@ -1,0 +1,5 @@
+budgets = [10,25,50,100,250,500,1000]
+seeds = [0,1,2]
+steps = 1200
+attempts_per_problem = 64
+thresholds = [0.8,0.9,0.95]

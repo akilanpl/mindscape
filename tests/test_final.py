@@ -1,0 +1,32 @@
+import tempfile, unittest
+from pathlib import Path
+import numpy as np
+from mindscape.models.final_policy import FinalPolicy
+from mindscape.models.numpy_backend import NumpyMLP
+from mindscape.memory.concept import ConceptMemory
+from mindscape.environments.multiplication.claims import expected_value
+
+class FinalTests(unittest.TestCase):
+ def test_concept_memory_descriptive(self):
+  m=ConceptMemory();m.store('cursor','Select a numerical claim');self.assertEqual(m.retrieve('cursor'),'Select a numerical claim');self.assertIsNone(m.retrieve('missing'))
+ def test_primary_has_no_singleton_or_oracle_feedback(self):
+  model=FinalPolicy(NumpyMLP([10]*8+[2],seed=2),'trajectory',dream=False)
+  p=model.predict({'observation':{'operands':[12,3],'source':'user_input','kind':'observation'}})
+  self.assertFalse(p.diagnostics['oracle_feedback_visible'])
+  for d in p.diagnostics['decisions']:
+   self.assertEqual(d['total_candidate_actions'],100);self.assertEqual(len(d['valid_actions']),100);self.assertNotIn('correct_action',d);self.assertFalse(d['hypothetical']);self.assertFalse(d['actual_result']['hypothetical']);self.assertEqual(d['selected_value'],d['actual_result']['value'])
+ def test_open_loop_only_hypothetical(self):
+  m=FinalPolicy(NumpyMLP([10]*8+[2]),'trajectory',dream=False,no_interaction=True);p=m.predict({'observation':{'operands':[2,3],'source':'user_input','kind':'observation'}})
+  self.assertIsNone(p.trajectory);self.assertTrue(all(d['hypothetical'] for d in p.diagnostics['decisions']))
+ def test_real_backend_reload_and_active_loss(self):
+  try:import torch
+  except ImportError:self.skipTest('optional torch dependency')
+  from mindscape.models.final_backend import FinalBackend
+  class Encoder:
+   size=52;parameter_count=10;path='test';revision='test'
+   def encode(self,x):return np.asarray(x,dtype=np.float32)
+  e=Encoder();b=FinalBackend(e,0);x=np.eye(52,dtype=np.float32)[:3];y=np.zeros((3,9),dtype=int)
+  before=b.logits(x);stats=b.fit(x,y,3,0,2);self.assertEqual(stats['active_heads'],2);self.assertFalse(np.array_equal(before,b.logits(x)))
+  with tempfile.TemporaryDirectory() as tmp:
+   p=Path(tmp)/'model';b.save(p);loaded=FinalBackend.load(p,e);self.assertTrue(np.array_equal(b.logits(x),loaded.logits(x)))
+if __name__=='__main__':unittest.main()
