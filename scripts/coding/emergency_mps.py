@@ -247,7 +247,7 @@ def main():
         driver = torch.mps.driver_allocated_memory()
         live = torch.mps.current_allocated_memory()
         record = {"completed_unix":time.time(),"batch_size":len(requests),
-                  "driver_bytes":driver,"live_bytes":live,"revision":coder.revision}
+                  "driver_bytes":driver,"live_bytes":live,"revision":original_batch.__self__.revision}
         # Memory-pressure response, not an unconditional per-operation cache clear.
         if release_enabled[0] and driver > 10_000_000_000 and driver-live > 6_000_000_000 and time.time()-last_release[0] > 120:
             began=time.perf_counter()
