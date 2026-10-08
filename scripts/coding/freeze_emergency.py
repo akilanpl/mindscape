@@ -14,12 +14,17 @@ summary=json.loads((base/'emergency_analysis_v1/summary.json').read_text())
 tests=summary['tests']
 if tests.get('failures',1) or tests.get('errors',1):
     raise RuntimeError('Passing complete tests required')
-primary=[r for r in summary['lockbox']['summary'] if r['condition'] in ('model_only','mindscape_c')]
-complete=(len(primary)==4 and all(r['complete'] for r in primary)
-          and summary['replay']['episodes']==summary['lockbox']['episodes']
+cells=summary['lockbox']['summary']
+complete=(len(cells)==8 and all(r['complete'] for r in cells)
+          and summary['lockbox']['episodes']==400
+          and summary['learning_curve']['completed']==1920
+          and summary['learning_curve']['not_run']==0
+          and summary['replay']['episodes']==400
           and summary['replay']['final_outcome_agreement']==1
           and summary['replay']['structured_evidence_agreement']==1
-          and any(r['condition']=='mindscape_c' and r['episodes']>=2 for r in summary['latency']))
+          and (base/'latency_probe_v1/complete.json').exists()
+          and sum(r['episodes'] for r in summary['latency'])==16
+          and tests.get('tests',0)>0 and tests.get('skipped',1)==0)
 if not complete and not a.partial:
     raise RuntimeError('Mandatory locked/replay/fresh-latency evidence incomplete; use explicit partial package only')
 name='coding_emergency_partial_v1' if a.partial else 'coding_research_v2'
@@ -34,7 +39,7 @@ sources={
     'actual_collection':base/'completion_collection_v1','actual_tuples':base/'teacher_traces_v1',
     'teacher_memory':base/'final_retrieval_v1','final_evaluation':base/'completion_lockbox_eval_v1',
     'fresh_latency':base/'latency_probe_v1','trace_audit':base/'completion_trace_audit_v1',
-    'analysis':base/'emergency_analysis_v1','acceleration':base/'emergency_mps_v1',
+    'analysis':base/'emergency_analysis_v1','acceleration':base/'emergency_mps_v1','continuation':base/'research_continuation_v1',
     'audit':base/'completion_audits_v1','public_benchmark_input':Path('work/coding/humaneval'),
     'humaneval_05b':base/'humaneval_05b_v1','humaneval_15b':base/'humaneval_15b_v1',
     'configs':Path('configs'),'scripts':Path('scripts'),'docs':Path('docs'),
@@ -60,7 +65,7 @@ manifest={'release':'emergency-partial-no-final-tag' if a.partial else 'mindscap
           'locked_completed_episodes':summary['lockbox']['episodes'],
           'locked_not_run_episodes':400-summary['lockbox']['episodes'],
           'latency_completed_episodes':sum(r['episodes'] for r in summary['latency']),
-          'scope':'Timed emergency evidence; mandatory C/A comparison is complete only if mandatory_evidence_complete is true. Missing control and latency scopes remain disclosed.',
+          'scope':'Historical emergency partial snapshot' if a.partial else 'Full 400 locked cases, 1920 learning cases, independent replay and dedicated latency required.',
           'dedicated_latency_stage_complete':(base/'latency_probe_v1/complete.json').exists(),
           'latency_measurement_sources':[r.get('measurement_source') for r in summary['latency']],
           'foundation_models':{'Qwen/Qwen2.5-Coder-0.5B-Instruct':'ea3f2471cf1b1f0db85067f1ef93848e38e88c25',
