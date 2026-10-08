@@ -36,8 +36,18 @@ def generate(config):
             identity = backend.identity(observation)
             if identity in seen:
                 continue
+            example = backend.example(observation, config["seed"], split)
+            accepted = True
+            for metric, bounds in config.get("difficulty_bounds", {}).items():
+                value = example.metadata["difficulty"][metric]
+                if bounds.get("min", float("-inf")) > bounds.get("max", float("inf")):
+                    raise ValueError("Invalid difficulty bounds")
+                if not bounds.get("min", value) <= value <= bounds.get("max", value):
+                    accepted = False
+            if not accepted:
+                continue
             seen.add(identity)
-            examples.append(backend.example(observation, config["seed"], split))
+            examples.append(example)
         result[split] = examples
     validate_dataset(result, config)
     nested_subsets(result["train"], config.get("budgets", []), config["seed"])

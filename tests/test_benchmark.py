@@ -306,3 +306,18 @@ class BenchmarkTests(unittest.TestCase):
         splits["test"][0] = self.backend.example(e.observation, 99, "test")
         with self.assertRaises(ValueError):
             validate_dataset(splits, self.config)
+
+    def test_measurable_difficulty_filters(self):
+        cfg = config()
+        cfg["difficulty_bounds"] = {"carry_count": {"min": 1}}
+        splits = generate(cfg)
+        self.assertTrue(all(e.metadata["difficulty"]["carry_count"] >= 1
+                            for rows in splits.values() for e in rows))
+
+    def test_signed_zero_configuration(self):
+        cfg = config()
+        cfg.update(signed=True, include_zero=True)
+        splits = generate(cfg)
+        self.assertTrue(validate_dataset(splits, cfg))
+        self.assertTrue(any(x < 0 for rows in splits.values() for e in rows
+                            for x in e.observation["operands"]))

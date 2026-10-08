@@ -23,6 +23,10 @@ def validate_dataset(splits, config):
             if e.metadata["random_seed"] != config["seed"]:
                 raise ValueError("Example seed differs from dataset seed")
             backend.validate(e)
+            for metric, bounds in config.get("difficulty_bounds", {}).items():
+                value = e.metadata["difficulty"][metric]
+                if not bounds.get("min", value) <= value <= bounds.get("max", value):
+                    raise ValueError("Difficulty outside configured bounds")
             category = backend.category(e.observation)
             if category not in backend.structures(spec):
                 raise ValueError("Disallowed structural category")

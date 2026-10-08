@@ -46,15 +46,16 @@ state, final answer, independent verification, and goal status as JSON.
 
 The planned benchmark measures exact accuracy, OOD accuracy, data efficiency,
 grounded answer rate, transition validity, goal success, and compute.
-No learned benchmark or data-efficiency curve exists yet. `docs/benchmark.md`
-defines acceptance targets; they are not measured results. Historical GPT/Gemini
+Dataset and benchmark infrastructure is implemented; no learned benchmark or data-efficiency curve exists yet. `docs/benchmark.md`
+defines operational metrics and their denominators. Historical GPT/Gemini
 results will be documented with exact versions, datasets, dates, sources and
 protocols in a later phase. Multiplication scores cannot be compared directly
 with GSM8K, MATH or MMLU scores. No historical numbers are asserted here.
 
 ## Roadmap
 
-Next: seeded datasets and contamination-free structural splits; then local model
+Seeded datasets, checked structural splits and reference evaluation are implemented.
+Next: local model
 baselines, regimes A/B/C, fair data-efficiency studies, ablations and historical
 references. Bounded hypothetical simulation, a second vertical, UI and multimodal
 observations follow only after the core experiments. Directory placeholders do
@@ -69,3 +70,25 @@ refuses to overwrite an existing file. Tests require no network. Future experime
 must record seeds, configurations, model/data versions, splits, hyperparameters,
 checkpoints, software, hardware, runtime and raw predictions. See
 `docs/experimental_protocol.md`.
+
+## Dataset and benchmark commands
+
+From the repository root, with Python 3.11+ and PYTHONPATH=src:
+
+```sh
+export PYTHONPATH=src
+python scripts/generate_data.py --config configs/experiments/data_efficiency.toml --output datasets/generated/my_run
+python scripts/dataset.py validate datasets/generated/my_run
+python scripts/dataset.py inspect datasets/generated/my_run
+python scripts/dataset.py export datasets/generated/my_run --form answer_only --split train --output answer_train.jsonl
+python scripts/evaluate.py --dataset datasets/generated/my_run --split test --training-size 1000
+python scripts/evaluate.py --dataset datasets/generated/my_run --split ood_test --training-size 1000
+```
+
+Use a new output path for generation/export. Config examples: iid.toml, ood.toml and
+data_efficiency.toml. Development v1 contains 1000 train, 250 validation, 500 IID test
+and 500 OOD test examples; its nested budgets are 10,25,50,100,250,500,1000.
+The CLI evaluator uses a deterministic procedural reference only. Models later plug
+into models/base.py and evaluation/runner.py. JSON results live under results/ and
+are never overwritten. Run IDs/times vary; datasets, predictions and scores reproduce.
+See docs/milestone_02.md for actual infrastructure checks and limitations.
