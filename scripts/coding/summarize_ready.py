@@ -8,6 +8,7 @@ if not Path("results/coding/completion_trace_audit_v1/complete.json").exists():
     raise RuntimeError("Independent final replay incomplete")
 for script in (
     "fairness_audit",
+    "audit_training_inputs",
     "check_adapter_artifacts",
     "completion_analysis",
     "plot_completion",
