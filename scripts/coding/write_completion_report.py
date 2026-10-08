@@ -199,6 +199,7 @@ scorecard = {
     },
     "reliability": {
         "recovery": metrics["recovery"],
+        "failure_category_scope": "Descriptive precedence: invalid action, timeout, execution error, then hidden mismatch; not a causal diagnosis",
         "failure_categories": {
             condition + "|" + category: count for (condition, category), count in failures.items()
         },
@@ -247,6 +248,28 @@ scorecard = {
     "limitations": metrics["limitations"],
 }
 root = Path("experiments/coding_completion_v2")
+fresh_rows = read(base / "latency_probe_v1")
+scorecard["compute"]["fresh_inference_totals"] = {
+    condition: {
+        "episodes": len(selected),
+        "policy_wall_seconds": sum(r["wall_seconds"] for r in selected),
+        "generation_seconds": sum(r["stages"]["model_generation"]["seconds"] for r in selected),
+        "model_calls": sum(r["model_calls"] for r in selected),
+        "input_tokens": sum(
+            a["latency"]["tokens_in"] for r in selected for a in r["attempts"]
+        ),
+        "output_tokens": sum(
+            a["latency"]["tokens_out"] for r in selected for a in r["attempts"]
+        ),
+        "cpu_process_seconds": sum(r["cpu_process_seconds"] for r in selected),
+        "child_cpu_seconds": sum(r["child_cpu_seconds"] for r in selected),
+        "scope": "Fresh 14-task condition; excludes model loading; no generation-cache hits",
+    }
+    for condition, selected in (
+        (name, [r for r in fresh_rows if r["condition"] == name])
+        for name in metrics["final"]
+    )
+}
 scorecard["models"] = {
     "primary": {
         "name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
@@ -359,7 +382,7 @@ lines += [
     "",
     "## Fresh latency and compute",
     "",
-    json.dumps(scorecard["latency"], indent=2),
+    json.dumps({"latency": scorecard["latency"], "fresh_inference_totals": scorecard["compute"]["fresh_inference_totals"]}, indent=2),
     "",
     "Nested stage timers are inclusive and cannot be added as exclusive costs. Fresh latency contains no generation cache hits. P99 from 14 tasks/condition is exploratory. Ablations preserve weights except the explicitly labeled patch-only-adapter diagnostic. Removing terminal private assessment would remove the measurement; the goal-text ablation is not that intervention.",
     "",

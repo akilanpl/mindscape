@@ -168,6 +168,8 @@ for condition in final_cells:
         r["stages"].get("test_execution", {}).get("calls", 0) for r in rows
     ]
     values["peak_rss_bytes"] = [r["peak_rss_bytes"] for r in rows]
+    values["cpu_process_seconds"] = [r["cpu_process_seconds"] for r in rows]
+    values["child_cpu_seconds"] = [r["child_cpu_seconds"] for r in rows]
     for r in rows:
         for stage, measurement in r["stages"].items():
             values.setdefault(stage, []).append(measurement["seconds"])
