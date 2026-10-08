@@ -1,0 +1,17 @@
+{
+  "starting_commit": "d034a9b",
+  "verified_pushed_checkpoint": "3993f657aa3dde48f12538076033c6f003607fc7",
+  "branch": "mindscape-cloud-migration-2026-10-08",
+  "repository": "https://github.com/akilanpl/mindscape",
+  "remote_hash_verified": true,
+  "restored_pytest_tests": 130,
+  "restored_subtests": 6,
+  "cloud_thread_id": "01a11c6b-bf37-70af-a4b2-83463d96b07f",
+  "cloud_host": "durable",
+  "cloud_workspace": "/workspace/scratch/fbe7fef65efe",
+  "cloud_status": "active; exact checkout and hardware not yet reported",
+  "cloud_backend": null,
+  "cloud_throughput": null,
+  "completion_tag_created": false,
+  "time_unix": 1791478310.692084
+}
