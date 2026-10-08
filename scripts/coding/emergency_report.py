@@ -171,6 +171,19 @@ def main():
     training_records = [{"path":str(p),**{k:v for k,v in load(p).items() if k!='task_ids'}}
                         for pattern in ('gradient_v1/seed_*/training.json','completion_gradient_v1/*/seed_*/training.json')
                         for p in sorted(BASE.glob(pattern))]
+    natural_recovery=[]
+    for condition in ('mindscape_b','mindscape_c'):
+        for split in ('test','ood_test'):
+            group=[r for r in locked if r['condition']==condition and r['split']==split]
+            eligible=[r for r in group if r.get('first_patch_success') is False and r.get('edit_snapshots')]
+            recovered=sum(r['success'] for r in eligible)
+            natural_recovery.append({'condition':condition,'split':split,
+                'completed_episodes':len(group),'first_edit_failures':len(eligible),
+                'later_terminal_successes':recovered,
+                'conditional_self_correction_rate':recovered/len(eligible) if eligible else None,
+                'wilson_ci95':wilson_interval(recovered,len(eligible)) if eligible else None,
+                'definition':'Terminal success after an incorrect first accepted edit; first-edit assessment occurs offline after policy termination, never as hidden model feedback',
+                'caution':'Descriptive within-episode self-correction; no injected-fault recovery intervention or causal memory/planner attribution'})
     tests=load(Path('experiments/coding_completion_v2/test_results.json'),{})
     fairness=load(BASE/'completion_audits_v1/fairness_leakage.json',{})
     claims={k:'INCONCLUSIVE' for k in ('high bounded-vertical capability','OOD improvement','data efficiency','grounded execution','trajectory validity','goal success','recovery','external benchmark competitiveness','memory benefit','dream benefit')}
@@ -196,7 +209,8 @@ def main():
         'phase_memory_release':load(BASE/'emergency_mps_v1/phase_memory_release.json'),'mps_inference_verified':bool(locked) and all(a['latency'].get('device')=='mps' for r in locked for a in r['attempts']),'profile': profile,'native_device': load(BASE/'emergency_mps_v1/native_device.json'),'replay': replay,'latency': latency_summary,'latency_scope':load(BASE/'latency_probe_v1/scope.json',{'status':'Dedicated stage benchmark not run; reused real fresh representative smoke timings','source':latency_source}),
         'tests': tests,'audit_count': fairness.get('check_count'),'fairness': fairness,'claims': claims,
         'humaneval': {name:load(BASE/name/'summary.json') for name in ('humaneval_05b_v1','humaneval_15b_v1')},
-        'SQL': 'Environment implemented; model study deferred','recovery': 'not run','ablations': 'memory/dream model ablations not run',
+        'SQL': 'Environment implemented; model study deferred','recovery': 'Injected-fault recovery intervention not run',
+        'observed_self_correction':natural_recovery,'ablations': 'memory/dream model ablations not run',
         'training_records':training_records,'parameters': 1543714304,'trainable_lora_parameters': 1089536,
         'neural_failure': load(BASE/'emergency_mps_v1/failure.json'),'deadline_utc': '2026-10-08 15:30:00 UTC'}
     result['continuation']=load(BASE/'research_continuation_v1/launch.json')
@@ -253,6 +267,7 @@ def main():
         narrative+=f"|{r['condition']}|{r['split']}|{r['episodes']}/50|{r['accuracy']:.1%}|{r['wilson_ci95']}|\n"
     narrative+='\nObserved complete-cell sample thresholds and all partial cells are in `results/coding/emergency_analysis_v1/summary.json`. DER is undefined for a causal architecture comparison. No zero-budget control was run.\n\n'
     narrative+='Task-paired confidence intervals are descriptive and unadjusted for multiple comparisons. Transition validity is conditional on recorded actions; malformed model proposals are reported separately.\n\n'
+    narrative+='Observed self-correction from saved offline first-edit assessments: `'+json.dumps(natural_recovery)+'`. This is separate from unrun injected-fault recovery tests.\n\n'
     narrative+='Operational answer metrics: `'+json.dumps(answer_metrics)+'`. Failed terminal tests are unsupported program answers under this oracle; they are not a measured semantic hallucination rate.\n\n'
     narrative+='Original frozen configuration SHA-256: `'+result['configuration_sha256']+'`. Seeds: 11/23/37 for learning; seed 11 and budget 100 for lockbox. Exact checkpoint/source hashes are in the frozen protocol; host/runtime and training compute are in the machine-readable summary.\n\n'
     narrative+='## Actual acceleration measurements\n\n```json\n'+json.dumps({k:v for k,v in profile.items() if k not in ('comparisons','batch_trials','precision_trials')},indent=2)+'\n```\n\n'
