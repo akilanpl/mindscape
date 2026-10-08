@@ -216,6 +216,37 @@ scorecard = {
     "limitations": metrics["limitations"],
 }
 root = Path("experiments/coding_completion_v2")
+scorecard["models"] = {
+    "primary": {
+        "name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+        "backbone_parameters": public["15b"]["parameters"],
+        "adapter_trainable_parameters": 1089536,
+        "license": "Apache-2.0",
+        "quantization": "none; float32 CPU",
+        "native_context_tokens": 32768,
+        "training_context_cap_tokens": {"plain_patch": 768, "structured_and_action": 2048},
+        "repair_output_cap_tokens": 256,
+        "public_output_cap_tokens": 512,
+        "decoding": "greedy; do_sample=False; temperature not used",
+    },
+    "historical_small": {
+        "name": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+        "revision": "ea3f2471cf1b1f0db85067f1ef93848e38e88c25",
+        "backbone_parameters": public["05b"]["parameters"],
+        "license": "Apache-2.0",
+    },
+}
+scorecard["hardware"] = json.loads(Path("experiments/coding_completion_v2/host.json").read_text())
+scorecard["reproducibility"]["teacher_tuples"] = json.loads(
+    (base / "completion_audits_v1/teacher_tuples.json").read_text()
+)
+scorecard["reproducibility"]["lockbox_validation"] = json.loads(
+    (base / "completion_lockbox_validation_v1/complete.json").read_text()
+)
+scorecard["reproducibility"]["dataset_reproduction"] = json.loads(
+    Path("experiments/coding_completion_v2/dataset_reproduction.json").read_text()
+)
 scorecard["targets"] = {
     "bounded_100_percent": c["successes"] == 100,
     "IID_at_least_95_percent": c["split_accuracy"]["test"] >= 0.95,

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "results/coding/final_dataset_v1/dataset.json",
+    "sha256": "d99e5c194247d7d96c5948603b51405da7c7ce350a502c2df94b51f73ff188dd",
+    "exact_reproduction": true
+  },
+  {
+    "path": "results/coding/completion_lockbox_v1/tasks.json",
+    "sha256": "392ef68a412f8df49b93af60ee24318a6746a78aaeee30acdc0d6f72e92bc8a5",
+    "exact_reproduction": true
+  }
+]

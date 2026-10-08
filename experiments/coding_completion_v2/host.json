@@ -9,5 +9,6 @@
   "paid_services": 0,
   "currency": "USD",
   "cpu": "Apple M5",
-  "ram_bytes": 17179869184
+  "ram_bytes": 17179869184,
+  "sqlite_version": "3.53.1"
 }
