@@ -1,0 +1,7 @@
+{
+  "python": "3.12.14",
+  "macos": "27.0.1",
+  "darwin_kernel": "27.0.0",
+  "machine": "arm64",
+  "measurement_context": "Tool environment host metadata; native MPS use verified separately by actual inference records"
+}
