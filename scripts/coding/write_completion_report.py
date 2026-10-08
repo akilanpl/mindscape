@@ -289,7 +289,7 @@ lines += [
     "",
     f"Local leakage checks: {fairness['local_leakage_status']}, {fairness['check_count']} checks. Independent trajectory replays:{len(trace)}. Overall contamination-free claim: FAIL/not established because foundation pretraining exposure is unknown.",
     "",
-    f"Tests: {test['tests']} passed; failures:{test['failures']}, errors:{test['errors']}. Historical multiplication reports remain unchanged in their original sections and release.",
+    f"Tests: {test['pytest_passed_tests']} passed plus {test['subtests_passed']} subtests ({test['tests']} JUnit cases); failures:{test['failures']}, errors:{test['errors']}. Historical multiplication reports remain unchanged in their original sections and release.",
     "",
     "## Claims",
     "",
