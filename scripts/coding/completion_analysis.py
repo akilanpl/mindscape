@@ -163,6 +163,10 @@ for condition in final_cells:
         sum(a.get("latency", {}).get("tokens_out", 0) for a in r.get("attempts", [])) for r in rows
     ]
     values["trajectory_steps"] = [len(r["trajectory"]["transitions"]) for r in rows]
+    values["environment_calls"] = [len(r["trajectory"]["transitions"]) for r in rows]
+    values["test_suites_executed"] = [
+        r["stages"].get("test_execution", {}).get("calls", 0) for r in rows
+    ]
     values["peak_rss_bytes"] = [r["peak_rss_bytes"] for r in rows]
     for r in rows:
         for stage, measurement in r["stages"].items():
