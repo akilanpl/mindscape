@@ -2,12 +2,12 @@
 
 |Claim|Status|
 |---|---|
-|high bounded-vertical capability|INCONCLUSIVE|
-|OOD improvement|INCONCLUSIVE|
+|high bounded-vertical capability|NOT SUPPORTED|
+|OOD improvement|SUPPORTED|
 |data efficiency|INCONCLUSIVE|
-|grounded execution|INCONCLUSIVE|
-|trajectory validity|INCONCLUSIVE|
-|goal success|INCONCLUSIVE|
+|grounded execution|SUPPORTED|
+|trajectory validity|SUPPORTED|
+|goal success|NOT SUPPORTED|
 |recovery|INCONCLUSIVE|
 |external benchmark competitiveness|INCONCLUSIVE|
 |memory benefit|INCONCLUSIVE|

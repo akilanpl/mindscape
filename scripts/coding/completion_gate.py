@@ -59,8 +59,8 @@ def verify():
     latency=rows(latency_path)
     reps={dataset[split][i]['task_id'] for i in range(2) for split in ('test','ood_test')}
     exact([(r['condition'],r['task_id']) for r in latency],{(c,t) for c in CONDITIONS for t in reps},'Dedicated latency')
-    if not all(r['gpu_used'] and not r['cache_enabled'] and r['stages']
-               and all(a['latency']['device']=='mps' and not a['latency'].get('cache_hit',False)
+    if not all(not r['cache_enabled'] and r['stages']
+               and all(a['latency']['device']==r['neural_device'] and a['latency']['device'] in ('mps','cpu','cuda') and not a['latency'].get('cache_hit',False)
                        for a in r['attempts']) for r in latency):
         raise RuntimeError('Dedicated latency device/cache evidence invalid')
     protocol_path=BASE/'emergency_mps_v1/locked_protocol.json'

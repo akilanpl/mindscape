@@ -19,13 +19,13 @@ for ax,c in zip(axes.flat,conditions,strict=True):
     lines=defaultdict(list)
     for cell in data['learning_curve']['cells']:
         if cell['condition']==c and cell['complete']:
-            lines[(cell['split'],cell['seed'],cell['device'],cell['precision'])].append(cell)
-    for (split,seed,device,precision),cells in sorted(lines.items()):
+            lines[(cell['split'],cell['seed'],cell['device'],cell['precision'],cell.get('host','local-Apple-M5'))].append(cell)
+    for (split,seed,device,precision,host),cells in sorted(lines.items()):
         cells.sort(key=lambda r:r['budget'])
         ax.plot([r['budget'] for r in cells],[100*r['accuracy'] for r in cells],
                 color='#2068aa' if split=='test' else '#ca5b22',
                 marker='o' if device=='cpu' else 's',linestyle={11:'-',23:'--',37:':'}[seed],
-                label=f'{split} seed {seed} {device}/{precision}',alpha=.8)
+                label=f'{split} seed {seed} {device}/{precision} {host}',alpha=.8)
     ax.set_title(c);ax.set_xscale('log');ax.set_xticks([10,25,50,100],['10','25','50','100'])
     ax.set_ylim(0,105);ax.grid(alpha=.2);ax.set_xlabel('Unique training tasks');ax.set_ylabel('Hidden task success (%)')
     if lines:

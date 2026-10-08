@@ -7,3 +7,9 @@ __pycache__/
 results/
 
 work/
+
+# Raw results are preserved in verified research_checkpoint archive parts for GitHub.
+# This avoids large-file limits without discarding generated scientific evidence.
+
+# Codex CLI authentication diagnostics are machine logs, not research evidence.
+/error.log

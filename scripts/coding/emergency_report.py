@@ -31,34 +31,34 @@ def main():
     for r in learning:
         device = r.get('neural_device', 'cpu')
         precision = r.get('model_precision', 'float32')
-        cells[(r['condition'], r['split'], r['seed'], r['budget'], device, precision)].append(r)
+        cells[(r['condition'], r['split'], r['seed'], r['budget'], device, precision, r.get('execution_host','local-Apple-M5'))].append(r)
     cell_summary = []
     curves = defaultdict(dict)
     for key, values in sorted(cells.items()):
-        c, split, seed, budget, device, precision = key
+        c, split, seed, budget, device, precision, host = key
         n = len(values)
         successes = sum(r['success'] for r in values)
         cell_summary.append({'condition': c, 'split': split, 'seed': seed, 'budget': budget,
-                                 'device': device, 'precision': precision, 'episodes': n, 'planned': 20,
+                                 'device': device, 'precision': precision, 'host':host, 'episodes': n, 'planned': 20,
                                  'complete': n == 20, 'successes': successes, 'accuracy': successes/n})
         if n == 20:
-            curves[(c, split, seed, device, precision)][budget] = successes/n
-    thresholds = [{'condition':k[0], 'split':k[1], 'seed':k[2], 'device':k[3], 'precision':k[4],
+            curves[(c, split, seed, device, precision, host)][budget] = successes/n
+    thresholds = [{'condition':k[0], 'split':k[1], 'seed':k[2], 'device':k[3], 'precision':k[4], 'host':k[5],
                    'observed_budget_thresholds':{str(q):threshold(v,q) for q in (.8,.9,.95)}}
                   for k,v in sorted(curves.items())]
     aggregates = defaultdict(list)
     for cell in cell_summary:
         if cell['complete']:
-            aggregates[(cell['condition'],cell['split'],cell['budget'],cell['device'],cell['precision'])].append(cell)
-    complete_seed_summaries = [{"condition":k[0],"split":k[1],"budget":k[2],"device":k[3],"precision":k[4],
+            aggregates[(cell['condition'],cell['split'],cell['budget'],cell['device'],cell['precision'],cell['host'])].append(cell)
+    complete_seed_summaries = [{"condition":k[0],"split":k[1],"budget":k[2],"device":k[3],"precision":k[4],"host":k[5],
         "seeds":[r['seed'] for r in v],"mean_accuracy":float(np.mean([r['accuracy'] for r in v])),
         "seed_sd":float(np.std([r['accuracy'] for r in v],ddof=1)) if len(v)>1 else None,
         "planned_seed_count":3,"complete_three_seed_cell":len(v)==3} for k,v in sorted(aggregates.items())]
     descriptive_der = []
     for k, curve in sorted(curves.items()):
-        baseline = curves.get(("model_only",k[1],k[2],k[3],k[4]))
+        baseline = curves.get(("model_only",k[1],k[2],k[3],k[4],k[5]))
         if baseline is not None:
-            descriptive_der.append({"condition":k[0],"split":k[1],"seed":k[2],"device":k[3],"precision":k[4],
+            descriptive_der.append({"condition":k[0],"split":k[1],"seed":k[2],"device":k[3],"precision":k[4],"host":k[5],
                 "ratios":{str(q):der(threshold(baseline,q),threshold(curve,q)) for q in (.8,.9,.95)},
                 "interpretation":"Descriptive observed-budget ratios; not architecture-only causal evidence"})
     protocol_cells = defaultdict(list)
@@ -164,6 +164,8 @@ def main():
             'peak_process_rss_bytes':max((r.get('peak_rss_bytes',0) for r in group),default=0) or None,
             'peak_mps_live_bytes':max((r.get('mps_allocated_bytes',0) for r in group),default=0) or None,
             'peak_mps_driver_bytes':max((r.get('mps_driver_bytes',0) for r in group),default=0) or None,
+            'peak_cuda_allocated_bytes':max((r.get('cuda_allocated_bytes',0) for r in group),default=0) or None,
+            'peak_cuda_reserved_bytes':max((r.get('cuda_reserved_bytes',0) for r in group),default=0) or None,
             'sequential_episodes_per_hour':3600*len(group)/sum(r['wall_seconds'] for r in group)
                 if latency_source.startswith('Dedicated') else None,
             'percentiles': {k:{'p50':float(np.percentile(v,50)),'p95':float(np.percentile(v,95)),'n':len(v)} for k,v in fields.items() if v},
@@ -214,6 +216,7 @@ def main():
         'training_records':training_records,'parameters': 1543714304,'trainable_lora_parameters': 1089536,
         'neural_failure': load(BASE/'emergency_mps_v1/failure.json'),'deadline_utc': '2026-10-08 15:30:00 UTC'}
     result['continuation']=load(BASE/'research_continuation_v1/launch.json')
+    result['cloud_execution']={name:load(BASE/'cloud_continuation_v1'/file) for name,file in [('hardware','hardware.json'),('profile','profile.json'),('budget','budget.json'),('progress','progress.json'),('neural_stop','neural_stop.json')]}
     continuation_complete=load(BASE/'research_continuation_v1/complete.json')
     if continuation_complete and result['continuation']:
         elapsed=continuation_complete['time_unix']-result['continuation']['started_unix']

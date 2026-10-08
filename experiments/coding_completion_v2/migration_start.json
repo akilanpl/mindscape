@@ -1,0 +1,11 @@
+{
+  "starting_commit": "d034a9b",
+  "lockbox": 400,
+  "learning": 1122,
+  "learning_remaining": 798,
+  "native_pid": 55498,
+  "native_stopped": true,
+  "rows_stable": true,
+  "locked_rows_sha256": "94d16bc07ae83499c92cdb4f25b5381c51afac37bc84c2e40e786e98413710de",
+  "configuration_sha256": "11d2a6b5bef6517a5cae10dca46f1e94bfe2db3504afd3942434fcb78f496bb0"
+}
