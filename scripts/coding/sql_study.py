@@ -8,7 +8,9 @@ from dataclasses import asdict
 from pathlib import Path
 
 from mindscape.coding.model import LocalCoder
-from mindscape.sql.environment import SqlEnvironment, task
+from mindscape.data.schemas import BenchmarkExample
+from mindscape.evaluation.schemas import PredictionRecord
+from mindscape.sql.environment import SqlAction, SqlEnvironment, task
 from mindscape.sql.policy import SqlBenchmarkModel
 
 p = argparse.ArgumentParser()
@@ -46,34 +48,70 @@ for condition in ("model_only", "mindscape_c"):
         if key in done:
             continue
         original = SqlEnvironment()
-        original.reset(example)
+        initial_state = asdict(original.reset(example))
         if original.final_evaluate()["success"]:
             raise RuntimeError("SQL defect not discriminated")
-        original.step(
-            __import__("mindscape.sql.environment", fromlist=["SqlAction"]).SqlAction(
-                "edit_query", example.target_query
-            )
-        )
+        original.step(SqlAction("edit_query", example.target_query))
         if not original.final_evaluate()["success"]:
             raise RuntimeError("SQL oracle fails")
         began = time.perf_counter()
-        prediction = model.predict(
-            {
-                "example_id": example.task_id,
-                "problem": example.problem,
-                "observation": example.visible(),
-            }
+        benchmark = BenchmarkExample(
+            example.task_id,
+            "sql_correction",
+            example.problem,
+            example.visible(),
+            initial_state,
+            {"description": example.problem},
+            example.target_query,
+            [],
+            {"private_rows": example.private_rows},
         )
+        prediction = model.predict(benchmark.view("experiential"))
         evaluator = SqlEnvironment()
         evaluator.reset(example)
         evaluator.query = prediction.answer
         assessment = evaluator.final_evaluate()
+        replay = SqlEnvironment()
+        replay.reset(example)
+        valid = True
+        for transition in prediction.trajectory["transitions"]:
+            if replay.query != transition["state_before"]["query"]:
+                valid = False
+            actual = replay.step(SqlAction(**transition["action"]))
+            expected_result = {k: v for k, v in transition["result"].items() if k != "seconds"}
+            actual_result = {k: v for k, v in actual.result.items() if k != "seconds"}
+            if (
+                not actual.valid
+                or actual.event != transition["event"]
+                or replay.query != transition["state_after"]["query"]
+                or json.dumps(expected_result, sort_keys=True)
+                != json.dumps(actual_result, sort_keys=True)
+            ):
+                valid = False
+        valid = valid and replay.query == prediction.answer
+        evaluation = PredictionRecord(
+            example.task_id,
+            prediction.answer,
+            "independent private database",
+            assessment["success"],
+            prediction.trajectory,
+            valid,
+            assessment["success"],
+            assessment["success"] and valid,
+            "correct"
+            if assessment["success"] and valid
+            else "invalid_transition"
+            if not valid
+            else "goal_failure",
+            prediction.diagnostics,
+        )
         row = {
             "key": key,
             "condition": condition,
             "task_id": example.task_id,
             "success": assessment["success"],
             "prediction": asdict(prediction),
+            "evaluation": asdict(evaluation),
             "terminal": assessment,
             "wall_seconds": time.perf_counter() - began,
         }

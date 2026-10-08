@@ -135,7 +135,7 @@ for condition, rows in final_cells.items():
         / sum(len(r.get("attempts", [])) for r in rows),
         "grounded_success": bootstrap_mean([r["success"] and valid(r) for r in rows]),
         "valid_episode_rate": np.mean([valid(r) for r in rows]),
-        "success_at_1": np.mean(
+        "first_applied_patch_success": np.mean(
             [r.get("first_patch_success", r["success"]) or False for r in rows]
         ),
         "terminal_success_with_at_most_3_edits": np.mean([r["success"] for r in rows]),
@@ -213,7 +213,8 @@ summary = {
 }
 recovery = [r for r in read("stress_v1") if r["kind"] == "recovery"]
 attempts_to_success = [
-    next((i + 1 for i, v in enumerate(r.get("success_by_edit", [])) if v), None) for r in recovery
+    next((i + 1 for i, v in enumerate(r.get("repair_proposal_success", [])) if v), None)
+    for r in recovery
 ]
 successful_attempts = [v for v in attempts_to_success if v is not None]
 summary["recovery"] = {

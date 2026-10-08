@@ -125,6 +125,14 @@ for kind, variant, task in cases:
         row = policy.solve(task)
     snapshots = row.get("edit_snapshots", [])
     verdicts = [run_cases(sandbox, files, task.hidden_tests)["all_passed"] for files in snapshots]
+    accepted = iter(verdicts)
+    proposal_verdicts = []
+    for attempt in row["attempts"]:
+        name = (attempt.get("action") or {}).get("name")
+        if name in ("edit", "patch"):
+            proposal_verdicts.append(False if attempt.get("parse_error") else next(accepted))
+        elif attempt.get("parse_error") and attempt.get("action") is None:
+            proposal_verdicts.append(False)
     row.update(
         key=key,
         kind=kind,
@@ -133,9 +141,11 @@ for kind, variant, task in cases:
         stages=meter.summary(),
         generation_cache_enabled=False,
         success_by_edit=verdicts,
+        repair_proposal_success=proposal_verdicts,
         assessment_timing="All private snapshot assessments occur after policy termination",
         injected_fault_execution=initial_fault,
-        interactive_success_at_k={str(k): any(verdicts[:k]) for k in (1, 3, 5)},
+        interactive_success_at_k={str(k): any(proposal_verdicts[:k]) for k in (1, 3, 5)},
+        repair_attempt_definition="Applied edit/patch proposals plus invalid unparseable proposals; inspection/test actions excluded",
         ablation_scope="Inference component removal; trained weights remain fixed",
     )
     with path.open("a") as f:
