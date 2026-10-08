@@ -1,0 +1,21 @@
+environment = "integer_multiplication"
+seed = 42
+include_zero = false
+signed = false
+budgets = [10,25,50,100,250,500,1000]
+
+[splits.train]
+count = 1000
+structures = ["1x1", "2x1", "2x2"]
+
+[splits.validation]
+count = 250
+structures = ["1x1", "2x1", "2x2"]
+
+[splits.test]
+count = 500
+structures = ["1x1", "2x1", "2x2"]
+
+[splits.ood_test]
+count = 500
+structures = ["3x2", "3x3"]
