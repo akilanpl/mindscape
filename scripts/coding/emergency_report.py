@@ -236,11 +236,14 @@ def main():
         'semantic_hallucination_rate':None,
         'semantic_hallucination_status':'Not measured by this program-repair protocol'}
     answer_metrics=result['operational_answer_metrics']
-    answer_metrics['grounded_successful_answer_rate']=(answer_metrics['grounded_successful_answers']/len(locked)) if locked else None
+    audited_keys={tuple(r['key']) for r in audit}
+    answer_metrics['unverified_episodes']=sum((r['condition'],r['task_id']) not in audited_keys for r in locked)
+    answer_metrics['grounded_successful_answer_rate']=(answer_metrics['grounded_successful_answers']/len(locked)) if locked and not answer_metrics['unverified_episodes'] else None
     answer_metrics['unsupported_by_terminal_tests_rate']=(answer_metrics['terminal_incorrect_answers']/len(locked)) if locked else None
     result['hardware_runtime']=load(Path('experiments/coding_completion_v2/host.json'),{})
     result['hardware_runtime']['mps_available_in_tool_sandbox']=result['hardware_runtime'].pop('mps_available',None)
     result['hardware_runtime']['native_mps_inference_verified']=result['mps_inference_verified']
+    result['current_runtime']=load(Path('experiments/coding_completion_v2/runtime_current.json'),{})
     (OUT/'summary.json').write_text(json.dumps(result,indent=2))
     narrative='# Mindscape bounded MPS completion evidence\n\n'
     narrative+=f"Learning curve: **{len(learning)}/1,920 episodes**, {1920-len(learning)} not run. Lockbox: **{len(locked)}/400 condition-task episodes** (100 independent tasks). Preserved CPU work remains intact.\n\n"
