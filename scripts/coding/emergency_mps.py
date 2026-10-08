@@ -218,7 +218,7 @@ def main():
     lockbox = [CodeTask(**v) for v in json.loads((BASE / "completion_lockbox_v1/tasks.json").read_text())]
     write(ROOT / "native_device.json", {"mps_built": torch.backends.mps.is_built(),
           "mps_available": torch.backends.mps.is_available(), "fallback": os.getenv("PYTORCH_ENABLE_MPS_FALLBACK"),
-          "start_unix": START, "deadline_unix": END, "native_pid": os.getpid()})
+          "start_unix": START, "native_launch_unix":time.time(), "deadline_unix": END, "native_pid": os.getpid()})
     teacher_records()
     coder = ResidentCoder(MODEL, precision="float16")
     saved_profile = ROOT / "profile.json"
@@ -239,6 +239,28 @@ def main():
           "live_allocated_bytes":torch.mps.current_allocated_memory(),
           "reason":"Single profiling/evaluation boundary; no per-operation cache clearing",
           "configuration_reused":saved_profile.exists(), "time_unix":time.time()})
+    original_batch = coder.generate_batch
+    last_release = [0.0]
+    release_enabled = [True]
+    def measured_batch(requests):
+        values = original_batch(requests)
+        driver = torch.mps.driver_allocated_memory()
+        live = torch.mps.current_allocated_memory()
+        record = {"completed_unix":time.time(),"batch_size":len(requests),
+                  "driver_bytes":driver,"live_bytes":live,"revision":coder.revision}
+        # Memory-pressure response, not an unconditional per-operation cache clear.
+        if release_enabled[0] and driver > 10_000_000_000 and driver-live > 6_000_000_000 and time.time()-last_release[0] > 120:
+            began=time.perf_counter()
+            torch.mps.empty_cache()
+            after=torch.mps.driver_allocated_memory()
+            record.update(released_driver_bytes=driver-after,release_seconds=time.perf_counter()-began)
+            last_release[0]=time.time()
+            if driver-after < 1_000_000_000:
+                release_enabled[0]=False  # Do not repeatedly clear non-releasable graph memory.
+        append(ROOT/"batch_resources.jsonl",record)
+        write(ROOT/"current_inference.json",record)
+        return values
+    coder.generate_batch = measured_batch
     batch_size = metrics["selected_batch_size"]
     protocol = {"backbone": coder.base_revision, "device": "mps", "precision": coder.precision,
                 "batch_size": batch_size, "max_steps": 8, "max_edits": 3, "max_new_tokens": 256,
@@ -257,7 +279,7 @@ def main():
     locked_root.mkdir(parents=True, exist_ok=True)
     for condition in ("mindscape_c","mindscape_b","model_only","structured"):
         coder.use_adapter(adapter(condition))
-        run_group(coder, lockbox, condition, locked_root / "rows.jsonl", batch_size, END - (900 if condition == "mindscape_c" else 1800),
+        run_group(coder, lockbox, condition, locked_root / "rows.jsonl", batch_size, END - (600 if condition == "mindscape_c" else 1800),
                   {"seed":11,"budget":100,"one_shot_configuration":True,
                    "adapter":str(adapter(condition)),"protocol":"emergency_mps_v1/locked_protocol.json"})
     locked = read(locked_root / "rows.jsonl")
@@ -310,18 +332,18 @@ def main():
     latency_root = BASE/"latency_probe_v1";latency_root.mkdir(parents=True,exist_ok=True)
     representatives = [CodeTask(**v) for v in [data[split][index] for index in range(2) for split in ("test","ood_test")]]
     for condition in ("mindscape_c","model_only","structured","mindscape_b"):
-        if time.time() >= END-600:
+        if time.time() >= END-300:
             break
-        coder.use_adapter(adapter(condition));coder.deadline=END-600
+        coder.use_adapter(adapter(condition));coder.deadline=END-300
         for task in representatives:
             if any(r["condition"]==condition and r["task_id"]==task.task_id for r in read(latency_root/"rows.jsonl")):
                 continue
-            if time.time() >= END-600:
+            if time.time() >= END-300:
                 break
             def cutoff(signum, frame):
                 raise TimeoutError("Latency deadline reached; unfinished episode not counted")
             signal.signal(signal.SIGALRM,cutoff)
-            signal.setitimer(signal.ITIMER_REAL,max(.001,END-600-time.time()))
+            signal.setitimer(signal.ITIMER_REAL,max(.001,END-300-time.time()))
             try:
                 with StageMeter() as meter:
                     row = solve(task,coder,condition)
