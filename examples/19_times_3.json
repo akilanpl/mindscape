@@ -1,0 +1,570 @@
+{
+  "schema_version": "0.1.0",
+  "trajectory": {
+    "observation": {
+      "operands": [
+        19,
+        3
+      ],
+      "source": "user_input",
+      "kind": "observation"
+    },
+    "initial_state": {
+      "entities": [
+        {
+          "id": "left",
+          "value": 19
+        },
+        {
+          "id": "right",
+          "value": 3
+        }
+      ],
+      "relations": [
+        {
+          "source": "left",
+          "predicate": "multiplied_by",
+          "target": "right"
+        }
+      ],
+      "left_digits": [
+        9,
+        1
+      ],
+      "right_digits": [
+        3
+      ],
+      "sign": 1,
+      "position": 0,
+      "row_position": 0,
+      "carry": 0,
+      "row_value": 0,
+      "accumulated": 0,
+      "phase": "multiply",
+      "answer": null,
+      "context": "decimal_integer_multiplication",
+      "goal": {
+        "description": "Produce the correct signed integer product"
+      }
+    },
+    "transitions": [
+      {
+        "state_before": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 0,
+          "row_position": 0,
+          "carry": 0,
+          "row_value": 0,
+          "accumulated": 0,
+          "phase": "multiply",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        },
+        "action": {
+          "name": "multiply",
+          "position": 0,
+          "row_position": 0
+        },
+        "event": {
+          "name": "digit_written",
+          "detail": "Multiply operand digits, add incoming carry"
+        },
+        "result": {
+          "value": 27,
+          "written_digit": 7,
+          "carry": 2,
+          "kind": "actual_result",
+          "source": "multiplication_environment"
+        },
+        "state_after": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 1,
+          "row_position": 0,
+          "carry": 2,
+          "row_value": 7,
+          "accumulated": 0,
+          "phase": "multiply",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        }
+      },
+      {
+        "state_before": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 1,
+          "row_position": 0,
+          "carry": 2,
+          "row_value": 7,
+          "accumulated": 0,
+          "phase": "multiply",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        },
+        "action": {
+          "name": "multiply",
+          "position": 1,
+          "row_position": 0
+        },
+        "event": {
+          "name": "digit_written",
+          "detail": "Multiply operand digits, add incoming carry"
+        },
+        "result": {
+          "value": 5,
+          "written_digit": 5,
+          "carry": 0,
+          "kind": "actual_result",
+          "source": "multiplication_environment"
+        },
+        "state_after": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 2,
+          "row_position": 0,
+          "carry": 0,
+          "row_value": 57,
+          "accumulated": 0,
+          "phase": "flush",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        }
+      },
+      {
+        "state_before": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 2,
+          "row_position": 0,
+          "carry": 0,
+          "row_value": 57,
+          "accumulated": 0,
+          "phase": "flush",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        },
+        "action": {
+          "name": "flush",
+          "position": 2,
+          "row_position": 0
+        },
+        "event": {
+          "name": "carry_flushed",
+          "detail": "Append remaining carry to the partial row"
+        },
+        "result": {
+          "value": 57,
+          "written_digit": null,
+          "carry": 0,
+          "kind": "actual_result",
+          "source": "multiplication_environment"
+        },
+        "state_after": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 2,
+          "row_position": 0,
+          "carry": 0,
+          "row_value": 57,
+          "accumulated": 0,
+          "phase": "accumulate",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        }
+      },
+      {
+        "state_before": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 2,
+          "row_position": 0,
+          "carry": 0,
+          "row_value": 57,
+          "accumulated": 0,
+          "phase": "accumulate",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        },
+        "action": {
+          "name": "accumulate",
+          "position": 2,
+          "row_position": 0
+        },
+        "event": {
+          "name": "row_accumulated",
+          "detail": "Add place-shifted partial row"
+        },
+        "result": {
+          "value": 57,
+          "written_digit": null,
+          "carry": 0,
+          "kind": "actual_result",
+          "source": "multiplication_environment"
+        },
+        "state_after": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 0,
+          "row_position": 1,
+          "carry": 0,
+          "row_value": 0,
+          "accumulated": 57,
+          "phase": "finish",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        }
+      },
+      {
+        "state_before": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 0,
+          "row_position": 1,
+          "carry": 0,
+          "row_value": 0,
+          "accumulated": 57,
+          "phase": "finish",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        },
+        "action": {
+          "name": "finish",
+          "position": 0,
+          "row_position": 1
+        },
+        "event": {
+          "name": "answer_materialized",
+          "detail": "Apply the operand sign"
+        },
+        "result": {
+          "value": 57,
+          "written_digit": null,
+          "carry": 0,
+          "kind": "actual_result",
+          "source": "multiplication_environment"
+        },
+        "state_after": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 19
+            },
+            {
+              "id": "right",
+              "value": 3
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            9,
+            1
+          ],
+          "right_digits": [
+            3
+          ],
+          "sign": 1,
+          "position": 0,
+          "row_position": 1,
+          "carry": 0,
+          "row_value": 0,
+          "accumulated": 57,
+          "phase": "done",
+          "answer": 57,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        }
+      }
+    ]
+  },
+  "final_state": {
+    "entities": [
+      {
+        "id": "left",
+        "value": 19
+      },
+      {
+        "id": "right",
+        "value": 3
+      }
+    ],
+    "relations": [
+      {
+        "source": "left",
+        "predicate": "multiplied_by",
+        "target": "right"
+      }
+    ],
+    "left_digits": [
+      9,
+      1
+    ],
+    "right_digits": [
+      3
+    ],
+    "sign": 1,
+    "position": 0,
+    "row_position": 1,
+    "carry": 0,
+    "row_value": 0,
+    "accumulated": 57,
+    "phase": "done",
+    "answer": 57,
+    "context": "decimal_integer_multiplication",
+    "goal": {
+      "description": "Produce the correct signed integer product"
+    }
+  },
+  "answer": 57,
+  "verification": {
+    "trajectory_valid": true,
+    "final_answer_valid": true,
+    "goal_reached": true,
+    "errors": [],
+    "verified": true
+  },
+  "goal_status": true
+}
