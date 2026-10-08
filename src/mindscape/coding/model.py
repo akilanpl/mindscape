@@ -2,24 +2,32 @@
 
 import hashlib
 import json
+import os
 import re
 import time
 from pathlib import Path
 
 
 class LocalCoder:
-    def __init__(self, path, adapter=None, cache_enabled=True):
+    def __init__(self, path, adapter=None, cache_enabled=True, device=None, precision=None, retain_cpu_state=False):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
 
+        from mindscape.coding.device import select_device
+
+        self.execution = select_device(device, precision,
+            require_mps=(device or os.getenv("MINDSCAPE_DEVICE", "mps")) != "cpu")
+        self.device = self.execution.device
+        self.precision = self.execution.precision
         self.cache_enabled = cache_enabled
         self.torch = torch
         torch.set_num_threads(4)
         self.path = str(Path(path).resolve())
         self.revision = Path(path).name
         self.tokenizer = AutoTokenizer.from_pretrained(path, local_files_only=True)
+        loaded_at = time.perf_counter()
         self.model = AutoModelForCausalLM.from_pretrained(
-            path, local_files_only=True, torch_dtype=torch.float32
+            path, local_files_only=True, torch_dtype=self.execution.dtype
         ).eval()
         if adapter is not None:
             from peft import PeftModel
@@ -33,6 +41,12 @@ class LocalCoder:
                     (Path(adapter) / "adapter_model.safetensors").read_bytes()
                 ).hexdigest()
             )
+        self.cpu_checkpoint_state = self.model.state_dict() if retain_cpu_state else None
+        self.cpu_checkpoint_buffers = dict(self.model.named_buffers()) if retain_cpu_state else None
+        self.model.to(self.device).eval()
+        self.execution.synchronize()
+        self.execution.check_model(self.model)
+        self.load_seconds = time.perf_counter() - loaded_at
         self.parameter_count = sum(p.numel() for p in self.model.parameters())
         self.calls = 0
         self.input_tokens = 0
@@ -42,7 +56,7 @@ class LocalCoder:
     def generate(self, system, prompt, max_tokens=256, seed=0):
         key = hashlib.sha256(
             json.dumps(
-                [self.revision, system, prompt, max_tokens, "greedy"], sort_keys=True
+                [self.revision, self.execution.name, self.precision, system, prompt, max_tokens, "greedy"], sort_keys=True
             ).encode()
         ).hexdigest()
         cache = Path("work/coding/generation_cache") / (key + ".json")
@@ -68,13 +82,17 @@ class LocalCoder:
             tokenize=False,
             add_generation_prompt=True,
         )
-        inputs = self.tokenizer(text, return_tensors="pt")
+        inputs = self.tokenizer(text, return_tensors="pt").to(self.device)
+        self.execution.synchronize()
         start = time.perf_counter()
         first = [None]
+
+        self_execution = self.execution
 
         class First(StoppingCriteria):
             def __call__(self, input_ids, scores, **kwargs):
                 if first[0] is None:
+                    self_execution.synchronize()
                     first[0] = time.perf_counter() - start
                 return False
 
@@ -86,6 +104,7 @@ class LocalCoder:
                 pad_token_id=self.tokenizer.eos_token_id,
                 stopping_criteria=StoppingCriteriaList([First()]),
             )
+        self.execution.synchronize()
         generated = result[0, inputs["input_ids"].shape[1] :]
         duration = time.perf_counter() - start
         self.calls += 1
@@ -95,6 +114,9 @@ class LocalCoder:
             {
                 "ttft": first[0],
                 "generation": duration,
+                "actual_batch_size": 1,
+                "device": self.execution.name,
+                "precision": self.precision,
                 "tokens_in": inputs["input_ids"].numel(),
                 "tokens_out": len(generated),
             }

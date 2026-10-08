@@ -1,0 +1,27 @@
+{
+  "recorded_at_utc": "2026-10-08T13:30:56Z",
+  "completed_episodes": 1122,
+  "remaining_episodes": 798,
+  "unique_keys": 1122,
+  "all_rows_valid_json": true,
+  "checkpoint_count": 56,
+  "result_file": "results/coding/completion_gradient_v1/rows.jsonl",
+  "result_sha256": "bcf9a9c0f0a21e8c00a30661db48bcca9b45ff11175172a3a8457c7e5f64f49a",
+  "mps_built": true,
+  "mps_available": false,
+  "mps_tensor_probe": {
+    "success": false,
+    "error": "The MPS backend is supported on macOS 14.0+. Current OS version can be queried using `sw_vers`"
+  },
+  "stopped_sessions": [
+    25320,
+    5580,
+    67561,
+    92548,
+    10471,
+    98014,
+    28780,
+    15666
+  ],
+  "status": "preserved_partial_cpu_sweep; no locked outcomes observed"
+}

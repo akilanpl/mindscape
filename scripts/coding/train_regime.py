@@ -18,16 +18,18 @@ import torch
 from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from mindscape.coding.device import select_device
 from mindscape.coding.policy import _model_view
 from mindscape.coding.schema import CodeTask
 
+execution = select_device()
 torch.set_num_threads(4)
 torch.manual_seed(a.seed)
 root = Path(a.output)
 root.mkdir(parents=True, exist_ok=True)
 tokenizer = AutoTokenizer.from_pretrained(a.model, local_files_only=True)
 model = get_peft_model(
-    AutoModelForCausalLM.from_pretrained(a.model, local_files_only=True, torch_dtype=torch.float32),
+    AutoModelForCausalLM.from_pretrained(a.model, local_files_only=True, torch_dtype=execution.dtype),
     LoraConfig(
         r=8,
         lora_alpha=16,
@@ -36,6 +38,8 @@ model = get_peft_model(
         task_type="CAUSAL_LM",
     ),
 )
+model.to(execution.device)
+execution.check_model(model)
 optimizer = torch.optim.AdamW([x for x in model.parameters() if x.requires_grad], lr=2e-4)
 dataset = json.loads(Path("results/coding/final_dataset_v1/dataset.json").read_text())
 tasks = [CodeTask(**v) for v in dataset["train"][: a.samples]]
@@ -110,7 +114,7 @@ for t in tasks:
     ids = input_ids + target_ids
     if len(ids) > 2048:
         raise RuntimeError("Context exceeds fixed cap; no silent truncation")
-    inputs = torch.tensor([ids])
+    inputs = torch.tensor([ids], device=execution.device)
     labels = inputs.clone()
     labels[:, : len(input_ids)] = -100
     model.train()

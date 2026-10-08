@@ -17,15 +17,17 @@ import torch
 from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from mindscape.coding.device import select_device
 from mindscape.coding.generator import generate
 
+execution = select_device()
 torch.set_num_threads(4)
 torch.manual_seed(a.seed)
 root = Path(a.output)
 root.mkdir(parents=True, exist_ok=True)
 tokenizer = AutoTokenizer.from_pretrained(a.model, local_files_only=True)
 base = AutoModelForCausalLM.from_pretrained(
-    a.model, local_files_only=True, torch_dtype=torch.float32
+    a.model, local_files_only=True, torch_dtype=execution.dtype
 )
 model = get_peft_model(
     base,
@@ -38,6 +40,8 @@ model = get_peft_model(
     ),
 )
 model.train()
+model.to(execution.device)
+execution.check_model(model)
 optimizer = torch.optim.AdamW((x for x in model.parameters() if x.requires_grad), lr=2e-4)
 tasks = generate(counts={"train": a.samples, "validation": 0, "test": 0, "ood_test": 0})["train"]
 losses = []
@@ -58,7 +62,7 @@ for t in tasks:
     ids = prompt_ids + target_ids
     if len(ids) > 768:
         raise RuntimeError("Training truncation forbidden")
-    inputs = torch.tensor([ids])
+    inputs = torch.tensor([ids], device=execution.device)
     labels = inputs.clone()
     labels[:, : len(prompt_ids)] = -100
     optimizer.zero_grad(set_to_none=True)
