@@ -1,0 +1,23 @@
+{
+  "verified_unix": 1791473316.407424,
+  "snapshot": "results/final/coding_emergency_partial_v1",
+  "manifest_sha256": "e1153062a236e4176bd164ce918977cfa280a519f5ce10147e432a5c8f5e4b00",
+  "verified_inventory_and_file_hashes": 6178,
+  "restore_destination": "work/emergency_restore_verified",
+  "restore_succeeded": true,
+  "source_commit": "30328806a5fab0b5bdea2072375a672328500cba",
+  "all_actual_locked_episodes_independently_replayed": 296,
+  "mandatory_flagship_comparison_complete": false,
+  "final_research_tag_created": false,
+  "test_results": {
+    "tests": 135,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "pytest_passed_tests": 129,
+    "subtests_passed": 6,
+    "seconds": 24.009
+  },
+  "partial_subset_caution": "B has 46/50 completed OOD tasks; its observed subset can be affected by completion order. Its interval is descriptive, not evidence about a complete 50-task comparison.",
+  "scheduling_limitation": "Initial run put B ahead of C; this was the wrong priority for the deadline. The later requested C-priority native launch was not observed."
+}
