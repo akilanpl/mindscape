@@ -22,6 +22,11 @@ for row in rows:
             "task_id": row["task_id"],
             "problem": task["problem_statement"],
             "before": task["repository"],
+            "goal": row["trajectory"]["initial_state"]["goal"]["description"],
+            "initial_state": {
+                field: row["trajectory"]["initial_state"][field]
+                for field in ("symbols", "relations", "current_changes", "failing_tests", "passing_tests", "errors", "progress")
+            },
             "after": row["repository"],
             "success": row["success"],
             "terminal_passed": row["terminal"]["passed"],
@@ -38,6 +43,12 @@ for row in rows:
                     "files": t["state_after"]["files"],
                     "symbols": t["state_after"]["symbols"],
                     "relations": t["state_after"]["relations"],
+                    "state": {
+                        field: t["state_after"][field]
+                        for field in ("current_changes", "failing_tests", "passing_tests", "errors", "progress")
+                    },
+                    "observation": t["state_after"]["observations"][-1],
+                    "evidence_kind": t["result"]["evidence_kind"],
                 }
                 for t in row["trajectory"]["transitions"]
             ],
