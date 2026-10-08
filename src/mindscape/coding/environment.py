@@ -68,6 +68,36 @@ class CodeRepairEnvironment:
             p.parent.mkdir(parents=True, exist_ok=True)
             p.write_text(content)
 
+    def inspect_repo(self):
+        return self.step(CodeAction("inspect_repo"))
+
+    def inspect_file(self, path):
+        return self.step(CodeAction("inspect_file", path=path))
+
+    def inspect_symbol(self, symbol):
+        return self.step(CodeAction("inspect_symbol", symbol=symbol))
+
+    def search(self, query):
+        return self.step(CodeAction("search", query=query))
+
+    def edit(self, path, content):
+        return self.step(CodeAction("edit", path=path, content=content))
+
+    def apply_patch(self, path, old, new):
+        return self.step(CodeAction("patch", path=path, old=old, new=new))
+
+    def run_test(self, test="0"):
+        return self.step(CodeAction("run_test", test=str(test)))
+
+    def run_tests(self):
+        return self.step(CodeAction("run_tests"))
+
+    def inspect_error(self):
+        return self.step(CodeAction("inspect_error"))
+
+    def revert(self, path=None):
+        return self.step(CodeAction("revert", path=path))
+
     def get_goal(self):
         return Goal("Independent terminal evaluation: all hidden tests pass")
 

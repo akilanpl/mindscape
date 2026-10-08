@@ -3,10 +3,12 @@
 import json
 import time
 from dataclasses import asdict
+from pathlib import Path
 
 from mindscape.coding.environment import CodeRepairEnvironment
 from mindscape.coding.memory import CodingMemory, words
 from mindscape.coding.model import edit_from_response
+from mindscape.coding.planning import BoundedPlanner
 from mindscape.coding.schema import CodeAction
 
 
@@ -50,7 +52,7 @@ class CodingPolicy:
             )
             for index in range(self.max_attempts if interaction else 1):
                 state = env.get_state()
-                payload = env.get_observation()
+                payload = _model_view(env.get_observation())
                 if structured:
                     payload["state"] = {
                         "symbols": state.symbols,
@@ -143,6 +145,8 @@ def teacher_memory(tasks, sandbox, limit):
     """Actual expert trajectories, executed and checked only on training tasks."""
     memory = CodingMemory(capacity=limit)
     for task in tasks[:limit]:
+        if task.metadata.get("split") != "train":
+            raise ValueError("Teacher memory accepts training tasks only")
         env = CodeRepairEnvironment(sandbox)
         env.reset(task)
         try:
@@ -152,6 +156,23 @@ def teacher_memory(tasks, sandbox, limit):
             for path, content in task.ground_truth_patch.items():
                 env.step(CodeAction("edit", path=path, content=content))
             verified = env.step(CodeAction("run_tests")).event.name == "test_passed"
+            if not verified:
+                raise RuntimeError(
+                    "Teacher repair failed actual visible execution: " + task.task_id
+                )
+            trace_root = Path("results/coding/teacher_traces_v1")
+            trace_root.mkdir(parents=True, exist_ok=True)
+            trace_path = trace_root / (task.task_id + ".json")
+            if not trace_path.exists():
+                trace_path.write_text(
+                    json.dumps(
+                        {
+                            "task_id": task.task_id,
+                            "trajectory": asdict(env.get_trajectory()),
+                            "visible_verified": verified,
+                        }
+                    )
+                )
             memory.remember(
                 {
                     "problem": task.problem_statement,
@@ -195,7 +216,7 @@ class ToolCodingPolicy:
         try:
             for step in range(self.max_steps):
                 state = env.get_state()
-                payload = env.get_observation()
+                payload = _model_view(env.get_observation())
                 payload["tools"] = list(state.context["tools"])
                 payload["remaining_steps"] = self.max_steps - step
                 payload["controller_errors"] = [
@@ -241,9 +262,13 @@ class ToolCodingPolicy:
                 )
                 error = None
                 action = None
+                predictions = []
                 transition = None
                 try:
                     action = action_from_response(response)
+                    if self.ablation != "no_dream":
+                        action, predictions = BoundedPlanner().plan(state, action)
+                        dreams = predictions
                     if action.name in ("edit", "patch") and len(snapshots) >= self.max_edits:
                         raise ValueError("Edit budget exhausted")
                     if self.ablation == "no_environment_feedback" and action.name in (
@@ -270,6 +295,7 @@ class ToolCodingPolicy:
                         "response": response,
                         "parse_error": error,
                         "action": asdict(action) if action else None,
+                        "planning": predictions,
                         "visible_pass": transition.event.name == "test_passed"
                         if transition
                         else None,
@@ -310,3 +336,16 @@ class ToolCodingPolicy:
             }
         finally:
             env.close()
+
+
+def _model_view(value):
+    """Exclude timing metadata from policy inputs; retain it in actual transcripts."""
+    if isinstance(value, dict):
+        return {
+            k: _model_view(v)
+            for k, v in value.items()
+            if k not in ("duration", "generation_seconds", "ttft")
+        }
+    if isinstance(value, (tuple, list)):
+        return [_model_view(v) for v in value]
+    return value

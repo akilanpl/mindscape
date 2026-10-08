@@ -1,0 +1,16 @@
+{
+  "backbone": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+  "quantization": "none, float32 CPU",
+  "gradient_budgets": [10,25,50,100],
+  "main_gradient_seeds": [11,23,37],
+  "additional_patch_control_seeds": [53,71],
+  "learning_curve_pool": "final_dataset_v1, 20 IID and 20 OOD; prior plain/structured diagnostic exposure disclosed",
+  "final_lockbox": "completion_lockbox_v1, 100 unseen tasks evaluated once per frozen condition",
+  "final_configuration": {"budget":100,"seed":11,"max_tool_actions":8,"max_edits":3},
+  "data_efficiency": "Gradient curves only; retrieval sweep separately labeled",
+  "larger_gradient_sweep": "Not yet executed; extrapolation prohibited; practical scope justified using actual runtime and memory measurements",
+  "hidden_test_access": "terminal evaluator only; never policy input or retrieval memory",
+  "experience_replay": "offline accepted expert-experience tuples; no reinforcement-learning or self-play claim",
+  "paid_services": 0
+}
