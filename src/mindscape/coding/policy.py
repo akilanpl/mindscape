@@ -6,6 +6,7 @@ from dataclasses import asdict
 
 from mindscape.coding.environment import CodeRepairEnvironment
 from mindscape.coding.memory import CodingMemory, words
+from mindscape.coding.model import edit_from_response
 from mindscape.coding.schema import CodeAction
 
 
@@ -87,15 +88,10 @@ class CodingPolicy:
                 )
                 error = None
                 try:
-                    import re
-
-                    match = re.search(r"\{.*\}", response, re.DOTALL)
-                    edit = json.loads(match.group()) if match else None
-                    if not isinstance(edit, dict) or set(edit) != {"path", "content"}:
-                        raise ValueError("Expected exactly path/content")
-                    transition = env.step(
-                        CodeAction("edit", path=edit["path"], content=edit["content"])
+                    edit = edit_from_response(
+                        response, env.files, json.loads(task.visible_tests)["entry"]
                     )
+                    transition = env.step(edit)
                     if not transition.valid:
                         raise ValueError(transition.result.stderr)
                 except (ValueError, TypeError, AttributeError, json.JSONDecodeError) as exc:
@@ -202,6 +198,9 @@ class ToolCodingPolicy:
                 payload = env.get_observation()
                 payload["tools"] = list(state.context["tools"])
                 payload["remaining_steps"] = self.max_steps - step
+                payload["controller_errors"] = [
+                    a["parse_error"] for a in attempts if a["parse_error"]
+                ][-2:]
                 if self.ablation != "no_memory":
                     payload["working_memory"] = self.memory.working[-2:]
                 if self.ablation != "no_state":

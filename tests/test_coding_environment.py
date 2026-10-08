@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -102,3 +103,27 @@ def test_hypothetical_memory_never_becomes_experience():
     assert not memory.retrieve("reverse a list")
     memory.remember({"problem": "reverse a list", "patch": "actual"}, verified=True)
     assert memory.retrieve("reverse a list")[0]["patch"] == "actual"
+
+
+def test_source_edit_envelopes_are_normalized_without_oracles():
+    from mindscape.coding.model import action_from_response, edit_from_response
+
+    repository = {"main.py": "def f(): return 0\n"}
+    code = "def f(): return 1\n"
+    for response in [
+        json.dumps({"path": "main.py", "content": code}),
+        json.dumps({"repository": {"main.py": code}}),
+        json.dumps({"main.py": code}),
+        json.dumps({"name": "edit", "path": "main.py", "content": code}),
+        "```python\n" + code + "```",
+    ]:
+        assert edit_from_response(response, repository, "main.f") == CodeAction(
+            "edit", path="main.py", content=code
+        )
+    assert action_from_response(json.dumps({"repository": {"main.py": code}})).name == "edit"
+    with pytest.raises(ValueError):
+        edit_from_response(
+            json.dumps({"repository": {"main.py": code, "other.py": code}}), repository, "main.f"
+        )
+    with pytest.raises(ValueError):
+        edit_from_response(json.dumps({"path": "../secret", "content": code}), repository, "main.f")

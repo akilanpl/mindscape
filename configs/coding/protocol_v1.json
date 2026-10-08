@@ -34,5 +34,7 @@
   "hidden_feedback": "terminal only",
   "runtime": "CPython 3.14.7 WASI / capability-isolated Wasmtime",
   "assertion": "No GPT/Gemini equivalence, no architecture advantage, no gradient DER claim from retrieval results",
-  "max_tool_steps": 8
+  "max_tool_steps": 8,
+  "primary_dataset_sha256": "d99e5c194247d7d96c5948603b51405da7c7ce350a502c2df94b51f73ff188dd",
+  "diagnostic_exposure": "Original IID/OOD sets are diagnostic after parser investigation; primary fresh test seed 9001"
 }

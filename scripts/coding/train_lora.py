@@ -10,6 +10,7 @@ p = argparse.ArgumentParser()
 p.add_argument("--model", required=True)
 p.add_argument("--samples", type=int, default=10)
 p.add_argument("--seed", type=int, default=11)
+p.add_argument("--checkpoints", default="")
 p.add_argument("--output", default="results/coding/lora_probe_v1")
 a = p.parse_args()
 import torch
@@ -66,6 +67,18 @@ for t in tasks:
     torch.nn.utils.clip_grad_norm_([x for x in model.parameters() if x.requires_grad], 1)
     optimizer.step()
     losses.append(float(loss.detach()))
+    if str(len(losses)) in a.checkpoints.split(","):
+        model.save_pretrained(root / ("checkpoint_" + str(len(losses))))
+        (root / ("checkpoint_" + str(len(losses))) / "training_budget.json").write_text(
+            json.dumps(
+                {
+                    "samples": len(losses),
+                    "seed": a.seed,
+                    "epochs": 1,
+                    "training_seconds": time.perf_counter() - start,
+                }
+            )
+        )
     print(len(losses), losses[-1], round(time.perf_counter() - start, 1), flush=True)
 model.save_pretrained(root / "adapter")
 tokenizer.save_pretrained(root / "adapter")

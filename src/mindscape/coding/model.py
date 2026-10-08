@@ -124,7 +124,44 @@ def action_from_response(text):
     if not match:
         raise ValueError("No JSON action")
     value = json.loads(match.group())
+    if isinstance(value, dict) and set(value) == {"repository"}:
+        mapping = value["repository"]
+        if isinstance(mapping, dict) and len(mapping) == 1:
+            path, content = next(iter(mapping.items()))
+            value = {"name": "edit", "path": path, "content": content}
+    if isinstance(value, dict) and set(value) == {"path", "content"}:
+        value = {"name": "edit", **value}
     allowed = {"name", "path", "symbol", "query", "content", "old", "new", "test"}
     if not isinstance(value, dict) or set(value) - allowed:
         raise ValueError("Invalid action fields")
     return CodeAction(**value)
+
+
+def edit_from_response(text, repository, entry=None):
+    """Normalize common source-edit envelopes without changing model-proposed code."""
+    from mindscape.coding.schema import CodeAction
+
+    match = re.search(r"\{.*\}", text, re.DOTALL)
+    if match:
+        value = json.loads(match.group())
+        if isinstance(value, dict) and set(value) == {"repository"}:
+            mapping = value["repository"]
+            if not isinstance(mapping, dict) or len(mapping) != 1:
+                raise ValueError("Exactly one repository edit required")
+            path, content = next(iter(mapping.items()))
+            value = {"path": path, "content": content}
+        elif isinstance(value, dict) and len(value) == 1 and next(iter(value)) in repository:
+            path, content = next(iter(value.items()))
+            value = {"path": path, "content": content}
+        if isinstance(value, dict) and value.get("name") == "edit":
+            value = {k: v for k, v in value.items() if k != "name"}
+        if not isinstance(value, dict) or set(value) != {"path", "content"}:
+            raise ValueError("Unrecognized source edit envelope")
+        if value["path"] not in repository or not isinstance(value["content"], str):
+            raise ValueError("Unsafe source edit")
+        return CodeAction("edit", **value)
+    source = source_from_response(text)
+    path = entry.rsplit(".", 1)[0].replace(".", "/") + ".py" if entry else None
+    if path not in repository:
+        raise ValueError("Source edit target is ambiguous")
+    return CodeAction("edit", path=path, content=source)
