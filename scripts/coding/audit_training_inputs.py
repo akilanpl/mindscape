@@ -69,9 +69,10 @@ for condition in ("structured", "mindscape_b", "mindscape_c"):
         assert not forbidden & keys(ns["payload"])
         lengths.append(len(ns["ids"]))
     total = sum(lengths)
-    for path in Path("results/coding/completion_gradient_v1", condition).glob(
-        "seed_*/training.json"
-    ):
+    completed_records = list(
+        Path("results/coding/completion_gradient_v1", condition).glob("seed_*/training.json")
+    )
+    for path in completed_records:
         assert json.loads(path.read_text())["tokens"] == total
     records.append(
         {
