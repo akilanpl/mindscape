@@ -48,3 +48,26 @@ Inspect `predictions.jsonl` in each UUID evaluation folder. Fields include predi
 Reproduce the historical diagnostics with `scripts/audit_final.py` on a new copy or rename its new output directory: it intentionally refuses overwrites. Preserve original results rather than deleting them. Dream demonstration: `PYTHONPATH=src python scripts/run_dream_demo.py`. View the static evidence UI by opening `demo/index.html` or serving `demo/` with `python -m http.server 8000 --directory demo`.
 
 Free external compute is optional, not used in this study. No external scheduler/service is required. Reproductions have new timestamps and measured runtime; exact predictions should match with the pinned checkpoint, seed, CPU implementation and package versions, while other hardware/kernel versions may differ numerically.
+
+Additional checks/references:
+
+```sh
+PYTHONPATH=src python scripts/final_sanity.py results/final/reproduction_v1 \
+  --model work/hf/hub/models--HuggingFaceTB--SmolLM2-135M-Instruct/snapshots/12fd25f77366fa6b3b4b768ec3050bf629380bac \
+  --dataset datasets/generated/final_reproduction
+PYTHONPATH=src python scripts/analyze_holdout_coverage.py results/final/reproduction_v1 \
+  --dataset datasets/generated/final_reproduction
+PYTHONPATH=src python scripts/final_historical_mlp.py \
+  --dataset datasets/generated/final_reproduction --output results/final/historical_mlp_reproduction
+```
+
+The last reference repeats the historical MLP at1000 problems, three seeds, on the fresh final dataset. It does not equalize its architecture, losses or update budget with the final frozen-backbone adaptation, so their difference does not isolate pretraining benefits.
+
+Finalize measured resource reporting and digest the complete validated study:
+
+```sh
+PYTHONPATH=src python scripts/summarize_final_costs.py results/final/reproduction_v1
+PYTHONPATH=src python scripts/freeze_final_artifacts.py results/final/reproduction_v1
+```
+
+The SHA256 freeze manifest covers raw predictions, checkpoints, metadata, statistics and plots. Generate all analyses and audits before freezing. Do not modify that folder afterward; use a new output root for a reproduction or correction.

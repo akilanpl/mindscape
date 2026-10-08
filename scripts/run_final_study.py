@@ -17,7 +17,9 @@ from mindscape.evaluation.runner import run
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--dataset',required=True);p.add_argument('--model',required=True);p.add_argument('--cache',default='work/final_features');p.add_argument('--config',default='configs/experiments/final_study.toml');p.add_argument('--output',required=True);args=p.parse_args()
- out=Path(args.output);out.mkdir(parents=True,exist_ok=False);config=load_config(args.config);splits,manifest=load_dataset(args.dataset)
+ config=load_config(args.config)
+ if 50 not in config['budgets']:raise ValueError('Include budget50 for the declared ablation stage')
+ out=Path(args.output);out.mkdir(parents=True,exist_ok=False);splits,manifest=load_dataset(args.dataset)
  encoder=FrozenFeatures(args.model,args.cache)
  protocol={'config':config,'dataset_hash':stable_hash(manifest),'manifest':manifest,'backbone_revision':encoder.revision,'backbone_parameters':encoder.parameter_count,'device':encoder.device,'git_revision':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'fixed_protocol':'docs/final_experimental_protocol.md','head_input':'frozen pooled tokens plus categorical numeric features; no arithmetic features','cache':'Shared target-free frozen features. Encoder cache misses charged separately; head calls measured for every inference. Shared setup not hidden in training efficiency.'}
  (out/'protocol.json').write_text(json.dumps(protocol,indent=2));records=[];models={}

@@ -7,6 +7,12 @@ from mindscape.memory.concept import ConceptMemory
 from mindscape.environments.multiplication.claims import expected_value
 
 class FinalTests(unittest.TestCase):
+ def test_final_cli_help(self):
+  import subprocess,sys
+  root=Path(__file__).resolve().parents[1]
+  for script in ['run_final_study.py','evaluate_final.py','summarize_final_costs.py','freeze_final_artifacts.py','build_final_demo.py']:
+   result=subprocess.run([sys.executable,str(root/'scripts'/script),'--help'],cwd=root,capture_output=True,text=True)
+   self.assertEqual(result.returncode,0,result.stderr);self.assertIn('usage:',result.stdout)
  def test_environment_interface_domain_neutral(self):
   from mindscape.environments.base import Environment
   from mindscape.environments.multiplication.claims import ClaimsEnvironment
@@ -34,4 +40,7 @@ class FinalTests(unittest.TestCase):
   before=b.logits(x);inactive=b.head[4].weight.detach().numpy()[20:].copy();stats=b.fit(x,y,3,0,2);self.assertEqual(stats['active_heads'],2);self.assertFalse(np.array_equal(before,b.logits(x)));self.assertTrue(np.array_equal(inactive,b.head[4].weight.detach().numpy()[20:]))
   with tempfile.TemporaryDirectory() as tmp:
    p=Path(tmp)/'model';b.save(p);loaded=FinalBackend.load(p,e);self.assertTrue(np.array_equal(b.logits(x),loaded.logits(x)))
+   import json
+   meta=json.loads((p/'backend.json').read_text());meta['backend']='unknown';(p/'backend.json').write_text(json.dumps(meta))
+   with self.assertRaises(ValueError):FinalBackend.load(p,e)
 if __name__=='__main__':unittest.main()

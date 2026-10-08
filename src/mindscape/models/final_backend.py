@@ -84,6 +84,7 @@ class FinalBackend:
     def load(cls,path,encoder):
         import torch
         meta=json.loads((Path(path)/'backend.json').read_text())
+        if meta['backend']!=cls.identifier:raise ValueError('Unknown final backend')
         if meta['encoder_revision']!=encoder.revision or meta['size']!=encoder.size:raise ValueError('Backbone mismatch')
         model=cls(encoder,meta['seed'])
         with np.load(Path(path)/'head.npz',allow_pickle=False) as a:

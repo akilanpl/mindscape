@@ -1,0 +1,5 @@
+# Second vertical status
+
+A second learned environment is deferred. The final priority is complete multiplication validation, fair controls and frozen evidence. Generic `Environment` is a structural, type-parameterized protocol and the runner delegates domain-specific target verification to dataset backends. Both implemented multiplication environments satisfy the interface. The bounded integer-position goal demo reuses the simulator without arithmetic-model changes and explicitly tags hypothetical states; it is not a second-domain learning/transfer result.
+
+A future grid-navigation backend can reuse Entity, Relation, Goal, Event, evidence kinds, the environment protocol, dataset identity/leakage machinery, runner/metrics, memory storage and dream engine. It will need an appropriate state/observation/action payload and domain verifier, because current concrete decimal schemas include multiplication fields. The final claims table therefore does not claim demonstrated architecture transfer.
