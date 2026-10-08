@@ -152,7 +152,9 @@ def main():
             continue
         fields={'total':[r['wall_seconds'] for r in group],
                 'ttft':[a['latency']['ttft'] for r in group for a in r['attempts']],
-                'response':[a['latency']['generation'] for r in group for a in r['attempts']]}
+                'response':([v for r in group for v in r['stages'].get('model_generation',{}).get('samples_seconds',[])]
+                            if latency_source.startswith('Dedicated') else
+                            [a['latency'].get('request_wall_seconds',a['latency']['generation']) for r in group for a in r['attempts']])}
         for stage in ('model_generation','environment_execution','verification','test_execution'):
             fields[stage]=[r['stages'].get(stage,{}).get('seconds',0) for r in group]
         latency_summary.append({'condition': c,'episodes': len(group),'planned': 4 if latency_source.startswith('Dedicated') else 20,'measurement_source':latency_source,
@@ -165,7 +167,7 @@ def main():
             'sequential_episodes_per_hour':3600*len(group)/sum(r['wall_seconds'] for r in group)
                 if latency_source.startswith('Dedicated') else None,
             'percentiles': {k:{'p50':float(np.percentile(v,50)),'p95':float(np.percentile(v,95)),'n':len(v)} for k,v in fields.items() if v},
-            'caution': 'Descriptive sample; stage timers overlap; TTFT is per call, other fields per episode. Batched model durations are shared across requests; environment covers timed transitions, verification is measured sandbox execution; no state-construction timer in reused smoke evidence'})
+            'caution': 'Descriptive sample; stage timers overlap. TTFT is model first-token time after CPU input encoding. Response is per-call wall time including encoding/decoding in dedicated measurements; total is multi-step episode wall time. Batched smoke model durations are shared across requests. Unmeasured timers are not inferred.'})
     training_records = [{"path":str(p),**{k:v for k,v in load(p).items() if k!='task_ids'}}
                         for pattern in ('gradient_v1/seed_*/training.json','completion_gradient_v1/*/seed_*/training.json')
                         for p in sorted(BASE.glob(pattern))]
