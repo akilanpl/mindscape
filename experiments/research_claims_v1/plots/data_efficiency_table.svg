@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="800" height="400" preserveAspectRatio="xMinYMin meet" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="800" height="400"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-400)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="45" y="360" style="font-family: Times-Roman; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,720) scale(1,-1)">Data efficiency: no observed threshold crossings</text>
+			<text x="45" y="325" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,650) scale(1,-1)">Split / threshold</text>
+			<text x="195" y="325" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,650) scale(1,-1)">answer_only</text>
+			<text x="345" y="325" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,650) scale(1,-1)">structured</text>
+			<text x="495" y="325" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,650) scale(1,-1)">trajectory</text>
+			<text x="645" y="325" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,650) scale(1,-1)">experiential</text>
+			<text x="45" y="285" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,570) scale(1,-1)">test / 0.8</text>
+			<text x="195" y="285" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,570) scale(1,-1)">not_reached</text>
+			<text x="345" y="285" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,570) scale(1,-1)">not_reached</text>
+			<text x="495" y="285" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,570) scale(1,-1)">not_reached</text>
+			<text x="645" y="285" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,570) scale(1,-1)">not_reached</text>
+			<text x="45" y="250" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,500) scale(1,-1)">test / 0.9</text>
+			<text x="195" y="250" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,500) scale(1,-1)">not_reached</text>
+			<text x="345" y="250" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,500) scale(1,-1)">not_reached</text>
+			<text x="495" y="250" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,500) scale(1,-1)">not_reached</text>
+			<text x="645" y="250" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,500) scale(1,-1)">not_reached</text>
+			<text x="45" y="215" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,430) scale(1,-1)">test / 0.95</text>
+			<text x="195" y="215" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,430) scale(1,-1)">not_reached</text>
+			<text x="345" y="215" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,430) scale(1,-1)">not_reached</text>
+			<text x="495" y="215" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,430) scale(1,-1)">not_reached</text>
+			<text x="645" y="215" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,430) scale(1,-1)">not_reached</text>
+			<text x="45" y="180" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,360) scale(1,-1)">ood_test / 0.8</text>
+			<text x="195" y="180" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,360) scale(1,-1)">not_reached</text>
+			<text x="345" y="180" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,360) scale(1,-1)">not_reached</text>
+			<text x="495" y="180" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,360) scale(1,-1)">not_reached</text>
+			<text x="645" y="180" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,360) scale(1,-1)">not_reached</text>
+			<text x="45" y="145" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,290) scale(1,-1)">ood_test / 0.9</text>
+			<text x="195" y="145" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,290) scale(1,-1)">not_reached</text>
+			<text x="345" y="145" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,290) scale(1,-1)">not_reached</text>
+			<text x="495" y="145" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,290) scale(1,-1)">not_reached</text>
+			<text x="645" y="145" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,290) scale(1,-1)">not_reached</text>
+			<text x="45" y="110" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,220) scale(1,-1)">ood_test / 0.95</text>
+			<text x="195" y="110" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,220) scale(1,-1)">not_reached</text>
+			<text x="345" y="110" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,220) scale(1,-1)">not_reached</text>
+			<text x="495" y="110" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,220) scale(1,-1)">not_reached</text>
+			<text x="645" y="110" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,220) scale(1,-1)">not_reached</text>
+			<text x="45" y="40" style="font-family: Times-Roman; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,80) scale(1,-1)">N* and DER remain censored; no interpolation or fabricated numeric crossing.</text>
+		</g>
+	</g>
+</svg>

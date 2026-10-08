@@ -1,0 +1,1682 @@
+[
+  {
+    "condition": "answer_only",
+    "budget": 10,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.00504466666704199,
+      "std": 7.408571384381826e-05
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 10,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.00754352766671218,
+      "std": 1.3414956177600013e-05
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 25,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0033333333333333335,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.005035944001671548,
+      "std": 3.64114397905411e-05
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 25,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.007511319333085946,
+      "std": 4.6952401819185706e-05
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 50,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.005,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.005048152665646437,
+      "std": 3.91693635688822e-05
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 50,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.007545138668016686,
+      "std": 8.441171695078242e-05
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 100,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.01,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.005084846998215653,
+      "std": 5.4842411427842954e-05
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 100,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.00766484733321704,
+      "std": 0.00019194720483442534
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 250,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0033333333333333335,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.004850249667166888,
+      "std": 0.0005413381447416704
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 250,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.007702430331846699,
+      "std": 0.00013987749677841284
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 500,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0033333333333333335,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.005150277332480376,
+      "std": 5.093212885586372e-05
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 500,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.007645860995883898,
+      "std": 0.0001698758984513341
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 1000,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0016666666666666668,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.005167431001609657,
+      "std": 3.9985693978013304e-05
+    }
+  },
+  {
+    "condition": "answer_only",
+    "budget": 1000,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.007599416664258267,
+      "std": 0.00014732689554196372
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 10,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.006790805668667114,
+      "std": 1.2597721319331464e-05
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 10,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.01023418066567198,
+      "std": 3.100931292723869e-05
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 25,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.006822513666217371,
+      "std": 5.336671139866446e-05
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 25,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.0103263333318561,
+      "std": 0.00020134393198770187
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 50,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.005,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.006864235666095435,
+      "std": 5.30733553604015e-05
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 50,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.0103426663360248,
+      "std": 4.6385777640412795e-05
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 100,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.008333333333333333,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.006739360998229434,
+      "std": 0.00015369300416253267
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 100,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.010227694336208515,
+      "std": 0.00029619047178631156
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 250,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.005,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.0067270416669392335,
+      "std": 0.00018741735403505973
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 250,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.009833860996877775,
+      "std": 0.0007104780849288471
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 500,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0033333333333333335,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.0069349586677465895,
+      "std": 5.008989031581737e-05
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 500,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.010386889002499325,
+      "std": 2.4348330360256266e-05
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 1000,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0033333333333333335,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.006973111332627013,
+      "std": 0.00012762938924335923
+    }
+  },
+  {
+    "condition": "structured",
+    "budget": 1000,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": null,
+      "std": null
+    },
+    "inference_time": {
+      "mean": 0.0105009583348874,
+      "std": 5.7032815857543645e-05
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 10,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.006666666666666667,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.006666666666666667,
+      "std": 0.002886751345948129
+    },
+    "goal_success_rate": {
+      "mean": 0.006666666666666667,
+      "std": 0.002886751345948129
+    },
+    "unsupported_rate": {
+      "mean": 0.9933333333333333,
+      "std": 0.0028867513459481316
+    },
+    "trajectory_validity": {
+      "mean": 0.006666666666666667,
+      "std": 0.002886751345948129
+    },
+    "inference_time": {
+      "mean": 0.5037234863363361,
+      "std": 0.022459831567699474
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 10,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.492799083336043,
+      "std": 0.007096243908774208
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 25,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.023333333333333334,
+      "std": 0.007637626158259733
+    },
+    "grounded_rate": {
+      "mean": 0.021666666666666667,
+      "std": 0.005773502691896259
+    },
+    "goal_success_rate": {
+      "mean": 0.021666666666666667,
+      "std": 0.005773502691896259
+    },
+    "unsupported_rate": {
+      "mean": 0.9783333333333333,
+      "std": 0.005773502691896263
+    },
+    "trajectory_validity": {
+      "mean": 0.021666666666666667,
+      "std": 0.005773502691896259
+    },
+    "inference_time": {
+      "mean": 0.5488827640001546,
+      "std": 0.06165515109474091
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 25,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.5142916390007788,
+      "std": 0.012489935978009025
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 50,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.03333333333333333,
+      "std": 0.005773502691896259
+    },
+    "grounded_rate": {
+      "mean": 0.028333333333333335,
+      "std": 0.005773502691896259
+    },
+    "goal_success_rate": {
+      "mean": 0.028333333333333335,
+      "std": 0.005773502691896259
+    },
+    "unsupported_rate": {
+      "mean": 0.9716666666666667,
+      "std": 0.005773502691896263
+    },
+    "trajectory_validity": {
+      "mean": 0.028333333333333335,
+      "std": 0.005773502691896259
+    },
+    "inference_time": {
+      "mean": 0.5073116810017382,
+      "std": 0.025798518073053958
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 50,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.503986652996294,
+      "std": 0.0047176589691317345
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 100,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.04,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.03666666666666667,
+      "std": 0.0028867513459481273
+    },
+    "goal_success_rate": {
+      "mean": 0.03666666666666667,
+      "std": 0.0028867513459481273
+    },
+    "unsupported_rate": {
+      "mean": 0.9633333333333333,
+      "std": 0.0028867513459481316
+    },
+    "trajectory_validity": {
+      "mean": 0.03666666666666667,
+      "std": 0.0028867513459481273
+    },
+    "inference_time": {
+      "mean": 0.5057668890003697,
+      "std": 0.02340856925878375
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 100,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0011111111111111111,
+      "std": 0.0019245008972987527
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.5825387219980864,
+      "std": 0.14729716662952283
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 250,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.043333333333333335,
+      "std": 0.005773502691896259
+    },
+    "grounded_rate": {
+      "mean": 0.04166666666666667,
+      "std": 0.007637626158259733
+    },
+    "goal_success_rate": {
+      "mean": 0.04166666666666667,
+      "std": 0.007637626158259733
+    },
+    "unsupported_rate": {
+      "mean": 0.9583333333333333,
+      "std": 0.00763762615825974
+    },
+    "trajectory_validity": {
+      "mean": 0.04166666666666667,
+      "std": 0.007637626158259733
+    },
+    "inference_time": {
+      "mean": 0.5037918196685496,
+      "std": 0.012753746411074013
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 250,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0022222222222222222,
+      "std": 0.0019245008972987527
+    },
+    "grounded_rate": {
+      "mean": 0.0022222222222222222,
+      "std": 0.0019245008972987527
+    },
+    "goal_success_rate": {
+      "mean": 0.0022222222222222222,
+      "std": 0.0019245008972987527
+    },
+    "unsupported_rate": {
+      "mean": 0.9977777777777778,
+      "std": 0.001924500897298733
+    },
+    "trajectory_validity": {
+      "mean": 0.0022222222222222222,
+      "std": 0.0019245008972987527
+    },
+    "inference_time": {
+      "mean": 1.549389264335332,
+      "std": 0.021676608702680712
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 500,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.04,
+      "std": 0.008660254037844387
+    },
+    "grounded_rate": {
+      "mean": 0.03833333333333333,
+      "std": 0.007637626158259733
+    },
+    "goal_success_rate": {
+      "mean": 0.03833333333333333,
+      "std": 0.007637626158259733
+    },
+    "unsupported_rate": {
+      "mean": 0.9616666666666667,
+      "std": 0.00763762615825974
+    },
+    "trajectory_validity": {
+      "mean": 0.03833333333333333,
+      "std": 0.007637626158259733
+    },
+    "inference_time": {
+      "mean": 0.506999069667169,
+      "std": 0.021823949509080558
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 500,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.52898825033238,
+      "std": 0.021859698989494625
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 1000,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.06333333333333334,
+      "std": 0.014433756729740645
+    },
+    "grounded_rate": {
+      "mean": 0.06166666666666667,
+      "std": 0.011547005383792514
+    },
+    "goal_success_rate": {
+      "mean": 0.06166666666666667,
+      "std": 0.011547005383792514
+    },
+    "unsupported_rate": {
+      "mean": 0.9383333333333334,
+      "std": 0.011547005383792462
+    },
+    "trajectory_validity": {
+      "mean": 0.06166666666666667,
+      "std": 0.011547005383792514
+    },
+    "inference_time": {
+      "mean": 0.509182236334406,
+      "std": 0.020876682240518814
+    }
+  },
+  {
+    "condition": "trajectory",
+    "budget": 1000,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.4970989583331782,
+      "std": 0.03361751755753216
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 10,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0016666666666666668,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 0.4982493473338157,
+      "std": 0.024752385183112496
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 10,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.4827746806671105,
+      "std": 0.005045886809669102
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 25,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.006666666666666667,
+      "std": 0.002886751345948129
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 0.4900149446669578,
+      "std": 0.002105602672886516
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 25,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.5038921946688788,
+      "std": 0.004302975875575562
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 50,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.013333333333333334,
+      "std": 0.005773502691896258
+    },
+    "grounded_rate": {
+      "mean": 0.005,
+      "std": 0.008660254037844387
+    },
+    "goal_success_rate": {
+      "mean": 0.005,
+      "std": 0.008660254037844387
+    },
+    "unsupported_rate": {
+      "mean": 0.995,
+      "std": 0.008660254037844393
+    },
+    "trajectory_validity": {
+      "mean": 0.005,
+      "std": 0.008660254037844387
+    },
+    "inference_time": {
+      "mean": 0.49047293033315026,
+      "std": 0.004305001661276117
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 50,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.484031569333941,
+      "std": 0.02553870230208235
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 100,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.023333333333333334,
+      "std": 0.007637626158259733
+    },
+    "grounded_rate": {
+      "mean": 0.013333333333333334,
+      "std": 0.005773502691896258
+    },
+    "goal_success_rate": {
+      "mean": 0.013333333333333334,
+      "std": 0.005773502691896258
+    },
+    "unsupported_rate": {
+      "mean": 0.9866666666666667,
+      "std": 0.005773502691896263
+    },
+    "trajectory_validity": {
+      "mean": 0.013333333333333334,
+      "std": 0.005773502691896258
+    },
+    "inference_time": {
+      "mean": 0.5365074996637608,
+      "std": 0.07876472478124949
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 100,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.5472367223337642,
+      "std": 0.16931945552561548
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 250,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.04,
+      "std": 0.010000000000000002
+    },
+    "grounded_rate": {
+      "mean": 0.03833333333333334,
+      "std": 0.012583057392117916
+    },
+    "goal_success_rate": {
+      "mean": 0.03833333333333334,
+      "std": 0.012583057392117916
+    },
+    "unsupported_rate": {
+      "mean": 0.9616666666666667,
+      "std": 0.012583057392117927
+    },
+    "trajectory_validity": {
+      "mean": 0.03833333333333334,
+      "std": 0.012583057392117916
+    },
+    "inference_time": {
+      "mean": 0.5163099026661561,
+      "std": 0.024819270076208648
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 250,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.5465881386674785,
+      "std": 0.01829784113169583
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 500,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.055,
+      "std": 0.0229128784747792
+    },
+    "grounded_rate": {
+      "mean": 0.05333333333333334,
+      "std": 0.020207259421636897
+    },
+    "goal_success_rate": {
+      "mean": 0.05333333333333334,
+      "std": 0.020207259421636897
+    },
+    "unsupported_rate": {
+      "mean": 0.9466666666666667,
+      "std": 0.02020725942163686
+    },
+    "trajectory_validity": {
+      "mean": 0.05333333333333334,
+      "std": 0.020207259421636897
+    },
+    "inference_time": {
+      "mean": 0.5343846806669413,
+      "std": 0.03335692631054307
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 500,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.5286409166631831,
+      "std": 0.04314320716242736
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 1000,
+    "split": "test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.060000000000000005,
+      "std": 0.017320508075688777
+    },
+    "grounded_rate": {
+      "mean": 0.05666666666666667,
+      "std": 0.014433756729740645
+    },
+    "goal_success_rate": {
+      "mean": 0.05666666666666667,
+      "std": 0.014433756729740645
+    },
+    "unsupported_rate": {
+      "mean": 0.9433333333333334,
+      "std": 0.014433756729740593
+    },
+    "trajectory_validity": {
+      "mean": 0.05666666666666667,
+      "std": 0.014433756729740645
+    },
+    "inference_time": {
+      "mean": 0.5347911666661579,
+      "std": 0.029254211885787848
+    }
+  },
+  {
+    "condition": "experiential",
+    "budget": 1000,
+    "split": "ood_test",
+    "seeds": 3,
+    "accuracy": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "grounded_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "goal_success_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "unsupported_rate": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "trajectory_validity": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "inference_time": {
+      "mean": 1.4934086670036777,
+      "std": 0.01748984357039504
+    }
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "measured": [
+    {
+      "variant": "constrained",
+      "reference": "trajectory",
+      "split": "test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "constrained",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_dream",
+      "reference": "trajectory",
+      "split": "test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": -0.003333333333333334,
+      "delta_grounded_rate": -0.001666666666666667,
+      "delta_goal_success_rate": -0.001666666666666667
+    },
+    {
+      "variant": "no_dream",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_environment_interaction",
+      "reference": "trajectory",
+      "split": "test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": -0.028333333333333335,
+      "delta_goal_success_rate": -0.028333333333333335
+    },
+    {
+      "variant": "no_environment_interaction",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_episodic_replay",
+      "reference": "experiential",
+      "split": "test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": -0.013333333333333334,
+      "delta_grounded_rate": -0.005,
+      "delta_goal_success_rate": -0.005
+    },
+    {
+      "variant": "no_episodic_replay",
+      "reference": "experiential",
+      "split": "ood_test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_state",
+      "reference": "trajectory",
+      "split": "test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": -0.03333333333333333,
+      "delta_grounded_rate": -0.028333333333333335,
+      "delta_goal_success_rate": -0.028333333333333335
+    },
+    {
+      "variant": "no_state",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "serialization_distractor",
+      "reference": "trajectory",
+      "split": "test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "serialization_distractor",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    }
+  ],
+  "not_applicable": {
+    "relation_representation": "Single multiplication relation is constant; removing it is a bias-feature intervention, not graph reasoning.",
+    "goal_evaluator": "External goal verification defines evaluation and cannot be removed fairly; no model-visible goal oracle exists.",
+    "trajectory_supervision": "Regime C removes trajectory labels by design; B versus C is a training-regime contrast, not an isolated component ablation."
+  }
+}

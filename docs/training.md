@@ -59,3 +59,13 @@ TensorBoard is unavailable; plain machine-readable logs provide tracking. No ext
 tracking service or paid API is used. The SVG plots are labelled preliminary and retain
 raw data; 50-example points average three seeds, larger points use one seed. Final
 statistical studies and confidence intervals remain future work.
+
+## Controlled numerical-claim revision
+
+The revised study is documented in research_protocol.md and milestone_04.md.
+Prior singleton/oracle-assisted results are exploratory, not current evidence.
+Primary numerical-claim execution writes model proposals without correction;
+Regime C uses training-only scalar feedback and positive replay. All four conditions
+share capacity and the evaluator; remaining procedural/supervision/compute differences
+are explicit. All reported thresholds are censored; no data-efficiency advantage
+has been established. Use the research-specific CLI/config files for this study.

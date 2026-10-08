@@ -117,3 +117,32 @@ preliminary protocol uses three seeds at 50 examples and one at 100/250. Raw mea
 curves and standalone SVGs are retained in `experiments/first_learned/`. Full checkpoints,
 logs and per-example predictions remain in `results/learned_development_v1/` locally.
 Regime C is explicitly unimplemented; no experiential learning claim is made.
+
+## Controlled research study (current result)
+
+The numerical-claim study supersedes prior oracle-assisted performance interpretation.
+Each policy must predict its numerical result; primary execution never corrects it.
+All four conditions use identical 8,722-parameter models. Seven budgets, three seeds:
+90 trained models (including interventions), 204 evaluations, 86 tests passed.
+At 1000 examples, Mindscape B IID accuracy is 6.333% ± 1.443%; C is 6.000% ± 1.732%.
+Every primary OOD run has 0% measured accuracy; N*/DER targets are not reached.
+These results do not reproduce the earlier exploratory 82% OOD score or establish
+architecture superiority. See `docs/milestone_04.md` and `docs/research_protocol.md`.
+
+```sh
+export PYTHONPATH=src
+export OPENBLAS_NUM_THREADS=1
+python scripts/generate_data.py --config configs/experiments/research_dataset.toml --output datasets/generated/new_research_set
+python scripts/run_research_study.py --dataset datasets/generated/new_research_set --output results/new_research_study
+python scripts/analyze_research_study.py results/new_research_study
+python scripts/audit_research_study.py results/new_research_study --dataset datasets/generated/new_research_set
+python scripts/run_dream_demo.py --depth 3 --goal 3
+```
+
+Individual training/evaluation commands are `scripts/train_research.py` and
+`scripts/evaluate_research.py` (`--help`). Regime C is self-generated scalar-feedback
+learning plus positive replay, not autonomous rule discovery. Pretrained encoder/head
+backend is optional and offline by default (`.[pretrained]`); it was not used in these
+experiments. Publication SVGs, raw summaries, confidence intervals, failures and fairness
+checks are committed under `experiments/research_claims_v1/`; full local records and
+checkpoints remain under `results/research_claims_v1/`. No UI was built.

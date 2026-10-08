@@ -47,3 +47,13 @@ The protocol and implementation are committed before evaluation. No model/prompt
 or test-set change is made in response to held-out scores. Match or explicitly vary
 procedural knowledge/tool access in later experiments. Do not compute DER from the
 masked algorithm's guaranteed accuracy. Historical reference scores remain unpopulated.
+
+## Controlled numerical-claim revision
+
+The revised study is documented in research_protocol.md and milestone_04.md.
+Prior singleton/oracle-assisted results are exploratory, not current evidence.
+Primary numerical-claim execution writes model proposals without correction;
+Regime C uses training-only scalar feedback and positive replay. All four conditions
+share capacity and the evaluator; remaining procedural/supervision/compute differences
+are explicit. All reported thresholds are censored; no data-efficiency advantage
+has been established. Use the research-specific CLI/config files for this study.

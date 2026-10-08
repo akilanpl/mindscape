@@ -1,0 +1,202 @@
+{
+  "checks": {
+    "dataset_leakage_and_integrity_validation": true,
+    "no_train_test_id_overlap": true,
+    "checkpoint_training_ids_subset_train": true,
+    "equal_parameter_count": true,
+    "checkpoint_dataset_hash_matches": true,
+    "balanced_budget_seed_condition_grid": true,
+    "same_primary_optimizer_configuration": true,
+    "C_collection_code_never_accesses_targets": true,
+    "primary_prediction_code_never_calls_numerical_oracle": true,
+    "all_C_reports_no_provided_full_trajectories": true,
+    "target_mutation_does_not_change_baseline_features": true,
+    "primary_candidate_minimum_above_one": true,
+    "no_model_visible_oracle_feedback": true,
+    "all_actual_numeric_results_equal_own_proposals": true,
+    "all_simulated_state_records_tagged": true,
+    "identical_evaluation_dataset_hashes": true,
+    "C_memory_contains_only_train_partition": true
+  },
+  "observed_primary_candidate_range": [
+    101,
+    101
+  ],
+  "C_experience_counts": [
+    {
+      "budget": 1000,
+      "seed": 2,
+      "stored_successful_episodes": 77,
+      "recorded_completion_counter": 76,
+      "attempts": 62328,
+      "accepted": 1074
+    },
+    {
+      "budget": 100,
+      "seed": 1,
+      "stored_successful_episodes": 4,
+      "recorded_completion_counter": 4,
+      "attempts": 6323,
+      "accepted": 90
+    },
+    {
+      "budget": 100,
+      "seed": 0,
+      "stored_successful_episodes": 4,
+      "recorded_completion_counter": 4,
+      "attempts": 6323,
+      "accepted": 69
+    },
+    {
+      "budget": 500,
+      "seed": 2,
+      "stored_successful_episodes": 30,
+      "recorded_completion_counter": 30,
+      "attempts": 31325,
+      "accepted": 513
+    },
+    {
+      "budget": 50,
+      "seed": 2,
+      "stored_successful_episodes": 5,
+      "recorded_completion_counter": 5,
+      "attempts": 3111,
+      "accepted": 58
+    },
+    {
+      "budget": 25,
+      "seed": 2,
+      "stored_successful_episodes": 3,
+      "recorded_completion_counter": 3,
+      "attempts": 1552,
+      "accepted": 29
+    },
+    {
+      "budget": 250,
+      "seed": 2,
+      "stored_successful_episodes": 15,
+      "recorded_completion_counter": 15,
+      "attempts": 15685,
+      "accepted": 259
+    },
+    {
+      "budget": 10,
+      "seed": 2,
+      "stored_successful_episodes": 1,
+      "recorded_completion_counter": 1,
+      "attempts": 611,
+      "accepted": 11
+    },
+    {
+      "budget": 1000,
+      "seed": 0,
+      "stored_successful_episodes": 24,
+      "recorded_completion_counter": 23,
+      "attempts": 63569,
+      "accepted": 738
+    },
+    {
+      "budget": 1000,
+      "seed": 1,
+      "stored_successful_episodes": 30,
+      "recorded_completion_counter": 30,
+      "attempts": 63524,
+      "accepted": 874
+    },
+    {
+      "budget": 100,
+      "seed": 2,
+      "stored_successful_episodes": 8,
+      "recorded_completion_counter": 8,
+      "attempts": 6205,
+      "accepted": 108
+    },
+    {
+      "budget": 500,
+      "seed": 0,
+      "stored_successful_episodes": 13,
+      "recorded_completion_counter": 13,
+      "attempts": 31763,
+      "accepted": 370
+    },
+    {
+      "budget": 500,
+      "seed": 1,
+      "stored_successful_episodes": 12,
+      "recorded_completion_counter": 12,
+      "attempts": 31857,
+      "accepted": 432
+    },
+    {
+      "budget": 25,
+      "seed": 0,
+      "stored_successful_episodes": 1,
+      "recorded_completion_counter": 1,
+      "attempts": 1568,
+      "accepted": 18
+    },
+    {
+      "budget": 50,
+      "seed": 0,
+      "stored_successful_episodes": 1,
+      "recorded_completion_counter": 1,
+      "attempts": 3168,
+      "accepted": 35
+    },
+    {
+      "budget": 25,
+      "seed": 1,
+      "stored_successful_episodes": 1,
+      "recorded_completion_counter": 1,
+      "attempts": 1590,
+      "accepted": 21
+    },
+    {
+      "budget": 50,
+      "seed": 1,
+      "stored_successful_episodes": 2,
+      "recorded_completion_counter": 2,
+      "attempts": 3171,
+      "accepted": 41
+    },
+    {
+      "budget": 250,
+      "seed": 1,
+      "stored_successful_episodes": 9,
+      "recorded_completion_counter": 9,
+      "attempts": 15877,
+      "accepted": 211
+    },
+    {
+      "budget": 10,
+      "seed": 1,
+      "stored_successful_episodes": 0,
+      "recorded_completion_counter": 0,
+      "attempts": 640,
+      "accepted": 9
+    },
+    {
+      "budget": 10,
+      "seed": 0,
+      "stored_successful_episodes": 0,
+      "recorded_completion_counter": 0,
+      "attempts": 640,
+      "accepted": 8
+    },
+    {
+      "budget": 250,
+      "seed": 0,
+      "stored_successful_episodes": 9,
+      "recorded_completion_counter": 9,
+      "attempts": 15815,
+      "accepted": 189
+    }
+  ],
+  "residual_differences": [
+    "handwritten procedural decomposition",
+    "different supervision/reward label budgets",
+    "different inference call counts and runtime",
+    "groundedness requires supporting trajectories"
+  ],
+  "not_claimed": "Equal inference compute, autonomous rule discovery, or isolation of architecture alone"
+}
