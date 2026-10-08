@@ -1,0 +1,16 @@
+[
+  {
+    "split": "train",
+    "n": 100,
+    "trajectory_accuracy": 1.0,
+    "local_claim_accuracy": 1.0,
+    "carry_accuracy": 1.0
+  },
+  {
+    "split": "validation",
+    "n": 100,
+    "trajectory_accuracy": 0.17,
+    "local_claim_accuracy": 0.6645569620253164,
+    "carry_accuracy": 0.8143459915611815
+  }
+]
