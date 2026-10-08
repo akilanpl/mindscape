@@ -86,6 +86,12 @@ verification defines the common metrics and cannot be removed as an evaluator
 ablation. B versus C already varies trajectory supervision; it is not a single-component
 ablation. Single-budget ablations do not estimate data-efficiency changes.
 
+Diagnostic naming caveat: original C metadata used the generic key validation_metrics
+for training-replay diagnostics, not held-out validation. diagnostic_context.json sidecars
+identify the actual source without replacing original files; future metadata separates
+replay_metrics from validation_metrics. No C validation trace labels were used and no
+reported held-out benchmark metric depends on these training diagnostics.
+
 ## Statistics and interpretation
 
 Primary curves use three seeds at all seven budgets. Report means/sample standard

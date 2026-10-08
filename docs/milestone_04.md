@@ -186,6 +186,12 @@ Branch main; earlier code/history/results preserved. Final clean status checked 
 Protocol/run revision: df98891. Analysis/backend/diagnostics: 571147b. Final report and
 measured snapshots are committed separately; latest hash is reported in chat.
 
+Diagnostic naming caveat: original C metadata used the generic key validation_metrics
+for training-replay diagnostics, not held-out validation. diagnostic_context.json sidecars
+identify the actual source without replacing original files; future metadata separates
+replay_metrics from validation_metrics. No C validation trace labels were used and no
+reported held-out benchmark metric depends on these training diagnostics.
+
 ## REPOSITORY TREE
 ```text
 src/mindscape/environments/multiplication/claims.py

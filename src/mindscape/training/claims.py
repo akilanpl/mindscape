@@ -139,7 +139,9 @@ def train_claims(splits, manifest, config, output):
         "training_rows": len(x), "regime": "answer_only" if config["condition"] == "answer_only" else
             "trajectory_supervised" if config["condition"] == "trajectory" else "structured" if config["condition"] == "structured" else "experiential",
         "checkpoint": str((output / "checkpoint").resolve()), "parameter_count": backend.parameter_count,
-        "validation_metrics": metrics, "experience": experience, "concept_seed": CONCEPT_SEED,
+        "validation_metrics": metrics if config["condition"] != "experiential" else None,
+        "replay_metrics": metrics if config["condition"] == "experiential" else None,
+        "diagnostic_split": "training_feedback_replay" if config["condition"] == "experiential" else "validation", "experience": experience, "concept_seed": CONCEPT_SEED,
         "feature_version": VERSION, "selection": "fixed_optimizer_steps_no_test_or_validation_selection",
         "software": {"python": platform.python_version(), "numpy": np.__version__,
             "git_revision": subprocess.run(["git", "rev-parse", "HEAD"],capture_output=True,text=True).stdout.strip()},

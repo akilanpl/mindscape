@@ -1,0 +1,632 @@
+[
+  {
+    "condition": "structured",
+    "budget": 10,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 100,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 250,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 500,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 1000,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "structured",
+    "budget": 250,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 500,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 10,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 100,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "structured",
+    "budget": 25,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 50,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 250,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 25,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 100,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "experiential",
+    "budget": 500,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "structured",
+    "budget": 50,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 50,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 1000,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 1000,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 25,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 10,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 1000,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 250,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 500,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 50,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 1000,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 50,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 250,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 1000,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 10,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 500,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 25,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 100,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 25,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 1000,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 50,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 50,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 100,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 250,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 10,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 25,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 50,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 10,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 100,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 50,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 500,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 25,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 10,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 1000,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 100,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 100,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 1000,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "structured",
+    "budget": 250,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 500,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 10,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 50,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 250,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 100,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "experiential",
+    "budget": 500,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "structured",
+    "budget": 25,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 250,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 500,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "experiential",
+    "budget": 25,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 1000,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 250,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 10,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 500,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 100,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 1000,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 50,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 25,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 100,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "structured",
+    "budget": 1000,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 25,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "experiential",
+    "budget": 50,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 50,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 250,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 10,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 50,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 10,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 100,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 500,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 50,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 50,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 10,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "experiential",
+    "budget": 250,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 25,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "answer_only",
+    "budget": 500,
+    "seed": 1,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  },
+  {
+    "condition": "experiential",
+    "budget": 50,
+    "seed": 0,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "training_feedback_replay"
+  },
+  {
+    "condition": "trajectory",
+    "budget": 50,
+    "seed": 2,
+    "legacy_metrics_key": "validation_metrics",
+    "actual_diagnostic_split": "validation"
+  }
+]
