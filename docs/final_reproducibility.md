@@ -77,3 +77,17 @@ Before final freezing, preserve separate hypothetical posthoc judgments without 
 ```sh
 PYTHONPATH=src python scripts/annotate_final_hypotheticals.py results/final/reproduction_v1
 ```
+
+Record the pinned downloaded model-file digests and freeze the separately validated references:
+
+```sh
+PYTHONPATH=src python scripts/model_manifest.py \
+  --model work/hf/hub/models--HuggingFaceTB--SmolLM2-135M-Instruct/snapshots/12fd25f77366fa6b3b4b768ec3050bf629380bac \
+  --output experiments/reproduced_model_manifest.json
+PYTHONPATH=src python scripts/freeze_final_references.py results/final/historical_mlp_reproduction \
+  --dataset datasets/generated/final_reproduction
+PYTHONPATH=src python scripts/freeze_final_references.py results/final/references_reproduction \
+  --dataset datasets/generated/final_reproduction
+```
+
+Before freezing the main study, optionally render the retained readable ablation variant with `python scripts/final_ablation_plot.py results/final/reproduction_v1`. The original figure remains preserved. `scripts/write_final_report.py` generates the thesis-ready snapshot for this repository's declared study paths; for a new reproduction, use its measured JSON inputs with new snapshot paths rather than overwriting the committed report. The exact used global/local package versions and CPU hardware are also recorded in `experiments/final_audit/runtime.json`.

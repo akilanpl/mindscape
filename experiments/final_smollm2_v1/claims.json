@@ -1,0 +1,56 @@
+[
+  {
+    "claim": "Mindscape improves accuracy",
+    "status": "INCONCLUSIVE",
+    "evidence": "See primary curves and matched-information control.",
+    "limitations": "State/scaffold and supervision differ from answer baselines; wrapper causal benefit must exceed matched local policy."
+  },
+  {
+    "claim": "Mindscape improves data efficiency",
+    "status": "NOT SUPPORTED",
+    "evidence": "Observed N* and DER only.",
+    "limitations": "Unequal label/query counts; compute reported separately."
+  },
+  {
+    "claim": "Mindscape improves structural OOD generalization",
+    "status": "INCONCLUSIVE",
+    "evidence": "Unseen structures evaluated separately.",
+    "limitations": "One domain and hand-defined cursor."
+  },
+  {
+    "claim": "Mindscape improves groundedness",
+    "status": "INCONCLUSIVE",
+    "evidence": "Verified executed evidence measured.",
+    "limitations": "Answer-only protocol emits no trajectory; metric favors evidence emitters by definition."
+  },
+  {
+    "claim": "Mindscape improves trajectory validity",
+    "status": "INCONCLUSIVE",
+    "evidence": "Complete verifier checks.",
+    "limitations": "Baselines without trajectories have null validity; matched policy is required."
+  },
+  {
+    "claim": "Explicit state contributes",
+    "status": "INCONCLUSIVE",
+    "evidence": "Retrained no-state intervention at n50.",
+    "limitations": "One budget and changes representation. Support, if present, is limited to IID at n50; OOD is separately reported."
+  },
+  {
+    "claim": "Episodic memory contributes",
+    "status": "NOT SUPPORTED",
+    "evidence": "Matched accepted rows/order/updates no-storage control.",
+    "limitations": "Tests SQLite retrieval versus in-memory replay, not all reuse."
+  },
+  {
+    "claim": "Dream simulation contributes",
+    "status": "NOT SUPPORTED",
+    "evidence": "Depth2/branch3 intervention n50.",
+    "limitations": "Confidence scoring, not learned world model; extra inference calls."
+  },
+  {
+    "claim": "Architecture transfers to another environment",
+    "status": "NOT SUPPORTED",
+    "evidence": "Goal-directed generic integer dream demo retained.",
+    "limitations": "No second learned benchmark; extension deferred."
+  }
+]

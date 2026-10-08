@@ -1,0 +1,66 @@
+[
+  {
+    "condition": "answer_only",
+    "split": "test",
+    "budget": 1000,
+    "seeds": 3,
+    "accuracy_mean": 0.0033333333333333335,
+    "accuracy_std": 0.002886751345948129
+  },
+  {
+    "condition": "answer_only",
+    "split": "ood_test",
+    "budget": 1000,
+    "seeds": 3,
+    "accuracy_mean": 0.0,
+    "accuracy_std": 0.0
+  },
+  {
+    "condition": "structured",
+    "split": "test",
+    "budget": 1000,
+    "seeds": 3,
+    "accuracy_mean": 0.0033333333333333335,
+    "accuracy_std": 0.002886751345948129
+  },
+  {
+    "condition": "structured",
+    "split": "ood_test",
+    "budget": 1000,
+    "seeds": 3,
+    "accuracy_mean": 0.0,
+    "accuracy_std": 0.0
+  },
+  {
+    "condition": "trajectory",
+    "split": "test",
+    "budget": 1000,
+    "seeds": 3,
+    "accuracy_mean": 0.08,
+    "accuracy_std": 0.008660254037844387
+  },
+  {
+    "condition": "trajectory",
+    "split": "ood_test",
+    "budget": 1000,
+    "seeds": 3,
+    "accuracy_mean": 0.006666666666666667,
+    "accuracy_std": 0.0
+  },
+  {
+    "condition": "experiential",
+    "split": "test",
+    "budget": 1000,
+    "seeds": 3,
+    "accuracy_mean": 0.08333333333333333,
+    "accuracy_std": 0.020207259421636897
+  },
+  {
+    "condition": "experiential",
+    "split": "ood_test",
+    "budget": 1000,
+    "seeds": 3,
+    "accuracy_mean": 0.0033333333333333335,
+    "accuracy_std": 0.0033333333333333335
+  }
+]

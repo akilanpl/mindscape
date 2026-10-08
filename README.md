@@ -9,21 +9,32 @@ answer-oriented learning. No superiority or learned reasoning result is establis
 
 Observation → state → action → event/result → state update → verification → goal.
 
-## Current implementation
+## Final research build
 
-First learned prototype now available: local NumPy answer-only MLP and trajectory-supervised
-action policy, checkpoint training/evaluation, working memory and SQLite episodic API.
-69 tests pass. See `docs/milestone_03.md` for measured development results. Singleton
-action masks force success; arithmetic-tool access differs, so no superiority is established.
+The final controlled study uses one pinned, free Apache2.0 SmolLM2-135M-Instruct
+frozen backbone with identical 337,618-parameter trainable heads for answer-only,
+structured, trajectory-supervised B and experiential C. It evaluates seven nested
+problem budgets 10–1000 with three seeds, separate IID/structural OOD, 100 numerical
+action candidates and no inference-time arithmetic correction. Historical MLPs,
+negative studies and Git history remain intact.
 
+See [final results](docs/final_results.md), [research conclusions](docs/research_conclusions.md),
+[protocol](docs/final_experimental_protocol.md), [architecture](docs/final_architecture.md),
+[limitations](docs/limitations.md) and [exact reproduction commands](docs/final_reproducibility.md).
+The static [evidence demo](demo/index.html) displays frozen public execution records,
+including wrong actions, with an answer-only/Mindscape toggle.
 
-Phases 0–3: immutable typed schemas, a deterministic integer multiplication
-environment, ordered trajectories, replay verification and a command-line demonstration.
-The environment performs decimal digit/carry operations for arbitrary operand lengths,
-including zero and negative operands. Python multiplication is used for individual digit
-operations and as an independent final-answer oracle, never as the whole procedure.
-The policy chooses the single legal next procedural action; this is a hand-authored
-algorithm, not learned intelligence. Evidence categories remain explicit.
+The architecture implements typed state/action/event/result/goal trajectories,
+a generic environment interface, independent replay verification, working/episodic/
+concept memory and bounded hypothetical simulation. Decimal cursor/decomposition
+is manually designed. No independent architecture, compute-efficiency or universal
+reasoning advantage is implied by the implementation.
+
+Phases1–4 are historical milestones: deterministic decimal execution, dataset/leakage
+infrastructure, NumPy learned prototypes and the controlled claims study. Their
+schemas, commands and results remain available. Early singleton-mask success was
+confounded and is not a final learned result. The 92 passing tests cover both legacy
+and final paths.
 
 ## Installation and execution
 
@@ -50,22 +61,20 @@ state, final answer, independent verification, and goal status as JSON.
 
 ## Benchmark and historical references
 
-The planned benchmark measures exact accuracy, OOD accuracy, data efficiency,
-grounded answer rate, transition validity, goal success, and compute.
-Dataset and benchmark infrastructure is implemented; preliminary learned development evaluations now exist; no valid data-efficiency claim exists. `docs/benchmark.md`
-defines operational metrics and their denominators. Historical GPT/Gemini
-results will be documented with exact versions, datasets, dates, sources and
-protocols in a later phase. Multiplication scores cannot be compared directly
-with GSM8K, MATH or MMLU scores. No historical numbers are asserted here.
+The completed benchmark measures exact accuracy, structural OOD, data efficiency,
+groundedness, trajectory validity, goal success and compute. Final protocols,
+results and controls are documented in `docs/final_results.md` and
+`docs/final_experimental_protocol.md`. Historical GPT-4/Gemini sources and
+comparability limits are retained in `docs/historical_references.md`.
+Their GSM8K scores are unsuitable for direct comparison to this multiplication task.
 
-## Roadmap
+## Remaining research directions
 
-Seeded datasets, checked structural splits and reference evaluation are implemented.
-Regimes A/B and local task MLPs are implemented. Next: regime C, matched-tool
-controls, meaningful action choices, fair data-efficiency studies, ablations and historical
-references. Bounded hypothetical simulation, a second vertical, UI and multimodal
-observations follow only after the core experiments. Directory placeholders do
-not imply implementations.
+The final multiplication build and validation are complete. Full pretrained-model
+fine-tuning, independently reserved carry-only holdouts, learned cursor planning,
+matched query budgets, a second learned environment and multimodal observations
+remain future work. None is implied by directory placeholders or by the existing
+architecture. See `docs/research_conclusions.md` and `docs/second_vertical.md`.
 
 ## Reproducibility
 
@@ -118,7 +127,7 @@ curves and standalone SVGs are retained in `experiments/first_learned/`. Full ch
 logs and per-example predictions remain in `results/learned_development_v1/` locally.
 Regime C is explicitly unimplemented; no experiential learning claim is made.
 
-## Controlled research study (current result)
+## Historical phase-4 controlled research study
 
 The numerical-claim study supersedes prior oracle-assisted performance interpretation.
 Each policy must predict its numerical result; primary execution never corrects it.

@@ -1,0 +1,12 @@
+{
+  "arithmetic_error": 22367,
+  "wrong_action": 28762,
+  "invalid_transition": 0,
+  "malformed_state": 0,
+  "trajectory_failure": 0,
+  "goal_failure": 0,
+  "unsupported_answer": 133,
+  "timeout": 0,
+  "other": 0,
+  "correct": 1238
+}

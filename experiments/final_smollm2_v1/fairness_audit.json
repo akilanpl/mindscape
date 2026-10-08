@@ -1,0 +1,1761 @@
+{
+  "checks": [
+    {
+      "check": "84 primary trained models /168 split evaluations",
+      "passed": true
+    },
+    {
+      "check": "Unique primary matrix",
+      "passed": true
+    },
+    {
+      "check": "Same parameter count",
+      "passed": true
+    },
+    {
+      "check": "No held-out training identities",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T015834Z_903fa86d6a9945e7b971eb83a165ff20",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T015834Z_903fa86d6a9945e7b971eb83a165ff20",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T015845Z_42ac16b4112a47ce9367ec1f10bd8122",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T015845Z_42ac16b4112a47ce9367ec1f10bd8122",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T015854Z_6b851727141b473c8300e88f2fd64946",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T015854Z_6b851727141b473c8300e88f2fd64946",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T015907Z_d16a2abb938e49aa9e197c3b7c214bee",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T015907Z_d16a2abb938e49aa9e197c3b7c214bee",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T015925Z_22ba105ceefc4308920e4c97f9f467d9",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T015925Z_22ba105ceefc4308920e4c97f9f467d9",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020024Z_46061e55586347b8b6149a9193ea5f6e",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020024Z_46061e55586347b8b6149a9193ea5f6e",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020032Z_1caee10a19f84707a03515ae1cbb072c",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020032Z_1caee10a19f84707a03515ae1cbb072c",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020109Z_d5de7eb422914fd799ae7f786045c381",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020109Z_d5de7eb422914fd799ae7f786045c381",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020111Z_880abbc94e5d4ecea827135c498b461c",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020111Z_880abbc94e5d4ecea827135c498b461c",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020112Z_55d76349d204422499eee8308bd79a42",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020112Z_55d76349d204422499eee8308bd79a42",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020114Z_b2f48c5279494a5db616684041d834f8",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020114Z_b2f48c5279494a5db616684041d834f8",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020115Z_746b8819525b49dcae0b8506e15817b6",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020115Z_746b8819525b49dcae0b8506e15817b6",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020121Z_a1919313084f438e9af4a83c5bf6f746",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020121Z_a1919313084f438e9af4a83c5bf6f746",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020143Z_124b47c54489477681304f1532dbd59d",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020143Z_124b47c54489477681304f1532dbd59d",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020151Z_80090edb99384019bbda9f71e8197cf1",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020151Z_80090edb99384019bbda9f71e8197cf1",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020228Z_9843a4c0741248b09cdbd53016933f8a",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020228Z_9843a4c0741248b09cdbd53016933f8a",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020230Z_2da5e0b42c704a1fb3a9f13b03bb397c",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020230Z_2da5e0b42c704a1fb3a9f13b03bb397c",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020231Z_5bc9d94fbfb64ff281020d24ef9e5e23",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020231Z_5bc9d94fbfb64ff281020d24ef9e5e23",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020233Z_c8dcefcdeb3b43c18f438d8d5cfe99a3",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020233Z_c8dcefcdeb3b43c18f438d8d5cfe99a3",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020234Z_cfb3b05a193f4208b72b3baa326383f4",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020234Z_cfb3b05a193f4208b72b3baa326383f4",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020238Z_be0711ecf4a042eabf4761a1a9acad46",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020238Z_be0711ecf4a042eabf4761a1a9acad46",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020253Z_63d07d12dd0346f89b47bf2be589bcf6",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020253Z_63d07d12dd0346f89b47bf2be589bcf6",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020259Z_8d65b9c32997416a968cf7756e6d855c",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020259Z_8d65b9c32997416a968cf7756e6d855c",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020334Z_206d7716803d4c82991202702a222c66",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020334Z_206d7716803d4c82991202702a222c66",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020336Z_bb69a68c37564128972e45e01ce271f5",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020336Z_bb69a68c37564128972e45e01ce271f5",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020337Z_fd1dca3f8be94fe6af46ae746cb438cc",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020337Z_fd1dca3f8be94fe6af46ae746cb438cc",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020340Z_df9cb3baa12543dda3947135814a0a67",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020340Z_df9cb3baa12543dda3947135814a0a67",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020341Z_69c31279231d4dd6ab3550e234f8c920",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020341Z_69c31279231d4dd6ab3550e234f8c920",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020349Z_ef429b52b14044c7b247778d2d8e5fea",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020349Z_ef429b52b14044c7b247778d2d8e5fea",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020419Z_6d2fdafd27ed42adb5c7e68814d751bc",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020419Z_6d2fdafd27ed42adb5c7e68814d751bc",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020427Z_aebf27320c7e4cb8b98eb2acf0b003fe",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020427Z_aebf27320c7e4cb8b98eb2acf0b003fe",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020453Z_6b10eb14a4e74dd3ba0d506ec9b7da17",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020453Z_6b10eb14a4e74dd3ba0d506ec9b7da17",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020455Z_03b206e251b64d8b85346548585c5f66",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020455Z_03b206e251b64d8b85346548585c5f66",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020456Z_78b015f864754dde9c64a668fe7b6bb0",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020456Z_78b015f864754dde9c64a668fe7b6bb0",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020458Z_b451cc9b8e554777a70c245524230791",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020458Z_b451cc9b8e554777a70c245524230791",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020459Z_eb133274e1c64d79a1c6f2028b58f272",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020459Z_eb133274e1c64d79a1c6f2028b58f272",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020503Z_2e9191267117472799d8f3fc9eadd86d",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020503Z_2e9191267117472799d8f3fc9eadd86d",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020519Z_d759c8db1b5248f4a9e0797b46b44512",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020519Z_d759c8db1b5248f4a9e0797b46b44512",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020523Z_f646af72bf664b19a0f0cdf1f0cc55bc",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020523Z_f646af72bf664b19a0f0cdf1f0cc55bc",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020537Z_6dd4079266684a4d80f9b8d6f80dd7e0",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020537Z_6dd4079266684a4d80f9b8d6f80dd7e0",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020540Z_53e507f7539f4d3191636314e3419e3d",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020540Z_53e507f7539f4d3191636314e3419e3d",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020541Z_06a5cc0686d04a31b7a80ae53cf391bc",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020541Z_06a5cc0686d04a31b7a80ae53cf391bc",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020543Z_138c969ff4b24961903e2f47848afee2",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020543Z_138c969ff4b24961903e2f47848afee2",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020544Z_20dbaf4234434853a9ef86cc3c979a30",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020544Z_20dbaf4234434853a9ef86cc3c979a30",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020547Z_eedfe32a7b8a4764ad3e5dc3a7277592",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020547Z_eedfe32a7b8a4764ad3e5dc3a7277592",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020557Z_e8b22ff942114a2985a92dd033621d6e",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020557Z_e8b22ff942114a2985a92dd033621d6e",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020601Z_b27b376e50ff488b82a0310ae0f3910d",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020601Z_b27b376e50ff488b82a0310ae0f3910d",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020614Z_51f100be75004c0e8e39b2276a187a24",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020614Z_51f100be75004c0e8e39b2276a187a24",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020617Z_abd9133256434279980061c07260497d",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020617Z_abd9133256434279980061c07260497d",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020618Z_ef019e530b6f4596a6521f71768f410e",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020618Z_ef019e530b6f4596a6521f71768f410e",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020621Z_f8992dd4211d442b8ca8a47e9e22cd80",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020621Z_f8992dd4211d442b8ca8a47e9e22cd80",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020622Z_9bd37f29d50949d8adb620743f5c1448",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020622Z_9bd37f29d50949d8adb620743f5c1448",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020628Z_3fa1ccb371234047b2c33f5ab5f514b1",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020628Z_3fa1ccb371234047b2c33f5ab5f514b1",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020652Z_86cc40bf519c4403bd123bfc541d014e",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020652Z_86cc40bf519c4403bd123bfc541d014e",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020656Z_7b5b773ac575478bb03d1d738eb78c59",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020656Z_7b5b773ac575478bb03d1d738eb78c59",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020711Z_3cc5c0f2536b4e7fa1f4f7a5516ab879",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020711Z_3cc5c0f2536b4e7fa1f4f7a5516ab879",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020714Z_d740dd800dbd44c3bd7a8335497c8f27",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020714Z_d740dd800dbd44c3bd7a8335497c8f27",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020715Z_66afd929202a495d9581dd91f9c60e66",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020715Z_66afd929202a495d9581dd91f9c60e66",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020717Z_1907bf78bb6e4de6b8991775dd0301aa",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020717Z_1907bf78bb6e4de6b8991775dd0301aa",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020719Z_09aca42a50ad46369ad44fd3528f7eba",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020719Z_09aca42a50ad46369ad44fd3528f7eba",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020723Z_b0bb6638915f402e971f80bd799b2d9a",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020723Z_b0bb6638915f402e971f80bd799b2d9a",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020742Z_510599ff159a46abbf61a3fc89d91516",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020742Z_510599ff159a46abbf61a3fc89d91516",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020749Z_310dda2cf6734093b6bc6530c52f6a50",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020749Z_310dda2cf6734093b6bc6530c52f6a50",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020820Z_dc08c6ab182f403e961da2e4f6fc3bae",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020820Z_dc08c6ab182f403e961da2e4f6fc3bae",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020824Z_8146223fdf954ae4bdbe8b490a7bed26",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020824Z_8146223fdf954ae4bdbe8b490a7bed26",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020825Z_a872d04a99e94f8e8473b130919f8fce",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020825Z_a872d04a99e94f8e8473b130919f8fce",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020828Z_aa27c7256fdc4b2792020a15879273ce",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020828Z_aa27c7256fdc4b2792020a15879273ce",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020829Z_ada1d563c2464bb08b7419cc516f2b49",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020829Z_ada1d563c2464bb08b7419cc516f2b49",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020833Z_704005703a454a34996478da47c6eb4e",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020833Z_704005703a454a34996478da47c6eb4e",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020843Z_ad7bd3cfa6c24e65bf6d30d68e261740",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020843Z_ad7bd3cfa6c24e65bf6d30d68e261740",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020850Z_cf1e1fc6ca9d4734a7c924e277174c4a",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020850Z_cf1e1fc6ca9d4734a7c924e277174c4a",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020902Z_061074f2fc1e4406814828805deb4173",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020902Z_061074f2fc1e4406814828805deb4173",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020905Z_b5d5d0c27bf74eb8bd9f0080e6c4e24f",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020905Z_b5d5d0c27bf74eb8bd9f0080e6c4e24f",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020906Z_9d0aa7d1e18b44d78c76e0218d741944",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020906Z_9d0aa7d1e18b44d78c76e0218d741944",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020910Z_1498726284674cd4bb241fe75927cf11",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020910Z_1498726284674cd4bb241fe75927cf11",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020911Z_f876be516d984ce588336f01f8071aeb",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020911Z_f876be516d984ce588336f01f8071aeb",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020915Z_c4a3b27468e444bea9996ec976da9039",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020915Z_c4a3b27468e444bea9996ec976da9039",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020932Z_1e8197e248cc4f5bb25b5e6d8f49866f",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020932Z_1e8197e248cc4f5bb25b5e6d8f49866f",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020935Z_f6a3fe798c9243daae0ca63b4ab553a4",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020935Z_f6a3fe798c9243daae0ca63b4ab553a4",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020949Z_729cd9bce3d8420699e9b922b265c45e",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020949Z_729cd9bce3d8420699e9b922b265c45e",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020951Z_c652e560b8c94d2c94d3886545727a60",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020951Z_c652e560b8c94d2c94d3886545727a60",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020952Z_fb8c0094f63f43039f14af8d74f60f0b",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020952Z_fb8c0094f63f43039f14af8d74f60f0b",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020954Z_b9966cb932784c84aafb51b2b6e2ceb6",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020954Z_b9966cb932784c84aafb51b2b6e2ceb6",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020955Z_9c5dd021865141a690860d301057ce24",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020955Z_9c5dd021865141a690860d301057ce24",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T020958Z_5e519669f39943aabf03248614af6842",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T020958Z_5e519669f39943aabf03248614af6842",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021007Z_22b0d448b12a4a56a90786a41aa2e350",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021007Z_22b0d448b12a4a56a90786a41aa2e350",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021010Z_ac5712bcbc0e4c99a3173ffe7238d90c",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021010Z_ac5712bcbc0e4c99a3173ffe7238d90c",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021020Z_1d9928832baa47c697fce8fa506c0e92",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021020Z_1d9928832baa47c697fce8fa506c0e92",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021023Z_355eeffbb18542f0b7af0f0d59184ced",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021023Z_355eeffbb18542f0b7af0f0d59184ced",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021024Z_3dbac9b3c6794207b6e6799d14484b2c",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021024Z_3dbac9b3c6794207b6e6799d14484b2c",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021026Z_925aaa30d8684e3fa4314fa5f9a65967",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021026Z_925aaa30d8684e3fa4314fa5f9a65967",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021027Z_04e4e32995a24a6981701356168d474b",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021027Z_04e4e32995a24a6981701356168d474b",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021030Z_9ced86b11bcb49b2999b4860eb8a5567",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021030Z_9ced86b11bcb49b2999b4860eb8a5567",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021038Z_a5ccb4ed65564fb897c1fd0853f134e1",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021038Z_a5ccb4ed65564fb897c1fd0853f134e1",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021043Z_e71da248c1d54625913ff37a90bf35f6",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021043Z_e71da248c1d54625913ff37a90bf35f6",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021055Z_8cde167131b240159dccb896db10562c",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021055Z_8cde167131b240159dccb896db10562c",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021101Z_0f0388ec9fd548b88ba1235b3843da09",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021101Z_0f0388ec9fd548b88ba1235b3843da09",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021102Z_970f9fd785d1421fbb9134d397d2f953",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021102Z_970f9fd785d1421fbb9134d397d2f953",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021109Z_7c89ea12d84f4fe9abfbb0aef5c35ac8",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021109Z_7c89ea12d84f4fe9abfbb0aef5c35ac8",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021110Z_8e8b5c9f01ca431da5015ae3d221e017",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021110Z_8e8b5c9f01ca431da5015ae3d221e017",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021118Z_35e4c000c9a34d2a884432f14f4bd7c8",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021118Z_35e4c000c9a34d2a884432f14f4bd7c8",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021130Z_41e1a2bdc93743bba26d729f8e7cf809",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021130Z_41e1a2bdc93743bba26d729f8e7cf809",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021134Z_78b3d515ffc748f8ba293aa7b166ecca",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021134Z_78b3d515ffc748f8ba293aa7b166ecca",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021146Z_15d712d9a03344f6880b3f45c60c414a",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021146Z_15d712d9a03344f6880b3f45c60c414a",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021148Z_7479599236ed471aac0d5d62b69f1897",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021148Z_7479599236ed471aac0d5d62b69f1897",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021149Z_ce8ce8c4b26c44a5809bba02e61e9168",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021149Z_ce8ce8c4b26c44a5809bba02e61e9168",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021152Z_99557da498fd452388dcc4efa286f48f",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021152Z_99557da498fd452388dcc4efa286f48f",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021153Z_50062e792a814fcf94fb371819317f18",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021153Z_50062e792a814fcf94fb371819317f18",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021155Z_2813177336034bed91f2d6071f5470c5",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021155Z_2813177336034bed91f2d6071f5470c5",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021202Z_e251bda342e9401eadc71e4ebcfc6470",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021202Z_e251bda342e9401eadc71e4ebcfc6470",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021208Z_d7c429d9473b4fa7bbbf3fa165bac3a8",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021208Z_d7c429d9473b4fa7bbbf3fa165bac3a8",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021217Z_f727bf33bc0e4d4982b27a64719d7abd",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021217Z_f727bf33bc0e4d4982b27a64719d7abd",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021220Z_b77708cf0db14d059f9fdddcce41d148",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021220Z_b77708cf0db14d059f9fdddcce41d148",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021221Z_a99721152b9c42a39895efaa4648c973",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021221Z_a99721152b9c42a39895efaa4648c973",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021223Z_306f7dc50c7f45b7a2eb73b30c9061ec",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021223Z_306f7dc50c7f45b7a2eb73b30c9061ec",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021224Z_eb060ca7fb8444a2b1febd127dd21e21",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021224Z_eb060ca7fb8444a2b1febd127dd21e21",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021226Z_0443a40481394ac097476cc4c68c80e1",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021226Z_0443a40481394ac097476cc4c68c80e1",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021232Z_0aad4e8146f143979bc000194dca88eb",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021232Z_0aad4e8146f143979bc000194dca88eb",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021237Z_ccfbdd1d99ef4cb0b1833e8a6173a0f2",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021237Z_ccfbdd1d99ef4cb0b1833e8a6173a0f2",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021250Z_e2c6a19c57064e428271a904de028ae5",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021250Z_e2c6a19c57064e428271a904de028ae5",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021257Z_d954677ee99e42bd92382667824ae68e",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021257Z_d954677ee99e42bd92382667824ae68e",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021258Z_492d7f3e5c874ad58a05fd13c45e084b",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021258Z_492d7f3e5c874ad58a05fd13c45e084b",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021308Z_0664ea1cab5b4bde93139e1af19a6564",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021308Z_0664ea1cab5b4bde93139e1af19a6564",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021309Z_cd1ed31f174f49c7bed6fa3fdda99fef",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021309Z_cd1ed31f174f49c7bed6fa3fdda99fef",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021314Z_7d720fd3a30a4c9dbc82ddf9c58ba2f3",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021314Z_7d720fd3a30a4c9dbc82ddf9c58ba2f3",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021322Z_8b5b387d95a141d6aea190631b9504ca",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021322Z_8b5b387d95a141d6aea190631b9504ca",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021327Z_9ee164ad1f254fb9b3bd778b865c3db8",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021327Z_9ee164ad1f254fb9b3bd778b865c3db8",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021332Z_a4fb5d9e69fa4bc5b89b7d3817236bbd",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021332Z_a4fb5d9e69fa4bc5b89b7d3817236bbd",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021334Z_ca4b7aac034c4776a02d79808577babb",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021334Z_ca4b7aac034c4776a02d79808577babb",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021335Z_6db867b9b4a14dc0b43557b681b98262",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021335Z_6db867b9b4a14dc0b43557b681b98262",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021337Z_f9d3fe920af14129b6a892460cf0856c",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021337Z_f9d3fe920af14129b6a892460cf0856c",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021338Z_a1a48149f30d40a08f325bd4153269f3",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021338Z_a1a48149f30d40a08f325bd4153269f3",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021340Z_05bba27ea09941dbb790f02fcb138b77",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021340Z_05bba27ea09941dbb790f02fcb138b77",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021345Z_dd9f378e14e5410a97f79e4ff832d663",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021345Z_dd9f378e14e5410a97f79e4ff832d663",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021351Z_44789585bda44112a266c70f6522cd1b",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021351Z_44789585bda44112a266c70f6522cd1b",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021359Z_b18107dd56154b57ac7de548e51bde89",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021359Z_b18107dd56154b57ac7de548e51bde89",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021401Z_cdb3d30c72eb4f9db27ffb2d690dd2bd",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021401Z_cdb3d30c72eb4f9db27ffb2d690dd2bd",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021402Z_47a857babac4476a8c5ad783d35dbde6",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021402Z_47a857babac4476a8c5ad783d35dbde6",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021404Z_b0133c17309f41518c588df420a972d4",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021404Z_b0133c17309f41518c588df420a972d4",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021405Z_232f30dcd0594050b2c0a8139158299d",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021405Z_232f30dcd0594050b2c0a8139158299d",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021408Z_99a8a9636b7140a0b633cc6d0d6c2282",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021408Z_99a8a9636b7140a0b633cc6d0d6c2282",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021411Z_d9dd2b5d2ace49d4957afe309dfa2185",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021411Z_d9dd2b5d2ace49d4957afe309dfa2185",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021416Z_a8bc8f5885b245b38788087f6f0c4d5a",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021416Z_a8bc8f5885b245b38788087f6f0c4d5a",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021422Z_c5126156beeb47219c799a9269ab9cf7",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021422Z_c5126156beeb47219c799a9269ab9cf7",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021434Z_d84b0c6dc5e74f8f89909263cde65110",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021434Z_d84b0c6dc5e74f8f89909263cde65110",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021435Z_842fa8e27f2d44e4aa201a279f3fd099",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021435Z_842fa8e27f2d44e4aa201a279f3fd099",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021452Z_aab63a75986c45b18ee143f6a6af4acf",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021452Z_aab63a75986c45b18ee143f6a6af4acf",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021453Z_666cfbe1458245f988474812723dec65",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021453Z_666cfbe1458245f988474812723dec65",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021500Z_da69b234fb41460d9ae72e24c622e2a4",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021500Z_da69b234fb41460d9ae72e24c622e2a4",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021505Z_e495a246cc734c9ebe8eba5b142ff853",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021505Z_e495a246cc734c9ebe8eba5b142ff853",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021513Z_09cf4b1f1aeb423785926910c543532c",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021513Z_09cf4b1f1aeb423785926910c543532c",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021521Z_ce04e9788dbc447f8ed1f1db9ec74880",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021521Z_ce04e9788dbc447f8ed1f1db9ec74880",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021524Z_9d6c910e967246d385585420fc21f753",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021524Z_9d6c910e967246d385585420fc21f753",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021525Z_aec88ddc23bd4529b77a2645fb46a004",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021525Z_aec88ddc23bd4529b77a2645fb46a004",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021527Z_8a31b81a28154fd3aa82f5df634e4fa6",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021527Z_8a31b81a28154fd3aa82f5df634e4fa6",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021528Z_4a862d983970480bb1171a47b9c22b47",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021528Z_4a862d983970480bb1171a47b9c22b47",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021530Z_32b83a1b1acc4f719220cc570829abdb",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021530Z_32b83a1b1acc4f719220cc570829abdb",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021533Z_6f88054242f44d6194ece9d74070ad79",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021533Z_6f88054242f44d6194ece9d74070ad79",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021540Z_20b08cdd1ff949a1a50b15a8189ab58b",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021540Z_20b08cdd1ff949a1a50b15a8189ab58b",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021548Z_c2c6310736ba40c9a2c650503605fc4f",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021548Z_c2c6310736ba40c9a2c650503605fc4f",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021550Z_7baecd42507a46a1b72b50494d85dc07",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021550Z_7baecd42507a46a1b72b50494d85dc07",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021551Z_c172ee9fe11647ee93ef394be6eb20de",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021551Z_c172ee9fe11647ee93ef394be6eb20de",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021554Z_ff13eaa19592496089aa697aef0b1bdd",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021554Z_ff13eaa19592496089aa697aef0b1bdd",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021555Z_01168800098c4b04ae087a6cd5995ca7",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021555Z_01168800098c4b04ae087a6cd5995ca7",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021557Z_8ba76e06bec44786a56994875985dbde",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021557Z_8ba76e06bec44786a56994875985dbde",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021600Z_86bcfcc6780e4c6eb9a5d6744675a604",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021600Z_86bcfcc6780e4c6eb9a5d6744675a604",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021607Z_cc5fd36f7f7746569a985c4fc822d8b5",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021607Z_cc5fd36f7f7746569a985c4fc822d8b5",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021613Z_bcf0ba0d20034871a575af95ff1e6a84",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021613Z_bcf0ba0d20034871a575af95ff1e6a84",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021615Z_97d73557355443a8ac3af664933057ed",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021615Z_97d73557355443a8ac3af664933057ed",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021616Z_d86a0345c5554939b16ded8d09d20c9f",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021616Z_d86a0345c5554939b16ded8d09d20c9f",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021619Z_8edfe3e0002d4f5ea614025b07d20dbd",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021619Z_8edfe3e0002d4f5ea614025b07d20dbd",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021628Z_21f042b1449f4f868fffbe73f9dbf953",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021628Z_21f042b1449f4f868fffbe73f9dbf953",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021629Z_62f1cec7b4224174833e15dcbf966545",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021629Z_62f1cec7b4224174833e15dcbf966545",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021630Z_0dcdd5d11a064500977fe6ee37c6a2fd",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021630Z_0dcdd5d11a064500977fe6ee37c6a2fd",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021654Z_2f21d8b87e0b4ff09be4492ea1967ae5",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021654Z_2f21d8b87e0b4ff09be4492ea1967ae5",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021804Z_de4537a34f9d4917abf074c2cf1a81bc",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021804Z_de4537a34f9d4917abf074c2cf1a81bc",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021806Z_282eb47208d847dab8bf034bce2e16b9",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021806Z_282eb47208d847dab8bf034bce2e16b9",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021808Z_19345a26c1534c56bfb49251129d879b",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021808Z_19345a26c1534c56bfb49251129d879b",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021810Z_d656960382824003a68fb2807a4bce1b",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021810Z_d656960382824003a68fb2807a4bce1b",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021812Z_e86968741ce04f34926340b4c8586336",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021812Z_e86968741ce04f34926340b4c8586336",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021815Z_981092901be9496b84591e1642c7934b",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021815Z_981092901be9496b84591e1642c7934b",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021817Z_5fcf45cd5d034e0f8bbcc0af8e06af0b",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021817Z_5fcf45cd5d034e0f8bbcc0af8e06af0b",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021818Z_4c1123a98efb40c68d64cd4e16917a28",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021818Z_4c1123a98efb40c68d64cd4e16917a28",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021820Z_8bbc6b4b00d34814be1bf1168070c9dd",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021820Z_8bbc6b4b00d34814be1bf1168070c9dd",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021823Z_b1b486f6e17a4ae3908a835ceb43caea",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021823Z_b1b486f6e17a4ae3908a835ceb43caea",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021831Z_f1e265daeebb4aec97f7c6ecbeefc674",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021831Z_f1e265daeebb4aec97f7c6ecbeefc674",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021832Z_87c54b73aca84dfeb9db70818b08e28e",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021832Z_87c54b73aca84dfeb9db70818b08e28e",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021834Z_bbd7bcf13cfd4d6d8e8bce6cb2086388",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021834Z_bbd7bcf13cfd4d6d8e8bce6cb2086388",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021841Z_9098f5695d6d46d886fcd0dc13ea96c6",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021841Z_9098f5695d6d46d886fcd0dc13ea96c6",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021908Z_21fd7ac95b8d4c0fb8f73b2d39079673",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021908Z_21fd7ac95b8d4c0fb8f73b2d39079673",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021909Z_8241fcc6f2ec4cc3a9e6a21954ed07d3",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021909Z_8241fcc6f2ec4cc3a9e6a21954ed07d3",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021912Z_1e6a3e41985d401daa544ae7121bdbaa",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021912Z_1e6a3e41985d401daa544ae7121bdbaa",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021916Z_e723a761ad7144128760fdf71ef63b38",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021916Z_e723a761ad7144128760fdf71ef63b38",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021918Z_b1e3f39838c7442da2e52e07ff067699",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021918Z_b1e3f39838c7442da2e52e07ff067699",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021920Z_e8d4f9f424004516bf86d5120b4d5240",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021920Z_e8d4f9f424004516bf86d5120b4d5240",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021923Z_bf58f15c2ca54ecab69061ec44d68ccf",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021923Z_bf58f15c2ca54ecab69061ec44d68ccf",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021926Z_32906dde1baa4672bc52ef7b78f96a46",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021926Z_32906dde1baa4672bc52ef7b78f96a46",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021928Z_6dd76b2538444e02ac144956986d0d29",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021928Z_6dd76b2538444e02ac144956986d0d29",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021931Z_34c76ab4686641fe82b673e2fd07480a",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021931Z_34c76ab4686641fe82b673e2fd07480a",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021938Z_e27bc4b996f641bc82c0e49afabd90f9",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021938Z_e27bc4b996f641bc82c0e49afabd90f9",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021939Z_7800e9b859b1484f92e15eb48eacdc8f",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021939Z_7800e9b859b1484f92e15eb48eacdc8f",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021940Z_68378f4c89384f94ad97a5afd3910c58",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021940Z_68378f4c89384f94ad97a5afd3910c58",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T021945Z_f72dfc67590b46b99d31ce092279b2b7",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T021945Z_f72dfc67590b46b99d31ce092279b2b7",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T022003Z_b860f0fe57634f4f9f4cd6dad9e582f6",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T022003Z_b860f0fe57634f4f9f4cd6dad9e582f6",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T022005Z_691ef6c434a64f28b1518164aefe3a8a",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T022005Z_691ef6c434a64f28b1518164aefe3a8a",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T022007Z_0096f9c2059347db81b9c77fd44c76d8",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T022007Z_0096f9c2059347db81b9c77fd44c76d8",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T022009Z_f5a467a35a7243f79b621b9b972152b2",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T022009Z_f5a467a35a7243f79b621b9b972152b2",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T022011Z_db1f554db2e3413dbe8af37e789b2b7a",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T022011Z_db1f554db2e3413dbe8af37e789b2b7a",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T022014Z_ac1a290406c74751a4d7648e92b8d591",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T022014Z_ac1a290406c74751a4d7648e92b8d591",
+      "passed": true
+    },
+    {
+      "check": "Checkpoint exact nested problem subset 20261008T022016Z_3738e18d2a8f455cb3b8a3191528b825",
+      "passed": true
+    },
+    {
+      "check": "Candidate/evidence/posthoc separation 20261008T022016Z_3738e18d2a8f455cb3b8a3191528b825",
+      "passed": true
+    },
+    {
+      "check": "Every evaluation has required artifacts",
+      "passed": true
+    },
+    {
+      "check": "Matched information policy exact predictions seed0 test",
+      "passed": true
+    },
+    {
+      "check": "Memory matched-order/update predictions seed0 test",
+      "passed": true
+    },
+    {
+      "check": "Matched information policy exact predictions seed0 ood_test",
+      "passed": true
+    },
+    {
+      "check": "Memory matched-order/update predictions seed0 ood_test",
+      "passed": true
+    },
+    {
+      "check": "Matched information policy exact predictions seed1 test",
+      "passed": true
+    },
+    {
+      "check": "Memory matched-order/update predictions seed1 test",
+      "passed": true
+    },
+    {
+      "check": "Matched information policy exact predictions seed1 ood_test",
+      "passed": true
+    },
+    {
+      "check": "Memory matched-order/update predictions seed1 ood_test",
+      "passed": true
+    },
+    {
+      "check": "Matched information policy exact predictions seed2 test",
+      "passed": true
+    },
+    {
+      "check": "Memory matched-order/update predictions seed2 test",
+      "passed": true
+    },
+    {
+      "check": "Matched information policy exact predictions seed2 ood_test",
+      "passed": true
+    },
+    {
+      "check": "Memory matched-order/update predictions seed2 ood_test",
+      "passed": true
+    },
+    {
+      "check": "No inference numerical oracle call",
+      "passed": true
+    }
+  ],
+  "check_count": 438,
+  "all_passed": true,
+  "prediction_count": 52500,
+  "decision_count": 251496,
+  "limits": "Input/supervision/compute differences remain documented; syntactic audit is not proof of universal fairness."
+}

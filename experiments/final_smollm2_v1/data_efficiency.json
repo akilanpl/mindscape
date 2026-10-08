@@ -1,0 +1,86 @@
+[
+  {
+    "split": "test",
+    "threshold": 0.8,
+    "n_star": {
+      "answer_only": "not reached",
+      "structured": "not reached",
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    },
+    "DER": {
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    }
+  },
+  {
+    "split": "test",
+    "threshold": 0.9,
+    "n_star": {
+      "answer_only": "not reached",
+      "structured": "not reached",
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    },
+    "DER": {
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    }
+  },
+  {
+    "split": "test",
+    "threshold": 0.95,
+    "n_star": {
+      "answer_only": "not reached",
+      "structured": "not reached",
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    },
+    "DER": {
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    }
+  },
+  {
+    "split": "ood_test",
+    "threshold": 0.8,
+    "n_star": {
+      "answer_only": "not reached",
+      "structured": "not reached",
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    },
+    "DER": {
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    }
+  },
+  {
+    "split": "ood_test",
+    "threshold": 0.9,
+    "n_star": {
+      "answer_only": "not reached",
+      "structured": "not reached",
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    },
+    "DER": {
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    }
+  },
+  {
+    "split": "ood_test",
+    "threshold": 0.95,
+    "n_star": {
+      "answer_only": "not reached",
+      "structured": "not reached",
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    },
+    "DER": {
+      "trajectory": "not reached",
+      "experiential": "not reached"
+    }
+  }
+]

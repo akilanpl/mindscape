@@ -1,0 +1,13 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "torch": "2.14.1",
+  "transformers": "4.57.6",
+  "reportlab": "4.4.9",
+  "machine": "arm64",
+  "processor": "Apple M5",
+  "logical_cpus": 10,
+  "ram_gb": 16,
+  "device": "cpu",
+  "mps_available": false
+}

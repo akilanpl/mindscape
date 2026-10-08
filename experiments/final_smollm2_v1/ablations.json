@@ -1,0 +1,165 @@
+{
+  "measured": [
+    {
+      "variant": "dream",
+      "reference": "trajectory",
+      "split": "test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "dream",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "matched_information_control",
+      "reference": "trajectory",
+      "split": "test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "matched_information_control",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_dream",
+      "reference": "trajectory",
+      "split": "test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_dream",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_environment_interaction",
+      "reference": "trajectory",
+      "split": "test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": -0.03,
+      "delta_goal_success_rate": -0.03
+    },
+    {
+      "variant": "no_environment_interaction",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_episodic_memory",
+      "reference": "experiential",
+      "split": "test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_episodic_memory",
+      "reference": "experiential",
+      "split": "ood_test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_explicit_state",
+      "reference": "trajectory",
+      "split": "test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": -0.03,
+      "delta_grounded_rate": -0.03,
+      "delta_goal_success_rate": -0.03
+    },
+    {
+      "variant": "no_explicit_state",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_goal_evaluator",
+      "reference": "trajectory",
+      "split": "test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_goal_evaluator",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    },
+    {
+      "variant": "no_trajectory_supervision_regime_C",
+      "reference": "trajectory",
+      "split": "test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": -0.024999999999999998,
+      "delta_grounded_rate": -0.024999999999999998,
+      "delta_goal_success_rate": -0.024999999999999998
+    },
+    {
+      "variant": "no_trajectory_supervision_regime_C",
+      "reference": "trajectory",
+      "split": "ood_test",
+      "seeds": 3,
+      "delta_data_efficiency": "not_estimated_single_budget",
+      "delta_accuracy": 0.0,
+      "delta_grounded_rate": 0.0,
+      "delta_goal_success_rate": 0.0
+    }
+  ],
+  "interpretation": "Goal flag removal is not removal of external scoring. B/C differs in feedback and labels. No-memory uses matched rows and updates. Matched local supervised policy isolates wrapper; decomposition remains hand defined."
+}

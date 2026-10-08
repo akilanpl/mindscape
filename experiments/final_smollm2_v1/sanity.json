@@ -1,0 +1,38 @@
+[
+  {
+    "condition": "answer_only",
+    "diagnostic": "training_subset_same_set",
+    "n": 10,
+    "seed": 0,
+    "accuracy": 1.0,
+    "received_complete_trajectories": false,
+    "interpretation": "Memorization check only; C may have incomplete positive experiences."
+  },
+  {
+    "condition": "structured",
+    "diagnostic": "training_subset_same_set",
+    "n": 10,
+    "seed": 0,
+    "accuracy": 1.0,
+    "received_complete_trajectories": false,
+    "interpretation": "Memorization check only; C may have incomplete positive experiences."
+  },
+  {
+    "condition": "trajectory",
+    "diagnostic": "training_subset_same_set",
+    "n": 10,
+    "seed": 0,
+    "accuracy": 1.0,
+    "received_complete_trajectories": true,
+    "interpretation": "Memorization check only; C may have incomplete positive experiences."
+  },
+  {
+    "condition": "experiential",
+    "diagnostic": "training_subset_same_set",
+    "n": 10,
+    "seed": 0,
+    "accuracy": 0.0,
+    "received_complete_trajectories": false,
+    "interpretation": "Memorization check only; C may have incomplete positive experiences."
+  }
+]
