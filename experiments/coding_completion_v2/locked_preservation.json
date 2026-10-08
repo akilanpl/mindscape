@@ -2138,5 +2138,11 @@
     "results/coding/gradient_v1/seed_71/checkpoint_100/adapter_model.safetensors": "f95c03f49dbd42815ef15401b7f4575245c29ca681a1c995f1199b73d7933cae",
     "results/coding/gradient_v1/seed_71/checkpoint_25/adapter_model.safetensors": "7c34d14fcbeb9594bc846c3ee4679b0ac50b65e8c8f5323a43b5dec10a1b23e5",
     "results/coding/gradient_v1/seed_71/checkpoint_50/adapter_model.safetensors": "98f1644d909f03bdac70cad89f801b0bb6fac48e3242e300d9f0db308686e5f9"
+  },
+  "scientific_data_sha256": {
+    "results/coding/emergency_mps_v1/locked_protocol.json": "11d2a6b5bef6517a5cae10dca46f1e94bfe2db3504afd3942434fcb78f496bb0",
+    "results/coding/final_dataset_v1/dataset.json": "d99e5c194247d7d96c5948603b51405da7c7ce350a502c2df94b51f73ff188dd",
+    "results/coding/completion_lockbox_v1/tasks.json": "392ef68a412f8df49b93af60ee24318a6746a78aaeee30acdc0d6f72e92bc8a5",
+    "results/coding/final_retrieval_v1/teacher_memory.json": "6422d00e1066797761f3d757900b3db4d6c9ddde683f76ea1aa9b388a5d427bd"
   }
 }

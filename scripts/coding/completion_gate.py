@@ -49,6 +49,9 @@ def verify():
     for path,digest in preservation['checkpoint_sha256'].items():
         if hashlib.sha256(Path(path).read_bytes()).hexdigest()!=digest:
             raise RuntimeError('Preserved checkpoint changed: '+path)
+    for path,digest in preservation['scientific_data_sha256'].items():
+        if hashlib.sha256(Path(path).read_bytes()).hexdigest()!=digest:
+            raise RuntimeError('Frozen scientific data/configuration changed: '+path)
     old_keys={tuple(r['key']) for r in preservation['rows']}
     if not all(tuple(r['key']) in old_keys or r.get('canonical_episode_sha256')==hashes[tuple(r['key'])] for r in audit):
         raise RuntimeError('New replay is not bound to the actual saved episode')
