@@ -191,8 +191,10 @@ scorecard = {
         "replay_goal_agreement": all(r["matches_reported_goal"] for r in trace),
         "independent_trajectory_valid_rate": float(np.mean([r["trajectory_valid"] for r in trace])),
         "unsupported_structured_result_rate": float(
-            np.mean([not r["matches_reported_goal"] for r in trace])
+            np.mean([not (r["matches_reported_goal"] and r["structured_evidence_matches"]) for r in trace])
         ),
+        "full_structured_evidence_agreement": all(r["structured_evidence_matches"] for r in trace),
+        "replay_comparison_scope": "Typed states/actions/events/results, except measured duration; terminal goal independently assessed",
         "free_text_claims": "Not scored; demo omits raw prose",
     },
     "reliability": {

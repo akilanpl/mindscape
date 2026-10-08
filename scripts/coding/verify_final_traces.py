@@ -1,10 +1,41 @@
 """Independently replay every locked coding trajectory before publication."""
 
 import json
+from dataclasses import asdict
 from pathlib import Path
 
 from mindscape.coding.backend import CodingBackend
+from mindscape.coding.environment import CodeRepairEnvironment
+from mindscape.coding.schema import CodeAction, CodeTask
 from mindscape.data.schemas import BenchmarkExample
+
+
+def without_duration(value):
+    if isinstance(value, dict):
+        return {k: without_duration(v) for k, v in value.items() if k != "duration"}
+    if isinstance(value, (tuple, list)):
+        return [without_duration(v) for v in value]
+    return value
+
+
+def replay_evidence(task, trajectory, answer, sandbox):
+    env = CodeRepairEnvironment(sandbox)
+    env.reset(CodeTask(**task))
+    matches = without_duration(asdict(env.get_state())) == without_duration(
+        trajectory["initial_state"]
+    )
+    mismatches = []
+    try:
+        for index, recorded in enumerate(trajectory["transitions"]):
+            actual = asdict(env.step(CodeAction(**recorded["action"])))
+            if without_duration(actual) != without_duration(recorded):
+                matches = False
+                mismatches.append(index)
+        matches = matches and env.files == answer
+    finally:
+        env.close()
+    return matches, mismatches
+
 
 root = Path("results/coding/completion_trace_audit_v1")
 root.mkdir(parents=True, exist_ok=True)
@@ -38,12 +69,19 @@ for line in rows_path.read_text().splitlines():
         {"private_tests": task["hidden_tests"]},
     )
     valid, goal, error = backend.assess(example, row["repository"], row["trajectory"])
+    evidence_matches, mismatches = replay_evidence(
+        task, row["trajectory"], row["repository"], backend._sandbox()
+    )
     record = {
         "key": key,
         "trajectory_valid": valid,
         "goal": goal,
         "matches_reported_goal": goal == row["success"],
         "error": error,
+        "structured_evidence_matches": evidence_matches,
+        "mismatching_transition_indices": mismatches,
+        "comparison_scope": "All typed transition fields and states; measured durations excluded",
+        "replay_passes": 2,
     }
     if goal != row["success"]:
         raise RuntimeError("Independent terminal disagreement")
