@@ -29,6 +29,9 @@ class FinalTests(unittest.TestCase):
  def test_open_loop_only_hypothetical(self):
   m=FinalPolicy(NumpyMLP([10]*8+[2]),'trajectory',dream=False,no_interaction=True);p=m.predict({'observation':{'operands':[2,3],'source':'user_input','kind':'observation'}})
   self.assertIsNone(p.trajectory);self.assertTrue(all(d['hypothetical'] for d in p.diagnostics['decisions']))
+  from mindscape.data.claims_backend import ClaimsBackend
+  ClaimsBackend().annotate(None,p.diagnostics)
+  self.assertTrue(all('correct_action' in d and d['transition_valid'] is None for d in p.diagnostics['decisions']))
  def test_real_backend_reload_and_active_loss(self):
   try:import torch
   except ImportError:self.skipTest('optional torch dependency')

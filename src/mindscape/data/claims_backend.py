@@ -1,5 +1,5 @@
 from dataclasses import asdict
-from mindscape.core.schema import Observation
+from mindscape.core.schema import Observation, State
 from mindscape.core.serialization import decode
 from mindscape.data.backends import MultiplicationBackend, stable_hash
 from mindscape.data.schemas import BenchmarkExample
@@ -47,7 +47,16 @@ class ClaimsBackend(MultiplicationBackend):
 
 
     def annotate(self, trajectory, diagnostics):
-        if trajectory is None or not diagnostics:
+        if not diagnostics:
+            return
+        if trajectory is None:
+            # Posthoc hypothetical judgments do not create real execution evidence.
+            for decision in diagnostics.get("decisions", []):
+                if "state_before" in decision:
+                    state = decode(State, decision["state_before"])
+                    decision["correct_action"] = expected_value(state)
+                    decision["hypothetical_judgment"] = decision["selected_value"] == decision["correct_action"]
+                    decision["transition_valid"] = None
             return
         try:
             typed = decode(ClaimTrajectory, trajectory)

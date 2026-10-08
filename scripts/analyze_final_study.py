@@ -71,10 +71,23 @@ def main():
    r=next(r for r in runs if r['variant']=='full' and r['condition']==c and r['budget']==1000 and r['seed']==0 and r['split']==split);rp=predictions(r)
    assert [x['example_id'] for x in bp]==[x['example_id'] for x in rp]
    paired.append(dict(condition=c,split=split,seed=0,budget=1000,**mcnemar([x['correct'] for x in bp],[x['correct'] for x in rp])))
+ # Component paired tests share a separate explicit Holm family (18 comparisons).
+ component_tests=[]
+ for variant,c in [('no_explicit_state','trajectory'),('dream','trajectory'),('no_episodic_memory','experiential')]:
+  for seed in [0,1,2]:
+   for split in ['test','ood_test']:
+    ref=next(r for r in runs if r['variant']=='full' and r['condition']==c and r['budget']==50 and r['seed']==seed and r['split']==split)
+    alt=next(r for r in runs if r['variant']==variant and r['seed']==seed and r['split']==split)
+    rp,ap=predictions(ref),predictions(alt)
+    assert [x['example_id'] for x in rp]==[x['example_id'] for x in ap]
+    component_tests.append(dict(variant=variant,seed=seed,split=split,budget=50,**mcnemar([x['correct'] for x in rp],[x['correct'] for x in ap])))
+ previous_component=0
+ for rank,i in enumerate(sorted(range(len(component_tests)),key=lambda i:component_tests[i]['p_value'])):
+  previous_component=max(previous_component,min(1,(len(component_tests)-rank)*component_tests[i]['p_value']));component_tests[i]['holm_p_value']=previous_component
  previous=0
  for rank,i in enumerate(sorted(range(len(paired)),key=lambda i:paired[i]['p_value'])):
   previous=max(previous,min(1,(len(paired)-rank)*paired[i]['p_value']));paired[i]['holm_p_value']=previous
- (root/'statistics.json').write_text(json.dumps({'run_intervals':intervals,'paired_tests':paired,'interpretation':'Exploratory one-seed paired tests, Holm six comparisons; repeated seeds not independent example replications.'},indent=2))
+ (root/'statistics.json').write_text(json.dumps({'run_intervals':intervals,'paired_tests':paired,'component_paired_tests':component_tests,'interpretation':'Exploratory one-seed paired tests, Holm six comparisons; repeated seeds not independent example replications.'},indent=2))
  failure=[];taxonomy=Counter({k:0 for k in ['arithmetic_error','wrong_action','invalid_transition','malformed_state','trajectory_failure','goal_failure','unsupported_answer','timeout','other']})
  for r in runs:
   grouped=[]
@@ -119,7 +132,7 @@ def main():
   if c['claim']=='Dream simulation contributes':c['status']='NOT SUPPORTED' if all(r['delta_accuracy']<=0 for r in ablations if r['variant']=='dream') else 'INCONCLUSIVE'
   if c['claim']=='Architecture transfers to another environment':c['status']='NOT SUPPORTED'
   if c['claim']=='Explicit state contributes':
-   vals=[r['delta_accuracy'] for r in ablations if r['variant']=='no_explicit_state'];c['status']='SUPPORTED' if vals and all(v<0 for v in vals) else 'INCONCLUSIVE'
+   vals=[r['delta_accuracy'] for r in ablations if r['variant']=='no_explicit_state'];tests=[t for t in component_tests if t['variant']=='no_explicit_state' and t['split']=='test'];iid=[r['delta_accuracy'] for r in ablations if r['variant']=='no_explicit_state' and r['split']=='test'];c['status']='SUPPORTED' if iid and iid[0]<0 and all(t['holm_p_value']<.05 for t in tests) else 'INCONCLUSIVE';c['limitations']+=' Support, if present, is limited to IID at n50; OOD is separately reported.'
  (root/'claims.json').write_text(json.dumps(claims,indent=2));text=['# Final measured study','',f'{len(runs)} evaluations; 84 primary training runs plus6 retrained ablations; seeds0/1/2.','', '| Condition | IID mean ± SD | OOD mean ± SD | Grounded IID | Goal IID | Valid trajectory IID |','|---|---:|---:|---:|---:|---:|']
  for c in CONDITIONS:
   a=next(r for r in aggregate if r['condition']==c and r['budget']==1000 and r['split']=='test');o=next(r for r in aggregate if r['condition']==c and r['budget']==1000 and r['split']=='ood_test')

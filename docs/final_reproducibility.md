@@ -71,3 +71,9 @@ PYTHONPATH=src python scripts/freeze_final_artifacts.py results/final/reproducti
 ```
 
 The SHA256 freeze manifest covers raw predictions, checkpoints, metadata, statistics and plots. Generate all analyses and audits before freezing. Do not modify that folder afterward; use a new output root for a reproduction or correction.
+
+Before final freezing, preserve separate hypothetical posthoc judgments without rewriting raw predictions:
+
+```sh
+PYTHONPATH=src python scripts/annotate_final_hypotheticals.py results/final/reproduction_v1
+```
