@@ -24,6 +24,15 @@ def run(model, dataset, output_root, split="test", regime="experiential",
         raise ValueError("Choose an available held-out evaluation split")
     if training_size is not None and str(training_size) not in manifest["nested_subsets"]:
         raise ValueError("Training budget not present in manifest")
+    training_metadata = getattr(model, "training_metadata", {})
+    if training_metadata:
+        if training_metadata["dataset_hash"] != stable_hash(manifest):
+            raise ValueError("Checkpoint trained against a different dataset manifest")
+        checkpoint_budget = training_metadata["config"]["budget"]
+        if training_size is None:
+            training_size = checkpoint_budget
+        if training_size != checkpoint_budget or regime != training_metadata["regime"]:
+            raise ValueError("Evaluation regime/budget disagrees with checkpoint")
     examples = splits[split]
     backend = get_backend(config["environment"])
     records, calls = [], []
@@ -49,7 +58,7 @@ def run(model, dataset, output_root, split="test", regime="experiential",
         len(splits["train"]) if training_size is None else training_size, config["seed"], split,
         metrics["accuracy"], metrics["accuracy"] if split == "ood_test" else None,
         metrics["grounded_rate"], metrics["trajectory_validity"], metrics["goal_success_rate"],
-        metrics["unsupported_rate"], None, elapsed,
+        metrics["unsupported_rate"], training_metadata.get("training_time"), elapsed,
         sum(calls) if all(type(n) is int for n in calls) else None,
         getattr(model, "parameter_count", None), notes)
     folder = Path(output_root) / experiment_id
@@ -60,7 +69,9 @@ def run(model, dataset, output_root, split="test", regime="experiential",
                 "software": {"mindscape": __version__, "python": platform.python_version()},
                 "hardware": {"system": platform.system(), "machine": platform.machine(),
                              "processor": platform.processor()},
-                "checkpoint": None, "hyperparameters": None}
+                "checkpoint": training_metadata.get("checkpoint"),
+                "hyperparameters": training_metadata.get("config"),
+                "training_metadata": training_metadata}
     (folder / "config.json").write_text(json.dumps(resolved, indent=2, sort_keys=True))
     payload = {**asdict(result), "example_count": metrics["example_count"],
                "trajectory_count": metrics["trajectory_count"]}
@@ -70,5 +81,6 @@ def run(model, dataset, output_root, split="test", regime="experiential",
     (folder / "summary.md").write_text(
         f"# {experiment_id}\n\nModel: {model.identifier}; split: {split}; examples: {len(examples)}.\n\n"
         + "\n".join(f"- {k}: {v}" for k, v in metrics.items())
-        + "\n\nInfrastructure evaluation only; no learned-performance or data-efficiency claim.\n")
+        + ("\n\nPreliminary learned development evaluation; no superiority claim.\n" if training_metadata
+           else "\n\nInfrastructure evaluation only; no learned-performance or data-efficiency claim.\n"))
     return folder, payload

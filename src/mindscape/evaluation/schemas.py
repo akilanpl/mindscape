@@ -27,6 +27,7 @@ class PredictionRecord:
     goal_reached: bool
     grounded: bool
     error_type: str
+    diagnostics: dict | None = None
 
 
 @dataclass(frozen=True)

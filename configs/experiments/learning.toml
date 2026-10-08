@@ -1,0 +1,8 @@
+kind = "baseline"
+seed = 0
+budget = 50
+hidden = 64
+steps = 400
+batch_size = 64
+learning_rate = 0.003
+validation_every = 50

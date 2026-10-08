@@ -13,4 +13,4 @@ def evaluate(example, prediction, backend):
     elif grounded:
         error = "correct"
     return PredictionRecord(example.example_id, prediction.answer, example.target_answer,
-                            correct, prediction.trajectory, valid, goal, grounded, error)
+                            correct, prediction.trajectory, valid, goal, grounded, error, prediction.diagnostics)
