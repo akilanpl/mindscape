@@ -1,0 +1,98 @@
+[
+  {
+    "diagnostic": "single_digit",
+    "condition": "answer_only",
+    "split": "same_training",
+    "seed": 0,
+    "n": 45,
+    "exact_answer_accuracy": 1.0,
+    "local_label_accuracy": 1.0,
+    "carry_label_accuracy": null,
+    "optimizer": {
+      "final_batch_loss": 0.00016283700824715197,
+      "gradient_steps": 1200,
+      "minibatch_rows_processed": 76800,
+      "active_heads": 9
+    }
+  },
+  {
+    "diagnostic": "single_digit",
+    "condition": "trajectory",
+    "split": "same_training",
+    "seed": 0,
+    "n": 45,
+    "exact_answer_accuracy": 1.0,
+    "local_label_accuracy": 1.0,
+    "carry_label_accuracy": 1.0,
+    "optimizer": {
+      "final_batch_loss": 0.00017906365974340588,
+      "gradient_steps": 1200,
+      "minibatch_rows_processed": 76800,
+      "active_heads": 2
+    }
+  },
+  {
+    "diagnostic": "mixed100",
+    "condition": "answer_only",
+    "split": "same_training",
+    "seed": 0,
+    "n": 100,
+    "exact_answer_accuracy": 1.0,
+    "local_label_accuracy": 1.0,
+    "carry_label_accuracy": null,
+    "optimizer": {
+      "final_batch_loss": 0.0003261728270445019,
+      "gradient_steps": 1200,
+      "minibatch_rows_processed": 76800,
+      "active_heads": 9
+    }
+  },
+  {
+    "diagnostic": "mixed100",
+    "condition": "answer_only",
+    "split": "validation",
+    "seed": 0,
+    "n": 100,
+    "exact_answer_accuracy": 0.03,
+    "local_label_accuracy": 0.03,
+    "carry_label_accuracy": null,
+    "optimizer": {
+      "final_batch_loss": 0.0003261728270445019,
+      "gradient_steps": 1200,
+      "minibatch_rows_processed": 76800,
+      "active_heads": 9
+    }
+  },
+  {
+    "diagnostic": "mixed100",
+    "condition": "trajectory",
+    "split": "same_training",
+    "seed": 0,
+    "n": 100,
+    "exact_answer_accuracy": 1.0,
+    "local_label_accuracy": 1.0,
+    "carry_label_accuracy": 1.0,
+    "optimizer": {
+      "final_batch_loss": 0.0010617261286824942,
+      "gradient_steps": 1200,
+      "minibatch_rows_processed": 76800,
+      "active_heads": 2
+    }
+  },
+  {
+    "diagnostic": "mixed100",
+    "condition": "trajectory",
+    "split": "validation",
+    "seed": 0,
+    "n": 100,
+    "exact_answer_accuracy": 0.18,
+    "local_label_accuracy": 0.6247379454926625,
+    "carry_label_accuracy": 0.8259958071278826,
+    "optimizer": {
+      "final_batch_loss": 0.0010617261286824942,
+      "gradient_steps": 1200,
+      "minibatch_rows_processed": 76800,
+      "active_heads": 2
+    }
+  }
+]

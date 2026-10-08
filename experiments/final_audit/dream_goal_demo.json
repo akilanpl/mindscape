@@ -1,0 +1,87 @@
+{
+  "real_state": 0,
+  "goal": 3,
+  "selected_action": 1,
+  "rollouts": [
+    {
+      "state": 3,
+      "hypothetical": true,
+      "actions": [
+        1,
+        1,
+        1
+      ],
+      "score": -3.0
+    },
+    {
+      "state": 1,
+      "hypothetical": true,
+      "actions": [
+        1,
+        1,
+        -1
+      ],
+      "score": -5.0
+    },
+    {
+      "state": 1,
+      "hypothetical": true,
+      "actions": [
+        1,
+        -1,
+        1
+      ],
+      "score": -7.0
+    },
+    {
+      "state": -1,
+      "hypothetical": true,
+      "actions": [
+        1,
+        -1,
+        -1
+      ],
+      "score": -9.0
+    },
+    {
+      "state": 1,
+      "hypothetical": true,
+      "actions": [
+        -1,
+        1,
+        1
+      ],
+      "score": -9.0
+    },
+    {
+      "state": -1,
+      "hypothetical": true,
+      "actions": [
+        -1,
+        1,
+        -1
+      ],
+      "score": -11.0
+    },
+    {
+      "state": -1,
+      "hypothetical": true,
+      "actions": [
+        -1,
+        -1,
+        1
+      ],
+      "score": -13.0
+    },
+    {
+      "state": -3,
+      "hypothetical": true,
+      "actions": [
+        -1,
+        -1,
+        -1
+      ],
+      "score": -15.0
+    }
+  ]
+}

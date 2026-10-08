@@ -7,6 +7,11 @@ from mindscape.memory.concept import ConceptMemory
 from mindscape.environments.multiplication.claims import expected_value
 
 class FinalTests(unittest.TestCase):
+ def test_environment_interface_domain_neutral(self):
+  from mindscape.environments.base import Environment
+  from mindscape.environments.multiplication.claims import ClaimsEnvironment
+  from mindscape.environments.multiplication.environment import MultiplicationEnvironment
+  self.assertIsInstance(ClaimsEnvironment(),Environment);self.assertIsInstance(MultiplicationEnvironment(),Environment)
  def test_concept_memory_descriptive(self):
   m=ConceptMemory();m.store('cursor','Select a numerical claim');self.assertEqual(m.retrieve('cursor'),'Select a numerical claim');self.assertIsNone(m.retrieve('missing'))
  def test_primary_has_no_singleton_or_oracle_feedback(self):
@@ -26,7 +31,7 @@ class FinalTests(unittest.TestCase):
    size=52;parameter_count=10;path='test';revision='test'
    def encode(self,x):return np.asarray(x,dtype=np.float32)
   e=Encoder();b=FinalBackend(e,0);x=np.eye(52,dtype=np.float32)[:3];y=np.zeros((3,9),dtype=int)
-  before=b.logits(x);stats=b.fit(x,y,3,0,2);self.assertEqual(stats['active_heads'],2);self.assertFalse(np.array_equal(before,b.logits(x)))
+  before=b.logits(x);inactive=b.head[4].weight.detach().numpy()[20:].copy();stats=b.fit(x,y,3,0,2);self.assertEqual(stats['active_heads'],2);self.assertFalse(np.array_equal(before,b.logits(x)));self.assertTrue(np.array_equal(inactive,b.head[4].weight.detach().numpy()[20:]))
   with tempfile.TemporaryDirectory() as tmp:
    p=Path(tmp)/'model';b.save(p);loaded=FinalBackend.load(p,e);self.assertTrue(np.array_equal(b.logits(x),loaded.logits(x)))
 if __name__=='__main__':unittest.main()
