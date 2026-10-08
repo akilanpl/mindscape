@@ -189,6 +189,10 @@ scorecard = {
     },
     "external": {
         "measured_humaneval": public,
+        "model_size_paired_delta": json.loads(
+            Path("experiments/coding_completion_v2/model_size_delta.json").read_text()
+        ),
+        "public_model_scope": "Unadapted foundation models; no public evaluation of the Mindscape replay controller",
         "historical_humaneval_percent": {
             "GPT3.5": 48.1,
             "GPT4": 67.0,

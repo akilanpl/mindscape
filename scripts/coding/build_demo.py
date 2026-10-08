@@ -24,6 +24,8 @@ for row in rows:
             "before": task["repository"],
             "after": row["repository"],
             "success": row["success"],
+            "terminal_passed": row["terminal"]["passed"],
+            "terminal_total": row["terminal"]["total"],
             "wall_seconds": row["wall_seconds"],
             "model_calls": row["model_calls"],
             "steps": [
