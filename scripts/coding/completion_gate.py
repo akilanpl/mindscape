@@ -102,3 +102,5 @@ if __name__=='__main__':
     receipt=verify()
     Path('experiments/coding_completion_v2/research_evidence_verified.json').write_text(json.dumps(receipt,indent=2))
     print('PASS: 400 locked / 1920 learning / 400 replay / 16 dedicated latency')
+    if (BASE/'research_continuation_v1/finalization_handoff.json').exists():
+        raise SystemExit('Evidence verified; intentional orchestration handoff before packaging/publication')

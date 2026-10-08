@@ -100,13 +100,10 @@ def main(wait):
     run('git','commit','-m','Verify clean restoration and hashes of complete research package')
     if subprocess.check_output(['git','status','--porcelain'],text=True).strip():
         raise RuntimeError('Dirty Git tree; completion tag withheld')
-    tag='mindscape-research-complete-v1'
-    existing=subprocess.check_output(['git','tag','--list',tag],text=True).strip()
-    if existing:
-        raise RuntimeError('Completion tag already exists; never overwrite')
-    run('git','tag','-a',tag,'-m','400 locked cases, 1920 learning cases, 400 replays, dedicated latency and clean package verification passed')
-    (STATE/'release_complete.json').write_text(json.dumps({'tag':tag,'receipt':receipt,'claims':summary['claims']},indent=2))
-    print('RESEARCH RELEASE COMPLETE',flush=True)
+    (STATE/'package_verified.json').write_text(json.dumps({'receipt':receipt,'claims':summary['claims'],
+        'completion_tag_created':False,'next_step':'Independent final self-audit, then create completion tag if every criterion passes'},indent=2))
+    print('PACKAGE VERIFIED; completion tag withheld for independent final self-audit',flush=True)
+
 
 
 if __name__=='__main__':
