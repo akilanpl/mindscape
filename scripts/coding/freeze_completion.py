@@ -24,10 +24,10 @@ sources = {
     "humaneval_05b": Path("results/coding/humaneval_05b_v1"),
     "humaneval_15b": Path("results/coding/humaneval_15b_v1"),
     "sql": Path("results/sql/portability_v1"),
-    "configs": Path("configs/coding"),
-    "scripts": Path("scripts/coding"),
-    "docs": Path("docs/coding"),
-    "runtime_environment": Path("experiments/coding_completion_v2"),
+    "configs": Path("configs"),
+    "scripts": Path("scripts"),
+    "docs": Path("docs"),
+    "experiments": Path("experiments"),
     "demo": Path("demo/coding"),
     "tests": Path("tests"),
     "wasi_runtime": Path("work/coding/runtime"),
@@ -48,7 +48,7 @@ for label in ("humaneval_05b", "humaneval_15b"):
         raise RuntimeError("Incomplete " + label)
 if not (sources["analysis"] / "report_ready.json").exists():
     raise RuntimeError("Final analysis/report not ready")
-tests = json.loads((sources["runtime_environment"] / "test_results.json").read_text())
+tests = json.loads((sources["experiments"] / "coding_completion_v2/test_results.json").read_text())
 if tests["failures"] or tests["errors"]:
     raise RuntimeError("Failing final tests")
 root = Path("results/final/coding_research_v2")
@@ -59,7 +59,7 @@ if staging.exists():
     raise RuntimeError("Interrupted snapshot requires inspection before resuming")
 staging.mkdir(parents=True)
 for label, path in sources.items():
-    shutil.copytree(path, staging / label)
+    shutil.copytree(path, staging / label, ignore=shutil.ignore_patterns("__pycache__", ".DS_Store"))
 shutil.copytree(
     "src/mindscape", staging / "source/mindscape", ignore=shutil.ignore_patterns("__pycache__")
 )

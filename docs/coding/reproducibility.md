@@ -46,3 +46,13 @@ The recorded demo is `demo/coding/index.html`, generated exclusively from comple
 `freeze_completion.py` copies completed data, actual tuples, adapters, raw results, protocols, scripts, docs and demo into `results/final/coding_research_v2`, emits SHA-256 for every frozen file and refuses overwrite. Foundation weights remain in the pinned local HF cache; their public revision identifiers and bootstrap commands are recorded. The historical `mindscape-final-study-v1` release remains intact. Different hardware/library kernels can produce numerical or generation differences; bitwise cross-platform equivalence is not claimed.
 
 The full historical source tree has201 pre-existing Ruff style findings, independently confirmed against commit3e2538f. This completion introduces none; the scoped coding/SQL checks pass. The complete functional test suite remains the acceptance gate.
+
+### Restore the immutable package
+
+To verify every frozen SHA-256 and reconstruct the original repository layout in a new empty directory:
+
+```sh
+work/final-venv/bin/python scripts/coding/restore_completion.py --snapshot results/final/coding_research_v2 --destination work/restored_research_v2
+```
+
+The restore command refuses a nonempty destination. Shared configurations, scripts, documentation, experiments, tests, source code and actual result/checkpoint files are included. It does not create or reset Git history. Foundation weights remain a separately pinned download. Use the release tag for the complete historical Git repository.
