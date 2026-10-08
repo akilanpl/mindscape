@@ -1,6 +1,6 @@
 # Reproduction and immutable evidence
 
-Use Python3.12 and the measured versions in `experiments/coding_completion_v2/requirements-measured.txt`. The evaluated machine uses a CPU float32 pipeline, with no paid services. Initial model/runtime downloads require network access; evaluated programs have no network dependency or capability. The bootstrap script pins HF revisions and validates the WASI archive checksum.
+Use Python3.12 and the measured versions in `experiments/coding_completion_v2/requirements-measured.txt`. Preserved training/evaluation uses CPU float32; the authorized continuation uses actual MPS float16 with independent requests batched up to 16. No paid services are used. Initial model/runtime downloads require network access; evaluated programs have no network dependency or capability. The bootstrap script pins HF revisions and validates the WASI archive checksum.
 
 Run from the repository root, in a **fresh checkout/output directory**. Existing frozen datasets and final snapshots intentionally refuse overwrite. Preserve existing results before reproducing; never delete historical artifacts. The research scripts use versioned root paths, and exact generation-cache keys include model revision and adapter-weight SHA. Cache hits preserve actual prior responses but have zero newly consumed model calls/tokens/time. Fresh latency disables this cache.
 
@@ -28,10 +28,7 @@ On the original completion run, accepted records were recovered from a prior col
 work/final-venv/bin/python scripts/coding/gradient_pipeline.py --model "$mindscape_model"
 work/final-venv/bin/python scripts/coding/completion_gradient.py --model "$mindscape_model"
 work/final-venv/bin/python scripts/coding/lockbox_eval.py --model "$mindscape_model"
-work/final-venv/bin/python scripts/coding/zero_budget.py --model "$mindscape_model"
-work/final-venv/bin/python scripts/coding/stress_study.py --model "$mindscape_model"
 work/final-venv/bin/python scripts/coding/latency_probe.py --model "$mindscape_model"
-work/final-venv/bin/python scripts/coding/sql_study.py --model "$mindscape_model"
 work/final-venv/bin/python scripts/coding/verify_final_traces.py
 work/final-venv/bin/python scripts/coding/completion_analysis.py
 work/final-venv/bin/python scripts/coding/build_demo.py
@@ -43,7 +40,7 @@ Public HumanEval is separately downloaded at its recorded official revision with
 
 The recorded demo is `demo/coding/index.html`, generated exclusively from completed final episodes. Open it directly or serve locally with `python -m http.server --bind 127.0.0.1 --directory demo/coding 8765`. It shows actual typed actions and visible execution, omits private expected values and raw model reasoning, and labels playback. Its timing is not the fresh latency benchmark.
 
-`freeze_completion.py` copies completed data, actual tuples, adapters, raw results, protocols, scripts, docs and demo into `results/final/coding_research_v2`, emits SHA-256 for every frozen file and refuses overwrite. Foundation weights remain in the pinned local HF cache; their public revision identifiers and bootstrap commands are recorded. The historical `mindscape-final-study-v1` release remains intact. Different hardware/library kernels can produce numerical or generation differences; bitwise cross-platform equivalence is not claimed.
+`freeze_emergency.py` applies the strict 400-lockbox/1920-learning/dedicated-latency publication gate and copies completed data, actual tuples, adapters, raw results, protocols, scripts, docs and demo into `results/final/coding_research_v2`, emits SHA-256 for every frozen file and refuses overwrite. Foundation weights remain in the pinned local HF cache; their public revision identifiers and bootstrap commands are recorded. The historical `mindscape-final-study-v1` release remains intact. Different hardware/library kernels can produce numerical or generation differences; bitwise cross-platform equivalence is not claimed.
 
 The full historical source tree has201 pre-existing Ruff style findings, independently confirmed against commit3e2538f. This completion introduces none; the scoped coding/SQL checks pass. The complete functional test suite remains the acceptance gate.
 
@@ -56,3 +53,11 @@ work/final-venv/bin/python scripts/coding/restore_completion.py --snapshot resul
 ```
 
 The restore command refuses a nonempty destination. Shared configurations, scripts, documentation, experiments, tests, source code and actual result/checkpoint files are included. It does not create or reset Git history. Foundation weights remain a separately pinned download. Use the release tag for the complete historical Git repository.
+
+### Exact completed-study evidence
+
+The authoritative analysis is `scripts/coding/emergency_report.py`, with the original scientific configuration in `results/coding/emergency_mps_v1/locked_protocol.json`. `complete_research.py` resumes only missing frozen keys on native MPS; it does not reprofile or tune on locked outcomes. `finalize_research.py --wait` performs independent replay, local fairness audits, complete tests, report generation, strict publication gating, freezing and clean restoration. Run it only in the study checkout; it may create the completion tag only after all gates pass.
+
+The commands above include historical data/training entry points, not an instruction to rerun a saved completed study. Restore the final package and recompute metrics directly for exact evidence reproduction. A newly generated study must use a fresh directory, record its actual device/precision, and retain separate CPU/MPS strata; cross-kernel bitwise generation identity is not promised. The original 1122 CPU rows are byte-preserved, while the remaining cases use the measured MPS configuration.
+
+Zero-budget, injected-recovery, SQL model evaluation, and component-ablation entry points exist but were not executed in this completion scope. They are optional new experiments and cannot supply claims for the saved release. The completion scope is exactly four conditions × 100 locked tasks, four conditions × three seeds × four budgets × 40 learning tasks, and 16 dedicated sequential latency cases. Sequential latency uses actual batch1; batch16 evaluation throughput is reported separately.
