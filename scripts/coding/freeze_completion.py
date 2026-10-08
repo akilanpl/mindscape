@@ -21,6 +21,7 @@ sources = {
     "trace_audit": Path("results/coding/completion_trace_audit_v1"),
     "analysis": Path("results/coding/completion_analysis_v1"),
     "audit": Path("results/coding/completion_audits_v1"),
+    "public_benchmark_input": Path("work/coding/humaneval"),
     "humaneval_05b": Path("results/coding/humaneval_05b_v1"),
     "humaneval_15b": Path("results/coding/humaneval_15b_v1"),
     "sql": Path("results/sql/portability_v1"),

@@ -235,6 +235,7 @@ scorecard = {
     "second_vertical": sql_summary,
     "ablations": ablations,
     "component_deltas": component_deltas,
+    "fairness_audit": fairness["fairness"],
     "reproducibility": {
         "tests": test,
         "fairness_checks": fairness["check_count"],
