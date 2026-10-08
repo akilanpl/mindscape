@@ -1,3 +1,5 @@
 # Completion limitations
 
+Flagship C locked episodes: 0/100. Missing primary or supplementary results remain incomplete. The C-priority native launch was requested; see native device records and actual saved episodes for observed execution. Native Terminal control was rejected by computer-use tooling, and the execution environment cannot allocate MPS. Browser verification unexpectedly blocked for about 27 minutes while the native B evaluation continued and stopped at its cutoff. Full four-condition lockbox and dedicated post-lockbox latency are incomplete; actual fresh smoke timings are reused transparently.
+
 Partial multi-seed curves; mixed CPU float32/MPS reduced precision; missing zero control; unmatched supervision and inference interaction budgets; synthetic bounded tasks; unknown foundation pretraining exposure; no learned world model; no recovery or component ablation results; tiny descriptive latency sample; public protocol mismatch; SQL model study deferred. Missing results stay inconclusive. Hardware-only speedup is not isolated from batching and precision.

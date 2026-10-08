@@ -1,5 +1,6 @@
 """Independently replay every locked coding trajectory before publication."""
 
+import argparse
 import json
 from dataclasses import asdict
 from pathlib import Path
@@ -47,10 +48,14 @@ def replay_evidence(task, trajectory, answer, sandbox, detailed=False):
     return (matches, mismatches, detail) if detailed else (matches, mismatches)
 
 
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--partial",action="store_true",help="Audit all actual saved rows while retaining incomplete lockbox scope")
+args=parser.parse_args()
+
 root = Path("results/coding/completion_trace_audit_v1")
 root.mkdir(parents=True, exist_ok=True)
 rows_path = Path("results/coding/completion_lockbox_eval_v1/rows.jsonl")
-if not any(Path("results/coding/completion_lockbox_eval_v1",marker).exists()
+if not args.partial and not any(Path("results/coding/completion_lockbox_eval_v1",marker).exists()
            for marker in ("complete.json","primary_complete.json")):
     raise RuntimeError("Lockbox incomplete")
 tasks = {

@@ -96,6 +96,18 @@ def main():
         replay[kind+'_agreement']=sum(r.get(kind+'_matches',0) for r in audit)/denominator if denominator else None
         replay[kind+'_comparisons']=denominator
     latency = rows('latency_probe_v1')
+    latency_source = 'Dedicated cache-disabled stage benchmark'
+    if not latency:
+        latency = rows('emergency_mps_v1') if (BASE/'emergency_mps_v1/rows.jsonl').exists() else []
+        smoke_path = BASE/'emergency_mps_v1/smoke_rows.jsonl'
+        if not latency and smoke_path.exists():
+            latency = [json.loads(x) for x in smoke_path.read_text().splitlines()]
+            latency_source = 'Reused actual cache-disabled representative MPS smoke benchmark; no additional neural run'
+            for r in latency:
+                r['stages'] = {
+                    'model_generation':{'seconds':sum(a['latency']['generation'] for a in r['attempts'])},
+                    'environment_execution':{'seconds':sum(t['result']['duration'] for t in r['trajectory']['transitions'])},
+                    'verification':{'seconds':r['terminal']['execution']['duration']}}
     latency_summary=[]
     for c in ('model_only','structured','mindscape_b','mindscape_c'):
         group=[r for r in latency if r['condition']==c]
@@ -105,9 +117,9 @@ def main():
                 'ttft':[a['latency']['ttft'] for r in group for a in r['attempts']]}
         for stage in ('model_generation','environment_execution','verification','test_execution'):
             fields[stage]=[r['stages'].get(stage,{}).get('seconds',0) for r in group]
-        latency_summary.append({'condition': c,'episodes': len(group),'planned': 4,
+        latency_summary.append({'condition': c,'episodes': len(group),'planned': 4 if latency_source.startswith('Dedicated') else 20,'measurement_source':latency_source,
             'percentiles': {k:{'p50':float(np.percentile(v,50)),'p95':float(np.percentile(v,95)),'n':len(v)} for k,v in fields.items() if v},
-            'caution': 'Small descriptive sample; stage timers overlap; TTFT is per call, other fields per episode'})
+            'caution': 'Descriptive sample; stage timers overlap; TTFT is per call, other fields per episode. Batched model durations are shared across requests; environment covers timed transitions, verification is measured sandbox execution; no state-construction timer in reused smoke evidence'})
     training_records = [{"path":str(p),**{k:v for k,v in load(p).items() if k!='task_ids'}}
                         for pattern in ('gradient_v1/seed_*/training.json','completion_gradient_v1/*/seed_*/training.json')
                         for p in sorted(BASE.glob(pattern))]
@@ -128,7 +140,7 @@ def main():
     result={'learning_curve': {'completed': len(learning),'planned': 1920,'not_run': 1920-len(learning),'status': 'complete' if len(learning)==1920 else 'partial','cells': cell_summary,'complete_seed_summaries':complete_seed_summaries,'thresholds': thresholds,
         'DER': {'descriptive_matched_stratum_ratios':descriptive_der,'value':None,'status':'undefined','reason':'Incomplete multi-seed curves and hardware/precision confounding; no architecture-only data-efficiency estimate'},'zero_budget': 'not run; observed thresholds are not global minimum sample counts'},
         'lockbox': {'episodes': len(locked),'planned': 400,'not_run':400-len(locked),'scope':load(BASE/'completion_lockbox_eval_v1/scope.json'),'summary': lock_summary,'paired_differences': paired},
-        'phase_memory_release':load(BASE/'emergency_mps_v1/phase_memory_release.json'),'mps_inference_verified':bool(locked) and all(a['latency'].get('device')=='mps' for r in locked for a in r['attempts']),'profile': profile,'native_device': load(BASE/'emergency_mps_v1/native_device.json'),'replay': replay,'latency': latency_summary,'latency_scope':load(BASE/'latency_probe_v1/scope.json'),
+        'phase_memory_release':load(BASE/'emergency_mps_v1/phase_memory_release.json'),'mps_inference_verified':bool(locked) and all(a['latency'].get('device')=='mps' for r in locked for a in r['attempts']),'profile': profile,'native_device': load(BASE/'emergency_mps_v1/native_device.json'),'replay': replay,'latency': latency_summary,'latency_scope':load(BASE/'latency_probe_v1/scope.json',{'status':'Dedicated stage benchmark not run; reused real fresh representative smoke timings','source':latency_source}),
         'tests': tests,'audit_count': fairness.get('check_count'),'fairness': fairness,'claims': claims,
         'humaneval': {name:load(BASE/name/'summary.json') for name in ('humaneval_05b_v1','humaneval_15b_v1')},
         'SQL': 'Environment implemented; model study deferred','recovery': 'not run','ablations': 'memory/dream model ablations not run',
@@ -148,12 +160,14 @@ def main():
     narrative+='CPU reference episodes were previously measured with uncached inference; they were not rerun. MPS sec/episode is amortized throughput, distinct from per-episode latency while waiting for batches. Device tensors and model placement are checked; unsupported MPS operations fail with fallback disabled. Native allocation reported by the user is verified, but inference use is only established by native run outputs.\n\n'
     narrative+='## Replay and latency\n\n```json\n'+json.dumps({'replay':replay,'latency':latency_summary},indent=2)+'\n```\n\n'
     narrative+='## Preserved public benchmark\n\n0.5B: 94/164 (57.32%); 1.5B: 98/164 (59.76%). Greedy one-sample full-module generation, 512-token cap, CPython 3.14.7 WASI. Foundation pretraining exposure is unknown. These local results do not exceed historical GPT-4 67.0% or Gemini Ultra 74.4%, and protocols differ. See `docs/historical_references.md` for pinned primary sources.\n\n'
+    narrative+='Dedicated post-lockbox latency stage was not reached. Where available, the latency summary reuses the actual fresh cache-disabled MPS smoke episodes, with measured transition and terminal-execution durations. No missing stage timing was invented.\n\n'
     narrative+=f"Complete suite: {tests}. Local fairness/leakage assertions: {fairness.get('check_count')}, {fairness.get('local_leakage_status')}. Contamination-free status remains unknown. All 56 retained adapters validated. SQL environment implemented; SQL model study deferred. Recovery and memory/dream ablations not run; their claims remain inconclusive.\n"
     historical = Path('docs/final_results.md').read_text().split('\n<!-- emergency-mps-results -->')[0]
     Path('docs/final_results.md').write_text(historical+'\n<!-- emergency-mps-results -->\n\n'+narrative)
     Path('docs/final_metrics.md').write_text('# Actual completion metrics\n\nMachine-readable full metrics: `results/coding/emergency_analysis_v1/summary.json`.\n\n'+narrative)
     Path('docs/final_claims.md').write_text('# Claims and evidence\n\n|Claim|Status|\n|---|---|\n'+''.join(f'|{k}|{v}|\n' for k,v in claims.items())+'\nCapability/goal claims use a descriptive 90% threshold (reporting criterion, not a preregistered hypothesis test) on both locked splits. OOD improvement requires a positive task-paired 95% CI against A. Grounded execution requires all locked independent replay evidence to match. Grounding is established only for saved re-executed episodes. No architecture-only causal claim is supported.\n')
-    Path('docs/final_limitations.md').write_text('# Completion limitations\n\nPartial multi-seed curves; mixed CPU float32/MPS reduced precision; missing zero control; unmatched supervision and inference interaction budgets; synthetic bounded tasks; unknown foundation pretraining exposure; no learned world model; no recovery or component ablation results; tiny descriptive latency sample; public protocol mismatch; SQL model study deferred. Missing results stay inconclusive. Hardware-only speedup is not isolated from batching and precision.\n')
+    c_count = sum(r['condition']=='mindscape_c' for r in locked)
+    Path('docs/final_limitations.md').write_text(f'# Completion limitations\n\nFlagship C locked episodes: {c_count}/100. Missing primary or supplementary results remain incomplete. The C-priority native launch was requested; see native device records and actual saved episodes for observed execution. Native Terminal control was rejected by computer-use tooling, and the execution environment cannot allocate MPS. Browser verification unexpectedly blocked for about 27 minutes while the native B evaluation continued and stopped at its cutoff. Full four-condition lockbox and dedicated post-lockbox latency are incomplete; actual fresh smoke timings are reused transparently.\n\nPartial multi-seed curves; mixed CPU float32/MPS reduced precision; missing zero control; unmatched supervision and inference interaction budgets; synthetic bounded tasks; unknown foundation pretraining exposure; no learned world model; no recovery or component ablation results; tiny descriptive latency sample; public protocol mismatch; SQL model study deferred. Missing results stay inconclusive. Hardware-only speedup is not isolated from batching and precision.\n')
     Path('docs/reproducibility.md').write_text('# Reproduce preserved evidence\n\nUse the pinned foundation snapshots and WASI runtime described in `docs/coding/reproducibility.md`. The emergency native entry point is `scripts/coding/emergency_mps.py`; its original deadline is fixed and it intentionally refuses late neural reruns. Saved per-episode files checkpoint completed keys; completed CPU episodes are never deleted. Explicit historical CPU reproduction uses `MINDSCAPE_DEVICE=cpu MINDSCAPE_PRECISION=float32`; accelerated evaluation requires MPS and rejects silent fallback. Filesystem, tokenizer serialization, test execution, checkpoint CPU backups and Git remain CPU utilities. Neural weights, forward/generation and LoRA tensors use MPS. Batch only independent requests across episodes; decisions within each episode remain sequential.\n\nRecompute reports with `work/final-venv/bin/python scripts/coding/emergency_report.py`. Restore frozen evidence into an empty directory with `scripts/coding/restore_completion.py --snapshot results/final/coding_research_v2 --destination PATH`; use the actual snapshot name if the mandatory locked study remained partial. The restore utility verifies every manifest hash before copying. Foundation weights are external pinned downloads, not bundled; adapters, protocol, actual datasets, source, runtime and results are bundled.\n')
     print('Reported actual learning/locked episodes',len(learning),len(locked))
 

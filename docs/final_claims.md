@@ -15,4 +15,4 @@
 |GPT reference exceedance|NOT SUPPORTED|
 |Gemini reference exceedance|NOT SUPPORTED|
 
-Capability/goal claims use a descriptive 90% threshold (reporting criterion, not a preregistered hypothesis test) on both locked splits. OOD improvement requires a positive task-paired 95% CI against A. Grounded execution requires all locked independent replay evidence to match. No architecture-only causal claim is supported.
+Capability/goal claims use a descriptive 90% threshold (reporting criterion, not a preregistered hypothesis test) on both locked splits. OOD improvement requires a positive task-paired 95% CI against A. Grounded execution requires all locked independent replay evidence to match. Grounding is established only for saved re-executed episodes. No architecture-only causal claim is supported.

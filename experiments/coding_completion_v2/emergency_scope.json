@@ -1,0 +1,22 @@
+{
+  "recorded_unix": 1791472948.412274,
+  "budget_start_utc": "2026-10-08 13:30:00 UTC",
+  "deadline_utc": "2026-10-08 15:30:00 UTC",
+  "actual_native_versions": [
+    "19ed653: initial profiling",
+    "db24b28: resumed memory release and A/structured/B lockbox"
+  ],
+  "priority_runner_requested_but_not_observed": true,
+  "flagship_c_locked_episodes": 0,
+  "native_stop": {
+    "type": "RuntimeError",
+    "message": "Mandatory locked comparison incomplete; retain actual partial rows",
+    "time_unix": 1791471900.914212
+  },
+  "browser_initial_render_verified": true,
+  "browser_tool_wall_seconds": 1609.7579,
+  "browser_interaction_checks": "Not completed: initial navigation unexpectedly blocked approximately 27 minutes; no further browser calls within deadline",
+  "planned_dedicated_latency_not_run": true,
+  "fresh_latency_evidence": "Actual 16-episode cache-disabled MPS smoke results, reused transparently",
+  "mandatory_flagship_comparison": "INCOMPLETE; no research-completion tag"
+}
