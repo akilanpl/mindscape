@@ -16,6 +16,8 @@ GENERATOR_VERSION = "multiplication-1.0.0"
 class DatasetBackend(Protocol):
     name: str
     version: str
+    def structures(self, spec): ...
+    def structure_identity(self, category): ...
     def sample(self, category, rng, config): ...
     def identity(self, observation): ...
     def category(self, observation): ...
@@ -32,6 +34,25 @@ def stable_hash(value):
 class MultiplicationBackend:
     name = "integer_multiplication"
     version = GENERATOR_VERSION
+
+    def structures(self, spec):
+        if "structures" in spec:
+            values = spec["structures"]
+        else:
+            bounds = [spec[key] for key in ("min_digits_a", "max_digits_a", "min_digits_b", "max_digits_b")]
+            if any(type(n) is not int or n < 1 for n in bounds) or bounds[0] > bounds[1] or bounds[2] > bounds[3]:
+                raise ValueError("Invalid digit ranges")
+            values = [f"{a}x{b}" for a in range(bounds[0], bounds[1] + 1)
+                      for b in range(bounds[2], bounds[3] + 1)]
+        for value in values:
+            self.structure_identity(value)
+        return list(values)
+
+    def structure_identity(self, category):
+        sizes = tuple(int(x) for x in category.split("x"))
+        if len(sizes) != 2 or min(sizes) < 1:
+            raise ValueError("Invalid digit structure")
+        return tuple(sorted(sizes))
 
     def sample(self, category, rng, config):
         sizes = tuple(int(x) for x in category.split("x"))
@@ -95,7 +116,7 @@ class MultiplicationBackend:
         if not outcome.trajectory_valid:
             return False, False, "invalid_transition"
         if not outcome.goal_reached:
-            return False, False, "goal_failure"
+            return True, False, "goal_failure"
         return True, outcome.final_answer_valid, "correct" if outcome.final_answer_valid else "arithmetic_error"
 
     def reference(self, view):

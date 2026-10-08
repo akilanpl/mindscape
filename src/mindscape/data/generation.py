@@ -4,7 +4,7 @@ import random
 
 from mindscape.data.backends import get_backend, stable_hash
 from mindscape.data.schemas import BenchmarkExample
-from mindscape.data.splits import canonical_structure, nested_subsets, validate_dataset
+from mindscape.data.splits import nested_subsets, validate_dataset
 
 
 def generate(config):
@@ -12,14 +12,14 @@ def generate(config):
     specs = config["splits"]
     if not {"train", "validation", "test"}.issubset(specs):
         raise ValueError("train, validation and test are required")
-    train = {canonical_structure(c) for c in specs["train"]["structures"]}
-    ood = {canonical_structure(c) for c in specs.get("ood_test", {}).get("structures", [])}
+    train = {backend.structure_identity(c) for c in backend.structures(specs["train"])}
+    ood = {backend.structure_identity(c) for c in (backend.structures(specs["ood_test"]) if "ood_test" in specs else [])}
     if train & ood:
         raise ValueError("Overlapping OOD structures")
     seen, result = set(), {}
     for split in ["train", "validation", "test"] + sorted(set(specs) - {"train", "validation", "test"}):
         spec = specs[split]
-        categories, count = spec["structures"], spec["count"]
+        categories, count = backend.structures(spec), spec["count"]
         if type(count) is not int or count < 0 or not categories or len(set(categories)) != len(categories):
             raise ValueError("Invalid count or structures")
         if split == "train" and count < len(categories):

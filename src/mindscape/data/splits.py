@@ -3,19 +3,14 @@ import random
 from mindscape.data.backends import get_backend, stable_hash
 
 
-def canonical_structure(category):
-    # A swapped multiplication structure is the same holdout family.
-    return tuple(sorted(int(x) for x in category.split("x")))
-
-
 def validate_dataset(splits, config):
     backend = get_backend(config["environment"])
     if set(splits) != set(config["splits"]):
         raise ValueError("Split set differs from configuration")
     ids, identities, problems, trajectories = set(), set(), set(), set()
-    train_categories = set(config["splits"]["train"]["structures"])
-    heldout = set(config["splits"].get("ood_test", {}).get("structures", []))
-    if {canonical_structure(s) for s in train_categories} & {canonical_structure(s) for s in heldout}:
+    train_categories = set(backend.structures(config["splits"]["train"]))
+    heldout = set(backend.structures(config["splits"]["ood_test"])) if "ood_test" in config["splits"] else set()
+    if {backend.structure_identity(s) for s in train_categories} & {backend.structure_identity(s) for s in heldout}:
         raise ValueError("OOD structural leakage, including swapped structures")
     observed_train = {backend.category(e.observation) for e in splits["train"]}
     for split, examples in splits.items():
@@ -25,9 +20,11 @@ def validate_dataset(splits, config):
         for e in examples:
             if e.environment != backend.name or e.metadata["split"] != split:
                 raise ValueError("Wrong environment or split membership")
+            if e.metadata["random_seed"] != config["seed"]:
+                raise ValueError("Example seed differs from dataset seed")
             backend.validate(e)
             category = backend.category(e.observation)
-            if category not in spec["structures"]:
+            if category not in backend.structures(spec):
                 raise ValueError("Disallowed structural category")
             if split in ("validation", "test") and category not in observed_train:
                 raise ValueError("IID structure absent from training")
