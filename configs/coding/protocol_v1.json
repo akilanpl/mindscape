@@ -1,0 +1,38 @@
+{
+  "version": "coding-1.0",
+  "backbone": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+  "selection": "10 locked validation tasks; 9/10 versus 7/10 for 0.5B",
+  "adaptation_study": "executed-example retrieval, explicitly not gradient data efficiency",
+  "sample_budgets": [
+    10,
+    25,
+    50,
+    100,
+    250,
+    500,
+    1000,
+    2500,
+    5000
+  ],
+  "seeds": [
+    11,
+    23,
+    37,
+    53,
+    71
+  ],
+  "locked_test_per_split": 20,
+  "held_out_structures": [
+    "function_interaction",
+    "cross_file",
+    "compound",
+    "unfamiliar_structure"
+  ],
+  "max_repair_attempts": 3,
+  "sampling": "greedy",
+  "hidden_feedback": "terminal only",
+  "runtime": "CPython 3.14.7 WASI / capability-isolated Wasmtime",
+  "assertion": "No GPT/Gemini equivalence, no architecture advantage, no gradient DER claim from retrieval results",
+  "max_tool_steps": 8
+}

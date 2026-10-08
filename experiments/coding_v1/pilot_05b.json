@@ -1,0 +1,137 @@
+{
+  "revision": "ea3f2471cf1b1f0db85067f1ef93848e38e88c25",
+  "parameters": 494032768,
+  "rows": [
+    {
+      "task_id": "4a6f965b16be57e4ec61078cfd9ca351c0abd581a8e547fb2b2727a785163631",
+      "category": "conditional",
+      "response": "```python\ndef repair_8000(n):\n    \"\"\"\n    Check if the input number n is greater than 11.\n\n    Parameters:\n    n (int): The number to check.\n\n    Returns:\n    bool: True if n is greater than 11, False otherwise.\n    \"\"\"\n    return n > 11\n```",
+      "success": false,
+      "error": null,
+      "latency": {
+        "ttft": 0.35852179199719103,
+        "generation": 3.1437899590018787,
+        "tokens_in": 230,
+        "tokens_out": 72
+      }
+    },
+    {
+      "task_id": "33a3908a5846322d9998c4f5225b5f3a95c3405162bcb1cd126c516c1e6ff304",
+      "category": "off_by_one",
+      "response": "```python\ndef repair_8001(n):\n    \"\"\"\n    Return the sum of integers from zero through n, inclusive.\n\n    Args:\n    n (int): The upper limit of the range to sum.\n\n    Returns:\n    int: The sum of integers from zero through n.\n    \"\"\"\n    return sum(range(n + 1))\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.17813908300013281,
+        "generation": 2.3133930830008467,
+        "tokens_in": 236,
+        "tokens_out": 72
+      }
+    },
+    {
+      "task_id": "9cff3abebd2a4408e44ca54d4e3606d57cf2d6536971cf11509e0d550e8356d3",
+      "category": "operator",
+      "response": "```python\ndef repair_8002(n):\n    \"\"\"\n    Return n multiplied by 10.\n\n    Parameters:\n    n (int): The number to be multiplied.\n\n    Returns:\n    int: The result of multiplying n by 10.\n    \"\"\"\n    return n * 10\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.16391283400298562,
+        "generation": 2.0622692920005647,
+        "tokens_in": 229,
+        "tokens_out": 65
+      }
+    },
+    {
+      "task_id": "5cd9f7a8a44977a341ae41f820e48c528f64cf222fabe3e3bab3d75e48a9446f",
+      "category": "return_value",
+      "response": "```python\ndef repair_8003(n):\n    \"\"\"\n    Return -1 below 5, otherwise 1.\n\n    Args:\n    n (int): The number to check.\n\n    Returns:\n    int: -1 if n is less than 5, otherwise 1.\n    \"\"\"\n    if n < 5:\n        return -1\n    else:\n        return 1\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.1620404170025722,
+        "generation": 2.5804056670021964,
+        "tokens_in": 241,
+        "tokens_out": 83
+      }
+    },
+    {
+      "task_id": "c71951216743a97f3c6e9fb1d1d2196811fc3aa44410f3572efbef81932d3673",
+      "category": "initialization",
+      "response": "```python\ndef repair_8004(items_28):\n    \"\"\"\n    Sum the input list and add an initial offset of 9.\n\n    Parameters:\n    items_28 (list): A list of integers to be summed.\n\n    Returns:\n    int: The sum of the input list plus an initial offset of 9.\n    \"\"\"\n    total = 0\n    for value in items_28:\n        total += value\n    return total + 9\n\n# Test cases\nassert repair_8004([]) == 9, \"Test case 1 failed\"\nassert repair_8004([1]) == 10, \"Test case 2 failed\"\nassert repair_8004([1, 2, 3, 4, 5]) == 15, \"Test case 3 failed\"\nassert repair_8004([-1, -2,",
+      "success": false,
+      "error": "No source code response",
+      "latency": {
+        "ttft": 0.16429537499789149,
+        "generation": 5.720240457994805,
+        "tokens_in": 254,
+        "tokens_out": 192
+      }
+    },
+    {
+      "task_id": "d536ccc86c40fae46c71a95aefdc50564eb93067314878ef3e4b464b5f9d9812",
+      "category": "loop",
+      "response": "```python\ndef repair_8005(items_29):\n    \"\"\"\n    Return the sum of every input list element.\n\n    Args:\n    items_29 (list): A list of integers.\n\n    Returns:\n    int: The sum of all elements in the list.\n    \"\"\"\n    return sum(value for value in items_29[:-1])\n```",
+      "success": false,
+      "error": null,
+      "latency": {
+        "ttft": 0.1592106660027639,
+        "generation": 2.352698708004027,
+        "tokens_in": 239,
+        "tokens_out": 76
+      }
+    },
+    {
+      "task_id": "fffe69d2f4e68b26ff4eae4642e0e738ae43c6fd792fc02913de77750c9bc176",
+      "category": "missing_branch",
+      "response": "```python\ndef repair_8006(n):\n    \"\"\"\n    Return the sign: -1 for negative, 0 for zero, 1 for positive.\n\n    Args:\n    n (int): The number to check.\n\n    Returns:\n    int: The sign of the number.\n    \"\"\"\n    if n < 0:\n        return -1\n    elif n > 0:\n        return 1\n    else:\n        return 0\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.17478908300108742,
+        "generation": 2.9196817909978563,
+        "tokens_in": 260,
+        "tokens_out": 95
+      }
+    },
+    {
+      "task_id": "c03416dba8a71f5f36d41963409ca5d6459573b8539210a289738f76e543cd9d",
+      "category": "list_handling",
+      "response": "```python\ndef repair_8007(items_31):\n    \"\"\"\n    Return a new list with the input elements in reverse order.\n\n    Args:\n    items_31 (list): The list of elements to be reversed.\n\n    Returns:\n    list: A new list with the elements in reverse order.\n    \"\"\"\n    return items_31[::-1]\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.16060237499914365,
+        "generation": 2.469825167005183,
+        "tokens_in": 236,
+        "tokens_out": 78
+      }
+    },
+    {
+      "task_id": "13bfa90514a6c65e535a8811828e78120d339309a7b0a79c4221ad7b06574991",
+      "category": "type_mismatch",
+      "response": "```python\ndef repair_8008(items_32):\n    \"\"\"\n    Return a list copy of the input; the output type must be list.\n\n    Args:\n    items_32 (list): The input list to be copied.\n\n    Returns:\n    list: A copy of the input list.\n    \"\"\"\n    return items_32[:]\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.16248533299949486,
+        "generation": 2.314296208001906,
+        "tokens_in": 241,
+        "tokens_out": 75
+      }
+    },
+    {
+      "task_id": "3adb0054d34f6620747bc838286b6408df4e67dff70d688390ca3f6aad7e822b",
+      "category": "exception_handling",
+      "response": "```python\ndef repair_8009(n):\n    \"\"\"\n    Return 10/n, and return 0 when n is zero.\n\n    Args:\n    n (int): The number to divide by.\n\n    Returns:\n    float: The result of 10/n or 0 if n is zero.\n    \"\"\"\n    if n == 0:\n        return 0\n    else:\n        return 10 / n\n\n# Test cases\nassert repair_8009(1) == 10.0\nassert repair_8009(10) == 1.0\nassert repair_8009(0) == 0\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.16379837499698624,
+        "generation": 4.475120625000272,
+        "tokens_in": 253,
+        "tokens_out": 144
+      }
+    }
+  ],
+  "peak_rss": 2447933440
+}

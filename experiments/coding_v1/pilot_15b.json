@@ -1,0 +1,137 @@
+{
+  "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+  "parameters": 1543714304,
+  "rows": [
+    {
+      "task_id": "4a6f965b16be57e4ec61078cfd9ca351c0abd581a8e547fb2b2727a785163631",
+      "category": "conditional",
+      "response": "```python\n# Define the module with the repaired function\ndef repair_8000(n):\n    # Check if n is greater than or equal to 11\n    return n >= 11\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 1.4028841250037658,
+        "generation": 5.3301129169994965,
+        "tokens_in": 230,
+        "tokens_out": 46
+      }
+    },
+    {
+      "task_id": "33a3908a5846322d9998c4f5225b5f3a95c3405162bcb1cd126c516c1e6ff304",
+      "category": "off_by_one",
+      "response": "```python\n# Define the module with the repaired function\ndef repair_8001(n):\n    # Calculate the sum of integers from 0 to n using the built-in sum function\n    return sum(range(n + 1))\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.5759362919998239,
+        "generation": 4.757429124998453,
+        "tokens_in": 236,
+        "tokens_out": 51
+      }
+    },
+    {
+      "task_id": "9cff3abebd2a4408e44ca54d4e3606d57cf2d6536971cf11509e0d550e8356d3",
+      "category": "operator",
+      "response": "```python\n# Define the module with the fixed function\ndef repair_8002(n):\n    # Multiply the input number by 10 and return the result\n    return n * 10\n\n# Example usage of the function\nprint(repair_8002(0))  # Output: 0\nprint(repair_8002(1))  # Output: 10\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.47399625000252854,
+        "generation": 7.833120374998543,
+        "tokens_in": 229,
+        "tokens_out": 90
+      }
+    },
+    {
+      "task_id": "5cd9f7a8a44977a341ae41f820e48c528f64cf222fabe3e3bab3d75e48a9446f",
+      "category": "return_value",
+      "response": "```python\n# Define the module with the repaired function\ndef repair_8003(n):\n    # Check if the input number is less than 5\n    if n < 5:\n        # If true, return -1\n        return -1\n    else:\n        # If false, return 1\n        return 1\n\n# Example usage of the function\nprint(repair_8003(0))  # Output: -1\nprint(repair_8003(5))  # Output: 1\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.48783933400409296,
+        "generation": 10.096008874999825,
+        "tokens_in": 241,
+        "tokens_out": 117
+      }
+    },
+    {
+      "task_id": "c71951216743a97f3c6e9fb1d1d2196811fc3aa44410f3572efbef81932d3673",
+      "category": "initialization",
+      "response": "```python\n# Define the module with the repaired function\ndef repair_8004(items_28):\n    # Initialize the total sum to 9 (the given offset)\n    total = 9\n    \n    # Iterate through each item in the list\n    for value in items_28:\n        # Add the current item's value to the total sum\n        total += value\n    \n    # Return the final total sum\n    return total\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.4886395840003388,
+        "generation": 8.292667959001847,
+        "tokens_in": 254,
+        "tokens_out": 95
+      }
+    },
+    {
+      "task_id": "d536ccc86c40fae46c71a95aefdc50564eb93067314878ef3e4b464b5f9d9812",
+      "category": "loop",
+      "response": "```python\ndef repair_8005(items_29):\n    return sum(value for value in items_29[:-1])\n```",
+      "success": false,
+      "error": null,
+      "latency": {
+        "ttft": 0.49247379200096475,
+        "generation": 3.0236855420007487,
+        "tokens_in": 239,
+        "tokens_out": 31
+      }
+    },
+    {
+      "task_id": "fffe69d2f4e68b26ff4eae4642e0e738ae43c6fd792fc02913de77750c9bc176",
+      "category": "missing_branch",
+      "response": "```python\n# Define the module with the repaired function\ndef repair_8006(n):\n    # Check if the number is less than zero\n    if n < 0:\n        return -1\n    # Check if the number is greater than zero\n    elif n > 0:\n        return 1\n    # If the number is zero, return 0\n    else:\n        return 0\n\n# Example usage of the function\nprint(repair_8006(0))  # Output: 0\nprint(repair_8006(1))  # Output: 1\nprint(repair_8006(-1)) # Output: -1\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.5371289999966393,
+        "generation": 12.908656542000244,
+        "tokens_in": 260,
+        "tokens_out": 149
+      }
+    },
+    {
+      "task_id": "c03416dba8a71f5f36d41963409ca5d6459573b8539210a289738f76e543cd9d",
+      "category": "list_handling",
+      "response": "```python\n# Define the module\ndef repair_8007(items_31):\n    # Return a new list with the input elements in reverse order\n    return list(reversed(items_31))\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.4917280000008759,
+        "generation": 4.238479915999051,
+        "tokens_in": 236,
+        "tokens_out": 46
+      }
+    },
+    {
+      "task_id": "13bfa90514a6c65e535a8811828e78120d339309a7b0a79c4221ad7b06574991",
+      "category": "type_mismatch",
+      "response": "```python\n# Define the module with the fixed function\ndef repair_8008(items_32):\n    # Return a list copy of the input\n    return list(items_32)\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.48496487500233343,
+        "generation": 4.069192666000163,
+        "tokens_in": 241,
+        "tokens_out": 44
+      }
+    },
+    {
+      "task_id": "3adb0054d34f6620747bc838286b6408df4e67dff70d688390ca3f6aad7e822b",
+      "category": "exception_handling",
+      "response": "```python\n# Define the module with the fixed function\ndef repair_8009(n):\n    # Check if n is zero to avoid division by zero error\n    if n == 0:\n        return 0\n    else:\n        return 10 / n\n```",
+      "success": true,
+      "error": null,
+      "latency": {
+        "ttft": 0.4936664999986533,
+        "generation": 5.3906027499979245,
+        "tokens_in": 253,
+        "tokens_out": 60
+      }
+    }
+  ],
+  "peak_rss": 6497107968
+}

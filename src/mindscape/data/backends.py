@@ -136,7 +136,7 @@ def register(backend):
     REGISTRY[backend.name] = backend
 
 
-BUILTIN_BACKENDS = {"integer_multiplication_claims": "mindscape.data.claims_backend"}
+BUILTIN_BACKENDS = {"integer_multiplication_claims": "mindscape.data.claims_backend", "python_code_repair": "mindscape.coding.backend"}
 
 
 def get_backend(name):

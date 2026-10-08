@@ -1,0 +1,41 @@
+{
+  "backbone_revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+  "samples": 10,
+  "seed": 11,
+  "epochs": 1,
+  "losses": [
+    0.2588295042514801,
+    0.2401917576789856,
+    0.18735770881175995,
+    0.13847629725933075,
+    0.10715382546186447,
+    0.15972626209259033,
+    0.054512713104486465,
+    0.06865420937538147,
+    0.035918474197387695,
+    0.02800404652953148
+  ],
+  "training_seconds": 70.6288510000013,
+  "peak_rss_bytes": 8479506432,
+  "total_parameters": 1544803840,
+  "trainable_parameters": 1089536,
+  "learning_rate": 0.0002,
+  "rank": 8,
+  "targets": [
+    "q_proj",
+    "v_proj"
+  ],
+  "task_ids": [
+    "e2f216d81175285c1adb0725627073974dda1bea720a82e11446b1cded2df798",
+    "8a728cc3a19a1069f9a92ea1e5b337e1c36bd8734c462f376f45d7d54b8131e0",
+    "8b0bed304772c18c52d1da5268c45f1e3a7641e863867d61fe480d1d2e97a45d",
+    "a5e9984440f15c084e9fd48675a90b5f39e2f1c3c82dec202e96e280f23a2506",
+    "2a8e12bdf6acd6ffbd419bcca2a13e65b3a062d8fafbde2bce0278d168bedebf",
+    "3171966bc6e3be719148109dc2230291fdf4cd377bf722d80466440f8addc437",
+    "48aa721ecc8beee5d805d1a0d72efbf36ae4d74aa6707bf8c0994dcd0c8c6d89",
+    "e5395cadfb37fcc3f394f6e6b0de194f2a28a3b4198d44d4d15e0212d00e88b2",
+    "d6d381715da24db6174c1762fec5d27baa763643000995cd38b6fbbe7971cf5f",
+    "add97b32955a3ff90278adae42caee91e561ffd8ffe891da4a26e8acff83810d"
+  ],
+  "hidden_tests_in_training": false
+}

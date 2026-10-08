@@ -1,0 +1,21 @@
+# Coding protocol v1
+
+The flagship implements bounded Python repair with actual edits to disposable repositories and actual function execution in capability-isolated CPython WASI. The host compares private expected values. Model-visible observations contain visible tests only. Hidden evaluation occurs after the policy stops. Goal verification cannot be satisfied by a model's success declaration.
+
+The selected model is Qwen2.5-Coder-1.5B-Instruct, revision `2e1fd397ee46e1388853d2af2c993145b0f1098a`, Apache 2.0. A locked ten-task validation pilot produced 9/10 actual repairs, versus 7/10 for the 0.5B model. This small selection pilot is not a general capability estimate. Full model weights remain outside Git in the local cache.
+
+Four policies share this backbone: model-only source repair, structured state repair, trajectory-example repair, and bounded experiential repair. The last policy sees actual visible-test feedback and has up to three sequential attempts. Its success@3 is an interactive recovery measure, not HumanEval pass@3. Its memory uses executed teacher examples. The first two controls do not acquire memory as the sample budget changes, so their frozen results are reused transparently rather than counted as new independent seeds.
+
+The first matrix measures retrieval adaptation at nine sample budgets (10 through 5000) and five independently shuffled training-memory seeds. **These are retrieval budgets, not gradient-training budgets; gradient DER is not identifiable from this matrix.** Teacher patches and trajectories constitute more supervision than the controls receive. Extra tool execution and retries constitute more inference compute. Any difference is conditional on those information and compute differences.
+
+Task families are intentionally simple synthetic Python functions. IID splits share structural families but distinct names, parameters, and repository hashes. OOD families are withheld from training: function composition, cross-file dependency, compound repair, and filtering structure. These four families do not represent broad repository engineering. Exact-hash nonoverlap cannot establish semantic independence for shared IID templates. Public benchmark pretraining contamination is unknown.
+
+WASI preopens only curated standard-library files and the current disposable task repository, both read-only to generated code. Host tools apply validated edits. Runtime probes deny unrelated file access, sockets, and subprocess execution. Fuel, memory, CPU, output-file size, and host wall deadlines bound execution. Native macOS sandbox creation failed with `Operation not permitted`; Docker and Podman are absent. Generated code never executes in host Python.
+
+The pinned official HumanEval revision is `6d43fb980f9fee3c892a914eda09951f772ad10d` (164 tasks). Independent greedy completions receive no hidden-test feedback. CPython WASI differs from the original host runtime; report incompatibilities as failures and publish the runtime. With one completion per task, only pass@1 is available. No pass@k estimate is produced for k greater than one.
+
+`train_lora.py` provides separate real LoRA gradient adaptation (rank 8, query/value projections, masked prompt loss, AdamW, one epoch). Its resulting records and checkpoints must not be conflated with the retrieval matrix. No gradient threshold claim is permitted without evaluating checkpoints at matched training budgets.
+
+Exact prompt/model/revision/token-limit repeats under greedy sampling may reuse an on-disk completion cache. Cached calls are recorded with zero new model calls/tokens and zero generation time, plus the original measured timing. Actual repository execution is repeated for each evaluated policy. Cache hits are not additional independent model samples; latency summaries must distinguish fresh calls from reuse. Changing the model revision or any prompt byte changes the cache key.
+
+The earlier 1000-task/three-seed configuration was a preflight only: no held-out model evaluations were run. Its locked validation/test/OOD tasks are retained during expansion to 5000 training tasks; all held-out seeds are excluded from the additional training pool. Executed prefix teacher records are reused with their actual provenance.

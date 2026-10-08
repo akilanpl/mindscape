@@ -1,0 +1,10 @@
+{
+  "python_wasm_sha256": "d24bd98d3071af6b17d51d53a08700b9acef59172a0afcb6adb733645c2a1715",
+  "archive_sha256": "2e064d3fb8172471d39d741348efa722349c40b96301f69968dff714999c584b",
+  "archive_url": "https://github.com/brettcannon/cpython-wasi-build/releases/download/v3.14.7/python-3.14.7-wasi_sdk-24.zip",
+  "wasmtime": "49.0.0",
+  "torch": "2.14.1",
+  "transformers": "4.57.6",
+  "peft": "0.21.2",
+  "python": "3.12.14"
+}
