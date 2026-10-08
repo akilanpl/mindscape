@@ -18,23 +18,33 @@ def without_duration(value):
     return value
 
 
-def replay_evidence(task, trajectory, answer, sandbox):
+def replay_evidence(task, trajectory, answer, sandbox, detailed=False):
     env = CodeRepairEnvironment(sandbox)
     env.reset(CodeTask(**task))
     matches = without_duration(asdict(env.get_state())) == without_duration(
         trajectory["initial_state"]
     )
     mismatches = []
+    state_checks = [matches]
+    tool_checks = []
     try:
         for index, recorded in enumerate(trajectory["transitions"]):
             actual = asdict(env.step(CodeAction(**recorded["action"])))
+            state_checks.extend(without_duration(actual[k]) == without_duration(recorded[k])
+                                for k in ("state_before", "state_after"))
+            tool_checks.append(all(without_duration(actual[k]) == without_duration(recorded[k])
+                                   for k in ("action", "event", "result", "valid")))
             if without_duration(actual) != without_duration(recorded):
                 matches = False
                 mismatches.append(index)
         matches = matches and env.files == answer
     finally:
         env.close()
-    return matches, mismatches
+    detail = {"state_agreement": sum(state_checks)/len(state_checks),
+              "state_comparisons": len(state_checks), "state_matches": sum(state_checks),
+              "tool_result_agreement": sum(tool_checks)/len(tool_checks) if tool_checks else None,
+              "tool_result_comparisons": len(tool_checks), "tool_result_matches": sum(tool_checks)}
+    return (matches, mismatches, detail) if detailed else (matches, mismatches)
 
 
 root = Path("results/coding/completion_trace_audit_v1")
@@ -69,10 +79,11 @@ for line in rows_path.read_text().splitlines():
         {"private_tests": task["hidden_tests"]},
     )
     valid, goal, error = backend.assess(example, row["repository"], row["trajectory"])
-    evidence_matches, mismatches = replay_evidence(
-        task, row["trajectory"], row["repository"], backend._sandbox()
+    evidence_matches, mismatches, detail = replay_evidence(
+        task, row["trajectory"], row["repository"], backend._sandbox(), detailed=True
     )
     record = {
+        **detail,
         "key": key,
         "trajectory_valid": valid,
         "goal": goal,
