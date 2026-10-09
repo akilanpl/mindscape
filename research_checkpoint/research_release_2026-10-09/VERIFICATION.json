@@ -1,0 +1,22 @@
+{
+  "verified_unix": 1791551656.403842,
+  "archive_root": "research_checkpoint/research_release_2026-10-09",
+  "source_commit": "1eef96bac3b17beaaca4000711445207dbd4630c",
+  "snapshot_manifest_sha256": "d7c127083a59fe47da03f700a3d39c3ec51c85cb6b557bce172c46a3b824dcce",
+  "archive_manifest_sha256": "0b5c427f9e26c9e2542a90083ee0c6001aa86f311520b9640b310a23a497bc09",
+  "file_count": 23842,
+  "part_count": 36,
+  "compressed_bytes": 1176456333,
+  "clean_archive_restore_exit_code": 0,
+  "complete_inventory_and_sha256_verified": true,
+  "restored_four_raw_datasets_match": true,
+  "recovery_checkpoint_preserved": true,
+  "immutable_research_package_verified_files": 6242,
+  "original_and_restored_test_runs": "130 passed plus6subtests each; zero failures/errors/skips",
+  "remaining_scientific_cases": 0,
+  "neural_and_supervisor_pids_exited": [
+    1620,
+    1619
+  ],
+  "publication": "pending normalpush and remoteSHA verification; tag withheld"
+}
