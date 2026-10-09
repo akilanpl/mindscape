@@ -48,6 +48,7 @@ def trace_case(backend, example, *, mask=True, state_features=True, previous_act
             used[:, 48:52] = 0
         began = time.perf_counter()
         scores = original_logits(used)
+        forward_seconds = time.perf_counter()-began
         # The frozen function returns logits only. This intermediate is reconstructed,
         # not falsely described as captured from its stack or as a causal explanation.
         hidden = np.tanh(used @ backend.weights['w1'] + backend.weights['b1'])
@@ -61,7 +62,8 @@ def trace_case(backend, example, *, mask=True, state_features=True, previous_act
             'reconstructed_hidden_summary': {'mean': float(hidden.mean()), 'std': float(hidden.std()),
                                              'min': float(hidden.min()), 'max': float(hidden.max())},
             'hidden_provenance': 'Recomputed from observed input and checkpoint; not stack-captured',
-            'forward_seconds': time.perf_counter()-began})
+            'device': 'cpu', 'dtype': str(used.dtype), 'forward_seconds': forward_seconds,
+            'forward_and_summary_seconds': time.perf_counter()-began})
         return scores
     backend.logits = observed_logits
     for name in ('reset', 'update'):
@@ -73,6 +75,14 @@ def trace_case(backend, example, *, mask=True, state_features=True, previous_act
                  {'before': before, 'after': memory_snapshot(actor.memory)})
             return value
         setattr(actor.memory, name, wrapped)
+    original_select = actor.select_action
+    def observed_select(representation, operands):
+        selected, raw = original_select(representation, operands)
+        emit('MindscapeModel.select_action', 'deterministic selection after neural forward',
+             {'valid_actions': representation['valid_actions'], 'selected': selected,
+              'raw_neural_action': raw, 'legal_mask_enabled': mask})
+        return selected, raw
+    actor.select_action = observed_select
     model_input = example.view('experiential')
     emit('MindscapeModel.predict', 'input boundary', {'model_input': model_input,
          'normalization': 'Frozen numeric features: sign, reverse decimal digits and bounded state scalars',
