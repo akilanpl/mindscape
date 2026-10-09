@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "clone_kind": "Local clean Git clone, no hardlinks; remote publication verified separately",
+  "cloned_commit": "67cb1e0de2ba72a3d90624c3e517539ce25880b3",
+  "versioned_release_manifest_hashes": 92,
+  "archive_clean_restored_files": 3876,
+  "command": "python scripts/research_v2/evidence_archive.py --verify-existing --archive research_checkpoint/research_v2_numeric_2026-10-09 --restore work/numeric_study_restore",
+  "scope": "Preservation and restoration; no repeated inference or full Research v2 completion claim"
+}
