@@ -1,0 +1,11 @@
+{
+  "fingerprint": "c1e1102da4fe398ed982e97ba6d053ce57e6f1aff7a84bc870f77b6f31d02407",
+  "exit_code": 0,
+  "result": {
+    "verified_cells": 96
+  },
+  "elapsed_seconds": 1.5580599308013916,
+  "output_sha256": {
+    "baseline_statistics.json": "5747ccb393b6809818dcea809da3b628457de93713395693027fb8c229c2f5eb"
+  }
+}

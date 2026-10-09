@@ -1,0 +1,878 @@
+{
+  "status": "PASS",
+  "completed": 1920,
+  "unique_tasks": 80,
+  "cells": [
+    {
+      "split": "iid",
+      "seed": 0,
+      "condition": "000",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 0,
+      "condition": "001",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 0,
+      "condition": "010",
+      "successes": 19,
+      "n": 40,
+      "rate": 0.475,
+      "wilson95": [
+        0.329354701126789,
+        0.6250263789330753
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 0,
+      "condition": "011",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 0,
+      "condition": "100",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 0,
+      "condition": "101",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 0,
+      "condition": "110",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 0,
+      "condition": "111",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "condition": "000",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "condition": "001",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "condition": "010",
+      "successes": 21,
+      "n": 40,
+      "rate": 0.525,
+      "wilson95": [
+        0.3749736210669248,
+        0.670645298873211
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "condition": "011",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "condition": "100",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "condition": "101",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "condition": "110",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "condition": "111",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "condition": "000",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "condition": "001",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "condition": "010",
+      "successes": 21,
+      "n": 40,
+      "rate": 0.525,
+      "wilson95": [
+        0.3749736210669248,
+        0.670645298873211
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "condition": "011",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "condition": "100",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "condition": "101",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "condition": "110",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "condition": "111",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "condition": "000",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "condition": "001",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "condition": "010",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "condition": "011",
+      "successes": 13,
+      "n": 40,
+      "rate": 0.325,
+      "wilson95": [
+        0.200845022317827,
+        0.47982253810122333
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "condition": "100",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "condition": "101",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "condition": "110",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "condition": "111",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "condition": "000",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "condition": "001",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "condition": "010",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "condition": "011",
+      "successes": 15,
+      "n": 40,
+      "rate": 0.375,
+      "wilson95": [
+        0.24222979167233266,
+        0.5296756086269889
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "condition": "100",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "condition": "101",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "condition": "110",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "condition": "111",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "condition": "000",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "condition": "001",
+      "successes": 0,
+      "n": 40,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.08762160119728664
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "condition": "010",
+      "successes": 2,
+      "n": 40,
+      "rate": 0.05,
+      "wilson95": [
+        0.013820667386148344,
+        0.16503877369140962
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "condition": "011",
+      "successes": 15,
+      "n": 40,
+      "rate": 0.375,
+      "wilson95": [
+        0.24222979167233266,
+        0.5296756086269889
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "condition": "100",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "condition": "101",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "condition": "110",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "condition": "111",
+      "successes": 40,
+      "n": 40,
+      "rate": 1.0,
+      "wilson95": [
+        0.9123783988027135,
+        1.0000000000000002
+      ]
+    }
+  ],
+  "primary_tests": [
+    {
+      "split": "iid",
+      "seed": 0,
+      "comparison": "111-011",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "comparison": "111-011",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "comparison": "111-011",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "iid",
+      "seed": 0,
+      "comparison": "111-101",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "comparison": "111-101",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "comparison": "111-101",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "iid",
+      "seed": 0,
+      "comparison": "111-110",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "iid",
+      "seed": 1,
+      "comparison": "111-110",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "iid",
+      "seed": 2,
+      "comparison": "111-110",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "comparison": "111-011",
+      "discordant": [
+        27,
+        0
+      ],
+      "difference": 0.675,
+      "exact_p": 1.4901161193847656e-08,
+      "holm_p_family18": 2.682209014892578e-07
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "comparison": "111-011",
+      "discordant": [
+        25,
+        0
+      ],
+      "difference": 0.625,
+      "exact_p": 5.960464477539063e-08,
+      "holm_p_family18": 1.0132789611816406e-06
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "comparison": "111-011",
+      "discordant": [
+        25,
+        0
+      ],
+      "difference": 0.625,
+      "exact_p": 5.960464477539063e-08,
+      "holm_p_family18": 1.0132789611816406e-06
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "comparison": "111-101",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "comparison": "111-101",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "comparison": "111-101",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "ood",
+      "seed": 0,
+      "comparison": "111-110",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "ood",
+      "seed": 1,
+      "comparison": "111-110",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "split": "ood",
+      "seed": 2,
+      "comparison": "111-110",
+      "discordant": [
+        0,
+        0
+      ],
+      "difference": 0.0,
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    }
+  ],
+  "primary_contrasts": [
+    {
+      "split": "iid",
+      "comparison": "111-011",
+      "seed_mean_difference": 0.0,
+      "task_cluster_bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "uncertainty_scope": "Task sampling conditional on these three fixed trained seeds"
+    },
+    {
+      "split": "iid",
+      "comparison": "111-101",
+      "seed_mean_difference": 0.0,
+      "task_cluster_bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "uncertainty_scope": "Task sampling conditional on these three fixed trained seeds"
+    },
+    {
+      "split": "iid",
+      "comparison": "111-110",
+      "seed_mean_difference": 0.0,
+      "task_cluster_bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "uncertainty_scope": "Task sampling conditional on these three fixed trained seeds"
+    },
+    {
+      "split": "ood",
+      "comparison": "111-011",
+      "seed_mean_difference": 0.6416666666666666,
+      "task_cluster_bootstrap95": [
+        0.5,
+        0.775
+      ],
+      "uncertainty_scope": "Task sampling conditional on these three fixed trained seeds"
+    },
+    {
+      "split": "ood",
+      "comparison": "111-101",
+      "seed_mean_difference": 0.0,
+      "task_cluster_bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "uncertainty_scope": "Task sampling conditional on these three fixed trained seeds"
+    },
+    {
+      "split": "ood",
+      "comparison": "111-110",
+      "seed_mean_difference": 0.0,
+      "task_cluster_bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "uncertainty_scope": "Task sampling conditional on these three fixed trained seeds"
+    }
+  ],
+  "executed_unsuccessful": 734,
+  "scope": "Controlled inference interventions in existing small numeric trajectory policy; not flagship coding or general intelligence",
+  "limitations": [
+    "Small synthetic numeric domain",
+    "Reuses historical trained policies",
+    "Deterministic environment executes arithmetic",
+    "Legal mask can encode target action",
+    "Previous-action feature removal does not remove the entire working-memory module",
+    "Verification and goals are fixed controls",
+    "Planning/dreaming/recovery absent from this backend",
+    "Coding components and foundation comparisons untested"
+  ],
+  "latency_note": "Instrumented trace times include observer overhead; not dedicated latency benchmarks",
+  "historical_models": "Unrun: exact GPT/Gemini releases, access and budget unresolved",
+  "raw_sha256": "8146cb9f09246fa3e8af4ee6c178fb6d69ecc4938b0c342eb0f5b8b43c0fc513"
+}

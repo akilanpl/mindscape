@@ -1,0 +1,43 @@
+{
+  "status": "PASS bounded numeric mechanism study; full Research v2 remains incomplete",
+  "cloud_run": 37946027443,
+  "run_url": "https://github.com/akilanpl/mindscape/actions/runs/37946027443",
+  "source_commit": "0c3f869077756f50e89a551a2fa2b9ca58f05728",
+  "actual_backend": "NumPy CPU float64 learned MLP; Linux x86_64, four CPUs, Python3.11.17; validation torch2.8.0+cpu",
+  "completed": 1920,
+  "unique_tasks": 80,
+  "model_seeds": [
+    0,
+    1,
+    2
+  ],
+  "conditions": 8,
+  "unsuccessful": 734,
+  "checkpoint_hashes_unchanged": true,
+  "resume_verified_no_new_rows": true,
+  "independent_study_manifest_hashes_verified": 3846,
+  "tests": {
+    "passed": 137,
+    "subtests": 6,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "archive": "research_checkpoint/research_v2_numeric_2026-10-09",
+  "archive_sha256": "511d5a1e9c1f4061fe5e80e9e01df6c4a9d0b17d3e4fbf0aeb53a31f3dfbd623",
+  "clean_restored_files": 3876,
+  "raw_sha256": "8146cb9f09246fa3e8af4ee6c178fb6d69ecc4938b0c342eb0f5b8b43c0fc513",
+  "limitations": [
+    "Small synthetic numeric domain",
+    "Reuses historical trained policies",
+    "Deterministic environment executes arithmetic",
+    "Legal mask can encode target action",
+    "Previous-action feature removal does not remove the entire working-memory module",
+    "Verification and goals are fixed controls",
+    "Planning/dreaming/recovery absent from this backend",
+    "Coding components and foundation comparisons untested",
+    "Study peak memory and compute cost were not separately instrumented",
+    "Coding-foundation telemetry, external historical comparisons and broader task-domain replication remain unperformed"
+  ],
+  "completion_tag_created": false
+}

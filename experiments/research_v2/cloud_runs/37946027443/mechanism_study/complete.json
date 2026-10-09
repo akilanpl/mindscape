@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "fingerprint": "3f7ba83d90a8ccd2ea41e57c253e5e04486f1403e9876881af4650f1e8bed487",
+  "completed": 1920,
+  "planned": 1920,
+  "unique_tasks": 80,
+  "seed_count": 3,
+  "conditions": 8,
+  "checkpoints_unchanged": true,
+  "scope": "Controlled inference interventions in existing small numeric trajectory policy; not flagship coding or general intelligence",
+  "raw_sha256": "8146cb9f09246fa3e8af4ee6c178fb6d69ecc4938b0c342eb0f5b8b43c0fc513"
+}

@@ -1,0 +1,15 @@
+{
+  "fingerprint": "c1e1102da4fe398ed982e97ba6d053ce57e6f1aff7a84bc870f77b6f31d02407",
+  "exit_code": 0,
+  "result": {
+    "command": [
+      "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+      "/home/runner/work/mindscape/mindscape/scripts/coding/fairness_audit.py"
+    ],
+    "exit_code": 0
+  },
+  "elapsed_seconds": 0.16654443740844727,
+  "output_sha256": {
+    "fairness.log": "4115127683d7466f45519cb453cb9e02f56a09e13e786e1cba83b9b2613a6e9f"
+  }
+}

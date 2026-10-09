@@ -1,0 +1,553 @@
+cpu-validation	Set up job	﻿2026-10-09T14:41:16.3296520Z Current runner version: '2.337.0'
+cpu-validation	Set up job	2026-10-09T14:41:16.3332063Z ##[group]Runner Image Provisioner
+cpu-validation	Set up job	2026-10-09T14:41:16.3333441Z Hosted Compute Agent
+cpu-validation	Set up job	2026-10-09T14:41:16.3334417Z Version: 20261002.596
+cpu-validation	Set up job	2026-10-09T14:41:16.3335956Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+cpu-validation	Set up job	2026-10-09T14:41:16.3337184Z Build Date: 2026-10-02T22:28:27Z
+cpu-validation	Set up job	2026-10-09T14:41:16.3338411Z Worker ID: {d98072fe-2b6f-4197-a378-54f948d48762}
+cpu-validation	Set up job	2026-10-09T14:41:16.3339741Z Region: eastus
+cpu-validation	Set up job	2026-10-09T14:41:16.3340586Z Cloud: Azure
+cpu-validation	Set up job	2026-10-09T14:41:16.3341629Z ##[endgroup]
+cpu-validation	Set up job	2026-10-09T14:41:16.3344127Z ##[group]Operating System
+cpu-validation	Set up job	2026-10-09T14:41:16.3345563Z Ubuntu
+cpu-validation	Set up job	2026-10-09T14:41:16.3346526Z 24.04.5
+cpu-validation	Set up job	2026-10-09T14:41:16.3347347Z LTS
+cpu-validation	Set up job	2026-10-09T14:41:16.3348248Z ##[endgroup]
+cpu-validation	Set up job	2026-10-09T14:41:16.3349187Z ##[group]Runner Image
+cpu-validation	Set up job	2026-10-09T14:41:16.3350264Z Image: ubuntu-24.04
+cpu-validation	Set up job	2026-10-09T14:41:16.3351283Z Version: 20261004.327.1
+cpu-validation	Set up job	2026-10-09T14:41:16.3353159Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+cpu-validation	Set up job	2026-10-09T14:41:16.3356412Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+cpu-validation	Set up job	2026-10-09T14:41:16.3358269Z ##[endgroup]
+cpu-validation	Set up job	2026-10-09T14:41:16.3360078Z ##[group]GITHUB_TOKEN Permissions
+cpu-validation	Set up job	2026-10-09T14:41:16.3363020Z Contents: read
+cpu-validation	Set up job	2026-10-09T14:41:16.3364006Z Metadata: read
+cpu-validation	Set up job	2026-10-09T14:41:16.3365231Z ##[endgroup]
+cpu-validation	Set up job	2026-10-09T14:41:16.3368222Z Secret source: Actions
+cpu-validation	Set up job	2026-10-09T14:41:16.3369937Z Cache mode: write
+cpu-validation	Set up job	2026-10-09T14:41:16.3371142Z Prepare workflow directory
+cpu-validation	Set up job	2026-10-09T14:41:16.3936103Z Prepare all required actions
+cpu-validation	Set up job	2026-10-09T14:41:16.4006331Z Getting action download info
+cpu-validation	Set up job	2026-10-09T14:41:16.6235830Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+cpu-validation	Set up job	2026-10-09T14:41:16.7227623Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+cpu-validation	Set up job	2026-10-09T14:41:16.8008464Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+cpu-validation	Set up job	2026-10-09T14:41:17.0082244Z Complete job name: cpu-validation
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-09T14:41:17.1012821Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1013905Z with:
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1014362Z   repository: akilanpl/mindscape
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1018424Z   token: ***
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1018873Z   ssh-strict: true
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1019312Z   ssh-user: git
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1019757Z   persist-credentials: true
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1020240Z   clean: true
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1020681Z   sparse-checkout-cone-mode: true
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1021192Z   fetch-depth: 1
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1021618Z   fetch-tags: false
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1022055Z   show-progress: true
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1022490Z   lfs: false
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1022896Z   submodules: false
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1023334Z   set-safe-directory: true
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1023844Z   allow-unsafe-pr-checkout: false
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1024650Z env:
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1025367Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1025870Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1026364Z   MPLBACKEND: Agg
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.1026948Z ##[endgroup]
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2040866Z Syncing repository: akilanpl/mindscape
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2043745Z ##[group]Getting Git version info
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2045353Z Working directory is '/home/runner/work/mindscape/mindscape'
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2047297Z [command]/usr/bin/git version
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2123418Z git version 2.55.0
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2157059Z ##[endgroup]
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2168311Z Temporarily overriding HOME='/home/runner/work/_temp/f9e746ba-65fe-4aa7-910e-90ac0a739ba1' before making global git config changes
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2170235Z Adding repository directory to the temporary git global config as a safe directory
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2174253Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mindscape/mindscape
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2230069Z Deleting the contents of '/home/runner/work/mindscape/mindscape'
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2235410Z ##[group]Initializing the repository
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2240238Z [command]/usr/bin/git init /home/runner/work/mindscape/mindscape
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2361862Z hint: Using 'master' as the name for the initial branch. This default branch name
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2363698Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2365585Z hint: to use in all of your new repositories, which will suppress this warning,
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2366752Z hint: call:
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2367176Z hint:
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2367706Z hint: 	git config --global init.defaultBranch <name>
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2368336Z hint:
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2368920Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2369896Z hint: 'development'. The just-created branch can be renamed via this command:
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2370652Z hint:
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2371092Z hint: 	git branch -m <name>
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2371570Z hint:
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2372209Z hint: Disable this message with "git config set advice.defaultBranchName false"
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2373764Z Initialized empty Git repository in /home/runner/work/mindscape/mindscape/.git/
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2379088Z [command]/usr/bin/git remote add origin https://github.com/akilanpl/mindscape
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2427700Z ##[endgroup]
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2428622Z ##[group]Disabling automatic garbage collection
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2431722Z [command]/usr/bin/git config --local gc.auto 0
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2464287Z ##[endgroup]
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2465738Z ##[group]Setting up auth
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2472647Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2506898Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2953946Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.2997199Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.3239717Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.3283902Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.3544151Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.3580971Z ##[endgroup]
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.3582567Z ##[group]Fetching the repository
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:41:17.3593154Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0c3f869077756f50e89a551a2fa2b9ca58f05728:refs/remotes/origin/mindscape-cloud-migration-2026-10-08
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:42.5770904Z From https://github.com/akilanpl/mindscape
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:42.5774026Z  * [new ref]         0c3f869077756f50e89a551a2fa2b9ca58f05728 -> origin/mindscape-cloud-migration-2026-10-08
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:42.5777410Z ##[endgroup]
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:42.5778359Z ##[group]Determining the checkout info
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:42.5779407Z ##[endgroup]
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:42.5785380Z [command]/usr/bin/git sparse-checkout disable
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:42.5840550Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:42.5872684Z ##[group]Checking out the ref
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:42.5877649Z [command]/usr/bin/git checkout --progress --force -B mindscape-cloud-migration-2026-10-08 refs/remotes/origin/mindscape-cloud-migration-2026-10-08
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:43.7246716Z Updating files:  52% (256/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:44.0110080Z Updating files:  53% (259/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:44.0816927Z Updating files:  54% (264/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:44.2611812Z Updating files:  55% (269/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:44.4762812Z Updating files:  56% (274/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:44.6060156Z Updating files:  57% (279/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:44.6449769Z Updating files:  57% (283/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:44.8382927Z Updating files:  58% (284/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.0087236Z Updating files:  59% (288/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.4046500Z Updating files:  60% (293/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.6430645Z Updating files:  61% (298/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7322749Z Updating files:  61% (301/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7335888Z Updating files:  62% (303/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7336944Z Updating files:  63% (308/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7337963Z Updating files:  64% (313/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7346515Z Updating files:  65% (318/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7347468Z Updating files:  66% (323/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7348360Z Updating files:  67% (327/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7349419Z Updating files:  68% (332/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7353102Z Updating files:  69% (337/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7357383Z Updating files:  70% (342/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7361879Z Updating files:  71% (347/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7367446Z Updating files:  72% (352/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7372290Z Updating files:  73% (357/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7375583Z Updating files:  74% (362/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7379022Z Updating files:  75% (366/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7383493Z Updating files:  76% (371/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7388929Z Updating files:  77% (376/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7392873Z Updating files:  78% (381/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7398295Z Updating files:  79% (386/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7404331Z Updating files:  80% (391/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7409401Z Updating files:  81% (396/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7413904Z Updating files:  82% (401/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7417476Z Updating files:  83% (406/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7421496Z Updating files:  84% (410/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7424374Z Updating files:  85% (415/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7427734Z Updating files:  86% (420/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7431613Z Updating files:  87% (425/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7435868Z Updating files:  88% (430/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7440264Z Updating files:  89% (435/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7444258Z Updating files:  90% (440/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7447854Z Updating files:  91% (445/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7451977Z Updating files:  92% (449/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7456491Z Updating files:  93% (454/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7461164Z Updating files:  94% (459/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7465766Z Updating files:  95% (464/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7471173Z Updating files:  96% (469/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7474312Z Updating files:  97% (474/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7479850Z Updating files:  98% (479/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7482780Z Updating files:  99% (484/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7483793Z Updating files: 100% (488/488)
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:45.7484497Z Updating files: 100% (488/488), done.
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:46.0718828Z Switched to a new branch 'mindscape-cloud-migration-2026-10-08'
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:46.0721789Z branch 'mindscape-cloud-migration-2026-10-08' set up to track 'origin/mindscape-cloud-migration-2026-10-08'.
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:46.1050146Z ##[endgroup]
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:46.1096596Z [command]/usr/bin/git log -1 --format=%H
+cpu-validation	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:45:46.1124878Z 0c3f869077756f50e89a551a2fa2b9ca58f05728
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-10-09T14:45:46.1389429Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1389869Z with:
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1390077Z   python-version: 3.11.17
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1390320Z   check-latest: false
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1392767Z   token: ***
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1392983Z   update-environment: true
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1393231Z   allow-prereleases: false
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1393462Z   freethreaded: false
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1393675Z env:
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1393872Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1394117Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1394361Z   MPLBACKEND: Agg
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.1394567Z ##[endgroup]
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.2722590Z ##[group]Installed versions
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.3272453Z (node:2359) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.3273584Z (Use `node --trace-deprecation ...` to show where the warning was created)
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.3274375Z Successfully set up CPython (3.11.17)
+cpu-validation	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:45:46.3280010Z ##[endgroup]
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	﻿2026-10-09T14:45:46.3481275Z ##[group]Run mkdir -p results/research_v2/cloud_cpu_validation
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3482155Z ^[[36;1mmkdir -p results/research_v2/cloud_cpu_validation^[[0m
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3483506Z ^[[36;1mpython -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.8.0+cpu --report results/research_v2/cloud_cpu_validation/torch_install.json^[[0m
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3485632Z ^[[36;1mpython -m pip install -r configs/research_v2/linux-cpu-lock.txt --report results/research_v2/cloud_cpu_validation/dependency_install.json^[[0m
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3487062Z ^[[36;1mpython -m pip freeze --all > results/research_v2/cloud_cpu_validation/linux-resolved.txt^[[0m
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3824386Z shell: /usr/bin/bash -e {0}
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3824751Z env:
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3825199Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3825451Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3825704Z   MPLBACKEND: Agg
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3825991Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3826432Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3826944Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3827349Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3827736Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3828120Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:46.3828464Z ##[endgroup]
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.2103359Z Looking in indexes: https://download.pytorch.org/whl/cpu
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.3495674Z Collecting torch==2.8.0+cpu
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.4234398Z   Downloading torch-2.8.0%2Bcpu-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (29 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.4630778Z Collecting filelock (from torch==2.8.0+cpu)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.7179914Z   Downloading filelock-3.32.3-py3-none-any.whl.metadata (2.0 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.7376268Z Collecting typing-extensions>=4.10.0 (from torch==2.8.0+cpu)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.7420647Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.7606790Z Collecting sympy>=1.13.3 (from torch==2.8.0+cpu)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.7652818Z   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.7917616Z Collecting networkx (from torch==2.8.0+cpu)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.7957904Z   Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.8097317Z Collecting jinja2 (from torch==2.8.0+cpu)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.8139135Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.8380003Z Collecting fsspec (from torch==2.8.0+cpu)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.8418783Z   Downloading fsspec-2026.7.0-py3-none-any.whl.metadata (10 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.8718713Z Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.8.0+cpu)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.8757042Z   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.8975546Z Collecting MarkupSafe>=2.0 (from jinja2->torch==2.8.0+cpu)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.9031091Z   Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:47.9284744Z Downloading torch-2.8.0%2Bcpu-cp311-cp311-manylinux_2_28_x86_64.whl (184.1 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.0385357Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 184.1/184.1 MB 87.4 MB/s  0:00:02
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.0435334Z Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.0883705Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 181.9 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.0929357Z Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.0981251Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 92.6 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.1033783Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.1099463Z Downloading filelock-3.32.3-py3-none-any.whl (98 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.1166732Z Downloading fsspec-2026.7.0-py3-none-any.whl (206 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.1249717Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.1317786Z Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.1372451Z Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.1462020Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 272.4 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:45:50.4982718Z Installing collected packages: mpmath, typing-extensions, sympy, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:06.9246918Z 
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:06.9258468Z Successfully installed MarkupSafe-3.0.3 filelock-3.32.3 fsspec-2026.7.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 sympy-1.14.0 torch-2.8.0+cpu typing-extensions-4.16.0
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:07.8291668Z Collecting accelerate==1.15.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 2))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:07.8869396Z   Downloading accelerate-1.15.0-py3-none-any.whl.metadata (19 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.3489930Z Collecting certifi==2026.7.22 (from -r configs/research_v2/linux-cpu-lock.txt (line 3))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.3522344Z   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.4855856Z Collecting charset-normalizer==3.5.2 (from -r configs/research_v2/linux-cpu-lock.txt (line 4))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.4893765Z   Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.5545216Z Collecting contourpy==1.3.3 (from -r configs/research_v2/linux-cpu-lock.txt (line 5))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.5581074Z   Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.5736378Z Collecting cycler==0.12.1 (from -r configs/research_v2/linux-cpu-lock.txt (line 6))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.5770976Z   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.5809031Z Requirement already satisfied: filelock==3.32.3 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 7)) (3.32.3)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.7096221Z Collecting fonttools==4.66.1 (from -r configs/research_v2/linux-cpu-lock.txt (line 8))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.7131228Z   Downloading fonttools-4.66.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (130 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.7286789Z Requirement already satisfied: fsspec==2026.7.0 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 9)) (2026.7.0)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.7632520Z Collecting hf-xet==1.7.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 10))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.7666871Z   Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.8032292Z Collecting huggingface_hub==0.36.2 (from -r configs/research_v2/linux-cpu-lock.txt (line 11))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.8068576Z   Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.8342261Z Collecting idna==3.20 (from -r configs/research_v2/linux-cpu-lock.txt (line 12))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.8374871Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.8484641Z Collecting iniconfig==2.3.1 (from -r configs/research_v2/linux-cpu-lock.txt (line 13))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.8518197Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.8549660Z Requirement already satisfied: jinja2==3.1.6 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 14)) (3.1.6)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.9252787Z Collecting kiwisolver==1.5.1 (from -r configs/research_v2/linux-cpu-lock.txt (line 15))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.9294570Z   Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:08.9347876Z Requirement already satisfied: markupsafe==3.0.3 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 16)) (3.0.3)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.0548555Z Collecting matplotlib==3.10.8 (from -r configs/research_v2/linux-cpu-lock.txt (line 17))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.0598761Z   Downloading matplotlib-3.10.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (52 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.0731217Z Requirement already satisfied: mpmath==1.3.0 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 18)) (1.3.0)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.0734714Z Requirement already satisfied: networkx==3.6.1 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 19)) (3.6.1)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.2488651Z Collecting numpy==2.3.5 (from -r configs/research_v2/linux-cpu-lock.txt (line 20))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.2543439Z   Downloading numpy-2.3.5-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.2781449Z Collecting packaging==26.3 (from -r configs/research_v2/linux-cpu-lock.txt (line 21))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.2811490Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.2945018Z Collecting peft==0.21.2 (from -r configs/research_v2/linux-cpu-lock.txt (line 22))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.2977566Z   Downloading peft-0.21.2-py3-none-any.whl.metadata (15 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.4637487Z Collecting pillow==12.3.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 23))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.4675273Z   Downloading pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.4729478Z Requirement already satisfied: pip==26.2.1 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 24)) (26.2.1)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.4821499Z Collecting pluggy==1.6.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 25))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.4853187Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.5462501Z Collecting psutil==7.2.2 (from -r configs/research_v2/linux-cpu-lock.txt (line 26))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.5495776Z   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.5690189Z Collecting pygments==2.21.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 27))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.5722164Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.5931829Z Collecting pyparsing==3.3.3 (from -r configs/research_v2/linux-cpu-lock.txt (line 28))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.5969108Z   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.6211828Z Collecting pytest==9.1.1 (from -r configs/research_v2/linux-cpu-lock.txt (line 29))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.6248913Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.6379964Z Collecting python-dateutil==2.9.0.post0 (from -r configs/research_v2/linux-cpu-lock.txt (line 30))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.6412196Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.6736133Z Collecting pyyaml==6.0.3 (from -r configs/research_v2/linux-cpu-lock.txt (line 31))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:09.6773876Z   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.0446396Z Collecting regex==2026.9.29 (from -r configs/research_v2/linux-cpu-lock.txt (line 32))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.0484371Z   Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.1421646Z Collecting reportlab==4.4.9 (from -r configs/research_v2/linux-cpu-lock.txt (line 33))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.1455267Z   Downloading reportlab-4.4.9-py3-none-any.whl.metadata (1.7 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.1643676Z Collecting requests==2.34.2 (from -r configs/research_v2/linux-cpu-lock.txt (line 34))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.1678314Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.4855954Z Collecting ruff==0.16.10 (from -r configs/research_v2/linux-cpu-lock.txt (line 35))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.4893786Z   Downloading ruff-0.16.10-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.5974727Z Collecting safetensors==0.8.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 36))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.6010373Z   Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.6956411Z Collecting setuptools==84.0.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 37))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.6991760Z   Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.7149669Z Collecting six==1.17.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 38))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.7181542Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.7211479Z Requirement already satisfied: sympy==1.14.0 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 39)) (1.14.0)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.8431328Z Collecting tokenizers==0.22.2 (from -r configs/research_v2/linux-cpu-lock.txt (line 40))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.8465860Z   Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.8508463Z Requirement already satisfied: torch==2.8.0+cpu in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 41)) (2.8.0+cpu)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.8706275Z Collecting tqdm==4.70.1 (from -r configs/research_v2/linux-cpu-lock.txt (line 42))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.8737064Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.9054495Z Collecting transformers==4.57.6 (from -r configs/research_v2/linux-cpu-lock.txt (line 43))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:10.9090027Z   Downloading transformers-4.57.6-py3-none-any.whl.metadata (43 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.0064031Z Requirement already satisfied: typing_extensions==4.16.0 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from -r configs/research_v2/linux-cpu-lock.txt (line 44)) (4.16.0)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.0235378Z Collecting urllib3==2.8.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 45))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.0268668Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.0634203Z Collecting wasmtime==49.0.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 46))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.0676850Z   Downloading wasmtime-49.0.0-py3-none-manylinux1_x86_64.whl.metadata (5.1 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.0829702Z Collecting wheel==0.48.0 (from -r configs/research_v2/linux-cpu-lock.txt (line 47))
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.0861778Z   Downloading wheel-0.48.0-py3-none-any.whl.metadata (2.3 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.1769540Z Downloading accelerate-1.15.0-py3-none-any.whl (394 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.1849254Z Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.1902978Z Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.1970854Z Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2038127Z Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2088247Z Downloading fonttools-4.66.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2367203Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 213.1 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2403715Z Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2563829Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 291.8 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2596465Z Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2643910Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 114.9 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2676998Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2735627Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2787710Z Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2857789Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 238.9 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.2895549Z Downloading matplotlib-3.10.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.3528482Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 141.2 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.3564375Z Downloading numpy-2.3.5-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.4650908Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 157.2 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.4687469Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.4741135Z Downloading peft-0.21.2-py3-none-any.whl (835 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.4801452Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 835.4/835.4 kB 177.5 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.4838875Z Downloading pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5045438Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 361.6 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5078299Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5129420Z Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5202131Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5264341Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 243.9 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5299028Z Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5391965Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5449178Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5502497Z Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5552124Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 182.6 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5586209Z Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5647552Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.0/805.0 kB 129.6 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5687349Z Downloading reportlab-4.4.9-py3-none-any.whl (2.0 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5834829Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 168.8 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5867115Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.5921760Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6032280Z Downloading ruff-0.16.10-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.4 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6403752Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 290.9 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6439104Z Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6500623Z Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6551065Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 186.8 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6599532Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6661702Z Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6781375Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 307.4 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6824562Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.6887329Z Downloading transformers-4.57.6-py3-none-any.whl (12.0 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.7676161Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 159.4 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.7728976Z Downloading wasmtime-49.0.0-py3-none-manylinux1_x86_64.whl (9.9 MB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.8530832Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 124.1 MB/s  0:00:00
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:11.8563479Z Downloading wheel-0.48.0-py3-none-any.whl (33 kB)
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:12.1782763Z Installing collected packages: wasmtime, urllib3, tqdm, six, setuptools, safetensors, ruff, regex, pyyaml, pyparsing, pygments, psutil, pluggy, pillow, packaging, numpy, kiwisolver, iniconfig, idna, hf-xet, fonttools, cycler, charset-normalizer, certifi, wheel, requests, reportlab, python-dateutil, pytest, contourpy, matplotlib, huggingface_hub, tokenizers, accelerate, transformers, peft
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:12.5441741Z   Attempting uninstall: setuptools
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:12.5458705Z     Found existing installation: setuptools 79.0.1
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:12.7431619Z     Uninstalling setuptools-79.0.1:
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:12.8634138Z       Successfully uninstalled setuptools-79.0.1
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:27.3411683Z 
+cpu-validation	Install pinned CPU dependencies and capture resolver evidence	2026-10-09T14:46:27.3436789Z Successfully installed accelerate-1.15.0 certifi-2026.7.22 charset-normalizer-3.5.2 contourpy-1.3.3 cycler-0.12.1 fonttools-4.66.1 hf-xet-1.7.0 huggingface_hub-0.36.2 idna-3.20 iniconfig-2.3.1 kiwisolver-1.5.1 matplotlib-3.10.8 numpy-2.3.5 packaging-26.3 peft-0.21.2 pillow-12.3.0 pluggy-1.6.0 psutil-7.2.2 pygments-2.21.0 pyparsing-3.3.3 pytest-9.1.1 python-dateutil-2.9.0.post0 pyyaml-6.0.3 regex-2026.9.29 reportlab-4.4.9 requests-2.34.2 ruff-0.16.10 safetensors-0.8.0 setuptools-84.0.0 six-1.17.0 tokenizers-0.22.2 tqdm-4.70.1 transformers-4.57.6 urllib3-2.8.0 wasmtime-49.0.0 wheel-0.48.0
+cpu-validation	Restore verified frozen evidence	﻿2026-10-09T14:46:27.7318365Z ##[group]Run python scripts/research_v2/restore_cpu_baseline.py --archive research_checkpoint/research_release_2026-10-09 --destination work/cloud_research_v1
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7319549Z ^[[36;1mpython scripts/research_v2/restore_cpu_baseline.py --archive research_checkpoint/research_release_2026-10-09 --destination work/cloud_research_v1^[[0m
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7320533Z ^[[36;1mcp work/cloud_research_v1/CPU_RUNTIME_PREPARATION.json results/research_v2/cloud_cpu_validation/runtime_preparation.json^[[0m
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7387641Z shell: /usr/bin/bash -e {0}
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7387905Z env:
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7388116Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7388362Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7388608Z   MPLBACKEND: Agg
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7388892Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7389352Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7389787Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7390375Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7390765Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7391160Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:27.7391512Z ##[endgroup]
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:48.8300438Z Verified and restored 6242 frozen files to /home/runner/work/mindscape/mindscape/work/cloud_research_v1
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:48.8301772Z Foundation weights require the pinned bootstrap; see docs/coding/reproducibility.md
+cpu-validation	Restore verified frozen evidence	2026-10-09T14:46:48.8302877Z PASS all 23842 export hashes; selected immutable package clean-restored
+cpu-validation	Validate end to end	﻿2026-10-09T14:46:48.8660999Z ##[group]Run python scripts/research_v2/cpu_validate.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8662041Z ^[[36;1mpython scripts/research_v2/cpu_validate.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation^[[0m
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8727064Z shell: /usr/bin/bash -e {0}
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8727327Z env:
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8727525Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8727762Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8728011Z   MPLBACKEND: Agg
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8728288Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8728728Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8729158Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8729568Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8729965Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8730421Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+cpu-validation	Validate end to end	2026-10-09T14:46:48.8730749Z ##[endgroup]
+cpu-validation	Validate end to end	2026-10-09T14:46:53.2786758Z PASS integrity
+cpu-validation	Validate end to end	2026-10-09T14:46:54.8373758Z PASS statistics
+cpu-validation	Validate end to end	2026-10-09T14:47:45.2990386Z PASS tests
+cpu-validation	Validate end to end	2026-10-09T14:47:45.4660557Z PASS fairness
+cpu-validation	Validate end to end	2026-10-09T14:47:45.7624637Z PASS frontend
+cpu-validation	Validate end to end	2026-10-09T14:47:45.7919435Z PASS lint
+cpu-validation	Verify safe resume of completed steps	﻿2026-10-09T14:47:46.1137716Z ##[group]Run python scripts/research_v2/cpu_validate.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1138818Z ^[[36;1mpython scripts/research_v2/cpu_validate.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation^[[0m
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1204290Z shell: /usr/bin/bash -e {0}
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1204554Z env:
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1204750Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1205237Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1205499Z   MPLBACKEND: Agg
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1205789Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1206256Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1206708Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1207117Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1207533Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1207966Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:46.1208307Z ##[endgroup]
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:47.3687213Z RESUME verified integrity
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:47.3687862Z RESUME verified statistics
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:47.3689567Z RESUME verified tests
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:47.3690854Z RESUME verified fairness
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:47.3692220Z RESUME verified frontend
+cpu-validation	Verify safe resume of completed steps	2026-10-09T14:47:47.3693537Z RESUME verified lint
+cpu-validation	Run real saved numeric-core tracing diagnostic	﻿2026-10-09T14:47:47.6991663Z ##[group]Run PYTHONPATH=src python scripts/research_v2/trace_diagnostic.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation/trace_diagnostic
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.6992971Z ^[[36;1mPYTHONPATH=src python scripts/research_v2/trace_diagnostic.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation/trace_diagnostic^[[0m
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7057077Z shell: /usr/bin/bash -e {0}
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7057535Z env:
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7057758Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7058015Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7058282Z   MPLBACKEND: Agg
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7058582Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7059079Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7059567Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7059991Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7060447Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7060878Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.7061240Z ##[endgroup]
+cpu-validation	Run real saved numeric-core tracing diagnostic	2026-10-09T14:47:47.9893016Z PASS 4 actual learned-core diagnostic traces; not foundation benchmarks
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	﻿2026-10-09T14:47:48.0106733Z ##[group]Run PYTHONPATH=src python scripts/research_v2/mechanism_study.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation/mechanism_study
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0108115Z ^[[36;1mPYTHONPATH=src python scripts/research_v2/mechanism_study.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation/mechanism_study^[[0m
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0109326Z ^[[36;1mPYTHONPATH=src python scripts/research_v2/mechanism_study.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation/mechanism_study^[[0m
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0172995Z shell: /usr/bin/bash -e {0}
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0173258Z env:
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0173462Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0173710Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0173970Z   MPLBACKEND: Agg
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0174257Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0174725Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0175485Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0175890Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0176297Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0176696Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:48.0177037Z ##[endgroup]
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:49.3287868Z completed 100 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:50.8706585Z completed 200 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:53.4706060Z completed 300 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:47:57.6689747Z completed 400 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:01.7928997Z completed 500 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:05.9203857Z completed 600 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:08.9895667Z completed 700 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:10.2195157Z completed 800 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:12.2844422Z completed 900 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:15.5763459Z completed 1000 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:20.2971739Z completed 1100 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:25.0562900Z completed 1200 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:28.7850461Z completed 1300 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:29.8957234Z completed 1400 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:31.7510900Z completed 1500 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:34.8733678Z completed 1600 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:38.9835097Z completed 1700 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:43.0953870Z completed 1800 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:47.8536939Z completed 1900 / 1920
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:49.0749067Z PASS 1920 real scored factorial cases; no coding-foundation or superiority claim
+cpu-validation	Execute frozen paired numeric mechanisms and verify resume	2026-10-09T14:48:49.3302727Z PASS 1920 real scored factorial cases; no coding-foundation or superiority claim
+cpu-validation	Analyze actual paired evidence	﻿2026-10-09T14:48:49.3539631Z ##[group]Run python scripts/research_v2/analyze_mechanisms.py --study results/research_v2/cloud_cpu_validation/mechanism_study
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3541312Z ^[[36;1mpython scripts/research_v2/analyze_mechanisms.py --study results/research_v2/cloud_cpu_validation/mechanism_study^[[0m
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3625504Z shell: /usr/bin/bash -e {0}
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3625831Z env:
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3626036Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3626280Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3626535Z   MPLBACKEND: Agg
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3626815Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3627466Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3627896Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3628314Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3628705Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3629095Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.3629457Z ##[endgroup]
+cpu-validation	Analyze actual paired evidence	2026-10-09T14:48:49.7538058Z PASS complete paired analysis, 18 corrected tests, dashboard and artifact hashes
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	﻿2026-10-09T14:48:49.7860807Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7861553Z with:
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7862053Z   name: research-v2-cpu-0c3f869077756f50e89a551a2fa2b9ca58f05728
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7862759Z   path: results/research_v2/cloud_cpu_validation
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7863280Z   retention-days: 30
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7863678Z   if-no-files-found: error
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7864087Z   compression-level: 6
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7864466Z   overwrite: false
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7864847Z   include-hidden-files: false
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7865591Z env:
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7865882Z   MINDSCAPE_DEVICE: cpu
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7866237Z   MINDSCAPE_PRECISION: float32
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7866606Z   MPLBACKEND: Agg
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7867022Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7867700Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7868370Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7869019Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7869618Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7870231Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.7870743Z ##[endgroup]
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.9571530Z (node:3025) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:49.9572351Z (Use `node --trace-deprecation ...` to show where the warning was created)
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:50.5369195Z With the provided path, there will be 3876 files uploaded
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:50.5376154Z Artifact name is valid!
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:50.5376862Z Root directory input is valid!
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:50.7815998Z Beginning upload of artifact content to blob storage
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:52.2725458Z (node:3025) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:52.4603376Z Uploaded bytes 8388608
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:53.1073574Z Uploaded bytes 15762773
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:53.1226077Z Finished uploading artifact content to blob storage!
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:53.1230709Z SHA256 digest of uploaded artifact zip is 68f1d035ee8ec3a6c19637ae8d3b1ca386501d0533ade3f67c862046f965bda6
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:53.1232905Z Finalizing artifact upload
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:53.3468502Z Artifact research-v2-cpu-0c3f869077756f50e89a551a2fa2b9ca58f05728.zip successfully finalized. Artifact ID 11623737356
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:53.3470067Z Artifact research-v2-cpu-0c3f869077756f50e89a551a2fa2b9ca58f05728 has been successfully uploaded! Final size is 15762773 bytes. Artifact ID is 11623737356
+cpu-validation	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-09T14:48:53.3479032Z Artifact download URL: https://github.com/akilanpl/mindscape/actions/runs/37946027443/artifacts/11623737356
+cpu-validation	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-10-09T14:48:53.3824008Z Post job cleanup.
+cpu-validation	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:48:53.5076283Z (node:3038) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+cpu-validation	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-09T14:48:53.5077357Z (Use `node --trace-deprecation ...` to show where the warning was created)
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-09T14:48:53.5245472Z Post job cleanup.
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6127672Z [command]/usr/bin/git version
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6172125Z git version 2.55.0
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6212381Z Temporarily overriding HOME='/home/runner/work/_temp/538e5936-40fa-4adb-a3b8-5a2a2f02e2d1' before making global git config changes
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6213912Z Adding repository directory to the temporary git global config as a safe directory
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6218391Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mindscape/mindscape
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6258687Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6294152Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6554267Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6580729Z http.https://github.com/.extraheader
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6594357Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6639890Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.6996619Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+cpu-validation	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-09T14:48:53.7066449Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+cpu-validation	Complete job	﻿2026-10-09T14:48:53.7541741Z Cleaning up orphan processes
+cpu-validation	Complete job	2026-10-09T14:48:53.7887306Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,130 @@
+{
+  "conclusion": "success",
+  "headSha": "0c3f869077756f50e89a551a2fa2b9ca58f05728",
+  "jobs": [
+    {
+      "completedAt": "2026-10-09T14:48:55Z",
+      "conclusion": "success",
+      "databaseId": 113872374893,
+      "name": "cpu-validation",
+      "startedAt": "2026-10-09T14:41:15Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-09T14:41:17Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-09T14:41:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:45:46Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "number": 2,
+          "startedAt": "2026-10-09T14:41:17Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:45:46Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "number": 3,
+          "startedAt": "2026-10-09T14:45:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:46:27Z",
+          "conclusion": "success",
+          "name": "Install pinned CPU dependencies and capture resolver evidence",
+          "number": 4,
+          "startedAt": "2026-10-09T14:45:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:46:48Z",
+          "conclusion": "success",
+          "name": "Restore verified frozen evidence",
+          "number": 5,
+          "startedAt": "2026-10-09T14:46:27Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:47:46Z",
+          "conclusion": "success",
+          "name": "Validate end to end",
+          "number": 6,
+          "startedAt": "2026-10-09T14:46:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:47:47Z",
+          "conclusion": "success",
+          "name": "Verify safe resume of completed steps",
+          "number": 7,
+          "startedAt": "2026-10-09T14:47:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:47:48Z",
+          "conclusion": "success",
+          "name": "Run real saved numeric-core tracing diagnostic",
+          "number": 8,
+          "startedAt": "2026-10-09T14:47:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:48:49Z",
+          "conclusion": "success",
+          "name": "Execute frozen paired numeric mechanisms and verify resume",
+          "number": 9,
+          "startedAt": "2026-10-09T14:47:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:48:49Z",
+          "conclusion": "success",
+          "name": "Analyze actual paired evidence",
+          "number": 10,
+          "startedAt": "2026-10-09T14:48:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:48:53Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "number": 11,
+          "startedAt": "2026-10-09T14:48:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:48:53Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "number": 21,
+          "startedAt": "2026-10-09T14:48:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:48:53Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "number": 22,
+          "startedAt": "2026-10-09T14:48:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-09T14:48:53Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 23,
+          "startedAt": "2026-10-09T14:48:53Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/akilanpl/mindscape/actions/runs/37946027443/job/113872374893"
+    }
+  ],
+  "status": "completed"
+}
