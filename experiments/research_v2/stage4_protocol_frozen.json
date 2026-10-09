@@ -1,0 +1,20 @@
+{
+  "stage": 4,
+  "status": "prospective protocol and task freeze PASS",
+  "dataset": "datasets/research_v2/numeric_mechanisms_v1.json",
+  "dataset_sha256": "71ed010aa80972552f4bf3a2644114ac001158fb91dc91555d054b6c02e16dc4",
+  "protocol_sha256": "5b9f253fd4dc67566d24b0c9055e764e177eec7d04027fd632a071f2aeb55986",
+  "cases": 80,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "conditions": 8,
+  "planned_executions": 1920,
+  "leakage_check": "No identity overlap with any preserved generated numeric train/validation/test split",
+  "no_model_evaluation_during_freeze": true,
+  "new_architecture_or_training_changes": false,
+  "interpretation_scope": "Controlled inference interventions in existing small numeric trajectory policy; not flagship coding or general intelligence",
+  "inference_status": "not yet run"
+}

@@ -1,0 +1,26 @@
+{
+  "version": "numeric-mechanisms-2.0",
+  "scope": "Controlled inference interventions in existing small numeric trajectory policy; not flagship coding or general intelligence",
+  "task_seed": 202610100,
+  "model_seeds": [0, 1, 2],
+  "training_budget": 50,
+  "checkpoint_template": "results/learned_development_v1/mindscape_n50_seed{seed}/checkpoint",
+  "training_changes": false,
+  "splits": {"iid": {"count": 40, "structure": "2x2", "signed": false}, "ood": {"count": 40, "structure": "4x3", "signed": true}},
+  "factors": ["legal_action_mask", "state_features", "previous_action_features"],
+  "feature_ranges": {"operands_fixed": [0, 18], "state_features": [18, 48], "previous_action_features": [48, 52]},
+  "conditions": ["000", "001", "010", "011", "100", "101", "110", "111"],
+  "max_action_steps": 256,
+  "wall_clock_cutoff": null,
+  "primary_hypotheses": [
+    "Compare111vs011: legal-action masking changes goal attainment at fixed trained weights and neural inputs",
+    "Compare111vs101: removing state-feature readout changes goal attainment when control masking stays enabled",
+    "Compare111vs110: removing previous-action feature readout changes goal attainment when control masking stays enabled"
+  ],
+  "controls": "Same tasks, weights, seed, numeric normalization, action budget, environment and independent scorer; only declared factors change",
+  "outcomes": ["independently verified goal success", "trajectory validity", "executed failure", "raw action mask corrections", "instrumented wall time"],
+  "primary_statistics": "Per-model-seed exact paired McNemar/binomial test; Holm correction across18predefined comparisons; task-cluster bootstrap95CI of seed-mean paired differences",
+  "exploratory_statistics": "Factorial interactions and conditional unmasked feature effects; descriptive only, no unadjusted significance claim",
+  "failed_case_rule": "An executed policy failure is retained and scored as unsuccessful; unexecuted cases are absent, never fabricated",
+  "limitations": ["Small synthetic numeric domain", "Reuses historical trained policies", "Deterministic environment executes arithmetic", "Legal mask can encode target action", "Previous-action feature removal does not remove the entire working-memory module", "Verification and goals are fixed controls", "Planning/dreaming/recovery absent from this backend", "Coding components and foundation comparisons untested"]
+}
