@@ -12,6 +12,7 @@ from restore_completion import restore
 
 ROOT=Path('research_checkpoint/2026-10-08')
 SNAPSHOT=Path('work/migration_snapshot_v1')
+RELEASE='partial-cloud-migration-checkpoint'
 
 
 def digest(path):
@@ -49,6 +50,9 @@ class Parts:
 def freeze():
     if ROOT.exists() or SNAPSHOT.exists():
         raise RuntimeError('Checkpoint already exists; never overwrite verified research archives')
+    if RELEASE == 'complete-research-release':
+        from completion_gate import verify
+        verify()
     ROOT.mkdir(parents=True);SNAPSHOT.mkdir(parents=True)
     sources={'all_results':Path('results'),'datasets':Path('datasets'),
              'wasi_runtime':Path('work/coding/runtime'),'public_benchmark_input':Path('work/coding/humaneval'),
@@ -59,6 +63,12 @@ def freeze():
             if label=='wasi_runtime':
                 ignored.append('*.cwasm')
             shutil.copytree(path,SNAPSHOT/label,ignore=shutil.ignore_patterns(*ignored))
+    if RELEASE == 'complete-research-release':
+        recovery = Path('work/stall_recovery_20261009')
+        shutil.copytree(recovery, SNAPSHOT/'restart_recovery')
+        sources['restart_recovery'] = recovery
+        archive = Path('work/Mindscape_recovery_20261009.tar.gz')
+        shutil.copy2(archive, SNAPSHOT/'recovery_archive.tar.gz')
     sources={k:v for k,v in sources.items() if v.exists()}
     log_root=SNAPSHOT/'logs';log_root.mkdir()
     for path in Path('work').glob('*.log'):
@@ -72,7 +82,7 @@ def freeze():
     curve=[json.loads(s) for s in Path('results/coding/completion_gradient_v1/rows.jsonl').read_text().splitlines()]
     assert len({(r['condition'],r['task_id']) for r in locked})==len(locked)
     assert len({tuple(r['key']) for r in curve})==len(curve)
-    manifest={'release':'partial-cloud-migration-checkpoint','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+    manifest={'release':RELEASE,'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
               'source_paths':{k:str(v) for k,v in sources.items()},'files':files,
               'locked_completed':len(locked),'learning_completed':len(curve),'learning_remaining':1920-len(curve),
               'foundation_weights':'External exact pinned HF downloads; hashes and bootstrap shipped',
@@ -120,5 +130,9 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('mode',choices=['freeze','restore'])
     p.add_argument('--destination',type=Path,default=Path('work/migration_restore_verified'))
+    p.add_argument('--root', type=Path, default=ROOT)
+    p.add_argument('--snapshot', type=Path, default=SNAPSHOT)
+    p.add_argument('--release', choices=['partial-cloud-migration-checkpoint','complete-research-release'], default=RELEASE)
     a=p.parse_args()
+    ROOT, SNAPSHOT, RELEASE = a.root, a.snapshot, a.release
     freeze() if a.mode=='freeze' else unpack(a.destination)
