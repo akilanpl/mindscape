@@ -1,0 +1,9 @@
+# Actual computation tracing
+
+The v2 diagnostic instruments the preserved learned numeric trajectory policy. It is a small trained NumPyMLP, not Qwen/GPT/Gemini inference. No coding-capability improvement is established by it. Its real checkpoint, configuration and input pairs are pinned in `configs/research_v2/trace_diagnostic.json`; checkpoint files are checksum-verified while streaming the complete preserved export.
+
+Each JSON trace records exact model-facing input, numeric normalization and every feature vector passed to the real forward method; there is no text tokenizer in this backend. Actual logits, tensor/weight shapes, derived uncalibrated softmax, timings, deterministic working-memory changes, policy transitions, output, independent verification and execution failures remain explicit. The hidden activation summaries are recomputed from the observed input and checkpoint, not falsely described as stack-captured or causal explanations.
+
+Structured entities/relationships, planning search, dreaming, feedback learning and recovery are not implemented in this numeric backend; the trace says so. Coding trajectories implement additional typed state fields but need separate prospective neural instrumentation. High masked success may be driven by deterministic singleton legal-action constraints. A trace cannot establish neural contribution or superiority: controlled interventions and independent scoring are required.
+
+`trace_diagnostic.py` generates one machine-readable JSON and readable Markdown report per actual diagnostic execution. The observer-preservation test compares answer and trajectory against the original predictor; the intervention test confirms unchanged weights. No hidden target enters the model-facing view. Diagnostic pairs are not a held-out competitive benchmark. The next study must freeze novel evaluation tasks and all interventions before evaluation.

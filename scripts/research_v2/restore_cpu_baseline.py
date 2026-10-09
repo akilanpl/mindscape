@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import io
 import json
+import shutil
 import sys
 import tarfile
 from pathlib import Path, PurePosixPath
@@ -50,7 +51,8 @@ def main():
     args = parser.parse_args()
     archive, destination = args.archive.resolve(), args.destination.resolve()
     snapshot = destination.with_name(destination.name+'_snapshot')
-    if snapshot.exists() or destination.exists():
+    extras = destination.with_name(destination.name+'_historical_models')
+    if snapshot.exists() or destination.exists() or extras.exists():
         raise RuntimeError('Clean destinations required; no overwrite')
     index = json.loads((archive/'ARCHIVE.json').read_text())
     if digest(archive/'SNAPSHOT_MANIFEST.json') != index['snapshot_manifest_sha256']:
@@ -79,6 +81,9 @@ def main():
                 raise RuntimeError('Unexpected export member')
             seen.add(member.name)
             target = snapshot/member.name[len(prefix):] if member.name.startswith(prefix) else None
+            model_prefixes = [f'all_results/learned_development_v1/mindscape_n50_seed{i}/checkpoint/' for i in (0, 1, 2)]
+            if any(member.name.startswith(p) for p in model_prefixes):
+                target = extras/member.name[len('all_results/'):] 
             output = None
             if target is not None:
                 target.parent.mkdir(parents=True, exist_ok=True)
@@ -100,6 +105,8 @@ def main():
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'coding'))
     from restore_completion import restore
     restore(snapshot, destination)
+    if extras.exists():
+        shutil.copytree(extras/'learned_development_v1', destination/'results/learned_development_v1')
     from prepare_cpu_runtime import prepare
     pin = json.loads((destination/'configs/coding/runtime_v1.json').read_text())
     runtime_receipt = prepare(destination/'work/coding/runtime', pin['python_wasm_sha256'])

@@ -1,0 +1,8 @@
+{
+  "scope": "Numeric learned-core instrumentation diagnostic; not competitive benchmark",
+  "checkpoint": "results/learned_development_v1/mindscape_n50_seed0/checkpoint",
+  "inputs": [[17, 8], [4321, 876]],
+  "mask_settings": [true, false],
+  "training_changes": false,
+  "foundation_inference": false
+}

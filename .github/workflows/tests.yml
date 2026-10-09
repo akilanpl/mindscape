@@ -31,6 +31,8 @@ jobs:
         run: python scripts/research_v2/cpu_validate.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation
       - name: Verify safe resume of completed steps
         run: python scripts/research_v2/cpu_validate.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation
+      - name: Run real saved numeric-core tracing diagnostic
+        run: PYTHONPATH=src python scripts/research_v2/trace_diagnostic.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation/trace_diagnostic
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
