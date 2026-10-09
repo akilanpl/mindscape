@@ -14,9 +14,8 @@
   "immutable_research_package_verified_files": 6242,
   "original_and_restored_test_runs": "130 passed plus6subtests each; zero failures/errors/skips",
   "remaining_scientific_cases": 0,
-  "neural_and_supervisor_pids_exited": [
-    1620,
-    1619
-  ],
-  "publication": "pending normalpush and remoteSHA verification; tag withheld"
+  "publication": "pending normalpush and remoteSHA verification; tag withheld",
+  "neural_pid_exited": 1620,
+  "supervisor_completed_checked_pipeline": true,
+  "supervisor_pid": "not recorded; final success log observed"
 }
