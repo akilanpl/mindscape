@@ -1,0 +1,16 @@
+{
+  "snapshot": "results/final/coding_research_v2",
+  "source_commit": "f0fb9d15e27ccac27f61f02c04638f18418fce59",
+  "manifest_sha256": "3c638a8bc1de956262f072b45825f985fd66f19537b56c683df0decbad0b6410",
+  "verified_files": 6242,
+  "all_hashes_match": true,
+  "clean_restore": "PASS",
+  "restored_tests": 136,
+  "lockbox": 400,
+  "learning": 1920,
+  "replay": 400,
+  "dedicated_latency": 16,
+  "exact_final_scope": true,
+  "historical_partial_preserved": true,
+  "paid_services_usd": 0
+}
