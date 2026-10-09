@@ -1,0 +1,1 @@
+{"name":"mindscape-research-site","private":true,"version":"1.0.0","type":"module","scripts":{"build":"node scripts/build.mjs","test":"node --test tests/site.test.mjs","lint":"node --check assets/app.js && node --check scripts/build.mjs","typecheck":"tsc --allowJs --checkJs --noEmit --target es2022 --lib es2022,dom assets/app.js"},"devDependencies":{"typescript":"5.9.3"}}

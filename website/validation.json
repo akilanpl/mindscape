@@ -1,0 +1,33 @@
+{
+  "research_commit": "c530faa20aee2339679a5f2cfe9bea28509d4fb1",
+  "routes": 6,
+  "automated_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "checks": [
+    "build",
+    "lint (JavaScript syntax)",
+    "TypeScript checkJs"
+  ],
+  "browser_checks": [
+    "desktop latency dashboard",
+    "actual C diagnostic selection and Next event",
+    "390x844 mobile poster layout",
+    "mobile menu and Escape dismissal"
+  ],
+  "limits": [
+    "Browser reduced-motion preference was not emulated; CSS and script gating checked statically.",
+    "No cross-browser certification or external-link availability guarantee.",
+    "Hosting-specific response headers require live verification."
+  ],
+  "assets": {
+    "assets/app.js": "cbe4fa53da49dd61a21af092d4d1b322e4e69199fcac25c802becada644ceb28",
+    "assets/evidence.json": "163ad452bee182af8e68a7c25df6b5fa344c1b13e1fe89f39a014385f689a8e7",
+    "assets/favicon.svg": "fae8adaa8eb641ff4e66bcd8af2fac1cec051da02b5bd58911fc050fb5048a3d",
+    "assets/hero-poster.jpg": "9239890f26ea79bbc0e4c3b54e0085d3105a9fae43ce1db4d90d1be2e6a885a5",
+    "assets/hero.mp4": "5fb8f5dbc5e6d5dc45a473ec3fb9184bf4bdf88a46d55ee0fc38ee668097e94b",
+    "assets/style.css": "547b0fad8a74fc757b1b688f0a3b73f562aff65321120df91402559f3f568539",
+    "assets/traces.json": "93dd73934f8efe4306158ddfadfd16d3e88c3733adc376322091d0a6a9be82a5"
+  }
+}
