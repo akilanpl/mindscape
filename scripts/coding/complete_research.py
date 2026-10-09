@@ -63,6 +63,42 @@ def main():
                           for n in (10,25,50,100) for split in ('test','ood_test') for r in data[split]}
         validate_rows(locked_path, expected_locked, lambda r: (r['condition'],r['task_id']))
         done = validate_rows(curve_path, expected_curve, lambda r: tuple(r['key']))
+        from cloud_runtime import validate_frozen
+        validate_frozen()
+        original = b''.join(curve_path.read_bytes().splitlines(keepends=True)[:1122])
+        if hashlib.sha256(original).hexdigest() != 'bcf9a9c0f0a21e8c00a30661db48bcca9b45ff11175172a3a8457c7e5f64f49a':
+            raise RuntimeError('Original CPU evidence changed')
+        append = study.append
+        fragments = set()
+        def persist(path, row):
+            append(path, row)
+            if path in fragments:
+                key = (row['condition'], row['seed'], row['budget'], row['split'], row['task_id'])
+                if key not in expected_curve:
+                    raise RuntimeError('Unexpected learning key')
+                if key not in done:
+                    canonical = {**row, 'key': list(key)}
+                    append(curve_path, canonical)
+                    done.add(key)
+                    study.write(ROOT/'local_progress.json', {'learning_completed':len(done),
+                                'remaining':1920-len(done), 'updated_unix':time.time()})
+        # Recover durable fragments before choosing any missing task.
+        for fragment in ROOT.glob('curve_*.jsonl'):
+            fragments.add(fragment)
+            for row in study.read(fragment):
+                key = (row['condition'],row['seed'],row['budget'],row['split'],row['task_id'])
+                if key not in expected_curve:
+                    raise RuntimeError('Unexpected recovered learning key')
+                if key not in done:
+                    append(curve_path,{**row,'key':list(key)})
+                    done.add(key)
+        study.append = persist
+        previous_launch = ROOT/'launch.json'
+        if previous_launch.exists():
+            history = ROOT/'launch_history'
+            history.mkdir(exist_ok=True)
+            (history/f'{time.time_ns()}.json').write_bytes(previous_launch.read_bytes())
+        study.END = None
         study.write(ROOT / 'launch.json', {'pid':os.getpid(), 'started_unix':time.time(),
                     'operational_deadline_removed_by_user':True, 'frozen_protocol_sha256':
                     hashlib.sha256((study.ROOT/'locked_protocol.json').read_bytes()).hexdigest(),
@@ -86,6 +122,9 @@ def main():
         for condition in ('mindscape_c','mindscape_b','model_only','structured'):
             if STOP:
                 return
+            saved = {(r['condition'],r['task_id']) for r in study.read(locked_path)}
+            if all((condition,t.task_id) in saved for t in tasks):
+                continue
             coder.use_adapter(study.adapter(condition))
             study.run_group(coder,tasks,condition,locked_path,16,None,
                             {'seed':11,'budget':100,'one_shot_configuration':True,
@@ -109,6 +148,27 @@ def main():
                         continue
                     coder.use_adapter(study.adapter(condition,seed,budget))
                     partial = ROOT/f'curve_{condition}_{seed}_{budget}.jsonl'
+                    fragments.add(partial)
+                    if not (ROOT/'local_mps_pilot.json').exists():
+                        started = time.perf_counter()
+                        initial = len(done)
+                        study.run_group(coder,pending[:1],condition,partial,1,None,
+                                        {'seed':seed,'budget':budget,'adapter':str(study.adapter(condition,seed,budget)),
+                                         'gradient_examples':budget,'retrieval_examples':budget})
+                        elapsed = time.perf_counter()-started
+                        if len(done) != initial+1 or str(coder.device) != 'mps':
+                            raise RuntimeError('MPS pilot did not persist exactly one missing episode')
+                        pilot = study.read(partial)[-1]
+                        if not all(a['latency']['device']=='mps' for a in pilot['attempts']):
+                            raise RuntimeError('Pilot inference did not use MPS')
+                        study.write(ROOT/'local_mps_pilot.json', {'seconds_per_episode':elapsed,
+                                    'episodes_per_hour':3600/elapsed,'actual_batch_size':1,
+                                    'selected_main_maximum_batch_size':16,'precision':'float16','device':'mps',
+                                    'key':[condition,seed,budget,pilot['split'],pilot['task_id']],
+                                    'scope':'One complete missing episode including tools and durable writes; initialization excluded',
+                                    'mps_live_bytes':torch.mps.current_allocated_memory(),
+                                    'mps_driver_bytes':torch.mps.driver_allocated_memory()})
+                        pending = [t for t in pending if (condition,seed,budget,t.metadata['split'],t.task_id) not in done]
                     study.run_group(coder,pending,condition,partial,16,None,
                                     {'seed':seed,'budget':budget,'adapter':str(study.adapter(condition,seed,budget)),
                                      'gradient_examples':budget,'retrieval_examples':budget})
