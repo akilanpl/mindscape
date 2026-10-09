@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "run_id": 37940424086,
+  "run_url": "https://github.com/akilanpl/mindscape/actions/runs/37940424086",
+  "commit": "34a4cddcc93224cc6b480032b194eab8d8f3a317",
+  "resume_verified_steps": [
+    "integrity",
+    "statistics",
+    "tests",
+    "fairness",
+    "frontend",
+    "lint"
+  ],
+  "backend": "CPU",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "cpu_count": 4,
+  "torch": "2.8.0+cpu",
+  "tests": {
+    "command": [
+      "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "/home/runner/work/mindscape/mindscape/tests",
+      "--junitxml=/home/runner/work/mindscape/mindscape/results/research_v2/cloud_cpu_validation/tests.xml"
+    ],
+    "exit_code": 0,
+    "tests": 139,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "immutable_export_files": 23842,
+  "raw_evidence_unchanged": true,
+  "parent_peak_rss_bytes": 324268032,
+  "resource_scope": "Parent Python validation process; not aggregate job memory"
+}

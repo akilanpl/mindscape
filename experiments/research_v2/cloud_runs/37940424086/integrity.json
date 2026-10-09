@@ -1,0 +1,31 @@
+{
+  "fingerprint": "1595669581a1f9bceceea1636c4e0ed49d6eff542aef526301a77e9927055217",
+  "exit_code": 0,
+  "result": {
+    "lockbox": 400,
+    "learning": 1920,
+    "dedicated_latency": 16,
+    "independent_replay": 400,
+    "preserved_cpu_rows": 1122,
+    "preserved_adapter_files": 61,
+    "tests": {
+      "tests": 136,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_passed_tests": 130,
+      "subtests_passed": 6,
+      "seconds": 22.683
+    },
+    "configuration_sha256": "11d2a6b5bef6517a5cae10dca46f1e94bfe2db3504afd3942434fcb78f496bb0",
+    "evidence_sha256": {
+      "results/coding/completion_lockbox_eval_v1/rows.jsonl": "94d16bc07ae83499c92cdb4f25b5381c51afac37bc84c2e40e786e98413710de",
+      "results/coding/completion_gradient_v1/rows.jsonl": "87f48606e2684cecfea939a45e000896a5f42a5ca289d2f5f31f29d34817f153",
+      "results/coding/completion_trace_audit_v1/rows.jsonl": "7a2b8bdfd56072555b053adc302247fae244a5a4e7b3801dc7c344e01f38e25f",
+      "results/coding/latency_probe_v1/rows.jsonl": "40372504602bbd8dee18deb0c33c4b3d2c16057eb25a6d7956d5f6881c8f8295"
+    },
+    "all_mandatory_evidence_passed": true
+  },
+  "elapsed_seconds": 2.329108953475952,
+  "output_sha256": {}
+}

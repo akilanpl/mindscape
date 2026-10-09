@@ -1,0 +1,33 @@
+{
+  "stage": 2,
+  "status": "PASS",
+  "run_id": 37940424086,
+  "validated_commit": "34a4cddcc93224cc6b480032b194eab8d8f3a317",
+  "cloud_receipts": "experiments/research_v2/cloud_runs/37940424086",
+  "file_sha256": {
+    "tests.json": "09bbf9f677a7ce2e9f508f67fc2ee16c2fb3e063e98165a471819453bc7d58a7",
+    "lint.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "frontend.log": "91ccae4467dccc0f96dee6d4878fd61efc184cb1b2262d5a736c34651aa2ad94",
+    "torch_install.json": "9151263ee067a340180473bfc5ae806d7840c03958c1ee51070dbe2262ed8910",
+    "frontend.json": "ad92f26aa7dc54718bc0f98e6bbdca4aafabbc4fcea5d1612c51c937da69bf41",
+    "statistics.json": "853caed168bfbcb964033d062e8f7064c5a92b024187990e3344e053787a8b7f",
+    "tests.xml": "438ed8f469f872dd11e0c4a0f8ea0c8a2eb9fe0e5d37e7baa9e39012d1b0107d",
+    "lint.json": "f431b3bcd8034d06d8c6e1cbf1a0fe41e85a843e2413ab02b0761f5f6802081c",
+    "complete.json": "6a05129bd1911578189f10ef48fa16079d6abd952a78ad904e017ba3b69c9d76",
+    "fairness.json": "da4572cf995aef112f6e00b1cab1355971c4270426ffa1073c7f466f011438d1",
+    "baseline_statistics.json": "5747ccb393b6809818dcea809da3b628457de93713395693027fb8c229c2f5eb",
+    "tests.log": "93d03c82dcad0d394a731d5ee38b6d88e5a877712d916901d368c1e9f2a11b8d",
+    "runtime_preparation.json": "62d12a7e7b2798a9a5337bf10f9e8b17b80c1b67a19882a79175e3048d72f20f",
+    "linux-resolved.txt": "b4f898b69fad42a5c78fc92535df5074afbbc9b1bd9990dd8888fcb43fc32c52",
+    "fairness.log": "4115127683d7466f45519cb453cb9e02f56a09e13e786e1cba83b9b2613a6e9f",
+    "status.json": "be4aeb9dc244d7ea2d237f95e93a8b97bb95375ebd301715733c4751725be812",
+    "environment.json": "f4d5becc263e79c63be8946ea77f7bc94c57e949e52d2778a5bce4b12fec401f",
+    "dependency_install.json": "ccdf1d1d3385893b92395076d77fd5fc7721219de8383bc245c56c1fc7b65b02",
+    "integrity.json": "4dd8ea9cd631900c01d9a37746c4f3e2af567798e47f3a09cd55e47f176ef637"
+  },
+  "failed_run_retained": "experiments/research_v2/cloud_runs/37939153417",
+  "torch_cpu_pin": "2.8.0+cpu",
+  "complete_dependency_lock": "configs/research_v2/linux-cpu-lock.txt",
+  "baseline_release_untouched": true,
+  "next_stage": "Actual computation tracing; controlled research and reference APIs remain unrun"
+}

@@ -1,0 +1,15 @@
+{
+  "fingerprint": "1595669581a1f9bceceea1636c4e0ed49d6eff542aef526301a77e9927055217",
+  "exit_code": 0,
+  "result": {
+    "command": [
+      "node",
+      "/home/runner/work/mindscape/mindscape/scripts/coding/check_demo.cjs"
+    ],
+    "exit_code": 0
+  },
+  "elapsed_seconds": 0.7394087314605713,
+  "output_sha256": {
+    "frontend.log": "91ccae4467dccc0f96dee6d4878fd61efc184cb1b2262d5a736c34651aa2ad94"
+  }
+}

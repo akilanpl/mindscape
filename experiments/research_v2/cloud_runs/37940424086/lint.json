@@ -1,0 +1,18 @@
+{
+  "fingerprint": "1595669581a1f9bceceea1636c4e0ed49d6eff542aef526301a77e9927055217",
+  "exit_code": 0,
+  "result": {
+    "command": [
+      "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+      "-m",
+      "ruff",
+      "check",
+      "/home/runner/work/mindscape/mindscape/scripts/research_v2"
+    ],
+    "exit_code": 0
+  },
+  "elapsed_seconds": 0.02364349365234375,
+  "output_sha256": {
+    "lint.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+  }
+}
