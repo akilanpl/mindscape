@@ -3,6 +3,7 @@ import importlib.util
 import io
 import json
 import sys
+from itertools import pairwise
 from pathlib import Path
 
 import pytest
@@ -17,7 +18,7 @@ def test_multipart_stream_preserves_every_byte_across_read_boundaries(tmp_path):
     payload = bytes(range(256))*1001
     boundaries = (0, 3, 4099, 70000, len(payload))
     paths = []
-    for i, (start, end) in enumerate(zip(boundaries, boundaries[1:])):
+    for i, (start, end) in enumerate(pairwise(boundaries)):
         p = tmp_path/str(i)
         p.write_bytes(payload[start:end])
         paths.append(p)
