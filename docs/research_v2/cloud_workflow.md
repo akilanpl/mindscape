@@ -1,6 +1,6 @@
 # CPU cloud validation
 
-Stage1 canonical release verification precedes this workflow. `.github/workflows/tests.yml` runs on GitHub-hosted Ubuntu24.04 with Python3.11.17, pinned action commit hashes, CPU PyTorch2.8.0+cpu and direct dependency pins. Install reports record resolved artifact URLs/hashes; `linux-resolved.txt` captures every installed version. First validated Linux resolution must be retained as a full lock before treating transitive installations as reproducible.
+Stage1 canonical release verification precedes this workflow. `.github/workflows/tests.yml` runs on GitHub-hosted Ubuntu24.04 with Python3.11.17, pinned action commit hashes, CPU PyTorch2.8.0+cpu and direct dependency pins. Install reports record resolved artifact URLs/hashes; `linux-resolved.txt` captures every installed version. The complete real Linux resolution is now pinned in `configs/research_v2/linux-cpu-lock.txt`. Run37939153417 installed successfully but failed18tests on an incompatible bundled ARM execution cache; failed evidence is preserved. The immutable WASM checksum is verified before preserving and rebuilding that cache for the actual host. Frozen source/data/outcomes are unchanged.
 
 No benchmark inference, GPU allocation or paid reference API is invoked. LoRA unit tests use a tiny synthetic random model. The full export is stream-verified (all23842 hashes); only the immutable6242-file package is written and clean-restored, avoiding duplicated historical snapshots on limited disks.
 

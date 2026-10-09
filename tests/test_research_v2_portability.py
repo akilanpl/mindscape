@@ -41,3 +41,21 @@ def test_corrupt_part_refuses_restore_before_destination_is_created(tmp_path, mo
         module.main()
     assert not dest.exists()
     assert not dest.with_name(dest.name+'_snapshot').exists()
+
+
+def test_invalid_compiled_cache_preserved_and_rebuilt_from_verified_wasm(tmp_path):
+    import hashlib
+
+    import wasmtime
+
+    runtime_spec = importlib.util.spec_from_file_location('prepare_runtime', SCRIPT.with_name('prepare_cpu_runtime.py'))
+    runtime_module = importlib.util.module_from_spec(runtime_spec)
+    runtime_spec.loader.exec_module(runtime_module)
+    wasm = bytes(wasmtime.wat2wasm('(module)'))
+    (tmp_path/'python.wasm').write_bytes(wasm)
+    invalid = b'incompatible-cache-test-fixture'
+    (tmp_path/'python.cwasm').write_bytes(invalid)
+    receipt = runtime_module.prepare(tmp_path, hashlib.sha256(wasm).hexdigest())
+    assert Path(receipt['preserved_cache']).read_bytes() == invalid
+    assert (tmp_path/'python.cwasm').read_bytes() != invalid
+    assert receipt['wasm_sha256'] == hashlib.sha256(wasm).hexdigest()

@@ -1,0 +1,328 @@
+......................................F.FFFFFFFFFFFFFFFF.F.............. [ 54%]
+............................................................       [100%]
+=================================== FAILURES ===================================
+______ test_perturbations_preserve_actual_correct_and_defective_behavior _______
+
+    def test_perturbations_preserve_actual_correct_and_defective_behavior():
+        import pytest
+    
+        from mindscape.coding.generator import task
+        from mindscape.coding.robustness import perturb
+        from mindscape.coding.sandbox import WasiSandbox
+        from mindscape.coding.testing import run_cases
+    
+        if not Path("work/coding/runtime/python.wasm").exists():
+            pytest.skip("Optional pinned WASI runtime absent")
+        sandbox = WasiSandbox("work/coding/runtime")
+        for category in ("list_handling", "cross_file"):
+            original = task(99881, category, "test")
+            for variant in (
+                "rename_functions",
+                "rename_variables",
+                "reordered_files",
+                "reordered_tests",
+                "distractor_files",
+                "layout",
+                "formatting",
+            ):
+                changed = perturb(original, variant)
+>               assert run_cases(sandbox, changed.correct_repository, changed.hidden_tests)[
+                    "all_passed"
+                ]
+E               assert False
+
+../../tests/test_coding_completion.py:88: AssertionError
+________________ test_independent_task_validation[conditional] _________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'conditional'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+_________________ test_independent_task_validation[off_by_one] _________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'off_by_one'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+__________________ test_independent_task_validation[operator] __________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'operator'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+________________ test_independent_task_validation[return_value] ________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'return_value'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+_______________ test_independent_task_validation[initialization] _______________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'initialization'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+____________________ test_independent_task_validation[loop] ____________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'loop'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+_______________ test_independent_task_validation[missing_branch] _______________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'missing_branch'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+_______________ test_independent_task_validation[list_handling] ________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'list_handling'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+_______________ test_independent_task_validation[type_mismatch] ________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'type_mismatch'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+_____________ test_independent_task_validation[exception_handling] _____________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'exception_handling'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+____________ test_independent_task_validation[function_interaction] ____________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'function_interaction'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+_________________ test_independent_task_validation[cross_file] _________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'cross_file'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+__________________ test_independent_task_validation[compound] __________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'compound'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+____________ test_independent_task_validation[unfamiliar_structure] ____________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+category = 'unfamiliar_structure'
+
+    @pytest.mark.parametrize("category", TRAIN + OOD)
+    def test_independent_task_validation(sandbox, category):
+        t = task(19001, category, "validation")
+>       assert run_cases(sandbox, t.correct_repository, t.hidden_tests)["all_passed"]
+E       assert False
+
+../../tests/test_coding_environment.py:24: AssertionError
+__________________ test_real_transitions_and_private_terminal __________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+
+    def test_real_transitions_and_private_terminal(sandbox):
+        t = task(19001, "operator", "test")
+        env = CodeRepairEnvironment(sandbox)
+        initial = env.reset(t)
+        path = next(iter(t.repository))
+        assert len(env.valid_actions()) > 1
+        assert "hidden_tests" not in env.get_observation()
+        assert "correct_repository" not in t.visible()
+        assert env.step(CodeAction("run_tests")).event.name == "test_failed"
+        assert not env.step(CodeAction("patch", path="../secret", old="x", new="y")).valid
+        transition = env.step(CodeAction("edit", path=path, content=t.correct_repository[path]))
+        assert transition.state_before.files != transition.state_after.files
+        assert initial.files == t.repository
+        assert (env.root / path).read_text() == t.correct_repository[path]
+>       assert env.step(CodeAction("run_tests")).event.name == "test_passed"
+E       AssertionError: assert 'test_failed' == 'test_passed'
+E         
+E         - test_passed
+E         + test_failed
+
+../../tests/test_coding_environment.py:42: AssertionError
+__________________________ test_capability_isolation ___________________________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+
+    def test_capability_isolation(sandbox):
+>       assert all(sandbox.probe().values())
+                   ^^^^^^^^^^^^^^^
+
+../../tests/test_coding_environment.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+
+    def probe(self):
+        script = "import sys,os,json\nresults={}\nfor p in ['/Users/akilan/.codex','/etc/passwd']:\n try:open(p).read();results[p]=False\n except OSError:results[p]=True\ntry:import socket;socket.socket();results['network']=False\nexcept (ImportError,OSError):results['network']=True\ntry:os.system('echo unsafe');results['process']=False\nexcept (AttributeError,OSError):results['process']=True\nprint(json.dumps(results))"
+        r = self.execute({}, script)
+        if r.returncode:
+>           raise RuntimeError("Sandbox probe failed: " + r.stderr)
+E           RuntimeError: Sandbox probe failed: Traceback (most recent call last):
+E             File "<frozen runpy>", line 198, in _run_module_as_main
+E             File "<frozen runpy>", line 88, in _run_code
+E             File "/home/runner/work/mindscape/mindscape/src/mindscape/coding/wasi_worker.py", line 57, in <module>
+E               main()
+E             File "/home/runner/work/mindscape/mindscape/src/mindscape/coding/wasi_worker.py", line 28, in main
+E               wasmtime.Module.deserialize_file(engine, str(compiled))
+E             File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/wasmtime/_module.py", line 91, in deserialize_file
+E               raise WasmtimeError._from_ptr(error)
+E           wasmtime._error.WasmtimeError: failed deserialization for: /home/runner/work/mindscape/mindscape/work/cloud_research_v1/work/coding/runtime/python.cwasm
+E           
+E           Caused by:
+E               Module was compiled for architecture 'aarch64'
+
+../../src/mindscape/coding/sandbox.py:110: RuntimeError
+____________ test_shared_backend_uses_execution_not_patch_equality _____________
+
+sandbox = <mindscape.coding.sandbox.WasiSandbox object at 0x7f682db158d0>
+
+    def test_shared_backend_uses_execution_not_patch_equality(sandbox):
+        from dataclasses import asdict
+    
+        from mindscape.coding.backend import evaluate_coding
+        from mindscape.data.backends import get_backend
+        from mindscape.models.base import Prediction
+    
+        backend = get_backend("python_code_repair")
+        example = backend.example({"seed": 19001, "structure": "operator"}, 11, "test")
+        backend.validate(example)
+        view = example.view("experiential")
+        assert "private_tests" not in str(view)
+        assert "target_answer" not in view
+        task_data = task(19001, "operator", "test")
+        env = CodeRepairEnvironment(sandbox)
+        env.reset(task_data)
+        path = next(iter(task_data.repository))
+        alternative = task_data.correct_repository[path] + "\n# Another correct implementation\n"
+        env.step(CodeAction("edit", path=path, content=alternative))
+        trajectory = asdict(env.get_trajectory())
+        prediction = Prediction(answer=dict(env.files), trajectory=trajectory)
+        record = evaluate_coding(example, prediction, backend)
+        assert prediction.answer != example.target_answer
+>       assert record.correct and record.grounded
+E       AssertionError: assert (False)
+E        +  where False = PredictionRecord(example_id='dd526f683e906a731ef8ec672def93d67f333f69a4679ed055c738c3f3eec3aa', predicted_answer={'mod...lid': True},)}, trajectory_valid=True, goal_reached=False, grounded=False, error_type='goal_failure', diagnostics=None).correct
+
+../../tests/test_coding_environment.py:90: AssertionError
+=========================== short test summary info ============================
+FAILED ../../tests/test_coding_completion.py::test_perturbations_preserve_actual_correct_and_defective_behavior - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[conditional] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[off_by_one] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[operator] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[return_value] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[initialization] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[loop] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[missing_branch] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[list_handling] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[type_mismatch] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[exception_handling] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[function_interaction] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[cross_file] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[compound] - assert False
+FAILED ../../tests/test_coding_environment.py::test_independent_task_validation[unfamiliar_structure] - assert False
+FAILED ../../tests/test_coding_environment.py::test_real_transitions_and_private_terminal - AssertionError: assert 'test_failed' == 'test_passed'
+  
+  - test_passed
+  + test_failed
+FAILED ../../tests/test_coding_environment.py::test_capability_isolation - RuntimeError: Sandbox probe failed: Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/mindscape/mindscape/src/mindscape/coding/wasi_worker.py", line 57, in <module>
+    main()
+  File "/home/runner/work/mindscape/mindscape/src/mindscape/coding/wasi_worker.py", line 28, in main
+    wasmtime.Module.deserialize_file(engine, str(compiled))
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/wasmtime/_module.py", line 91, in deserialize_file
+    raise WasmtimeError._from_ptr(error)
+wasmtime._error.WasmtimeError: failed deserialization for: /home/runner/work/mindscape/mindscape/work/cloud_research_v1/work/coding/runtime/python.cwasm
+
+Caused by:
+    Module was compiled for architecture 'aarch64'
+FAILED ../../tests/test_coding_environment.py::test_shared_backend_uses_execution_not_patch_equality - AssertionError: assert (False)
+ +  where False = PredictionRecord(example_id='dd526f683e906a731ef8ec672def93d67f333f69a4679ed055c738c3f3eec3aa', predicted_answer={'mod...lid': True},)}, trajectory_valid=True, goal_reached=False, grounded=False, error_type='goal_failure', diagnostics=None).correct
+18 failed, 114 passed, 6 subtests passed in 9.96s

@@ -1,0 +1,20 @@
+{
+  "cells_verified": 96,
+  "episodes": 1920,
+  "successes": 1178,
+  "claims": {
+    "high bounded-vertical capability": "NOT SUPPORTED",
+    "OOD improvement": "SUPPORTED",
+    "data efficiency": "INCONCLUSIVE",
+    "grounded execution": "SUPPORTED",
+    "trajectory validity": "SUPPORTED",
+    "goal success": "NOT SUPPORTED",
+    "recovery": "INCONCLUSIVE",
+    "external benchmark competitiveness": "INCONCLUSIVE",
+    "memory benefit": "INCONCLUSIVE",
+    "dream benefit": "INCONCLUSIVE",
+    "GPT reference exceedance": "NOT SUPPORTED",
+    "Gemini reference exceedance": "NOT SUPPORTED"
+  },
+  "scope": "Recount of existing frozen evidence; no new inference"
+}

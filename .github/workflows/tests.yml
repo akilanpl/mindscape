@@ -21,10 +21,12 @@ jobs:
         run: |
           mkdir -p results/research_v2/cloud_cpu_validation
           python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.8.0+cpu --report results/research_v2/cloud_cpu_validation/torch_install.json
-          python -m pip install -r configs/research_v2/cpu-direct.txt --report results/research_v2/cloud_cpu_validation/dependency_install.json
-          python -m pip freeze > results/research_v2/cloud_cpu_validation/linux-resolved.txt
+          python -m pip install -r configs/research_v2/linux-cpu-lock.txt --report results/research_v2/cloud_cpu_validation/dependency_install.json
+          python -m pip freeze --all > results/research_v2/cloud_cpu_validation/linux-resolved.txt
       - name: Restore verified frozen evidence
-        run: python scripts/research_v2/restore_cpu_baseline.py --archive research_checkpoint/research_release_2026-10-09 --destination work/cloud_research_v1
+        run: |
+          python scripts/research_v2/restore_cpu_baseline.py --archive research_checkpoint/research_release_2026-10-09 --destination work/cloud_research_v1
+          cp work/cloud_research_v1/CPU_RUNTIME_PREPARATION.json results/research_v2/cloud_cpu_validation/runtime_preparation.json
       - name: Validate end to end
         run: python scripts/research_v2/cpu_validate.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation
       - name: Verify safe resume of completed steps

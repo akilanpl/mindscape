@@ -42,7 +42,12 @@ def main():
     packages = dict(sorted((d.metadata['Name'].lower(), d.version)
                            for d in importlib.metadata.distributions() if d.metadata['Name']))
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=REPO, text=True).strip()
-    identity = {'commit': commit, 'script_sha256': digest(Path(__file__)),
+    source_files = {str(p.relative_to(REPO)): digest(p)
+                    for folder in ('src', 'scripts', 'tests', 'configs')
+                    for p in sorted((REPO/folder).rglob('*'))
+                    if p.is_file() and '__pycache__' not in p.parts
+                    and p.suffix in ('.py', '.json', '.yaml', '.yml', '.txt')}
+    identity = {'source_file_sha256': source_files, 'commit': commit, 'script_sha256': digest(Path(__file__)),
                 'config_sha256': digest(config_path), 'raw_sha256': pins,
                 'packages': packages, 'python': platform.python_version()}
     fingerprint = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()

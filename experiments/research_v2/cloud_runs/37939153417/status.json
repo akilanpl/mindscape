@@ -1,0 +1,11 @@
+{
+  "conclusion": "failure",
+  "run_id": 37939153417,
+  "commit": "67b7441ce515f0761fd316c9e00b16af44afb5ce",
+  "observed_backend": "LinuxCPU PyTorch2.8.0+cpu",
+  "tests": "18failed/114passed/6subtests",
+  "cause": "Bundled ARM aarch64 python.cwasm cannot deserialize on x86_64",
+  "data_integrity": "PASS",
+  "statistics": "PASS",
+  "resolution": "Preserve original compiled cache, rebuild only execution cache from pinned WASM; retain failed evidence"
+}

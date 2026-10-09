@@ -100,6 +100,10 @@ def main():
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'coding'))
     from restore_completion import restore
     restore(snapshot, destination)
+    from prepare_cpu_runtime import prepare
+    pin = json.loads((destination/'configs/coding/runtime_v1.json').read_text())
+    runtime_receipt = prepare(destination/'work/coding/runtime', pin['python_wasm_sha256'])
+    (destination/'CPU_RUNTIME_PREPARATION.json').write_text(json.dumps(runtime_receipt, indent=2)+'\n')
     print('PASS all', len(manifest['files']), 'export hashes; selected immutable package clean-restored')
 
 
