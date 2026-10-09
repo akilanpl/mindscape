@@ -13,3 +13,7 @@ The committed MP4 is original procedural artwork, not a computational trace. Reg
 Metadata, sitemap, robots and a meta CSP are generated. `_headers` is a portable hosting hint; actual response headers depend on the host. No claims are made that these headers are enforced until checked on the deployed host.
 
 Research v1 is preserved. Research v2 has unresolved generalization and measurement gaps; this website does not imply a v2 completion release or broad model superiority.
+
+## Vercel
+
+`vercel.json` declares the static build, six directory routes and response security headers. From this directory, authenticate with the official Vercel CLI and run `vercel --prod`. Canonical URLs use `SITE_ORIGIN` when supplied, otherwise Vercel’s `VERCEL_PROJECT_PRODUCTION_URL` in hosted builds. `.vercel` account/project state is ignored and never published to Git.

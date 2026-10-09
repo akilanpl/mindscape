@@ -1,5 +1,5 @@
 import {mkdir,readFile,writeFile,cp,rm} from 'node:fs/promises';
-const origin=process.env.SITE_ORIGIN||'https://mindscape-research.right-stone-9712.chatgpt.site';
+const origin=process.env.SITE_ORIGIN||(process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'https://mindscape-research.right-stone-9712.chatgpt.site');
 const repo='https://github.com/akilanpl/mindscape';
 const pin='c530faa20aee2339679a5f2cfe9bea28509d4fb1';
 const gh=(path)=>`${repo}/blob/${pin}/${path}`;
