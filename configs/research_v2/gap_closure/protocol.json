@@ -1,0 +1,13 @@
+{
+ "version":"masking-controls-1.0",
+ "task_seed":202610110,
+ "seeds":[0,1,2],
+ "families":{"unsigned_3x2":{"count":8,"structure":"3x2","signed":false},"signed_4x2":{"count":8,"structure":"4x2","signed":true},"unsigned_1x4":{"count":8,"structure":"1x4","signed":false}},
+ "conditions":["trained_mask","trained_permissive","zero_mask","zero_permissive"],
+ "intervention":"Original trained policy versus all-zero copied neural weights; original exact legal-action filter versus permissive all-action selection. Environment, operands, verifier and256-action budget fixed.",
+ "hypotheses":["Exact legal-action filtering rescues learned-policy failures on novel task variants","Exact legal-action filtering succeeds even when neural weights contain no trained information"],
+ "statistics":"Task-paired effects per family and seed; exact McNemar; Holm across18primary mask comparisons; task-cluster bootstrap95CI conditional on three preserved seeds. Zero-versus-trained with masking descriptive.",
+ "leakage":"Exclude all historical numeric dataset identities and80previous v2 evaluation identities; no training or tuning",
+ "scope":"Independent task-variant replication, not independent architecture/training pipeline or cross-domain replication. Zero controls share identical zeroed weights; seed repeats are not independent controls.",
+ "limits":["Small synthetic arithmetic tasks","Controller supplies arithmetic and legal-action identity","Removing masking tests permissive action selection under the same scorer","No foundation-model superiority claim","No new model training"]
+}

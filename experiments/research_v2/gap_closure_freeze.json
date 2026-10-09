@@ -1,0 +1,8 @@
+{
+  "status": "Frozen before additional inference",
+  "protocol_sha256": "fac9f9087a32aa28d8b5303fcb1beb54ec0659c6d8c460b5a854a2923a53917b",
+  "dataset_sha256": "c6f8159b91fdabf88d19585e91755263fa72cbda67598e1a1b427922bfa64020",
+  "tasks": 24,
+  "planned_executions": 288,
+  "independence": "New task identities/seed/families; shared historical trained checkpoints and implementation"
+}
