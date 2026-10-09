@@ -1,6 +1,6 @@
 # Research v2: verified progress and bounded mechanism findings
 
-Research v2 is not fully complete. Git preservation, clean v1 restoration, actual Linux cloud validation, numeric-core traces, prospective task freezing and a controlled numeric intervention study are verified. Coding-foundation telemetry, broader domain replication and exact historical GPT/Gemini comparisons remain outstanding.
+Research v2 is not fully complete. The subsequent [scientific gap-closure report](gap_closure.md) records targeted replication and real coding-foundation telemetry; the original findings below are preserved. Git preservation, clean v1 restoration, actual Linux cloud validation, numeric-core traces, prospective task freezing and a controlled numeric intervention study are verified. Coding-foundation telemetry, broader domain replication and exact historical GPT/Gemini comparisons remain outstanding.
 
 ## Provenance and validation
 
@@ -40,3 +40,7 @@ Feature-readout removal is not removal of the entire memory module. Verification
 The versioned archive `research_checkpoint/research_v2_numeric_2026-10-09` contains all cloud receipts and per-input evidence: 3,876 files, 11,957,855 compressed bytes, independently hash-verified after clean restoration. Its manifest binds every file and the exact source commit. Raw indexes, statistics, dashboard, tests and job receipts are under `experiments/research_v2/cloud_runs/37946027443`. Stage receipts explicitly identify the verified scope.
 
 Exact historical GPT/Gemini releases, access conditions and an authorized spending limit have not been supplied. Their outcomes, latency, costs and performance gaps are unknown, not zero. The coding-foundation model and its 61 adapters remain in preserved v1 evidence, but their deep computation telemetry and controlled v2 interventions have not run. Independent broader-domain replication remains necessary before claiming scientifically competitive architecture results. No full Research v2 completion tag is created.
+
+## Subsequent scoped scientific closure
+
+See [actual controls, coding telemetry and remaining limitations](gap_closure.md). Original numeric evidence was reused; 288 additional prospectively frozen control executions and two observed coding diagnostics were added. No full v2 completion claim is made.

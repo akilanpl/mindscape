@@ -1,0 +1,13 @@
+{
+  "label": "Post hoc descriptive conservative paired-risk-difference uncertainty; does not replace predeclared tests",
+  "unique_zero_control_tasks": 24,
+  "difference": 1.0,
+  "conservative_simultaneous95_interval": [
+    0.666228580390205,
+    1.0
+  ],
+  "method": "Bonferroni simultaneous Clopper-Pearson bounds on beneficial and harmful paired outcomes; task unit, seed duplicates excluded",
+  "per_family_unique_tasks": 8,
+  "primary_tests_significant_at_holm05": 0,
+  "small_sample_warning": "Degenerate empirical bootstrap intervals are not population certainty; min Holm p=.140625"
+}

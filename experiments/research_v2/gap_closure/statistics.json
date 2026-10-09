@@ -1,0 +1,352 @@
+{
+  "status": "PASS",
+  "completed": 288,
+  "unique_tasks": 24,
+  "cells": [
+    {
+      "family": "unsigned_3x2",
+      "condition": "trained_mask",
+      "successes": 24,
+      "executions": 24
+    },
+    {
+      "family": "unsigned_3x2",
+      "condition": "trained_permissive",
+      "successes": 20,
+      "executions": 24
+    },
+    {
+      "family": "unsigned_3x2",
+      "condition": "zero_mask",
+      "successes": 24,
+      "executions": 24
+    },
+    {
+      "family": "unsigned_3x2",
+      "condition": "zero_permissive",
+      "successes": 0,
+      "executions": 24
+    },
+    {
+      "family": "signed_4x2",
+      "condition": "trained_mask",
+      "successes": 24,
+      "executions": 24
+    },
+    {
+      "family": "signed_4x2",
+      "condition": "trained_permissive",
+      "successes": 15,
+      "executions": 24
+    },
+    {
+      "family": "signed_4x2",
+      "condition": "zero_mask",
+      "successes": 24,
+      "executions": 24
+    },
+    {
+      "family": "signed_4x2",
+      "condition": "zero_permissive",
+      "successes": 0,
+      "executions": 24
+    },
+    {
+      "family": "unsigned_1x4",
+      "condition": "trained_mask",
+      "successes": 24,
+      "executions": 24
+    },
+    {
+      "family": "unsigned_1x4",
+      "condition": "trained_permissive",
+      "successes": 24,
+      "executions": 24
+    },
+    {
+      "family": "unsigned_1x4",
+      "condition": "zero_mask",
+      "successes": 24,
+      "executions": 24
+    },
+    {
+      "family": "unsigned_1x4",
+      "condition": "zero_permissive",
+      "successes": 0,
+      "executions": 24
+    }
+  ],
+  "effects": [
+    {
+      "family": "unsigned_3x2",
+      "policy": "trained",
+      "difference": 0.16666666666666666,
+      "task_cluster_bootstrap95": [
+        0.0,
+        0.4166666666666667
+      ],
+      "interpretation": "Conditional on three historical models; zero-weight controls are identical, not independent seeds"
+    },
+    {
+      "family": "unsigned_3x2",
+      "policy": "zero",
+      "difference": 1.0,
+      "task_cluster_bootstrap95": [
+        1.0,
+        1.0
+      ],
+      "interpretation": "Conditional on three historical models; zero-weight controls are identical, not independent seeds"
+    },
+    {
+      "family": "signed_4x2",
+      "policy": "trained",
+      "difference": 0.375,
+      "task_cluster_bootstrap95": [
+        0.08333333333333333,
+        0.6666666666666666
+      ],
+      "interpretation": "Conditional on three historical models; zero-weight controls are identical, not independent seeds"
+    },
+    {
+      "family": "signed_4x2",
+      "policy": "zero",
+      "difference": 1.0,
+      "task_cluster_bootstrap95": [
+        1.0,
+        1.0
+      ],
+      "interpretation": "Conditional on three historical models; zero-weight controls are identical, not independent seeds"
+    },
+    {
+      "family": "unsigned_1x4",
+      "policy": "trained",
+      "difference": 0.0,
+      "task_cluster_bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "interpretation": "Conditional on three historical models; zero-weight controls are identical, not independent seeds"
+    },
+    {
+      "family": "unsigned_1x4",
+      "policy": "zero",
+      "difference": 1.0,
+      "task_cluster_bootstrap95": [
+        1.0,
+        1.0
+      ],
+      "interpretation": "Conditional on three historical models; zero-weight controls are identical, not independent seeds"
+    }
+  ],
+  "tests": [
+    {
+      "family": "unsigned_3x2",
+      "seed": 0,
+      "policy": "trained",
+      "discordant": [
+        2,
+        0
+      ],
+      "exact_p": 0.5,
+      "holm_p_family18": 1.0
+    },
+    {
+      "family": "unsigned_3x2",
+      "seed": 1,
+      "policy": "trained",
+      "discordant": [
+        1,
+        0
+      ],
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "family": "unsigned_3x2",
+      "seed": 2,
+      "policy": "trained",
+      "discordant": [
+        1,
+        0
+      ],
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "family": "unsigned_3x2",
+      "seed": 0,
+      "policy": "zero",
+      "discordant": [
+        8,
+        0
+      ],
+      "exact_p": 0.0078125,
+      "holm_p_family18": 0.140625
+    },
+    {
+      "family": "unsigned_3x2",
+      "seed": 1,
+      "policy": "zero",
+      "discordant": [
+        8,
+        0
+      ],
+      "exact_p": 0.0078125,
+      "holm_p_family18": 0.140625
+    },
+    {
+      "family": "unsigned_3x2",
+      "seed": 2,
+      "policy": "zero",
+      "discordant": [
+        8,
+        0
+      ],
+      "exact_p": 0.0078125,
+      "holm_p_family18": 0.140625
+    },
+    {
+      "family": "signed_4x2",
+      "seed": 0,
+      "policy": "trained",
+      "discordant": [
+        2,
+        0
+      ],
+      "exact_p": 0.5,
+      "holm_p_family18": 1.0
+    },
+    {
+      "family": "signed_4x2",
+      "seed": 1,
+      "policy": "trained",
+      "discordant": [
+        3,
+        0
+      ],
+      "exact_p": 0.25,
+      "holm_p_family18": 1.0
+    },
+    {
+      "family": "signed_4x2",
+      "seed": 2,
+      "policy": "trained",
+      "discordant": [
+        4,
+        0
+      ],
+      "exact_p": 0.125,
+      "holm_p_family18": 1.0
+    },
+    {
+      "family": "signed_4x2",
+      "seed": 0,
+      "policy": "zero",
+      "discordant": [
+        8,
+        0
+      ],
+      "exact_p": 0.0078125,
+      "holm_p_family18": 0.140625
+    },
+    {
+      "family": "signed_4x2",
+      "seed": 1,
+      "policy": "zero",
+      "discordant": [
+        8,
+        0
+      ],
+      "exact_p": 0.0078125,
+      "holm_p_family18": 0.140625
+    },
+    {
+      "family": "signed_4x2",
+      "seed": 2,
+      "policy": "zero",
+      "discordant": [
+        8,
+        0
+      ],
+      "exact_p": 0.0078125,
+      "holm_p_family18": 0.140625
+    },
+    {
+      "family": "unsigned_1x4",
+      "seed": 0,
+      "policy": "trained",
+      "discordant": [
+        0,
+        0
+      ],
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "family": "unsigned_1x4",
+      "seed": 1,
+      "policy": "trained",
+      "discordant": [
+        0,
+        0
+      ],
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "family": "unsigned_1x4",
+      "seed": 2,
+      "policy": "trained",
+      "discordant": [
+        0,
+        0
+      ],
+      "exact_p": 1.0,
+      "holm_p_family18": 1.0
+    },
+    {
+      "family": "unsigned_1x4",
+      "seed": 0,
+      "policy": "zero",
+      "discordant": [
+        8,
+        0
+      ],
+      "exact_p": 0.0078125,
+      "holm_p_family18": 0.140625
+    },
+    {
+      "family": "unsigned_1x4",
+      "seed": 1,
+      "policy": "zero",
+      "discordant": [
+        8,
+        0
+      ],
+      "exact_p": 0.0078125,
+      "holm_p_family18": 0.140625
+    },
+    {
+      "family": "unsigned_1x4",
+      "seed": 2,
+      "policy": "zero",
+      "discordant": [
+        8,
+        0
+      ],
+      "exact_p": 0.0078125,
+      "holm_p_family18": 0.140625
+    }
+  ],
+  "unsuccessful": 85,
+  "raw_sha256": "a9cfbc1006a748afd99178913db47492c08ebecc5a4cac6b6404a5db8115b372",
+  "scope": "Independent task-variant replication, not independent architecture/training pipeline or cross-domain replication. Zero controls share identical zeroed weights; seed repeats are not independent controls.",
+  "limitations": [
+    "Small synthetic arithmetic tasks",
+    "Controller supplies arithmetic and legal-action identity",
+    "Removing masking tests permissive action selection under the same scorer",
+    "No foundation-model superiority claim",
+    "No new model training"
+  ],
+  "checkpoints_unchanged": true
+}

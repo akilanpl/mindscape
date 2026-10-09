@@ -1,0 +1,24 @@
+{
+  "fingerprint": "8479ebb78e9d949f58bd8ca691b91c348b6e8cb3c121934433305ca0d7da1f29",
+  "exit_code": 0,
+  "result": {
+    "command": [
+      "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "/home/runner/work/mindscape/mindscape/tests",
+      "--junitxml=/home/runner/work/mindscape/mindscape/results/research_v2/cloud_cpu_validation/tests.xml"
+    ],
+    "exit_code": 0,
+    "tests": 144,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "elapsed_seconds": 50.94272041320801,
+  "output_sha256": {
+    "tests.log": "8a5caa56f5e3a2e411a214a764b9276e750b2fe39492bb13ad6357765257d0d0",
+    "tests.xml": "efe3df35669cad7ccaa97fc88bb19b384be758bfdbf3ade76405f2804dde70f1"
+  }
+}

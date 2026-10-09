@@ -30,3 +30,25 @@ def test_observer_hooks_actual_base_model_without_extra_forwards_and_restores():
     assert [e['kind'] for e in events]==['model_request','actual_token_input','actual_forward_output','model_response']
     assert not lm._forward_hooks and not lm._forward_pre_hooks
     assert events[2]['observed']['top5_ids']==[5,4,3,2,1]
+
+
+def test_memory_observation_and_exception_restore():
+    import pytest
+
+    from mindscape.coding.memory import CodingMemory
+
+    original = CodingMemory.remember
+    memory = CodingMemory()
+    class FailingCoder:
+        revision='fixture'
+        model=None
+        def generate(self,*args):
+            raise ValueError('fixture failure')
+    events=[]
+    coder=FailingCoder()
+    with pytest.raises(ValueError,match='fixture failure'), module.observe(coder,events):
+        memory.remember({'problem':'training fixture'},verified=True)
+        assert len(memory.episodic)==1
+        coder.generate('s','p',8,0)
+    assert CodingMemory.remember==original
+    assert any(e['kind']=='model_failure' for e in events)

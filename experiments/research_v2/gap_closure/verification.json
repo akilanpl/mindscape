@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "old_study_hashes": 3846,
+  "old_observed_legal_action_cardinalities": {
+    "1": 19448
+  },
+  "new_unique_keys": 288,
+  "new_unsuccessful": 85,
+  "coding_pointers_verified": 2320,
+  "zero_control_independent_task_units": 24,
+  "descriptive_paired_effect": 1.0,
+  "post_hoc_conservative95_interval": [
+    0.666228580390205,
+    1.0
+  ],
+  "interval_method": "Simultaneous Bonferroni Clopper-Pearson bounds on benefit/harm probabilities; excludes duplicated zero seeds",
+  "primary_holm_significant_tests": 0,
+  "neural_inference_in_this_verifier": false,
+  "scope": "Saved evidence validation; no full Research v2 completion claim"
+}

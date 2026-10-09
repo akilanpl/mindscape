@@ -1,0 +1,19 @@
+{
+  "observer_tests": {
+    "passed": 2,
+    "failed": 0,
+    "command": "PYTHONPATH=src python -m pytest -q tests/test_coding_telemetry_v2.py"
+  },
+  "scoped_lint": "PASS",
+  "compileall": "PASS",
+  "source_v1_diff": "empty",
+  "cloud_tests": {
+    "passed": 138,
+    "subtests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "known_observer_failure": "Initial outer PEFT hook yielded no forward observations; log retained. Corrected base-model hooks tested and actually executed.",
+  "initial_verifier_dependency_failure": "SciPy absent from local environment; avoided a new dependency and used exhaustive fair allocations to independently verify exact tests."
+}

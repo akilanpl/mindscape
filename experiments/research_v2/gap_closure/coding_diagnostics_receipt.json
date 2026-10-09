@@ -1,0 +1,23 @@
+{
+  "failed_initial_observer": {
+    "exit_code": 1,
+    "reason": "PEFT generation bypassed outer model hook; historical task ran but missing tensors were not invented",
+    "log": "research_v2_coding_probe.log",
+    "response_not_persisted": true
+  },
+  "corrected_model_only_probe": {
+    "exit_code": 0,
+    "real_neural_calls": 1,
+    "token_forward_observations": 39,
+    "success": false
+  },
+  "c_probe": {
+    "exit_code": 0,
+    "real_neural_calls": 8,
+    "token_forward_observations": 352,
+    "success": true
+  },
+  "benchmark_cases_added": 0,
+  "scope": "Diagnostic reuse of one historical task; float32 CPU rather than original MPS, no new accuracy estimate",
+  "source_note": "Core model/policy unchanged; observer subsequently adds reporting and exception logging. Exact saved requests, tokens, weights and outputs are bound in trace hashes."
+}
