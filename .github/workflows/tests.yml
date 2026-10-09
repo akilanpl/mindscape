@@ -1,11 +1,38 @@
-name: tests
-on: [push, pull_request]
+name: Research v2 CPU validation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+concurrency:
+  group: research-v2-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
-  foundation:
-    runs-on: ubuntu-latest
+  cpu-validation:
+    runs-on: ubuntu-24.04
+    env:
+      MINDSCAPE_DEVICE: cpu
+      MINDSCAPE_PRECISION: float32
+      MPLBACKEND: Agg
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
-          python-version: '3.11'
-      - run: PYTHONPATH=src python -m unittest discover -s tests -v
+          python-version: '3.11.17'
+      - name: Install pinned CPU dependencies and capture resolver evidence
+        run: |
+          mkdir -p results/research_v2/cloud_cpu_validation
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.8.0+cpu --report results/research_v2/cloud_cpu_validation/torch_install.json
+          python -m pip install -r configs/research_v2/cpu-direct.txt --report results/research_v2/cloud_cpu_validation/dependency_install.json
+          python -m pip freeze > results/research_v2/cloud_cpu_validation/linux-resolved.txt
+      - name: Restore verified frozen evidence
+        run: python scripts/research_v2/restore_cpu_baseline.py --archive research_checkpoint/research_release_2026-10-09 --destination work/cloud_research_v1
+      - name: Validate end to end
+        run: python scripts/research_v2/cpu_validate.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation
+      - name: Verify safe resume of completed steps
+        run: python scripts/research_v2/cpu_validate.py --evidence-root work/cloud_research_v1 --output results/research_v2/cloud_cpu_validation
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: research-v2-cpu-${{ github.sha }}
+          path: results/research_v2/cloud_cpu_validation
+          retention-days: 30
+          if-no-files-found: error

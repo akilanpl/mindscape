@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "2862f5ae54443b231abda4255bdd6c652eca2343",
+  "baseline_tag": "mindscape-research-complete-v1",
+  "required_counts": {"lockbox": 400, "learning": 1920, "replay": 400, "dedicated_latency": 16},
+  "neural_backend": "cpu",
+  "inference_experiments": false,
+  "torch_cpu": "2.8.0+cpu",
+  "output_namespace": "research_v2/cpu_validation",
+  "resume_policy": "Same code, configuration, environment and frozen raw hashes; verify step outputs before reuse"
+}
