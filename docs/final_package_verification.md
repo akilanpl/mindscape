@@ -1,7 +1,7 @@
-# Verified migration checkpoint — partial research
+# Final coding package verification
 
-All 17,537 frozen files passed complete inventory and SHA-256 verification and restored into an empty directory. Source commit: `63334c1`. The 26 Git archive parts contain 868,389,142 bytes; per-part and per-file hashes are shipped in `research_checkpoint/2026-10-08`. Exact pinned foundation weights use external acquisition. The verification receipt postdates the immutable snapshot; its older documentation is historical.
+Release acceptance requires exactly 400 locked rows, 1920 learning rows, 400 independent trajectory/terminal replays and 16 dedicated latency cases, passing complete tests, scoped lint, compile and wheel build. The publication gate checks exact task/key sets, byte-preserved CPU evidence, frozen source hashes and agreement between raw scores and reports.
 
-Current evidence: A100, structured100, B100, C100; 400 unique locked pairs, all independently replayed with state/tool/terminal agreement. Learning curve1122/1920; 798 unrun. Dedicated latency0/16. No research-completion tag. All 130 tests plus6 subtests pass, scoped lint passes; 13,807 JSON/JSONL files parse without errors. No type-check task is configured. Historical repository-wide lint findings remain documented separately.
+The immutable snapshot is `results/final/coding_research_v2`. Its manifest binds each file to SHA-256 and records the source commit. Clean-destination restoration, inventory/hash verification and the restored full test suite are required before the completion tag. The post-snapshot verification receipt is distributed alongside the snapshot at `results/final/coding_research_v2_verification.json` and committed in `experiments/coding_completion_v2/research_package_verified.json`; it necessarily postdates the immutable snapshot. Foundation weights are exact pinned external downloads.
 
-The earlier immutable `coding_emergency_partial_v1` package contains 6,178 verified files and older296-row evidence; it remains byte-preserved inside this checkpoint. Its earlier counts are historical, not current results.
+The historical partial snapshot `coding_emergency_partial_v1` retains its original 6178 files and verification receipt. It is historical evidence, not the current completion scope.

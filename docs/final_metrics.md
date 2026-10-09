@@ -4,7 +4,7 @@ Machine-readable full metrics: `results/coding/emergency_analysis_v1/summary.jso
 
 # Mindscape bounded MPS completion evidence
 
-Learning curve: **1122/1,920 episodes**, 798 not run. Lockbox: **400/400 condition-task episodes** (100 independent tasks). Preserved CPU work remains intact.
+Learning curve: **1920/1,920 episodes**, 0 not run. Lockbox: **400/400 condition-task episodes** (100 independent tasks). Preserved CPU work remains intact.
 
 All metrics below derive from saved episodes. Missing cells are not zero scores. CPU float32 and MPS reduced-precision strata are kept separate. Supervision and interaction budgets differ across conditions; architecture-only causality is not established.
 
@@ -70,57 +70,225 @@ CPU reference episodes were previously measured with uncached inference; they we
   },
   "latency": [
     {
-      "condition": "mindscape_b",
-      "episodes": 16,
-      "planned": 20,
-      "measurement_source": "Reused actual cache-disabled representative MPS smoke benchmark; no additional neural run",
+      "condition": "model_only",
+      "episodes": 4,
+      "planned": 4,
+      "measurement_source": "Dedicated cache-disabled stage benchmark",
       "device_precision_counts": {
-        "mps/float16": 128
+        "mps/float16": 4
       },
       "actual_batch_sizes": [
-        16
+        1
       ],
-      "peak_process_rss_bytes": null,
-      "peak_mps_live_bytes": null,
-      "peak_mps_driver_bytes": null,
+      "peak_process_rss_bytes": 3802660864,
+      "peak_mps_live_bytes": 3132599552,
+      "peak_mps_driver_bytes": 4389109760,
       "peak_cuda_allocated_bytes": null,
       "peak_cuda_reserved_bytes": null,
-      "sequential_episodes_per_hour": null,
+      "sequential_episodes_per_hour": 1475.2094699714482,
       "percentiles": {
         "total": {
-          "p50": 373.02724195850897,
-          "p95": 373.10285165624737,
-          "n": 16
+          "p50": 2.5287001245001193,
+          "p95": 2.9951699749499765,
+          "n": 4
         },
         "ttft": {
-          "p50": 19.29911718749645,
-          "p95": 22.887992582996958,
-          "n": 128
+          "p50": 0.10764597949992094,
+          "p95": 0.8070860983006238,
+          "n": 4
         },
         "response": {
-          "p50": 47.52857843750098,
-          "p95": 62.74817655384686,
-          "n": 128
+          "p50": 2.2023833544999434,
+          "p95": 2.6520218813000156,
+          "n": 4
         },
         "model_generation": {
-          "p50": 368.19099453998206,
-          "p95": 368.19099453998206,
-          "n": 16
+          "p50": 2.2023833544999434,
+          "p95": 2.6520218813000156,
+          "n": 4
         },
         "environment_execution": {
-          "p50": 0.016273770495899953,
-          "p95": 0.024654030479723588,
-          "n": 16
+          "p50": 0.00013612449993161135,
+          "p95": 0.0004516401001183111,
+          "n": 4
         },
         "verification": {
-          "p50": 2.0404848954931367,
-          "p95": 2.1578504689969122,
-          "n": 16
+          "p50": 0.3319560420000016,
+          "p95": 0.3436878607001745,
+          "n": 4
         },
         "test_execution": {
-          "p50": 0.0,
-          "p95": 0.0,
-          "n": 16
+          "p50": 0.3318179789998794,
+          "p95": 0.34356011874992876,
+          "n": 4
+        }
+      },
+      "caution": "Descriptive sample; stage timers overlap. TTFT is model first-token time after CPU input encoding. Response is per-call wall time including encoding/decoding in dedicated measurements; total is multi-step episode wall time. Batched smoke model durations are shared across requests. Unmeasured timers are not inferred."
+    },
+    {
+      "condition": "structured",
+      "episodes": 4,
+      "planned": 4,
+      "measurement_source": "Dedicated cache-disabled stage benchmark",
+      "device_precision_counts": {
+        "mps/float16": 4
+      },
+      "actual_batch_sizes": [
+        1
+      ],
+      "peak_process_rss_bytes": 3802660864,
+      "peak_mps_live_bytes": 3134778624,
+      "peak_mps_driver_bytes": 4431052800,
+      "peak_cuda_allocated_bytes": null,
+      "peak_cuda_reserved_bytes": null,
+      "sequential_episodes_per_hour": 1252.859663165493,
+      "percentiles": {
+        "total": {
+          "p50": 2.891284770499624,
+          "p95": 3.226074864299926,
+          "n": 4
+        },
+        "ttft": {
+          "p50": 0.3468195834998369,
+          "p95": 0.3796293562498249,
+          "n": 4
+        },
+        "response": {
+          "p50": 2.5587374795004507,
+          "p95": 2.895561100049872,
+          "n": 4
+        },
+        "model_generation": {
+          "p50": 2.5587374795004507,
+          "p95": 2.895561100049872,
+          "n": 4
+        },
+        "environment_execution": {
+          "p50": 0.0006867300003250421,
+          "p95": 0.0008416026992108527,
+          "n": 4
+        },
+        "verification": {
+          "p50": 0.3316854585004876,
+          "p95": 0.33450531509984105,
+          "n": 4
+        },
+        "test_execution": {
+          "p50": 0.33154877100014346,
+          "p95": 0.3343919018002907,
+          "n": 4
+        }
+      },
+      "caution": "Descriptive sample; stage timers overlap. TTFT is model first-token time after CPU input encoding. Response is per-call wall time including encoding/decoding in dedicated measurements; total is multi-step episode wall time. Batched smoke model durations are shared across requests. Unmeasured timers are not inferred."
+    },
+    {
+      "condition": "mindscape_b",
+      "episodes": 4,
+      "planned": 4,
+      "measurement_source": "Dedicated cache-disabled stage benchmark",
+      "device_precision_counts": {
+        "mps/float16": 32
+      },
+      "actual_batch_sizes": [
+        1
+      ],
+      "peak_process_rss_bytes": 3802660864,
+      "peak_mps_live_bytes": 3136957696,
+      "peak_mps_driver_bytes": 4506550272,
+      "peak_cuda_allocated_bytes": null,
+      "peak_cuda_reserved_bytes": null,
+      "sequential_episodes_per_hour": 95.38661046707223,
+      "percentiles": {
+        "total": {
+          "p50": 35.924512353999944,
+          "p95": 44.30880428300006,
+          "n": 4
+        },
+        "ttft": {
+          "p50": 1.1655523545000506,
+          "p95": 1.6721938956499798,
+          "n": 32
+        },
+        "response": {
+          "p50": 4.590948958500576,
+          "p95": 5.841075649850472,
+          "n": 32
+        },
+        "model_generation": {
+          "p50": 35.228675708500305,
+          "p95": 43.44583151340143,
+          "n": 4
+        },
+        "environment_execution": {
+          "p50": 0.0012617284996849776,
+          "p95": 0.0015499980499498632,
+          "n": 4
+        },
+        "verification": {
+          "p50": 0.3748883539997223,
+          "p95": 0.47029650980048243,
+          "n": 4
+        },
+        "test_execution": {
+          "p50": 0.7139516665001793,
+          "p95": 0.8574064588998226,
+          "n": 4
+        }
+      },
+      "caution": "Descriptive sample; stage timers overlap. TTFT is model first-token time after CPU input encoding. Response is per-call wall time including encoding/decoding in dedicated measurements; total is multi-step episode wall time. Batched smoke model durations are shared across requests. Unmeasured timers are not inferred."
+    },
+    {
+      "condition": "mindscape_c",
+      "episodes": 4,
+      "planned": 4,
+      "measurement_source": "Dedicated cache-disabled stage benchmark",
+      "device_precision_counts": {
+        "mps/float16": 32
+      },
+      "actual_batch_sizes": [
+        1
+      ],
+      "peak_process_rss_bytes": 3802660864,
+      "peak_mps_live_bytes": 3139136768,
+      "peak_mps_driver_bytes": 4514938880,
+      "peak_cuda_allocated_bytes": null,
+      "peak_cuda_reserved_bytes": null,
+      "sequential_episodes_per_hour": 117.28219079755843,
+      "percentiles": {
+        "total": {
+          "p50": 31.74315270850002,
+          "p95": 32.581375693700465,
+          "n": 4
+        },
+        "ttft": {
+          "p50": 1.1719996460001312,
+          "p95": 1.6940761644004851,
+          "n": 32
+        },
+        "response": {
+          "p50": 3.9009514585000034,
+          "p95": 4.31798346860005,
+          "n": 32
+        },
+        "model_generation": {
+          "p50": 31.05320908349904,
+          "p95": 31.83074219474984,
+          "n": 4
+        },
+        "environment_execution": {
+          "p50": 0.0014917294993210817,
+          "p95": 0.0035893313990072776,
+          "n": 4
+        },
+        "verification": {
+          "p50": 0.3700127080001039,
+          "p95": 0.38461931249967163,
+          "n": 4
+        },
+        "test_execution": {
+          "p50": 0.6868583330001456,
+          "p95": 0.7454004454003552,
+          "n": 4
         }
       },
       "caution": "Descriptive sample; stage timers overlap. TTFT is model first-token time after CPU input encoding. Response is per-call wall time including encoding/decoding in dedicated measurements; total is multi-step episode wall time. Batched smoke model durations are shared across requests. Unmeasured timers are not inferred."
@@ -133,6 +301,6 @@ CPU reference episodes were previously measured with uncached inference; they we
 
 0.5B: 94/164 (57.32%); 1.5B: 98/164 (59.76%). Greedy one-sample full-module generation, 512-token cap, CPython 3.14.7 WASI. Foundation pretraining exposure is unknown. These local results do not exceed historical GPT-4 67.0% or Gemini Ultra 74.4%, and protocols differ. See `docs/historical_references.md` for pinned primary sources.
 
-Dedicated post-lockbox latency is not complete. Any reused smoke measurements are labeled explicitly.
+Dedicated latency: 16/16 fresh sequential cases; actual batch sizes and memory are reported above. Sequential response latency is distinct from frozen batch-16 evaluation throughput.
 
-Complete suite: {'tests': 135, 'failures': 0, 'errors': 0, 'skipped': 0, 'pytest_passed_tests': 129, 'subtests_passed': 6, 'seconds': 23.933}. Local fairness/leakage assertions: 10158, PASS. Contamination-free status remains unknown. All 56 retained adapters validated. SQL environment implemented; SQL model study deferred. Recovery and memory/dream ablations not run; their claims remain inconclusive.
+Complete suite: {'tests': 136, 'failures': 0, 'errors': 0, 'skipped': 0, 'pytest_passed_tests': 130, 'subtests_passed': 6, 'seconds': 22.683}. Local fairness/leakage assertions: 10158, PASS. Contamination-free status remains unknown. All 56 retained adapters validated. SQL environment implemented; SQL model study deferred. Recovery and memory/dream ablations not run; their claims remain inconclusive.

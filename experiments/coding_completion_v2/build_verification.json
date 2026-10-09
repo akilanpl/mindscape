@@ -1,0 +1,10 @@
+{
+  "wheel_sha256": {
+    "work/research_wheel/mindscape-0.1.0-py3-none-any.whl": "14576e6128700a7a45b27757a9f04e4a3dfb14fad6a50ac77b7f40e37c5e98e1"
+  },
+  "compileall": "PASS",
+  "scoped_lint": "PASS",
+  "type_check": "No configured type-check acceptance task; optional mypy unavailable",
+  "whole_repository_lint": "201 pre-existing findings, matching recorded baseline; coding/SQL/current scripts pass",
+  "demo_functional": "All 200 exported records and every step checked against actual saved data with a test DOM; no visual/browser QA claim"
+}

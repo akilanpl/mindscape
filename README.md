@@ -157,3 +157,9 @@ checks are committed under `experiments/research_claims_v1/`; full local records
 checkpoints remain under `results/research_claims_v1/`. No UI was built.
 
 Cloud continuation and verified raw-artifact restoration: [migration instructions](docs/cloud_migration.md). Current primary evidence400/400; learning1122/1920, still partial.
+
+<!-- coding-completion-release -->
+
+## Completed coding research package
+
+The frozen Qwen2.5-Coder-1.5B study contains 400/400 locked condition/task cases (A100, structured100, B100, C100), 1,920/1,920 learning cases, independent replay of all 400 locked trajectories and 16 dedicated latency cases. See [actual metrics](docs/final_metrics.md), [claims](docs/final_claims.md), [limitations](docs/final_limitations.md), [package verification](docs/final_package_verification.md) and [recorded A/C playback](demo/coding/index.html). Completion describes experimental coverage, not a positive scientific result. Historical negative studies are preserved.

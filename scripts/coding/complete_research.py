@@ -108,6 +108,8 @@ def main():
         study.write(ROOT / 'launch.json', {'pid':os.getpid(), 'started_unix':time.time(),
                     'operational_deadline_removed_by_user':True, 'frozen_protocol_sha256':
                     hashlib.sha256((study.ROOT/'locked_protocol.json').read_bytes()).hexdigest(),
+                    'device':'mps', 'precision':'float16', 'maximum_batch_size':16,
+                    'unused_mps_cache_release':'after_each_inference_and_adapter_change',
                     'initial_curve_rows':len(done), 'initial_curve_sha256':hashlib.sha256(curve_path.read_bytes()).hexdigest()})
         coder = ResidentCoder(study.MODEL, precision='float16')
         coder.change_precision('float16')
@@ -118,6 +120,8 @@ def main():
         generate = coder.generate_batch
         def measured(requests):
             result = generate(requests)
+            # Responses are decoded CPU strings; only unused MPS blocks are released.
+            release_unused_mps_cache()
             study.append(ROOT/'resources.jsonl', {'time_unix':time.time(),'actual_batch_size':len(requests),
                          'device':str(coder.device),'precision':coder.precision,
                          'mps_live_bytes':torch.mps.current_allocated_memory(),
@@ -125,6 +129,7 @@ def main():
                          'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss})
             return result
         coder.generate_batch = measured
+        pilot_path = ROOT / ('post_restart_mps_pilot.json' if os.environ.get('MINDSCAPE_RECOVERY_DIAGNOSTIC') == '1' else 'local_mps_pilot.json')
         for condition in ('mindscape_c','mindscape_b','model_only','structured'):
             if STOP:
                 return
@@ -157,7 +162,7 @@ def main():
                     release_unused_mps_cache()
                     partial = ROOT/f'curve_{condition}_{seed}_{budget}.jsonl'
                     fragments.add(partial)
-                    if not (ROOT/'local_mps_pilot.json').exists():
+                    if not pilot_path.exists():
                         started = time.perf_counter()
                         initial = len(done)
                         study.run_group(coder,pending[:1],condition,partial,1,None,
@@ -169,7 +174,7 @@ def main():
                         pilot = study.read(partial)[-1]
                         if not all(a['latency']['device']=='mps' for a in pilot['attempts']):
                             raise RuntimeError('Pilot inference did not use MPS')
-                        study.write(ROOT/'local_mps_pilot.json', {'seconds_per_episode':elapsed,
+                        study.write(pilot_path, {'seconds_per_episode':elapsed,
                                     'episodes_per_hour':3600/elapsed,'actual_batch_size':1,
                                     'selected_main_maximum_batch_size':16,'precision':'float16','device':'mps',
                                     'key':[condition,seed,budget,pilot['split'],pilot['task_id']],
