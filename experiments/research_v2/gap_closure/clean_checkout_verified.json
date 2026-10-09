@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "clean_checkout_commit": "cc9b4d3414a98dcab4de853bcb1c99e75f76aae3",
+  "clone_provenance": "Reused previously clean no-hardlinks clone, fetched new commits and detached checkout; no discarded changes",
+  "archive_clean_restored_files": 328,
+  "release_manifest_hashes_verified": 123,
+  "independent_verifier": "PASS288traces+2320coding pointers+originalnumericarchive+actualneuraldiagnostics+exactstatistics",
+  "original_src_diff": "empty",
+  "completion_tag_created": false,
+  "process_exit_codes": {
+    "failed_initial_observer": 1,
+    "corrected_model_only": 0,
+    "c_probe": 0,
+    "cloud_job": 0,
+    "cloud_monitor": 0
+  },
+  "scope": "All launched diagnostics and targeted controls finished; no full Research v2 completion claim"
+}
