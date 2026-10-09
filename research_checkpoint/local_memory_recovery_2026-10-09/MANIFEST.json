@@ -1,0 +1,24 @@
+{
+  "completed_learning": 1482,
+  "remaining": 438,
+  "original_cpu_rows_unchanged": true,
+  "created_unix": 1791526256.664716,
+  "files": {
+    "results/coding/completion_gradient_v1/rows.jsonl": "c13bae6684c265d4d2bb7cc80a78043feb06b0a1e36f211f1ac46a6551246878",
+    "results/coding/research_continuation_v1/launch.json": "90865c971c47013c6b874cda2bb9881168dad7816828b8b89a92e26a0884d0e7",
+    "results/coding/research_continuation_v1/local_progress.json": "3f0c481c90513cf824d9be05b3e866e44ab8681a866018e92f9605d85c8dfbd9",
+    "results/coding/research_continuation_v1/local_mps_pilot.json": "3eeb497b8ba3a93dd1ae8e3b304cd749b86ce6659d44d18c698d2eaa7306fe46",
+    "results/coding/research_continuation_v1/resources.jsonl": "1bee56746252d237c3c2ebbb30d978e32a9f9c6606b8df192866acab7a3b5624",
+    "work/mindscape_local_completion.log": "f820f28388cb164a34798f59677185da637636871d0e91b964fee29a00bd560a",
+    "results/coding/research_continuation_v1/curve_mindscape_c_37_10.jsonl": "0cceaf1bc7f67fd4280df0bcab09eb2fb85ce373910bcce042c64300ef7e0617",
+    "results/coding/research_continuation_v1/curve_mindscape_c_23_100.jsonl": "ba300fb46db059bedeb4cfaee83bb5fc62bfb8551535b4aa88b12e32cb19ff19",
+    "results/coding/research_continuation_v1/curve_mindscape_c_11_25.jsonl": "405896af6416813e029cf6ab4b7ce4cf3d834345e17d151559cb8c253891f9b1",
+    "results/coding/research_continuation_v1/curve_mindscape_c_23_25.jsonl": "9b16ac0a618d2f81239a8b33f3c10626fffc3ba90aab41a1c9525681025a8c75",
+    "results/coding/research_continuation_v1/curve_mindscape_c_11_100.jsonl": "840ba2bfd0bb22651804f81d93acfe88408d271bf1774f3a7f05d53962ee5046",
+    "results/coding/research_continuation_v1/curve_mindscape_c_23_10.jsonl": "586166e31860296e1452f85775bcb49ad4bdb2864a8ddcd8d01d87c622554b1b",
+    "results/coding/research_continuation_v1/curve_mindscape_c_11_50.jsonl": "ef611d0fadc4386306f8e9417d8cba9098d6d4c913e36ee410d761f79ceee515",
+    "results/coding/research_continuation_v1/curve_mindscape_c_23_50.jsonl": "86571e0ad07ee50018d2cb452e0cd34fab399bd8123f7b815b7b20b24d13a1aa",
+    "results/coding/research_continuation_v1/curve_mindscape_c_11_10.jsonl": "088f607df3171d801527fadea06348cef72c4c58153ad035743cee713d53c46d"
+  },
+  "scope": "Durable evidence snapshot before recovery of a memory-stalled native worker; not a completed release"
+}

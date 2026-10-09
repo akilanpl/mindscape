@@ -28,6 +28,12 @@ def stop_requested(signum, frame):
     print('Stop requested: finish the active checkpoint group, then exit.', flush=True)
 
 
+def release_unused_mps_cache():
+    # Retain all live model tensors; release only unused allocator blocks.
+    gc.collect()
+    torch.mps.empty_cache()
+
+
 def validate_rows(path, expected, key):
     rows = study.read(path)
     keys = [key(r) for r in rows]
@@ -126,6 +132,7 @@ def main():
             if all((condition,t.task_id) in saved for t in tasks):
                 continue
             coder.use_adapter(study.adapter(condition))
+            release_unused_mps_cache()
             study.run_group(coder,tasks,condition,locked_path,16,None,
                             {'seed':11,'budget':100,'one_shot_configuration':True,
                              'adapter':str(study.adapter(condition)), 'protocol':'emergency_mps_v1/locked_protocol.json'})
@@ -147,6 +154,7 @@ def main():
                     if not pending:
                         continue
                     coder.use_adapter(study.adapter(condition,seed,budget))
+                    release_unused_mps_cache()
                     partial = ROOT/f'curve_{condition}_{seed}_{budget}.jsonl'
                     fragments.add(partial)
                     if not (ROOT/'local_mps_pilot.json').exists():
@@ -191,6 +199,7 @@ def main():
         latency_done = validate_rows(latency_path,expected_latency,lambda r:(r['condition'],r['task_id']))
         for condition in CONDITIONS:
             coder.use_adapter(study.adapter(condition))
+            release_unused_mps_cache()
             coder.deadline = None
             for task in reps:
                 if STOP:
