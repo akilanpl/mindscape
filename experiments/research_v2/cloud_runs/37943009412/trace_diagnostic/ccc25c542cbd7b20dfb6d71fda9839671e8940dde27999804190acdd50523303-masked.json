@@ -1,0 +1,4108 @@
+{
+  "schema": "mindscape-computation-trace-2.0",
+  "task_id": "ccc25c542cbd7b20dfb6d71fda9839671e8940dde27999804190acdd50523303",
+  "environment": "integer_multiplication",
+  "exact_model_input": {
+    "example_id": "ccc25c542cbd7b20dfb6d71fda9839671e8940dde27999804190acdd50523303",
+    "environment": "integer_multiplication",
+    "problem": "17 \u00d7 8",
+    "observation": {
+      "operands": [
+        17,
+        8
+      ],
+      "kind": "observation",
+      "source": "instrumentation_diagnostic"
+    },
+    "initial_state": {
+      "entities": [
+        {
+          "id": "left",
+          "value": 17
+        },
+        {
+          "id": "right",
+          "value": 8
+        }
+      ],
+      "relations": [
+        {
+          "source": "left",
+          "predicate": "multiplied_by",
+          "target": "right"
+        }
+      ],
+      "left_digits": [
+        7,
+        1
+      ],
+      "right_digits": [
+        8
+      ],
+      "sign": 1,
+      "position": 0,
+      "row_position": 0,
+      "carry": 0,
+      "row_value": 0,
+      "accumulated": 0,
+      "phase": "multiply",
+      "answer": null,
+      "context": "decimal_integer_multiplication",
+      "goal": {
+        "description": "Produce the correct signed integer product"
+      }
+    },
+    "goal": {
+      "description": "Produce the correct signed integer product"
+    }
+  },
+  "configuration": {
+    "legal_action_mask": true,
+    "state_features": true,
+    "previous_action_features": true,
+    "max_steps": 256,
+    "wall_clock_cutoff": null
+  },
+  "model": {
+    "identifier": "numpy_mlp_trajectory_policy_v1",
+    "backend": "numpy_tanh_mlp_v1",
+    "parameter_count": 3652,
+    "adapter": null,
+    "seed": 0,
+    "weights_sha256": {
+      "w1": "b5988081a3c91721a1ca770987f4e47e149a269f20d68f57836e357fb72d4726",
+      "b1": "763fc6a47fba9233c907a4a454bbb99b716bce1dc4d8ddf1c3b3f4d08a20d625",
+      "w2": "3680158b2829621e2e68254335cc6b5838285f3a39694a0df425a5016c285cff",
+      "b2": "34597eea63bccec6b8a845677756f70f7ad0deb5eef02ee19b06f02100939110"
+    }
+  },
+  "events": [
+    {
+      "index": 0,
+      "elapsed_seconds": 4.794000000174492e-05,
+      "component": "MindscapeModel.predict",
+      "computation": "input boundary",
+      "observed": {
+        "model_input": {
+          "example_id": "ccc25c542cbd7b20dfb6d71fda9839671e8940dde27999804190acdd50523303",
+          "environment": "integer_multiplication",
+          "problem": "17 \u00d7 8",
+          "observation": {
+            "operands": [
+              17,
+              8
+            ],
+            "kind": "observation",
+            "source": "instrumentation_diagnostic"
+          },
+          "initial_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 0,
+            "row_position": 0,
+            "carry": 0,
+            "row_value": 0,
+            "accumulated": 0,
+            "phase": "multiply",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        },
+        "normalization": "Frozen numeric features: sign, reverse decimal digits and bounded state scalars",
+        "tokenization": {
+          "status": "not applicable",
+          "reason": "Numeric MLP; no text tokenizer"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "elapsed_seconds": 0.0002649099999985083,
+      "component": "WorkingMemory.reset",
+      "computation": "deterministic control",
+      "observed": {
+        "before": {
+          "current_state": null,
+          "current_goal": null,
+          "current_observation": null,
+          "action_history": {
+            "length": 0,
+            "latest": null
+          },
+          "event_history": {
+            "length": 0,
+            "latest": null
+          },
+          "result_history": {
+            "length": 0,
+            "latest": null
+          },
+          "trajectory_so_far": {
+            "length": 0,
+            "latest": null
+          }
+        },
+        "after": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 0,
+            "row_position": 0,
+            "carry": 0,
+            "row_value": 0,
+            "accumulated": 0,
+            "phase": "multiply",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "operands": [
+              17,
+              8
+            ],
+            "source": "instrumentation_diagnostic",
+            "kind": "observation"
+          },
+          "action_history": {
+            "length": 0,
+            "latest": null
+          },
+          "event_history": {
+            "length": 0,
+            "latest": null
+          },
+          "result_history": {
+            "length": 0,
+            "latest": null
+          },
+          "trajectory_so_far": {
+            "length": 0,
+            "latest": null
+          }
+        }
+      }
+    },
+    {
+      "index": 2,
+      "elapsed_seconds": 0.0005234110000174041,
+      "component": "NumpyMLP.logits",
+      "computation": "learned neural forward",
+      "observed": {
+        "raw_features": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.7777777777777778,
+            0.8888888888888888,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "features_used": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.7777777777777778,
+            0.8888888888888888,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "input_shape": [
+          1,
+          52
+        ],
+        "weight_shapes": {
+          "w1": [
+            52,
+            64
+          ],
+          "b1": [
+            64
+          ],
+          "w2": [
+            64,
+            4
+          ],
+          "b2": [
+            4
+          ]
+        },
+        "hidden_shape": [
+          1,
+          64
+        ],
+        "logits_shape": [
+          1,
+          4
+        ],
+        "logits": [
+          [
+            7.463193054991778,
+            -5.8713206290012865,
+            -2.649492735979305,
+            -2.885936787879013
+          ]
+        ],
+        "derived_uncalibrated_softmax": [
+          [
+            0.99992580545827,
+            1.6175662044717279e-06,
+            4.055871063496653e-05,
+            3.201826489059788e-05
+          ]
+        ],
+        "reconstructed_hidden_summary": {
+          "mean": -0.038861168118821246,
+          "std": 0.5307114080603235,
+          "min": -0.8754876170654404,
+          "max": 0.8674467014221716
+        },
+        "hidden_provenance": "Recomputed from observed input and checkpoint; not stack-captured",
+        "forward_seconds": 0.00012976099998240898
+      }
+    },
+    {
+      "index": 3,
+      "elapsed_seconds": 0.000991220000003068,
+      "component": "WorkingMemory.update",
+      "computation": "deterministic control",
+      "observed": {
+        "before": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 0,
+            "row_position": 0,
+            "carry": 0,
+            "row_value": 0,
+            "accumulated": 0,
+            "phase": "multiply",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "operands": [
+              17,
+              8
+            ],
+            "source": "instrumentation_diagnostic",
+            "kind": "observation"
+          },
+          "action_history": {
+            "length": 0,
+            "latest": null
+          },
+          "event_history": {
+            "length": 0,
+            "latest": null
+          },
+          "result_history": {
+            "length": 0,
+            "latest": null
+          },
+          "trajectory_so_far": {
+            "length": 0,
+            "latest": null
+          }
+        },
+        "after": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 1,
+            "row_position": 0,
+            "carry": 5,
+            "row_value": 6,
+            "accumulated": 0,
+            "phase": "multiply",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "kind": "observation",
+            "source": "environment_feedback",
+            "event": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            },
+            "actual_result": {
+              "value": 56,
+              "written_digit": 6,
+              "carry": 5,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "action_history": {
+            "length": 1,
+            "latest": {
+              "name": "multiply",
+              "position": 0,
+              "row_position": 0
+            }
+          },
+          "event_history": {
+            "length": 1,
+            "latest": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            }
+          },
+          "result_history": {
+            "length": 1,
+            "latest": {
+              "value": 56,
+              "written_digit": 6,
+              "carry": 5,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "trajectory_so_far": {
+            "length": 1,
+            "latest": {
+              "state_before": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 0,
+                "row_position": 0,
+                "carry": 0,
+                "row_value": 0,
+                "accumulated": 0,
+                "phase": "multiply",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              },
+              "action": {
+                "name": "multiply",
+                "position": 0,
+                "row_position": 0
+              },
+              "event": {
+                "name": "digit_written",
+                "detail": "Multiply operand digits, add incoming carry"
+              },
+              "result": {
+                "value": 56,
+                "written_digit": 6,
+                "carry": 5,
+                "kind": "actual_result",
+                "source": "multiplication_environment"
+              },
+              "state_after": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 1,
+                "row_position": 0,
+                "carry": 5,
+                "row_value": 6,
+                "accumulated": 0,
+                "phase": "multiply",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 4,
+      "elapsed_seconds": 0.001351161000002321,
+      "component": "NumpyMLP.logits",
+      "computation": "learned neural forward",
+      "observed": {
+        "raw_features": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.16666666666666666,
+            0.0,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.5,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.1111111111111111,
+            0.8888888888888888,
+            0.09729550745276566,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "features_used": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.16666666666666666,
+            0.0,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.5,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.1111111111111111,
+            0.8888888888888888,
+            0.09729550745276566,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "input_shape": [
+          1,
+          52
+        ],
+        "weight_shapes": {
+          "w1": [
+            52,
+            64
+          ],
+          "b1": [
+            64
+          ],
+          "w2": [
+            64,
+            4
+          ],
+          "b2": [
+            4
+          ]
+        },
+        "hidden_shape": [
+          1,
+          64
+        ],
+        "logits_shape": [
+          1,
+          4
+        ],
+        "logits": [
+          [
+            4.911218084736326,
+            0.4620269378130316,
+            -3.3944873099868693,
+            -4.8953865086687784
+          ]
+        ],
+        "derived_uncalibrated_softmax": [
+          [
+            0.9881518551196452,
+            0.011549535717350028,
+            0.0002441752657544811,
+            5.44338972503377e-05
+          ]
+        ],
+        "reconstructed_hidden_summary": {
+          "mean": -0.013926583259057615,
+          "std": 0.43627061320626076,
+          "min": -0.9486708485873915,
+          "max": 0.8312260331203853
+        },
+        "hidden_provenance": "Recomputed from observed input and checkpoint; not stack-captured",
+        "forward_seconds": 7.049299995287583e-05
+      }
+    },
+    {
+      "index": 5,
+      "elapsed_seconds": 0.001883075000023382,
+      "component": "WorkingMemory.update",
+      "computation": "deterministic control",
+      "observed": {
+        "before": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 1,
+            "row_position": 0,
+            "carry": 5,
+            "row_value": 6,
+            "accumulated": 0,
+            "phase": "multiply",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "kind": "observation",
+            "source": "environment_feedback",
+            "event": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            },
+            "actual_result": {
+              "value": 56,
+              "written_digit": 6,
+              "carry": 5,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "action_history": {
+            "length": 1,
+            "latest": {
+              "name": "multiply",
+              "position": 0,
+              "row_position": 0
+            }
+          },
+          "event_history": {
+            "length": 1,
+            "latest": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            }
+          },
+          "result_history": {
+            "length": 1,
+            "latest": {
+              "value": 56,
+              "written_digit": 6,
+              "carry": 5,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "trajectory_so_far": {
+            "length": 1,
+            "latest": {
+              "state_before": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 0,
+                "row_position": 0,
+                "carry": 0,
+                "row_value": 0,
+                "accumulated": 0,
+                "phase": "multiply",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              },
+              "action": {
+                "name": "multiply",
+                "position": 0,
+                "row_position": 0
+              },
+              "event": {
+                "name": "digit_written",
+                "detail": "Multiply operand digits, add incoming carry"
+              },
+              "result": {
+                "value": 56,
+                "written_digit": 6,
+                "carry": 5,
+                "kind": "actual_result",
+                "source": "multiplication_environment"
+              },
+              "state_after": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 1,
+                "row_position": 0,
+                "carry": 5,
+                "row_value": 6,
+                "accumulated": 0,
+                "phase": "multiply",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              }
+            }
+          }
+        },
+        "after": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 2,
+            "row_position": 0,
+            "carry": 1,
+            "row_value": 36,
+            "accumulated": 0,
+            "phase": "flush",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "kind": "observation",
+            "source": "environment_feedback",
+            "event": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            },
+            "actual_result": {
+              "value": 13,
+              "written_digit": 3,
+              "carry": 1,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "action_history": {
+            "length": 2,
+            "latest": {
+              "name": "multiply",
+              "position": 1,
+              "row_position": 0
+            }
+          },
+          "event_history": {
+            "length": 2,
+            "latest": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            }
+          },
+          "result_history": {
+            "length": 2,
+            "latest": {
+              "value": 13,
+              "written_digit": 3,
+              "carry": 1,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "trajectory_so_far": {
+            "length": 2,
+            "latest": {
+              "state_before": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 1,
+                "row_position": 0,
+                "carry": 5,
+                "row_value": 6,
+                "accumulated": 0,
+                "phase": "multiply",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              },
+              "action": {
+                "name": "multiply",
+                "position": 1,
+                "row_position": 0
+              },
+              "event": {
+                "name": "digit_written",
+                "detail": "Multiply operand digits, add incoming carry"
+              },
+              "result": {
+                "value": 13,
+                "written_digit": 3,
+                "carry": 1,
+                "kind": "actual_result",
+                "source": "multiplication_environment"
+              },
+              "state_after": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 2,
+                "row_position": 0,
+                "carry": 1,
+                "row_value": 36,
+                "accumulated": 0,
+                "phase": "flush",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 6,
+      "elapsed_seconds": 0.0022994380000227466,
+      "component": "NumpyMLP.logits",
+      "computation": "learned neural forward",
+      "observed": {
+        "raw_features": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.3333333333333333,
+            0.0,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.1,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            0.3333333333333333,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.8888888888888888,
+            0.1805458956322112,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "features_used": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.3333333333333333,
+            0.0,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.1,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            0.3333333333333333,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.8888888888888888,
+            0.1805458956322112,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "input_shape": [
+          1,
+          52
+        ],
+        "weight_shapes": {
+          "w1": [
+            52,
+            64
+          ],
+          "b1": [
+            64
+          ],
+          "w2": [
+            64,
+            4
+          ],
+          "b2": [
+            4
+          ]
+        },
+        "hidden_shape": [
+          1,
+          64
+        ],
+        "logits_shape": [
+          1,
+          4
+        ],
+        "logits": [
+          [
+            -0.3590169707885679,
+            5.429425427623174,
+            -0.8776693535152092,
+            -4.9931313312018535
+          ]
+        ],
+        "derived_uncalibrated_softmax": [
+          [
+            0.003047766716669995,
+            0.9951082217097432,
+            0.0018144034130561748,
+            2.9608160530710187e-05
+          ]
+        ],
+        "reconstructed_hidden_summary": {
+          "mean": -0.031768780104012545,
+          "std": 0.4494721940598878,
+          "min": -0.9688344986766225,
+          "max": 0.7901209156385028
+        },
+        "hidden_provenance": "Recomputed from observed input and checkpoint; not stack-captured",
+        "forward_seconds": 6.32329999916692e-05
+      }
+    },
+    {
+      "index": 7,
+      "elapsed_seconds": 0.0028179930000078457,
+      "component": "WorkingMemory.update",
+      "computation": "deterministic control",
+      "observed": {
+        "before": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 2,
+            "row_position": 0,
+            "carry": 1,
+            "row_value": 36,
+            "accumulated": 0,
+            "phase": "flush",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "kind": "observation",
+            "source": "environment_feedback",
+            "event": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            },
+            "actual_result": {
+              "value": 13,
+              "written_digit": 3,
+              "carry": 1,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "action_history": {
+            "length": 2,
+            "latest": {
+              "name": "multiply",
+              "position": 1,
+              "row_position": 0
+            }
+          },
+          "event_history": {
+            "length": 2,
+            "latest": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            }
+          },
+          "result_history": {
+            "length": 2,
+            "latest": {
+              "value": 13,
+              "written_digit": 3,
+              "carry": 1,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "trajectory_so_far": {
+            "length": 2,
+            "latest": {
+              "state_before": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 1,
+                "row_position": 0,
+                "carry": 5,
+                "row_value": 6,
+                "accumulated": 0,
+                "phase": "multiply",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              },
+              "action": {
+                "name": "multiply",
+                "position": 1,
+                "row_position": 0
+              },
+              "event": {
+                "name": "digit_written",
+                "detail": "Multiply operand digits, add incoming carry"
+              },
+              "result": {
+                "value": 13,
+                "written_digit": 3,
+                "carry": 1,
+                "kind": "actual_result",
+                "source": "multiplication_environment"
+              },
+              "state_after": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 2,
+                "row_position": 0,
+                "carry": 1,
+                "row_value": 36,
+                "accumulated": 0,
+                "phase": "flush",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              }
+            }
+          }
+        },
+        "after": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 2,
+            "row_position": 0,
+            "carry": 0,
+            "row_value": 136,
+            "accumulated": 0,
+            "phase": "accumulate",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "kind": "observation",
+            "source": "environment_feedback",
+            "event": {
+              "name": "carry_flushed",
+              "detail": "Append remaining carry to the partial row"
+            },
+            "actual_result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "action_history": {
+            "length": 3,
+            "latest": {
+              "name": "flush",
+              "position": 2,
+              "row_position": 0
+            }
+          },
+          "event_history": {
+            "length": 3,
+            "latest": {
+              "name": "carry_flushed",
+              "detail": "Append remaining carry to the partial row"
+            }
+          },
+          "result_history": {
+            "length": 3,
+            "latest": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "trajectory_so_far": {
+            "length": 3,
+            "latest": {
+              "state_before": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 2,
+                "row_position": 0,
+                "carry": 1,
+                "row_value": 36,
+                "accumulated": 0,
+                "phase": "flush",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              },
+              "action": {
+                "name": "flush",
+                "position": 2,
+                "row_position": 0
+              },
+              "event": {
+                "name": "carry_flushed",
+                "detail": "Append remaining carry to the partial row"
+              },
+              "result": {
+                "value": 136,
+                "written_digit": null,
+                "carry": 0,
+                "kind": "actual_result",
+                "source": "multiplication_environment"
+              },
+              "state_after": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 2,
+                "row_position": 0,
+                "carry": 0,
+                "row_value": 136,
+                "accumulated": 0,
+                "phase": "accumulate",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 8,
+      "elapsed_seconds": 0.003221456999995098,
+      "component": "NumpyMLP.logits",
+      "computation": "learned neural forward",
+      "observed": {
+        "raw_features": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.3333333333333333,
+            0.0,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            0.3333333333333333,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.8888888888888888,
+            0.24599904629140626,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "features_used": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.3333333333333333,
+            0.0,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            0.3333333333333333,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.8888888888888888,
+            0.24599904629140626,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "input_shape": [
+          1,
+          52
+        ],
+        "weight_shapes": {
+          "w1": [
+            52,
+            64
+          ],
+          "b1": [
+            64
+          ],
+          "w2": [
+            64,
+            4
+          ],
+          "b2": [
+            4
+          ]
+        },
+        "hidden_shape": [
+          1,
+          64
+        ],
+        "logits_shape": [
+          1,
+          4
+        ],
+        "logits": [
+          [
+            -2.10468238227396,
+            -0.5604939717204505,
+            6.1393332638992435,
+            -3.369816422451874
+          ]
+        ],
+        "derived_uncalibrated_softmax": [
+          [
+            0.00026241520955665117,
+            0.001229197048616587,
+            0.9984343337846558,
+            7.40539571709578e-05
+          ]
+        ],
+        "reconstructed_hidden_summary": {
+          "mean": -0.01609231459940105,
+          "std": 0.4880262618366449,
+          "min": -0.9480274545310108,
+          "max": 0.8482464308438294
+        },
+        "hidden_provenance": "Recomputed from observed input and checkpoint; not stack-captured",
+        "forward_seconds": 7.325799998625371e-05
+      }
+    },
+    {
+      "index": 9,
+      "elapsed_seconds": 0.0043308919999844875,
+      "component": "WorkingMemory.update",
+      "computation": "deterministic control",
+      "observed": {
+        "before": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 2,
+            "row_position": 0,
+            "carry": 0,
+            "row_value": 136,
+            "accumulated": 0,
+            "phase": "accumulate",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "kind": "observation",
+            "source": "environment_feedback",
+            "event": {
+              "name": "carry_flushed",
+              "detail": "Append remaining carry to the partial row"
+            },
+            "actual_result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "action_history": {
+            "length": 3,
+            "latest": {
+              "name": "flush",
+              "position": 2,
+              "row_position": 0
+            }
+          },
+          "event_history": {
+            "length": 3,
+            "latest": {
+              "name": "carry_flushed",
+              "detail": "Append remaining carry to the partial row"
+            }
+          },
+          "result_history": {
+            "length": 3,
+            "latest": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "trajectory_so_far": {
+            "length": 3,
+            "latest": {
+              "state_before": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 2,
+                "row_position": 0,
+                "carry": 1,
+                "row_value": 36,
+                "accumulated": 0,
+                "phase": "flush",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              },
+              "action": {
+                "name": "flush",
+                "position": 2,
+                "row_position": 0
+              },
+              "event": {
+                "name": "carry_flushed",
+                "detail": "Append remaining carry to the partial row"
+              },
+              "result": {
+                "value": 136,
+                "written_digit": null,
+                "carry": 0,
+                "kind": "actual_result",
+                "source": "multiplication_environment"
+              },
+              "state_after": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 2,
+                "row_position": 0,
+                "carry": 0,
+                "row_value": 136,
+                "accumulated": 0,
+                "phase": "accumulate",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              }
+            }
+          }
+        },
+        "after": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 0,
+            "row_position": 1,
+            "carry": 0,
+            "row_value": 0,
+            "accumulated": 136,
+            "phase": "finish",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "kind": "observation",
+            "source": "environment_feedback",
+            "event": {
+              "name": "row_accumulated",
+              "detail": "Add place-shifted partial row"
+            },
+            "actual_result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "action_history": {
+            "length": 4,
+            "latest": {
+              "name": "accumulate",
+              "position": 2,
+              "row_position": 0
+            }
+          },
+          "event_history": {
+            "length": 4,
+            "latest": {
+              "name": "row_accumulated",
+              "detail": "Add place-shifted partial row"
+            }
+          },
+          "result_history": {
+            "length": 4,
+            "latest": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "trajectory_so_far": {
+            "length": 4,
+            "latest": {
+              "state_before": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 2,
+                "row_position": 0,
+                "carry": 0,
+                "row_value": 136,
+                "accumulated": 0,
+                "phase": "accumulate",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              },
+              "action": {
+                "name": "accumulate",
+                "position": 2,
+                "row_position": 0
+              },
+              "event": {
+                "name": "row_accumulated",
+                "detail": "Add place-shifted partial row"
+              },
+              "result": {
+                "value": 136,
+                "written_digit": null,
+                "carry": 0,
+                "kind": "actual_result",
+                "source": "multiplication_environment"
+              },
+              "state_after": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 0,
+                "row_position": 1,
+                "carry": 0,
+                "row_value": 0,
+                "accumulated": 136,
+                "phase": "finish",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "index": 10,
+      "elapsed_seconds": 0.00474764599999844,
+      "component": "NumpyMLP.logits",
+      "computation": "learned neural forward",
+      "observed": {
+        "raw_features": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.0,
+            0.16666666666666666,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.6666666666666666,
+            0.3333333333333333,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.7777777777777778,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "features_used": [
+          [
+            0.7777777777777778,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.3333333333333333,
+            1.0,
+            0.8888888888888888,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.16666666666666666,
+            1.0,
+            0.0,
+            0.16666666666666666,
+            0.3333333333333333,
+            0.16666666666666666,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.6666666666666666,
+            0.3333333333333333,
+            0.1111111111111111,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.7777777777777778,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "input_shape": [
+          1,
+          52
+        ],
+        "weight_shapes": {
+          "w1": [
+            52,
+            64
+          ],
+          "b1": [
+            64
+          ],
+          "w2": [
+            64,
+            4
+          ],
+          "b2": [
+            4
+          ]
+        },
+        "hidden_shape": [
+          1,
+          64
+        ],
+        "logits_shape": [
+          1,
+          4
+        ],
+        "logits": [
+          [
+            1.2587086274176995,
+            -5.522139480361065,
+            -1.5120742482034968,
+            6.317236574911683
+          ]
+        ],
+        "derived_uncalibrated_softmax": [
+          [
+            0.006312236531740049,
+            7.166355503364196e-06,
+            0.0003952278600809606,
+            0.9932853692526755
+          ]
+        ],
+        "reconstructed_hidden_summary": {
+          "mean": -0.03186425475748157,
+          "std": 0.5346511739899978,
+          "min": -0.8974884931484266,
+          "max": 0.9041445083297923
+        },
+        "hidden_provenance": "Recomputed from observed input and checkpoint; not stack-captured",
+        "forward_seconds": 6.4074000022174e-05
+      }
+    },
+    {
+      "index": 11,
+      "elapsed_seconds": 0.005293311000002632,
+      "component": "WorkingMemory.update",
+      "computation": "deterministic control",
+      "observed": {
+        "before": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 0,
+            "row_position": 1,
+            "carry": 0,
+            "row_value": 0,
+            "accumulated": 136,
+            "phase": "finish",
+            "answer": null,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "kind": "observation",
+            "source": "environment_feedback",
+            "event": {
+              "name": "row_accumulated",
+              "detail": "Add place-shifted partial row"
+            },
+            "actual_result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "action_history": {
+            "length": 4,
+            "latest": {
+              "name": "accumulate",
+              "position": 2,
+              "row_position": 0
+            }
+          },
+          "event_history": {
+            "length": 4,
+            "latest": {
+              "name": "row_accumulated",
+              "detail": "Add place-shifted partial row"
+            }
+          },
+          "result_history": {
+            "length": 4,
+            "latest": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "trajectory_so_far": {
+            "length": 4,
+            "latest": {
+              "state_before": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 2,
+                "row_position": 0,
+                "carry": 0,
+                "row_value": 136,
+                "accumulated": 0,
+                "phase": "accumulate",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              },
+              "action": {
+                "name": "accumulate",
+                "position": 2,
+                "row_position": 0
+              },
+              "event": {
+                "name": "row_accumulated",
+                "detail": "Add place-shifted partial row"
+              },
+              "result": {
+                "value": 136,
+                "written_digit": null,
+                "carry": 0,
+                "kind": "actual_result",
+                "source": "multiplication_environment"
+              },
+              "state_after": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 0,
+                "row_position": 1,
+                "carry": 0,
+                "row_value": 0,
+                "accumulated": 136,
+                "phase": "finish",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              }
+            }
+          }
+        },
+        "after": {
+          "current_state": {
+            "entities": [
+              {
+                "id": "left",
+                "value": 17
+              },
+              {
+                "id": "right",
+                "value": 8
+              }
+            ],
+            "relations": [
+              {
+                "source": "left",
+                "predicate": "multiplied_by",
+                "target": "right"
+              }
+            ],
+            "left_digits": [
+              7,
+              1
+            ],
+            "right_digits": [
+              8
+            ],
+            "sign": 1,
+            "position": 0,
+            "row_position": 1,
+            "carry": 0,
+            "row_value": 0,
+            "accumulated": 136,
+            "phase": "done",
+            "answer": 136,
+            "context": "decimal_integer_multiplication",
+            "goal": {
+              "description": "Produce the correct signed integer product"
+            }
+          },
+          "current_goal": {
+            "description": "Produce the correct signed integer product"
+          },
+          "current_observation": {
+            "kind": "observation",
+            "source": "environment_feedback",
+            "event": {
+              "name": "answer_materialized",
+              "detail": "Apply the operand sign"
+            },
+            "actual_result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "action_history": {
+            "length": 5,
+            "latest": {
+              "name": "finish",
+              "position": 0,
+              "row_position": 1
+            }
+          },
+          "event_history": {
+            "length": 5,
+            "latest": {
+              "name": "answer_materialized",
+              "detail": "Apply the operand sign"
+            }
+          },
+          "result_history": {
+            "length": 5,
+            "latest": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            }
+          },
+          "trajectory_so_far": {
+            "length": 5,
+            "latest": {
+              "state_before": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 0,
+                "row_position": 1,
+                "carry": 0,
+                "row_value": 0,
+                "accumulated": 136,
+                "phase": "finish",
+                "answer": null,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              },
+              "action": {
+                "name": "finish",
+                "position": 0,
+                "row_position": 1
+              },
+              "event": {
+                "name": "answer_materialized",
+                "detail": "Apply the operand sign"
+              },
+              "result": {
+                "value": 136,
+                "written_digit": null,
+                "carry": 0,
+                "kind": "actual_result",
+                "source": "multiplication_environment"
+              },
+              "state_after": {
+                "entities": [
+                  {
+                    "id": "left",
+                    "value": 17
+                  },
+                  {
+                    "id": "right",
+                    "value": 8
+                  }
+                ],
+                "relations": [
+                  {
+                    "source": "left",
+                    "predicate": "multiplied_by",
+                    "target": "right"
+                  }
+                ],
+                "left_digits": [
+                  7,
+                  1
+                ],
+                "right_digits": [
+                  8
+                ],
+                "sign": 1,
+                "position": 0,
+                "row_position": 1,
+                "carry": 0,
+                "row_value": 0,
+                "accumulated": 136,
+                "phase": "done",
+                "answer": 136,
+                "context": "decimal_integer_multiplication",
+                "goal": {
+                  "description": "Produce the correct signed integer product"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "result": {
+    "prediction": {
+      "answer": 136,
+      "trajectory": {
+        "observation": {
+          "operands": [
+            17,
+            8
+          ],
+          "source": "instrumentation_diagnostic",
+          "kind": "observation"
+        },
+        "initial_state": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 17
+            },
+            {
+              "id": "right",
+              "value": 8
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            7,
+            1
+          ],
+          "right_digits": [
+            8
+          ],
+          "sign": 1,
+          "position": 0,
+          "row_position": 0,
+          "carry": 0,
+          "row_value": 0,
+          "accumulated": 0,
+          "phase": "multiply",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        },
+        "transitions": [
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 0,
+              "row_position": 0,
+              "carry": 0,
+              "row_value": 0,
+              "accumulated": 0,
+              "phase": "multiply",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "multiply",
+              "position": 0,
+              "row_position": 0
+            },
+            "event": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            },
+            "result": {
+              "value": 56,
+              "written_digit": 6,
+              "carry": 5,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 1,
+              "row_position": 0,
+              "carry": 5,
+              "row_value": 6,
+              "accumulated": 0,
+              "phase": "multiply",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          },
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 1,
+              "row_position": 0,
+              "carry": 5,
+              "row_value": 6,
+              "accumulated": 0,
+              "phase": "multiply",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "multiply",
+              "position": 1,
+              "row_position": 0
+            },
+            "event": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            },
+            "result": {
+              "value": 13,
+              "written_digit": 3,
+              "carry": 1,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 2,
+              "row_position": 0,
+              "carry": 1,
+              "row_value": 36,
+              "accumulated": 0,
+              "phase": "flush",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          },
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 2,
+              "row_position": 0,
+              "carry": 1,
+              "row_value": 36,
+              "accumulated": 0,
+              "phase": "flush",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "flush",
+              "position": 2,
+              "row_position": 0
+            },
+            "event": {
+              "name": "carry_flushed",
+              "detail": "Append remaining carry to the partial row"
+            },
+            "result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 2,
+              "row_position": 0,
+              "carry": 0,
+              "row_value": 136,
+              "accumulated": 0,
+              "phase": "accumulate",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          },
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 2,
+              "row_position": 0,
+              "carry": 0,
+              "row_value": 136,
+              "accumulated": 0,
+              "phase": "accumulate",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "accumulate",
+              "position": 2,
+              "row_position": 0
+            },
+            "event": {
+              "name": "row_accumulated",
+              "detail": "Add place-shifted partial row"
+            },
+            "result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 0,
+              "row_position": 1,
+              "carry": 0,
+              "row_value": 0,
+              "accumulated": 136,
+              "phase": "finish",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          },
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 0,
+              "row_position": 1,
+              "carry": 0,
+              "row_value": 0,
+              "accumulated": 136,
+              "phase": "finish",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "finish",
+              "position": 0,
+              "row_position": 1
+            },
+            "event": {
+              "name": "answer_materialized",
+              "detail": "Apply the operand sign"
+            },
+            "result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 0,
+              "row_position": 1,
+              "carry": 0,
+              "row_value": 0,
+              "accumulated": 136,
+              "phase": "done",
+              "answer": 136,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          }
+        ]
+      },
+      "error_type": null,
+      "model_calls": 5,
+      "diagnostics": {
+        "decisions": [
+          {
+            "action": {
+              "name": "multiply",
+              "position": 0,
+              "row_position": 0
+            },
+            "unmasked_action": "multiply",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          },
+          {
+            "action": {
+              "name": "multiply",
+              "position": 1,
+              "row_position": 0
+            },
+            "unmasked_action": "multiply",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          },
+          {
+            "action": {
+              "name": "flush",
+              "position": 2,
+              "row_position": 0
+            },
+            "unmasked_action": "flush",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          },
+          {
+            "action": {
+              "name": "accumulate",
+              "position": 2,
+              "row_position": 0
+            },
+            "unmasked_action": "accumulate",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          },
+          {
+            "action": {
+              "name": "finish",
+              "position": 0,
+              "row_position": 1
+            },
+            "unmasked_action": "finish",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          }
+        ],
+        "mask_enabled": true,
+        "mask_forced_singleton": true,
+        "verification": {
+          "trajectory_valid": true,
+          "final_answer_valid": true,
+          "goal_reached": true,
+          "errors": []
+        }
+      }
+    },
+    "independent_verification": {
+      "trajectory_valid": true,
+      "goal_reached": true,
+      "error": "correct"
+    },
+    "score": true,
+    "execution_status": "finished",
+    "episode": {
+      "initial_state": {
+        "entities": [
+          {
+            "id": "left",
+            "value": 17
+          },
+          {
+            "id": "right",
+            "value": 8
+          }
+        ],
+        "relations": [
+          {
+            "source": "left",
+            "predicate": "multiplied_by",
+            "target": "right"
+          }
+        ],
+        "left_digits": [
+          7,
+          1
+        ],
+        "right_digits": [
+          8
+        ],
+        "sign": 1,
+        "position": 0,
+        "row_position": 0,
+        "carry": 0,
+        "row_value": 0,
+        "accumulated": 0,
+        "phase": "multiply",
+        "answer": null,
+        "context": "decimal_integer_multiplication",
+        "goal": {
+          "description": "Produce the correct signed integer product"
+        }
+      },
+      "trajectory": {
+        "observation": {
+          "operands": [
+            17,
+            8
+          ],
+          "source": "instrumentation_diagnostic",
+          "kind": "observation"
+        },
+        "initial_state": {
+          "entities": [
+            {
+              "id": "left",
+              "value": 17
+            },
+            {
+              "id": "right",
+              "value": 8
+            }
+          ],
+          "relations": [
+            {
+              "source": "left",
+              "predicate": "multiplied_by",
+              "target": "right"
+            }
+          ],
+          "left_digits": [
+            7,
+            1
+          ],
+          "right_digits": [
+            8
+          ],
+          "sign": 1,
+          "position": 0,
+          "row_position": 0,
+          "carry": 0,
+          "row_value": 0,
+          "accumulated": 0,
+          "phase": "multiply",
+          "answer": null,
+          "context": "decimal_integer_multiplication",
+          "goal": {
+            "description": "Produce the correct signed integer product"
+          }
+        },
+        "transitions": [
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 0,
+              "row_position": 0,
+              "carry": 0,
+              "row_value": 0,
+              "accumulated": 0,
+              "phase": "multiply",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "multiply",
+              "position": 0,
+              "row_position": 0
+            },
+            "event": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            },
+            "result": {
+              "value": 56,
+              "written_digit": 6,
+              "carry": 5,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 1,
+              "row_position": 0,
+              "carry": 5,
+              "row_value": 6,
+              "accumulated": 0,
+              "phase": "multiply",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          },
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 1,
+              "row_position": 0,
+              "carry": 5,
+              "row_value": 6,
+              "accumulated": 0,
+              "phase": "multiply",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "multiply",
+              "position": 1,
+              "row_position": 0
+            },
+            "event": {
+              "name": "digit_written",
+              "detail": "Multiply operand digits, add incoming carry"
+            },
+            "result": {
+              "value": 13,
+              "written_digit": 3,
+              "carry": 1,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 2,
+              "row_position": 0,
+              "carry": 1,
+              "row_value": 36,
+              "accumulated": 0,
+              "phase": "flush",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          },
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 2,
+              "row_position": 0,
+              "carry": 1,
+              "row_value": 36,
+              "accumulated": 0,
+              "phase": "flush",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "flush",
+              "position": 2,
+              "row_position": 0
+            },
+            "event": {
+              "name": "carry_flushed",
+              "detail": "Append remaining carry to the partial row"
+            },
+            "result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 2,
+              "row_position": 0,
+              "carry": 0,
+              "row_value": 136,
+              "accumulated": 0,
+              "phase": "accumulate",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          },
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 2,
+              "row_position": 0,
+              "carry": 0,
+              "row_value": 136,
+              "accumulated": 0,
+              "phase": "accumulate",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "accumulate",
+              "position": 2,
+              "row_position": 0
+            },
+            "event": {
+              "name": "row_accumulated",
+              "detail": "Add place-shifted partial row"
+            },
+            "result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 0,
+              "row_position": 1,
+              "carry": 0,
+              "row_value": 0,
+              "accumulated": 136,
+              "phase": "finish",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          },
+          {
+            "state_before": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 0,
+              "row_position": 1,
+              "carry": 0,
+              "row_value": 0,
+              "accumulated": 136,
+              "phase": "finish",
+              "answer": null,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            },
+            "action": {
+              "name": "finish",
+              "position": 0,
+              "row_position": 1
+            },
+            "event": {
+              "name": "answer_materialized",
+              "detail": "Apply the operand sign"
+            },
+            "result": {
+              "value": 136,
+              "written_digit": null,
+              "carry": 0,
+              "kind": "actual_result",
+              "source": "multiplication_environment"
+            },
+            "state_after": {
+              "entities": [
+                {
+                  "id": "left",
+                  "value": 17
+                },
+                {
+                  "id": "right",
+                  "value": 8
+                }
+              ],
+              "relations": [
+                {
+                  "source": "left",
+                  "predicate": "multiplied_by",
+                  "target": "right"
+                }
+              ],
+              "left_digits": [
+                7,
+                1
+              ],
+              "right_digits": [
+                8
+              ],
+              "sign": 1,
+              "position": 0,
+              "row_position": 1,
+              "carry": 0,
+              "row_value": 0,
+              "accumulated": 136,
+              "phase": "done",
+              "answer": 136,
+              "context": "decimal_integer_multiplication",
+              "goal": {
+                "description": "Produce the correct signed integer product"
+              }
+            }
+          }
+        ]
+      },
+      "final_state": {
+        "entities": [
+          {
+            "id": "left",
+            "value": 17
+          },
+          {
+            "id": "right",
+            "value": 8
+          }
+        ],
+        "relations": [
+          {
+            "source": "left",
+            "predicate": "multiplied_by",
+            "target": "right"
+          }
+        ],
+        "left_digits": [
+          7,
+          1
+        ],
+        "right_digits": [
+          8
+        ],
+        "sign": 1,
+        "position": 0,
+        "row_position": 1,
+        "carry": 0,
+        "row_value": 0,
+        "accumulated": 136,
+        "phase": "done",
+        "answer": 136,
+        "context": "decimal_integer_multiplication",
+        "goal": {
+          "description": "Produce the correct signed integer product"
+        }
+      },
+      "answer": 136,
+      "diagnostics": {
+        "decisions": [
+          {
+            "action": {
+              "name": "multiply",
+              "position": 0,
+              "row_position": 0
+            },
+            "unmasked_action": "multiply",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          },
+          {
+            "action": {
+              "name": "multiply",
+              "position": 1,
+              "row_position": 0
+            },
+            "unmasked_action": "multiply",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          },
+          {
+            "action": {
+              "name": "flush",
+              "position": 2,
+              "row_position": 0
+            },
+            "unmasked_action": "flush",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          },
+          {
+            "action": {
+              "name": "accumulate",
+              "position": 2,
+              "row_position": 0
+            },
+            "unmasked_action": "accumulate",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          },
+          {
+            "action": {
+              "name": "finish",
+              "position": 0,
+              "row_position": 1
+            },
+            "unmasked_action": "finish",
+            "action_valid": true,
+            "masked_correction": false,
+            "transition_valid": true
+          }
+        ],
+        "mask_enabled": true,
+        "mask_forced_singleton": true,
+        "verification": {
+          "trajectory_valid": true,
+          "final_answer_valid": true,
+          "goal_reached": true,
+          "errors": []
+        }
+      }
+    }
+  },
+  "wall_seconds": 0.010616115000004811,
+  "unimplemented_here": [
+    "text tokenizer",
+    "learned entity/relationship extraction",
+    "planning search",
+    "dreaming",
+    "feedback learning",
+    "recovery policy"
+  ],
+  "interpretation": "Numeric-core observation, not coding-foundation inference or causal activation attribution"
+}

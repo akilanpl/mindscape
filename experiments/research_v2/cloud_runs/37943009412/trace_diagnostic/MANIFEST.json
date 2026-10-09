@@ -1,0 +1,37 @@
+{
+  "scope": "Numeric learned-core instrumentation diagnostic; not competitive benchmark",
+  "records": [
+    {
+      "path": "ccc25c542cbd7b20dfb6d71fda9839671e8940dde27999804190acdd50523303-masked.json",
+      "sha256": "74b696390f4681d2540753d7b55e67a4620e1a511d4bbdba1d6434a966cca747",
+      "score": true,
+      "mask": true
+    },
+    {
+      "path": "ccc25c542cbd7b20dfb6d71fda9839671e8940dde27999804190acdd50523303-unmasked.json",
+      "sha256": "ec260b55b834ed3309836086092f9d2c83e482d19fc6f81e2c1a07abfd49117e",
+      "score": true,
+      "mask": false
+    },
+    {
+      "path": "228d0725e704f9123c0a69839125ab920752cb65189811705ebb463a9e4213b0-masked.json",
+      "sha256": "3e6e6a07a463a252842ac487d91707f9d68c396f5808317d2699cfe92039a9b3",
+      "score": true,
+      "mask": true
+    },
+    {
+      "path": "228d0725e704f9123c0a69839125ab920752cb65189811705ebb463a9e4213b0-unmasked.json",
+      "sha256": "5ebdcd0e944457987447e97cc678c9ae0b6ff4d87ed8661dae88bec4e270360c",
+      "score": true,
+      "mask": false
+    }
+  ],
+  "config_sha256": "99897b229c9a885961e534bce1069124059967159dad39fbeb3bcb2b8e23a4cb",
+  "checkpoint_sha256": {
+    "weights.npz": "bbbaeacabc7cb5cc9dae8403cec3a0103d44db7e5bef3e81697f216204b43029",
+    "model.json": "2f2506253d163df985df98de5549c35614d2fcdf7d4e8fb9494092dce870f6d0",
+    "backend.json": "d7c6531a65e6e2d542f7bd4ca71a36d0967d3a62c99edd7a67f8071271bcd4d2"
+  },
+  "real_saved_checkpoint": true,
+  "benchmark_claim": false
+}

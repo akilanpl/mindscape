@@ -1,0 +1,29 @@
+{
+  "stage": 3,
+  "status": "PASS for numeric learned-core observability",
+  "run_id": 37943009412,
+  "validated_commit": "9838925000484518bb041d2ab687130642f2f274",
+  "diagnostic_traces": 4,
+  "checkpoint": "real preserved trained n50seed0 policy",
+  "machine_and_human_reports": "experiments/research_v2/cloud_runs/37943009412/trace_diagnostic",
+  "scope": "Numeric core only; not coding-foundation activation telemetry or competitive evaluation",
+  "logits_and_inputs": "directly observed",
+  "hidden_summaries": "explicitly reconstructed; not causal explanations",
+  "timing_scope": "Instrumented forward plus summary overhead; not comparable to dedicated latency benchmark",
+  "tests": {
+    "command": [
+      "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "/home/runner/work/mindscape/mindscape/tests",
+      "--junitxml=/home/runner/work/mindscape/mindscape/results/research_v2/cloud_cpu_validation/tests.xml"
+    ],
+    "exit_code": 0,
+    "tests": 141,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "next_gate": "Freeze novel evaluation corpus and hypotheses before controlled interventions"
+}

@@ -1,0 +1,8 @@
+{
+  "architecture": "x86_64",
+  "wasm_sha256": "d24bd98d3071af6b17d51d53a08700b9acef59172a0afcb6adb733645c2a1715",
+  "original_cache_sha256": "12725ea41c995936db255124db504f2286ab66b3ad648a9dda7fa10404b7ac33",
+  "preserved_cache": "/home/runner/work/mindscape/mindscape/work/cloud_research_v1/work/coding/runtime/historical-12725ea41c995936db255124db504f2286ab66b3ad648a9dda7fa10404b7ac33.cwasm",
+  "active_cache_sha256": "c0ba6afef85ab5b6cc76b22f869290cc01b83aac600efa12beecba12b6d027cf",
+  "scope": "Execution cache only; original source and research evidence unchanged"
+}
