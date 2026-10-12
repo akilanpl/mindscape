@@ -1,0 +1,13 @@
+{
+  "original_run": "results/v3_integration/native-1791821373113687000",
+  "original_files_sha256": {
+    "summary.json": "18b4450668eead10e6174252fcd1b3b0f11fc6d8b04a23e8b4c89d356d78cf94",
+    "0-mathematics.json": "917378d6ee61ebd0930901baf6d596debc9f5448db69ea55676f6a468f9201c5",
+    "1-mathematics.json": "d3780644d289384b04ab602e90953d85c0d4f35bdeffe54dd99032501f956a84",
+    "3-physics.json": "201e2eeb37e625701b1e41e989b6614412aa4aea5266d51cc7c519ec9b06c6c7",
+    "2-coding.json": "1b6937896472a083aa4df73720b34eb7ca9ea850ea9a753b4cda189c7ee38117"
+  },
+  "earlier_failed_run_preserved": "results/v3_integration/native-1791820719027451000",
+  "historical_base": "fd82446",
+  "math_dependency": "aafa49e"
+}

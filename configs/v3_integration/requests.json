@@ -1,0 +1,88 @@
+{
+  "hash": "fb434a2a6cc1aed370e640e63fa9d8afa86c155c859598a0bd03885fc6ad5ea0",
+  "requests": [
+    {
+      "domain": "mathematics",
+      "inputs": {
+        "operands": [
+          487,
+          376
+        ],
+        "operations": [
+          "add"
+        ]
+      }
+    },
+    {
+      "domain": "mathematics",
+      "inputs": {
+        "operands": [
+          73,
+          29
+        ],
+        "operations": [
+          "sub"
+        ]
+      }
+    },
+    {
+      "domain": "coding",
+      "inputs": {
+        "contract": {
+          "description": "Return the sum of values at least 4, inclusive. Do not mutate the input.",
+          "entry": "solution.compute_61488",
+          "inputs": [
+            "JSON-compatible integers or integer list"
+          ],
+          "invariants": [
+            "Inputs remain unchanged."
+          ],
+          "outputs": "int"
+        },
+        "repository": {
+          "solution.py": "def compute_61488(values):\n    return sum(item for item in values if item > 4)\n"
+        },
+        "visible_tests": {
+          "cases": [
+            {
+              "args": [
+                [
+                  4
+                ]
+              ],
+              "expected": 4,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  3,
+                  4,
+                  6
+                ]
+              ],
+              "expected": 10,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ],
+          "entry": "solution.compute_61488"
+        }
+      }
+    },
+    {
+      "domain": "physics",
+      "inputs": {
+        "family": "motion",
+        "horizon": 8,
+        "index": 1,
+        "seed": 20261071,
+        "target": [
+          0.0,
+          1.5
+        ]
+      }
+    }
+  ]
+}

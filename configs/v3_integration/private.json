@@ -1,0 +1,49 @@
+{
+  "ce17a706295de7006e3133024901748d6d2c004ec02d0c8651a9badb01971723": {
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": 0,
+        "expected_type": "int",
+        "unchanged": true
+      },
+      {
+        "args": [
+          [
+            -4,
+            0,
+            4
+          ]
+        ],
+        "expected": 4,
+        "expected_type": "int",
+        "unchanged": true
+      },
+      {
+        "args": [
+          [
+            4,
+            4
+          ]
+        ],
+        "expected": 8,
+        "expected_type": "int",
+        "unchanged": true
+      },
+      {
+        "args": [
+          [
+            7,
+            2
+          ]
+        ],
+        "expected": 7,
+        "expected_type": "int",
+        "unchanged": true
+      }
+    ],
+    "entry": "solution.compute_61488"
+  }
+}

@@ -1,0 +1,493 @@
+{
+  "direct": {
+    "actual": {
+      "answer": "833",
+      "kind": "actual",
+      "summary": [
+        833.0
+      ],
+      "written_transitions": [
+        {
+          "event": "unverified_claim_written",
+          "incoming": 1,
+          "kind": "actual",
+          "proposed_operation": "add",
+          "written_digit": 3
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 1,
+          "kind": "actual",
+          "proposed_operation": "add",
+          "written_digit": 3
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 0,
+          "kind": "actual",
+          "proposed_operation": "add",
+          "written_digit": 8
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 0,
+          "kind": "actual",
+          "proposed_operation": "add",
+          "written_digit": 0
+        }
+      ]
+    },
+    "domain": "mathematics",
+    "evaluation": {
+      "evaluator": "independent arithmetic after write-only execution",
+      "reason": "exact_answer=False; strict_local_transitions=False",
+      "success": false,
+      "valid": true
+    },
+    "prediction": {
+      "answer": "833",
+      "kind": "hypothetical",
+      "scaffold": "Preserved signed-magnitude scheduling; no teacher during prediction",
+      "steps": [
+        {
+          "claim": {
+            "carry": 1,
+            "digit": 3,
+            "next_carry": 1,
+            "next_digit": 3,
+            "operation": 0,
+            "raw": 13
+          },
+          "state": {
+            "incoming": 0,
+            "left": 7,
+            "operation": "add",
+            "right": 6
+          }
+        },
+        {
+          "claim": {
+            "carry": 1,
+            "digit": 3,
+            "next_carry": 1,
+            "next_digit": 3,
+            "operation": 0,
+            "raw": 13
+          },
+          "state": {
+            "incoming": 1,
+            "left": 8,
+            "operation": "add",
+            "right": 7
+          }
+        },
+        {
+          "claim": {
+            "carry": 0,
+            "digit": 8,
+            "next_carry": 0,
+            "next_digit": 8,
+            "operation": 0,
+            "raw": 8
+          },
+          "state": {
+            "incoming": 1,
+            "left": 4,
+            "operation": "add",
+            "right": 3
+          }
+        },
+        {
+          "claim": {
+            "carry": 0,
+            "digit": 0,
+            "next_carry": 0,
+            "next_digit": 0,
+            "operation": 0,
+            "raw": 0
+          },
+          "state": {
+            "incoming": 0,
+            "left": 0,
+            "operation": "add",
+            "right": 0
+          }
+        }
+      ],
+      "summary": [
+        833.0
+      ]
+    },
+    "request_id": "0eb6d2b797f662b3dee2425859a8cb1ff04ee1ca327b8b99c262f3b80f2a0094",
+    "trace": {
+      "path": "independent_specialist"
+    }
+  },
+  "equivalent": true,
+  "request": {
+    "domain": "mathematics",
+    "inputs": {
+      "operands": [
+        487,
+        376
+      ],
+      "operations": [
+        "add"
+      ]
+    }
+  },
+  "seconds": 0.17292362499574665,
+  "unified": {
+    "actual": {
+      "answer": "833",
+      "kind": "actual",
+      "summary": [
+        833.0
+      ],
+      "written_transitions": [
+        {
+          "event": "unverified_claim_written",
+          "incoming": 1,
+          "kind": "actual",
+          "proposed_operation": "add",
+          "written_digit": 3
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 1,
+          "kind": "actual",
+          "proposed_operation": "add",
+          "written_digit": 3
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 0,
+          "kind": "actual",
+          "proposed_operation": "add",
+          "written_digit": 8
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 0,
+          "kind": "actual",
+          "proposed_operation": "add",
+          "written_digit": 0
+        }
+      ]
+    },
+    "domain": "mathematics",
+    "evaluation": {
+      "evaluator": "independent arithmetic after write-only execution",
+      "reason": "exact_answer=False; strict_local_transitions=False",
+      "success": false,
+      "valid": true
+    },
+    "prediction": {
+      "answer": "833",
+      "kind": "hypothetical",
+      "scaffold": "Preserved signed-magnitude scheduling; no teacher during prediction",
+      "steps": [
+        {
+          "claim": {
+            "carry": 1,
+            "digit": 3,
+            "next_carry": 1,
+            "next_digit": 3,
+            "operation": 0,
+            "raw": 13
+          },
+          "state": {
+            "incoming": 0,
+            "left": 7,
+            "operation": "add",
+            "right": 6
+          }
+        },
+        {
+          "claim": {
+            "carry": 1,
+            "digit": 3,
+            "next_carry": 1,
+            "next_digit": 3,
+            "operation": 0,
+            "raw": 13
+          },
+          "state": {
+            "incoming": 1,
+            "left": 8,
+            "operation": "add",
+            "right": 7
+          }
+        },
+        {
+          "claim": {
+            "carry": 0,
+            "digit": 8,
+            "next_carry": 0,
+            "next_digit": 8,
+            "operation": 0,
+            "raw": 8
+          },
+          "state": {
+            "incoming": 1,
+            "left": 4,
+            "operation": "add",
+            "right": 3
+          }
+        },
+        {
+          "claim": {
+            "carry": 0,
+            "digit": 0,
+            "next_carry": 0,
+            "next_digit": 0,
+            "operation": 0,
+            "raw": 0
+          },
+          "state": {
+            "incoming": 0,
+            "left": 0,
+            "operation": "add",
+            "right": 0
+          }
+        }
+      ],
+      "summary": [
+        833.0
+      ]
+    },
+    "request_id": "0eb6d2b797f662b3dee2425859a8cb1ff04ee1ca327b8b99c262f3b80f2a0094",
+    "trace": {
+      "candidate_count": 2,
+      "cpu_seconds": 0.009483999999999826,
+      "events": [
+        {
+          "stage": "OBSERVE",
+          "value": {
+            "domain": "mathematics",
+            "entities": [
+              {
+                "attributes": [
+                  [
+                    "json",
+                    "{\"operands\": [487, 376], \"operations\": [\"add\"]}"
+                  ]
+                ],
+                "id": "public"
+              }
+            ],
+            "goal": {
+              "description": "Submit specialist proposal for independent verification"
+            },
+            "missing": [],
+            "partial": false,
+            "relationships": [],
+            "values": []
+          }
+        },
+        {
+          "stage": "REPRESENT",
+          "value": {
+            "retrieval_used_by_model": false,
+            "retrieved_training_evidence": [],
+            "state": {
+              "observation": {
+                "domain": "mathematics",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"operands\": [487, 376], \"operations\": [\"add\"]}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": false,
+              "written": []
+            }
+          }
+        },
+        {
+          "stage": "PROPOSE",
+          "value": {
+            "action": {
+              "name": "submit_proposal",
+              "value": 0
+            },
+            "candidates": [
+              {
+                "name": "submit_proposal",
+                "value": 0
+              },
+              {
+                "name": "submit_proposal",
+                "value": 1
+              }
+            ],
+            "confidence_uncalibrated": 0.7310585786300049,
+            "logits": [
+              1.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "stage": "PREDICT",
+          "value": {
+            "action": {
+              "name": "submit_proposal",
+              "value": 0
+            },
+            "confidence": 0.7310585786300049,
+            "kind": "hypothetical",
+            "state": {
+              "observation": {
+                "domain": "mathematics",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"operands\": [487, 376], \"operations\": [\"add\"]}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": true,
+              "written": [
+                833.0
+              ]
+            }
+          }
+        },
+        {
+          "stage": "ACT",
+          "value": {
+            "action": {
+              "name": "submit_proposal",
+              "value": 0
+            },
+            "after": {
+              "observation": {
+                "domain": "mathematics",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"operands\": [487, 376], \"operations\": [\"add\"]}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": true,
+              "written": [
+                833.0
+              ]
+            },
+            "before": {
+              "observation": {
+                "domain": "mathematics",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"operands\": [487, 376], \"operations\": [\"add\"]}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": false,
+              "written": []
+            },
+            "event": "{\"answer\": \"833\", \"kind\": \"actual\", \"summary\": [833.0], \"written_transitions\": [{\"event\": \"unverified_claim_written\", \"incoming\": 1, \"kind\": \"actual\", \"proposed_operation\": \"add\", \"written_digit\": 3}, {\"event\": \"unverified_claim_written\", \"incoming\": 1, \"kind\": \"actual\", \"proposed_operation\": \"add\", \"written_digit\": 3}, {\"event\": \"unverified_claim_written\", \"incoming\": 0, \"kind\": \"actual\", \"proposed_operation\": \"add\", \"written_digit\": 8}, {\"event\": \"unverified_claim_written\", \"incoming\": 0, \"kind\": \"actual\", \"proposed_operation\": \"add\", \"written_digit\": 0}]}",
+            "kind": "actual"
+          }
+        },
+        {
+          "stage": "VERIFY",
+          "value": {
+            "evaluator": "independent arithmetic after write-only execution",
+            "reason": "exact_answer=False; strict_local_transitions=False",
+            "success": false,
+            "valid": true
+          }
+        },
+        {
+          "stage": "UPDATE",
+          "value": {
+            "training_memory_key": null,
+            "weights_updated": false
+          }
+        }
+      ],
+      "latency_seconds": 0.034104791993740946,
+      "model_calls": 9,
+      "parameter_count": 109843,
+      "persistent_memory_updated": false,
+      "policy_forward_calls": 0,
+      "provenance": {
+        "model_hash": "557d13e0d036e3dd62e3ffe4ac141f9002a24901d6629702b87c8b9c5e58a5f4",
+        "seed": 11,
+        "source_hash": "2f2dd282fc3c67348b4b70d1534f1763d7aab03489882e723165a258bd6b908b",
+        "split": "iid",
+        "task_id": "0eb6d2b797f662b3dee2425859a8cb1ff04ee1ca327b8b99c262f3b80f2a0094"
+      },
+      "routing_is_learned": false,
+      "success": false,
+      "task": {
+        "domain": "mathematics",
+        "inputs": {
+          "operands": [
+            487,
+            376
+          ],
+          "operations": [
+            "add"
+          ]
+        }
+      },
+      "transition_forward_calls": 9,
+      "transition_prediction_mse": 0.0,
+      "valid": true
+    }
+  }
+}

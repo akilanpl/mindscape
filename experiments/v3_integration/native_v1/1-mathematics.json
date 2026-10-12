@@ -1,0 +1,447 @@
+{
+  "direct": {
+    "actual": {
+      "answer": "43",
+      "kind": "actual",
+      "summary": [
+        43.0
+      ],
+      "written_transitions": [
+        {
+          "event": "unverified_claim_written",
+          "incoming": 1,
+          "kind": "actual",
+          "proposed_operation": "sub",
+          "written_digit": 3
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 0,
+          "kind": "actual",
+          "proposed_operation": "sub",
+          "written_digit": 4
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 0,
+          "kind": "actual",
+          "proposed_operation": "sub",
+          "written_digit": 0
+        }
+      ]
+    },
+    "domain": "mathematics",
+    "evaluation": {
+      "evaluator": "independent arithmetic after write-only execution",
+      "reason": "exact_answer=False; strict_local_transitions=False",
+      "success": false,
+      "valid": true
+    },
+    "prediction": {
+      "answer": "43",
+      "kind": "hypothetical",
+      "scaffold": "Preserved signed-magnitude scheduling; no teacher during prediction",
+      "steps": [
+        {
+          "claim": {
+            "carry": 1,
+            "digit": 9,
+            "next_carry": 1,
+            "next_digit": 3,
+            "operation": 1,
+            "raw": 9
+          },
+          "state": {
+            "incoming": 0,
+            "left": 3,
+            "operation": "sub",
+            "right": 9
+          }
+        },
+        {
+          "claim": {
+            "carry": 0,
+            "digit": 4,
+            "next_carry": 0,
+            "next_digit": 4,
+            "operation": 1,
+            "raw": 5
+          },
+          "state": {
+            "incoming": 1,
+            "left": 7,
+            "operation": "sub",
+            "right": 2
+          }
+        },
+        {
+          "claim": {
+            "carry": 0,
+            "digit": 0,
+            "next_carry": 0,
+            "next_digit": 0,
+            "operation": 1,
+            "raw": 0
+          },
+          "state": {
+            "incoming": 0,
+            "left": 0,
+            "operation": "sub",
+            "right": 0
+          }
+        }
+      ],
+      "summary": [
+        43.0
+      ]
+    },
+    "request_id": "9338881aabc2a8ba9e38c3ca1aac8d5e5baf0379612a70003c3f0a5954ff25a8",
+    "trace": {
+      "path": "independent_specialist"
+    }
+  },
+  "equivalent": true,
+  "request": {
+    "domain": "mathematics",
+    "inputs": {
+      "operands": [
+        73,
+        29
+      ],
+      "operations": [
+        "sub"
+      ]
+    }
+  },
+  "seconds": 0.051443667005514726,
+  "unified": {
+    "actual": {
+      "answer": "43",
+      "kind": "actual",
+      "summary": [
+        43.0
+      ],
+      "written_transitions": [
+        {
+          "event": "unverified_claim_written",
+          "incoming": 1,
+          "kind": "actual",
+          "proposed_operation": "sub",
+          "written_digit": 3
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 0,
+          "kind": "actual",
+          "proposed_operation": "sub",
+          "written_digit": 4
+        },
+        {
+          "event": "unverified_claim_written",
+          "incoming": 0,
+          "kind": "actual",
+          "proposed_operation": "sub",
+          "written_digit": 0
+        }
+      ]
+    },
+    "domain": "mathematics",
+    "evaluation": {
+      "evaluator": "independent arithmetic after write-only execution",
+      "reason": "exact_answer=False; strict_local_transitions=False",
+      "success": false,
+      "valid": true
+    },
+    "prediction": {
+      "answer": "43",
+      "kind": "hypothetical",
+      "scaffold": "Preserved signed-magnitude scheduling; no teacher during prediction",
+      "steps": [
+        {
+          "claim": {
+            "carry": 1,
+            "digit": 9,
+            "next_carry": 1,
+            "next_digit": 3,
+            "operation": 1,
+            "raw": 9
+          },
+          "state": {
+            "incoming": 0,
+            "left": 3,
+            "operation": "sub",
+            "right": 9
+          }
+        },
+        {
+          "claim": {
+            "carry": 0,
+            "digit": 4,
+            "next_carry": 0,
+            "next_digit": 4,
+            "operation": 1,
+            "raw": 5
+          },
+          "state": {
+            "incoming": 1,
+            "left": 7,
+            "operation": "sub",
+            "right": 2
+          }
+        },
+        {
+          "claim": {
+            "carry": 0,
+            "digit": 0,
+            "next_carry": 0,
+            "next_digit": 0,
+            "operation": 1,
+            "raw": 0
+          },
+          "state": {
+            "incoming": 0,
+            "left": 0,
+            "operation": "sub",
+            "right": 0
+          }
+        }
+      ],
+      "summary": [
+        43.0
+      ]
+    },
+    "request_id": "9338881aabc2a8ba9e38c3ca1aac8d5e5baf0379612a70003c3f0a5954ff25a8",
+    "trace": {
+      "candidate_count": 2,
+      "cpu_seconds": 0.006494,
+      "events": [
+        {
+          "stage": "OBSERVE",
+          "value": {
+            "domain": "mathematics",
+            "entities": [
+              {
+                "attributes": [
+                  [
+                    "json",
+                    "{\"operands\": [73, 29], \"operations\": [\"sub\"]}"
+                  ]
+                ],
+                "id": "public"
+              }
+            ],
+            "goal": {
+              "description": "Submit specialist proposal for independent verification"
+            },
+            "missing": [],
+            "partial": false,
+            "relationships": [],
+            "values": []
+          }
+        },
+        {
+          "stage": "REPRESENT",
+          "value": {
+            "retrieval_used_by_model": false,
+            "retrieved_training_evidence": [],
+            "state": {
+              "observation": {
+                "domain": "mathematics",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"operands\": [73, 29], \"operations\": [\"sub\"]}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": false,
+              "written": []
+            }
+          }
+        },
+        {
+          "stage": "PROPOSE",
+          "value": {
+            "action": {
+              "name": "submit_proposal",
+              "value": 0
+            },
+            "candidates": [
+              {
+                "name": "submit_proposal",
+                "value": 0
+              },
+              {
+                "name": "submit_proposal",
+                "value": 1
+              }
+            ],
+            "confidence_uncalibrated": 0.7310585786300049,
+            "logits": [
+              1.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "stage": "PREDICT",
+          "value": {
+            "action": {
+              "name": "submit_proposal",
+              "value": 0
+            },
+            "confidence": 0.7310585786300049,
+            "kind": "hypothetical",
+            "state": {
+              "observation": {
+                "domain": "mathematics",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"operands\": [73, 29], \"operations\": [\"sub\"]}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": true,
+              "written": [
+                43.0
+              ]
+            }
+          }
+        },
+        {
+          "stage": "ACT",
+          "value": {
+            "action": {
+              "name": "submit_proposal",
+              "value": 0
+            },
+            "after": {
+              "observation": {
+                "domain": "mathematics",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"operands\": [73, 29], \"operations\": [\"sub\"]}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": true,
+              "written": [
+                43.0
+              ]
+            },
+            "before": {
+              "observation": {
+                "domain": "mathematics",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"operands\": [73, 29], \"operations\": [\"sub\"]}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": false,
+              "written": []
+            },
+            "event": "{\"answer\": \"43\", \"kind\": \"actual\", \"summary\": [43.0], \"written_transitions\": [{\"event\": \"unverified_claim_written\", \"incoming\": 1, \"kind\": \"actual\", \"proposed_operation\": \"sub\", \"written_digit\": 3}, {\"event\": \"unverified_claim_written\", \"incoming\": 0, \"kind\": \"actual\", \"proposed_operation\": \"sub\", \"written_digit\": 4}, {\"event\": \"unverified_claim_written\", \"incoming\": 0, \"kind\": \"actual\", \"proposed_operation\": \"sub\", \"written_digit\": 0}]}",
+            "kind": "actual"
+          }
+        },
+        {
+          "stage": "VERIFY",
+          "value": {
+            "evaluator": "independent arithmetic after write-only execution",
+            "reason": "exact_answer=False; strict_local_transitions=False",
+            "success": false,
+            "valid": true
+          }
+        },
+        {
+          "stage": "UPDATE",
+          "value": {
+            "training_memory_key": null,
+            "weights_updated": false
+          }
+        }
+      ],
+      "latency_seconds": 0.025431375004700385,
+      "model_calls": 7,
+      "parameter_count": 109843,
+      "persistent_memory_updated": false,
+      "policy_forward_calls": 0,
+      "provenance": {
+        "model_hash": "557d13e0d036e3dd62e3ffe4ac141f9002a24901d6629702b87c8b9c5e58a5f4",
+        "seed": 11,
+        "source_hash": "2f2dd282fc3c67348b4b70d1534f1763d7aab03489882e723165a258bd6b908b",
+        "split": "iid",
+        "task_id": "9338881aabc2a8ba9e38c3ca1aac8d5e5baf0379612a70003c3f0a5954ff25a8"
+      },
+      "routing_is_learned": false,
+      "success": false,
+      "task": {
+        "domain": "mathematics",
+        "inputs": {
+          "operands": [
+            73,
+            29
+          ],
+          "operations": [
+            "sub"
+          ]
+        }
+      },
+      "transition_forward_calls": 7,
+      "transition_prediction_mse": 0.0,
+      "valid": true
+    }
+  }
+}
