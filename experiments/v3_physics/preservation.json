@@ -1,0 +1,10 @@
+{
+  "base_commit": "33c5b5657b2d19741b7b0ac84388d4f7997f9582",
+  "verified_pre_v3_files": 574,
+  "tree_sha256": "69f572f96791362cc89f0ae7baee39865c4b4f6d0b66cb1b9a6290b3c0873daf",
+  "tags": {
+    "mindscape-final-study-v1": "d4fe017bea6ec9636497fe839a11ad029a1cf0ee",
+    "mindscape-research-complete-v1": "4598b8bbf38efd88fc878d19f6306897020fe882"
+  },
+  "historical_files_unchanged": true
+}

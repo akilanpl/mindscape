@@ -1,0 +1,117 @@
+{
+  "scope": "CPU analytical/persistence controls only; no world-model results",
+  "cells": [
+    {
+      "family": "interaction",
+      "variant": "analytical_available",
+      "split": "iid",
+      "scenes": 100,
+      "normalized_rollout_mse": 2.8935562487319113
+    },
+    {
+      "family": "interaction",
+      "variant": "analytical_available",
+      "split": "ood",
+      "scenes": 100,
+      "normalized_rollout_mse": 6.767798055112362
+    },
+    {
+      "family": "interaction",
+      "variant": "analytical_contacts",
+      "split": "iid",
+      "scenes": 100,
+      "normalized_rollout_mse": 0.6008771559914748
+    },
+    {
+      "family": "interaction",
+      "variant": "analytical_contacts",
+      "split": "ood",
+      "scenes": 100,
+      "normalized_rollout_mse": 1.7594725054549054
+    },
+    {
+      "family": "interaction",
+      "variant": "constant_velocity",
+      "split": "iid",
+      "scenes": 100,
+      "normalized_rollout_mse": 2.940786668509245
+    },
+    {
+      "family": "interaction",
+      "variant": "constant_velocity",
+      "split": "ood",
+      "scenes": 100,
+      "normalized_rollout_mse": 6.817573843002319
+    },
+    {
+      "family": "interaction",
+      "variant": "persistence",
+      "split": "iid",
+      "scenes": 100,
+      "normalized_rollout_mse": 1.6299710327386856
+    },
+    {
+      "family": "interaction",
+      "variant": "persistence",
+      "split": "ood",
+      "scenes": 100,
+      "normalized_rollout_mse": 3.021402342617512
+    },
+    {
+      "family": "motion",
+      "variant": "analytical_available",
+      "split": "iid",
+      "scenes": 100,
+      "normalized_rollout_mse": 1.0872863193006197
+    },
+    {
+      "family": "motion",
+      "variant": "analytical_available",
+      "split": "ood",
+      "scenes": 100,
+      "normalized_rollout_mse": 4.246109857247066
+    },
+    {
+      "family": "motion",
+      "variant": "analytical_contacts",
+      "split": "iid",
+      "scenes": 100,
+      "normalized_rollout_mse": 0.18455940632135026
+    },
+    {
+      "family": "motion",
+      "variant": "analytical_contacts",
+      "split": "ood",
+      "scenes": 100,
+      "normalized_rollout_mse": 0.43190733117968194
+    },
+    {
+      "family": "motion",
+      "variant": "constant_velocity",
+      "split": "iid",
+      "scenes": 100,
+      "normalized_rollout_mse": 1.7236401677131652
+    },
+    {
+      "family": "motion",
+      "variant": "constant_velocity",
+      "split": "ood",
+      "scenes": 100,
+      "normalized_rollout_mse": 2.2696779555082323
+    },
+    {
+      "family": "motion",
+      "variant": "persistence",
+      "split": "iid",
+      "scenes": 100,
+      "normalized_rollout_mse": 1.9929250901937485
+    },
+    {
+      "family": "motion",
+      "variant": "persistence",
+      "split": "ood",
+      "scenes": 100,
+      "normalized_rollout_mse": 2.8767897772789
+    }
+  ]
+}

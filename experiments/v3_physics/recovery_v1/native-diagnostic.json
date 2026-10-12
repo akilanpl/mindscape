@@ -1,0 +1,24 @@
+{
+  "schema": "mindscape.v3.physics.native-probe/1",
+  "interpreter": "/Users/akilan/Documents/Codex/2026-10-08/files-pasted-by-the-user-mindscape/outputs/mindscape/work/final-venv/bin/python",
+  "python": "3.12.14",
+  "architecture": "arm64",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "torch": "2.14.1",
+  "mps_built": true,
+  "mps_available": true,
+  "environment_indicators": {
+    "CODEX_SANDBOX": null,
+    "CODEX_CI": null,
+    "CODEX_PERMISSION_PROFILE": null,
+    "PYTORCH_ENABLE_MPS_FALLBACK": null
+  },
+  "scope": "Diagnostic neural computation only; no research dataset/model download/environment modification",
+  "status": "PASS",
+  "allocation": true,
+  "forward_backward": true,
+  "optimizer_update": true,
+  "placement_verified": true,
+  "device": "mps",
+  "precision": "float32"
+}

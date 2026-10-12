@@ -1,0 +1,18 @@
+{
+  "checkpoints_loaded": 20,
+  "native_continuation_comparisons": [
+    {
+      "family": "motion",
+      "parameters_optimizer_provenance_exact": true,
+      "step": 12
+    },
+    {
+      "family": "interaction",
+      "parameters_optimizer_provenance_exact": true,
+      "step": 12
+    }
+  ],
+  "neural_cpu_execution": false,
+  "passed": true,
+  "weights_only": true
+}

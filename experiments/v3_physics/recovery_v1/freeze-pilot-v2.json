@@ -1,0 +1,25 @@
+{
+  "source_hash": "48aeecbbf3a847754982ed5c144e5b6e33cb4dcffe3a8a7d3eec3ccf9fc316c0",
+  "main_manifest": "fde4f79fed1064a4cee6658813b334762f79607ec7c97b4556abe25bdbe44008",
+  "pilot_manifest": "f46a3e23b4374b3e2be5a3778424cb976adcb6b8da297728385d66f84358bd0f",
+  "pilot_main_scene_overlap": 0,
+  "correction": "Original CPU-only pilot v1 used main seed; preserved unused-for-neural dataset. Native pilot v2 uses independent seed20261013. Full benchmark remains unchanged.",
+  "neural_model_results_seen": false,
+  "driver_hashes": {
+    "scripts/v3_physics/acceptance.py": "4b4f595d6f5090c47b5bd6f016d292e29a71736bfd0641f78ff019103a65220e",
+    "scripts/v3_physics/analytical_contacts.py": "b0eefe97ec6d1d491d81a468ad5cde250d85cc7148412a15b8f580e3208383a3",
+    "scripts/v3_physics/analyze.py": "e8c642094dbd61a71a3d070a89e21be3679598b7810378943ca6fc1368838b5b",
+    "scripts/v3_physics/cpu_validation.py": "18c0242c8dcbc35fd7abf6f9a0d057a43e8fcb86791e12aecfc711e8616ed00d",
+    "scripts/v3_physics/evidence.py": "bbf7c14431c95ecbb38e89b832669e244e510adf36318c8ba128d713a4e2db0e",
+    "scripts/v3_physics/hardware_audit.py": "66af616ddb3ecf0e5888ea34327c213ba2fc3ba456500389627b6dad506367b9",
+    "scripts/v3_physics/native_diagnostic.command": "f1135d29e35b8ec86ea1fe2cc054937beda24ab781ed3ef458bff5acab69f11f",
+    "scripts/v3_physics/native_diagnostic.py": "de4d05bd30ea2fe0d990958105f28a24e07620be17b64c9212b6577584dcfd03",
+    "scripts/v3_physics/native_integration.py": "f5840ceba3f8941a1b570b40915793c86b075fe45a1a6a2ecfae48cb67127d6f",
+    "scripts/v3_physics/native_launch.py": "1f3305d0431a4177ffa4f18eda5cb2582de66a9d980bd7adbc950c053d7f6753",
+    "scripts/v3_physics/native_run.command": "915c0ebadd666d2ea335af04808a86e4fcb6030b94f06de42667ce6b57f843dd",
+    "scripts/v3_physics/plots.py": "a7033ac080170b148c07f867f90e4f072e05a7f972fdf114ee15fdaca43e9a88",
+    "scripts/v3_physics/prepare.py": "c0a8fd717d91ce792592ebf874210959341ff97b9357208712742c0e352e9775",
+    "scripts/v3_physics/run_study.py": "e9f0d1b034d4cb737be92f676c7295a026f3c4c5e4cc424df04921fe51b94a9c",
+    "scripts/v3_physics/verify.py": "63652718d6923c7dc440d9bb0a624a8590a6b622b41221be8ceceafd8cdf8e6c"
+  }
+}

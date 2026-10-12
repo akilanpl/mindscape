@@ -1,0 +1,9 @@
+{
+  "batch_size": 128,
+  "device": "mps",
+  "pilot_passed": true,
+  "precision": "float32",
+  "scope": "small pilot, not full acceptance",
+  "source_hash": "1b74f4654ab1a6b1ea7f57abe5e66f8427f1a69250cd44ca5f1b4b546249b86a",
+  "verification": "completed"
+}
