@@ -1,0 +1,2191 @@
+{
+  "schema": "mindscape.v3.coding/1",
+  "tasks": [
+    {
+      "identity": "c1bdf864e8e4cc468eb9207234e4c15d4ea96fbb4b501572b45d94aa81b20f7f",
+      "split": "train",
+      "family": "threshold",
+      "repository": {
+        "solution.py": "def compute_15249(values):\n    return sum(item for item in values if item > 24)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_15249",
+        "description": "Return the sum of values at least 24, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_15249",
+        "cases": [
+          {
+            "args": [
+              [
+                24
+              ]
+            ],
+            "expected": 24,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                23,
+                24,
+                26
+              ]
+            ],
+            "expected": 50,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "3d24e84b78e40aa3247fbc820912699e5413f163dab2f6f4b1d053956f1aae50",
+      "split": "train",
+      "family": "threshold",
+      "repository": {
+        "solution.py": "def compute_40474(values):\n    return sum(item for item in values if item > 69)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_40474",
+        "description": "Return the sum of values at least 69, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_40474",
+        "cases": [
+          {
+            "args": [
+              [
+                69
+              ]
+            ],
+            "expected": 69,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                68,
+                69,
+                71
+              ]
+            ],
+            "expected": 140,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "ac2b40bcc9be3b3246b544669c56989c0f91b7f44a75ba5e5ba8821fe8212a7c",
+      "split": "train",
+      "family": "threshold",
+      "repository": {
+        "solution.py": "def compute_77760(values):\n    return sum(item for item in values if item > 55)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_77760",
+        "description": "Return the sum of values at least 55, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_77760",
+        "cases": [
+          {
+            "args": [
+              [
+                55
+              ]
+            ],
+            "expected": 55,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                54,
+                55,
+                57
+              ]
+            ],
+            "expected": 112,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "ebf9fb382cd589c41d52732c63a700352f0c6c02cdd5b134ffabfbe9b6c58d3e",
+      "split": "train",
+      "family": "threshold",
+      "repository": {
+        "solution.py": "def compute_77172(values):\n    return sum(item for item in values if item > 2)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_77172",
+        "description": "Return the sum of values at least 2, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_77172",
+        "cases": [
+          {
+            "args": [
+              [
+                2
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                1,
+                2,
+                4
+              ]
+            ],
+            "expected": 6,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "6b407559107703a23ac86a8b92de6ad5db3f386c881ddbe21a9fee01ab62df28",
+      "split": "train",
+      "family": "exclusive",
+      "repository": {
+        "solution.py": "def compute_68760(n):\n    return sum(range(172, n+1))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_68760",
+        "description": "Return the sum of integers from 172 inclusive to n exclusive; zero when n <= 172.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_68760",
+        "cases": [
+          {
+            "args": [
+              172
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              173
+            ],
+            "expected": 172,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "11148308452f2872948aa9ce5728da75d461dc7fe125d8ad37200559acedc238",
+      "split": "train",
+      "family": "exclusive",
+      "repository": {
+        "solution.py": "def compute_25342(n):\n    return sum(range(8, n+1))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_25342",
+        "description": "Return the sum of integers from 8 inclusive to n exclusive; zero when n <= 8.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_25342",
+        "cases": [
+          {
+            "args": [
+              8
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              9
+            ],
+            "expected": 8,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "881c518880f4101ccf6f8a85d67ac88442077af2e3eb8e352579afee05938485",
+      "split": "train",
+      "family": "exclusive",
+      "repository": {
+        "solution.py": "def compute_33069(n):\n    return sum(range(27, n+1))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_33069",
+        "description": "Return the sum of integers from 27 inclusive to n exclusive; zero when n <= 27.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_33069",
+        "cases": [
+          {
+            "args": [
+              27
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              28
+            ],
+            "expected": 27,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "62e896eaa5bb7925e8b22cf51dcb23e924204ac9cbbb72ac148ca538a5bb4c07",
+      "split": "train",
+      "family": "exclusive",
+      "repository": {
+        "solution.py": "def compute_76297(n):\n    return sum(range(5, n+1))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_76297",
+        "description": "Return the sum of integers from 5 inclusive to n exclusive; zero when n <= 5.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_76297",
+        "cases": [
+          {
+            "args": [
+              5
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              6
+            ],
+            "expected": 5,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "a2b07683445d6373383e00aab11c129af1a7a67096b05e77504095b83b8303e8",
+      "split": "train",
+      "family": "mutation",
+      "repository": {
+        "solution.py": "def compute_40689(values):\n    values.sort()\n    return values[:171]\n"
+      },
+      "contract": {
+        "entry": "solution.compute_40689",
+        "description": "Return the first 171 items of the ascending sorted input. Inputs must remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_40689",
+        "cases": [
+          {
+            "args": [
+              [
+                3,
+                1,
+                2
+              ]
+            ],
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": [],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "1144bf11df89c4812f33275e63ab72773e5ed307b6af1ae72110619ca74b33cd",
+      "split": "train",
+      "family": "mutation",
+      "repository": {
+        "solution.py": "def compute_33421(values):\n    values.sort()\n    return values[:178]\n"
+      },
+      "contract": {
+        "entry": "solution.compute_33421",
+        "description": "Return the first 178 items of the ascending sorted input. Inputs must remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_33421",
+        "cases": [
+          {
+            "args": [
+              [
+                3,
+                1,
+                2
+              ]
+            ],
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": [],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "dd6734896b3df00c53df12854e6fce32452a729c2fb19f27a1818a30cc2e6899",
+      "split": "train",
+      "family": "mutation",
+      "repository": {
+        "solution.py": "def compute_10925(values):\n    values.sort()\n    return values[:30]\n"
+      },
+      "contract": {
+        "entry": "solution.compute_10925",
+        "description": "Return the first 30 items of the ascending sorted input. Inputs must remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_10925",
+        "cases": [
+          {
+            "args": [
+              [
+                3,
+                1,
+                2
+              ]
+            ],
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": [],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "cc277b5ec0bdf330dc31ec4a24e93b3e3d3d9081716321830ed26068bbdc5e60",
+      "split": "train",
+      "family": "mutation",
+      "repository": {
+        "solution.py": "def compute_75315(values):\n    values.sort()\n    return values[:144]\n"
+      },
+      "contract": {
+        "entry": "solution.compute_75315",
+        "description": "Return the first 144 items of the ascending sorted input. Inputs must remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_75315",
+        "cases": [
+          {
+            "args": [
+              [
+                3,
+                1,
+                2
+              ]
+            ],
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": [],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "a6bdfc7e2cfc229b5c74c8a0bf9386b15c8bb18fbcf07f5e3d297e530846f9ea",
+      "split": "train",
+      "family": "ordering",
+      "repository": {
+        "solution.py": "def compute_24236(values):\n    return sorted(set(x for x in values if x >= 106))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_24236",
+        "description": "Return distinct values at least 106, in their original first-occurrence order; keep inputs unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_24236",
+        "cases": [
+          {
+            "args": [
+              [
+                108,
+                106,
+                108,
+                107
+              ]
+            ],
+            "expected": [
+              108,
+              106,
+              107
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                106,
+                106
+              ]
+            ],
+            "expected": [
+              106
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "f20bab3b8cc8c18d3ca91cbd27a40ed9c7e97adf4406669a7a4a97c0113118b4",
+      "split": "train",
+      "family": "ordering",
+      "repository": {
+        "solution.py": "def compute_56614(values):\n    return sorted(set(x for x in values if x >= 63))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_56614",
+        "description": "Return distinct values at least 63, in their original first-occurrence order; keep inputs unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_56614",
+        "cases": [
+          {
+            "args": [
+              [
+                65,
+                63,
+                65,
+                64
+              ]
+            ],
+            "expected": [
+              65,
+              63,
+              64
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                63,
+                63
+              ]
+            ],
+            "expected": [
+              63
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "d332f4c6cb949b3d7b83d5ecae22dfd244b6557c74870f6646648bda0474484c",
+      "split": "train",
+      "family": "ordering",
+      "repository": {
+        "solution.py": "def compute_34682(values):\n    return sorted(set(x for x in values if x >= 163))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_34682",
+        "description": "Return distinct values at least 163, in their original first-occurrence order; keep inputs unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_34682",
+        "cases": [
+          {
+            "args": [
+              [
+                165,
+                163,
+                165,
+                164
+              ]
+            ],
+            "expected": [
+              165,
+              163,
+              164
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                163,
+                163
+              ]
+            ],
+            "expected": [
+              163
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "1ca887e7a817f60dc709581e337d215de329b4f655eee906452dcd361e1ee64b",
+      "split": "train",
+      "family": "ordering",
+      "repository": {
+        "solution.py": "def compute_41949(values):\n    return sorted(set(x for x in values if x >= 10))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_41949",
+        "description": "Return distinct values at least 10, in their original first-occurrence order; keep inputs unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_41949",
+        "cases": [
+          {
+            "args": [
+              [
+                12,
+                10,
+                12,
+                11
+              ]
+            ],
+            "expected": [
+              12,
+              10,
+              11
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                10,
+                10
+              ]
+            ],
+            "expected": [
+              10
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "1ffdbb92c46b39bb5766f1a9d20f9b781aeb398b14afa281b0ea031b156d9188",
+      "split": "train",
+      "family": "accumulator",
+      "repository": {
+        "solution.py": "def compute_12109(values):\n    result = 0\n    for value in values:\n        result *= value + 152\n    return result\n"
+      },
+      "contract": {
+        "entry": "solution.compute_12109",
+        "description": "Return the product of (value + 152) for every input value; empty product is one.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_12109",
+        "cases": [
+          {
+            "args": [
+              [
+                152
+              ]
+            ],
+            "expected": 304,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "794976ef5c02335776c420398225a6b6eeb73aff76a26c93e9a406a6e29b9bd7",
+      "split": "train",
+      "family": "accumulator",
+      "repository": {
+        "solution.py": "def compute_99143(values):\n    result = 0\n    for value in values:\n        result *= value + 59\n    return result\n"
+      },
+      "contract": {
+        "entry": "solution.compute_99143",
+        "description": "Return the product of (value + 59) for every input value; empty product is one.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_99143",
+        "cases": [
+          {
+            "args": [
+              [
+                59
+              ]
+            ],
+            "expected": 118,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "ddcadb9611340b6ac12a9d92bfb3da129fce476df176f00a4743db9799daba23",
+      "split": "train",
+      "family": "accumulator",
+      "repository": {
+        "solution.py": "def compute_40949(values):\n    result = 0\n    for value in values:\n        result *= value + 73\n    return result\n"
+      },
+      "contract": {
+        "entry": "solution.compute_40949",
+        "description": "Return the product of (value + 73) for every input value; empty product is one.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_40949",
+        "cases": [
+          {
+            "args": [
+              [
+                73
+              ]
+            ],
+            "expected": 146,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "0865513596eed0aa610e85170ceb98d1ccd2900e0ce8ce273a11e99e35991b4f",
+      "split": "train",
+      "family": "accumulator",
+      "repository": {
+        "solution.py": "def compute_94870(values):\n    result = 0\n    for value in values:\n        result *= value + 17\n    return result\n"
+      },
+      "contract": {
+        "entry": "solution.compute_94870",
+        "description": "Return the product of (value + 17) for every input value; empty product is one.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_94870",
+        "cases": [
+          {
+            "args": [
+              [
+                17
+              ]
+            ],
+            "expected": 34,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "870bd2bed2aa308d061158c615cec8d0718bd41c341ecd203d084768e836180f",
+      "split": "train",
+      "family": "empty",
+      "repository": {
+        "solution.py": "def compute_93371(values):\n    return max(values)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_93371",
+        "description": "Return the largest input value, or 150 for an empty input. Inputs remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_93371",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 150,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                150
+              ]
+            ],
+            "expected": 150,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "364b3c63d11373564a367e5976b7ca2f1da8583541a79dc702291738cba06bd8",
+      "split": "train",
+      "family": "empty",
+      "repository": {
+        "solution.py": "def compute_13224(values):\n    return max(values)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_13224",
+        "description": "Return the largest input value, or 151 for an empty input. Inputs remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_13224",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 151,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                151
+              ]
+            ],
+            "expected": 151,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "21735f374166a491fc2eee364b5e59cb93aa84c0db0dde5431a85f2a5ee7c481",
+      "split": "train",
+      "family": "empty",
+      "repository": {
+        "solution.py": "def compute_38051(values):\n    return max(values)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_38051",
+        "description": "Return the largest input value, or 22 for an empty input. Inputs remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_38051",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 22,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                22
+              ]
+            ],
+            "expected": 22,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "e22c6317e2c4ef55f16920dea3880f0f1ac2e5bde3c258ca3e94b93343bf1100",
+      "split": "train",
+      "family": "empty",
+      "repository": {
+        "solution.py": "def compute_42995(values):\n    return max(values)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_42995",
+        "description": "Return the largest input value, or 86 for an empty input. Inputs remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_42995",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 86,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                86
+              ]
+            ],
+            "expected": 86,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "a96ac4da2caf4fb8c466061caaf0e7b7c69320900aef78cbfb57b90aa620e199",
+      "split": "validation",
+      "family": "threshold",
+      "repository": {
+        "solution.py": "def compute_42837(values):\n    return sum(item for item in values if item > 88)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_42837",
+        "description": "Return the sum of values at least 88, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_42837",
+        "cases": [
+          {
+            "args": [
+              [
+                88
+              ]
+            ],
+            "expected": 88,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                87,
+                88,
+                90
+              ]
+            ],
+            "expected": 178,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "3ba379f32b7ed27a4fd9f37690bf0bb080abcd68d21ac1224a1417118f43d0a9",
+      "split": "validation",
+      "family": "exclusive",
+      "repository": {
+        "solution.py": "def compute_96058(n):\n    return sum(range(123, n+1))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_96058",
+        "description": "Return the sum of integers from 123 inclusive to n exclusive; zero when n <= 123.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_96058",
+        "cases": [
+          {
+            "args": [
+              123
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              124
+            ],
+            "expected": 123,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "772047f5a131d84c8a671f850bade4fdf5b45b34785e58e4109a5eb8f1d5b7e6",
+      "split": "validation",
+      "family": "mutation",
+      "repository": {
+        "solution.py": "def compute_37781(values):\n    values.sort()\n    return values[:133]\n"
+      },
+      "contract": {
+        "entry": "solution.compute_37781",
+        "description": "Return the first 133 items of the ascending sorted input. Inputs must remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_37781",
+        "cases": [
+          {
+            "args": [
+              [
+                3,
+                1,
+                2
+              ]
+            ],
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": [],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "de07ca97fc57b0bc1f5333a5e1431c0bec0f401b8938a24fb7f7f2b543ad0f5a",
+      "split": "validation",
+      "family": "ordering",
+      "repository": {
+        "solution.py": "def compute_16759(values):\n    return sorted(set(x for x in values if x >= 122))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_16759",
+        "description": "Return distinct values at least 122, in their original first-occurrence order; keep inputs unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_16759",
+        "cases": [
+          {
+            "args": [
+              [
+                124,
+                122,
+                124,
+                123
+              ]
+            ],
+            "expected": [
+              124,
+              122,
+              123
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                122,
+                122
+              ]
+            ],
+            "expected": [
+              122
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "d2f2242243e9d8ea4a13d82e7894df5251bc94a550c8f8858c1dd24c63d4bb35",
+      "split": "validation",
+      "family": "accumulator",
+      "repository": {
+        "solution.py": "def compute_21673(values):\n    result = 0\n    for value in values:\n        result *= value + 116\n    return result\n"
+      },
+      "contract": {
+        "entry": "solution.compute_21673",
+        "description": "Return the product of (value + 116) for every input value; empty product is one.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_21673",
+        "cases": [
+          {
+            "args": [
+              [
+                116
+              ]
+            ],
+            "expected": 232,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "a94cde4b094ff72030158446139e535aa159757eba91b9c75a5d25e113e5e073",
+      "split": "validation",
+      "family": "empty",
+      "repository": {
+        "solution.py": "def compute_36667(values):\n    return max(values)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_36667",
+        "description": "Return the largest input value, or 126 for an empty input. Inputs remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_36667",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 126,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                126
+              ]
+            ],
+            "expected": 126,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "5a316cb555ddcda5135b6c01bc664d85340912ac8e2b2100b9de6660d4833d26",
+      "split": "iid",
+      "family": "threshold",
+      "repository": {
+        "solution.py": "def compute_19234(values):\n    return sum(item for item in values if item > 38)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_19234",
+        "description": "Return the sum of values at least 38, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_19234",
+        "cases": [
+          {
+            "args": [
+              [
+                38
+              ]
+            ],
+            "expected": 38,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                37,
+                38,
+                40
+              ]
+            ],
+            "expected": 78,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "4939e045d45f89e9228d7733851b2011a26b518abc14d027dbd5d9b6e1668d6b",
+      "split": "iid",
+      "family": "exclusive",
+      "repository": {
+        "solution.py": "def compute_14701(n):\n    return sum(range(117, n+1))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_14701",
+        "description": "Return the sum of integers from 117 inclusive to n exclusive; zero when n <= 117.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_14701",
+        "cases": [
+          {
+            "args": [
+              117
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              118
+            ],
+            "expected": 117,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "6177c8c14c57a165e3e58adbedf9192abbfa8ad378d7f3ce76660242e5f94d33",
+      "split": "iid",
+      "family": "mutation",
+      "repository": {
+        "solution.py": "def compute_93076(values):\n    values.sort()\n    return values[:136]\n"
+      },
+      "contract": {
+        "entry": "solution.compute_93076",
+        "description": "Return the first 136 items of the ascending sorted input. Inputs must remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_93076",
+        "cases": [
+          {
+            "args": [
+              [
+                3,
+                1,
+                2
+              ]
+            ],
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": [],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "739ac6055aabe26b5e076f008a69fa0ba783bd3f7ef6871892145ebad15bcc6f",
+      "split": "iid",
+      "family": "ordering",
+      "repository": {
+        "solution.py": "def compute_98848(values):\n    return sorted(set(x for x in values if x >= 64))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_98848",
+        "description": "Return distinct values at least 64, in their original first-occurrence order; keep inputs unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_98848",
+        "cases": [
+          {
+            "args": [
+              [
+                66,
+                64,
+                66,
+                65
+              ]
+            ],
+            "expected": [
+              66,
+              64,
+              65
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                64,
+                64
+              ]
+            ],
+            "expected": [
+              64
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "86ccb1ba60abe9933670e2fbfd082b50a4749f8c63d095ff757b4dd2645f3f30",
+      "split": "iid",
+      "family": "accumulator",
+      "repository": {
+        "solution.py": "def compute_10139(values):\n    result = 0\n    for value in values:\n        result *= value + 161\n    return result\n"
+      },
+      "contract": {
+        "entry": "solution.compute_10139",
+        "description": "Return the product of (value + 161) for every input value; empty product is one.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_10139",
+        "cases": [
+          {
+            "args": [
+              [
+                161
+              ]
+            ],
+            "expected": 322,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "3e6da691fd69b5ace83a9b550a7a319b71f290b1014542bb924e2f4ea2331c9f",
+      "split": "iid",
+      "family": "empty",
+      "repository": {
+        "solution.py": "def compute_33987(values):\n    return max(values)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_33987",
+        "description": "Return the largest input value, or 101 for an empty input. Inputs remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_33987",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 101,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                101
+              ]
+            ],
+            "expected": 101,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "0b55ae2f8cbb04fc02ea5d81a22bafcd0a104003efa1c113ae4fb3336f5f3616",
+      "split": "ood",
+      "family": "cross_file",
+      "repository": {
+        "rules.py": "def eligible(value):\n    return value > 135\n",
+        "solution.py": "from rules import eligible\ndef compute_44518(values):\n    return sum(x for x in values if eligible(x))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_44518",
+        "description": "Return the sum of values at least 135, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_44518",
+        "cases": [
+          {
+            "args": [
+              [
+                135
+              ]
+            ],
+            "expected": 135,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                134,
+                135,
+                137
+              ]
+            ],
+            "expected": 272,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "f5e8ce5f33d471564bb363a46580789b5131096ad64d601cffeaf6c257f5a2e3",
+      "split": "ood",
+      "family": "cross_file",
+      "repository": {
+        "rules.py": "def eligible(value):\n    return value > 153\n",
+        "solution.py": "from rules import eligible\ndef compute_92562(values):\n    return sum(x for x in values if eligible(x))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_92562",
+        "description": "Return the sum of values at least 153, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_92562",
+        "cases": [
+          {
+            "args": [
+              [
+                153
+              ]
+            ],
+            "expected": 153,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                152,
+                153,
+                155
+              ]
+            ],
+            "expected": 308,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "3457321512ce3c082e31eae1033cc75a89392b806679a37be97dd703135db95d",
+      "split": "ood",
+      "family": "compound",
+      "repository": {
+        "solution.py": "def compute_93803(values):\n    result = 0\n    for value in values:\n        if value <= 114:\n            continue\n        result *= value\n    return result\n"
+      },
+      "contract": {
+        "entry": "solution.compute_93803",
+        "description": "Return the product of input values at least 114, inclusive; empty product is one.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_93803",
+        "cases": [
+          {
+            "args": [
+              [
+                114
+              ]
+            ],
+            "expected": 114,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "52392968a47647a286df75f60d39eda157b73fd1ccc505e1b378c6ee63baf606",
+      "split": "ood",
+      "family": "compound",
+      "repository": {
+        "solution.py": "def compute_28671(values):\n    result = 0\n    for value in values:\n        if value <= 168:\n            continue\n        result *= value\n    return result\n"
+      },
+      "contract": {
+        "entry": "solution.compute_28671",
+        "description": "Return the product of input values at least 168, inclusive; empty product is one.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_28671",
+        "cases": [
+          {
+            "args": [
+              [
+                168
+              ]
+            ],
+            "expected": 168,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "80ed80a5fd7ec7384829764257f4ef7ea587890a9c8271800fe51eeaf22261ca",
+      "split": "ood",
+      "family": "control_flow",
+      "repository": {
+        "solution.py": "def compute_84315(n):\n    total = 0\n    cursor = 147\n    while cursor <= n:\n        total += cursor\n        cursor += 1\n    return total\n"
+      },
+      "contract": {
+        "entry": "solution.compute_84315",
+        "description": "Return the sum of integers from 147 inclusive to n exclusive; zero when n <= 147.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_84315",
+        "cases": [
+          {
+            "args": [
+              147
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              148
+            ],
+            "expected": 147,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "8ad652e10a9bbed5f8e8fd6659043e6a936d14f60fa089b2f8365ab2e26f3007",
+      "split": "ood",
+      "family": "control_flow",
+      "repository": {
+        "solution.py": "def compute_43656(n):\n    total = 0\n    cursor = 141\n    while cursor <= n:\n        total += cursor\n        cursor += 1\n    return total\n"
+      },
+      "contract": {
+        "entry": "solution.compute_43656",
+        "description": "Return the sum of integers from 141 inclusive to n exclusive; zero when n <= 141.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_43656",
+        "cases": [
+          {
+            "args": [
+              141
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              142
+            ],
+            "expected": 141,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "e174ad3fea1f4e022b92d8247cb9617192d1cacd26bb31011352c4b49c536949",
+      "split": "ood",
+      "family": "renaming",
+      "repository": {
+        "solution.py": "def compute_22484(measurements_zeta):\n    return sum(item for item in measurements_zeta if item > 56)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_22484",
+        "description": "Return the sum of values at least 56, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_22484",
+        "cases": [
+          {
+            "args": [
+              [
+                56
+              ]
+            ],
+            "expected": 56,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                55,
+                56,
+                58
+              ]
+            ],
+            "expected": 114,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "ec33b983690a065a72a0b28f9fa3977a1f2c4ff8f1137e5fdb04d15e4e848255",
+      "split": "ood",
+      "family": "renaming",
+      "repository": {
+        "solution.py": "def compute_85172(measurements_zeta):\n    return sum(item for item in measurements_zeta if item > 21)\n"
+      },
+      "contract": {
+        "entry": "solution.compute_85172",
+        "description": "Return the sum of values at least 21, inclusive. Do not mutate the input.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "int",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_85172",
+        "cases": [
+          {
+            "args": [
+              [
+                21
+              ]
+            ],
+            "expected": 21,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                20,
+                21,
+                23
+              ]
+            ],
+            "expected": 44,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "ff332b80634d58a05ed17dcceaab91737ae34c8b73f3ce5bf91fd6e40f8a35a4",
+      "split": "ood",
+      "family": "alias_mutation",
+      "repository": {
+        "solution.py": "def arrange(items):\n    local = items\n    local.sort()\n    return local\ndef compute_28938(values):\n    return arrange(values)[:160]\n"
+      },
+      "contract": {
+        "entry": "solution.compute_28938",
+        "description": "Return the first 160 items of the ascending sorted input. Inputs must remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_28938",
+        "cases": [
+          {
+            "args": [
+              [
+                3,
+                1,
+                2
+              ]
+            ],
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": [],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "b82aec2d6f6343565428997394e1e780cd18c354d4613a899d8cd73c4169d403",
+      "split": "ood",
+      "family": "alias_mutation",
+      "repository": {
+        "solution.py": "def arrange(items):\n    local = items\n    local.sort()\n    return local\ndef compute_13415(values):\n    return arrange(values)[:96]\n"
+      },
+      "contract": {
+        "entry": "solution.compute_13415",
+        "description": "Return the first 96 items of the ascending sorted input. Inputs must remain unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_13415",
+        "cases": [
+          {
+            "args": [
+              [
+                3,
+                1,
+                2
+              ]
+            ],
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": [],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "fe92ba5141d9e16c1fef26a71da57b02b5735882a322f86b74ac9ee115860709",
+      "split": "ood",
+      "family": "composition",
+      "repository": {
+        "solution.py": "def compute_51451(values):\n    return sorted(set(x for x in values if x > 61))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_51451",
+        "description": "Return distinct values at least 61, in their original first-occurrence order; keep inputs unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_51451",
+        "cases": [
+          {
+            "args": [
+              [
+                63,
+                61,
+                63,
+                62
+              ]
+            ],
+            "expected": [
+              63,
+              61,
+              62
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                61,
+                61
+              ]
+            ],
+            "expected": [
+              61
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "identity": "cc0e4024e3e408d4bdc1d5aa9473c59962397990471234ea77d2975c2ab5b8f3",
+      "split": "ood",
+      "family": "composition",
+      "repository": {
+        "solution.py": "def compute_24867(values):\n    return sorted(set(x for x in values if x > 84))\n"
+      },
+      "contract": {
+        "entry": "solution.compute_24867",
+        "description": "Return distinct values at least 84, in their original first-occurrence order; keep inputs unchanged.",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "outputs": "list",
+        "invariants": [
+          "Inputs remain unchanged."
+        ]
+      },
+      "visible_tests": {
+        "entry": "solution.compute_24867",
+        "cases": [
+          {
+            "args": [
+              [
+                86,
+                84,
+                86,
+                85
+              ]
+            ],
+            "expected": [
+              86,
+              84,
+              85
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                84,
+                84
+              ]
+            ],
+            "expected": [
+              84
+            ],
+            "expected_type": "list",
+            "unchanged": true
+          }
+        ]
+      }
+    }
+  ]
+}
