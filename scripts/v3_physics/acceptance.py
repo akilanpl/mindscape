@@ -205,6 +205,10 @@ def check(dataset, root, output):
                         "split": split,
                         "scene_clusters": 20,
                         "paired_success_delta": float(differences.mean()),
+                        "paired_scene_bootstrap95": np.quantile(
+                            differences[rng.integers(0, len(ids), (2000, len(ids)))].mean(1),
+                            [0.025, 0.975],
+                        ).tolist(),
                         "maintained_or_improved": bool(differences.mean() >= 0),
                     }
                 )

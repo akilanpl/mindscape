@@ -24,4 +24,4 @@ Atomic generation checkpoints include model weights, Adam state, scales, memory 
 
 The independent verifier reconstructs actual dataset trajectories and selected planning actions on CPU, verifies checkpoint hashes and recomputes prediction metrics without neural inference. Scene-level paired bootstrap and exact cell coverage checks are separate from a driver-finished flag. Validation scenes are frozen and currently unused for tuning. The primary target is at least20% normalized OOD rollout-error reduction versus matched at250 trajectories, with maintained/improved actual planning success. Small synthetic settings do not establish real-world physical understanding.
 
-REAL-WORLD VALIDATION: NOT RUN. PHYRE: NOT RUN. Simulated demonstrations are labeled simulation. All neural integration/performance results remain pending until actual native receipts exist.
+REAL-WORLD VALIDATION: NOT RUN. PHYRE: NOT RUN. Simulated demonstrations are labeled simulation. Native MPS integration and the complete frozen simulated study have verified receipts; the concept mechanism missed its scientific target. See scientific-report.md for observed failures.

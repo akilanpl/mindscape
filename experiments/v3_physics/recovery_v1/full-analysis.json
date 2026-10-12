@@ -1,0 +1,5127 @@
+{
+  "cells": [
+    {
+      "budget": 0,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.8935562487319113,
+      "one_step_mse": 0.004761847996232973,
+      "scene_bootstrap95": [
+        2.502061388072558,
+        3.308237103086896
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "iid",
+      "variant": "analytical_available"
+    },
+    {
+      "budget": 0,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.767798055112362,
+      "one_step_mse": 1.3792904554337837,
+      "scene_bootstrap95": [
+        5.33638399605453,
+        8.317292589180171
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "ood",
+      "variant": "analytical_available"
+    },
+    {
+      "budget": 0,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.940786668509245,
+      "one_step_mse": 0.0047822202104725875,
+      "scene_bootstrap95": [
+        2.5145392868593333,
+        3.354813186921179
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "iid",
+      "variant": "constant_velocity"
+    },
+    {
+      "budget": 0,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.817573843002319,
+      "one_step_mse": 1.3801757344853558,
+      "scene_bootstrap95": [
+        5.391955043032765,
+        8.457608279272915
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "ood",
+      "variant": "constant_velocity"
+    },
+    {
+      "budget": 0,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.6299710327386856,
+      "one_step_mse": 0.208399904735561,
+      "scene_bootstrap95": [
+        1.4005700451433658,
+        1.8748026378676292
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "iid",
+      "variant": "persistence"
+    },
+    {
+      "budget": 0,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.021402342617512,
+      "one_step_mse": 1.2979435126515455,
+      "scene_bootstrap95": [
+        2.377312112100422,
+        3.7741542243286963
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "ood",
+      "variant": "persistence"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.913250371813774,
+      "one_step_mse": 0.250400253705302,
+      "scene_bootstrap95": [
+        1.628810809329152,
+        2.2016639730259775
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.41454796731472,
+      "one_step_mse": 1.2000240480973299,
+      "scene_bootstrap95": [
+        2.8056370257884264,
+        4.032076559662819
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.915732848867774,
+      "one_step_mse": 0.14205289173427446,
+      "scene_bootstrap95": [
+        1.639783240891993,
+        2.1921504880655553
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.5474405401945113,
+      "one_step_mse": 1.1269266991729092,
+      "scene_bootstrap95": [
+        2.8261397793069483,
+        4.33344772555679
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.357296336740255,
+      "one_step_mse": 0.2876188952545635,
+      "scene_bootstrap95": [
+        3.5711397658996282,
+        7.276776037652044
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 8.134398801922798,
+      "one_step_mse": 1.156988956106361,
+      "scene_bootstrap95": [
+        5.619451161257922,
+        10.839616545833646
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.402295074705035,
+      "one_step_mse": 0.14038450836247648,
+      "scene_bootstrap95": [
+        3.7856291763344783,
+        7.152393234575633
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.787744500190019,
+      "one_step_mse": 1.17441749985177,
+      "scene_bootstrap95": [
+        5.097263209857046,
+        8.682018120782448
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.3165556389838458,
+      "one_step_mse": 0.2713217240618542,
+      "scene_bootstrap95": [
+        1.1144253325611353,
+        1.5342130031790582
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.5188382649421692,
+      "one_step_mse": 1.2029756083292886,
+      "scene_bootstrap95": [
+        2.0330087232999503,
+        3.0320359346829346
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 11.957553286999463,
+      "one_step_mse": 0.14790926655932707,
+      "scene_bootstrap95": [
+        7.366267693851142,
+        17.196390685986728
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 23.332633243575692,
+      "one_step_mse": 1.1559118004586526,
+      "scene_bootstrap95": [
+        9.245144144896418,
+        43.1174015605673
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.1222365680336952,
+      "one_step_mse": 0.3185162676218897,
+      "scene_bootstrap95": [
+        0.8967351278010756,
+        1.3521663241162896
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.1269899643957615,
+      "one_step_mse": 1.1820670621981844,
+      "scene_bootstrap95": [
+        1.7231758842617273,
+        2.569158826854079
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 24.62821604795754,
+      "one_step_mse": 0.052053493756902755,
+      "scene_bootstrap95": [
+        15.120852518379689,
+        35.49835266252048
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 49.14498206168413,
+      "one_step_mse": 1.1707876277701872,
+      "scene_bootstrap95": [
+        26.634489795453845,
+        76.63481523375206
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.1228661912679672,
+      "one_step_mse": 0.2815490535949357,
+      "scene_bootstrap95": [
+        0.9518328585550189,
+        1.3213777391575277
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.14929190531373,
+      "one_step_mse": 1.156678497128887,
+      "scene_bootstrap95": [
+        1.7685220711641012,
+        2.5545790352523325
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.3606683897972105,
+      "one_step_mse": 0.15089929204648797,
+      "scene_bootstrap95": [
+        2.5629715469181535,
+        4.263170238807796
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.45042170882225,
+      "one_step_mse": 1.1366136010337686,
+      "scene_bootstrap95": [
+        5.001823436290025,
+        8.047111527651548
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.575469047985971,
+      "one_step_mse": 0.21238447186602571,
+      "scene_bootstrap95": [
+        1.3138479118151591,
+        1.8799543166635553
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.960377443432808,
+      "one_step_mse": 1.1439160027394246,
+      "scene_bootstrap95": [
+        2.9796949333548546,
+        5.15173925575614
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 0.8688908824324608,
+      "one_step_mse": 0.1982653725449927,
+      "scene_bootstrap95": [
+        0.7604505106285214,
+        0.9974949444532395
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.2554673084616663,
+      "one_step_mse": 1.2739346237643623,
+      "scene_bootstrap95": [
+        1.7661474147215486,
+        2.884674725301563
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.6152759897708893,
+      "one_step_mse": 0.2197099656312639,
+      "scene_bootstrap95": [
+        1.3794524308070542,
+        1.8861691713631152
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.5942279374599457,
+      "one_step_mse": 1.1319035373191582,
+      "scene_bootstrap95": [
+        2.887136398211122,
+        4.37034378749132
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.6677867518365384,
+      "one_step_mse": 0.17139623068243964,
+      "scene_bootstrap95": [
+        2.8230418470203875,
+        4.718799810767174
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.230810865163803,
+      "one_step_mse": 1.161097386953843,
+      "scene_bootstrap95": [
+        5.530280875235796,
+        9.176281930983066
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 19.890526244640352,
+      "one_step_mse": 0.10503945400705561,
+      "scene_bootstrap95": [
+        11.7672411143817,
+        30.118176630105804
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 100.89718467101454,
+      "one_step_mse": 1.2036656751227566,
+      "scene_bootstrap95": [
+        18.353242750067267,
+        239.3634076700171
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.151193403750658,
+      "one_step_mse": 0.26218733433343006,
+      "scene_bootstrap95": [
+        2.3054919799380005,
+        4.037017811302096
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.715754406750202,
+      "one_step_mse": 1.1430556239170984,
+      "scene_bootstrap95": [
+        3.399239715076983,
+        6.257515003524721
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.20049686178565,
+      "one_step_mse": 0.11450844066759601,
+      "scene_bootstrap95": [
+        3.1368017950244247,
+        5.41327064731717
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.039165740609169,
+      "one_step_mse": 1.1882538720795675,
+      "scene_bootstrap95": [
+        4.5720895254164935,
+        7.61235455314815
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 8.595967594385147,
+      "one_step_mse": 0.2766178079112433,
+      "scene_bootstrap95": [
+        5.669704816095531,
+        11.90598183952272
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 10.311996989399194,
+      "one_step_mse": 1.1351301011443138,
+      "scene_bootstrap95": [
+        6.770905228961259,
+        13.952246516849844
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.9491065245866777,
+      "one_step_mse": 0.1609482125044451,
+      "scene_bootstrap95": [
+        2.1532968531381336,
+        3.8285686731077733
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.183139418661594,
+      "one_step_mse": 1.1868419255080516,
+      "scene_bootstrap95": [
+        3.863872187666595,
+        6.686981253847479
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.7586888655275106,
+      "one_step_mse": 0.2928093788400292,
+      "scene_bootstrap95": [
+        1.3036466246582568,
+        2.241927729435264
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.855657514631748,
+      "one_step_mse": 1.1495220953854732,
+      "scene_bootstrap95": [
+        2.2754286598190667,
+        3.499368011265993
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.5564110083132983,
+      "one_step_mse": 0.03492402484971535,
+      "scene_bootstrap95": [
+        2.5351045045945795,
+        4.685251836946233
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.659310157001019,
+      "one_step_mse": 1.1529381288550211,
+      "scene_bootstrap95": [
+        4.3593207268342375,
+        7.038963910520076
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.7295347802340983,
+      "one_step_mse": 0.30660528330132364,
+      "scene_bootstrap95": [
+        2.0610661051757635,
+        3.419084778532384
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.122126525342464,
+      "one_step_mse": 1.17551700707525,
+      "scene_bootstrap95": [
+        3.2778455773890016,
+        5.009103659175336
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.957990522310138,
+      "one_step_mse": 0.031521475611916684,
+      "scene_bootstrap95": [
+        2.7153217747434972,
+        5.315594813378526
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.3715178366005425,
+      "one_step_mse": 1.1462078042562645,
+      "scene_bootstrap95": [
+        4.44740807005763,
+        8.65506442317739
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.7989074931293727,
+      "one_step_mse": 0.2767422089911997,
+      "scene_bootstrap95": [
+        2.012462819442153,
+        3.6852297337558118
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.361457471549511,
+      "one_step_mse": 1.1302879148256033,
+      "scene_bootstrap95": [
+        3.30313603207469,
+        5.57048240781203
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.9631493020057675,
+      "one_step_mse": 0.030843714887523674,
+      "scene_bootstrap95": [
+        3.4350806055553256,
+        6.717243758089838
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 8.89802146039903,
+      "one_step_mse": 1.1226397756376536,
+      "scene_bootstrap95": [
+        5.886490172553808,
+        12.759366530248895
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.742016575038433,
+      "one_step_mse": 0.22420558192119644,
+      "scene_bootstrap95": [
+        2.0676603581383826,
+        3.4648463307544586
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.876011757850647,
+      "one_step_mse": 1.0877234013353154,
+      "scene_bootstrap95": [
+        3.50082581923157,
+        6.451630747385322
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.0686568200588227,
+      "one_step_mse": 0.20330507511273027,
+      "scene_bootstrap95": [
+        0.9578337557166815,
+        1.192080206207931
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.538896377682686,
+      "one_step_mse": 1.262874359075213,
+      "scene_bootstrap95": [
+        2.1547134827077388,
+        2.9781252368986597
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.1366768899559974,
+      "one_step_mse": 0.2241337198120891,
+      "scene_bootstrap95": [
+        1.7025163530521095,
+        2.6645251108594237
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.59838633954525,
+      "one_step_mse": 1.0665986751600576,
+      "scene_bootstrap95": [
+        2.911319846048951,
+        4.349983210071921
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.962699407711625,
+      "one_step_mse": 0.03112982867532992,
+      "scene_bootstrap95": [
+        3.4670235971864316,
+        6.631490495784208
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 8.923849363625049,
+      "one_step_mse": 1.1322396566951465,
+      "scene_bootstrap95": [
+        5.935601670302451,
+        12.30563731264323
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 61.35788710296154,
+      "one_step_mse": 0.04067255405709148,
+      "scene_bootstrap95": [
+        38.73599471588061,
+        87.16161337861787
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 116.06180756509303,
+      "one_step_mse": 1.2410520997457206,
+      "scene_bootstrap95": [
+        53.44723295442015,
+        197.97874897178264
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.7289547887444496,
+      "one_step_mse": 0.20343596134727704,
+      "scene_bootstrap95": [
+        2.6627378429323434,
+        5.023765068612992
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.936636262834072,
+      "one_step_mse": 1.2454329858140045,
+      "scene_bootstrap95": [
+        4.621443962313235,
+        7.343578867726026
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.5688508922606705,
+      "one_step_mse": 0.12775140143119643,
+      "scene_bootstrap95": [
+        2.0743061765599995,
+        3.1467798694558438
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.281625583469868,
+      "one_step_mse": 1.1949472104579764,
+      "scene_bootstrap95": [
+        3.439959017559886,
+        5.190994962856173
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.4180646393448115,
+      "one_step_mse": 0.27370933307451195,
+      "scene_bootstrap95": [
+        2.4651952878739687,
+        4.481690763717515
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.884063441157341,
+      "one_step_mse": 1.2185370028780016,
+      "scene_bootstrap95": [
+        3.845195753231645,
+        5.991210734650491
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.714926444813609,
+      "one_step_mse": 0.15106138888433635,
+      "scene_bootstrap95": [
+        5.084083863029256,
+        10.626841553620991
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 9.6778783403337,
+      "one_step_mse": 1.235623516764681,
+      "scene_bootstrap95": [
+        6.850890775229782,
+        12.886066977471108
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.138037893027067,
+      "one_step_mse": 0.30604930273577335,
+      "scene_bootstrap95": [
+        1.6497370208725333,
+        2.658622844569385
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.4009663143754008,
+      "one_step_mse": 1.2281986844711354,
+      "scene_bootstrap95": [
+        2.7802770522981883,
+        4.132234724216163
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.448963718116284,
+      "one_step_mse": 0.04770579722964612,
+      "scene_bootstrap95": [
+        3.102738202019595,
+        5.926538135266863
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.8522062749415635,
+      "one_step_mse": 1.155927821337682,
+      "scene_bootstrap95": [
+        5.0765968854762615,
+        8.749520894624292
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.8164413145929574,
+      "one_step_mse": 0.3519442324293777,
+      "scene_bootstrap95": [
+        1.3276033929511906,
+        2.335420671796426
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.039903603196144,
+      "one_step_mse": 1.2300363688450306,
+      "scene_bootstrap95": [
+        2.4011406371966006,
+        3.7333368588835
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.88346282325685,
+      "one_step_mse": 0.02365248524591152,
+      "scene_bootstrap95": [
+        3.9711668200474235,
+        8.170246486116199
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 9.271018725931645,
+      "one_step_mse": 1.11472443777664,
+      "scene_bootstrap95": [
+        5.940740071773528,
+        12.952086644984776
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.8495928566157818,
+      "one_step_mse": 0.2975132729159668,
+      "scene_bootstrap95": [
+        2.019060908868909,
+        3.7641508047580716
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.498440623581409,
+      "one_step_mse": 1.186380041462835,
+      "scene_bootstrap95": [
+        3.3466177024319768,
+        5.767456833079457
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.333954510763288,
+      "one_step_mse": 0.0900457907902819,
+      "scene_bootstrap95": [
+        3.79176686507836,
+        6.961234388520941
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.882603766322136,
+      "one_step_mse": 1.210882626029852,
+      "scene_bootstrap95": [
+        5.940577736377716,
+        9.991334045365448
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.011323376595974,
+      "one_step_mse": 0.2292792588127486,
+      "scene_bootstrap95": [
+        1.611661598028615,
+        2.4646846866086123
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.375603218525648,
+      "one_step_mse": 1.1718827774046803,
+      "scene_bootstrap95": [
+        3.708110526885837,
+        7.855291488233953
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.087094838321209,
+      "one_step_mse": 0.1985618467174936,
+      "scene_bootstrap95": [
+        0.9871755087524653,
+        1.1967693231403826
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.2801692789793013,
+      "one_step_mse": 1.2089761761634146,
+      "scene_bootstrap95": [
+        1.984048591911793,
+        2.6357400701045988
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.5710155159235,
+      "one_step_mse": 0.23013758049921307,
+      "scene_bootstrap95": [
+        2.1153912686035037,
+        3.0462738608345385
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.096992660760879,
+      "one_step_mse": 1.1142929520299367,
+      "scene_bootstrap95": [
+        3.9976068553775552,
+        6.300595399841664
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.203144649341702,
+      "one_step_mse": 0.10008860451129294,
+      "scene_bootstrap95": [
+        4.582852351240813,
+        10.33723971553333
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 8.541182395815849,
+      "one_step_mse": 1.2308974348443735,
+      "scene_bootstrap95": [
+        6.49832429395616,
+        10.828041504248976
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 29.00569080412388,
+      "one_step_mse": 0.06209724334999919,
+      "scene_bootstrap95": [
+        18.319913940880447,
+        40.79950969578695
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 40.13607568591833,
+      "one_step_mse": 1.1792319100536406,
+      "scene_bootstrap95": [
+        22.360716143377125,
+        62.94040885878726
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 0,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.0872863193006197,
+      "one_step_mse": 0.005182387982742966,
+      "scene_bootstrap95": [
+        0.9710707202164012,
+        1.2103442861400253
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "iid",
+      "variant": "analytical_available"
+    },
+    {
+      "budget": 0,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.246109857247066,
+      "one_step_mse": 0.09466691897812325,
+      "scene_bootstrap95": [
+        3.1189545103651146,
+        5.599438703801914
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "ood",
+      "variant": "analytical_available"
+    },
+    {
+      "budget": 0,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.7236401677131652,
+      "one_step_mse": 0.03402598176151514,
+      "scene_bootstrap95": [
+        1.6062290710955858,
+        1.848448926359415
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "iid",
+      "variant": "constant_velocity"
+    },
+    {
+      "budget": 0,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.2696779555082323,
+      "one_step_mse": 0.13343447673134506,
+      "scene_bootstrap95": [
+        1.988560578688979,
+        2.5819144602119923
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "ood",
+      "variant": "constant_velocity"
+    },
+    {
+      "budget": 0,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.9929250901937485,
+      "one_step_mse": 0.2854780811630189,
+      "scene_bootstrap95": [
+        1.8518115287274124,
+        2.148715746566653
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "iid",
+      "variant": "persistence"
+    },
+    {
+      "budget": 0,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.8767897772789,
+      "one_step_mse": 0.4204104139748961,
+      "scene_bootstrap95": [
+        2.4895393775552512,
+        3.314462025642395
+      ],
+      "scenes": 100,
+      "seed": 0,
+      "split": "ood",
+      "variant": "persistence"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.9051166377961635,
+      "one_step_mse": 0.2090562119137576,
+      "scene_bootstrap95": [
+        1.8938963851220907,
+        4.018722397290169
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.774290021285415,
+      "one_step_mse": 0.3789405643756982,
+      "scene_bootstrap95": [
+        2.5534573140013963,
+        5.18400018990226
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 67.32015446964651,
+      "one_step_mse": 0.0477328589370336,
+      "scene_bootstrap95": [
+        40.71846331091504,
+        99.36531528679744
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 116.05375808864832,
+      "one_step_mse": 0.37237200138122717,
+      "scene_bootstrap95": [
+        44.440339449197054,
+        242.38377883172035
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.1272452811524274,
+      "one_step_mse": 0.36100930567374234,
+      "scene_bootstrap95": [
+        2.0825540179647506,
+        4.303222636417486
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.764374529868364,
+      "one_step_mse": 0.5363560214104472,
+      "scene_bootstrap95": [
+        3.0121771950125695,
+        6.832811612255871
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 417.93436352163553,
+      "one_step_mse": 0.020625200563699764,
+      "scene_bootstrap95": [
+        251.69352201487496,
+        597.7377999839745
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5456.8677575856445,
+      "one_step_mse": 0.3101152487602667,
+      "scene_bootstrap95": [
+        952.0503379345574,
+        13061.692940847177
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.890303666591644,
+      "one_step_mse": 0.26188511790678604,
+      "scene_bootstrap95": [
+        3.1397407721504567,
+        6.712565205521878
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.536421560198068,
+      "one_step_mse": 0.4322455035467283,
+      "scene_bootstrap95": [
+        4.27990801429376,
+        9.200509329609572
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 25.46938177987933,
+      "one_step_mse": 0.018660208893579694,
+      "scene_bootstrap95": [
+        15.896087538573891,
+        36.73278839806095
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 59.5898766541481,
+      "one_step_mse": 0.1596982541606849,
+      "scene_bootstrap95": [
+        19.145573820799587,
+        127.3621860573366
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.490851575620472,
+      "one_step_mse": 0.3300540933843786,
+      "scene_bootstrap95": [
+        4.089627331051976,
+        8.928684532340611
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 8.669678404554725,
+      "one_step_mse": 0.5275710439408431,
+      "scene_bootstrap95": [
+        5.519211999315768,
+        12.343991431307046
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 14.291218513995409,
+      "one_step_mse": 0.013909592080344736,
+      "scene_bootstrap95": [
+        8.523030813481657,
+        20.29866425677761
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 34.079874161332846,
+      "one_step_mse": 0.21921875276312222,
+      "scene_bootstrap95": [
+        19.8668055395931,
+        54.90287928385659
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.162298019342124,
+      "one_step_mse": 0.25428871814554443,
+      "scene_bootstrap95": [
+        3.3289125635158268,
+        7.027890999555584
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.213555664271116,
+      "one_step_mse": 0.43543425559895693,
+      "scene_bootstrap95": [
+        4.601811888184399,
+        10.26224489737302
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 10.238603218384087,
+      "one_step_mse": 0.07271378824749263,
+      "scene_bootstrap95": [
+        6.2396302832774815,
+        14.567881730726917
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 31.932340692430735,
+      "one_step_mse": 0.22443982047014288,
+      "scene_bootstrap95": [
+        12.272582205232233,
+        59.07877317781
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 13.781076233126223,
+      "one_step_mse": 0.27359350584945785,
+      "scene_bootstrap95": [
+        8.556749123958872,
+        19.26398945498187
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 21.859253175258637,
+      "one_step_mse": 0.4836976257925562,
+      "scene_bootstrap95": [
+        11.084227462925018,
+        36.50001990491895
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 13.00600450515747,
+      "one_step_mse": 0.23198949232697486,
+      "scene_bootstrap95": [
+        12.55599452161789,
+        13.442616671323776
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 19.37809771537781,
+      "one_step_mse": 0.3673976071551442,
+      "scene_bootstrap95": [
+        16.89089317369461,
+        22.296013451099395
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.587976125217974,
+      "one_step_mse": 0.25914510293572673,
+      "scene_bootstrap95": [
+        2.446886996555142,
+        4.843273820143192
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 6.8792056638002395,
+      "one_step_mse": 0.4686750045721419,
+      "scene_bootstrap95": [
+        4.53975931058079,
+        9.906285376027226
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 9.764380388334393,
+      "one_step_mse": 0.08284849692076023,
+      "scene_bootstrap95": [
+        5.935328950838185,
+        13.852370025781914
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 31.274263066798447,
+      "one_step_mse": 0.23847866951135074,
+      "scene_bootstrap95": [
+        11.953985852036626,
+        58.0312833556123
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 31.136415159329772,
+      "one_step_mse": 0.03114640252283607,
+      "scene_bootstrap95": [
+        19.244999254044146,
+        43.979404308779166
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "iid",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 53.07317356683314,
+      "one_step_mse": 0.15208818825524759,
+      "scene_bootstrap95": [
+        23.245152491997928,
+        97.20639844794007
+      ],
+      "scenes": 100,
+      "seed": 11,
+      "split": "ood",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3.4027315856516362,
+      "one_step_mse": 0.24933241483577148,
+      "scene_bootstrap95": [
+        2.1106962050907314,
+        5.05722199372202
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.4415180329978465,
+      "one_step_mse": 0.4164706794015365,
+      "scene_bootstrap95": [
+        2.859091552309692,
+        6.311043658930807
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1421.2887620699778,
+      "one_step_mse": 0.06555319069069811,
+      "scene_bootstrap95": [
+        847.779192605528,
+        2055.1504108071877
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 94067.25268918619,
+      "one_step_mse": 0.22697200230468298,
+      "scene_bootstrap95": [
+        27193.22224420728,
+        202021.81076680392
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 53.73069494515657,
+      "one_step_mse": 0.3351714550473116,
+      "scene_bootstrap95": [
+        31.873598105065525,
+        76.35712522923575
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 94.9246446236968,
+      "one_step_mse": 0.48791191348282154,
+      "scene_bootstrap95": [
+        35.7036857733503,
+        174.9505150511674
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 12149280342.690462,
+      "one_step_mse": 0.03683085157911591,
+      "scene_bootstrap95": [
+        4113387881.6945677,
+        23257755501.614796
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.3201995176957483e+20,
+      "one_step_mse": 0.16403166899348434,
+      "scene_bootstrap95": [
+        6983041502.440362,
+        1.5960598552911838e+21
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 35.38323061205447,
+      "one_step_mse": 0.25145041994779604,
+      "scene_bootstrap95": [
+        22.269051399921995,
+        50.08861691199056
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 51.45091010868549,
+      "one_step_mse": 0.4342806096820277,
+      "scene_bootstrap95": [
+        29.339300453320146,
+        80.44757273075726
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2301.641795053147,
+      "one_step_mse": 0.02314129952519579,
+      "scene_bootstrap95": [
+        1091.7825564020313,
+        3786.506403350564
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 104471202826655.72,
+      "one_step_mse": 0.13145953766292223,
+      "scene_bootstrap95": [
+        18675335794946.31,
+        214987927222600.53
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 85.74111291389913,
+      "one_step_mse": 0.21815715989976525,
+      "scene_bootstrap95": [
+        53.584882796636784,
+        118.82617199081183
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 112.09200299739838,
+      "one_step_mse": 0.41029057982130324,
+      "scene_bootstrap95": [
+        64.28174793927371,
+        171.8661365274489
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1675.5346917690338,
+      "one_step_mse": 0.029176118087434588,
+      "scene_bootstrap95": [
+        804.8296457982399,
+        2668.5599296646064
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 543251362093.7709,
+      "one_step_mse": 0.13403203760073665,
+      "scene_bootstrap95": [
+        193865998361.06393,
+        977531973416.4349
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 27.514985661655665,
+      "one_step_mse": 0.29145475960645856,
+      "scene_bootstrap95": [
+        16.720958389647304,
+        38.98152576013654
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 36.479971845299005,
+      "one_step_mse": 0.4813646989458357,
+      "scene_bootstrap95": [
+        20.768458254497496,
+        55.43594352020694
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 60.075133618414405,
+      "one_step_mse": 0.014745820948737673,
+      "scene_bootstrap95": [
+        34.446343904893844,
+        89.96990571721268
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 280184199.18298095,
+      "one_step_mse": 0.13395958607492503,
+      "scene_bootstrap95": [
+        122648876.3300217,
+        480739041.21412903
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.558252351880074,
+      "one_step_mse": 0.2149060363951139,
+      "scene_bootstrap95": [
+        3.5724182866439222,
+        7.785004776917396
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 28117.800052445084,
+      "one_step_mse": 0.4473861238223617,
+      "scene_bootstrap95": [
+        6700.667226792321,
+        53070.919195415096
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 12.18638120651245,
+      "one_step_mse": 0.2181898997351527,
+      "scene_bootstrap95": [
+        11.913428643465043,
+        12.44971075463295
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 19.844078841209413,
+      "one_step_mse": 0.35839079255238177,
+      "scene_bootstrap95": [
+        17.34639318871498,
+        22.6324869698286
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.35544002186507,
+      "one_step_mse": 0.2548410590731373,
+      "scene_bootstrap95": [
+        1.5748932067491115,
+        3.2021385519318284
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 60.56486930668354,
+      "one_step_mse": 0.43422745821710124,
+      "scene_bootstrap95": [
+        24.205275987643752,
+        106.42560202148924
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 61.18869497328997,
+      "one_step_mse": 0.015699680690886453,
+      "scene_bootstrap95": [
+        34.63709328239411,
+        91.74561956506223
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 279454311.65313613,
+      "one_step_mse": 0.1388515988807194,
+      "scene_bootstrap95": [
+        117509790.51949644,
+        483184934.26547986
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 127.1286772635579,
+      "one_step_mse": 0.10392577894963324,
+      "scene_bootstrap95": [
+        74.15962062719464,
+        183.84895181363075
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "iid",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 441.78483358204363,
+      "one_step_mse": 0.1920167210532236,
+      "scene_bootstrap95": [
+        90.30065597079694,
+        1090.369602039925
+      ],
+      "scenes": 100,
+      "seed": 23,
+      "split": "ood",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1.9426668281853199,
+      "one_step_mse": 0.264296496392526,
+      "scene_bootstrap95": [
+        1.3783984327018262,
+        2.589173867788166
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.741230125501752,
+      "one_step_mse": 0.42208465444775356,
+      "scene_bootstrap95": [
+        1.9641755656525492,
+        3.638036586362868
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.957786347940564,
+      "one_step_mse": 0.05270629193451896,
+      "scene_bootstrap95": [
+        3.1467354624383153,
+        6.910749957922846
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.563898374140263,
+      "one_step_mse": 0.23588597242811374,
+      "scene_bootstrap95": [
+        3.869685322329402,
+        13.087801052086055
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.785251342430711,
+      "one_step_mse": 0.29020925774486384,
+      "scene_bootstrap95": [
+        5.000223581425845,
+        10.65044620787911
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 11.256153818070889,
+      "one_step_mse": 0.4442521956575001,
+      "scene_bootstrap95": [
+        6.5805133968368175,
+        16.911404515251515
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 715.8038753960282,
+      "one_step_mse": 0.0251124706142582,
+      "scene_bootstrap95": [
+        346.35351148959063,
+        1140.694449956855
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 16651.032713241875,
+      "one_step_mse": 0.1659891529923334,
+      "scene_bootstrap95": [
+        285.1191058480144,
+        49084.154366136194
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.517374045401811,
+      "one_step_mse": 0.3208292926720969,
+      "scene_bootstrap95": [
+        3.62926135346666,
+        7.495119700003415
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.83306447327137,
+      "one_step_mse": 0.5299407429737767,
+      "scene_bootstrap95": [
+        4.877824124258011,
+        11.236106571499258
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 94.31368332877756,
+      "one_step_mse": 0.013762510975793703,
+      "scene_bootstrap95": [
+        57.41478868714348,
+        134.69866827722265
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 3611.5389435337484,
+      "one_step_mse": 0.2144741730079113,
+      "scene_bootstrap95": [
+        770.5855356449746,
+        7835.740766622578
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.196252948641777,
+      "one_step_mse": 0.26781190320674797,
+      "scene_bootstrap95": [
+        2.825998795449734,
+        5.778462325334548
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 5.554349799752235,
+      "one_step_mse": 0.4652480399131309,
+      "scene_bootstrap95": [
+        3.8358252538219095,
+        7.623432385258376
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 42.494417525101454,
+      "one_step_mse": 0.012541872775273077,
+      "scene_bootstrap95": [
+        26.30743894077232,
+        60.25410869413194
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 1348.2325162959844,
+      "one_step_mse": 0.2040139758890291,
+      "scene_bootstrap95": [
+        410.8537112365924,
+        2661.173248564475
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.778865365460515,
+      "one_step_mse": 0.26118536510533885,
+      "scene_bootstrap95": [
+        4.953362224062905,
+        10.804650453338398
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 10.71233558513224,
+      "one_step_mse": 0.443630449448101,
+      "scene_bootstrap95": [
+        6.424189092071727,
+        15.822027838340027
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "matched"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 199.86495872646572,
+      "one_step_mse": 0.025443170371536327,
+      "scene_bootstrap95": [
+        122.77380313141272,
+        288.38182490892706
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2864.0127498915044,
+      "one_step_mse": 0.1667489282428869,
+      "scene_bootstrap95": [
+        299.63102512251584,
+        7120.563476835704
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "mindscape"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.212268022894859,
+      "one_step_mse": 0.273227049759098,
+      "scene_bootstrap95": [
+        2.7049768124558033,
+        5.714864729505031
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 26.50482723161578,
+      "one_step_mse": 0.556111008057378,
+      "scene_bootstrap95": [
+        15.516991536565126,
+        39.58656831048427
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_concepts"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 8.483368515968323,
+      "one_step_mse": 0.22028462192043663,
+      "scene_bootstrap95": [
+        8.212586174845695,
+        8.733744661808014
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 12.822721652984619,
+      "one_step_mse": 0.3540604969020933,
+      "scene_bootstrap95": [
+        11.002375152468682,
+        14.752215930223464
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_feedback"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2.348442522883415,
+      "one_step_mse": 0.25396041864933067,
+      "scene_bootstrap95": [
+        1.594582860313356,
+        3.102520593699067
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 10.911670552752913,
+      "one_step_mse": 0.4709298636503445,
+      "scene_bootstrap95": [
+        7.374692767607048,
+        15.01677440459374
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_history"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 209.63499676197767,
+      "one_step_mse": 0.02862753555584277,
+      "scene_bootstrap95": [
+        127.72560054521261,
+        296.24918924105907
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 2990.5964042663572,
+      "one_step_mse": 0.17302957315139791,
+      "scene_bootstrap95": [
+        370.62874049801377,
+        7661.758570536535
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_memory"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 4.493004041463137,
+      "one_step_mse": 0.036230454368560455,
+      "scene_bootstrap95": [
+        2.9566368680894373,
+        6.29348679056391
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "iid",
+      "variant": "no_relationships"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "finite_scenes": 100,
+      "normalized_rollout_error": 7.309526690095663,
+      "one_step_mse": 0.14088113327852625,
+      "scene_bootstrap95": [
+        4.3803973854780205,
+        11.258497871890661
+      ],
+      "scenes": 100,
+      "seed": 37,
+      "split": "ood",
+      "variant": "no_relationships"
+    }
+  ],
+  "limits": "Fixed scene-level bootstrap, unadjusted multiple comparisons. Seeds share scenes; no frame or seed pooling as independent samples. GPU evidence required separately.",
+  "model_free_neural_control": "See planning cells; receives additional teacher action-choice labels, not equal-information comparator",
+  "paired": [
+    {
+      "budget": 250,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -1.359167279569081,
+        -0.6382534427757418
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.983342143367554,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -6.873744699444412,
+        -0.9994448009901378
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -3.4267130079264865,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -155.83498829553645,
+        -108.89159707712001
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -132.64297518985197,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -2513.1637484269972,
+        -242.53778879525467
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1144.3481927955006,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -24.514419469313925,
+        -19.002449523297095
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -22.17296097299416,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -54.98609810945739,
+        -12.030565101163932
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -29.74850036275796,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -1.623968088446172,
+        -0.862772239869888
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.201747851957204,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -5.147064794884834,
+        -1.3996742419008699
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -2.9309271429755173,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -5.4211903255422005,
+        -3.069829375070178
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -4.20813910879905,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -17.004278643284067,
+        -2.2809945601294053
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -8.116590187053724,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -30.557551843537983,
+        -19.790873717094943
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -24.69333049700283,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -619.378092697132,
+        -35.57746903135253
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -266.3565187657579,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -121.56512257267384,
+        -58.02948327246723
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -90.94357945706861,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -4099.029841892517,
+        -35.09901299252476
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1478.282620188605,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -1.7477420153856078,
+        -1.2609577175386837
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.5520517857257703,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -3.425159943092248,
+        -0.6238649917420553
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.7593080580039864,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -11.217606123184202,
+        -7.268278993424947
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -9.126753092626565,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -453.4441958773904,
+        -80.6489348626606
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -241.73453507665747,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -19.707211756407627,
+        -12.689839677170928
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -16.093944066993018,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -929.4383584794627,
+        -103.11759203706154
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -460.0633495814237,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -1.6307661102574869,
+        -0.8200428267963347
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.183360527864418,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 250,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -15682144.076498615,
+        -2911614.0514317024
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -7680492.84388675,
+      "seed": 23,
+      "split": "ood"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -447034215.8644881,
+        -82620030.11195762
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -226114333.74090272,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 25,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -1.4584052994066274e+19,
+        -72557117.35518707
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -5.604655712735346e+18,
+      "seed": 23,
+      "split": "ood"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -616.2298434062025,
+        -279.0230934260713
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -416.6905307674439,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 10,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -51672.964288971016,
+        -5976.007845868622
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -21178.0770611134,
+      "seed": 23,
+      "split": "ood"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -24.804131323578165,
+        -11.994113340467846
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -18.54178847027095,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 100,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -10330896813.463976,
+        -1560753674.2734077
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -4846477424.391172,
+      "seed": 23,
+      "split": "ood"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -90.85847084469277,
+        -37.80959424764939
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -64.04894423826343,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 50,
+      "family": "motion",
+      "paired_bootstrap95": [
+        -4531408512542.709,
+        -385946871864.34924
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -2030502523782.73,
+      "seed": 23,
+      "split": "ood"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -2.5215794122191846,
+        -1.46282580252535
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.9929375520713326,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -2.6887963767732495,
+        -1.4437567711441563
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -2.0011845728701463,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -0.1354381095791525,
+        0.09867574080003345
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.008399523777727014,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        0.0053205848401490325,
+        0.2931455157946885
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": 0.16555056305014926,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -0.08165622524053653,
+        0.07525281503436797
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.0012975181348828801,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -0.16460209594727454,
+        0.07362929497965497
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.03891952145697952,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -28.084780580373884,
+        -13.826771776772837
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -20.945654552238825,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -33.87113083755854,
+        -12.410976721074352
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -22.105413229180567,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -11.10029536008163,
+        -5.153599954801979
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -8.082451916903896,
+      "seed": 11,
+      "split": "iid"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -15.511315926560258,
+        -2.799431115700045
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -8.263251860321962,
+      "seed": 11,
+      "split": "ood"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -1.030766304607417,
+        -0.7441081621419509
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.8718303909204665,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -1.0056648229698444,
+        -0.5276422473219333
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.7522969459684552,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -1.5559339169113868,
+        -0.921770581650215
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.2571037294053156,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -1.1916582630596708,
+        -0.7474135407443881
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.9815218325748045,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        0.1090623997069463,
+        0.4585725188381508
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": 0.311106989010824,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        0.14001507282071632,
+        0.39801606640329373
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": 0.27877919516903726,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -2.768218871055257,
+        -1.6954340645581483
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -2.2390051778662956,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -3.0206788364715753,
+        -1.1936646062977732
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -2.049773919207217,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -1.389026421608013,
+        -0.7575756979821894
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.0808628942573941,
+      "seed": 37,
+      "split": "iid"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -1.3712594228122572,
+        -0.6836807655645754
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.0147821652858666,
+      "seed": 37,
+      "split": "ood"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -0.946635785288254,
+        -0.6170842437373313
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.7732452087784518,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 250,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -1.4442612388211968,
+        -0.6140641310372721
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.0401486242711884,
+      "seed": 23,
+      "split": "ood"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        0.5900700477761127,
+        0.6999750029939655
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": 0.6569197717179596,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 25,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        0.35530182235694036,
+        0.5912203043250894
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": 0.4973680244486206,
+      "seed": 23,
+      "split": "ood"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -0.47957561436218654,
+        -0.19386558522908875
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.3329860543583505,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 10,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -0.4688979720357739,
+        -0.14017675512589206
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.2806361866437779,
+      "seed": 23,
+      "split": "ood"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -0.6770251518200395,
+        -0.22894677334243452
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.45006048318998926,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 100,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -0.8691139336344316,
+        -0.24873462226393053
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.5456871101430347,
+      "seed": 23,
+      "split": "ood"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -1.3734222136597494,
+        -0.7026839404944633
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -1.0221945325426107,
+      "seed": 23,
+      "split": "iid"
+    },
+    {
+      "budget": 50,
+      "family": "interaction",
+      "paired_bootstrap95": [
+        -1.2957557255497152,
+        -0.6825223801314904
+      ],
+      "paired_scenes": 100,
+      "relative_error_reduction": -0.9817888272679702,
+      "seed": 23,
+      "split": "ood"
+    }
+  ],
+  "planning": [
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 0,
+      "split": "iid",
+      "successes": 4,
+      "variant": "analytical",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 0,
+      "split": "ood",
+      "successes": 8,
+      "variant": "analytical",
+      "wilson95": [
+        0.21880653237281705,
+        0.6134184992377469
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 0,
+      "split": "iid",
+      "successes": 3,
+      "variant": "random",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 0,
+      "split": "ood",
+      "successes": 3,
+      "variant": "random",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 0,
+      "split": "iid",
+      "successes": 4,
+      "variant": "simple",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 0,
+      "split": "ood",
+      "successes": 8,
+      "variant": "simple",
+      "wilson95": [
+        0.21880653237281705,
+        0.6134184992377469
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 12,
+      "variant": "matched",
+      "wilson95": [
+        0.3865815007622531,
+        0.781193467627183
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 11,
+      "variant": "matched",
+      "wilson95": [
+        0.34208534245034233,
+        0.7418021417443759
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 3,
+      "variant": "mindscape",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 8,
+      "variant": "mindscape",
+      "wilson95": [
+        0.21880653237281705,
+        0.6134184992377469
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 13,
+      "variant": "model_free",
+      "wilson95": [
+        0.43285427668523624,
+        0.818808175898918
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 11,
+      "variant": "model_free",
+      "wilson95": [
+        0.34208534245034233,
+        0.7418021417443759
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 10,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.2992980081982123,
+        0.7007019918017877
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 8,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.21880653237281705,
+        0.6134184992377469
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 0,
+      "variant": "no_feedback",
+      "wilson95": [
+        0,
+        0.16112515805281938
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 3,
+      "variant": "no_feedback",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 11,
+      "variant": "no_history",
+      "wilson95": [
+        0.34208534245034233,
+        0.7418021417443759
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 8,
+      "variant": "no_history",
+      "wilson95": [
+        0.21880653237281705,
+        0.6134184992377469
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 3,
+      "variant": "no_memory",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 7,
+      "variant": "no_memory",
+      "wilson95": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 11,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.34208534245034233,
+        0.7418021417443759
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 9,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.2581978582556243,
+        0.6579146575496577
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 13,
+      "variant": "matched",
+      "wilson95": [
+        0.43285427668523624,
+        0.818808175898918
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 10,
+      "variant": "matched",
+      "wilson95": [
+        0.2992980081982123,
+        0.7007019918017877
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 7,
+      "variant": "mindscape",
+      "wilson95": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 7,
+      "variant": "mindscape",
+      "wilson95": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 13,
+      "variant": "model_free",
+      "wilson95": [
+        0.43285427668523624,
+        0.818808175898918
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 10,
+      "variant": "model_free",
+      "wilson95": [
+        0.2992980081982123,
+        0.7007019918017877
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 6,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.1454772448676043,
+        0.5189728183535235
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 8,
+      "variant": "no_feedback",
+      "wilson95": [
+        0.21880653237281705,
+        0.6134184992377469
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 8,
+      "variant": "no_feedback",
+      "wilson95": [
+        0.21880653237281705,
+        0.6134184992377469
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_history",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 7,
+      "variant": "no_history",
+      "wilson95": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 7,
+      "variant": "no_memory",
+      "wilson95": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 7,
+      "variant": "no_memory",
+      "wilson95": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 10,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.2992980081982123,
+        0.7007019918017877
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 7,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 13,
+      "variant": "matched",
+      "wilson95": [
+        0.43285427668523624,
+        0.818808175898918
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 11,
+      "variant": "matched",
+      "wilson95": [
+        0.34208534245034233,
+        0.7418021417443759
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 4,
+      "variant": "mindscape",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 5,
+      "variant": "mindscape",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 13,
+      "variant": "model_free",
+      "wilson95": [
+        0.43285427668523624,
+        0.818808175898918
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 11,
+      "variant": "model_free",
+      "wilson95": [
+        0.34208534245034233,
+        0.7418021417443759
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 9,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.2581978582556243,
+        0.6579146575496577
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 7,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 13,
+      "variant": "no_feedback",
+      "wilson95": [
+        0.43285427668523624,
+        0.818808175898918
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 11,
+      "variant": "no_feedback",
+      "wilson95": [
+        0.34208534245034233,
+        0.7418021417443759
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_history",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 7,
+      "variant": "no_history",
+      "wilson95": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_memory",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 5,
+      "variant": "no_memory",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 11,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.34208534245034233,
+        0.7418021417443759
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "interaction",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 8,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.21880653237281705,
+        0.6134184992377469
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 0,
+      "split": "iid",
+      "successes": 5,
+      "variant": "analytical",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 0,
+      "split": "ood",
+      "successes": 5,
+      "variant": "analytical",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 0,
+      "split": "iid",
+      "successes": 1,
+      "variant": "random",
+      "wilson95": [
+        0.008881448800795402,
+        0.23613119344674205
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 0,
+      "split": "ood",
+      "successes": 0,
+      "variant": "random",
+      "wilson95": [
+        0,
+        0.16112515805281938
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 0,
+      "split": "iid",
+      "successes": 0,
+      "variant": "simple",
+      "wilson95": [
+        0,
+        0.16112515805281938
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 0,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 0,
+      "split": "ood",
+      "successes": 1,
+      "variant": "simple",
+      "wilson95": [
+        0.008881448800795402,
+        0.23613119344674205
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 3,
+      "variant": "matched",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 5,
+      "variant": "matched",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 3,
+      "variant": "mindscape",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 3,
+      "variant": "mindscape",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 6,
+      "variant": "model_free",
+      "wilson95": [
+        0.1454772448676043,
+        0.5189728183535235
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 5,
+      "variant": "model_free",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 3,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 3,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 0,
+      "variant": "no_feedback",
+      "wilson95": [
+        0,
+        0.16112515805281938
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 0,
+      "variant": "no_feedback",
+      "wilson95": [
+        0,
+        0.16112515805281938
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 3,
+      "variant": "no_history",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 5,
+      "variant": "no_history",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 3,
+      "variant": "no_memory",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 3,
+      "variant": "no_memory",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "iid",
+      "successes": 3,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 11,
+      "split": "ood",
+      "successes": 4,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 3,
+      "variant": "matched",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 3,
+      "variant": "matched",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 3,
+      "variant": "mindscape",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 3,
+      "variant": "mindscape",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 5,
+      "variant": "model_free",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 6,
+      "variant": "model_free",
+      "wilson95": [
+        0.1454772448676043,
+        0.5189728183535235
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 5,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 3,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 0,
+      "variant": "no_feedback",
+      "wilson95": [
+        0,
+        0.16112515805281938
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 1,
+      "variant": "no_feedback",
+      "wilson95": [
+        0.008881448800795402,
+        0.23613119344674205
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_history",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 3,
+      "variant": "no_history",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 3,
+      "variant": "no_memory",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 3,
+      "variant": "no_memory",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 23,
+      "split": "ood",
+      "successes": 5,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 4,
+      "variant": "matched",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 3,
+      "variant": "matched",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 3,
+      "variant": "mindscape",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 2,
+      "variant": "mindscape",
+      "wilson95": [
+        0.027866481213768224,
+        0.3010336452284873
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 5,
+      "variant": "model_free",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 5,
+      "variant": "model_free",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 3,
+      "variant": "no_concepts",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 3,
+      "variant": "no_feedback",
+      "wilson95": [
+        0.052368745896216595,
+        0.36041886474075696
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 2,
+      "variant": "no_feedback",
+      "wilson95": [
+        0.027866481213768224,
+        0.3010336452284873
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_history",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 5,
+      "variant": "no_history",
+      "wilson95": [
+        0.11186170140766569,
+        0.468700877618744
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_memory",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 2,
+      "variant": "no_memory",
+      "wilson95": [
+        0.027866481213768224,
+        0.3010336452284873
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "iid",
+      "successes": 4,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.08065766257979806,
+        0.41601743225189364
+      ]
+    },
+    {
+      "actual_environment_steps": 540,
+      "budget": 250,
+      "family": "motion",
+      "scenes": 20,
+      "seed": 37,
+      "split": "ood",
+      "successes": 6,
+      "variant": "no_relationships",
+      "wilson95": [
+        0.1454772448676043,
+        0.5189728183535235
+      ]
+    }
+  ],
+  "primary_complete": true,
+  "primary_completed": 6000,
+  "primary_required": 6000,
+  "real_world_validation": "NOT RUN",
+  "schema": "mindscape.v3.physics.analysis/1"
+}
