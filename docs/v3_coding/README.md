@@ -51,3 +51,5 @@ $coding_python scripts/v3_coding/summarize_study.py --root work/restored-coding
 ```
 
 The deterministic multipart archive contains small trained evaluator checkpoints, training evidence, raw generated text, all failures, actual WASI results and invocation receipts. It excludes backbone weights, old adapters and historical lockbox contents. Restoration verifies part, joined archive and every member hash before creating files. A separate replay receipt records actual source/outcome reproduction.
+
+For new experiments, use `mindscape.v3.coding_safety.GuardedExecutor`. The frozen study retains its original executor for provenance. Replay it under the stricter policy with `scripts/v3_coding/verify_guarded.py --run ... --runtime work/coding/runtime --output ...`; the delivered receipt records whether scoring changed. This additive guard addresses indirect builtins access and nested bool/int comparison without silently rewriting the experimental implementation.

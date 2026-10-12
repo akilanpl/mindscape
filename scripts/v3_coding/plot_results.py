@@ -31,7 +31,7 @@ def plot(summary, output):
         axis.errorbar(
             x + offset,
             values,
-            yerr=np.stack((values - intervals[:, 0], intervals[:, 1] - values)),
+            yerr=np.maximum(0, np.stack((values - intervals[:, 0], intervals[:, 1] - values))),
             fmt="none",
             color="#263342",
             linewidth=1,

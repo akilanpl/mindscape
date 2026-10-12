@@ -75,7 +75,12 @@ def audit(args):
         "episodes": len(list(Path(args.run).glob("*-mindscape.json"))),
         "rows": rows,
         "totals": totals,
-        "actual_vm_requests": executor.calls,
+        "executor_requests": executor.calls,
+        "actual_vm_calls": sum(
+            int(outcome[suite]["actual_vm_call"])
+            for outcome in cache.values()
+            for suite in ("visible", "private")
+        ),
         "model_calls": 0,
     }
     Path(args.output).write_text(json.dumps(result, indent=2))
