@@ -18,6 +18,8 @@ def summarize(dataset, root, output):
     output.mkdir(parents=True, exist_ok=True)
     groups, strata = defaultdict(list), defaultdict(list)
     worst = []
+    batches = {}
+    neural_steps = 0
     for path in root.rglob('*.json'):
         if len(path.stem) != 64:
             continue
@@ -26,6 +28,10 @@ def summarize(dataset, root, output):
         if 'metrics' not in t:
             continue
         assert not t['private_future_to_predictor']
+        if t['device'] == 'mps':
+            key_batch = (str(path.parent), t['horizon'], t['shared_batch_prediction_seconds'])
+            batches[key_batch] = t['shared_batch_prediction_seconds']
+            neural_steps += t['horizon']
         key = (identity['family'], identity.get('budget', 0), identity['variant'], t['split'])
         groups[key].append(t['metrics'])
         if identity.get('budget') == 250 and t['split'] == 'ood':
@@ -71,6 +77,10 @@ def summarize(dataset, root, output):
                            'peak_driver_allocated_bytes': max(d['driver_allocated_bytes'] for d in training),
                            'parameter_counts': sorted({d['parameter_count'] for d in training}),
                            'training_only_ids_verified': True},
+              'forecast_compute': {'batches': len(batches), 'summed_batch_seconds': sum(batches.values()),
+                                   'predicted_scene_steps': neural_steps,
+                                   'scene_steps_per_second': neural_steps / sum(batches.values()),
+                                   'limit': 'Full run has at most100 scenes per horizon group and batch128; timings shared by scenes are counted once'},
               'policies': {'fits': len(policies), 'gradient_updates': sum(d['new_updates'] for d in policies),
                            'summed_fit_seconds': sum(d['seconds'] for d in policies),
                            'teacher_steps_per_fit': [d['teacher_environment_steps'] for d in policies],

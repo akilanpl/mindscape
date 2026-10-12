@@ -1081,6 +1081,13 @@
       "variant": "no_relationships"
     }
   ],
+  "forecast_compute": {
+    "batches": 270,
+    "limit": "Full run has at most100 scenes per horizon group and batch128; timings shared by scenes are counted once",
+    "predicted_scene_steps": 616320,
+    "scene_steps_per_second": 78038.04939067777,
+    "summed_batch_seconds": 7.89768587006256
+  },
   "neural_calls": 0,
   "ood_strata": [
     {
