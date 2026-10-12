@@ -233,5 +233,79 @@ class CodingLearningTests(unittest.TestCase):
         self.assertTrue(all(self.executor.sandbox.probe().values()))
 
 
+class AdditionalBoundaryTests(unittest.TestCase):
+    def setUp(self):
+        self.task, self.secret = make_task("train", "threshold", 25, 9)
+        self.executor = Executor("work/coding/runtime")
+
+    def test_false_visible_repair_fails_independent_private_scorer(self):
+        fn = self.task.contract.entry.rsplit(".", 1)[1]
+        proposed = {"solution.py": f"def {fn}(values):\n    return 9 if len(values)==1 else 20\n"}
+        self.assertTrue(self.executor.run(proposed, self.task.visible_tests)["all_passed"])
+        self.assertFalse(self.executor.run(proposed, self.secret["private_tests"])["all_passed"])
+
+    def test_forged_success_memory_requires_actual_execution(self):
+        m = VerifiedMemory([self.task])
+        m.admit(
+            self.task,
+            self.secret["teacher_repository"],
+            self.executor,
+            self.secret["private_tests"],
+        )
+        from mindscape.v3.schema import digest
+
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "memory.json"
+            rows = copy.deepcopy(m.records)
+            rows[0]["after"] = self.task.repository
+            rows[0].pop("hash")
+            rows[0]["hash"] = digest(rows[0])
+            path.write_text(json.dumps(rows))
+            with self.assertRaises(ValueError):
+                VerifiedMemory.load(
+                    path, [self.task], self.executor, {self.task.identity: self.secret}
+                )
+
+    def test_contract_binding_cannot_be_forged(self):
+        m = VerifiedMemory([self.task])
+        changed = replace(
+            self.task, contract=replace(self.task.contract, description="different contract")
+        )
+        with self.assertRaises(ValueError):
+            m.admit(
+                changed,
+                self.secret["teacher_repository"],
+                self.executor,
+                self.secret["private_tests"],
+            )
+
+    def test_actual_control_and_data_dependencies(self):
+        view = extract(
+            {
+                "solution.py": "def sample(xs):\n    total = 0\n    for value in xs:\n        total += value\n    return total\n"
+            },
+            self.task.contract,
+        )
+        predicates = {r[1] for r in view["relationships"]}
+        self.assertIn("controls_body", predicates)
+        self.assertIn("depends_on", predicates)
+
+    def test_hypothetical_prediction_is_not_verified_evidence(self):
+        prediction = ProposalEvaluator().predict(
+            features(self.task.repository, RepairProposal(self.task.repository), self.task.contract)
+        )
+        self.assertEqual(prediction["kind"], "hypothetical_unverified")
+        self.assertIsNone(prediction["private_success"])
+
+    def test_output_type_is_scored_independently(self):
+        fn = self.task.contract.entry.rsplit(".", 1)[1]
+        proposed = {"solution.py": f"def {fn}(values):\n    return True\n"}
+        suite = {
+            "entry": self.task.contract.entry,
+            "cases": [{"args": [[1]], "expected": 1, "expected_type": "int"}],
+        }
+        self.assertFalse(self.executor.run(proposed, suite)["all_passed"])
+
+
 if __name__ == "__main__":
     unittest.main()
