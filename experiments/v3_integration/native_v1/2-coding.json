@@ -1,0 +1,1242 @@
+{
+  "direct": {
+    "actual": {
+      "kind": "actual",
+      "private_after_termination": {
+        "actual_vm_call": true,
+        "all_passed": true,
+        "case_passes": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "execution": {
+          "duration": 0.3125412499939557,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "a4bbb91c327d8e6861f6e1d9426f80e0[{\"value\": 0, \"type\": \"int\", \"args_after\": [[]]}, {\"value\": 4, \"type\": \"int\", \"args_after\": [[-4, 0, 4]]}, {\"value\": 8, \"type\": \"int\", \"args_after\": [[4, 4]]}, {\"value\": 7, \"type\": \"int\", \"args_after\": [[7, 2]]}]\n",
+          "timeout": false
+        },
+        "observed": [
+          {
+            "args_after": [
+              []
+            ],
+            "type": "int",
+            "value": 0
+          },
+          {
+            "args_after": [
+              [
+                -4,
+                0,
+                4
+              ]
+            ],
+            "type": "int",
+            "value": 4
+          },
+          {
+            "args_after": [
+              [
+                4,
+                4
+              ]
+            ],
+            "type": "int",
+            "value": 8
+          },
+          {
+            "args_after": [
+              [
+                7,
+                2
+              ]
+            ],
+            "type": "int",
+            "value": 7
+          }
+        ],
+        "passed": 4,
+        "total": 4
+      },
+      "repository": {
+        "solution.py": "def compute_61488(values):\n    return sum(item for item in values if item >= 4)"
+      },
+      "summary": [],
+      "visible": {
+        "actual_vm_call": true,
+        "all_passed": true,
+        "case_passes": [
+          true,
+          true
+        ],
+        "execution": {
+          "duration": 0.31126720798783936,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "ca0087dbf53f2e4a82bbdf4c8b98ab3a[{\"value\": 4, \"type\": \"int\", \"args_after\": [[4]]}, {\"value\": 10, \"type\": \"int\", \"args_after\": [[3, 4, 6]]}]\n",
+          "timeout": false
+        },
+        "observed": [
+          {
+            "args_after": [
+              [
+                4
+              ]
+            ],
+            "type": "int",
+            "value": 4
+          },
+          {
+            "args_after": [
+              [
+                3,
+                4,
+                6
+              ]
+            ],
+            "type": "int",
+            "value": 10
+          }
+        ],
+        "passed": 2,
+        "total": 2
+      }
+    },
+    "domain": "coding",
+    "evaluation": {
+      "evaluator": "independent private WASI suite",
+      "reason": "Private scorer unavailable to generation/retrieval/evaluator",
+      "success": true,
+      "valid": true
+    },
+    "prediction": {
+      "approved_memory_ids": [
+        "3d24e84b78e40aa3247fbc820912699e5413f163dab2f6f4b1d053956f1aae50",
+        "ac2b40bcc9be3b3246b544669c56989c0f91b7f44a75ba5e5ba8821fe8212a7c"
+      ],
+      "hypothesis": "Modify the condition in the loop to check if the value is greater than or equal to 4 instead of just greater than 4.",
+      "kind": "hypothetical",
+      "prediction": {
+        "kind": "hypothetical_unverified",
+        "private_success": null,
+        "seconds": 0.3135741949081421,
+        "visible_usefulness": 0.9995667338371277
+      },
+      "raw_model_response": "```json\n{\n  \"hypothesis\": \"Modify the condition in the loop to check if the value is greater than or equal to 4 instead of just greater than 4.\",\n  \"candidates\": [\n    {\n      \"repository\": {\n        \"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item >= 4)\"\n      }\n    },\n    {\n      \"repository\": {\n        \"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item > 4)\"\n      }\n    }\n  ]\n}\n```",
+      "repository": {
+        "solution.py": "def compute_61488(values):\n    return sum(item for item in values if item >= 4)"
+      },
+      "summary": [],
+      "timing": {
+        "actual_batch_size": 1,
+        "actual_model_payload": {
+          "actual_visible_result": {
+            "all_passed": false,
+            "observed": [
+              {
+                "args_after": [
+                  [
+                    4
+                  ]
+                ],
+                "type": "int",
+                "value": 0
+              },
+              {
+                "args_after": [
+                  [
+                    3,
+                    4,
+                    6
+                  ]
+                ],
+                "type": "int",
+                "value": 6
+              }
+            ],
+            "passed": 0,
+            "total": 2
+          },
+          "allowed_edit_paths": [
+            "solution.py"
+          ],
+          "approved_training_experiences": [
+            {
+              "after": {
+                "solution.py": "def compute_40474(values):\n    return sum(item for item in values if item >= 69)\n"
+              },
+              "before": {
+                "solution.py": "def compute_40474(values):\n    return sum(item for item in values if item > 69)\n"
+              },
+              "contract": {
+                "description": "Return the sum of values at least 69, inclusive. Do not mutate the input.",
+                "entry": "solution.compute_40474",
+                "inputs": [
+                  "JSON-compatible integers or integer list"
+                ],
+                "invariants": [
+                  "Inputs remain unchanged."
+                ],
+                "outputs": "int"
+              },
+              "verified_training_only": true
+            },
+            {
+              "after": {
+                "solution.py": "def compute_77760(values):\n    return sum(item for item in values if item >= 55)\n"
+              },
+              "before": {
+                "solution.py": "def compute_77760(values):\n    return sum(item for item in values if item > 55)\n"
+              },
+              "contract": {
+                "description": "Return the sum of values at least 55, inclusive. Do not mutate the input.",
+                "entry": "solution.compute_77760",
+                "inputs": [
+                  "JSON-compatible integers or integer list"
+                ],
+                "invariants": [
+                  "Inputs remain unchanged."
+                ],
+                "outputs": "int"
+              },
+              "verified_training_only": true
+            }
+          ],
+          "contract": {
+            "description": "Return the sum of values at least 4, inclusive. Do not mutate the input.",
+            "entry": "solution.compute_61488",
+            "inputs": [
+              "JSON-compatible integers or integer list"
+            ],
+            "invariants": [
+              "Inputs remain unchanged."
+            ],
+            "outputs": "int"
+          },
+          "instruction": "Return only a JSON object with fields hypothesis (brief string) and candidates (list of one or two repairs). Each repair has exactly one field repository, a mapping from existing paths to their complete corrected Python source. Choose file paths from allowed_edit_paths exactly; no placeholder or new filenames. Only files requiring changes need to be included. Do not output Markdown or extra text. Use the supplied actual visible execution feedback; private tests are inaccessible.",
+          "previous_attempts": [],
+          "repository": {
+            "solution.py": "def compute_61488(values):\n    return sum(item for item in values if item > 4)\n"
+          },
+          "static_concepts": {
+            "concepts": [
+              {
+                "description": "boundary_predicate",
+                "domain": "python_repair",
+                "id": "469ded39f21d43604effbedf010ff8acd720c6c26a34b66ac5c9001d1a461d69",
+                "relationships": [
+                  {
+                    "predicate": "static_evidence",
+                    "source": "program",
+                    "target": "solution.py:compute_61488"
+                  }
+                ]
+              }
+            ],
+            "evidence_kind": "static_observation_not_test_result",
+            "features": {
+              "Add": 0,
+              "Assign": 0,
+              "AugAssign": 0,
+              "Call": 1,
+              "Compare": 1,
+              "For": 0,
+              "Gt": 1,
+              "GtE": 0,
+              "If": 0,
+              "ImportFrom": 0,
+              "ListComp": 0,
+              "Lt": 0,
+              "LtE": 0,
+              "Mult": 0,
+              "Return": 1,
+              "Set": 0,
+              "Sub": 0,
+              "While": 0,
+              "append": 0,
+              "contract_boundary": 1,
+              "contract_order": 0,
+              "contract_unchanged": 1,
+              "dependencies": 0,
+              "files": 1,
+              "functions": 1,
+              "len": 0,
+              "max": 0,
+              "min": 0,
+              "mutation": 0,
+              "nodes": 21,
+              "range": 0,
+              "set": 0,
+              "sorted": 0,
+              "sum": 1,
+              "syntax_error": 0
+            },
+            "functions": [
+              "solution.py:compute_61488"
+            ],
+            "relationships": [
+              [
+                "solution.py:compute_61488",
+                "local_binding",
+                "item"
+              ],
+              [
+                "solution.py:compute_61488",
+                "local_binding",
+                "values"
+              ],
+              [
+                "solution.py:item",
+                "defines",
+                "solution.py:compute_61488"
+              ],
+              [
+                "solution.py:item",
+                "uses",
+                "solution.py:compute_61488"
+              ],
+              [
+                "solution.py:node0:Module",
+                "ast_child",
+                "solution.py:node1:FunctionDef"
+              ],
+              [
+                "solution.py:node10:comprehension",
+                "ast_child",
+                "solution.py:node12:Name"
+              ],
+              [
+                "solution.py:node10:comprehension",
+                "ast_child",
+                "solution.py:node13:Name"
+              ],
+              [
+                "solution.py:node10:comprehension",
+                "ast_child",
+                "solution.py:node14:Compare"
+              ],
+              [
+                "solution.py:node12:Name",
+                "ast_child",
+                "solution.py:node15:Store"
+              ],
+              [
+                "solution.py:node13:Name",
+                "ast_child",
+                "solution.py:node20:Load"
+              ],
+              [
+                "solution.py:node14:Compare",
+                "ast_child",
+                "solution.py:node17:Name"
+              ],
+              [
+                "solution.py:node14:Compare",
+                "ast_child",
+                "solution.py:node18:Gt"
+              ],
+              [
+                "solution.py:node14:Compare",
+                "ast_child",
+                "solution.py:node19:Constant"
+              ],
+              [
+                "solution.py:node17:Name",
+                "ast_child",
+                "solution.py:node20:Load"
+              ],
+              [
+                "solution.py:node1:FunctionDef",
+                "ast_child",
+                "solution.py:node2:arguments"
+              ],
+              [
+                "solution.py:node1:FunctionDef",
+                "ast_child",
+                "solution.py:node3:Return"
+              ],
+              [
+                "solution.py:node2:arguments",
+                "ast_child",
+                "solution.py:node4:arg"
+              ],
+              [
+                "solution.py:node3:Return",
+                "ast_child",
+                "solution.py:node5:Call"
+              ],
+              [
+                "solution.py:node5:Call",
+                "ast_child",
+                "solution.py:node6:Name"
+              ],
+              [
+                "solution.py:node5:Call",
+                "ast_child",
+                "solution.py:node7:GeneratorExp"
+              ],
+              [
+                "solution.py:node6:Name",
+                "ast_child",
+                "solution.py:node20:Load"
+              ],
+              [
+                "solution.py:node7:GeneratorExp",
+                "ast_child",
+                "solution.py:node10:comprehension"
+              ],
+              [
+                "solution.py:node7:GeneratorExp",
+                "ast_child",
+                "solution.py:node9:Name"
+              ],
+              [
+                "solution.py:node9:Name",
+                "ast_child",
+                "solution.py:node20:Load"
+              ],
+              [
+                "solution.py:sum",
+                "uses",
+                "solution.py:compute_61488"
+              ],
+              [
+                "solution.py:values",
+                "uses",
+                "solution.py:compute_61488"
+              ]
+            ]
+          },
+          "structured_contract": {
+            "description": "Return the sum of values at least 4, inclusive. Do not mutate the input.",
+            "entry": "solution.compute_61488",
+            "inputs": [
+              "JSON-compatible integers or integer list"
+            ],
+            "invariants": [
+              "Inputs remain unchanged."
+            ],
+            "outputs": "int"
+          },
+          "visible_tests": {
+            "cases": [
+              {
+                "args": [
+                  [
+                    4
+                  ]
+                ],
+                "expected": 4,
+                "expected_type": "int",
+                "unchanged": true
+              },
+              {
+                "args": [
+                  [
+                    3,
+                    4,
+                    6
+                  ]
+                ],
+                "expected": 10,
+                "expected_type": "int",
+                "unchanged": true
+              }
+            ],
+            "entry": "solution.compute_61488"
+          }
+        },
+        "device": "mps",
+        "generation": 6.86745575000532,
+        "precision": "float16",
+        "tokens_in": 1711,
+        "tokens_out": 132,
+        "transport_schema": "explicit-path-v2",
+        "ttft": 0.9624662910064217
+      }
+    },
+    "request_id": "ce17a706295de7006e3133024901748d6d2c004ec02d0c8651a9badb01971723",
+    "trace": {
+      "path": "independent_specialist"
+    }
+  },
+  "equivalent": true,
+  "request": {
+    "domain": "coding",
+    "inputs": {
+      "contract": {
+        "description": "Return the sum of values at least 4, inclusive. Do not mutate the input.",
+        "entry": "solution.compute_61488",
+        "inputs": [
+          "JSON-compatible integers or integer list"
+        ],
+        "invariants": [
+          "Inputs remain unchanged."
+        ],
+        "outputs": "int"
+      },
+      "repository": {
+        "solution.py": "def compute_61488(values):\n    return sum(item for item in values if item > 4)\n"
+      },
+      "visible_tests": {
+        "cases": [
+          {
+            "args": [
+              [
+                4
+              ]
+            ],
+            "expected": 4,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                3,
+                4,
+                6
+              ]
+            ],
+            "expected": 10,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ],
+        "entry": "solution.compute_61488"
+      }
+    }
+  },
+  "seconds": 33.27895150000404,
+  "unified": {
+    "actual": {
+      "kind": "actual",
+      "private_after_termination": {
+        "actual_vm_call": true,
+        "all_passed": true,
+        "case_passes": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "execution": {
+          "duration": 0.31294674999662675,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "b7629b3aa4f797307947ccc7f7e9a172[{\"value\": 0, \"type\": \"int\", \"args_after\": [[]]}, {\"value\": 4, \"type\": \"int\", \"args_after\": [[-4, 0, 4]]}, {\"value\": 8, \"type\": \"int\", \"args_after\": [[4, 4]]}, {\"value\": 7, \"type\": \"int\", \"args_after\": [[7, 2]]}]\n",
+          "timeout": false
+        },
+        "observed": [
+          {
+            "args_after": [
+              []
+            ],
+            "type": "int",
+            "value": 0
+          },
+          {
+            "args_after": [
+              [
+                -4,
+                0,
+                4
+              ]
+            ],
+            "type": "int",
+            "value": 4
+          },
+          {
+            "args_after": [
+              [
+                4,
+                4
+              ]
+            ],
+            "type": "int",
+            "value": 8
+          },
+          {
+            "args_after": [
+              [
+                7,
+                2
+              ]
+            ],
+            "type": "int",
+            "value": 7
+          }
+        ],
+        "passed": 4,
+        "total": 4
+      },
+      "repository": {
+        "solution.py": "def compute_61488(values):\n    return sum(item for item in values if item >= 4)"
+      },
+      "summary": [],
+      "visible": {
+        "actual_vm_call": true,
+        "all_passed": true,
+        "case_passes": [
+          true,
+          true
+        ],
+        "execution": {
+          "duration": 0.3278384159930283,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "4ff4af675f5ed6eca741975b6e51c854[{\"value\": 4, \"type\": \"int\", \"args_after\": [[4]]}, {\"value\": 10, \"type\": \"int\", \"args_after\": [[3, 4, 6]]}]\n",
+          "timeout": false
+        },
+        "observed": [
+          {
+            "args_after": [
+              [
+                4
+              ]
+            ],
+            "type": "int",
+            "value": 4
+          },
+          {
+            "args_after": [
+              [
+                3,
+                4,
+                6
+              ]
+            ],
+            "type": "int",
+            "value": 10
+          }
+        ],
+        "passed": 2,
+        "total": 2
+      }
+    },
+    "domain": "coding",
+    "evaluation": {
+      "evaluator": "independent private WASI suite",
+      "reason": "Private scorer unavailable to generation/retrieval/evaluator",
+      "success": true,
+      "valid": true
+    },
+    "prediction": {
+      "approved_memory_ids": [
+        "3d24e84b78e40aa3247fbc820912699e5413f163dab2f6f4b1d053956f1aae50",
+        "ac2b40bcc9be3b3246b544669c56989c0f91b7f44a75ba5e5ba8821fe8212a7c"
+      ],
+      "hypothesis": "Modify the condition in the loop to check if the value is greater than or equal to 4 instead of just greater than 4.",
+      "kind": "hypothetical",
+      "prediction": {
+        "kind": "hypothetical_unverified",
+        "private_success": null,
+        "seconds": 0.3135741949081421,
+        "visible_usefulness": 0.9995667338371277
+      },
+      "raw_model_response": "```json\n{\n  \"hypothesis\": \"Modify the condition in the loop to check if the value is greater than or equal to 4 instead of just greater than 4.\",\n  \"candidates\": [\n    {\n      \"repository\": {\n        \"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item >= 4)\"\n      }\n    },\n    {\n      \"repository\": {\n        \"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item > 4)\"\n      }\n    }\n  ]\n}\n```",
+      "repository": {
+        "solution.py": "def compute_61488(values):\n    return sum(item for item in values if item >= 4)"
+      },
+      "summary": [],
+      "timing": {
+        "actual_batch_size": 1,
+        "actual_model_payload": {
+          "actual_visible_result": {
+            "all_passed": false,
+            "observed": [
+              {
+                "args_after": [
+                  [
+                    4
+                  ]
+                ],
+                "type": "int",
+                "value": 0
+              },
+              {
+                "args_after": [
+                  [
+                    3,
+                    4,
+                    6
+                  ]
+                ],
+                "type": "int",
+                "value": 6
+              }
+            ],
+            "passed": 0,
+            "total": 2
+          },
+          "allowed_edit_paths": [
+            "solution.py"
+          ],
+          "approved_training_experiences": [
+            {
+              "after": {
+                "solution.py": "def compute_40474(values):\n    return sum(item for item in values if item >= 69)\n"
+              },
+              "before": {
+                "solution.py": "def compute_40474(values):\n    return sum(item for item in values if item > 69)\n"
+              },
+              "contract": {
+                "description": "Return the sum of values at least 69, inclusive. Do not mutate the input.",
+                "entry": "solution.compute_40474",
+                "inputs": [
+                  "JSON-compatible integers or integer list"
+                ],
+                "invariants": [
+                  "Inputs remain unchanged."
+                ],
+                "outputs": "int"
+              },
+              "verified_training_only": true
+            },
+            {
+              "after": {
+                "solution.py": "def compute_77760(values):\n    return sum(item for item in values if item >= 55)\n"
+              },
+              "before": {
+                "solution.py": "def compute_77760(values):\n    return sum(item for item in values if item > 55)\n"
+              },
+              "contract": {
+                "description": "Return the sum of values at least 55, inclusive. Do not mutate the input.",
+                "entry": "solution.compute_77760",
+                "inputs": [
+                  "JSON-compatible integers or integer list"
+                ],
+                "invariants": [
+                  "Inputs remain unchanged."
+                ],
+                "outputs": "int"
+              },
+              "verified_training_only": true
+            }
+          ],
+          "contract": {
+            "description": "Return the sum of values at least 4, inclusive. Do not mutate the input.",
+            "entry": "solution.compute_61488",
+            "inputs": [
+              "JSON-compatible integers or integer list"
+            ],
+            "invariants": [
+              "Inputs remain unchanged."
+            ],
+            "outputs": "int"
+          },
+          "instruction": "Return only a JSON object with fields hypothesis (brief string) and candidates (list of one or two repairs). Each repair has exactly one field repository, a mapping from existing paths to their complete corrected Python source. Choose file paths from allowed_edit_paths exactly; no placeholder or new filenames. Only files requiring changes need to be included. Do not output Markdown or extra text. Use the supplied actual visible execution feedback; private tests are inaccessible.",
+          "previous_attempts": [],
+          "repository": {
+            "solution.py": "def compute_61488(values):\n    return sum(item for item in values if item > 4)\n"
+          },
+          "static_concepts": {
+            "concepts": [
+              {
+                "description": "boundary_predicate",
+                "domain": "python_repair",
+                "id": "469ded39f21d43604effbedf010ff8acd720c6c26a34b66ac5c9001d1a461d69",
+                "relationships": [
+                  {
+                    "predicate": "static_evidence",
+                    "source": "program",
+                    "target": "solution.py:compute_61488"
+                  }
+                ]
+              }
+            ],
+            "evidence_kind": "static_observation_not_test_result",
+            "features": {
+              "Add": 0,
+              "Assign": 0,
+              "AugAssign": 0,
+              "Call": 1,
+              "Compare": 1,
+              "For": 0,
+              "Gt": 1,
+              "GtE": 0,
+              "If": 0,
+              "ImportFrom": 0,
+              "ListComp": 0,
+              "Lt": 0,
+              "LtE": 0,
+              "Mult": 0,
+              "Return": 1,
+              "Set": 0,
+              "Sub": 0,
+              "While": 0,
+              "append": 0,
+              "contract_boundary": 1,
+              "contract_order": 0,
+              "contract_unchanged": 1,
+              "dependencies": 0,
+              "files": 1,
+              "functions": 1,
+              "len": 0,
+              "max": 0,
+              "min": 0,
+              "mutation": 0,
+              "nodes": 21,
+              "range": 0,
+              "set": 0,
+              "sorted": 0,
+              "sum": 1,
+              "syntax_error": 0
+            },
+            "functions": [
+              "solution.py:compute_61488"
+            ],
+            "relationships": [
+              [
+                "solution.py:compute_61488",
+                "local_binding",
+                "item"
+              ],
+              [
+                "solution.py:compute_61488",
+                "local_binding",
+                "values"
+              ],
+              [
+                "solution.py:item",
+                "defines",
+                "solution.py:compute_61488"
+              ],
+              [
+                "solution.py:item",
+                "uses",
+                "solution.py:compute_61488"
+              ],
+              [
+                "solution.py:node0:Module",
+                "ast_child",
+                "solution.py:node1:FunctionDef"
+              ],
+              [
+                "solution.py:node10:comprehension",
+                "ast_child",
+                "solution.py:node12:Name"
+              ],
+              [
+                "solution.py:node10:comprehension",
+                "ast_child",
+                "solution.py:node13:Name"
+              ],
+              [
+                "solution.py:node10:comprehension",
+                "ast_child",
+                "solution.py:node14:Compare"
+              ],
+              [
+                "solution.py:node12:Name",
+                "ast_child",
+                "solution.py:node15:Store"
+              ],
+              [
+                "solution.py:node13:Name",
+                "ast_child",
+                "solution.py:node20:Load"
+              ],
+              [
+                "solution.py:node14:Compare",
+                "ast_child",
+                "solution.py:node17:Name"
+              ],
+              [
+                "solution.py:node14:Compare",
+                "ast_child",
+                "solution.py:node18:Gt"
+              ],
+              [
+                "solution.py:node14:Compare",
+                "ast_child",
+                "solution.py:node19:Constant"
+              ],
+              [
+                "solution.py:node17:Name",
+                "ast_child",
+                "solution.py:node20:Load"
+              ],
+              [
+                "solution.py:node1:FunctionDef",
+                "ast_child",
+                "solution.py:node2:arguments"
+              ],
+              [
+                "solution.py:node1:FunctionDef",
+                "ast_child",
+                "solution.py:node3:Return"
+              ],
+              [
+                "solution.py:node2:arguments",
+                "ast_child",
+                "solution.py:node4:arg"
+              ],
+              [
+                "solution.py:node3:Return",
+                "ast_child",
+                "solution.py:node5:Call"
+              ],
+              [
+                "solution.py:node5:Call",
+                "ast_child",
+                "solution.py:node6:Name"
+              ],
+              [
+                "solution.py:node5:Call",
+                "ast_child",
+                "solution.py:node7:GeneratorExp"
+              ],
+              [
+                "solution.py:node6:Name",
+                "ast_child",
+                "solution.py:node20:Load"
+              ],
+              [
+                "solution.py:node7:GeneratorExp",
+                "ast_child",
+                "solution.py:node10:comprehension"
+              ],
+              [
+                "solution.py:node7:GeneratorExp",
+                "ast_child",
+                "solution.py:node9:Name"
+              ],
+              [
+                "solution.py:node9:Name",
+                "ast_child",
+                "solution.py:node20:Load"
+              ],
+              [
+                "solution.py:sum",
+                "uses",
+                "solution.py:compute_61488"
+              ],
+              [
+                "solution.py:values",
+                "uses",
+                "solution.py:compute_61488"
+              ]
+            ]
+          },
+          "structured_contract": {
+            "description": "Return the sum of values at least 4, inclusive. Do not mutate the input.",
+            "entry": "solution.compute_61488",
+            "inputs": [
+              "JSON-compatible integers or integer list"
+            ],
+            "invariants": [
+              "Inputs remain unchanged."
+            ],
+            "outputs": "int"
+          },
+          "visible_tests": {
+            "cases": [
+              {
+                "args": [
+                  [
+                    4
+                  ]
+                ],
+                "expected": 4,
+                "expected_type": "int",
+                "unchanged": true
+              },
+              {
+                "args": [
+                  [
+                    3,
+                    4,
+                    6
+                  ]
+                ],
+                "expected": 10,
+                "expected_type": "int",
+                "unchanged": true
+              }
+            ],
+            "entry": "solution.compute_61488"
+          }
+        },
+        "device": "mps",
+        "generation": 6.371306000000914,
+        "precision": "float16",
+        "tokens_in": 1711,
+        "tokens_out": 132,
+        "transport_schema": "explicit-path-v2",
+        "ttft": 0.6228339580120519
+      }
+    },
+    "request_id": "ce17a706295de7006e3133024901748d6d2c004ec02d0c8651a9badb01971723",
+    "trace": {
+      "candidate_count": 3,
+      "cpu_seconds": 0.8722279999999998,
+      "events": [
+        {
+          "stage": "OBSERVE",
+          "value": {
+            "domain": "coding",
+            "entities": [
+              {
+                "attributes": [
+                  [
+                    "json",
+                    "{\"actual_visible_result\": {\"all_passed\": false, \"observed\": [{\"args_after\": [[4]], \"type\": \"int\", \"value\": 0}, {\"args_after\": [[3, 4, 6]], \"type\": \"int\", \"value\": 6}], \"passed\": 0, \"total\": 2}, \"contract\": {\"description\": \"Return the sum of values at least 4, inclusive. Do not mutate the input.\", \"entry\": \"solution.compute_61488\", \"inputs\": [\"JSON-compatible integers or integer list\"], \"invariants\": [\"Inputs remain unchanged.\"], \"outputs\": \"int\"}, \"repository\": {\"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item > 4)\\n\"}, \"visible_tests\": {\"cases\": [{\"args\": [[4]], \"expected\": 4, \"expected_type\": \"int\", \"unchanged\": true}, {\"args\": [[3, 4, 6]], \"expected\": 10, \"expected_type\": \"int\", \"unchanged\": true}], \"entry\": \"solution.compute_61488\"}}"
+                  ]
+                ],
+                "id": "public"
+              }
+            ],
+            "goal": {
+              "description": "Submit specialist proposal for independent verification"
+            },
+            "missing": [],
+            "partial": false,
+            "relationships": [],
+            "values": []
+          }
+        },
+        {
+          "stage": "REPRESENT",
+          "value": {
+            "retrieval_used_by_model": false,
+            "retrieved_training_evidence": [],
+            "state": {
+              "observation": {
+                "domain": "coding",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"actual_visible_result\": {\"all_passed\": false, \"observed\": [{\"args_after\": [[4]], \"type\": \"int\", \"value\": 0}, {\"args_after\": [[3, 4, 6]], \"type\": \"int\", \"value\": 6}], \"passed\": 0, \"total\": 2}, \"contract\": {\"description\": \"Return the sum of values at least 4, inclusive. Do not mutate the input.\", \"entry\": \"solution.compute_61488\", \"inputs\": [\"JSON-compatible integers or integer list\"], \"invariants\": [\"Inputs remain unchanged.\"], \"outputs\": \"int\"}, \"repository\": {\"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item > 4)\\n\"}, \"visible_tests\": {\"cases\": [{\"args\": [[4]], \"expected\": 4, \"expected_type\": \"int\", \"unchanged\": true}, {\"args\": [[3, 4, 6]], \"expected\": 10, \"expected_type\": \"int\", \"unchanged\": true}], \"entry\": \"solution.compute_61488\"}}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": false,
+              "written": []
+            }
+          }
+        },
+        {
+          "stage": "PROPOSE",
+          "value": {
+            "action": {
+              "name": "submit_proposal",
+              "value": 0
+            },
+            "candidates": [
+              {
+                "name": "submit_proposal",
+                "value": 0
+              },
+              {
+                "name": "submit_proposal",
+                "value": 1
+              },
+              {
+                "name": "submit_proposal",
+                "value": 2
+              }
+            ],
+            "confidence_uncalibrated": 0.47373951361795075,
+            "logits": [
+              0.9964309918880463,
+              0.6990947246551513,
+              -0.0030498656345298515
+            ]
+          }
+        },
+        {
+          "stage": "PREDICT",
+          "value": {
+            "action": {
+              "name": "submit_proposal",
+              "value": 0
+            },
+            "confidence": 0.47373951361795075,
+            "kind": "hypothetical",
+            "state": {
+              "observation": {
+                "domain": "coding",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"actual_visible_result\": {\"all_passed\": false, \"observed\": [{\"args_after\": [[4]], \"type\": \"int\", \"value\": 0}, {\"args_after\": [[3, 4, 6]], \"type\": \"int\", \"value\": 6}], \"passed\": 0, \"total\": 2}, \"contract\": {\"description\": \"Return the sum of values at least 4, inclusive. Do not mutate the input.\", \"entry\": \"solution.compute_61488\", \"inputs\": [\"JSON-compatible integers or integer list\"], \"invariants\": [\"Inputs remain unchanged.\"], \"outputs\": \"int\"}, \"repository\": {\"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item > 4)\\n\"}, \"visible_tests\": {\"cases\": [{\"args\": [[4]], \"expected\": 4, \"expected_type\": \"int\", \"unchanged\": true}, {\"args\": [[3, 4, 6]], \"expected\": 10, \"expected_type\": \"int\", \"unchanged\": true}], \"entry\": \"solution.compute_61488\"}}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": true,
+              "written": []
+            }
+          }
+        },
+        {
+          "stage": "ACT",
+          "value": {
+            "action": {
+              "name": "submit_proposal",
+              "value": 0
+            },
+            "after": {
+              "observation": {
+                "domain": "coding",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"actual_visible_result\": {\"all_passed\": false, \"observed\": [{\"args_after\": [[4]], \"type\": \"int\", \"value\": 0}, {\"args_after\": [[3, 4, 6]], \"type\": \"int\", \"value\": 6}], \"passed\": 0, \"total\": 2}, \"contract\": {\"description\": \"Return the sum of values at least 4, inclusive. Do not mutate the input.\", \"entry\": \"solution.compute_61488\", \"inputs\": [\"JSON-compatible integers or integer list\"], \"invariants\": [\"Inputs remain unchanged.\"], \"outputs\": \"int\"}, \"repository\": {\"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item > 4)\\n\"}, \"visible_tests\": {\"cases\": [{\"args\": [[4]], \"expected\": 4, \"expected_type\": \"int\", \"unchanged\": true}, {\"args\": [[3, 4, 6]], \"expected\": 10, \"expected_type\": \"int\", \"unchanged\": true}], \"entry\": \"solution.compute_61488\"}}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": true,
+              "written": []
+            },
+            "before": {
+              "observation": {
+                "domain": "coding",
+                "entities": [
+                  {
+                    "attributes": [
+                      [
+                        "json",
+                        "{\"actual_visible_result\": {\"all_passed\": false, \"observed\": [{\"args_after\": [[4]], \"type\": \"int\", \"value\": 0}, {\"args_after\": [[3, 4, 6]], \"type\": \"int\", \"value\": 6}], \"passed\": 0, \"total\": 2}, \"contract\": {\"description\": \"Return the sum of values at least 4, inclusive. Do not mutate the input.\", \"entry\": \"solution.compute_61488\", \"inputs\": [\"JSON-compatible integers or integer list\"], \"invariants\": [\"Inputs remain unchanged.\"], \"outputs\": \"int\"}, \"repository\": {\"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item > 4)\\n\"}, \"visible_tests\": {\"cases\": [{\"args\": [[4]], \"expected\": 4, \"expected_type\": \"int\", \"unchanged\": true}, {\"args\": [[3, 4, 6]], \"expected\": 10, \"expected_type\": \"int\", \"unchanged\": true}], \"entry\": \"solution.compute_61488\"}}"
+                      ]
+                    ],
+                    "id": "public"
+                  }
+                ],
+                "goal": {
+                  "description": "Submit specialist proposal for independent verification"
+                },
+                "missing": [],
+                "partial": false,
+                "relationships": [],
+                "values": []
+              },
+              "terminal": false,
+              "written": []
+            },
+            "event": "{\"kind\": \"actual\", \"repository\": {\"solution.py\": \"def compute_61488(values):\\n    return sum(item for item in values if item >= 4)\"}, \"summary\": [], \"visible\": {\"actual_vm_call\": true, \"all_passed\": true, \"case_passes\": [true, true], \"execution\": {\"duration\": 0.3278384159930283, \"returncode\": 0, \"stderr\": \"\", \"stdout\": \"4ff4af675f5ed6eca741975b6e51c854[{\\\"value\\\": 4, \\\"type\\\": \\\"int\\\", \\\"args_after\\\": [[4]]}, {\\\"value\\\": 10, \\\"type\\\": \\\"int\\\", \\\"args_after\\\": [[3, 4, 6]]}]\\n\", \"timeout\": false}, \"observed\": [{\"args_after\": [[4]], \"type\": \"int\", \"value\": 4}, {\"args_after\": [[3, 4, 6]], \"type\": \"int\", \"value\": 10}], \"passed\": 2, \"total\": 2}}",
+            "kind": "actual"
+          }
+        },
+        {
+          "stage": "VERIFY",
+          "value": {
+            "evaluator": "independent private WASI suite",
+            "reason": "Private scorer unavailable to generation/retrieval/evaluator",
+            "success": true,
+            "valid": true
+          }
+        },
+        {
+          "stage": "UPDATE",
+          "value": {
+            "training_memory_key": null,
+            "weights_updated": false
+          }
+        }
+      ],
+      "latency_seconds": 7.330666291993111,
+      "model_calls": 4,
+      "parameter_count": 1543717986,
+      "persistent_memory_updated": false,
+      "policy_forward_calls": 4,
+      "provenance": {
+        "model_hash": "f35378e90571ce262f0110bb01d0c345d329cbd9144faa8921264d16089d68b3",
+        "seed": 11,
+        "source_hash": "2f2dd282fc3c67348b4b70d1534f1763d7aab03489882e723165a258bd6b908b",
+        "split": "iid",
+        "task_id": "ce17a706295de7006e3133024901748d6d2c004ec02d0c8651a9badb01971723"
+      },
+      "routing_is_learned": true,
+      "success": true,
+      "task": {
+        "domain": "coding",
+        "inputs": {
+          "contract": {
+            "description": "Return the sum of values at least 4, inclusive. Do not mutate the input.",
+            "entry": "solution.compute_61488",
+            "inputs": [
+              "JSON-compatible integers or integer list"
+            ],
+            "invariants": [
+              "Inputs remain unchanged."
+            ],
+            "outputs": "int"
+          },
+          "repository": {
+            "solution.py": "def compute_61488(values):\n    return sum(item for item in values if item > 4)\n"
+          },
+          "visible_tests": {
+            "cases": [
+              {
+                "args": [
+                  [
+                    4
+                  ]
+                ],
+                "expected": 4,
+                "expected_type": "int",
+                "unchanged": true
+              },
+              {
+                "args": [
+                  [
+                    3,
+                    4,
+                    6
+                  ]
+                ],
+                "expected": 10,
+                "expected_type": "int",
+                "unchanged": true
+              }
+            ],
+            "entry": "solution.compute_61488"
+          }
+        }
+      },
+      "transition_forward_calls": 0,
+      "transition_prediction_mse": null,
+      "valid": true
+    }
+  }
+}
