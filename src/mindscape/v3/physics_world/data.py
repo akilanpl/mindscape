@@ -88,7 +88,7 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def freeze(root, counts=None, workers=2):
+def freeze(root, counts=None, workers=2, seed=20261012):
     root = Path(root)
     if root.exists():
         raise ValueError("Dataset destination must be new")
@@ -96,7 +96,7 @@ def freeze(root, counts=None, workers=2):
     if set(counts) != {"train", "validation", "iid", "ood"}:
         raise ValueError("All splits required")
     scenes = [
-        generate_scene(family, split, i)
+        generate_scene(family, split, i, seed=seed)
         for family in ("motion", "interaction")
         for split, n in counts.items()
         for i in range(n)

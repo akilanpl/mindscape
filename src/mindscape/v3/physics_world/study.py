@@ -191,7 +191,7 @@ def run(dataset, output, updates=400, batch_size=64, pilot=False):
         "schema": "mindscape.v3.physics.study/1",
         "dataset": manifest["hash"],
         "source": source_hash(),
-        "torch": torch.__version__,
+        "torch": str(torch.__version__),
         "device": "mps",
         "precision": "float32",
         "updates": updates,

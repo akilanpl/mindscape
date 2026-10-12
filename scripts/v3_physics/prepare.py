@@ -14,7 +14,11 @@ if __name__ == "__main__":
     if Path(a.output).exists():
         m = load(a.output)
     else:
-        m = freeze(a.output, {"train": 2, "validation": 1, "iid": 1, "ood": 1} if a.pilot else None)
+        m = freeze(
+            a.output,
+            {"train": 2, "validation": 1, "iid": 1, "ood": 1} if a.pilot else None,
+            seed=20261013 if a.pilot else 20261012,
+        )
     print(
         json.dumps(
             {

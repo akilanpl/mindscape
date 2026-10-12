@@ -80,7 +80,7 @@ def launch(args):
         execute(["scripts/v3_physics/hardware_audit.py", "--output", str(audit)], "hardware-audit")
         hardware = json.loads(audit.read_text())
         batch = hardware["selected_batch_size"]
-        dataset = ROOT / "results/v3_physics/dataset-pilot-v1"
+        dataset = ROOT / "results/v3_physics/dataset-pilot-v2"
         execute(["scripts/v3_physics/prepare.py", "--output", str(dataset), "--pilot"], "prepare")
         execute(
             [

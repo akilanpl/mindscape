@@ -1,0 +1,9 @@
+{
+  "checkpoint_indices_verified": 16,
+  "dataset_hash": "f46a3e23b4374b3e2be5a3778424cb976adcb6b8da297728385d66f84358bd0f",
+  "independent_simulation_scenes": 4,
+  "neural_calls": 0,
+  "planning_episodes_independently_replayed": 44,
+  "planning_verification": "actual selected actions replayed in independent simulator; no neural queries",
+  "recomputed_prediction_episodes": 40
+}

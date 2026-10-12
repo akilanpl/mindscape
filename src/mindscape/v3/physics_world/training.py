@@ -26,6 +26,8 @@ def checkpoint(path, model, optimizer, step, identity):
 
     # Device-to-CPU serialization is allowed; no CPU neural computation.
     def cpu(value):
+        if isinstance(value, str):
+            return str(value)
         if isinstance(value, torch.Tensor):
             return value.detach().cpu()
         if isinstance(value, dict):
