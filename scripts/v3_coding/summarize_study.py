@@ -26,6 +26,23 @@ def summarize(root):
             for p in run.glob("*.json")
             if len(p.name.split("-")[0]) == 64
         ]
+    for seed, summary in summaries.items():
+        for cell in summary["cells"]:
+            attempts = [
+                a
+                for row in traces[seed]
+                if row["condition"] == cell["condition"] and row["split"] == cell["split"]
+                for a in row["attempts"]
+            ]
+            timings = [
+                a["timing"].get("original", a["timing"])
+                if a["timing"].get("cache_hit")
+                else a["timing"]
+                for a in attempts
+            ]
+            cell["logical_input_tokens"] = sum(t.get("tokens_in", 0) for t in timings)
+            cell["logical_output_tokens"] = sum(t.get("tokens_out", 0) for t in timings)
+            cell["cache_hit_requests"] = sum(bool(a["timing"].get("cache_hit")) for a in attempts)
     cells = [
         dict(seed=seed, **cell) for seed, summary in summaries.items() for cell in summary["cells"]
     ]
@@ -46,6 +63,9 @@ def summarize(root):
         "tokens_in_new",
         "tokens_out_new",
         "visible_brier",
+        "logical_input_tokens",
+        "logical_output_tokens",
+        "cache_hit_requests",
     )
     with (root / "ablation-results.csv").open("w") as stream:
         writer = csv.DictWriter(stream, fieldnames=fields, extrasaction="ignore")
@@ -125,6 +145,16 @@ def summarize(root):
         ),
         "peak_rss_bytes": max(r["peak_rss_bytes"] for r in invocations),
     }
+    resources["incomplete_invocations"] = sum(not r["complete"] for r in invocations)
+    resources["token_scope"] = (
+        "Completed generation responses only; interrupted in-flight tokens omitted. Phase wall time includes interrupted work, excludes preflight."
+    )
+    resources["conservative_output_token_upper_bound"] = (
+        resources["fresh_output_tokens"] + 4 * 256 * resources["incomplete_invocations"]
+    )
+    resources["conservative_fresh_request_upper_bound"] = (
+        resources["fresh_requests"] + 4 * resources["incomplete_invocations"]
+    )
     primary = {c["condition"]: c for c in summaries[11]["cells"] if c["split"] == "ood"}
     best = max(c["accuracy"] for k, c in primary.items() if k != "mindscape")
     strongest = [k for k, c in primary.items() if k != "mindscape" and c["accuracy"] == best]
