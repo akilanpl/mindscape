@@ -1,0 +1,379 @@
+model,condition,budget,family,mean,seed_sample_sd,seeds
+Compact neural,answer_only,10,all,0.011111111111111112,0.0038490017945975053,3
+Compact neural,answer_only,10,length,0.0,0.0,3
+Compact neural,answer_only,10,carry_chain,0.0,0.0,3
+Compact neural,answer_only,10,digit_composition,0.05555555555555556,0.019245008972987525,3
+Compact neural,answer_only,10,sign_change,0.0,0.0,3
+Compact neural,answer_only,10,composition,0.0,0.0,3
+Compact neural,answer_only,25,all,0.008888888888888889,0.0038490017945975053,3
+Compact neural,answer_only,25,length,0.0,0.0,3
+Compact neural,answer_only,25,carry_chain,0.0,0.0,3
+Compact neural,answer_only,25,digit_composition,0.044444444444444446,0.019245008972987525,3
+Compact neural,answer_only,25,sign_change,0.0,0.0,3
+Compact neural,answer_only,25,composition,0.0,0.0,3
+Compact neural,answer_only,50,all,0.0044444444444444444,0.0038490017945975053,3
+Compact neural,answer_only,50,length,0.0,0.0,3
+Compact neural,answer_only,50,carry_chain,0.0,0.0,3
+Compact neural,answer_only,50,digit_composition,0.022222222222222223,0.019245008972987525,3
+Compact neural,answer_only,50,sign_change,0.0,0.0,3
+Compact neural,answer_only,50,composition,0.0,0.0,3
+Compact neural,answer_only,100,all,0.006666666666666667,0.006666666666666667,3
+Compact neural,answer_only,100,length,0.0,0.0,3
+Compact neural,answer_only,100,carry_chain,0.0,0.0,3
+Compact neural,answer_only,100,digit_composition,0.011111111111111112,0.019245008972987525,3
+Compact neural,answer_only,100,sign_change,0.011111111111111112,0.019245008972987525,3
+Compact neural,answer_only,100,composition,0.011111111111111112,0.019245008972987525,3
+Compact neural,answer_only,250,all,0.017777777777777778,0.003849001794597505,3
+Compact neural,answer_only,250,length,0.0,0.0,3
+Compact neural,answer_only,250,carry_chain,0.0,0.0,3
+Compact neural,answer_only,250,digit_composition,0.05555555555555556,0.019245008972987525,3
+Compact neural,answer_only,250,sign_change,0.0,0.0,3
+Compact neural,answer_only,250,composition,0.03333333333333333,0.0,3
+Compact neural,answer_only,500,all,0.02666666666666667,0.006666666666666666,3
+Compact neural,answer_only,500,length,0.0,0.0,3
+Compact neural,answer_only,500,carry_chain,0.0,0.0,3
+Compact neural,answer_only,500,digit_composition,0.10000000000000002,1.6996749443881478e-17,3
+Compact neural,answer_only,500,sign_change,0.022222222222222223,0.019245008972987525,3
+Compact neural,answer_only,500,composition,0.011111111111111112,0.019245008972987525,3
+Compact neural,answer_only,1000,all,0.013333333333333334,0.006666666666666667,3
+Compact neural,answer_only,1000,length,0.0,0.0,3
+Compact neural,answer_only,1000,carry_chain,0.0,0.0,3
+Compact neural,answer_only,1000,digit_composition,0.044444444444444446,0.019245008972987525,3
+Compact neural,answer_only,1000,sign_change,0.011111111111111112,0.019245008972987525,3
+Compact neural,answer_only,1000,composition,0.011111111111111112,0.019245008972987525,3
+Compact neural,concepts,10,all,0.006666666666666667,0.0,3
+Compact neural,concepts,10,length,0.0,0.0,3
+Compact neural,concepts,10,carry_chain,0.0,0.0,3
+Compact neural,concepts,10,digit_composition,0.03333333333333333,0.0,3
+Compact neural,concepts,10,sign_change,0.0,0.0,3
+Compact neural,concepts,10,composition,0.0,0.0,3
+Compact neural,concepts,25,all,0.022222222222222223,0.0038490017945975057,3
+Compact neural,concepts,25,length,0.0,0.0,3
+Compact neural,concepts,25,carry_chain,0.0,0.0,3
+Compact neural,concepts,25,digit_composition,0.05555555555555556,0.019245008972987525,3
+Compact neural,concepts,25,sign_change,0.03333333333333333,0.0,3
+Compact neural,concepts,25,composition,0.022222222222222223,0.03849001794597505,3
+Compact neural,concepts,50,all,0.044444444444444446,0.0038490017945975057,3
+Compact neural,concepts,50,length,0.0,0.0,3
+Compact neural,concepts,50,carry_chain,0.0,0.0,3
+Compact neural,concepts,50,digit_composition,0.07777777777777778,0.01924500897298753,3
+Compact neural,concepts,50,sign_change,0.10000000000000002,1.6996749443881478e-17,3
+Compact neural,concepts,50,composition,0.044444444444444446,0.019245008972987525,3
+Compact neural,concepts,100,all,0.10888888888888888,0.007698003589195004,3
+Compact neural,concepts,100,length,0.05555555555555556,0.019245008972987525,3
+Compact neural,concepts,100,carry_chain,0.0,0.0,3
+Compact neural,concepts,100,digit_composition,0.10000000000000002,1.6996749443881478e-17,3
+Compact neural,concepts,100,sign_change,0.20000000000000004,3.3993498887762956e-17,3
+Compact neural,concepts,100,composition,0.18888888888888888,0.01924500897298754,3
+Compact neural,concepts,250,all,0.17777777777777778,0.010183501544346319,3
+Compact neural,concepts,250,length,0.18888888888888888,0.01924500897298754,3
+Compact neural,concepts,250,carry_chain,0.0,0.0,3
+Compact neural,concepts,250,digit_composition,0.16666666666666666,0.03333333333333334,3
+Compact neural,concepts,250,sign_change,0.20000000000000004,3.3993498887762956e-17,3
+Compact neural,concepts,250,composition,0.3333333333333333,0.05773502691896257,3
+Compact neural,concepts,500,all,0.23555555555555555,0.010183501544346319,3
+Compact neural,concepts,500,length,0.2333333333333333,3.3993498887762956e-17,3
+Compact neural,concepts,500,carry_chain,0.0,0.0,3
+Compact neural,concepts,500,digit_composition,0.2111111111111111,0.01924500897298752,3
+Compact neural,concepts,500,sign_change,0.2111111111111111,0.038490017945975064,3
+Compact neural,concepts,500,composition,0.5222222222222221,0.01924500897298752,3
+Compact neural,concepts,1000,all,0.2688888888888889,0.016777409856157218,3
+Compact neural,concepts,1000,length,0.27777777777777773,0.05091750772173154,3
+Compact neural,concepts,1000,carry_chain,0.0,0.0,3
+Compact neural,concepts,1000,digit_composition,0.20000000000000004,3.3993498887762956e-17,3
+Compact neural,concepts,1000,sign_change,0.25555555555555554,0.01924500897298752,3
+Compact neural,concepts,1000,composition,0.611111111111111,0.03849001794597504,3
+Compact neural,no_memory,10,all,0.006666666666666667,0.0,3
+Compact neural,no_memory,10,length,0.0,0.0,3
+Compact neural,no_memory,10,carry_chain,0.0,0.0,3
+Compact neural,no_memory,10,digit_composition,0.03333333333333333,0.0,3
+Compact neural,no_memory,10,sign_change,0.0,0.0,3
+Compact neural,no_memory,10,composition,0.0,0.0,3
+Compact neural,no_memory,25,all,0.022222222222222223,0.0038490017945975057,3
+Compact neural,no_memory,25,length,0.0,0.0,3
+Compact neural,no_memory,25,carry_chain,0.0,0.0,3
+Compact neural,no_memory,25,digit_composition,0.05555555555555556,0.019245008972987525,3
+Compact neural,no_memory,25,sign_change,0.03333333333333333,0.0,3
+Compact neural,no_memory,25,composition,0.022222222222222223,0.03849001794597505,3
+Compact neural,no_memory,50,all,0.044444444444444446,0.0038490017945975057,3
+Compact neural,no_memory,50,length,0.0,0.0,3
+Compact neural,no_memory,50,carry_chain,0.0,0.0,3
+Compact neural,no_memory,50,digit_composition,0.07777777777777778,0.01924500897298753,3
+Compact neural,no_memory,50,sign_change,0.10000000000000002,1.6996749443881478e-17,3
+Compact neural,no_memory,50,composition,0.044444444444444446,0.019245008972987525,3
+Compact neural,no_memory,100,all,0.09555555555555556,0.0038490017945975057,3
+Compact neural,no_memory,100,length,0.03333333333333333,0.03333333333333333,3
+Compact neural,no_memory,100,carry_chain,0.0,0.0,3
+Compact neural,no_memory,100,digit_composition,0.10000000000000002,1.6996749443881478e-17,3
+Compact neural,no_memory,100,sign_change,0.17777777777777778,0.01924500897298754,3
+Compact neural,no_memory,100,composition,0.16666666666666666,0.0,3
+Compact neural,no_memory,250,all,0.12666666666666668,0.013333333333333343,3
+Compact neural,no_memory,250,length,0.10000000000000002,0.03333333333333333,3
+Compact neural,no_memory,250,carry_chain,0.0,0.0,3
+Compact neural,no_memory,250,digit_composition,0.15555555555555556,0.01924500897298752,3
+Compact neural,no_memory,250,sign_change,0.15555555555555556,0.01924500897298752,3
+Compact neural,no_memory,250,composition,0.22222222222222224,0.01924500897298752,3
+Compact neural,no_memory,500,all,0.1822222222222222,0.02143033502442879,3
+Compact neural,no_memory,500,length,0.12222222222222223,0.06938886664887109,3
+Compact neural,no_memory,500,carry_chain,0.0,0.0,3
+Compact neural,no_memory,500,digit_composition,0.22222222222222224,0.01924500897298752,3
+Compact neural,no_memory,500,sign_change,0.18888888888888888,0.01924500897298754,3
+Compact neural,no_memory,500,composition,0.37777777777777777,0.019245008972987553,3
+Compact neural,no_memory,1000,all,0.18444444444444444,0.0038490017945975136,3
+Compact neural,no_memory,1000,length,0.12222222222222223,0.08388704928078612,3
+Compact neural,no_memory,1000,carry_chain,0.0,0.0,3
+Compact neural,no_memory,1000,digit_composition,0.18888888888888888,0.050917507721731564,3
+Compact neural,no_memory,1000,sign_change,0.18888888888888888,0.050917507721731564,3
+Compact neural,no_memory,1000,composition,0.4222222222222222,0.08388704928078612,3
+Compact neural,no_planning,10,all,0.008888888888888889,0.0038490017945975053,3
+Compact neural,no_planning,10,length,0.0,0.0,3
+Compact neural,no_planning,10,carry_chain,0.0,0.0,3
+Compact neural,no_planning,10,digit_composition,0.03333333333333333,0.0,3
+Compact neural,no_planning,10,sign_change,0.011111111111111112,0.019245008972987525,3
+Compact neural,no_planning,10,composition,0.0,0.0,3
+Compact neural,no_planning,25,all,0.015555555555555557,0.003849001794597505,3
+Compact neural,no_planning,25,length,0.0,0.0,3
+Compact neural,no_planning,25,carry_chain,0.0,0.0,3
+Compact neural,no_planning,25,digit_composition,0.044444444444444446,0.019245008972987525,3
+Compact neural,no_planning,25,sign_change,0.03333333333333333,0.0,3
+Compact neural,no_planning,25,composition,0.0,0.0,3
+Compact neural,no_planning,50,all,0.044444444444444446,0.0038490017945975057,3
+Compact neural,no_planning,50,length,0.0,0.0,3
+Compact neural,no_planning,50,carry_chain,0.0,0.0,3
+Compact neural,no_planning,50,digit_composition,0.07777777777777778,0.01924500897298753,3
+Compact neural,no_planning,50,sign_change,0.10000000000000002,1.6996749443881478e-17,3
+Compact neural,no_planning,50,composition,0.044444444444444446,0.019245008972987525,3
+Compact neural,no_planning,100,all,0.10222222222222221,0.003849001794597506,3
+Compact neural,no_planning,100,length,0.044444444444444446,0.019245008972987525,3
+Compact neural,no_planning,100,carry_chain,0.0,0.0,3
+Compact neural,no_planning,100,digit_composition,0.10000000000000002,1.6996749443881478e-17,3
+Compact neural,no_planning,100,sign_change,0.20000000000000004,3.3993498887762956e-17,3
+Compact neural,no_planning,100,composition,0.16666666666666666,0.0,3
+Compact neural,no_planning,250,all,0.18000000000000002,0.006666666666666668,3
+Compact neural,no_planning,250,length,0.18888888888888888,0.01924500897298754,3
+Compact neural,no_planning,250,carry_chain,0.0,0.0,3
+Compact neural,no_planning,250,digit_composition,0.16666666666666666,0.03333333333333334,3
+Compact neural,no_planning,250,sign_change,0.20000000000000004,3.3993498887762956e-17,3
+Compact neural,no_planning,250,composition,0.3444444444444444,0.01924500897298752,3
+Compact neural,no_planning,500,all,0.23555555555555555,0.013877773329774218,3
+Compact neural,no_planning,500,length,0.24444444444444446,0.01924500897298752,3
+Compact neural,no_planning,500,carry_chain,0.0,0.0,3
+Compact neural,no_planning,500,digit_composition,0.2111111111111111,0.01924500897298752,3
+Compact neural,no_planning,500,sign_change,0.2111111111111111,0.038490017945975064,3
+Compact neural,no_planning,500,composition,0.5111111111111111,0.01924500897298752,3
+Compact neural,no_planning,1000,all,0.27111111111111114,0.013877773329774223,3
+Compact neural,no_planning,1000,length,0.27777777777777773,0.05091750772173154,3
+Compact neural,no_planning,1000,carry_chain,0.0,0.0,3
+Compact neural,no_planning,1000,digit_composition,0.20000000000000004,3.3993498887762956e-17,3
+Compact neural,no_planning,1000,sign_change,0.26666666666666666,0.0,3
+Compact neural,no_planning,1000,composition,0.611111111111111,0.03849001794597504,3
+Compact neural,procedural,10,all,0.008888888888888889,0.0038490017945975053,3
+Compact neural,procedural,10,length,0.0,0.0,3
+Compact neural,procedural,10,carry_chain,0.0,0.0,3
+Compact neural,procedural,10,digit_composition,0.03333333333333333,0.0,3
+Compact neural,procedural,10,sign_change,0.011111111111111112,0.019245008972987525,3
+Compact neural,procedural,10,composition,0.0,0.0,3
+Compact neural,procedural,25,all,0.015555555555555557,0.003849001794597505,3
+Compact neural,procedural,25,length,0.0,0.0,3
+Compact neural,procedural,25,carry_chain,0.0,0.0,3
+Compact neural,procedural,25,digit_composition,0.044444444444444446,0.019245008972987525,3
+Compact neural,procedural,25,sign_change,0.03333333333333333,0.0,3
+Compact neural,procedural,25,composition,0.0,0.0,3
+Compact neural,procedural,50,all,0.044444444444444446,0.0038490017945975057,3
+Compact neural,procedural,50,length,0.0,0.0,3
+Compact neural,procedural,50,carry_chain,0.0,0.0,3
+Compact neural,procedural,50,digit_composition,0.07777777777777778,0.01924500897298753,3
+Compact neural,procedural,50,sign_change,0.10000000000000002,1.6996749443881478e-17,3
+Compact neural,procedural,50,composition,0.044444444444444446,0.019245008972987525,3
+Compact neural,procedural,100,all,0.08888888888888889,0.0038490017945975057,3
+Compact neural,procedural,100,length,0.022222222222222223,0.019245008972987525,3
+Compact neural,procedural,100,carry_chain,0.0,0.0,3
+Compact neural,procedural,100,digit_composition,0.10000000000000002,1.6996749443881478e-17,3
+Compact neural,procedural,100,sign_change,0.17777777777777778,0.01924500897298754,3
+Compact neural,procedural,100,composition,0.14444444444444446,0.01924500897298752,3
+Compact neural,procedural,250,all,0.13777777777777778,0.010183501544346307,3
+Compact neural,procedural,250,length,0.10000000000000002,0.03333333333333333,3
+Compact neural,procedural,250,carry_chain,0.0,0.0,3
+Compact neural,procedural,250,digit_composition,0.15555555555555556,0.01924500897298752,3
+Compact neural,procedural,250,sign_change,0.16666666666666666,0.0,3
+Compact neural,procedural,250,composition,0.26666666666666666,0.0,3
+Compact neural,procedural,500,all,0.18444444444444444,0.013877773329774223,3
+Compact neural,procedural,500,length,0.11111111111111112,0.08388704928078611,3
+Compact neural,procedural,500,carry_chain,0.0,0.0,3
+Compact neural,procedural,500,digit_composition,0.22222222222222224,0.01924500897298752,3
+Compact neural,procedural,500,sign_change,0.18888888888888888,0.01924500897298754,3
+Compact neural,procedural,500,composition,0.39999999999999997,0.033333333333333354,3
+Compact neural,procedural,1000,all,0.17555555555555558,0.021430335024428798,3
+Compact neural,procedural,1000,length,0.09999999999999999,0.06666666666666667,3
+Compact neural,procedural,1000,carry_chain,0.0,0.0,3
+Compact neural,procedural,1000,digit_composition,0.20000000000000004,0.03333333333333334,3
+Compact neural,procedural,1000,sign_change,0.18888888888888888,0.06938886664887109,3
+Compact neural,procedural,1000,composition,0.3888888888888889,0.10715167512214395,3
+MiniLM residual adapter,concepts,10,all,0.008888888888888889,0.0038490017945975053,3
+MiniLM residual adapter,concepts,10,length,0.0,0.0,3
+MiniLM residual adapter,concepts,10,carry_chain,0.0,0.0,3
+MiniLM residual adapter,concepts,10,digit_composition,0.03333333333333333,0.0,3
+MiniLM residual adapter,concepts,10,sign_change,0.011111111111111112,0.019245008972987525,3
+MiniLM residual adapter,concepts,10,composition,0.0,0.0,3
+MiniLM residual adapter,concepts,25,all,0.017777777777777778,0.007698003589195011,3
+MiniLM residual adapter,concepts,25,length,0.0,0.0,3
+MiniLM residual adapter,concepts,25,carry_chain,0.0,0.0,3
+MiniLM residual adapter,concepts,25,digit_composition,0.03333333333333333,0.0,3
+MiniLM residual adapter,concepts,25,sign_change,0.03333333333333333,0.0,3
+MiniLM residual adapter,concepts,25,composition,0.022222222222222223,0.03849001794597505,3
+MiniLM residual adapter,concepts,50,all,0.05555555555555555,0.007698003589195007,3
+MiniLM residual adapter,concepts,50,length,0.0,0.0,3
+MiniLM residual adapter,concepts,50,carry_chain,0.0,0.0,3
+MiniLM residual adapter,concepts,50,digit_composition,0.09999999999999999,0.03333333333333333,3
+MiniLM residual adapter,concepts,50,sign_change,0.11111111111111112,0.01924500897298752,3
+MiniLM residual adapter,concepts,50,composition,0.06666666666666667,0.03333333333333334,3
+MiniLM residual adapter,concepts,100,all,0.11111111111111112,0.013877773329774221,3
+MiniLM residual adapter,concepts,100,length,0.05555555555555556,0.019245008972987525,3
+MiniLM residual adapter,concepts,100,carry_chain,0.0,0.0,3
+MiniLM residual adapter,concepts,100,digit_composition,0.11111111111111112,0.01924500897298752,3
+MiniLM residual adapter,concepts,100,sign_change,0.18888888888888888,0.01924500897298754,3
+MiniLM residual adapter,concepts,100,composition,0.20000000000000004,0.03333333333333334,3
+MiniLM residual adapter,concepts,250,all,0.19333333333333336,0.017638342073763937,3
+MiniLM residual adapter,concepts,250,length,0.18888888888888888,0.01924500897298754,3
+MiniLM residual adapter,concepts,250,carry_chain,0.0,0.0,3
+MiniLM residual adapter,concepts,250,digit_composition,0.16666666666666666,0.0,3
+MiniLM residual adapter,concepts,250,sign_change,0.20000000000000004,3.3993498887762956e-17,3
+MiniLM residual adapter,concepts,250,composition,0.41111111111111115,0.10183501544346311,3
+MiniLM residual adapter,concepts,500,all,0.24888888888888885,0.02143033502442878,3
+MiniLM residual adapter,concepts,500,length,0.22222222222222224,0.05091750772173156,3
+MiniLM residual adapter,concepts,500,carry_chain,0.0,0.0,3
+MiniLM residual adapter,concepts,500,digit_composition,0.20000000000000004,0.03333333333333334,3
+MiniLM residual adapter,concepts,500,sign_change,0.24444444444444446,0.01924500897298752,3
+MiniLM residual adapter,concepts,500,composition,0.5777777777777778,0.05091750772173154,3
+MiniLM residual adapter,concepts,1000,all,0.3133333333333333,0.04666666666666664,3
+MiniLM residual adapter,concepts,1000,length,0.3,0.033333333333333326,3
+MiniLM residual adapter,concepts,1000,carry_chain,0.1111111111111111,0.19245008972987526,3
+MiniLM residual adapter,concepts,1000,digit_composition,0.22222222222222224,0.03849001794597504,3
+MiniLM residual adapter,concepts,1000,sign_change,0.2888888888888889,0.01924500897298752,3
+MiniLM residual adapter,concepts,1000,composition,0.6444444444444444,0.01924500897298752,3
+MiniLM residual adapter,no_memory,10,all,0.008888888888888889,0.0038490017945975053,3
+MiniLM residual adapter,no_memory,10,length,0.0,0.0,3
+MiniLM residual adapter,no_memory,10,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_memory,10,digit_composition,0.03333333333333333,0.0,3
+MiniLM residual adapter,no_memory,10,sign_change,0.011111111111111112,0.019245008972987525,3
+MiniLM residual adapter,no_memory,10,composition,0.0,0.0,3
+MiniLM residual adapter,no_memory,25,all,0.017777777777777778,0.007698003589195011,3
+MiniLM residual adapter,no_memory,25,length,0.0,0.0,3
+MiniLM residual adapter,no_memory,25,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_memory,25,digit_composition,0.03333333333333333,0.0,3
+MiniLM residual adapter,no_memory,25,sign_change,0.03333333333333333,0.0,3
+MiniLM residual adapter,no_memory,25,composition,0.022222222222222223,0.03849001794597505,3
+MiniLM residual adapter,no_memory,50,all,0.05555555555555555,0.007698003589195007,3
+MiniLM residual adapter,no_memory,50,length,0.0,0.0,3
+MiniLM residual adapter,no_memory,50,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_memory,50,digit_composition,0.09999999999999999,0.03333333333333333,3
+MiniLM residual adapter,no_memory,50,sign_change,0.11111111111111112,0.01924500897298752,3
+MiniLM residual adapter,no_memory,50,composition,0.06666666666666667,0.03333333333333334,3
+MiniLM residual adapter,no_memory,100,all,0.10888888888888888,0.015396007178390023,3
+MiniLM residual adapter,no_memory,100,length,0.044444444444444446,0.019245008972987525,3
+MiniLM residual adapter,no_memory,100,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_memory,100,digit_composition,0.11111111111111112,0.01924500897298752,3
+MiniLM residual adapter,no_memory,100,sign_change,0.18888888888888888,0.01924500897298754,3
+MiniLM residual adapter,no_memory,100,composition,0.20000000000000004,0.03333333333333334,3
+MiniLM residual adapter,no_memory,250,all,0.13999999999999999,0.006666666666666668,3
+MiniLM residual adapter,no_memory,250,length,0.12222222222222223,0.01924500897298752,3
+MiniLM residual adapter,no_memory,250,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_memory,250,digit_composition,0.16666666666666666,0.0,3
+MiniLM residual adapter,no_memory,250,sign_change,0.17777777777777778,0.01924500897298754,3
+MiniLM residual adapter,no_memory,250,composition,0.2333333333333333,3.3993498887762956e-17,3
+MiniLM residual adapter,no_memory,500,all,0.17777777777777778,0.030061665018819295,3
+MiniLM residual adapter,no_memory,500,length,0.11111111111111112,0.0769800358919501,3
+MiniLM residual adapter,no_memory,500,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_memory,500,digit_composition,0.18888888888888888,0.01924500897298754,3
+MiniLM residual adapter,no_memory,500,sign_change,0.2111111111111111,0.01924500897298752,3
+MiniLM residual adapter,no_memory,500,composition,0.37777777777777777,0.0693888666488711,3
+MiniLM residual adapter,no_memory,1000,all,0.26,0.048074017006186534,3
+MiniLM residual adapter,no_memory,1000,length,0.2111111111111111,0.01924500897298752,3
+MiniLM residual adapter,no_memory,1000,carry_chain,0.1111111111111111,0.19245008972987526,3
+MiniLM residual adapter,no_memory,1000,digit_composition,0.22222222222222224,0.03849001794597504,3
+MiniLM residual adapter,no_memory,1000,sign_change,0.27777777777777773,0.01924500897298752,3
+MiniLM residual adapter,no_memory,1000,composition,0.4777777777777778,0.03849001794597504,3
+MiniLM residual adapter,no_planning,10,all,0.006666666666666667,0.0,3
+MiniLM residual adapter,no_planning,10,length,0.0,0.0,3
+MiniLM residual adapter,no_planning,10,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_planning,10,digit_composition,0.03333333333333333,0.0,3
+MiniLM residual adapter,no_planning,10,sign_change,0.0,0.0,3
+MiniLM residual adapter,no_planning,10,composition,0.0,0.0,3
+MiniLM residual adapter,no_planning,25,all,0.017777777777777778,0.007698003589195011,3
+MiniLM residual adapter,no_planning,25,length,0.0,0.0,3
+MiniLM residual adapter,no_planning,25,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_planning,25,digit_composition,0.03333333333333333,0.0,3
+MiniLM residual adapter,no_planning,25,sign_change,0.03333333333333333,0.0,3
+MiniLM residual adapter,no_planning,25,composition,0.022222222222222223,0.03849001794597505,3
+MiniLM residual adapter,no_planning,50,all,0.04888888888888889,0.0076980035891950115,3
+MiniLM residual adapter,no_planning,50,length,0.0,0.0,3
+MiniLM residual adapter,no_planning,50,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_planning,50,digit_composition,0.08888888888888889,0.01924500897298753,3
+MiniLM residual adapter,no_planning,50,sign_change,0.10000000000000002,1.6996749443881478e-17,3
+MiniLM residual adapter,no_planning,50,composition,0.05555555555555555,0.019245008972987525,3
+MiniLM residual adapter,no_planning,100,all,0.10888888888888888,0.003849001794597498,3
+MiniLM residual adapter,no_planning,100,length,0.044444444444444446,0.019245008972987525,3
+MiniLM residual adapter,no_planning,100,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_planning,100,digit_composition,0.10000000000000002,1.6996749443881478e-17,3
+MiniLM residual adapter,no_planning,100,sign_change,0.20000000000000004,3.3993498887762956e-17,3
+MiniLM residual adapter,no_planning,100,composition,0.20000000000000004,3.3993498887762956e-17,3
+MiniLM residual adapter,no_planning,250,all,0.1977777777777778,0.023412563895228305,3
+MiniLM residual adapter,no_planning,250,length,0.2111111111111111,0.01924500897298752,3
+MiniLM residual adapter,no_planning,250,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_planning,250,digit_composition,0.16666666666666666,0.0,3
+MiniLM residual adapter,no_planning,250,sign_change,0.20000000000000004,3.3993498887762956e-17,3
+MiniLM residual adapter,no_planning,250,composition,0.41111111111111115,0.10183501544346311,3
+MiniLM residual adapter,no_planning,500,all,0.25777777777777783,0.020367003088692638,3
+MiniLM residual adapter,no_planning,500,length,0.25555555555555554,0.03849001794597504,3
+MiniLM residual adapter,no_planning,500,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_planning,500,digit_composition,0.20000000000000004,0.03333333333333334,3
+MiniLM residual adapter,no_planning,500,sign_change,0.24444444444444446,0.01924500897298752,3
+MiniLM residual adapter,no_planning,500,composition,0.5888888888888889,0.03849001794597504,3
+MiniLM residual adapter,no_planning,1000,all,0.2888888888888889,0.007698003589194996,3
+MiniLM residual adapter,no_planning,1000,length,0.3,0.033333333333333326,3
+MiniLM residual adapter,no_planning,1000,carry_chain,0.0,0.0,3
+MiniLM residual adapter,no_planning,1000,digit_composition,0.20000000000000004,3.3993498887762956e-17,3
+MiniLM residual adapter,no_planning,1000,sign_change,0.2888888888888889,0.01924500897298752,3
+MiniLM residual adapter,no_planning,1000,composition,0.6555555555555556,0.01924500897298752,3
+MiniLM residual adapter,procedural,10,all,0.006666666666666667,0.0,3
+MiniLM residual adapter,procedural,10,length,0.0,0.0,3
+MiniLM residual adapter,procedural,10,carry_chain,0.0,0.0,3
+MiniLM residual adapter,procedural,10,digit_composition,0.03333333333333333,0.0,3
+MiniLM residual adapter,procedural,10,sign_change,0.0,0.0,3
+MiniLM residual adapter,procedural,10,composition,0.0,0.0,3
+MiniLM residual adapter,procedural,25,all,0.017777777777777778,0.007698003589195011,3
+MiniLM residual adapter,procedural,25,length,0.0,0.0,3
+MiniLM residual adapter,procedural,25,carry_chain,0.0,0.0,3
+MiniLM residual adapter,procedural,25,digit_composition,0.03333333333333333,0.0,3
+MiniLM residual adapter,procedural,25,sign_change,0.03333333333333333,0.0,3
+MiniLM residual adapter,procedural,25,composition,0.022222222222222223,0.03849001794597505,3
+MiniLM residual adapter,procedural,50,all,0.04888888888888889,0.0076980035891950115,3
+MiniLM residual adapter,procedural,50,length,0.0,0.0,3
+MiniLM residual adapter,procedural,50,carry_chain,0.0,0.0,3
+MiniLM residual adapter,procedural,50,digit_composition,0.08888888888888889,0.01924500897298753,3
+MiniLM residual adapter,procedural,50,sign_change,0.10000000000000002,1.6996749443881478e-17,3
+MiniLM residual adapter,procedural,50,composition,0.05555555555555555,0.019245008972987525,3
+MiniLM residual adapter,procedural,100,all,0.10666666666666667,0.006666666666666661,3
+MiniLM residual adapter,procedural,100,length,0.044444444444444446,0.019245008972987525,3
+MiniLM residual adapter,procedural,100,carry_chain,0.0,0.0,3
+MiniLM residual adapter,procedural,100,digit_composition,0.10000000000000002,1.6996749443881478e-17,3
+MiniLM residual adapter,procedural,100,sign_change,0.18888888888888888,0.01924500897298754,3
+MiniLM residual adapter,procedural,100,composition,0.20000000000000004,3.3993498887762956e-17,3
+MiniLM residual adapter,procedural,250,all,0.15555555555555556,0.02523959264800121,3
+MiniLM residual adapter,procedural,250,length,0.15555555555555556,0.05091750772173156,3
+MiniLM residual adapter,procedural,250,carry_chain,0.0,0.0,3
+MiniLM residual adapter,procedural,250,digit_composition,0.16666666666666666,0.0,3
+MiniLM residual adapter,procedural,250,sign_change,0.18888888888888888,0.01924500897298754,3
+MiniLM residual adapter,procedural,250,composition,0.26666666666666666,0.05773502691896256,3
+MiniLM residual adapter,procedural,500,all,0.18666666666666668,0.017638342073763937,3
+MiniLM residual adapter,procedural,500,length,0.14444444444444446,0.06938886664887109,3
+MiniLM residual adapter,procedural,500,carry_chain,0.0,0.0,3
+MiniLM residual adapter,procedural,500,digit_composition,0.20000000000000004,0.03333333333333334,3
+MiniLM residual adapter,procedural,500,sign_change,0.20000000000000004,3.3993498887762956e-17,3
+MiniLM residual adapter,procedural,500,composition,0.3888888888888889,0.05091750772173158,3
+MiniLM residual adapter,procedural,1000,all,0.22444444444444445,0.010183501544346303,3
+MiniLM residual adapter,procedural,1000,length,0.18888888888888888,0.038490017945975064,3
+MiniLM residual adapter,procedural,1000,carry_chain,0.0,0.0,3
+MiniLM residual adapter,procedural,1000,digit_composition,0.20000000000000004,3.3993498887762956e-17,3
+MiniLM residual adapter,procedural,1000,sign_change,0.27777777777777773,0.01924500897298752,3
+MiniLM residual adapter,procedural,1000,composition,0.45555555555555555,0.05091750772173154,3
