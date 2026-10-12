@@ -9,9 +9,9 @@ import time
 from pathlib import Path
 
 import torch
+from cpu_coordinator import evaluate_batch
 from transformers import StoppingCriteria, StoppingCriteriaList
 
-from mindscape.coding.batching import evaluate_batch
 from mindscape.coding.model import LocalCoder
 from mindscape.v3.coding_learning.agent import CONDITIONS, solve
 from mindscape.v3.coding_learning.data import load_public, load_scorer
@@ -34,6 +34,7 @@ class CpuBatchCoder(LocalCoder):
         self.cache.mkdir(parents=True, exist_ok=True)
         self.model_hash = digest(hashes(path))
         self.batch_records = []
+        self.deadline = None
 
     def generate_batch(self, requests):
         output = [None] * len(requests)
@@ -76,10 +77,13 @@ class CpuBatchCoder(LocalCoder):
             if inputs["input_ids"].shape[1] + next(iter(limits)) > 32768:
                 raise ValueError("Context exceeded; truncation forbidden")
             first = [None]
+            deadline = self.deadline
             started = time.perf_counter()
 
             class First(StoppingCriteria):
                 def __call__(self, input_ids, scores, **kwargs):
+                    if deadline is not None and time.time() >= deadline:
+                        raise TimeoutError("Neural study deadline reached")
                     if first[0] is None:
                         first[0] = time.perf_counter() - started
                     return False

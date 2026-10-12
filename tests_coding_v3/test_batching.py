@@ -2,12 +2,14 @@
 
 import importlib.util
 import json
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
 import torch
 
+sys.path.insert(0, str(Path("scripts/v3_coding").resolve()))
 spec = importlib.util.spec_from_file_location(
     "coding_batch_study", "scripts/v3_coding/batched_study.py"
 )
@@ -63,6 +65,7 @@ class BatchTests(unittest.TestCase):
             coder.input_tokens = 0
             coder.output_tokens = 0
             coder.batch_records = []
+            coder.deadline = None
             request = ("system", "{}", 16, 11)
             result = coder.generate_batch([request, request])
             self.assertEqual(coder.calls, 1)
@@ -113,3 +116,54 @@ class PathSchemaTests(unittest.TestCase):
         self.assertEqual(backend.payload["allowed_edit_paths"], ["rules.py", "solution.py"])
         self.assertNotIn("existing_file.py", backend.payload["instruction"])
         self.assertIn("existing_file.py", original["instruction"])
+
+
+class CoordinatorTests(unittest.TestCase):
+    def test_all_independent_jobs_complete(self):
+        from cpu_coordinator import evaluate_batch
+
+        class Coder:
+            revision = "fake"
+
+            def generate_batch(self, requests):
+                return [("response", {"tokens_out": 1}) for _ in requests]
+
+        def solve(job, client):
+            return {"job": job, "response": client.generate("s", "p", 8, 11)}
+
+        saved = []
+        self.assertEqual(evaluate_batch(Coder(), list(range(4)), solve, saved.append, 2), 4)
+        self.assertEqual({r["job"] for r in saved}, set(range(4)))
+
+    def test_interrupt_releases_waiting_clients(self):
+        from cpu_coordinator import evaluate_batch
+
+        class Coder:
+            revision = "fake"
+
+            def generate_batch(self, requests):
+                raise KeyboardInterrupt()
+
+        def solve(job, client):
+            return client.generate("s", "p", 8, 11)
+
+        import time
+
+        started = time.perf_counter()
+        with self.assertRaises(KeyboardInterrupt):
+            evaluate_batch(Coder(), list(range(8)), solve, lambda x: None, 2)
+        self.assertLess(time.perf_counter() - started, 2)
+
+    def test_expired_deadline_performs_no_model_work(self):
+        from cpu_coordinator import evaluate_batch
+
+        class Coder:
+            revision = "fake"
+
+            def generate_batch(self, requests):
+                raise AssertionError("Deadline ignored")
+
+        def solve(job, client):
+            return client.generate("s", "p", 8, 11)
+
+        self.assertEqual(evaluate_batch(Coder(), [1, 2], solve, lambda x: None, 2, deadline=0), 0)

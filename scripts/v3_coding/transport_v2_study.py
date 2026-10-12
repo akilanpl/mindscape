@@ -28,6 +28,8 @@ if __name__ == "__main__":
     for name, key in (
         ("path_schema.py", "transport_source_sha256"),
         ("transport_v2_study.py", "transport_driver_sha256"),
+        ("batched_study.py", "batch_runner_sha256"),
+        ("cpu_coordinator.py", "cpu_coordinator_sha256"),
     ):
         if hashlib.sha256((folder / name).read_bytes()).hexdigest() != protocol[key]:
             raise ValueError("Frozen V2 transport source changed")

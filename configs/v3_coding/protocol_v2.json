@@ -63,5 +63,16 @@
   "minimum_meaningful_gain": 0.1,
   "superiority_gate": "At least10 percentage points over strongest same-Qwen baseline; paired task bootstrap95% must exclude zero. Small-sample/exploratory limitations retained.",
   "transport_source_sha256": "fa0286385b5ac4b2361924cb08b23984224e35d328d2ba8d0c2cdb7c45fd4d50",
-  "transport_driver_sha256": "3a0fda7c084057769c32956729b50fe4419a08ee4d6c980eac02c3346b605089"
+  "transport_driver_sha256": "1240467614fbc3379f409a5f0f615627fc5bc1c845c9dbb4863d539ecfdc9bbf",
+  "batch_runner_sha256": "2671dd0939577468519b48b0c26dcbc7700bc45bb3d810a3a5b0f0bf53e3d1b3",
+  "cpu_coordinator_sha256": "204899d8ece51743b5b553d6ca5514c81ccda577a557f5bc27a39f09337e7e3c",
+  "strongest_reference_conditions": [
+    "plain",
+    "structured",
+    "typed",
+    "no_memory",
+    "no_planning",
+    "no_concepts",
+    "word_memory"
+  ]
 }
