@@ -145,14 +145,23 @@ def summarize(root):
         ),
         "peak_rss_bytes": max(r["peak_rss_bytes"] for r in invocations),
     }
+    cache_rows = [json.loads(p.read_text()) for p in (root / "v2-cache").glob("*.json")]
+    resources["all_retained_cache_unique_completed_requests"] = len(cache_rows)
+    resources["all_retained_cache_input_tokens"] = sum(r["timing"]["tokens_in"] for r in cache_rows)
+    resources["all_retained_cache_output_tokens"] = sum(
+        r["timing"]["tokens_out"] for r in cache_rows
+    )
+    resources["host_interruption_has_missing_invocation_receipt"] = (
+        root / "host-interruption-receipt.json"
+    ).exists()
     resources["incomplete_invocations"] = sum(not r["complete"] for r in invocations)
     resources["token_scope"] = (
         "Completed generation responses only; interrupted in-flight tokens omitted. Phase wall time includes interrupted work, excludes preflight."
     )
-    resources["conservative_output_token_upper_bound"] = (
+    resources["receipt_known_invocations_output_token_upper_bound"] = (
         resources["fresh_output_tokens"] + 4 * 256 * resources["incomplete_invocations"]
     )
-    resources["conservative_fresh_request_upper_bound"] = (
+    resources["receipt_known_invocations_fresh_request_upper_bound"] = (
         resources["fresh_requests"] + 4 * resources["incomplete_invocations"]
     )
     primary = {c["condition"]: c for c in summaries[11]["cells"] if c["split"] == "ood"}
