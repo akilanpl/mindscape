@@ -13,7 +13,7 @@ jobs:
       - name: Install CPU sandbox and evaluator dependencies (no LM downloads)
         run: |
           python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.8.0+cpu
-          python -m pip install numpy==2.3.5 wasmtime==49.0.0
+          python -m pip install numpy==2.3.5 wasmtime==49.0.0 transformers==4.57.6
       - name: Restore and compile an isolated copy of preserved runtime
         run: |
           python scripts/research_v2/restore_cpu_baseline.py --archive research_checkpoint/research_release_2026-10-09 --destination work/coding-evidence

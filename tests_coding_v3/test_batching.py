@@ -18,7 +18,8 @@ spec.loader.exec_module(module)
 class BatchTests(unittest.TestCase):
     def test_client_preserves_frozen_prompt_and_token_cap(self):
         class Client:
-            timings = [{"tokens_in": 2, "tokens_out": 3}]
+            def __init__(self):
+                self.timings = [{"tokens_in": 2, "tokens_out": 3}]
 
             def generate(self, *args):
                 self.args = args
@@ -86,3 +87,28 @@ class BatchTests(unittest.TestCase):
             )
             with self.assertRaises(ValueError):
                 coder.generate_batch([request])
+
+
+class PathSchemaTests(unittest.TestCase):
+    def test_schema_remediation_does_not_modify_response_or_code(self):
+        spec = importlib.util.spec_from_file_location(
+            "path_schema", "scripts/v3_coding/path_schema.py"
+        )
+        wrapper = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(wrapper)
+
+        class Backend:
+            def generate(self, payload, max_tokens):
+                self.payload = payload
+                return "unaltered-model-response", {"tokens_out": 3}
+
+        backend = Backend()
+        original = {
+            "repository": {"rules.py": "pass", "solution.py": "pass"},
+            "instruction": "old example existing_file.py",
+        }
+        result = wrapper.PathSchemaBackend(backend).generate(original, 256)
+        self.assertEqual(result[0], "unaltered-model-response")
+        self.assertEqual(backend.payload["allowed_edit_paths"], ["rules.py", "solution.py"])
+        self.assertNotIn("existing_file.py", backend.payload["instruction"])
+        self.assertIn("existing_file.py", original["instruction"])

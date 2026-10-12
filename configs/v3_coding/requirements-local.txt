@@ -1,0 +1,9 @@
+# Observed local runtime; no automatic pretrained-weight acquisition.
+numpy==2.3.5
+torch==2.14.1
+transformers==4.57.6
+peft==0.21.2
+safetensors==0.8.0
+wasmtime==49.0.0
+pytest==9.1.1
+ruff==0.16.10
