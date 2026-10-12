@@ -6,29 +6,29 @@ Run: `native-full-1791811860380119000`. Qualified source hash: `1b74f4654ab1a6b1
 
 ## Completed coverage and independent checks
 
-Apple M5, PyTorch2.14.1, Python3.12.14 arm64; native MPS float32, batch 128. All neural computation used MPS with fallback rejected. CPU work comprised simulation, preprocessing, serialization, replay and statistics. Seeds11,23,37 and trajectory budgets 10,25,50,100,250 all completed.
+Apple M 5, PyTorch 2.14.1, Python 3.12.14 arm 64; native MPS float32, batch 128. All neural computation used MPS with fallback rejected. CPU work comprised simulation, preprocessing, serialization, replay and statistics. Seeds 11,23,37 and trajectory budgets 10,25,50,100,250 all completed.
 
 - 90 dynamics fits and six model-free policy fits, each 400 updates:38,400 gradient updates total.
 - 6,000 primary +6,000 matched +6,000 component-ablation forecasts;1,200 nonneural forecasts;2,160 actual planning episodes. No required episodes are missing.
-- Independent verification reconstructed400 IID/OOD scenes, recomputed all 19,200 forecast metrics and independently replayed all 2,160 selected actions. It used zero neural calls.
-- All 96 final checkpoint hashes, steps 400 and experiment identities passed, including safe weights_only=True loading. Native pilot continuation independently demonstrated exact parameters, Adam state, memory, step 12 and provenance after6+6 versus uninterrupted12 updates in both families.
+- Independent verification reconstructed 400 IID/OOD scenes, recomputed all 19,200 forecast metrics and independently replayed all 2,160 selected actions. It used zero neural calls.
+- All 96 final checkpoint hashes, steps 400 and experiment identities passed, including safe weights_only=True loading. Native pilot continuation independently demonstrated exact parameters, Adam state, memory, step 12 and provenance after 6+6 versus uninterrupted 12 updates in both families.
 - All 1000 frozen dataset scenes were separately replayed exactly in CPU preparation. Pilot/main scene identities are disjoint; training receipts admitted only approved training IDs. Evaluation outcomes were not added to persistent memory. Frozen validation was not used for tuning.
-- 101 cross-domain V3 tests and three subtests passed. Scoped Ruff passed. Historical574 pre-V3 files,667 prior-V3 files and all release tags remain unchanged. Original failed native pilot and all diagnostic evidence are preserved.
+- 101 cross-domain V3 tests and three subtests passed. Scoped Ruff passed. Historical 574 pre-V3 files,667 prior-V3 files and all release tags remain unchanged. Original failed native pilot and all diagnostic evidence are preserved.
 
 ## Prediction results
 
-Tables average each scene over three seeds and then average scenes. Each final-budget neural cell has100 independent scenes, not300 independent observations. Lower MSE is better. Contact accuracy is a separate frame-level diagnostic, not task success.
+Tables average each scene over three seeds and then average scenes. Each final-budget neural cell has 100 independent scenes, not 300 independent observations. Lower MSE is better. Contact accuracy is a separate frame-level diagnostic, not task success.
 
-| Family | Variant | IID normalized rollout MSE | OOD normalized rollout MSE | OOD one-step MSE | OOD nominal95% coverage |
+| Family | Variant | IID normalized rollout MSE | OOD normalized rollout MSE | OOD one-step MSE | OOD nominal 95% coverage |
 | --- | --- | ---: | ---: | ---: | ---: |
 | motion | mindscape | 90.0596 | 9.33957e+07 | 0.175049 | 36.8% |
 | motion | matched | 13.4854 | 18.1353 | 0.453476 | 48.9% |
 | interaction | mindscape | 4.55259 | 7.74368 | 1.15671 | 47.9% |
 | interaction | matched | 2.25712 | 3.66973 | 1.15778 | 55.9% |
 
-The motion final-budget error is about 5.15 million times matched error. The paired scene-bootstrap95% interval for that worsening factor is about 2.11–10.51 million. Interaction error is111.0% worse, with paired95% interval86.6–134.8% worse. Both preregistered comparisons fail. Bootstrap resamples100 scene clusters after seed averaging,2000 draws; multiple exploratory comparisons are unadjusted.
+The motion final-budget error is about 5.15 million times matched error. The paired scene-bootstrap 95% interval for that worsening factor is about 2.11–10.51 million. Interaction error is 111.0% worse, with paired 95% interval 86.6–134.8% worse. Both preregistered comparisons fail. Bootstrap resamples 100 scene clusters after seed averaging,2000 draws; multiple exploratory comparisons are unadjusted.
 
-Best descriptive primary means across the five budgets: motion IID90.0596 at 250 and OOD31,397 at 10; interaction IID2.8950 and OOD4.6227 at 10. These selections are post hoc descriptions, not replacement acceptance criteria. Smaller budgets contain catastrophic finite motion errors near 1e20; all are retained in raw evidence and learning curves.
+Best descriptive primary means across the five budgets: motion IID 90.0596 at 250 and OOD 31,397 at 10; interaction IID 2.8950 and OOD 4.6227 at 10. These selections are post hoc descriptions, not replacement acceptance criteria. Smaller budgets contain catastrophic finite motion errors near 1e20; all are retained in raw evidence and learning curves.
 
 | Final-budget variant / nonneural control | Motion OOD MSE | Interaction OOD MSE |
 | --- | ---: | ---: |
@@ -43,7 +43,7 @@ Best descriptive primary means across the five budgets: motion IID90.0596 at 250
 | constant_velocity | 2.26968 | 6.81757 |
 | analytical_available | 4.24611 | 6.7678 |
 
-The supplemental analytical contact/spring predictor scored motion OOD0.431907 and interaction OOD1.75947 on the same400-scene panel, using only visible attributes and nominal hidden parameters. It is a nonneural approximate equation baseline, not learned reasoning or an exact oracle. The core analytical_available baseline is deliberately limited to free flight and declared known gravity/force. Equal parameter dimensions do not guarantee equal effective capacity when extra input/pooling channels are zeroed; stronger unstructured multibody baselines remain future work. See baseline-matrix.md for information differences.
+The supplemental analytical contact/spring predictor scored motion OOD 0.431907 and interaction OOD 1.75947 on the same 400-scene panel, using only visible attributes and nominal hidden parameters. It is a nonneural approximate equation baseline, not learned reasoning or an exact oracle. The core analytical_available baseline is deliberately limited to free flight and declared known gravity/force. Equal parameter dimensions do not guarantee equal effective capacity when extra input/pooling channels are zeroed; stronger unstructured multibody baselines remain future work. See baseline-matrix.md for information differences.
 
 ## Actual planning success
 
@@ -54,17 +54,17 @@ The supplemental analytical contact/spring predictor scored motion OOD0.431907 a
 | interaction / iid | 14/60 (23.3%) | 38/60 (63.3%) | 39/60 (65.0%) | 3/20 (15.0%) | 4/20 (20.0%) | 4/20 (20.0%) |
 | interaction / ood | 20/60 (33.3%) | 32/60 (53.3%) | 32/60 (53.3%) | 3/20 (15.0%) | 8/20 (40.0%) | 8/20 (40.0%) |
 
-Neural denominators60 share20 scenes across three seeds; control denominators20 are one fixed control panel. Rates are descriptive. Individual seed Wilson intervals are in analysis.json; paired scene-bootstrap intervals and success differences are in acceptance.json. Mindscape-minus-matched success differences are−1.7/−5.0 percentage points for motion IID/OOD and−40.0/−20.0 for interaction. The maintained-planning criterion also fails.
+Neural denominators 60 share 20 scenes across three seeds; control denominators 20 are one fixed control panel. Rates are descriptive. Individual seed Wilson intervals are in analysis.json; paired scene-bootstrap intervals and success differences are in acceptance.json. Mindscape-minus-matched success differences are−1.7/−5.0 percentage points for motion IID/OOD and−40.0/−20.0 for interaction. The maintained-planning criterion also fails.
 
-Each dynamics planner evaluated nine action candidates across 24 hypothetical steps, made zero authoritative simulator queries during selection, then executed one chosen impulse. Actual execution used27 steps including initial history. Random/simple policies provide planning-removal controls; they are not an equal-compute architecture-only planning ablation. The model-free policy receives additional training-only action-choice labels and is not an equal-information dynamics baseline. Teacher generation executed121,500 unique simulator steps across the two families; receipt totals per seed repeat shared teacher work. Policy training used2400 updates and 600,000 labeled action presentations.
+Each dynamics planner evaluated nine action candidates across 24 hypothetical steps, made zero authoritative simulator queries during selection, then executed one chosen impulse. Actual execution used 27 steps including initial history. Random/simple policies provide planning-removal controls; they are not an equal-compute architecture-only planning ablation. The model-free policy receives additional training-only action-choice labels and is not an equal-information dynamics baseline. Teacher generation executed 121,500 unique simulator steps across the two families; receipt totals per seed repeat shared teacher work. Policy training used 2400 updates and 600,000 labeled action presentations.
 
 ## Resources, failure mechanisms and revised hypothesis
 
-Native training/evaluation wall time was204.454 seconds. Summed dynamics fit time was67.020 seconds for 36,000 updates and 4,608,000 transition presentations:about 537 updates/s or68,755 sampled transitions/s, including fit checkpoint/memory overhead. Six policy fits added2.322 seconds. Forecast inference covered616,320 scene-steps in7.898 summed batch seconds across 270 batches, about 78,038 scene-steps/s. Shared per-batch times are counted once; output-file serialization and planning are excluded from this inference timing. World-model parameter count38,409; maximum sampled driver allocation96,305,152 bytes (91.8MiB). This is a receipt sample, not a continuously sampled peak or full process RAM. No paid service or large pretrained model was used. Hardware-audit synthetic MLP throughput is separately labeled and must not be substituted for these measurements.
+Native training/evaluation wall time was 204.454 seconds. Summed dynamics fit time was 67.020 seconds for 36,000 updates and 4,608,000 transition presentations:about 537 updates/s or 68,755 sampled transitions/s, including fit checkpoint/memory overhead. Six policy fits added 2.322 seconds. Forecast inference covered 616,320 scene-steps in 7.898 summed batch seconds across 270 batches, about 78,038 scene-steps/s. Shared per-batch times are counted once; output-file serialization and planning are excluded from this inference timing. World-model parameter count 38,409; maximum sampled driver allocation 96,305,152 bytes (91.8 MiB). This is a receipt sample, not a continuously sampled peak or full process RAM. No paid service or large pretrained model was used. Hardware-audit synthetic MLP throughput is separately labeled and must not be substituted for these measurements.
 
-Observed motion failures concentrate on configuration and previously unseen interaction strata: final-budget means454.9 million and 212.3 million respectively. The largest single failure was configuration, seed23, normalizedMSE6.76 billion. Removing memory leaves similarly catastrophic error; memory is not the sole explanation. Removing relational or concept features substantially changes instability but does not deliver reliable OOD dynamics. Collapsing history is less unstable, consistent with recursively derived features becoming unreliable during free-running prediction. These are diagnostic associations, not proven causal attribution.
+Observed motion failures concentrate on configuration and previously unseen interaction strata: final-budget means 454.9 million and 212.3 million respectively. The largest single failure was configuration, seed 23, normalizedMSE 6.76 billion. Removing memory leaves similarly catastrophic error; memory is not the sole explanation. Removing relational or concept features substantially changes instability but does not deliver reliable OOD dynamics. Collapsing history is less unstable, consistent with recursively derived features becoming unreliable during free-running prediction. These are diagnostic associations, not proven causal attribution.
 
-One-step motion error improves while long rollout error deteriorates. The current unconstrained autoregressive delta model, trained with one-step supervision, is insufficient to control compounding error when object count and interactions change. Contact accuracy near 92–96% does not imply accurate collision timing, conserved momentum or goal attainment. Nominal95% interval coverage is only 36.8% motion and 47.9% interaction for final-budget Mindscape OOD, so uncertainty is seriously undercalibrated.
+One-step motion error improves while long rollout error deteriorates. The current unconstrained autoregressive delta model, trained with one-step supervision, is insufficient to control compounding error when object count and interactions change. Contact accuracy near 92–96% does not imply accurate collision timing, conserved momentum or goal attainment. Nominal 95% interval coverage is only 36.8% motion and 47.9% interaction for final-budget Mindscape OOD, so uncertainty is seriously undercalibrated.
 
 Revised hypothesis: object-centric, permutation-consistent pairwise messages with learned stability constraints and training-only multi-step rollout loss may generalize more reliably than derivative concept features plus fixed residual memory. First test that hypothesis on newly frozen training/validation and independent evaluation scenes, with the same matched supervision and explicit calibration controls. Do not tune a revision on the current final OOD panel. Test history/relationships separately before reintroducing memory or scaling model size.
 
@@ -76,7 +76,7 @@ Planning model-free envelopes retain an inner hash from their initial random pro
 
 Native commands are in commands.md. The full run used the qualified pilot receipt and remained on the same model-source identity throughout. Safe interruption recovery retains the original run directory, code and dataset and uses --resume; do not force source-incompatible checkpoints or disable weights_only loading.
 
-All 25,670 physics evidence files, including frozen datasets, checkpoints, raw predictions, CPU controls and prior failed pilot evidence, are preserved in experiments/v3_physics/recovery_evidence_v1:14 checksum-bound32MiB parts,468,711,474 compressed bytes; restored expansion1,240,205,734 bytes. Restoration is bounded, rejects traversal/symlinks/corruption, and was tested in a fresh directory. Original artifacts remain present.
+All 25,670 physics evidence files, including frozen datasets, checkpoints, raw predictions, CPU controls and prior failed pilot evidence, are preserved in experiments/v 3_physics/recovery_evidence_v 1:14 checksum-bound 32 MiB parts,468,711,474 compressed bytes; restored expansion 1,240,205,734 bytes. Restoration is bounded, rejects traversal/symlinks/corruption, and was tested in a fresh directory. Original artifacts remain present.
 
 ```sh
 cd /Users/akilan/Documents/Codex/2026-10-12/you-are-gpt-6-1-sol/work/mindscape-v3
