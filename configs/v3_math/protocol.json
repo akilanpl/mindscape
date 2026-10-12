@@ -1,0 +1,23 @@
+{
+  "schema": "mindscape.v3.math.protocol/1",
+  "budgets": [10,25,50,100,250,500,1000],
+  "seeds": [0,1,2],
+  "updates": 600,
+  "batch_rows": 64,
+  "optimizer": "Adam",
+  "learning_rate": 0.003,
+  "selection": "fixed final update; no holdout checkpoint selection",
+  "primary": "exact accuracy on all 150 predeclared structural OOD tasks",
+  "aspirational_family": "length",
+  "aspirational_target": 0.5,
+  "matched_comparison": "concepts versus equal-information procedural at identical trained checkpoint",
+  "mechanism": "learned transition heads plus finite demonstrated-context retrieval and consistency-scored top2 next-state branches",
+  "training_regimes": ["answer_only", "procedural"],
+  "evaluation_modes": ["answer_only", "procedural", "concepts", "no_memory", "no_planning"],
+  "controls": ["random", "zero", "explicit_arithmetic_oracle_upper_bound"],
+  "pretrained": "existing local MiniLM frozen encoder plus trained rank8 residual representation adapter, all budgets/seeds, procedural regime",
+  "limitations": ["hand-specified place-value schedule", "signed-magnitude normalization scaffold", "same relational inputs supplied to procedural baseline", "answer-only receives but does not optimize intermediate labels", "cached local neural predictions amortize evaluation latency", "OOD families may intersect; report separately", "pretraining exposure unknown"],
+  "statistics": "per-seed Wilson intervals, task-cluster paired bootstrap 2000 replicates conditional on 3 seeds, exact paired McNemar with Holm across budgets/baselines/seeds",
+  "lockbox": "AES-GCM encrypted; key separate; never opened for these development curves",
+  "alternate_base": "deferred unless core target and matched-baseline superiority succeed"
+}
