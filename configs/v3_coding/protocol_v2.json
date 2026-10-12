@@ -61,5 +61,7 @@
   "target_unchanged": true,
   "generator_unchanged": true,
   "minimum_meaningful_gain": 0.1,
-  "superiority_gate": "At least10 percentage points over strongest same-Qwen baseline; paired task bootstrap95% must exclude zero. Small-sample/exploratory limitations retained."
+  "superiority_gate": "At least10 percentage points over strongest same-Qwen baseline; paired task bootstrap95% must exclude zero. Small-sample/exploratory limitations retained.",
+  "transport_source_sha256": "fa0286385b5ac4b2361924cb08b23984224e35d328d2ba8d0c2cdb7c45fd4d50",
+  "transport_driver_sha256": "3a0fda7c084057769c32956729b50fe4419a08ee4d6c980eac02c3346b605089"
 }

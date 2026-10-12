@@ -109,6 +109,7 @@ class PathSchemaTests(unittest.TestCase):
         }
         result = wrapper.PathSchemaBackend(backend).generate(original, 256)
         self.assertEqual(result[0], "unaltered-model-response")
+        self.assertEqual(result[1]["actual_model_payload"], backend.payload)
         self.assertEqual(backend.payload["allowed_edit_paths"], ["rules.py", "solution.py"])
         self.assertNotIn("existing_file.py", backend.payload["instruction"])
         self.assertIn("existing_file.py", original["instruction"])

@@ -33,7 +33,10 @@ class PathSchemaBackend:
             "Only files requiring changes need to be included. Do not output Markdown or extra text. "
             "Use the supplied actual visible execution feedback; private tests are inaccessible."
         )
-        return self.backend.generate(payload, max_tokens)
+        response, timing = self.backend.generate(payload, max_tokens)
+        return response, dict(
+            timing, actual_model_payload=payload, transport_schema="explicit-path-v2"
+        )
 
 
 if __name__ == "__main__":
