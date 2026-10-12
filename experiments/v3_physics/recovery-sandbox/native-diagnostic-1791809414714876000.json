@@ -1,0 +1,19 @@
+{
+  "schema": "mindscape.v3.physics.native-probe/1",
+  "interpreter": "/Users/akilan/Documents/Codex/2026-10-08/files-pasted-by-the-user-mindscape/outputs/mindscape/work/final-venv/bin/python",
+  "python": "3.12.14",
+  "architecture": "arm64",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "torch": "2.14.1",
+  "mps_built": true,
+  "mps_available": false,
+  "environment_indicators": {
+    "CODEX_SANDBOX": "seatbelt",
+    "CODEX_CI": "1",
+    "CODEX_PERMISSION_PROFILE": ":workspace",
+    "PYTORCH_ENABLE_MPS_FALLBACK": null
+  },
+  "scope": "Diagnostic neural computation only; no research dataset/model download/environment modification",
+  "status": "BLOCKED",
+  "error": "Mandatory MPS unavailable: built=True, available=False; neural execution blocked"
+}

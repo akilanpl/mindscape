@@ -1,0 +1,22 @@
+{
+  "core_source_hash": "cd205fd6dfa2aaa4908ec0ce666da12cb6660532e80f01e42f9cc0003d7dfd4c",
+  "driver_hashes": {
+    "scripts/v3_physics/analyze.py": "e8c642094dbd61a71a3d070a89e21be3679598b7810378943ca6fc1368838b5b",
+    "scripts/v3_physics/hardware_audit.py": "66af616ddb3ecf0e5888ea34327c213ba2fc3ba456500389627b6dad506367b9",
+    "scripts/v3_physics/native_diagnostic.command": "f1135d29e35b8ec86ea1fe2cc054937beda24ab781ed3ef458bff5acab69f11f",
+    "scripts/v3_physics/native_diagnostic.py": "de4d05bd30ea2fe0d990958105f28a24e07620be17b64c9212b6577584dcfd03",
+    "scripts/v3_physics/native_integration.py": "f5840ceba3f8941a1b570b40915793c86b075fe45a1a6a2ecfae48cb67127d6f",
+    "scripts/v3_physics/native_launch.py": "9107cae6944206b0f38fdeb203dd8ceea6934e98892512b70ac615a9c114a5fd",
+    "scripts/v3_physics/native_run.command": "915c0ebadd666d2ea335af04808a86e4fcb6030b94f06de42667ce6b57f843dd",
+    "scripts/v3_physics/prepare.py": "a2577af603edecc5357a14427bc42870853de117c5208d07f64efcd235f715c0",
+    "scripts/v3_physics/run_study.py": "e9f0d1b034d4cb737be92f676c7295a026f3c4c5e4cc424df04921fe51b94a9c",
+    "scripts/v3_physics/verify.py": "63652718d6923c7dc440d9bb0a624a8590a6b622b41221be8ceceafd8cdf8e6c"
+  },
+  "protocol_sha256": "f1823a541339055bd0eada5d6a3511ec8b63c7052be84229d64ed856f3d8ff75",
+  "pymunk_wheel": {
+    "name": "pymunk-7.2.0-cp312-cp312-macosx_11_0_arm64.whl",
+    "sha256": "b68aebe6ae78dd4741fb95c7aedd99b1e09a38b81a1bd9d02eda4a4799866c88"
+  },
+  "timing": "software frozen before native world-model pilot or evaluation results",
+  "status": "native_diagnostic_passed; world-model pilot pending"
+}
