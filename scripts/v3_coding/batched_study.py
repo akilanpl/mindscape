@@ -157,7 +157,7 @@ def run(args):
     fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     tasks, manifest = load_public(args.manifest)
     private = load_scorer(args.manifest)
-    protocol = json.loads(Path("configs/v3_coding/protocol.json").read_text())
+    protocol = json.loads(Path(args.protocol).read_text())
     by_id = {t.identity: t for t in tasks}
     evaluation = [by_id[key] for key in protocol["evaluation_task_ids"]]
     identity = {
@@ -172,6 +172,7 @@ def run(args):
         "device": "cpu",
         "precision": "float32",
         "conditions": args.conditions,
+        "path_schema_remediation": args.path_schema,
         "prompts": "unchanged frozen-v1; no truncation",
     }
     ipath = root / "identity.json"
@@ -182,6 +183,8 @@ def run(args):
     training = [t for t in tasks if t.split == "train"]
     memory = VerifiedMemory.load(Path(args.training) / "memory.json", training, executor, private)
     ledger = json.loads((Path(args.training) / "ledger.json").read_text())
+    if set(ledger["training_task_ids"]) != {t.identity for t in training}:
+        raise ValueError("Checkpoint training approvals changed")
     if ledger["source_hash"] != source_hash():
         raise ValueError("Frozen training source changed")
     checkpoint = Path(args.training) / f"evaluator-s{args.seed}.pt"
@@ -211,9 +214,14 @@ def run(args):
 
     def episode(job, client):
         task, condition = job
+        backend = ClientBackend(client)
+        if args.path_schema:
+            from path_schema import PathSchemaBackend
+
+            backend = PathSchemaBackend(backend)
         trace = solve(
             task,
-            ClientBackend(client),
+            backend,
             executor,
             memory,
             model,
@@ -296,6 +304,8 @@ def run(args):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
+    p.add_argument("--protocol", default="configs/v3_coding/protocol.json")
+    p.add_argument("--path-schema", action="store_true")
     p.add_argument("--manifest", required=True)
     p.add_argument("--training", required=True)
     p.add_argument("--model", required=True)

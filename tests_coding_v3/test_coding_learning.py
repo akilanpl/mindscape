@@ -309,3 +309,39 @@ class AdditionalBoundaryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class FreshBenchmarkTests(unittest.TestCase):
+    def test_v2_reuses_training_and_has_fresh_holdouts(self):
+        first, _ = load_public("configs/v3_coding/benchmark_v1")
+        second, _ = load_public("configs/v3_coding/benchmark_v2")
+        self.assertEqual(
+            {t.identity for t in first if t.split == "train"},
+            {t.identity for t in second if t.split == "train"},
+        )
+        self.assertFalse(
+            {t.identity for t in first if t.split in ("iid", "ood")}
+            & {t.identity for t in second if t.split in ("iid", "ood")}
+        )
+        self.assertEqual(len([t for t in second if t.split == "ood"]), 12)
+
+    def test_v2_target_and_task_families_unchanged(self):
+        a = json.loads(Path("configs/v3_coding/protocol.json").read_text())
+        b = json.loads(Path("configs/v3_coding/protocol_v2.json").read_text())
+        for key in ("target", "conditions", "max_rounds", "max_tokens", "training_examples"):
+            self.assertEqual(a[key], b[key])
+        first, _ = load_public("configs/v3_coding/benchmark_v1")
+        second, _ = load_public("configs/v3_coding/benchmark_v2")
+        self.assertEqual(
+            sorted(t.family for t in first if t.split == "ood"),
+            sorted(t.family for t in second if t.split == "ood"),
+        )
+
+    def test_v2_all_defects_and_oracles_have_real_validation_receipts(self):
+        rows = json.loads(Path("configs/v3_coding/benchmark_v2/validation.json").read_text())
+        self.assertEqual(len(rows), 48)
+        for row in rows:
+            self.assertFalse(row["executions"]["broken_visible"]["all_passed"])
+            self.assertFalse(row["executions"]["broken_private"]["all_passed"])
+            self.assertTrue(row["executions"]["teacher_visible"]["all_passed"])
+            self.assertTrue(row["executions"]["teacher_private"]["all_passed"])
