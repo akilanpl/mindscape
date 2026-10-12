@@ -1,0 +1,41 @@
+{
+  "checkpoints": [
+    {
+      "dimensions_verified": true,
+      "path": "results/v3_1_physics/native-pilot-1791815958222838000/resume/uninterrupted/checkpoint-index.json",
+      "step": 12,
+      "weights_only": true
+    },
+    {
+      "dimensions_verified": true,
+      "path": "results/v3_1_physics/native-pilot-1791815958222838000/resume/resumed/checkpoint-index.json",
+      "step": 12,
+      "weights_only": true
+    },
+    {
+      "dimensions_verified": true,
+      "path": "results/v3_1_physics/native-pilot-1791815958222838000/motion/s11/candidate/checkpoint-index.json",
+      "step": 160,
+      "weights_only": true
+    },
+    {
+      "dimensions_verified": true,
+      "path": "results/v3_1_physics/native-pilot-1791815958222838000/motion/s11/no_history/checkpoint-index.json",
+      "step": 160,
+      "weights_only": true
+    },
+    {
+      "dimensions_verified": true,
+      "path": "results/v3_1_physics/native-pilot-1791815958222838000/motion/s11/concepts/checkpoint-index.json",
+      "step": 160,
+      "weights_only": true
+    },
+    {
+      "dimensions_verified": true,
+      "path": "results/v3_1_physics/native-pilot-1791815958222838000/motion/s11/matched/checkpoint-index.json",
+      "step": 160,
+      "weights_only": true
+    }
+  ],
+  "neural_cpu_execution": false
+}

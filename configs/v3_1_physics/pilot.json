@@ -1,0 +1,18 @@
+{
+ "version":"v3.1.physics.pilot.1",
+ "seeds":[11,23], "training_trajectories_per_family":25,
+ "updates":160, "batch":32, "training_rollout":8, "evaluation_horizons":[8,16,32],
+ "variants":["candidate","matched","no_history","concepts","memory"],
+ "development_iid_per_family":6,"development_stress_per_family":7,
+ "sealed_iid_per_family":12,"sealed_ood_per_family":14,
+ "training_seed":20261031,"sealed_seed":20261041,
+ "gates":{
+  "all_finite":true,"mean_normalized_error32_max":10,
+  "growth_error32_over8_max":4,"candidate_error_reduction_each_family_min":0.1,
+  "planning_success_delta_min":0,"nominal95_coverage_min":0.8,"runtime_seconds_max":600
+ },
+ "component_retention":"exploratory benefit in both seeds and both families; no component retained on a single best seed",
+ "sealed_testing":"NOT RUN by pilot; new preregistration required after development gates pass",
+ "information":"Same public history, masks, actions, contexts and multi-step transition/contact labels. No private simulator parameters in forward inputs.",
+ "prior":"Shared kinematic position integration dt*predicted_velocity; bounded learned velocity increment6 per step; bounded neural inputs. Not a learned law or simulator oracle."
+}

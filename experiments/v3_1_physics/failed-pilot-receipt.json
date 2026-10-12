@@ -1,0 +1,16 @@
+{
+  "run": "results/v3_1_physics/native-pilot-1791815958222838000",
+  "failure": "missing derived-memory output directory before checkpoint save",
+  "checkpoint_resume_passed": {
+    "device": "mps",
+    "max_parameter_difference": 0.0,
+    "optimizer_state_exact": true,
+    "passed": true,
+    "sequence_loss": true
+  },
+  "scientific_evaluations_completed": 0,
+  "source_fix": "V3.1 save_derived_memory creates destination directory",
+  "dataset_and_model_settings_changed": false,
+  "corrected_freeze": "freeze-v2.json",
+  "unsafe_checkpoint_loading": false
+}

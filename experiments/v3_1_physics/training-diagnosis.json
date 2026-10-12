@@ -1,0 +1,41 @@
+{
+  "families": {
+    "interaction": {
+      "largest_observed_acceleration_feature": 152.28158569335938,
+      "relation_feature_scales": [
+        1.0057209730148315,
+        0.2851714491844177,
+        1.6951813697814941,
+        0.4906948208808899,
+        0.6969707608222961,
+        1.7117546796798706
+      ],
+      "training_object_counts": [
+        2
+      ]
+    },
+    "motion": {
+      "largest_observed_acceleration_feature": 412.19573974609375,
+      "relation_feature_scales": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "training_object_counts": [
+        1
+      ]
+    }
+  },
+  "hypotheses": [
+    "zero relational exposure in motion training",
+    "unbounded recursive derivative feature amplification",
+    "one-step/free-run distribution mismatch",
+    "global flattened memory is slot-order sensitive"
+  ],
+  "neural_calls": 0,
+  "old_final_test_reads": 0,
+  "scope": "training only"
+}
