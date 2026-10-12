@@ -1,0 +1,29 @@
+name: V3 foundation controls
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  foundation:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Preserve frozen research and tags
+        run: python scripts/v3/preservation.py --output work/v3-preservation.json
+      - name: Run V3 tests without model downloads
+        run: PYTHONPATH=src python -m unittest discover -s tests/v3 -v
+      - name: Run and resume CPU scientific controls
+        run: |
+          PYTHONPATH=src python -m mindscape.v3.experiment --manifest configs/v3/smoke_manifest.json --output work/v3-smoke
+          PYTHONPATH=src python -m mindscape.v3.experiment --manifest configs/v3/smoke_manifest.json --output work/v3-smoke
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: v3-foundation-${{ github.sha }}
+          path: |
+            work/v3-preservation.json
+            work/v3-smoke
