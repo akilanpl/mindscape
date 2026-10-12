@@ -26,6 +26,8 @@ class TinyMLP:
     """
 
     identifier = "v3.tiny_mlp"
+    policy_forward_calls = 1
+    transition_forward_calls = 1
     input_size, hidden_size, output_size = 7, 16, 65
     parameter_count = 7 * 16 + 16 + 16 * 65 + 65 + 17 * 3 + 3
 
@@ -120,6 +122,8 @@ class TinyMLP:
 class HistoricalBackend:
     """Optional local-only Transformers adapter. No implicit downloads or remote code."""
 
+    policy_forward_calls = 65
+    transition_forward_calls = 0
     approved_families = ("gpt_neo", "gpt_neox")  # GPT-Neo and Pythia configuration families
 
     def __init__(self, path, approved_hashes):

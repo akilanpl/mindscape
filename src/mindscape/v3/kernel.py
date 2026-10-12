@@ -95,7 +95,11 @@ class Kernel:
             "valid": evaluation.valid,
             "latency_seconds": time.perf_counter() - started,
             "cpu_seconds": time.process_time() - cpu_started,
-            "model_calls": 1,
+            "model_calls": (
+                self.backend.policy_forward_calls + self.backend.transition_forward_calls
+            ),
+            "policy_forward_calls": self.backend.policy_forward_calls,
+            "transition_forward_calls": self.backend.transition_forward_calls,
             "candidate_count": len(candidates),
             "parameter_count": self.backend.parameter_count,
             "transition_prediction_mse": transition_mse,

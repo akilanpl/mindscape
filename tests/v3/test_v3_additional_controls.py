@@ -58,6 +58,9 @@ class AdditionalControls(unittest.TestCase):
         self.assertEqual(trace["events"][3]["value"]["state"]["written"], (0.0,))
         self.assertEqual(trace["events"][4]["value"]["after"]["written"], (-32.0,))
         self.assertEqual(trace["transition_prediction_mse"], 1024)
+        self.assertEqual(trace["model_calls"], 2)
+        self.assertEqual(trace["policy_forward_calls"], 1)
+        self.assertEqual(trace["transition_forward_calls"], 1)
         self.assertEqual(trace["events"][3]["value"]["kind"], "hypothetical")
 
     def test_backend_does_not_receive_task_partition_or_private_answers(self):
