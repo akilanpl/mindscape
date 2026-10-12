@@ -1,0 +1,487 @@
+{
+  "device": "mps",
+  "old_final_test_reads": 0,
+  "rows": [
+    {
+      "development_rollout_mse": 7.449142862266551,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 15.298766136169434,
+      "seed": 11,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 10.080757912093153,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 15.298766136169434,
+      "seed": 11,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 19.224712371826172,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 25.034164428710938,
+      "seed": 11,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 4.238359247644742,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 9.313087463378906,
+      "seed": 11,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 7.017725702685614,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 13.618669509887695,
+      "seed": 11,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 22.67423741022746,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 30.487060546875,
+      "seed": 11,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 7.810051713488065,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 15.34991455078125,
+      "seed": 11,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 9.863171904037396,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 15.34991455078125,
+      "seed": 11,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 18.630989909172058,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 24.55352783203125,
+      "seed": 11,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 1.3697244318512578,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 6.508463382720947,
+      "seed": 11,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 2.733275968581438,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 8.803754806518555,
+      "seed": 11,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 7.9179017543792725,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 14.479501724243164,
+      "seed": 11,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 5.419607915876743,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 13.139874458312988,
+      "seed": 11,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 14.411180527143491,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 20.996732711791992,
+      "seed": 11,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 51.709638158480324,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 41.597293853759766,
+      "seed": 11,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 17.08586985245347,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 20.8033390045166,
+      "seed": 23,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 31.056365949412186,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 25.670133590698242,
+      "seed": 23,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 67.35322558879852,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 42.51359939575195,
+      "seed": 23,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 5.5082294543584185,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 10.517046928405762,
+      "seed": 23,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 6.605281807482243,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 10.643856048583984,
+      "seed": 23,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 10.309950431187948,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 14.338910102844238,
+      "seed": 23,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 17.33587388632198,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 20.812889099121094,
+      "seed": 23,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 31.538257747888565,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 25.748292922973633,
+      "seed": 23,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 67.35351204872131,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 43.039154052734375,
+      "seed": 23,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 1.4380036911510008,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 6.605718612670898,
+      "seed": 23,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 2.1824727506221584,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 7.490143775939941,
+      "seed": 23,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 4.802161196867625,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 9.357503890991211,
+      "seed": 23,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 10.206894738444438,
+      "family": "motion",
+      "horizon": 8,
+      "largest_predicted_absolute": 16.13488006591797,
+      "seed": 23,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 24.775812616571784,
+      "family": "motion",
+      "horizon": 16,
+      "largest_predicted_absolute": 31.980709075927734,
+      "seed": 23,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 156.81208119789758,
+      "family": "motion",
+      "horizon": 32,
+      "largest_predicted_absolute": 106.4879150390625,
+      "seed": 23,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 0.3713234503908704,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 3.074803352355957,
+      "seed": 11,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 0.947127296278874,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 5.392574310302734,
+      "seed": 11,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 2.613773005704085,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 9.984692573547363,
+      "seed": 11,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 0.4122253100698193,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 2.4076545238494873,
+      "seed": 11,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 0.4645989090204239,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 2.4076545238494873,
+      "seed": 11,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 0.9424921423196793,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 5.821142673492432,
+      "seed": 11,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 0.44453935030226904,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 2.513735294342041,
+      "seed": 11,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 1.0807680301368237,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 8.015819549560547,
+      "seed": 11,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 7.040202026565869,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 27.07782554626465,
+      "seed": 11,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 0.437978686299175,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 2.418490409851074,
+      "seed": 11,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 0.5263322684913874,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 2.418490409851074,
+      "seed": 11,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 0.9302012721697489,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 5.841166019439697,
+      "seed": 11,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 0.5334736853837967,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 5.9323649406433105,
+      "seed": 11,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 3.4426634485522905,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 16.943401336669922,
+      "seed": 11,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 35.5468821413815,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 63.68296813964844,
+      "seed": 11,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 2.2083567900117487,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 9.25104808807373,
+      "seed": 23,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 2.9144703671336174,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 9.25104808807373,
+      "seed": 23,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 4.048163838684559,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 9.27059268951416,
+      "seed": 23,
+      "variant": "mindscape"
+    },
+    {
+      "development_rollout_mse": 0.4787403348988543,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 2.388134002685547,
+      "seed": 23,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 0.5847132559865713,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 2.625950813293457,
+      "seed": 23,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 0.8962323491772016,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 5.705488681793213,
+      "seed": 23,
+      "variant": "no_concepts"
+    },
+    {
+      "development_rollout_mse": 2.177186926380576,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 9.457174301147461,
+      "seed": 23,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 3.0138111448225877,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 9.457174301147461,
+      "seed": 23,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 4.123485751450062,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 9.457174301147461,
+      "seed": 23,
+      "variant": "no_memory"
+    },
+    {
+      "development_rollout_mse": 0.4670117781497538,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 2.399329662322998,
+      "seed": 23,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 0.5620158997674783,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 2.399329662322998,
+      "seed": 23,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 0.8969929665327072,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 3.5139315128326416,
+      "seed": 23,
+      "variant": "no_history"
+    },
+    {
+      "development_rollout_mse": 3.13866134484609,
+      "family": "interaction",
+      "horizon": 8,
+      "largest_predicted_absolute": 13.12975788116455,
+      "seed": 23,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 16.806687456866104,
+      "family": "interaction",
+      "horizon": 16,
+      "largest_predicted_absolute": 31.475692749023438,
+      "seed": 23,
+      "variant": "no_relationships"
+    },
+    {
+      "development_rollout_mse": 77.97980950772762,
+      "family": "interaction",
+      "horizon": 32,
+      "largest_predicted_absolute": 63.07582473754883,
+      "seed": 23,
+      "variant": "no_relationships"
+    }
+  ],
+  "scope": "V3 validation only; never old IID/OOD"
+}
