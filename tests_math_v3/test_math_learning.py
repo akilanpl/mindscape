@@ -7,6 +7,7 @@ from dataclasses import replace
 from pathlib import Path
 from unittest.mock import patch
 
+import numpy as np
 import torch
 
 from mindscape.v3.math_learning.analysis import mcnemar_exact
@@ -241,6 +242,53 @@ class LeakageAndLearningTests(unittest.TestCase):
         self.assertEqual(mcnemar_exact(0, 0), 1)
         self.assertAlmostEqual(mcnemar_exact(5, 0), 0.0625)
         self.assertEqual(mcnemar_exact(5, 5), 1)
+
+
+class AdditionalMathSecurity(unittest.TestCase):
+    def test_pretrained_residual_adapter_receives_gradients(self):
+        class FakeEncoder:
+            size = 4
+
+            def __init__(self):
+                self.hashes = {"synthetic": "unit-only"}
+
+            tokens = 0
+            parameter_count = 0
+
+            def encode(self, x):
+                return torch.from_numpy(np.asarray(x, dtype=np.float32)[:, :4])
+
+        problems = [Problem((2, 3), ("add",), "train", "t")]
+        arrays, _, ledger, _ = build_training(problems)
+        with tempfile.TemporaryDirectory() as tmp:
+            initial = TransitionNet(2, 4)
+            model, result = train(arrays, ledger, tmp, 2, 4, encoder=FakeEncoder())
+            self.assertGreater(result["adapter_parameters"], 0)
+            self.assertFalse(torch.equal(initial.adapter_down.weight, model.adapter_down.weight))
+            self.assertFalse(torch.equal(initial.adapter_up.weight, model.adapter_up.weight))
+
+    def test_checkpoint_tamper_rejected(self):
+        arrays, _, ledger, _ = build_training([Problem((2, 3), ("add",), "train", "t")])
+        with tempfile.TemporaryDirectory() as tmp:
+            train(arrays, ledger, tmp, 0, 2)
+            path = Path(tmp, "checkpoint.pt")
+            path.write_bytes(path.read_bytes() + b"tampered")
+            with self.assertRaises(ValueError):
+                train(arrays, ledger, tmp, 0, 2)
+
+    def test_common_v3_prediction_interface_stays_hypothetical(self):
+        from mindscape.v3.schema import Action, Goal, Observation, State
+
+        predictor = Predictor(TransitionNet(0), {}, False)
+        observation = Observation(
+            "mathematics", (0.0, 2.0, 3.0, 0.0), Goal("propose local transition")
+        )
+        actions = tuple(Action("write", i) for i in range(10))
+        scores = predictor.logits(observation, actions)
+        self.assertEqual(len(scores), 10)
+        prediction = predictor.predict_transition(State(observation), actions[0], 0.1)
+        self.assertEqual(prediction.kind, "hypothetical")
+        self.assertEqual(len(prediction.state.written), 2)
 
 
 if __name__ == "__main__":
