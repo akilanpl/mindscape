@@ -1,3 +1,4 @@
+import fcntl
 import hashlib
 import importlib.util
 import io
@@ -68,3 +69,15 @@ class CodingEvidenceTests(unittest.TestCase):
                 evidence.restore(package, destination)
             self.assertFalse(destination.exists())
             self.assertFalse(Path(tmp, "escape").exists())
+
+    def test_active_run_cannot_be_exported(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp, "raw")
+            run = root / "run"
+            run.mkdir(parents=True)
+            with (run / "runner.lock").open("a") as handle:
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                package = Path(tmp, "package")
+                with self.assertRaisesRegex(ValueError, "active run"):
+                    evidence.pack(root, package)
+                self.assertFalse(package.exists())

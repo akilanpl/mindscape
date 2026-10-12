@@ -1,11 +1,13 @@
 """Deterministic multipart evidence export and bounded path-safe restoration."""
 
 import argparse
+import fcntl
 import gzip
 import hashlib
 import json
 import tarfile
 import tempfile
+from contextlib import ExitStack
 from pathlib import Path
 
 
@@ -18,6 +20,21 @@ def sha(path):
 
 
 def pack(root, destination):
+    root = Path(root)
+    if (root / ".lock").exists():
+        raise ValueError("Cannot export a running experiment")
+    # Retain every existing run lock throughout the export, blocking new invocations.
+    with ExitStack() as stack:
+        for path in sorted(root.rglob("runner.lock")):
+            handle = stack.enter_context(path.open("r"))
+            try:
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError as error:
+                raise ValueError("Cannot export an active run") from error
+        return _pack(root, destination)
+
+
+def _pack(root, destination):
     root, destination = Path(root), Path(destination)
     destination.mkdir(parents=True, exist_ok=False)
     if (root / ".lock").exists():
