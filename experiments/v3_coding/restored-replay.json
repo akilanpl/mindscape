@@ -1,0 +1,9 @@
+{
+  "replayed_episodes": 144,
+  "sandbox_requests": 484,
+  "model_calls": 0,
+  "policy": "mindscape.v3.coding.safety/1",
+  "guard_source_sha256": "dac31c3cae54d24979182f84bbf47d16de413c56f01342f4c57036921954f44b",
+  "unchanged_frozen_outcomes": true,
+  "scope": "Independent post-termination replay; no model prompts, weights or recorded scores modified"
+}

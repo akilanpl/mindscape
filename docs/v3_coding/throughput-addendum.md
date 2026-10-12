@@ -1,0 +1,7 @@
+# Throughput addendum, frozen before batched evaluation
+
+The scalar CPU run is retained as a diagnostic stratum. Its observed per-request throughput and lack of MPS motivate a separate CPU float32 batching runner. This changes neither public tasks, private scorer, prompts, candidate parser, learned weights, feedback nor action/token caps. `scripts/v3_coding/batched_study.py` reuses the frozen agent and historical independent-request coordinator; it adds left padding and batches up to four pending requests. Exact duplicates share actual computation and have zero new-token accounting on additional consumers.
+
+Batch and scalar kernels can differ numerically. Therefore use a separate output namespace and request cache; retain both strata, do not silently mix results, and do not select the better stratum by accuracy. All primary conditions in the batched run use the same wrapper. The predeclared full 12-task OOD target and 6-task IID pool are unchanged. Before starting batched evaluation, run a training-only scalar/batched throughput and response comparison and freeze the runner. Any scalar partial coverage remains explicitly partial.
+
+The two-task historical bridge is exploratory: new cross-file and compound tasks, original B/C adapters and original eight-action/three-edit loop. It is not a reproduction of their historical lockbox rate, has unequal pretraining/adaptation and action budgets, and is excluded from matched new-condition deltas.
