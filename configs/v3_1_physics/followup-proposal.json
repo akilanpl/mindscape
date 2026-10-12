@@ -1,0 +1,32 @@
+{
+  "status": "PROPOSED ONLY; NOT AUTHORIZED OR EXECUTED",
+  "version": "v3.1.1.uncertainty-diagnostic.proposal",
+  "purpose": "Resolve covariance semantics and verify functional reparameterization before any more training",
+  "training": "None; reuse corrected-pilot candidate and matched checkpoints, frozen weights",
+  "neural_device": "native MPS only; reject CPU fallback",
+  "seeds": [
+    11,
+    23
+  ],
+  "new_development_seed": 20261051,
+  "scenes_per_family": {
+    "iid": 6,
+    "stress": 12
+  },
+  "stress_strata": "two scenes per each of six physical shifts; horizon is a prefix factor, not a separately mislabeled scene stratum",
+  "evaluation": "32-step neural forecast once; score 8/16/32 prefixes, not independent episodes",
+  "actual_neural_rollouts": 144,
+  "conditions": "Original uncertainty versus declared linear-kinematic innovation covariance; identical predicted means",
+  "primary_measurement": "per-coordinate coverage and proper interval score; widths and velocity overcoverage reported",
+  "stop_conditions": [
+    "covariance fixture or Monte Carlo validation fails",
+    "any nonfinite state, variance or interval",
+    "mean predictions change between uncertainty conditions",
+    "checkpoint/source/hash mismatch or sealed/final trajectory access",
+    "reparameterized matched predictions fail numerical equivalence"
+  ],
+  "advance_conditions": "Resolve variance-head semantics and covariance coupling; report coverage in each coordinate and interval score. No advancement to model training or full study merely because wider intervals cover more outcomes.",
+  "limits": "Linear covariance ignores neural feedback Jacobian; compare it as a diagnostic approximation, not a calibrated world model. Any retraining with revised uncertainty semantics requires a separate fresh protocol. No old V3 or V3.1 sealed final test use.",
+  "equivalence_control": "Construct a matched checkpoint by subtracting candidate neighbor weights from source weights in the first four relative-coordinate columns. Verify identical MPS predictions on a small batch; fail if they differ beyond1e-5.",
+  "statistics": "Average seeds within scenes; paired bootstrap within each physical stratum while preserving mixture weights. Two scenes per stratum remain diagnostic, not sufficient for final population claims."
+}

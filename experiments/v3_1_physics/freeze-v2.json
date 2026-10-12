@@ -1,0 +1,21 @@
+{
+  "dataset": "217340f28ac7803f4601ba3bc65154e0565bfb5e92eae23712277aab4dde6a64",
+  "files": {
+    "scripts/v3_1_physics/development_diagnosis.py": "15d61fc4711072704e94fa1c330fc4e6a40cfd8a3587830442e2c1b911601e6e",
+    "scripts/v3_1_physics/diagnose.py": "38f6f56f0ec55101ef64673e5ba42c203833b6205dd0106343e87ab971bdc4ff",
+    "scripts/v3_1_physics/launch.py": "bfe45fed8d98ad5653641b08c560602286d3e7deb37215aeb5d577e84959b7aa",
+    "scripts/v3_1_physics/pilot.py": "b92b078f6fdd1c3edc4059c944e798e9b26af43ae7590a7caca7cefb273f8019",
+    "scripts/v3_1_physics/prepare.py": "632454c6b356630ebbdb0d0aa6c440851c4d66ace0f3868f186a93e5ca41e968",
+    "scripts/v3_1_physics/verify.py": "8153a196d3818a9e3cb2b578fae2004619cb36d271d550f2e931ae629ee9f406",
+    "src/mindscape/v3_1/__init__.py": "f1aea2ccf85dd862a3f20223d3f1476e87f244d0902ad2e304396685ff522950",
+    "src/mindscape/v3_1/physics/__init__.py": "a50aff95eedd9518102630e00fc9214d859d71db013bd0afda1985e3d9c0eb4e",
+    "src/mindscape/v3_1/physics/checkpoints.py": "2a88bfd5cb02c4ef25da647b57f53813adb9c5ab5be964c17fb1eefbfcfb04d8",
+    "src/mindscape/v3_1/physics/data.py": "f2366b48831a7858ab2a73d0e230748f4ce2fa87ab9b87fb92a695ebfd3b84f9",
+    "src/mindscape/v3_1/physics/evaluation.py": "5c339a3776cc37a6765110f37b58bc0e897b95d5073462fac613e0064d777372",
+    "src/mindscape/v3_1/physics/model.py": "ecf2f82ec304a777a3ef782f32f6df497ebc76758d76dff0f4d595126ea79160",
+    "src/mindscape/v3_1/physics/training.py": "7100f0e1043132f360b345450248d0421fe62df68edf8aeee816d1136cd9cf9e"
+  },
+  "protocol": "7f0d1bce125f1ed1e3c85da867bb38872e6ae01ffc4f66329161d5b9150d46e2",
+  "sealed_testing": "NOT RUN",
+  "v3_final_holdout_used_for_tuning": false
+}

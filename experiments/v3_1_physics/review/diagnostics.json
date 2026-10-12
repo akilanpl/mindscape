@@ -1,0 +1,2941 @@
+{
+  "coordinate_diagnostics": [
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.023124118025104206,
+      "mse_velocity": 0.9226978172858556,
+      "original_coverage_by_coordinate": [
+        0.46875,
+        0.9583333333333334,
+        0.9583333333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.96875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9166666666666666,
+        1.0,
+        0.9583333333333334,
+        1.0
+      ],
+      "original_mean95_width": 2.654809912045797,
+      "diagnostic_mean95_width": 2.8622183402379355
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.06262432349224885,
+      "mse_velocity": 0.7895942529042562,
+      "original_coverage_by_coordinate": [
+        0.3333333333333333,
+        0.84375,
+        0.9791666666666666,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.984375,
+      "diagnostic_coverage_by_coordinate": [
+        0.9583333333333334,
+        1.0,
+        0.9791666666666666,
+        1.0
+      ],
+      "original_mean95_width": 3.6052839358647666,
+      "diagnostic_mean95_width": 4.209198156992595
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.1741443583741784,
+      "mse_velocity": 0.6593126455942789,
+      "original_coverage_by_coordinate": [
+        0.3333333333333333,
+        0.5442708333333334,
+        0.9895833333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334,
+        1.0
+      ],
+      "original_mean95_width": 4.986567735671997,
+      "diagnostic_mean95_width": 6.713013728459676
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.035725838371685574,
+      "mse_velocity": 1.8731265238353185,
+      "original_coverage_by_coordinate": [
+        0.3720238095238095,
+        0.9107142857142857,
+        0.9107142857142857,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9330357142857143,
+      "diagnostic_coverage_by_coordinate": [
+        0.8392857142857143,
+        0.9821428571428571,
+        0.9107142857142857,
+        1.0
+      ],
+      "original_mean95_width": 2.6742540427616666,
+      "diagnostic_mean95_width": 2.8831936291285922
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.11412488070449658,
+      "mse_velocity": 1.802665957382747,
+      "original_coverage_by_coordinate": [
+        0.33482142857142855,
+        0.724702380952381,
+        0.9553571428571429,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9665178571428571,
+      "diagnostic_coverage_by_coordinate": [
+        0.9196428571428571,
+        0.9910714285714286,
+        0.9553571428571429,
+        1.0
+      ],
+      "original_mean95_width": 3.631119864327567,
+      "diagnostic_mean95_width": 4.239460332053048
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.4390138212059225,
+      "mse_velocity": 1.558026237147195,
+      "original_coverage_by_coordinate": [
+        0.3392857142857143,
+        0.48586309523809523,
+        0.9776785714285714,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9832589285714286,
+      "diagnostic_coverage_by_coordinate": [
+        0.9598214285714286,
+        0.9955357142857143,
+        0.9776785714285714,
+        1.0
+      ],
+      "original_mean95_width": 5.020833560398647,
+      "diagnostic_mean95_width": 6.759606838226318
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.02128868519018094,
+      "mse_velocity": 0.8665979405244192,
+      "original_coverage_by_coordinate": [
+        0.53125,
+        0.9479166666666666,
+        0.9583333333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.96875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9166666666666666,
+        1.0,
+        0.9583333333333334,
+        1.0
+      ],
+      "original_mean95_width": 2.507757306098938,
+      "diagnostic_mean95_width": 2.703771988550822
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.058646139999230705,
+      "mse_velocity": 0.7812167207400004,
+      "original_coverage_by_coordinate": [
+        0.3802083333333333,
+        0.7604166666666666,
+        0.9791666666666666,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.984375,
+      "diagnostic_coverage_by_coordinate": [
+        0.9583333333333334,
+        1.0,
+        0.9791666666666666,
+        1.0
+      ],
+      "original_mean95_width": 3.403486450513204,
+      "diagnostic_mean95_width": 3.9739464124043784
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.1736267190426588,
+      "mse_velocity": 0.6768339822689692,
+      "original_coverage_by_coordinate": [
+        0.2916666666666667,
+        0.5416666666666666,
+        0.9895833333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334,
+        1.0
+      ],
+      "original_mean95_width": 4.705020030339559,
+      "diagnostic_mean95_width": 6.334785620371501
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.03508146187024457,
+      "mse_velocity": 1.8955573099000114,
+      "original_coverage_by_coordinate": [
+        0.43154761904761907,
+        0.8660714285714286,
+        0.8928571428571429,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9285714285714286,
+      "diagnostic_coverage_by_coordinate": [
+        0.8392857142857143,
+        0.9821428571428571,
+        0.8928571428571429,
+        1.0
+      ],
+      "original_mean95_width": 2.5281786237444197,
+      "diagnostic_mean95_width": 2.725781576974051
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.11645216734281608,
+      "mse_velocity": 1.8413698417799813,
+      "original_coverage_by_coordinate": [
+        0.3675595238095238,
+        0.7098214285714286,
+        0.9464285714285714,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9642857142857143,
+      "diagnostic_coverage_by_coordinate": [
+        0.9196428571428571,
+        0.9910714285714286,
+        0.9464285714285714,
+        1.0
+      ],
+      "original_mean95_width": 3.431151900972639,
+      "diagnostic_mean95_width": 4.0062616893223355
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.44663932813065393,
+      "mse_velocity": 1.5734029241970606,
+      "original_coverage_by_coordinate": [
+        0.3199404761904762,
+        0.46279761904761907,
+        0.9732142857142857,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9821428571428571,
+      "diagnostic_coverage_by_coordinate": [
+        0.9598214285714286,
+        0.9955357142857143,
+        0.9732142857142857,
+        1.0
+      ],
+      "original_mean95_width": 4.741710730961391,
+      "diagnostic_mean95_width": 6.384596824645996
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.023037254422282178,
+      "mse_velocity": 0.9238830904165903,
+      "original_coverage_by_coordinate": [
+        0.4895833333333333,
+        0.9583333333333334,
+        0.9583333333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.96875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9166666666666666,
+        1.0,
+        0.9583333333333334,
+        1.0
+      ],
+      "original_mean95_width": 2.815494100252787,
+      "diagnostic_mean95_width": 3.035099506378174
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.06297712276379268,
+      "mse_velocity": 0.7934507230917612,
+      "original_coverage_by_coordinate": [
+        0.3541666666666667,
+        0.8125,
+        0.9791666666666666,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.984375,
+      "diagnostic_coverage_by_coordinate": [
+        0.9583333333333334,
+        1.0,
+        0.9791666666666666,
+        1.0
+      ],
+      "original_mean95_width": 3.8253734509150186,
+      "diagnostic_mean95_width": 4.465774854024251
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.17413231606284776,
+      "mse_velocity": 0.6469804992278417,
+      "original_coverage_by_coordinate": [
+        0.4270833333333333,
+        0.5755208333333334,
+        0.9895833333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334,
+        1.0
+      ],
+      "original_mean95_width": 5.289284070332845,
+      "diagnostic_mean95_width": 7.1209713617960615
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.034776236196713786,
+      "mse_velocity": 1.822559722832271,
+      "original_coverage_by_coordinate": [
+        0.38095238095238093,
+        0.9285714285714286,
+        0.9375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9508928571428571,
+      "diagnostic_coverage_by_coordinate": [
+        0.875,
+        0.9910714285714286,
+        0.9375,
+        1.0
+      ],
+      "original_mean95_width": 2.8356500693729947,
+      "diagnostic_mean95_width": 3.056887183870588
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.10846295340784959,
+      "mse_velocity": 1.7288354890687125,
+      "original_coverage_by_coordinate": [
+        0.3586309523809524,
+        0.8303571428571429,
+        0.96875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9754464285714286,
+      "diagnostic_coverage_by_coordinate": [
+        0.9375,
+        0.9955357142857143,
+        0.96875,
+        1.0
+      ],
+      "original_mean95_width": 3.851283993039812,
+      "diagnostic_mean95_width": 4.496274335043771
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.41151072537260397,
+      "mse_velocity": 1.4872561267444067,
+      "original_coverage_by_coordinate": [
+        0.3355654761904762,
+        0.5982142857142857,
+        0.984375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9877232142857143,
+      "diagnostic_coverage_by_coordinate": [
+        0.96875,
+        0.9977678571428571,
+        0.984375,
+        1.0
+      ],
+      "original_mean95_width": 5.322451591491699,
+      "diagnostic_mean95_width": 7.166483470371792
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.02253913103292386,
+      "mse_velocity": 0.9057162006696066,
+      "original_coverage_by_coordinate": [
+        0.5,
+        0.9583333333333334,
+        0.9583333333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.96875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9166666666666666,
+        1.0,
+        0.9583333333333334,
+        1.0
+      ],
+      "original_mean95_width": 2.6550039847691855,
+      "diagnostic_mean95_width": 2.862416664759318
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.0615478695059816,
+      "mse_velocity": 0.7822860727707545,
+      "original_coverage_by_coordinate": [
+        0.3541666666666667,
+        0.84375,
+        0.9791666666666666,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.984375,
+      "diagnostic_coverage_by_coordinate": [
+        0.9583333333333334,
+        1.0,
+        0.9791666666666666,
+        1.0
+      ],
+      "original_mean95_width": 3.6058122316996255,
+      "diagnostic_mean95_width": 4.209772825241089
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.1740874368697405,
+      "mse_velocity": 0.6572904735803604,
+      "original_coverage_by_coordinate": [
+        0.34375,
+        0.5338541666666666,
+        0.9895833333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334,
+        1.0
+      ],
+      "original_mean95_width": 4.987495342890422,
+      "diagnostic_mean95_width": 6.71419374148051
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.03542617668530771,
+      "mse_velocity": 1.873897441795894,
+      "original_coverage_by_coordinate": [
+        0.38095238095238093,
+        0.9017857142857143,
+        0.9107142857142857,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9375,
+      "diagnostic_coverage_by_coordinate": [
+        0.8571428571428571,
+        0.9821428571428571,
+        0.9107142857142857,
+        1.0
+      ],
+      "original_mean95_width": 2.6743853773389543,
+      "diagnostic_mean95_width": 2.8833294936588834
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.1144028804930193,
+      "mse_velocity": 1.8104494554655892,
+      "original_coverage_by_coordinate": [
+        0.3363095238095238,
+        0.7053571428571429,
+        0.9553571428571429,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.96875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9285714285714286,
+        0.9910714285714286,
+        0.9553571428571429,
+        1.0
+      ],
+      "original_mean95_width": 3.6314042636326382,
+      "diagnostic_mean95_width": 4.239773069109235
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.4398553145251104,
+      "mse_velocity": 1.5547863670757838,
+      "original_coverage_by_coordinate": [
+        0.32589285714285715,
+        0.45535714285714285,
+        0.9776785714285714,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.984375,
+      "diagnostic_coverage_by_coordinate": [
+        0.9642857142857143,
+        0.9955357142857143,
+        0.9776785714285714,
+        1.0
+      ],
+      "original_mean95_width": 5.021490028926304,
+      "diagnostic_mean95_width": 6.760406834738595
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.024455886334180832,
+      "mse_velocity": 0.9803408781687418,
+      "original_coverage_by_coordinate": [
+        0.4583333333333333,
+        0.9479166666666666,
+        0.9583333333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.96875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9166666666666666,
+        1.0,
+        0.9583333333333334,
+        1.0
+      ],
+      "original_mean95_width": 2.6834589640299478,
+      "diagnostic_mean95_width": 2.892677585283915
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.06974389062573512,
+      "mse_velocity": 0.8755044539769491,
+      "original_coverage_by_coordinate": [
+        0.3385416666666667,
+        0.84375,
+        0.9791666666666666,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.984375,
+      "diagnostic_coverage_by_coordinate": [
+        0.9583333333333334,
+        1.0,
+        0.9791666666666666,
+        1.0
+      ],
+      "original_mean95_width": 3.650876005490621,
+      "diagnostic_mean95_width": 4.261294841766357
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.21881179014841715,
+      "mse_velocity": 0.8209992547829946,
+      "original_coverage_by_coordinate": [
+        0.2109375,
+        0.5546875,
+        0.9895833333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334,
+        1.0
+      ],
+      "original_mean95_width": 5.056983868281047,
+      "diagnostic_mean95_width": 6.805406014124553
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.0367872327832239,
+      "mse_velocity": 1.9018222178731645,
+      "original_coverage_by_coordinate": [
+        0.3898809523809524,
+        0.8928571428571429,
+        0.9196428571428571,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9375,
+      "diagnostic_coverage_by_coordinate": [
+        0.8482142857142857,
+        0.9821428571428571,
+        0.9196428571428571,
+        1.0
+      ],
+      "original_mean95_width": 2.7048750604901994,
+      "diagnostic_mean95_width": 2.915793010166713
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.1198374390868204,
+      "mse_velocity": 1.8765018667493547,
+      "original_coverage_by_coordinate": [
+        0.3586309523809524,
+        0.7455357142857143,
+        0.9598214285714286,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.96875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9241071428571429,
+        0.9910714285714286,
+        0.9598214285714286,
+        1.0
+      ],
+      "original_mean95_width": 3.67927428654262,
+      "diagnostic_mean95_width": 4.2945733070373535
+    },
+    {
+      "family": "interaction",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.48661675304174423,
+      "mse_velocity": 1.736564393554415,
+      "original_coverage_by_coordinate": [
+        0.30282738095238093,
+        0.5297619047619048,
+        0.9799107142857143,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.984375,
+      "diagnostic_coverage_by_coordinate": [
+        0.9620535714285714,
+        0.9955357142857143,
+        0.9799107142857143,
+        1.0
+      ],
+      "original_mean95_width": 5.094875131334577,
+      "diagnostic_mean95_width": 6.856864316122873
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.02671151530618469,
+      "mse_velocity": 1.0683722794055939,
+      "original_coverage_by_coordinate": [
+        0.3958333333333333,
+        0.9270833333333334,
+        0.96875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9713541666666666,
+      "diagnostic_coverage_by_coordinate": [
+        0.9166666666666666,
+        1.0,
+        0.96875,
+        1.0
+      ],
+      "original_mean95_width": 2.6562387148539224,
+      "diagnostic_mean95_width": 2.8630850315093994
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.07513084510962169,
+      "mse_velocity": 0.8785145282745361,
+      "original_coverage_by_coordinate": [
+        0.2552083333333333,
+        0.765625,
+        0.984375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9856770833333334,
+      "diagnostic_coverage_by_coordinate": [
+        0.9583333333333334,
+        1.0,
+        0.984375,
+        1.0
+      ],
+      "original_mean95_width": 3.612995982170105,
+      "diagnostic_mean95_width": 4.217138608296712
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.20487595970431963,
+      "mse_velocity": 0.7193019787470499,
+      "original_coverage_by_coordinate": [
+        0.3125,
+        0.5260416666666666,
+        0.9921875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9928385416666666,
+      "diagnostic_coverage_by_coordinate": [
+        0.9791666666666666,
+        1.0,
+        0.9921875,
+        1.0
+      ],
+      "original_mean95_width": 4.999053160349528,
+      "diagnostic_mean95_width": 6.72902496655782
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.03734998777508736,
+      "mse_velocity": 1.8601022533008031,
+      "original_coverage_by_coordinate": [
+        0.3273809523809524,
+        0.8779761904761905,
+        0.9375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9486607142857143,
+      "diagnostic_coverage_by_coordinate": [
+        0.875,
+        0.9821428571428571,
+        0.9375,
+        1.0
+      ],
+      "original_mean95_width": 2.669635466166905,
+      "diagnostic_mean95_width": 2.877577338899885
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.11442380451730319,
+      "mse_velocity": 1.7572864506925856,
+      "original_coverage_by_coordinate": [
+        0.255952380952381,
+        0.6696428571428571,
+        0.96875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9743303571428571,
+      "diagnostic_coverage_by_coordinate": [
+        0.9375,
+        0.9910714285714286,
+        0.96875,
+        1.0
+      ],
+      "original_mean95_width": 3.6301802567073276,
+      "diagnostic_mean95_width": 4.237366335732596
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.44099203390734537,
+      "mse_velocity": 1.5853030511311121,
+      "original_coverage_by_coordinate": [
+        0.2961309523809524,
+        0.40625,
+        0.984375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9871651785714286,
+      "diagnostic_coverage_by_coordinate": [
+        0.96875,
+        0.9955357142857143,
+        0.984375,
+        1.0
+      ],
+      "original_mean95_width": 5.0216352599007745,
+      "diagnostic_mean95_width": 6.759814330509731
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.026910366180042427,
+      "mse_velocity": 1.1398454904556274,
+      "original_coverage_by_coordinate": [
+        0.34375,
+        0.9166666666666666,
+        0.96875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9739583333333334,
+      "diagnostic_coverage_by_coordinate": [
+        0.9270833333333334,
+        1.0,
+        0.96875,
+        1.0
+      ],
+      "original_mean95_width": 2.545308272043864,
+      "diagnostic_mean95_width": 2.7441440423329673
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.08125429041683674,
+      "mse_velocity": 0.9448334574699402,
+      "original_coverage_by_coordinate": [
+        0.234375,
+        0.7135416666666666,
+        0.984375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9869791666666666,
+      "diagnostic_coverage_by_coordinate": [
+        0.9635416666666666,
+        1.0,
+        0.984375,
+        1.0
+      ],
+      "original_mean95_width": 3.4543083906173706,
+      "diagnostic_mean95_width": 4.033267140388489
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.21659234166145325,
+      "mse_velocity": 0.74139004945755,
+      "original_coverage_by_coordinate": [
+        0.2552083333333333,
+        0.5208333333333334,
+        0.9921875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9934895833333334,
+      "diagnostic_coverage_by_coordinate": [
+        0.9817708333333334,
+        1.0,
+        0.9921875,
+        1.0
+      ],
+      "original_mean95_width": 4.771636565526326,
+      "diagnostic_mean95_width": 6.4255140622456866
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.03452170054827418,
+      "mse_velocity": 1.7181795154299055,
+      "original_coverage_by_coordinate": [
+        0.33035714285714285,
+        0.8214285714285714,
+        0.9553571428571429,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9553571428571429,
+      "diagnostic_coverage_by_coordinate": [
+        0.8839285714285714,
+        0.9821428571428571,
+        0.9553571428571429,
+        1.0
+      ],
+      "original_mean95_width": 2.559230327606201,
+      "diagnostic_mean95_width": 2.7592074871063232
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.10509659749056612,
+      "mse_velocity": 1.6175151382173811,
+      "original_coverage_by_coordinate": [
+        0.24702380952380953,
+        0.5952380952380952,
+        0.9776785714285714,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9776785714285714,
+      "diagnostic_coverage_by_coordinate": [
+        0.9419642857142857,
+        0.9910714285714286,
+        0.9776785714285714,
+        1.0
+      ],
+      "original_mean95_width": 3.4721880980900357,
+      "diagnostic_mean95_width": 4.054310083389282
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.3953395698751722,
+      "mse_velocity": 1.4382060255323137,
+      "original_coverage_by_coordinate": [
+        0.33035714285714285,
+        0.36458333333333337,
+        0.9888392857142857,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9888392857142857,
+      "diagnostic_coverage_by_coordinate": [
+        0.9709821428571429,
+        0.9955357142857143,
+        0.9888392857142857,
+        1.0
+      ],
+      "original_mean95_width": 4.794970989227295,
+      "diagnostic_mean95_width": 6.457357610974993
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.027379140723496675,
+      "mse_velocity": 1.0983533263206482,
+      "original_coverage_by_coordinate": [
+        0.3958333333333333,
+        0.9375,
+        0.9583333333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.96875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9166666666666666,
+        1.0,
+        0.9583333333333334,
+        1.0
+      ],
+      "original_mean95_width": 2.630152106285095,
+      "diagnostic_mean95_width": 2.8351054191589355
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.07865526899695396,
+      "mse_velocity": 0.9165176699558893,
+      "original_coverage_by_coordinate": [
+        0.25,
+        0.75,
+        0.9791666666666666,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.984375,
+      "diagnostic_coverage_by_coordinate": [
+        0.9583333333333334,
+        1.0,
+        0.9791666666666666,
+        1.0
+      ],
+      "original_mean95_width": 3.57622230052948,
+      "diagnostic_mean95_width": 4.174451112747192
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.2307476078470548,
+      "mse_velocity": 0.833140641450882,
+      "original_coverage_by_coordinate": [
+        0.2786458333333333,
+        0.421875,
+        0.9895833333333334,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334,
+        1.0
+      ],
+      "original_mean95_width": 4.947457869847615,
+      "diagnostic_mean95_width": 6.659837166468303
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.03756742897842612,
+      "mse_velocity": 1.8621204921177454,
+      "original_coverage_by_coordinate": [
+        0.3125,
+        0.8541666666666667,
+        0.9375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9486607142857143,
+      "diagnostic_coverage_by_coordinate": [
+        0.875,
+        0.9821428571428571,
+        0.9375,
+        1.0
+      ],
+      "original_mean95_width": 2.6425154549734935,
+      "diagnostic_mean95_width": 2.8484726633344377
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.1153866606099265,
+      "mse_velocity": 1.7709466218948364,
+      "original_coverage_by_coordinate": [
+        0.2425595238095238,
+        0.6294642857142857,
+        0.96875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9743303571428571,
+      "diagnostic_coverage_by_coordinate": [
+        0.9375,
+        0.9910714285714286,
+        0.96875,
+        1.0
+      ],
+      "original_mean95_width": 3.5921170030321394,
+      "diagnostic_mean95_width": 4.1931529726300925
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.4552171698638371,
+      "mse_velocity": 1.6568186708859034,
+      "original_coverage_by_coordinate": [
+        0.28422619047619047,
+        0.4263392857142857,
+        0.984375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9871651785714286,
+      "diagnostic_coverage_by_coordinate": [
+        0.96875,
+        0.9955357142857143,
+        0.984375,
+        1.0
+      ],
+      "original_mean95_width": 4.968410491943359,
+      "diagnostic_mean95_width": 6.688382284981864
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.025708713258306187,
+      "mse_velocity": 1.0317326237758,
+      "original_coverage_by_coordinate": [
+        0.40625,
+        0.9375,
+        0.96875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9739583333333334,
+      "diagnostic_coverage_by_coordinate": [
+        0.9270833333333334,
+        1.0,
+        0.96875,
+        1.0
+      ],
+      "original_mean95_width": 2.656251589457194,
+      "diagnostic_mean95_width": 2.8630983034769693
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.07274184251825015,
+      "mse_velocity": 0.8558947245279948,
+      "original_coverage_by_coordinate": [
+        0.2708333333333333,
+        0.7760416666666666,
+        0.984375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9869791666666666,
+      "diagnostic_coverage_by_coordinate": [
+        0.9635416666666666,
+        1.0,
+        0.984375,
+        1.0
+      ],
+      "original_mean95_width": 3.613026777903239,
+      "diagnostic_mean95_width": 4.217172384262085
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.20079625584185123,
+      "mse_velocity": 0.7033807983001074,
+      "original_coverage_by_coordinate": [
+        0.3203125,
+        0.5338541666666666,
+        0.9921875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9934895833333334,
+      "diagnostic_coverage_by_coordinate": [
+        0.9817708333333334,
+        1.0,
+        0.9921875,
+        1.0
+      ],
+      "original_mean95_width": 4.999116102854411,
+      "diagnostic_mean95_width": 6.7291029294331866
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.03666527755558491,
+      "mse_velocity": 1.8470673305647713,
+      "original_coverage_by_coordinate": [
+        0.3363095238095238,
+        0.8779761904761905,
+        0.9375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9508928571428571,
+      "diagnostic_coverage_by_coordinate": [
+        0.8839285714285714,
+        0.9821428571428571,
+        0.9375,
+        1.0
+      ],
+      "original_mean95_width": 2.669670343399048,
+      "diagnostic_mean95_width": 2.877613135746547
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.11355065567685026,
+      "mse_velocity": 1.753121452672141,
+      "original_coverage_by_coordinate": [
+        0.2857142857142857,
+        0.6651785714285714,
+        0.96875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9754464285714286,
+      "diagnostic_coverage_by_coordinate": [
+        0.9419642857142857,
+        0.9910714285714286,
+        0.96875,
+        1.0
+      ],
+      "original_mean95_width": 3.630237204687936,
+      "diagnostic_mean95_width": 4.2374308449881415
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.4387509434350899,
+      "mse_velocity": 1.5733729090009416,
+      "original_coverage_by_coordinate": [
+        0.34598214285714285,
+        0.43973214285714285,
+        0.984375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9877232142857143,
+      "diagnostic_coverage_by_coordinate": [
+        0.9709821428571429,
+        0.9955357142857143,
+        0.984375,
+        1.0
+      ],
+      "original_mean95_width": 5.021723066057477,
+      "diagnostic_mean95_width": 6.759928498949323
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.02671053974578778,
+      "mse_velocity": 1.067235032717387,
+      "original_coverage_by_coordinate": [
+        0.4166666666666667,
+        0.9375,
+        0.96875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9713541666666666,
+      "diagnostic_coverage_by_coordinate": [
+        0.9166666666666666,
+        1.0,
+        0.96875,
+        1.0
+      ],
+      "original_mean95_width": 2.786214073499044,
+      "diagnostic_mean95_width": 3.0027615229288735
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.07650650603075822,
+      "mse_velocity": 0.9050722668568293,
+      "original_coverage_by_coordinate": [
+        0.2916666666666667,
+        0.6666666666666666,
+        0.984375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9856770833333334,
+      "diagnostic_coverage_by_coordinate": [
+        0.9583333333333334,
+        1.0,
+        0.984375,
+        1.0
+      ],
+      "original_mean95_width": 3.794603109359741,
+      "diagnostic_mean95_width": 4.428270101547241
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.22298024594783783,
+      "mse_velocity": 0.7905348539352417,
+      "original_coverage_by_coordinate": [
+        0.3125,
+        0.4244791666666667,
+        0.9921875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9928385416666666,
+      "diagnostic_coverage_by_coordinate": [
+        0.9791666666666666,
+        1.0,
+        0.9921875,
+        1.0
+      ],
+      "original_mean95_width": 5.25423526763916,
+      "diagnostic_mean95_width": 7.07119615872701
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.03713689079242093,
+      "mse_velocity": 1.8571124502590723,
+      "original_coverage_by_coordinate": [
+        0.3363095238095238,
+        0.8482142857142857,
+        0.9375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9464285714285714,
+      "diagnostic_coverage_by_coordinate": [
+        0.8660714285714286,
+        0.9821428571428571,
+        0.9375,
+        1.0
+      ],
+      "original_mean95_width": 2.8003139155251637,
+      "diagnostic_mean95_width": 3.0180166448865617
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.11456886412841934,
+      "mse_velocity": 1.7732824001993452,
+      "original_coverage_by_coordinate": [
+        0.2857142857142857,
+        0.681547619047619,
+        0.96875,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9732142857142857,
+      "diagnostic_coverage_by_coordinate": [
+        0.9330357142857143,
+        0.9910714285714286,
+        0.96875,
+        1.0
+      ],
+      "original_mean95_width": 3.8127078669411794,
+      "diagnostic_mean95_width": 4.449577467782157
+    },
+    {
+      "family": "interaction",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.45286361766713007,
+      "mse_velocity": 1.6633280089923315,
+      "original_coverage_by_coordinate": [
+        0.32291666666666663,
+        0.4694940476190476,
+        0.984375,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9866071428571429,
+      "diagnostic_coverage_by_coordinate": [
+        0.9665178571428571,
+        0.9955357142857143,
+        0.984375,
+        1.0
+      ],
+      "original_mean95_width": 5.278024060385568,
+      "diagnostic_mean95_width": 7.103627273014614
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.0526381516829133,
+      "mse_velocity": 1.5444581309954326,
+      "original_coverage_by_coordinate": [
+        0.8020833333333334,
+        0.5416666666666666,
+        1.0,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9947916666666666,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9791666666666666,
+        1.0,
+        1.0
+      ],
+      "original_mean95_width": 5.982925494511922,
+      "diagnostic_mean95_width": 6.439136505126953
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.11122209951281548,
+      "mse_velocity": 1.4777373671531677,
+      "original_coverage_by_coordinate": [
+        0.6770833333333334,
+        0.4947916666666667,
+        1.0,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9973958333333334,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9895833333333334,
+        1.0,
+        1.0
+      ],
+      "original_mean95_width": 8.277501265207926,
+      "diagnostic_mean95_width": 9.63878615697225
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.18392649168769518,
+      "mse_velocity": 4.82828160127004,
+      "original_coverage_by_coordinate": [
+        0.5677083333333334,
+        0.6614583333333334,
+        1.0,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9986979166666666,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9947916666666666,
+        1.0,
+        1.0
+      ],
+      "original_mean95_width": 11.596772193908691,
+      "diagnostic_mean95_width": 15.565353393554688
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.05067562524761472,
+      "mse_velocity": 1.7423070073127747,
+      "original_coverage_by_coordinate": [
+        0.6607142857142857,
+        0.7113095238095237,
+        0.988095238095238,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9925595238095237,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        1.0,
+        0.988095238095238,
+        1.0
+      ],
+      "original_mean95_width": 5.958512510572161,
+      "diagnostic_mean95_width": 6.413012300218854
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.14783918697919166,
+      "mse_velocity": 2.4740573508398875,
+      "original_coverage_by_coordinate": [
+        0.5193452380952381,
+        0.6205357142857143,
+        0.9940476190476192,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.996279761904762,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        1.0,
+        0.9940476190476192,
+        1.0
+      ],
+      "original_mean95_width": 8.241565023149763,
+      "diagnostic_mean95_width": 9.597205298287529
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.3117531676377569,
+      "mse_velocity": 5.568699019295829,
+      "original_coverage_by_coordinate": [
+        0.37723214285714285,
+        0.6726190476190477,
+        0.9970238095238094,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9981398809523808,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        1.0,
+        0.9970238095238094,
+        1.0
+      ],
+      "original_mean95_width": 11.55678926195417,
+      "diagnostic_mean95_width": 15.509021895272392
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.03404159292889138,
+      "mse_velocity": 1.0211140116055806,
+      "original_coverage_by_coordinate": [
+        0.8020833333333334,
+        0.7708333333333334,
+        1.0,
+        0.9895833333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.9947916666666666,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9895833333333334,
+        1.0,
+        0.9895833333333334
+      ],
+      "original_mean95_width": 6.0136189460754395,
+      "diagnostic_mean95_width": 6.476008176803589
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.09018293395638466,
+      "mse_velocity": 1.1988359093666077,
+      "original_coverage_by_coordinate": [
+        0.5520833333333334,
+        0.78125,
+        1.0,
+        0.9947916666666666
+      ],
+      "diagnostic_kinematic_coverage": 0.9973958333333334,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9947916666666666,
+        1.0,
+        0.9947916666666666
+      ],
+      "original_mean95_width": 8.22825829188029,
+      "diagnostic_mean95_width": 9.595416704813639
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.29983659585316974,
+      "mse_velocity": 4.853562394777934,
+      "original_coverage_by_coordinate": [
+        0.4609375,
+        0.8255208333333334,
+        1.0,
+        0.9973958333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.9986979166666666,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9973958333333334,
+        1.0,
+        0.9973958333333334
+      ],
+      "original_mean95_width": 11.408133824666342,
+      "diagnostic_mean95_width": 15.347989559173584
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.036091107110093744,
+      "mse_velocity": 1.306561942611422,
+      "original_coverage_by_coordinate": [
+        0.6517857142857143,
+        0.8511904761904763,
+        0.988095238095238,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9925595238095237,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        1.0,
+        0.988095238095238,
+        1.0
+      ],
+      "original_mean95_width": 5.956838812146868,
+      "diagnostic_mean95_width": 6.414601394108364
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.11383604401323412,
+      "mse_velocity": 2.014170115547521,
+      "original_coverage_by_coordinate": [
+        0.4330357142857143,
+        0.7842261904761906,
+        0.9940476190476192,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.996279761904762,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        1.0,
+        0.9940476190476192,
+        1.0
+      ],
+      "original_mean95_width": 8.156557559967041,
+      "diagnostic_mean95_width": 9.510910442897252
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.350176351411002,
+      "mse_velocity": 5.425763062068394,
+      "original_coverage_by_coordinate": [
+        0.390625,
+        0.7745535714285714,
+        0.9970238095238094,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9981398809523808,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        1.0,
+        0.9970238095238094,
+        1.0
+      ],
+      "original_mean95_width": 11.312609127589635,
+      "diagnostic_mean95_width": 15.218364579336983
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.04144390455136696,
+      "mse_velocity": 1.166719247897466,
+      "original_coverage_by_coordinate": [
+        0.8020833333333334,
+        0.65625,
+        1.0,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 1.0,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "original_mean95_width": 6.003658850987752,
+      "diagnostic_mean95_width": 6.462387641270955
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.07957207318395376,
+      "mse_velocity": 1.3599100708961487,
+      "original_coverage_by_coordinate": [
+        0.7083333333333334,
+        0.6927083333333334,
+        1.0,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 1.0,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "original_mean95_width": 8.280056635538736,
+      "diagnostic_mean95_width": 9.645623207092285
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.18796653673052788,
+      "mse_velocity": 4.890660444895427,
+      "original_coverage_by_coordinate": [
+        0.5833333333333334,
+        0.7135416666666666,
+        1.0,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 1.0,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "original_mean95_width": 11.568501631418863,
+      "diagnostic_mean95_width": 15.536650975545248
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.04436481384826558,
+      "mse_velocity": 1.5692265672343118,
+      "original_coverage_by_coordinate": [
+        0.6607142857142857,
+        0.738095238095238,
+        0.988095238095238,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9925595238095237,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        1.0,
+        0.988095238095238,
+        1.0
+      ],
+      "original_mean95_width": 5.979578563145229,
+      "diagnostic_mean95_width": 6.436396871294294
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.13357582821377686,
+      "mse_velocity": 2.493234166077205,
+      "original_coverage_by_coordinate": [
+        0.5282738095238095,
+        0.6264880952380951,
+        0.9940476190476192,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.996279761904762,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        1.0,
+        0.9940476190476192,
+        1.0
+      ],
+      "original_mean95_width": 8.248286247253418,
+      "diagnostic_mean95_width": 9.60833031790597
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.3064050461564745,
+      "mse_velocity": 5.529243537357876,
+      "original_coverage_by_coordinate": [
+        0.3950892857142857,
+        0.6659226190476192,
+        0.9970238095238094,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9981398809523808,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        1.0,
+        0.9970238095238094,
+        1.0
+      ],
+      "original_mean95_width": 11.537659508841378,
+      "diagnostic_mean95_width": 15.4915862764631
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.044261565431952477,
+      "mse_velocity": 1.2782814353704453,
+      "original_coverage_by_coordinate": [
+        0.8125,
+        0.625,
+        1.0,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 1.0,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "original_mean95_width": 5.9771965344746905,
+      "diagnostic_mean95_width": 6.433298428853353
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.09373609783748786,
+      "mse_velocity": 1.2981969217459361,
+      "original_coverage_by_coordinate": [
+        0.7083333333333334,
+        0.5729166666666666,
+        1.0,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 1.0,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "original_mean95_width": 8.262410481770834,
+      "diagnostic_mean95_width": 9.622291882832846
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.16809823053578535,
+      "mse_velocity": 4.713246027628581,
+      "original_coverage_by_coordinate": [
+        0.5520833333333334,
+        0.6979166666666666,
+        1.0,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 1.0,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "original_mean95_width": 11.567357699076334,
+      "diagnostic_mean95_width": 15.528446356455484
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.043833893590739796,
+      "mse_velocity": 1.5375885580267226,
+      "original_coverage_by_coordinate": [
+        0.6785714285714286,
+        0.7559523809523808,
+        0.988095238095238,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9925595238095237,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        1.0,
+        0.988095238095238,
+        1.0
+      ],
+      "original_mean95_width": 5.95476382119315,
+      "diagnostic_mean95_width": 6.409241199493408
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.13615454733371735,
+      "mse_velocity": 2.3313270807266235,
+      "original_coverage_by_coordinate": [
+        0.5550595238095238,
+        0.644345238095238,
+        0.9940476190476192,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.996279761904762,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        1.0,
+        0.9940476190476192,
+        1.0
+      ],
+      "original_mean95_width": 8.228413036891393,
+      "diagnostic_mean95_width": 9.583077839442662
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.31349208312375204,
+      "mse_velocity": 5.441925457545689,
+      "original_coverage_by_coordinate": [
+        0.453125,
+        0.6785714285714286,
+        0.9970238095238094,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9981398809523808,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        1.0,
+        0.9970238095238094,
+        1.0
+      ],
+      "original_mean95_width": 11.531176839556013,
+      "diagnostic_mean95_width": 15.4768739427839
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.0565722311536471,
+      "mse_velocity": 1.6678553819656372,
+      "original_coverage_by_coordinate": [
+        0.78125,
+        0.5520833333333334,
+        1.0,
+        0.9895833333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.9947916666666666,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9895833333333334,
+        1.0,
+        0.9895833333333334
+      ],
+      "original_mean95_width": 6.201190153757731,
+      "diagnostic_mean95_width": 6.67480715115865
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.12479463964700699,
+      "mse_velocity": 1.5213266213734944,
+      "original_coverage_by_coordinate": [
+        0.65625,
+        0.484375,
+        1.0,
+        0.9947916666666666
+      ],
+      "diagnostic_kinematic_coverage": 0.9973958333333334,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9947916666666666,
+        1.0,
+        0.9947916666666666
+      ],
+      "original_mean95_width": 8.550421873728434,
+      "diagnostic_mean95_width": 9.961033662160238
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.1854310060540835,
+      "mse_velocity": 4.817452033360799,
+      "original_coverage_by_coordinate": [
+        0.5052083333333334,
+        0.671875,
+        1.0,
+        0.9973958333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.9986979166666666,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9973958333333334,
+        1.0,
+        0.9973958333333334
+      ],
+      "original_mean95_width": 11.940873146057129,
+      "diagnostic_mean95_width": 16.03893979390462
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.05705043167940208,
+      "mse_velocity": 1.9534720437867301,
+      "original_coverage_by_coordinate": [
+        0.6607142857142857,
+        0.675595238095238,
+        0.988095238095238,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9925595238095237,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        1.0,
+        0.988095238095238,
+        1.0
+      ],
+      "original_mean95_width": 6.163107872009277,
+      "diagnostic_mean95_width": 6.634497846875872
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.1662373303302697,
+      "mse_velocity": 2.541500278881618,
+      "original_coverage_by_coordinate": [
+        0.5416666666666667,
+        0.5625,
+        0.9940476190476192,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.996279761904762,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        1.0,
+        0.9940476190476192,
+        1.0
+      ],
+      "original_mean95_width": 8.490758895874023,
+      "diagnostic_mean95_width": 9.892646380833217
+    },
+    {
+      "family": "motion",
+      "seed": 11,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.3166905811854771,
+      "mse_velocity": 5.534462111336844,
+      "original_coverage_by_coordinate": [
+        0.43973214285714285,
+        0.6555059523809523,
+        0.9970238095238094,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9981398809523808,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        1.0,
+        0.9970238095238094,
+        1.0
+      ],
+      "original_mean95_width": 11.866775240216937,
+      "diagnostic_mean95_width": 15.937173298427037
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.042889344971627,
+      "mse_velocity": 1.2245264848073323,
+      "original_coverage_by_coordinate": [
+        0.78125,
+        0.5833333333333334,
+        1.0,
+        0.9895833333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334
+      ],
+      "original_mean95_width": 5.343966563542684,
+      "diagnostic_mean95_width": 5.744166930516561
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.08547566769023736,
+      "mse_velocity": 1.3843145072460175,
+      "original_coverage_by_coordinate": [
+        0.640625,
+        0.5208333333333334,
+        1.0,
+        0.9947916666666666
+      ],
+      "diagnostic_kinematic_coverage": 0.99609375,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9895833333333334,
+        1.0,
+        0.9947916666666666
+      ],
+      "original_mean95_width": 7.5665507316589355,
+      "diagnostic_mean95_width": 8.784470717112223
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.17131276925404867,
+      "mse_velocity": 4.74473790327708,
+      "original_coverage_by_coordinate": [
+        0.4557291666666667,
+        0.6015625,
+        1.0,
+        0.9973958333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.998046875,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9947916666666666,
+        1.0,
+        0.9973958333333334
+      ],
+      "original_mean95_width": 10.860082944234213,
+      "diagnostic_mean95_width": 14.50077199935913
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.049235296967838495,
+      "mse_velocity": 1.710684984922409,
+      "original_coverage_by_coordinate": [
+        0.6607142857142857,
+        0.625,
+        0.988095238095238,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9925595238095237,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        1.0,
+        0.988095238095238,
+        1.0
+      ],
+      "original_mean95_width": 5.210651806422642,
+      "diagnostic_mean95_width": 5.601736886160714
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.14107260533741542,
+      "mse_velocity": 2.4007423477513448,
+      "original_coverage_by_coordinate": [
+        0.5550595238095238,
+        0.5089285714285714,
+        0.9940476190476192,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.996279761904762,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        1.0,
+        0.9940476190476192,
+        1.0
+      ],
+      "original_mean95_width": 7.391079017094204,
+      "diagnostic_mean95_width": 8.578898906707764
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "candidate",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.27382518138204304,
+      "mse_velocity": 5.417548860822405,
+      "original_coverage_by_coordinate": [
+        0.4174107142857143,
+        0.5706845238095238,
+        0.9970238095238094,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9981398809523808,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        1.0,
+        0.9970238095238094,
+        1.0
+      ],
+      "original_mean95_width": 10.668540818350655,
+      "diagnostic_mean95_width": 14.22888537815639
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.04409594073270758,
+      "mse_velocity": 1.22746467217803,
+      "original_coverage_by_coordinate": [
+        0.8020833333333334,
+        0.6770833333333334,
+        1.0,
+        0.9791666666666666
+      ],
+      "diagnostic_kinematic_coverage": 0.9791666666666666,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9375,
+        1.0,
+        0.9791666666666666
+      ],
+      "original_mean95_width": 5.096006711324056,
+      "diagnostic_mean95_width": 5.477473894755046
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.08379565955450137,
+      "mse_velocity": 1.3892824252446492,
+      "original_coverage_by_coordinate": [
+        0.6927083333333334,
+        0.7135416666666666,
+        1.0,
+        0.9895833333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.9895833333333334,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.96875,
+        1.0,
+        0.9895833333333334
+      ],
+      "original_mean95_width": 7.229853232701619,
+      "diagnostic_mean95_width": 8.39144492149353
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.22683007518450418,
+      "mse_velocity": 5.081045746803284,
+      "original_coverage_by_coordinate": [
+        0.5651041666666666,
+        0.7135416666666666,
+        1.0,
+        0.9947916666666666
+      ],
+      "diagnostic_kinematic_coverage": 0.9947916666666666,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.984375,
+        1.0,
+        0.9947916666666666
+      ],
+      "original_mean95_width": 10.437647978464762,
+      "diagnostic_mean95_width": 13.91865062713623
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.04413710357455004,
+      "mse_velocity": 1.5247426629066467,
+      "original_coverage_by_coordinate": [
+        0.6428571428571429,
+        0.7678571428571429,
+        0.988095238095238,
+        0.9821428571428571
+      ],
+      "diagnostic_kinematic_coverage": 0.9747023809523808,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        0.9464285714285714,
+        0.988095238095238,
+        0.9821428571428571
+      ],
+      "original_mean95_width": 4.892928464072091,
+      "diagnostic_mean95_width": 5.262203625270298
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.12285038203533206,
+      "mse_velocity": 2.2085262004818236,
+      "original_coverage_by_coordinate": [
+        0.5461309523809523,
+        0.7321428571428571,
+        0.9940476190476192,
+        0.9910714285714286
+      ],
+      "diagnostic_kinematic_coverage": 0.9873511904761906,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        0.9732142857142857,
+        0.9940476190476192,
+        0.9910714285714286
+      ],
+      "original_mean95_width": 6.915693283081055,
+      "diagnostic_mean95_width": 8.03088208607265
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "concepts",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.3093221741063254,
+      "mse_velocity": 5.349709170205252,
+      "original_coverage_by_coordinate": [
+        0.47098214285714285,
+        0.6674107142857143,
+        0.9970238095238094,
+        0.9955357142857143
+      ],
+      "diagnostic_kinematic_coverage": 0.9936755952380951,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        0.9866071428571429,
+        0.9970238095238094,
+        0.9955357142857143
+      ],
+      "original_mean95_width": 10.040966987609863,
+      "diagnostic_mean95_width": 13.374744687761579
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.046598402628054224,
+      "mse_velocity": 1.323018545905749,
+      "original_coverage_by_coordinate": [
+        0.7708333333333334,
+        0.4895833333333333,
+        1.0,
+        0.9895833333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334
+      ],
+      "original_mean95_width": 5.344508647918701,
+      "diagnostic_mean95_width": 5.74314816792806
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.09121608982483546,
+      "mse_velocity": 1.321030428012212,
+      "original_coverage_by_coordinate": [
+        0.7135416666666666,
+        0.46875,
+        1.0,
+        0.9947916666666666
+      ],
+      "diagnostic_kinematic_coverage": 0.99609375,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9895833333333334,
+        1.0,
+        0.9947916666666666
+      ],
+      "original_mean95_width": 7.620922962824504,
+      "diagnostic_mean95_width": 8.839769204457602
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.1536796037107706,
+      "mse_velocity": 4.836445331573486,
+      "original_coverage_by_coordinate": [
+        0.6015625,
+        0.6536458333333334,
+        1.0,
+        0.9973958333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.998046875,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9947916666666666,
+        1.0,
+        0.9973958333333334
+      ],
+      "original_mean95_width": 11.001638094584147,
+      "diagnostic_mean95_width": 14.671415328979492
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.054013621394655535,
+      "mse_velocity": 1.9366299850600106,
+      "original_coverage_by_coordinate": [
+        0.6428571428571429,
+        0.5892857142857143,
+        0.988095238095238,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.988095238095238,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        0.9821428571428571,
+        0.988095238095238,
+        1.0
+      ],
+      "original_mean95_width": 5.21330063683646,
+      "diagnostic_mean95_width": 5.603248800550189
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.16338913036244257,
+      "mse_velocity": 2.625733886446272,
+      "original_coverage_by_coordinate": [
+        0.5461309523809524,
+        0.4657738095238095,
+        0.9940476190476192,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9940476190476192,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        0.9910714285714286,
+        0.9940476190476192,
+        1.0
+      ],
+      "original_mean95_width": 7.431729657309396,
+      "diagnostic_mean95_width": 8.620641708374023
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "matched",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.3085260098533971,
+      "mse_velocity": 5.606164387294224,
+      "original_coverage_by_coordinate": [
+        0.40401785714285715,
+        0.5758928571428571,
+        0.9970238095238094,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9970238095238094,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        0.9955357142857143,
+        0.9970238095238094,
+        1.0
+      ],
+      "original_mean95_width": 10.771260806492396,
+      "diagnostic_mean95_width": 14.353436878749303
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.036353032725552716,
+      "mse_velocity": 1.022301271557808,
+      "original_coverage_by_coordinate": [
+        0.8125,
+        0.625,
+        1.0,
+        0.9895833333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334
+      ],
+      "original_mean95_width": 5.33022944132487,
+      "diagnostic_mean95_width": 5.730001131693522
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.07221422934283812,
+      "mse_velocity": 1.2490062316258748,
+      "original_coverage_by_coordinate": [
+        0.65625,
+        0.5520833333333334,
+        1.0,
+        0.9947916666666666
+      ],
+      "diagnostic_kinematic_coverage": 0.99609375,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9895833333333334,
+        1.0,
+        0.9947916666666666
+      ],
+      "original_mean95_width": 7.536909341812134,
+      "diagnostic_mean95_width": 8.751544952392578
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.16208622107903162,
+      "mse_velocity": 4.643732349077861,
+      "original_coverage_by_coordinate": [
+        0.5390625,
+        0.6067708333333334,
+        1.0,
+        0.9973958333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.998046875,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9947916666666666,
+        1.0,
+        0.9973958333333334
+      ],
+      "original_mean95_width": 10.815744876861572,
+      "diagnostic_mean95_width": 14.442209561665853
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.04303387459367514,
+      "mse_velocity": 1.5203147530555725,
+      "original_coverage_by_coordinate": [
+        0.6607142857142857,
+        0.6964285714285714,
+        0.988095238095238,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9925595238095237,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        1.0,
+        0.988095238095238,
+        1.0
+      ],
+      "original_mean95_width": 5.197105475834438,
+      "diagnostic_mean95_width": 5.587764808109829
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.12998737740729535,
+      "mse_velocity": 2.2654262440545216,
+      "original_coverage_by_coordinate": [
+        0.568452380952381,
+        0.5922619047619049,
+        0.9940476190476192,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.996279761904762,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        1.0,
+        0.9940476190476192,
+        1.0
+      ],
+      "original_mean95_width": 7.362534182412284,
+      "diagnostic_mean95_width": 8.547107355935234
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "memory",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.27442479506134987,
+      "mse_velocity": 5.30839170728411,
+      "original_coverage_by_coordinate": [
+        0.47767857142857145,
+        0.6078869047619049,
+        0.9970238095238094,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9981398809523808,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        1.0,
+        0.9970238095238094,
+        1.0
+      ],
+      "original_mean95_width": 10.636815888541085,
+      "diagnostic_mean95_width": 14.18419088636126
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 8,
+      "mse_position": 0.03999867911140124,
+      "mse_velocity": 1.1155138909816742,
+      "original_coverage_by_coordinate": [
+        0.78125,
+        0.625,
+        1.0,
+        0.9895833333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.9921875,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9791666666666666,
+        1.0,
+        0.9895833333333334
+      ],
+      "original_mean95_width": 5.6083643436431885,
+      "diagnostic_mean95_width": 6.025808811187744
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 16,
+      "mse_position": 0.07895676201830308,
+      "mse_velocity": 1.3608966668446858,
+      "original_coverage_by_coordinate": [
+        0.6979166666666666,
+        0.5625,
+        1.0,
+        0.9947916666666666
+      ],
+      "diagnostic_kinematic_coverage": 0.99609375,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9895833333333334,
+        1.0,
+        0.9947916666666666
+      ],
+      "original_mean95_width": 7.969719171524048,
+      "diagnostic_mean95_width": 9.248257795969645
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_iid",
+      "horizon": 32,
+      "mse_position": 0.18420389791329703,
+      "mse_velocity": 4.788612087567647,
+      "original_coverage_by_coordinate": [
+        0.5130208333333334,
+        0.6354166666666666,
+        1.0,
+        0.9973958333333334
+      ],
+      "diagnostic_kinematic_coverage": 0.998046875,
+      "diagnostic_coverage_by_coordinate": [
+        1.0,
+        0.9947916666666666,
+        1.0,
+        0.9973958333333334
+      ],
+      "original_mean95_width": 11.469805717468262,
+      "diagnostic_mean95_width": 15.306464354197184
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 8,
+      "mse_position": 0.04865371489099094,
+      "mse_velocity": 1.699359199830464,
+      "original_coverage_by_coordinate": [
+        0.625,
+        0.6517857142857143,
+        0.988095238095238,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.988095238095238,
+      "diagnostic_coverage_by_coordinate": [
+        0.9821428571428571,
+        0.9821428571428571,
+        0.988095238095238,
+        1.0
+      ],
+      "original_mean95_width": 5.442389488220215,
+      "diagnostic_mean95_width": 5.848415306636265
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 16,
+      "mse_position": 0.14101361642990792,
+      "mse_velocity": 2.4148384843553816,
+      "original_coverage_by_coordinate": [
+        0.5193452380952381,
+        0.5848214285714286,
+        0.9940476190476192,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9940476190476192,
+      "diagnostic_coverage_by_coordinate": [
+        0.9910714285714286,
+        0.9910714285714286,
+        0.9940476190476192,
+        1.0
+      ],
+      "original_mean95_width": 7.748109340667725,
+      "diagnostic_mean95_width": 8.989109584263392
+    },
+    {
+      "family": "motion",
+      "seed": 23,
+      "variant": "no_history",
+      "panel": "development_stress",
+      "horizon": 32,
+      "mse_position": 0.2909860610961914,
+      "mse_velocity": 5.45132793698992,
+      "original_coverage_by_coordinate": [
+        0.39732142857142855,
+        0.6331845238095237,
+        0.9970238095238094,
+        1.0
+      ],
+      "diagnostic_kinematic_coverage": 0.9970238095238094,
+      "diagnostic_coverage_by_coordinate": [
+        0.9955357142857143,
+        0.9955357142857143,
+        0.9970238095238094,
+        1.0
+      ],
+      "original_mean95_width": 11.216116224016462,
+      "diagnostic_mean95_width": 14.950412614004952
+    }
+  ],
+  "component_intervals": [
+    {
+      "family": "motion",
+      "variant": "no_history",
+      "relative_reduction": -0.0018701190021996883,
+      "paired_scene_bootstrap95": [
+        -0.022396232812634163,
+        0.018473894386692447
+      ]
+    },
+    {
+      "family": "motion",
+      "variant": "concepts",
+      "relative_reduction": 0.011826583864716578,
+      "paired_scene_bootstrap95": [
+        -0.09741652939415169,
+        0.09932444321144235
+      ]
+    },
+    {
+      "family": "motion",
+      "variant": "memory",
+      "relative_reduction": 0.02018626625053277,
+      "paired_scene_bootstrap95": [
+        -0.0035449569350278873,
+        0.0424073713186609
+      ]
+    },
+    {
+      "family": "interaction",
+      "variant": "no_history",
+      "relative_reduction": -0.07855117307898207,
+      "paired_scene_bootstrap95": [
+        -0.19593713241055638,
+        0.028360460039089857
+      ]
+    },
+    {
+      "family": "interaction",
+      "variant": "concepts",
+      "relative_reduction": 0.04219068077775934,
+      "paired_scene_bootstrap95": [
+        -0.07395066000853745,
+        0.18842701832963338
+      ]
+    },
+    {
+      "family": "interaction",
+      "variant": "memory",
+      "relative_reduction": 0.004118363902993916,
+      "paired_scene_bootstrap95": [
+        -0.037919053306425095,
+        0.037021367286575756
+      ]
+    }
+  ],
+  "limits": "Posthoc measurement diagnosis only; original gates and outputs unchanged. Linear covariance assumes independent innovations and ignores neural feedback Jacobian."
+}

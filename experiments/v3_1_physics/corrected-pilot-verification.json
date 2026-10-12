@@ -1,0 +1,144 @@
+{
+  "actual_plans": 32,
+  "checkpoints": 22,
+  "forecasts": 780,
+  "independent_scenes": 26,
+  "neural_calls": 0,
+  "old_final_test_queries": 0,
+  "paired_comparisons": [
+    {
+      "family": "motion",
+      "horizon": 8,
+      "paired_scene_bootstrap95": [
+        -0.33052957770995395,
+        -0.02244690781939518
+      ],
+      "panel": "development_iid",
+      "relative_reduction": -0.11123213660017917,
+      "scene_clusters": 6
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "paired_scene_bootstrap95": [
+        -0.24495187589992695,
+        0.041204000835964205
+      ],
+      "panel": "development_iid",
+      "relative_reduction": -0.07259492199935202,
+      "scene_clusters": 6
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "paired_scene_bootstrap95": [
+        -0.025876140017057434,
+        0.04729017927368995
+      ],
+      "panel": "development_iid",
+      "relative_reduction": 0.01395339612186186,
+      "scene_clusters": 6
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "paired_scene_bootstrap95": [
+        -0.11322862400763611,
+        0.09638329910825527
+      ],
+      "panel": "development_stress",
+      "relative_reduction": 0.014242155437231507,
+      "scene_clusters": 7
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "paired_scene_bootstrap95": [
+        -0.09113075308740193,
+        0.09963073451605906
+      ],
+      "panel": "development_stress",
+      "relative_reduction": 0.04657026160191524,
+      "scene_clusters": 7
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "paired_scene_bootstrap95": [
+        -0.027958761107771846,
+        0.051580001300925264
+      ],
+      "panel": "development_stress",
+      "relative_reduction": 0.015192146880945945,
+      "scene_clusters": 7
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "paired_scene_bootstrap95": [
+        -0.009601056023003068,
+        0.07396832960515791
+      ],
+      "panel": "development_iid",
+      "relative_reduction": 0.015317142044907084,
+      "scene_clusters": 6
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "paired_scene_bootstrap95": [
+        -0.012622325300278847,
+        0.082720664483109
+      ],
+      "panel": "development_iid",
+      "relative_reduction": 0.02470121400029257,
+      "scene_clusters": 6
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "paired_scene_bootstrap95": [
+        -0.0011152970655718963,
+        0.1577638020366139
+      ],
+      "panel": "development_iid",
+      "relative_reduction": 0.06756820197023405,
+      "scene_clusters": 6
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "paired_scene_bootstrap95": [
+        -0.042702105427312946,
+        0.05443605954984465
+      ],
+      "panel": "development_stress",
+      "relative_reduction": -0.013116972421548523,
+      "scene_clusters": 7
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "paired_scene_bootstrap95": [
+        -0.08256324270766924,
+        0.07973358727240609
+      ],
+      "panel": "development_stress",
+      "relative_reduction": -0.017421008362913826,
+      "scene_clusters": 7
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "paired_scene_bootstrap95": [
+        -0.14686610494676922,
+        0.14186499810742711
+      ],
+      "panel": "development_stress",
+      "relative_reduction": -0.003124689618330345,
+      "scene_clusters": 7
+    }
+  ],
+  "passed": true,
+  "sealed_evaluation": "NOT RUN"
+}

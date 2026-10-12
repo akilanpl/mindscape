@@ -1,0 +1,553 @@
+{
+  "description": "Explicit constant-velocity mean of the shared zero-innovation kinematic prior. No neural execution.",
+  "neural_calls": 0,
+  "rows": [
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 1.8009311576162212,
+      "panel": "development_iid",
+      "scene": "ec84f61432983bcfd609ef98bd7905edd8efec527981368917c493289f7a730f"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 3.160133954500332,
+      "panel": "development_iid",
+      "scene": "ec84f61432983bcfd609ef98bd7905edd8efec527981368917c493289f7a730f"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 5.679879549222575,
+      "panel": "development_iid",
+      "scene": "ec84f61432983bcfd609ef98bd7905edd8efec527981368917c493289f7a730f"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 0.6830160243287333,
+      "panel": "development_iid",
+      "scene": "24f1ade33a7a34819c828acf443960e63df4ed43952fb6ddc40c6c21db58e259"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 2.605873618094888,
+      "panel": "development_iid",
+      "scene": "24f1ade33a7a34819c828acf443960e63df4ed43952fb6ddc40c6c21db58e259"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 3.223488042818062,
+      "panel": "development_iid",
+      "scene": "24f1ade33a7a34819c828acf443960e63df4ed43952fb6ddc40c6c21db58e259"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 0.6280139912341617,
+      "panel": "development_iid",
+      "scene": "eea6790b519ad499e6b58f586211e13265518fc741fa52b873622c548983d7de"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 2.501008752058828,
+      "panel": "development_iid",
+      "scene": "eea6790b519ad499e6b58f586211e13265518fc741fa52b873622c548983d7de"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 7.063479637400338,
+      "panel": "development_iid",
+      "scene": "eea6790b519ad499e6b58f586211e13265518fc741fa52b873622c548983d7de"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 0.4837261715758233,
+      "panel": "development_iid",
+      "scene": "923adbe5c9b63569ba028eb1da352da075b17ec5f9727ebdd3c8928fd5aade77"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 1.8405144783545462,
+      "panel": "development_iid",
+      "scene": "923adbe5c9b63569ba028eb1da352da075b17ec5f9727ebdd3c8928fd5aade77"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 3.945078667864728,
+      "panel": "development_iid",
+      "scene": "923adbe5c9b63569ba028eb1da352da075b17ec5f9727ebdd3c8928fd5aade77"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 0.515648533186394,
+      "panel": "development_iid",
+      "scene": "1646869dff04200a83d8ae413582e43a7679bd12c0878a410a94d51decd419ca"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 2.049614091630821,
+      "panel": "development_iid",
+      "scene": "1646869dff04200a83d8ae413582e43a7679bd12c0878a410a94d51decd419ca"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 5.591372131912083,
+      "panel": "development_iid",
+      "scene": "1646869dff04200a83d8ae413582e43a7679bd12c0878a410a94d51decd419ca"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 0.9966199284885717,
+      "panel": "development_iid",
+      "scene": "495cc372b4aefd4742d3c51d6700a5e71559f91cda86c1bc4fabf897ace16eba"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 2.159466548376246,
+      "panel": "development_iid",
+      "scene": "495cc372b4aefd4742d3c51d6700a5e71559f91cda86c1bc4fabf897ace16eba"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 4.150195533154598,
+      "panel": "development_iid",
+      "scene": "495cc372b4aefd4742d3c51d6700a5e71559f91cda86c1bc4fabf897ace16eba"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 1.719091206788249,
+      "panel": "development_stress",
+      "scene": "2228749c5afcca609672b48b7b0962856b33709861975274a67d9d8ea1f0c213"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 2.921651700455591,
+      "panel": "development_stress",
+      "scene": "2228749c5afcca609672b48b7b0962856b33709861975274a67d9d8ea1f0c213"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 5.970875706160609,
+      "panel": "development_stress",
+      "scene": "2228749c5afcca609672b48b7b0962856b33709861975274a67d9d8ea1f0c213"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 0.5326483837898343,
+      "panel": "development_stress",
+      "scene": "e12ac44ab4a47461643a84b649706d734d4c355aba4cdb71d36273539ad57a45"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 2.17279992023543,
+      "panel": "development_stress",
+      "scene": "e12ac44ab4a47461643a84b649706d734d4c355aba4cdb71d36273539ad57a45"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 6.955747765611298,
+      "panel": "development_stress",
+      "scene": "e12ac44ab4a47461643a84b649706d734d4c355aba4cdb71d36273539ad57a45"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 0.5302532999272609,
+      "panel": "development_stress",
+      "scene": "968230dc28cbb0d29443ddcc8310bf9a58c7f01ac940ca317f841387a36cfec8"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 2.010153463828205,
+      "panel": "development_stress",
+      "scene": "968230dc28cbb0d29443ddcc8310bf9a58c7f01ac940ca317f841387a36cfec8"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 6.076048977992495,
+      "panel": "development_stress",
+      "scene": "968230dc28cbb0d29443ddcc8310bf9a58c7f01ac940ca317f841387a36cfec8"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 2.541080294145273,
+      "panel": "development_stress",
+      "scene": "c8fa52cdf0806ffd5c3102a4ed17ac7da3f1ca66ebf612b49c0d49b811660b45"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 4.3618452937714345,
+      "panel": "development_stress",
+      "scene": "c8fa52cdf0806ffd5c3102a4ed17ac7da3f1ca66ebf612b49c0d49b811660b45"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 5.551229810842152,
+      "panel": "development_stress",
+      "scene": "c8fa52cdf0806ffd5c3102a4ed17ac7da3f1ca66ebf612b49c0d49b811660b45"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 0.6903790333795609,
+      "panel": "development_stress",
+      "scene": "7d197234d6c3ce8d4cfa79d987a33e78d5a16ae1fcc9c83f5fb3f4d0669846ff"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 2.849407920817187,
+      "panel": "development_stress",
+      "scene": "7d197234d6c3ce8d4cfa79d987a33e78d5a16ae1fcc9c83f5fb3f4d0669846ff"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 5.145721189453285,
+      "panel": "development_stress",
+      "scene": "7d197234d6c3ce8d4cfa79d987a33e78d5a16ae1fcc9c83f5fb3f4d0669846ff"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 3.0799925415924188,
+      "panel": "development_stress",
+      "scene": "fcdaf45a1448d97e3bdca7200c71fcc762302a596426340099029054ed278352"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 6.7456925019258245,
+      "panel": "development_stress",
+      "scene": "fcdaf45a1448d97e3bdca7200c71fcc762302a596426340099029054ed278352"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 5.742736800556809,
+      "panel": "development_stress",
+      "scene": "fcdaf45a1448d97e3bdca7200c71fcc762302a596426340099029054ed278352"
+    },
+    {
+      "family": "motion",
+      "horizon": 8,
+      "mse": 0.8348075384367004,
+      "panel": "development_stress",
+      "scene": "54c569f57ed12f06c46ebec80d90e3e812799af2b50d0bc4e42b4ddd0c734591"
+    },
+    {
+      "family": "motion",
+      "horizon": 16,
+      "mse": 2.9015653613792676,
+      "panel": "development_stress",
+      "scene": "54c569f57ed12f06c46ebec80d90e3e812799af2b50d0bc4e42b4ddd0c734591"
+    },
+    {
+      "family": "motion",
+      "horizon": 32,
+      "mse": 6.169521651709487,
+      "panel": "development_stress",
+      "scene": "54c569f57ed12f06c46ebec80d90e3e812799af2b50d0bc4e42b4ddd0c734591"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.49545671136331804,
+      "panel": "development_iid",
+      "scene": "8b872b86d673c1ad07f0bb60a5df688642b9feeaacc77f9590fbb13b13a25ffd"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 0.4137153770912093,
+      "panel": "development_iid",
+      "scene": "8b872b86d673c1ad07f0bb60a5df688642b9feeaacc77f9590fbb13b13a25ffd"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 0.3043874445926626,
+      "panel": "development_iid",
+      "scene": "8b872b86d673c1ad07f0bb60a5df688642b9feeaacc77f9590fbb13b13a25ffd"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.009295573338985244,
+      "panel": "development_iid",
+      "scene": "9477e73d2662a721849ad23115e3350db24597be0042e1a7a9870bd5eab668fa"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 0.07725763705400876,
+      "panel": "development_iid",
+      "scene": "9477e73d2662a721849ad23115e3350db24597be0042e1a7a9870bd5eab668fa"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 0.33394325960360116,
+      "panel": "development_iid",
+      "scene": "9477e73d2662a721849ad23115e3350db24597be0042e1a7a9870bd5eab668fa"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 5.253921230774427e-05,
+      "panel": "development_iid",
+      "scene": "0e0367e2378675a9e8111cded6383d64bd6cbf316e87d80a960e1b978164450b"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 0.9490546431257276,
+      "panel": "development_iid",
+      "scene": "0e0367e2378675a9e8111cded6383d64bd6cbf316e87d80a960e1b978164450b"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 1.5513053155269902,
+      "panel": "development_iid",
+      "scene": "0e0367e2378675a9e8111cded6383d64bd6cbf316e87d80a960e1b978164450b"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.24486181418459482,
+      "panel": "development_iid",
+      "scene": "b49e087ce715897d8e3b4a3b71a32983f0e11c6b53b54e16f92419bfc7dd727c"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 1.2975781778179054,
+      "panel": "development_iid",
+      "scene": "b49e087ce715897d8e3b4a3b71a32983f0e11c6b53b54e16f92419bfc7dd727c"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 2.3728165335350986,
+      "panel": "development_iid",
+      "scene": "b49e087ce715897d8e3b4a3b71a32983f0e11c6b53b54e16f92419bfc7dd727c"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.0002223328044038216,
+      "panel": "development_iid",
+      "scene": "3cb65f95f6091ef4a134c2ef26c04079e9b918aa631ce414eb89ec3532e87d92"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 0.1643462196904144,
+      "panel": "development_iid",
+      "scene": "3cb65f95f6091ef4a134c2ef26c04079e9b918aa631ce414eb89ec3532e87d92"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 0.4550813369495127,
+      "panel": "development_iid",
+      "scene": "3cb65f95f6091ef4a134c2ef26c04079e9b918aa631ce414eb89ec3532e87d92"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.8869499220365538,
+      "panel": "development_iid",
+      "scene": "40abb145077cd2ae6f0d6751767049aa7466e64100425d4d9bcddff97a5c38cb"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 0.6835619393050874,
+      "panel": "development_iid",
+      "scene": "40abb145077cd2ae6f0d6751767049aa7466e64100425d4d9bcddff97a5c38cb"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 0.524643106761051,
+      "panel": "development_iid",
+      "scene": "40abb145077cd2ae6f0d6751767049aa7466e64100425d4d9bcddff97a5c38cb"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 1.8763036272191038,
+      "panel": "development_stress",
+      "scene": "71268ec5c2980c67be7c6df4c2279146c3a60525d3e58f6bd9f65470fc4c1ffb"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 2.132191711715936,
+      "panel": "development_stress",
+      "scene": "71268ec5c2980c67be7c6df4c2279146c3a60525d3e58f6bd9f65470fc4c1ffb"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 2.8224439033521485,
+      "panel": "development_stress",
+      "scene": "71268ec5c2980c67be7c6df4c2279146c3a60525d3e58f6bd9f65470fc4c1ffb"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 5.6341790217899135,
+      "panel": "development_stress",
+      "scene": "da4544647e1d5eea4d16c8a43e530b9955685583efe568b2ef2d4be968848e71"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 6.917979966878807,
+      "panel": "development_stress",
+      "scene": "da4544647e1d5eea4d16c8a43e530b9955685583efe568b2ef2d4be968848e71"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 7.699064992563593,
+      "panel": "development_stress",
+      "scene": "da4544647e1d5eea4d16c8a43e530b9955685583efe568b2ef2d4be968848e71"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.5142478658890983,
+      "panel": "development_stress",
+      "scene": "8c465e94665cca40a13a8a95202b12686e705ad04ae44c3af49eeca6e66de2ae"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 1.2804976727463615,
+      "panel": "development_stress",
+      "scene": "8c465e94665cca40a13a8a95202b12686e705ad04ae44c3af49eeca6e66de2ae"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 2.023011020527514,
+      "panel": "development_stress",
+      "scene": "8c465e94665cca40a13a8a95202b12686e705ad04ae44c3af49eeca6e66de2ae"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.2954926907788908,
+      "panel": "development_stress",
+      "scene": "5c882026701f2e94a3e3f0ab4bdb053cde20c37f17f81443f6aec125f47bf775"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 0.8392986164959811,
+      "panel": "development_stress",
+      "scene": "5c882026701f2e94a3e3f0ab4bdb053cde20c37f17f81443f6aec125f47bf775"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 1.318924626454758,
+      "panel": "development_stress",
+      "scene": "5c882026701f2e94a3e3f0ab4bdb053cde20c37f17f81443f6aec125f47bf775"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.004432318425271294,
+      "panel": "development_stress",
+      "scene": "685e359318e430be41c730fe7abaeabe4ed32f8ef1de49054a7203b56a7f6771"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 0.0042065988167291485,
+      "panel": "development_stress",
+      "scene": "685e359318e430be41c730fe7abaeabe4ed32f8ef1de49054a7203b56a7f6771"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 0.1635715800897121,
+      "panel": "development_stress",
+      "scene": "685e359318e430be41c730fe7abaeabe4ed32f8ef1de49054a7203b56a7f6771"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.8679997624888774,
+      "panel": "development_stress",
+      "scene": "be9a8158d43e874a53183ceba945855aadff46440a1b81c3e773bb9689aadda8"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 0.698095243975033,
+      "panel": "development_stress",
+      "scene": "be9a8158d43e874a53183ceba945855aadff46440a1b81c3e773bb9689aadda8"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 0.5988068846796026,
+      "panel": "development_stress",
+      "scene": "be9a8158d43e874a53183ceba945855aadff46440a1b81c3e773bb9689aadda8"
+    },
+    {
+      "family": "interaction",
+      "horizon": 8,
+      "mse": 0.2743393474094317,
+      "panel": "development_stress",
+      "scene": "9a384a260384b98f6fab613f99046d5d8f3adea8ccac2eb2e1354743a3b520db"
+    },
+    {
+      "family": "interaction",
+      "horizon": 16,
+      "mse": 1.5938861763060064,
+      "panel": "development_stress",
+      "scene": "9a384a260384b98f6fab613f99046d5d8f3adea8ccac2eb2e1354743a3b520db"
+    },
+    {
+      "family": "interaction",
+      "horizon": 32,
+      "mse": 2.7044859984423137,
+      "panel": "development_stress",
+      "scene": "9a384a260384b98f6fab613f99046d5d8f3adea8ccac2eb2e1354743a3b520db"
+    }
+  ],
+  "scope": "posthoc nonneural control, not part of frozen gates"
+}
