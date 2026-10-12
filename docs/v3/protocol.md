@@ -44,3 +44,8 @@ No large model is downloaded and no paid service is invoked. Optional historical
 models require explicitly approved local file manifests, matching architecture
 families and safetensors. Their pretraining exposure is unknown and their outcomes
 are unrun. The protocol/manifest commit precedes the saved benchmark execution.
+
+Telemetry amendment: initial code counted policy and transition prediction as one call.
+Commit `99c09ee` corrects this to two neural forwards per decision before the final
+saved run. The initial run is retained separately; task manifest, weights and outcomes
+are unchanged. These repeated development runs do not increase independent task count.

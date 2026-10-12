@@ -16,6 +16,8 @@ jobs:
         run: python scripts/v3/preservation.py --output work/v3-preservation.json
       - name: Run V3 tests without model downloads
         run: PYTHONPATH=src python -m unittest discover -s tests/v3 -v
+      - name: Independently restore and replay saved evidence
+        run: PYTHONPATH=src python scripts/v3/restore_evidence.py --destination work/v3-restored
       - name: Run and resume CPU scientific controls
         run: |
           PYTHONPATH=src python -m mindscape.v3.experiment --manifest configs/v3/smoke_manifest.json --output work/v3-smoke
