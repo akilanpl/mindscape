@@ -1,0 +1,51 @@
+{
+  "decision": "DATA_NO_GO",
+  "gates": {
+    "mathematics.train": {
+      "pass": true,
+      "tasks": 12,
+      "valid": 8,
+      "invalid": 4,
+      "changed_valid": 8,
+      "persistence_normalized_mse": 0.11488333333333334
+    },
+    "coding.train": {
+      "pass": true,
+      "tasks": 12,
+      "valid": 8,
+      "invalid": 4,
+      "changed_valid": 8,
+      "persistence_normalized_mse": 0.0003777777777777778
+    },
+    "physics.train": {
+      "pass": true,
+      "tasks": 12,
+      "valid": 8,
+      "invalid": 4,
+      "changed_valid": 8,
+      "persistence_normalized_mse": 0.04231414603901939
+    },
+    "mathematics.qualification": {
+      "pass": true,
+      "tasks": 8,
+      "valid": 6,
+      "invalid": 2,
+      "changed_valid": 6,
+      "persistence_normalized_mse": 0.15105625000000003
+    },
+    "coding.qualification": {
+      "pass": false,
+      "tasks": 8,
+      "valid": 6,
+      "invalid": 2,
+      "changed_valid": 6,
+      "persistence_normalized_mse": 0.0004
+    }
+  },
+  "failure": null,
+  "independent_execution_replay": "PASS",
+  "executed_tasks": 88,
+  "frozen_tasks": 132,
+  "training_executed": false,
+  "composition_targets_used_for_qualification": false
+}

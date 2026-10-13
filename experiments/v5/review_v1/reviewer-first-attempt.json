@@ -1,0 +1,6 @@
+{
+  "status": "REVIEWER_SERIALIZATION_ERROR",
+  "cause": "Python tuples in Pymunk scene provenance compared with JSON lists; actual before/after/delta identical.",
+  "resolution": "Compare canonical JSON digests for complete executed targets; no numeric tolerance or outcome change.",
+  "neural_execution": false
+}
