@@ -1,4 +1,6 @@
-# V4 fresh-data qualification — frozen, awaiting native inference
+# V4 fresh-data qualification — original pre-execution handoff
+
+**Superseded status:** native screen completed DATA_NO_GO after 4 requests. See `qualification-result.md`. Do not rerun the command below; the research sprint is stopped.
 
 PR #7 research CI passed: Research v2 CPU validation, V3 foundation, mathematics, coding controls, and physics CPU boundaries. Vercel deployment failure is separate and does not invalidate research checks. Raw GitHub receipts are under `experiments/v4/qualification_preflight/`.
 

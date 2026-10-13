@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "decision": "DATA_NO_GO",
+  "freeze_commit": "448420a",
+  "executed_requests": 4,
+  "unexecuted_requests": 32,
+  "candidate_outcomes": 16,
+  "archive_files_restored": 19,
+  "archive_sha256": "e3a088847aa03aa4599e0d98e8c693eec6f438f3ea74ed4899e015f4bb1f2d4e",
+  "frozen_sources_match": true,
+  "assets_unchanged": true,
+  "original_v4_files_unchanged": 120,
+  "new_training": false,
+  "sprint": "STOPPED",
+  "websites_modified": false
+}

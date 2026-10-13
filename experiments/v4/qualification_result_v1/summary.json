@@ -1,0 +1,72 @@
+{
+  "decision": "DATA_NO_GO",
+  "completed_requests": 4,
+  "attempted_requests": 4,
+  "unexecuted_requests": 32,
+  "gates": {
+    "mathematics.target_training": {
+      "pass": false,
+      "tasks_observed": 4,
+      "positive": 3,
+      "negative": 13,
+      "mixed_tasks": 3,
+      "solvable_tasks": 3
+    },
+    "mathematics.qualification": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "physics.target_training": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "physics.qualification": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "coding.target_training": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "coding.qualification": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "coding.headroom": {
+      "pass": null,
+      "oracle_correct": 0,
+      "specialist_correct": 0,
+      "first_candidate_correct": 0,
+      "oracle_minus_specialist": 0,
+      "oracle_minus_first": 0,
+      "tasks_observed": 0
+    }
+  },
+  "failure": null,
+  "independent_replay": "PASS",
+  "candidate_outcomes": 16,
+  "assets_unchanged": true,
+  "training_executed": false,
+  "research_sprint": "STOPPED",
+  "website_changes_authorized": false
+}
