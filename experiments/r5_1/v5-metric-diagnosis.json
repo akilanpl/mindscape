@@ -1,0 +1,91 @@
+{
+  "source": "V5 existing preserved evidence only; no new execution",
+  "scope": "post-hoc diagnosis, not a revision of V5 gates",
+  "aggregate": {
+    "tasks": 8,
+    "tasks_with_changed_entities": 6,
+    "positive_valid": 6,
+    "negative_invalid": 2,
+    "whole_graph_mse": 0.0004,
+    "changed_entity_mse": 0.0008,
+    "unchanged_entity_mse": 0.0
+  },
+  "scalar_pooled_whole_graph_mse": 0.0004,
+  "changed_entities": 12,
+  "active_entities": 24,
+  "per_task": [
+    {
+      "whole_graph_mse": 0.0010666666666666667,
+      "changed_entity_mse": 0.0016,
+      "unchanged_entity_mse": 0.0,
+      "changed_entities": 2,
+      "unchanged_entities": 1,
+      "valid": 1,
+      "identity": "3f22629cc54cffac2d0ed9cc914ab2bd368d6860211e78f9b3a8f202b4ea35af"
+    },
+    {
+      "whole_graph_mse": 0.0010666666666666667,
+      "changed_entity_mse": 0.0016,
+      "unchanged_entity_mse": 0.0,
+      "changed_entities": 2,
+      "unchanged_entities": 1,
+      "valid": 1,
+      "identity": "7c1732bf3ede05fa361f3437b65afe0a36c1f10db4fae4409f1d7670b5ff3cf4"
+    },
+    {
+      "whole_graph_mse": 0.0,
+      "changed_entity_mse": null,
+      "unchanged_entity_mse": 0.0,
+      "changed_entities": 0,
+      "unchanged_entities": 3,
+      "valid": 0,
+      "identity": "b4d25962f988c60372779bcf21185f5d337aa99ce500691818157edeecd5a747"
+    },
+    {
+      "whole_graph_mse": 0.0002666666666666667,
+      "changed_entity_mse": 0.0004,
+      "unchanged_entity_mse": 0.0,
+      "changed_entities": 2,
+      "unchanged_entities": 1,
+      "valid": 1,
+      "identity": "871cb56d04bd188c454faa370a29d55dcf587579cb9d7c5628c16d2e35055763"
+    },
+    {
+      "whole_graph_mse": 0.0002666666666666667,
+      "changed_entity_mse": 0.0004,
+      "unchanged_entity_mse": 0.0,
+      "changed_entities": 2,
+      "unchanged_entities": 1,
+      "valid": 1,
+      "identity": "1c2987102bc76dc9a28e0907d7747faf47a7fba45654c0daad3185fff6a8db37"
+    },
+    {
+      "whole_graph_mse": 0.0,
+      "changed_entity_mse": null,
+      "unchanged_entity_mse": 0.0,
+      "changed_entities": 0,
+      "unchanged_entities": 3,
+      "valid": 0,
+      "identity": "f7e7a4ef210071ccc968da39b939bde2336fd7dec5931b8ec068379d3537fb27"
+    },
+    {
+      "whole_graph_mse": 0.0002666666666666667,
+      "changed_entity_mse": 0.0004,
+      "unchanged_entity_mse": 0.0,
+      "changed_entities": 2,
+      "unchanged_entities": 1,
+      "valid": 1,
+      "identity": "31827a3d9f55be6eaee09ff44855bafdea0f061b25580f52a3204aa1ad278933"
+    },
+    {
+      "whole_graph_mse": 0.0002666666666666667,
+      "changed_entity_mse": 0.0004,
+      "unchanged_entity_mse": 0.0,
+      "changed_entities": 2,
+      "unchanged_entities": 1,
+      "valid": 1,
+      "identity": "6cd54302bb5012a3c381603578ebf4a59c0d7427525e279327676cb76292e50d"
+    }
+  ],
+  "v5_verdict": "DATA_NO_GO unchanged"
+}

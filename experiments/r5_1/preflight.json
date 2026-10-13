@@ -1,0 +1,13 @@
+{
+  "status": "PREPARED_NOT_RUN",
+  "tests": 8,
+  "v5_original_qualification_files_unchanged": 92,
+  "v4_original_files_unchanged": 120,
+  "v5_model_and_interfaces_unchanged": true,
+  "fresh_public_tasks": 108,
+  "maximum_screen_executions": 81,
+  "held_out_tasks": 27,
+  "new_target_executions": 0,
+  "neural_execution": false,
+  "training": false
+}
