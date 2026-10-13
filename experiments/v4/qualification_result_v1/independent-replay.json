@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "completed_requests": 4,
+  "candidate_outcomes": 16,
+  "decision": "DATA_NO_GO",
+  "gates": {
+    "mathematics.target_training": {
+      "pass": false,
+      "tasks_observed": 4,
+      "positive": 3,
+      "negative": 13,
+      "mixed_tasks": 3,
+      "solvable_tasks": 3
+    },
+    "mathematics.qualification": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "physics.target_training": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "physics.qualification": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "coding.target_training": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "coding.qualification": {
+      "pass": null,
+      "tasks_observed": 0,
+      "positive": 0,
+      "negative": 0,
+      "mixed_tasks": 0,
+      "solvable_tasks": 0
+    },
+    "coding.headroom": {
+      "pass": null,
+      "oracle_correct": 0,
+      "specialist_correct": 0,
+      "first_candidate_correct": 0,
+      "oracle_minus_specialist": 0,
+      "oracle_minus_first": 0,
+      "tasks_observed": 0
+    }
+  },
+  "neural_execution": false
+}

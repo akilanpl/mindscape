@@ -15,3 +15,7 @@ PYTHONPATH=src:work/physics-deps/site-packages /Users/akilan/Documents/Codex/202
 ```
 
 Use a new output directory. This checks tensors, saved metrics and metadata; it does not execute models. Full candidate execution replay uses `python -m mindscape.v4.audit <copy-of-run>` with the same Python/PYTHONPATH. Audit writes replay receipts, so always give it a copy to preserve original bytes. Native checkpoint forward replay and bitwise continuation are explicitly not claimed. Frozen sources are archived to support reconstruction; new files added after the run must not be mistaken for its original source identity.
+
+## Final qualification and sprint stop
+
+The fresh-data screen completed **DATA_NO_GO**, stopping after 4 requests (3 positive/13 negative mathematics candidates; minimum positives 4). The remaining 32 requests were not executed. See [qualification-result.md](qualification-result.md) and [website-update-handoff.md](website-update-handoff.md). No further research or website changes are authorized.

@@ -1,0 +1,1992 @@
+{
+  "version": 1,
+  "proposal_sha256": "1b4d24eae26a3aece9195cb96ebe2507bf9e63878548a3734b328258d22a7761",
+  "seed": 2026101404,
+  "maximum_requests": 36,
+  "tasks": [
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "index": 0,
+      "public": {
+        "operation": "add",
+        "left": 3,
+        "right": 5,
+        "incoming": 0
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 8,
+        "carry": 0
+      },
+      "identity": "e90d8c9a5672a2c0ae92a9b5e3a609cf4ec9b8947478d394c84338a53e49be08"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "index": 1,
+      "public": {
+        "operation": "add",
+        "left": 3,
+        "right": 3,
+        "incoming": 1
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 7,
+        "carry": 0
+      },
+      "identity": "9b6679e602bcf00cb297ec5c4b149a3ae65c980b116a455cc54109ff31c261c7"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "index": 2,
+      "public": {
+        "operation": "sub",
+        "left": 7,
+        "right": 2,
+        "incoming": 0
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 5,
+        "carry": 0
+      },
+      "identity": "5a673b86814310ac2bb66322189e5c3719272ff6a87a5458885b99d25759a747"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "index": 3,
+      "public": {
+        "operation": "sub",
+        "left": 5,
+        "right": 3,
+        "incoming": 1
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 1,
+        "carry": 0
+      },
+      "identity": "f6a57f9036fe3395f07f516bda55c01eb740eda0f82c105ceae778afab461b1e"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "index": 0,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2000,
+        "horizon": 8,
+        "target": [
+          -0.7908717393875122,
+          1.8661359548568726
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "identity": "02f281d7335eb40401997f41448da0582b9cfd02b7c776b8156775c4b09ad1b4"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "index": 1,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2001,
+        "horizon": 16,
+        "target": [
+          -0.330224871635437,
+          2.1367881298065186
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          0.5,
+          0
+        ]
+      },
+      "identity": "310d0af3418723438d43f9540f3c877f3a0ae2aed7bdc8c4f69025af506007e0"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "index": 2,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2002,
+        "horizon": 8,
+        "target": [
+          -0.8424638509750366,
+          2.5462453365325928
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          0,
+          0.5
+        ]
+      },
+      "identity": "8c07df04a3fa4650e4a13f53146ef39c6e0eb6966c729516c6e901f88af6c9ff"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "index": 3,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2003,
+        "horizon": 16,
+        "target": [
+          -1.3616123795509338,
+          2.1434545516967773
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          -0.5,
+          0
+        ]
+      },
+      "identity": "e80f7890aa13db1461cf764f3395678eaf6e37d2761ae70a000623b9b40c7089"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "index": 0,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_0(values):\n    return sum(item for item in values if item > 101)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_0",
+          "description": "Return the sum of values at least 101. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_0",
+          "cases": [
+            {
+              "args": [
+                [
+                  101
+                ]
+              ],
+              "expected": 101,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  101,
+                  102,
+                  109
+                ]
+              ],
+              "expected": 312,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_0",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                100
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                101,
+                101
+              ]
+            ],
+            "expected": 202,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                102
+              ]
+            ],
+            "expected": 102,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                107,
+                108
+              ]
+            ],
+            "expected": 215,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                99,
+                101,
+                110
+              ]
+            ],
+            "expected": 211,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "inclusive",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "597673781a34a72723805797e1abddec31d8fbc4f62be6d26808df1f86261d1b"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "index": 1,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_1(values):\n    return sum(item for item in values if item >= 102)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_1",
+          "description": "Return the sum of values strictly greater than 102. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_1",
+          "cases": [
+            {
+              "args": [
+                [
+                  102
+                ]
+              ],
+              "expected": 0,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  102,
+                  103,
+                  110
+                ]
+              ],
+              "expected": 213,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_1",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                101
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                102,
+                102
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                103
+              ]
+            ],
+            "expected": 103,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                108,
+                109
+              ]
+            ],
+            "expected": 217,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                100,
+                102,
+                111
+              ]
+            ],
+            "expected": 111,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "exclusive",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "ded39be0bce172ff30a392baa042828b3e4c2529d8c4a03631ed693e998ecf50"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "index": 2,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_2(values):\n    return sum(item for item in values if item >= 110)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_2",
+          "description": "Return the sum of values at least 103. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_2",
+          "cases": [
+            {
+              "args": [
+                [
+                  103
+                ]
+              ],
+              "expected": 103,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  103,
+                  104,
+                  111
+                ]
+              ],
+              "expected": 318,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_2",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                102
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                103,
+                103
+              ]
+            ],
+            "expected": 206,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                104
+              ]
+            ],
+            "expected": 104,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                109,
+                110
+              ]
+            ],
+            "expected": 219,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                101,
+                103,
+                112
+              ]
+            ],
+            "expected": 215,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "literal",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "bbf2d5697b4d585caa329f5d36e6a9536518abd3cb921ff9c5f856cc5b67bc99"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "index": 3,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_3(values):\n    return sum(item for item in values if item >= 104)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_3",
+          "description": "Return the count of values at least 104. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_3",
+          "cases": [
+            {
+              "args": [
+                [
+                  104
+                ]
+              ],
+              "expected": 1,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  104,
+                  105,
+                  112
+                ]
+              ],
+              "expected": 3,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_3",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                103
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                104,
+                104
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                105
+              ]
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                110,
+                111
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                102,
+                104,
+                113
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "count",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "bd4e3262b397c9a4eba8ad44fa0be5f8ff9a036501816f6a48876938abb4701f"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "index": 8,
+      "public": {
+        "operation": "add",
+        "left": 3,
+        "right": 4,
+        "incoming": 0
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 7,
+        "carry": 0
+      },
+      "identity": "1ac9583dd670bdb0cdf20695875d681abba86cf68e4ccd150e4cc0c6632395b1"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "index": 9,
+      "public": {
+        "operation": "add",
+        "left": 4,
+        "right": 6,
+        "incoming": 1
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 1,
+        "carry": 1
+      },
+      "identity": "fcd801b4026301f3b257965593f0754a599f0a4b1c9144a6b015f82ef1c62e90"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "index": 10,
+      "public": {
+        "operation": "sub",
+        "left": 9,
+        "right": 7,
+        "incoming": 0
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 2,
+        "carry": 0
+      },
+      "identity": "9637eb4961ef1a7cbb16f3bce798d8d7c6ff56cf659bf1b88324d1b6ee9201cd"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "index": 11,
+      "public": {
+        "operation": "sub",
+        "left": 6,
+        "right": 5,
+        "incoming": 1
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 0,
+        "carry": 0
+      },
+      "identity": "7b817eaf9d51fecce05086d337189c69c7827da0a118315912058c140fb12dee"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "index": 8,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2008,
+        "horizon": 8,
+        "target": [
+          -0.7189433574676514,
+          2.082993268966675
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "identity": "6df24289ce78b0bbadd387e5baccbe334a19dddc52a92f4f270e683caaf11525"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "index": 9,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2009,
+        "horizon": 16,
+        "target": [
+          -0.3215758204460144,
+          2.72282338142395
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          0.5,
+          0
+        ]
+      },
+      "identity": "2dc373c2e33e090eb8c6530b74b9105771572e5f10eb04fe6192a16251e8f7d8"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "index": 10,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2010,
+        "horizon": 8,
+        "target": [
+          -0.8630391359329224,
+          2.118109345436096
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          0,
+          0.5
+        ]
+      },
+      "identity": "bccfbffd5b1fb3eb64c1caf77c53fef7d25deca0b549bb4b4f3d9eb6fd4eaa87"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "index": 11,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2011,
+        "horizon": 16,
+        "target": [
+          -1.224475383758545,
+          2.2729835510253906
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          -0.5,
+          0
+        ]
+      },
+      "identity": "c44a53b73b93fa9f5723e3e126db4e511e49942cbabdb7d96d2a350d301dcf4e"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "index": 8,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_8(values):\n    return sum(item for item in values if item > 109)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_8",
+          "description": "Return the sum of values at least 109. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_8",
+          "cases": [
+            {
+              "args": [
+                [
+                  109
+                ]
+              ],
+              "expected": 109,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  109,
+                  110,
+                  117
+                ]
+              ],
+              "expected": 336,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_8",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                108
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                109,
+                109
+              ]
+            ],
+            "expected": 218,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                110
+              ]
+            ],
+            "expected": 110,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                115,
+                116
+              ]
+            ],
+            "expected": 231,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                107,
+                109,
+                118
+              ]
+            ],
+            "expected": 227,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "inclusive",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "875dcfe3bb764a6b6aea768f842e0fb474072024a743d59fa29c9137628e6c94"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "index": 9,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_9(values):\n    return sum(item for item in values if item >= 110)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_9",
+          "description": "Return the sum of values strictly greater than 110. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_9",
+          "cases": [
+            {
+              "args": [
+                [
+                  110
+                ]
+              ],
+              "expected": 0,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  110,
+                  111,
+                  118
+                ]
+              ],
+              "expected": 229,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_9",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                109
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                110,
+                110
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                111
+              ]
+            ],
+            "expected": 111,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                116,
+                117
+              ]
+            ],
+            "expected": 233,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                108,
+                110,
+                119
+              ]
+            ],
+            "expected": 119,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "exclusive",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "9c976ce3940f665b6296e841bc58a908e1af22512952a212c898b4df93a25a44"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "index": 10,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_10(values):\n    return sum(item for item in values if item >= 118)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_10",
+          "description": "Return the sum of values at least 111. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_10",
+          "cases": [
+            {
+              "args": [
+                [
+                  111
+                ]
+              ],
+              "expected": 111,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  111,
+                  112,
+                  119
+                ]
+              ],
+              "expected": 342,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_10",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                110
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                111,
+                111
+              ]
+            ],
+            "expected": 222,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                112
+              ]
+            ],
+            "expected": 112,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                117,
+                118
+              ]
+            ],
+            "expected": 235,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                109,
+                111,
+                120
+              ]
+            ],
+            "expected": 231,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "literal",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "0e6f45a9c192f5a77dad59b6151c145373b855a71c5df46211b684f2f5adf5ad"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "index": 11,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_11(values):\n    return sum(item for item in values if item >= 112)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_11",
+          "description": "Return the count of values at least 112. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_11",
+          "cases": [
+            {
+              "args": [
+                [
+                  112
+                ]
+              ],
+              "expected": 1,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  112,
+                  113,
+                  120
+                ]
+              ],
+              "expected": 3,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_11",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                111
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                112,
+                112
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                113
+              ]
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                118,
+                119
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                110,
+                112,
+                121
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "count",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "3fd13c82b6ad7a3a9df0cb4bda95d210e41f462fc6db75269a7ad950387db115"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "index": 4,
+      "public": {
+        "operation": "add",
+        "left": 5,
+        "right": 8,
+        "incoming": 0
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 3,
+        "carry": 1
+      },
+      "identity": "d80b2761312ded2ca1e9b05537187600ea8b08e697b601023464f493a67d43e8"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "index": 5,
+      "public": {
+        "operation": "add",
+        "left": 4,
+        "right": 2,
+        "incoming": 1
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 7,
+        "carry": 0
+      },
+      "identity": "d6972da331f30a6f2cd71d321b54f4f1dcfada09c70958001d216762f0198e29"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "index": 6,
+      "public": {
+        "operation": "sub",
+        "left": 7,
+        "right": 0,
+        "incoming": 0
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 7,
+        "carry": 0
+      },
+      "identity": "78a6f7e29bb609ed16740ea0590d8975cec0165d31aed87fba6cd4b1f54646ab"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "index": 7,
+      "public": {
+        "operation": "sub",
+        "left": 1,
+        "right": 5,
+        "incoming": 1
+      },
+      "scorer": {
+        "kind": "write_only_digit_carry",
+        "digit": 5,
+        "carry": 1
+      },
+      "identity": "5cf72e6ec4389981f26fda5b871ec126a3e8966f0f512962facbefe4180210e9"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "index": 4,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2004,
+        "horizon": 8,
+        "target": [
+          -0.8755756616592407,
+          2.238821029663086
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "identity": "61cc562ff3ede9460670017eb2319adafb5a30b52e17ed537826c24dec401541"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "index": 5,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2005,
+        "horizon": 16,
+        "target": [
+          -0.39170950651168823,
+          2.459944725036621
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          0.5,
+          0
+        ]
+      },
+      "identity": "c52a168884cb46a0461073816924d23801efd69195509cb6447d91d288b19f45"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "index": 6,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2006,
+        "horizon": 8,
+        "target": [
+          -0.7483726739883423,
+          2.5769340991973877
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          0,
+          0.5
+        ]
+      },
+      "identity": "d16f49243728bc159074a1da0011f0f65457588f1415eaad0b380ea2d97606ff"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "index": 7,
+      "public": {
+        "family": "motion",
+        "seed": 2026101404,
+        "index": 2007,
+        "horizon": 16,
+        "target": [
+          -1.3153756856918335,
+          3.0922629833221436
+        ]
+      },
+      "scorer": {
+        "kind": "independent_pymunk",
+        "maximum_goal_distance": 0.75,
+        "warmup_steps": 3
+      },
+      "target_rule": {
+        "public_observation_step": 3,
+        "offset": [
+          -0.5,
+          0
+        ]
+      },
+      "identity": "c969b8a509929a098280645af3d83fe7d1e2d5747cfb7a374ba746873b98b5f5"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "index": 4,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_4(values):\n    return sum(item for item in values if item > 105)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_4",
+          "description": "Return the sum of values at least 105. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_4",
+          "cases": [
+            {
+              "args": [
+                [
+                  105
+                ]
+              ],
+              "expected": 105,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  105,
+                  106,
+                  113
+                ]
+              ],
+              "expected": 324,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_4",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                104
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                105,
+                105
+              ]
+            ],
+            "expected": 210,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                106
+              ]
+            ],
+            "expected": 106,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                111,
+                112
+              ]
+            ],
+            "expected": 223,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                103,
+                105,
+                114
+              ]
+            ],
+            "expected": 219,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "inclusive",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "c9eace60f1bbd1647b39af65be795d09c9f89b2790c70510b9f3e0dc7c0afcd1"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "index": 5,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_5(values):\n    return sum(item for item in values if item >= 106)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_5",
+          "description": "Return the sum of values strictly greater than 106. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_5",
+          "cases": [
+            {
+              "args": [
+                [
+                  106
+                ]
+              ],
+              "expected": 0,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  106,
+                  107,
+                  114
+                ]
+              ],
+              "expected": 221,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_5",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                105
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                106,
+                106
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                107
+              ]
+            ],
+            "expected": 107,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                112,
+                113
+              ]
+            ],
+            "expected": 225,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                104,
+                106,
+                115
+              ]
+            ],
+            "expected": 115,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "exclusive",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "7ed7ed56c89bc0998446c2779addc1fb547202c91fd95883b09b952a7abde104"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "index": 6,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_6(values):\n    return sum(item for item in values if item >= 114)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_6",
+          "description": "Return the sum of values at least 107. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_6",
+          "cases": [
+            {
+              "args": [
+                [
+                  107
+                ]
+              ],
+              "expected": 107,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  107,
+                  108,
+                  115
+                ]
+              ],
+              "expected": 330,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_6",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                106
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                107,
+                107
+              ]
+            ],
+            "expected": 214,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                108
+              ]
+            ],
+            "expected": 108,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                113,
+                114
+              ]
+            ],
+            "expected": 227,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                105,
+                107,
+                116
+              ]
+            ],
+            "expected": 223,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "literal",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "e5846fb1ede6da63c593f6893f9c9426c89fe765111cf42a1d4e5127aebaa7c5"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "index": 7,
+      "public": {
+        "repository": {
+          "solution.py": "def qual_2026101404_7(values):\n    return sum(item for item in values if item >= 108)\n"
+        },
+        "contract": {
+          "entry": "solution.qual_2026101404_7",
+          "description": "Return the count of values at least 108. Do not mutate input.",
+          "inputs": [
+            "list of integers"
+          ],
+          "outputs": "int",
+          "invariants": [
+            "Inputs remain unchanged."
+          ]
+        },
+        "visible_tests": {
+          "entry": "solution.qual_2026101404_7",
+          "cases": [
+            {
+              "args": [
+                [
+                  108
+                ]
+              ],
+              "expected": 1,
+              "expected_type": "int",
+              "unchanged": true
+            },
+            {
+              "args": [
+                [
+                  108,
+                  109,
+                  116
+                ]
+              ],
+              "expected": 3,
+              "expected_type": "int",
+              "unchanged": true
+            }
+          ]
+        }
+      },
+      "private": {
+        "entry": "solution.qual_2026101404_7",
+        "cases": [
+          {
+            "args": [
+              []
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                107
+              ]
+            ],
+            "expected": 0,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                108,
+                108
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                109
+              ]
+            ],
+            "expected": 1,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                114,
+                115
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          },
+          {
+            "args": [
+              [
+                106,
+                108,
+                117
+              ]
+            ],
+            "expected": 2,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      },
+      "family": "count",
+      "scorer": {
+        "kind": "visible_and_private_WASI_all_pass"
+      },
+      "identity": "25d06fe34b8e94a8279f3177e0f36b5321a91f091c0f6f478b9d04d33b20902f"
+    }
+  ],
+  "tasks_sha256": "cf88333910330d8bbb3d51461f9f8d6f31236435fa6e28700e25a521c40f8072",
+  "execution_order": "first-four train by mathematics/physics/coding; qualification by same order; remaining train by same order",
+  "stop_policy": "Check a gate when its four-task cohort is complete; stop before next request on failure; no retries/resume.",
+  "scorer_policy": "Only independently executed outcomes count. Specialist scores are predictions, not verification scores."
+}
