@@ -1,0 +1,27 @@
+{
+  "approved": false,
+  "approved_by": null,
+  "decision_id": null,
+  "expires_at_utc": null,
+  "fits": 6,
+  "integration_lock_sha256": null,
+  "issued_at_utc": null,
+  "models": [
+    "markov",
+    "recurrent"
+  ],
+  "output_directory": null,
+  "purpose": "R54_SCIENTIFIC_TRAINING",
+  "qualification_final_receipt_sha256": null,
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "source_commit": null,
+  "statement": "I authorize exactly six R5.4 scientific fits, separate from engineering qualification.",
+  "total_optimizer_updates": 4800,
+  "updates_per_fit": 800,
+  "v1_lock_sha256": null,
+  "v2_lock_sha256": null
+}

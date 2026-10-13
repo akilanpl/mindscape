@@ -1,0 +1,649 @@
+{
+  "assessments": [
+    {
+      "by_batch": {
+        "first32": {
+          "cold": {
+            "maximum": 0.293249083,
+            "mean": 0.293249083,
+            "median": 0.293249083,
+            "minimum": 0.293249083,
+            "n": 1,
+            "p95": 0.293249083,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.293249083
+            ]
+          },
+          "measured": {
+            "maximum": 0.131087958,
+            "mean": 0.1302040105,
+            "median": 0.1301278545,
+            "minimum": 0.129256333,
+            "n": 8,
+            "p95": 0.1310366683,
+            "sample_stdev": 0.0006658429053615331,
+            "samples_seconds": [
+              0.130941416,
+              0.129256333,
+              0.129465792,
+              0.130030625,
+              0.130687417,
+              0.131087958,
+              0.130225084,
+              0.129937459
+            ]
+          },
+          "warmup": {
+            "maximum": 0.131762459,
+            "mean": 0.13055261133333335,
+            "median": 0.130409083,
+            "minimum": 0.129486292,
+            "n": 3,
+            "p95": 0.1316271214,
+            "sample_stdev": 0.001144851230433163,
+            "samples_seconds": [
+              0.131762459,
+              0.130409083,
+              0.129486292
+            ]
+          }
+        },
+        "first32_four_digit_training_tasks": {
+          "cold": {
+            "maximum": 0.171392792,
+            "mean": 0.171392792,
+            "median": 0.171392792,
+            "minimum": 0.171392792,
+            "n": 1,
+            "p95": 0.171392792,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.171392792
+            ]
+          },
+          "measured": {
+            "maximum": 0.166298,
+            "mean": 0.165561614625,
+            "median": 0.1654315,
+            "minimum": 0.165048375,
+            "n": 8,
+            "p95": 0.1662963081,
+            "sample_stdev": 0.0004850890434463523,
+            "samples_seconds": [
+              0.166298,
+              0.166293166,
+              0.165537209,
+              0.165156375,
+              0.165565459,
+              0.165268542,
+              0.165048375,
+              0.165325791
+            ]
+          },
+          "warmup": {
+            "maximum": 0.16629375,
+            "mean": 0.16607102766666668,
+            "median": 0.166063083,
+            "minimum": 0.16585625,
+            "n": 3,
+            "p95": 0.1662706833,
+            "sample_stdev": 0.0002188581750731027,
+            "samples_seconds": [
+              0.16629375,
+              0.16585625,
+              0.166063083
+            ]
+          }
+        }
+      },
+      "full_probe_worker_wall_seconds": 5.957014040992362,
+      "memory_pass": true,
+      "original_readiness": "ENGINEERING_NO_GO",
+      "process_peak_rss_bytes": 457146368,
+      "projected_fit_seconds": 208.49109078148857,
+      "timing_pass": true,
+      "worst_warm_p95_seconds": 0.1662963081
+    },
+    {
+      "by_batch": {
+        "first32": {
+          "cold": {
+            "maximum": 0.213647584,
+            "mean": 0.213647584,
+            "median": 0.213647584,
+            "minimum": 0.213647584,
+            "n": 1,
+            "p95": 0.213647584,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.213647584
+            ]
+          },
+          "measured": {
+            "maximum": 0.131359458,
+            "mean": 0.130537026125,
+            "median": 0.1304449375,
+            "minimum": 0.130056208,
+            "n": 8,
+            "p95": 0.13130306460000002,
+            "sample_stdev": 0.000507934556815975,
+            "samples_seconds": [
+              0.130546792,
+              0.130056208,
+              0.130343083,
+              0.1300785,
+              0.131359458,
+              0.131198334,
+              0.130629167,
+              0.130084667
+            ]
+          },
+          "warmup": {
+            "maximum": 0.132168542,
+            "mean": 0.129585264,
+            "median": 0.129711791,
+            "minimum": 0.126875459,
+            "n": 3,
+            "p95": 0.1319228669,
+            "sample_stdev": 0.0026488089252565974,
+            "samples_seconds": [
+              0.132168542,
+              0.126875459,
+              0.129711791
+            ]
+          }
+        },
+        "first32_four_digit_training_tasks": {
+          "cold": {
+            "maximum": 0.167758458,
+            "mean": 0.167758458,
+            "median": 0.167758458,
+            "minimum": 0.167758458,
+            "n": 1,
+            "p95": 0.167758458,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.167758458
+            ]
+          },
+          "measured": {
+            "maximum": 0.166939917,
+            "mean": 0.165988010125,
+            "median": 0.1660968745,
+            "minimum": 0.164788458,
+            "n": 8,
+            "p95": 0.16685180415,
+            "sample_stdev": 0.0006812303402188533,
+            "samples_seconds": [
+              0.166688166,
+              0.165537042,
+              0.166102708,
+              0.166163041,
+              0.165593708,
+              0.164788458,
+              0.166939917,
+              0.166091041
+            ]
+          },
+          "warmup": {
+            "maximum": 0.167124208,
+            "mean": 0.166815958,
+            "median": 0.166935125,
+            "minimum": 0.166388541,
+            "n": 3,
+            "p95": 0.1671052997,
+            "sample_stdev": 0.00038203673140026374,
+            "samples_seconds": [
+              0.167124208,
+              0.166388541,
+              0.166935125
+            ]
+          }
+        }
+      },
+      "full_probe_worker_wall_seconds": 5.022346624988131,
+      "memory_pass": true,
+      "original_readiness": "ENGINEERING_NO_GO",
+      "process_peak_rss_bytes": 458194944,
+      "projected_fit_seconds": 207.7556849174822,
+      "timing_pass": true,
+      "worst_warm_p95_seconds": 0.16685180415
+    },
+    {
+      "by_batch": {
+        "first32": {
+          "cold": {
+            "maximum": 0.210566583,
+            "mean": 0.210566583,
+            "median": 0.210566583,
+            "minimum": 0.210566583,
+            "n": 1,
+            "p95": 0.210566583,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.210566583
+            ]
+          },
+          "measured": {
+            "maximum": 0.131698708,
+            "mean": 0.130046968875,
+            "median": 0.13043162549999998,
+            "minimum": 0.125801833,
+            "n": 8,
+            "p95": 0.1313734999,
+            "sample_stdev": 0.001776251374876349,
+            "samples_seconds": [
+              0.131698708,
+              0.130393084,
+              0.130242125,
+              0.130470167,
+              0.130318167,
+              0.130682125,
+              0.125801833,
+              0.130769542
+            ]
+          },
+          "warmup": {
+            "maximum": 0.134875125,
+            "mean": 0.131727014,
+            "median": 0.131119375,
+            "minimum": 0.129186542,
+            "n": 3,
+            "p95": 0.13449955000000002,
+            "sample_stdev": 0.002892561667918778,
+            "samples_seconds": [
+              0.131119375,
+              0.129186542,
+              0.134875125
+            ]
+          }
+        },
+        "first32_four_digit_training_tasks": {
+          "cold": {
+            "maximum": 0.166449625,
+            "mean": 0.166449625,
+            "median": 0.166449625,
+            "minimum": 0.166449625,
+            "n": 1,
+            "p95": 0.166449625,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.166449625
+            ]
+          },
+          "measured": {
+            "maximum": 0.166698666,
+            "mean": 0.1658923905,
+            "median": 0.1661861665,
+            "minimum": 0.1644815,
+            "n": 8,
+            "p95": 0.16665589320000002,
+            "sample_stdev": 0.0007907214807832162,
+            "samples_seconds": [
+              0.165615083,
+              0.166361792,
+              0.166698666,
+              0.166576458,
+              0.1644815,
+              0.165033292,
+              0.166359583,
+              0.16601275
+            ]
+          },
+          "warmup": {
+            "maximum": 0.167203125,
+            "mean": 0.16672684733333334,
+            "median": 0.166801083,
+            "minimum": 0.166176334,
+            "n": 3,
+            "p95": 0.1671629208,
+            "sample_stdev": 0.0005174051991179944,
+            "samples_seconds": [
+              0.167203125,
+              0.166801083,
+              0.166176334
+            ]
+          }
+        }
+      },
+      "full_probe_worker_wall_seconds": 5.00200091698207,
+      "memory_pass": true,
+      "original_readiness": "ENGINEERING_NO_GO",
+      "process_peak_rss_bytes": 458686464,
+      "projected_fit_seconds": 207.49007321547313,
+      "timing_pass": true,
+      "worst_warm_p95_seconds": 0.16665589320000002
+    },
+    {
+      "by_batch": {
+        "first32": {
+          "cold": {
+            "maximum": 0.209334667,
+            "mean": 0.209334667,
+            "median": 0.209334667,
+            "minimum": 0.209334667,
+            "n": 1,
+            "p95": 0.209334667,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.209334667
+            ]
+          },
+          "measured": {
+            "maximum": 0.134406958,
+            "mean": 0.130830146,
+            "median": 0.1307985005,
+            "minimum": 0.128758,
+            "n": 8,
+            "p95": 0.13332887085,
+            "sample_stdev": 0.001672633824743135,
+            "samples_seconds": [
+              0.130736209,
+              0.134406958,
+              0.130860792,
+              0.130948791,
+              0.128758,
+              0.129565875,
+              0.131326709,
+              0.130037834
+            ]
+          },
+          "warmup": {
+            "maximum": 0.131522292,
+            "mean": 0.12918172233333333,
+            "median": 0.128553833,
+            "minimum": 0.127469042,
+            "n": 3,
+            "p95": 0.1312254461,
+            "sample_stdev": 0.002098307091874388,
+            "samples_seconds": [
+              0.128553833,
+              0.127469042,
+              0.131522292
+            ]
+          }
+        },
+        "first32_four_digit_training_tasks": {
+          "cold": {
+            "maximum": 0.166333375,
+            "mean": 0.166333375,
+            "median": 0.166333375,
+            "minimum": 0.166333375,
+            "n": 1,
+            "p95": 0.166333375,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.166333375
+            ]
+          },
+          "measured": {
+            "maximum": 0.174911458,
+            "mean": 0.16713355725,
+            "median": 0.165940833,
+            "minimum": 0.1643895,
+            "n": 8,
+            "p95": 0.17282379585,
+            "sample_stdev": 0.003406203890932783,
+            "samples_seconds": [
+              0.168946709,
+              0.174911458,
+              0.165887833,
+              0.165191584,
+              0.165993833,
+              0.166104291,
+              0.16564325,
+              0.1643895
+            ]
+          },
+          "warmup": {
+            "maximum": 0.166655208,
+            "mean": 0.16315751366666667,
+            "median": 0.162059,
+            "minimum": 0.160758333,
+            "n": 3,
+            "p95": 0.1661955872,
+            "sample_stdev": 0.0030981176379047187,
+            "samples_seconds": [
+              0.160758333,
+              0.162059,
+              0.166655208
+            ]
+          }
+        }
+      },
+      "full_probe_worker_wall_seconds": 5.005508125002962,
+      "memory_pass": true,
+      "original_readiness": "ENGINEERING_NO_GO",
+      "process_peak_rss_bytes": 456966144,
+      "projected_fit_seconds": 214.8968172075044,
+      "timing_pass": true,
+      "worst_warm_p95_seconds": 0.17282379585
+    },
+    {
+      "by_batch": {
+        "first32": {
+          "cold": {
+            "maximum": 0.207881541,
+            "mean": 0.207881541,
+            "median": 0.207881541,
+            "minimum": 0.207881541,
+            "n": 1,
+            "p95": 0.207881541,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.207881541
+            ]
+          },
+          "measured": {
+            "maximum": 0.130858834,
+            "mean": 0.1297160365,
+            "median": 0.130154979,
+            "minimum": 0.126290625,
+            "n": 8,
+            "p95": 0.13068473805,
+            "sample_stdev": 0.001429296949989555,
+            "samples_seconds": [
+              0.130858834,
+              0.126290625,
+              0.130361417,
+              0.129577041,
+              0.130139,
+              0.130170958,
+              0.130031792,
+              0.130298625
+            ]
+          },
+          "warmup": {
+            "maximum": 0.131204375,
+            "mean": 0.13036709733333335,
+            "median": 0.129996375,
+            "minimum": 0.129900542,
+            "n": 3,
+            "p95": 0.131083575,
+            "sample_stdev": 0.0007266852202269844,
+            "samples_seconds": [
+              0.131204375,
+              0.129996375,
+              0.129900542
+            ]
+          }
+        },
+        "first32_four_digit_training_tasks": {
+          "cold": {
+            "maximum": 0.166201042,
+            "mean": 0.166201042,
+            "median": 0.166201042,
+            "minimum": 0.166201042,
+            "n": 1,
+            "p95": 0.166201042,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.166201042
+            ]
+          },
+          "measured": {
+            "maximum": 0.165007792,
+            "mean": 0.16287967725,
+            "median": 0.164203667,
+            "minimum": 0.157749208,
+            "n": 8,
+            "p95": 0.16483616075,
+            "sample_stdev": 0.0026400625839870153,
+            "samples_seconds": [
+              0.157749208,
+              0.159855083,
+              0.163024834,
+              0.165007792,
+              0.164334334,
+              0.16447575,
+              0.164073,
+              0.164517417
+            ]
+          },
+          "warmup": {
+            "maximum": 0.164928417,
+            "mean": 0.16468898666666668,
+            "median": 0.164581459,
+            "minimum": 0.164557084,
+            "n": 3,
+            "p95": 0.1648937212,
+            "sample_stdev": 0.00020771061250290376,
+            "samples_seconds": [
+              0.164928417,
+              0.164557084,
+              0.164581459
+            ]
+          }
+        }
+      },
+      "full_probe_worker_wall_seconds": 4.993671541014919,
+      "memory_pass": true,
+      "original_readiness": "ENGINEERING_NO_GO",
+      "process_peak_rss_bytes": 456720384,
+      "projected_fit_seconds": 205.29390021152238,
+      "timing_pass": true,
+      "worst_warm_p95_seconds": 0.16483616075
+    },
+    {
+      "by_batch": {
+        "first32": {
+          "cold": {
+            "maximum": 0.209285791,
+            "mean": 0.209285791,
+            "median": 0.209285791,
+            "minimum": 0.209285791,
+            "n": 1,
+            "p95": 0.209285791,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.209285791
+            ]
+          },
+          "measured": {
+            "maximum": 0.131843667,
+            "mean": 0.130417125125,
+            "median": 0.13071210449999998,
+            "minimum": 0.127230125,
+            "n": 8,
+            "p95": 0.13157937325,
+            "sample_stdev": 0.0013792288089323613,
+            "samples_seconds": [
+              0.13013775,
+              0.131088542,
+              0.130703084,
+              0.130721125,
+              0.130563583,
+              0.127230125,
+              0.131843667,
+              0.131049125
+            ]
+          },
+          "warmup": {
+            "maximum": 0.132576208,
+            "mean": 0.130908042,
+            "median": 0.130989459,
+            "minimum": 0.129158459,
+            "n": 3,
+            "p95": 0.1324175331,
+            "sample_stdev": 0.0017103285072368397,
+            "samples_seconds": [
+              0.132576208,
+              0.130989459,
+              0.129158459
+            ]
+          }
+        },
+        "first32_four_digit_training_tasks": {
+          "cold": {
+            "maximum": 0.166328208,
+            "mean": 0.166328208,
+            "median": 0.166328208,
+            "minimum": 0.166328208,
+            "n": 1,
+            "p95": 0.166328208,
+            "sample_stdev": null,
+            "samples_seconds": [
+              0.166328208
+            ]
+          },
+          "measured": {
+            "maximum": 0.16713675,
+            "mean": 0.165911104,
+            "median": 0.165862937,
+            "minimum": 0.165016958,
+            "n": 8,
+            "p95": 0.16691499595,
+            "sample_stdev": 0.000715788670664544,
+            "samples_seconds": [
+              0.165446958,
+              0.166243833,
+              0.16713675,
+              0.165618708,
+              0.165215292,
+              0.166503167,
+              0.166107166,
+              0.165016958
+            ]
+          },
+          "warmup": {
+            "maximum": 0.166201208,
+            "mean": 0.16578593066666666,
+            "median": 0.165793,
+            "minimum": 0.165363584,
+            "n": 3,
+            "p95": 0.16616038719999998,
+            "sample_stdev": 0.00041885674514006033,
+            "samples_seconds": [
+              0.166201208,
+              0.165793,
+              0.165363584
+            ]
+          }
+        }
+      },
+      "full_probe_worker_wall_seconds": 5.004495250002947,
+      "memory_pass": true,
+      "original_readiness": "ENGINEERING_NO_GO",
+      "process_peak_rss_bytes": 458014720,
+      "projected_fit_seconds": 207.80473801500443,
+      "timing_pass": true,
+      "worst_warm_p95_seconds": 0.16691499595
+    }
+  ],
+  "campaign_optimizer_updates": 0,
+  "independent_audit": "VERIFIED",
+  "limitations": [
+    "Per-trial native optimizer write/hash assertions are recorded; raw initial/restored parameters and clipped gradients are independently inspected.",
+    "Diagnostic estimates are conservative resource screens, not a completed 800-update fit or evidence of learning."
+  ],
+  "maximum_process_rss_bytes": 458686464,
+  "original_readiness": "ENGINEERING_NO_GO",
+  "receipt_sha256": "2dcd247d5827d3fcb61264d4d614192c0857ec09a82cea2cce1884e64ff3c0a8",
+  "sampled_max_driver_allocated_bytes": 19939328,
+  "sampled_max_live_tensor_bytes": 46336,
+  "scratch_optimizer_steps": 144,
+  "status": "R54_V2_ENGINEERING_READY_TRAINING_NOT_AUTHORIZED",
+  "training_authorized": false,
+  "v2_lock_sha256": "ca6f9bf67ecf9fea9d3b0c8075cf3c0c0c4001f1a9049fef1cff28e5f7c585e5"
+}

@@ -1,0 +1,8 @@
+{
+  "campaign_source_sha256": "4131182eb5ed9595feed03a28753feb69e39a7ef8596d74023d8bb992e2aa21e",
+  "original_science_first_line": 31,
+  "original_science_last_line": 96,
+  "replaced_preamble_statements": 6,
+  "scientific_suffix_ast_sha256": "0dff2e7d9244703599ed8e5554b7f170639a908ce00488c11dfd02613150ca13",
+  "scope": "Only authorization, source/data readiness and engineering preamble is replaced; exact frozen scientific AST is reused"
+}
