@@ -1,171 +1,171 @@
 # Mindscape
 
-**Mindscape: A Multimodal Cognitive Architecture for Grounded Event Representation
-and Structured Goal-Directed Reasoning**
+Mindscape is an experimental AI research system for mathematics, Python coding,
+and simulated physics. It investigates explicit state transitions, structured
+representations, and shared neural learning through frozen experiments and
+independent verification.
 
-This research project tests whether explicit state-transition representations can
-improve data efficiency, structural generalization, and groundedness relative to
-answer-oriented learning. No superiority or learned reasoning result is established.
+The latest implementation is a **versioned three-domain research kernel**.
+Engineering integration is working; learned cross-domain transfer and neural
+superiority have **not** been demonstrated. This repository is not a public
+Mind1.0 release or Research Alpha launch.
 
-Observation → state → action → event/result → state update → verification → goal.
+## Current status
 
-## Final research build
+| Component or study | Verified status | Interpretation |
+|---|---|---|
+| V3 unified runtime | Engineering integration verified | Specialists can execute through a common runtime; routing is not learned transfer. |
+| V4 shared candidate scoring | **NO_GO** | Semantic transfer was not demonstrated. The fresh-data qualification screen also stopped at **DATA_NO_GO**. |
+| V5 structured transition prototype | **DATA_NO_GO** | Original qualification failed; its architecture remains available for research. |
+| R5.1 learning readiness | **DATA_READY** | 81 tasks executed and independently replayed before the learning pilot. Readiness was not a learning result. |
+| R5.1 shared neural learning | **NO_GO** | Sharing did not meet matched-control gates; negative transfer and a target-exposure confound remain documented. |
+| R5.2 mathematical generalization | **NO_GO — post-hoc recovery** | Measurements recovered from frozen predictions; the original **FAILED_CAMPAIGN** remains preserved. |
+| R5.3 physics superiority | **NO_GO — post-hoc recovery** | Measurements recovered from frozen evidence; the original **FAILED_CAMPAIGN** remains preserved. |
+| Current R5 kernel | **CPU tool integration PASS** | 15 focused tests and six direct/kernel comparisons pass. Native MPS/shared-core and Qwen repair integration smoke checks are **NOT_RUN**. |
 
-The final controlled study uses one pinned, free Apache2.0 SmolLM2-135M-Instruct
-frozen backbone with identical 337,618-parameter trainable heads for answer-only,
-structured, trajectory-supervised B and experiential C. It evaluates seven nested
-problem budgets 10–1000 with three seeds, separate IID/structural OOD, 100 numerical
-action candidates and no inference-time arithmetic correction. Historical MLPs,
-negative studies and Git history remain intact.
+Successful symbolic computation, simulator execution, and specialist integration
+are distinct from learned reasoning. None reverses the scientific NO_GO findings.
 
-See [final results](docs/final_results.md), [research conclusions](docs/research_conclusions.md),
-[protocol](docs/final_experimental_protocol.md), [architecture](docs/final_architecture.md),
-[limitations](docs/limitations.md) and [exact reproduction commands](docs/final_reproducibility.md).
-The static [evidence demo](demo/index.html) displays frozen public execution records,
-including wrong actions, with an answer-only/Mindscape toggle.
+## Available capabilities
 
-The architecture implements typed state/action/event/result/goal trajectories,
-a generic environment interface, independent replay verification, working/episodic/
-concept memory and bounded hypothetical simulation. Decimal cursor/decomposition
-is manually designed. No independent architecture, compute-efficiency or universal
-reasoning advantage is implied by the implementation.
+| Domain | Default pathway | Experimental pathway and limits |
+|---|---|---|
+| Mathematics | Verified symbolic/procedural integer arithmetic, division, fractions, elementary algebra and equations, matrix products, coordinate geometry, polynomial calculus, probability and statistics | Fixed R5.2 recurrent arithmetic checkpoint. Neural outputs remain uncorrected and are independently checked. Symbolic support is bounded, not comprehensive mathematical mastery. |
+| Python coding | Existing isolated WASI execution; preserved Qwen coding repair specialist, evaluator and verified training memory | Existing Qwen/WASI behavior is unchanged. Passing visible tests does not establish general program correctness. Local model/runtime assets are required. |
+| Simulated physics | Analytical contact/spring forecasts, with separate independent Pymunk execution when a verifier scene is provided | Fixed R5.3 neural forecasts remain experimental. The analytical baseline had lower reported primary OOD forecast error, but its uncertainty intervals were undercovered and remain labeled uncalibrated. |
+| Shared transitions | Explicit experimental mode only | Original 6,967-parameter V5 model with domain-specific encoders/heads and a genuinely shared trainable core. Supports bounded register, AST-edit and impulse graphs—not a universal ontology or demonstrated transfer. |
 
-Phases1–4 are historical milestones: deterministic decimal execution, dataset/leakage
-infrastructure, NumPy learned prototypes and the controlled claims study. Their
-schemas, commands and results remain available. Early singleton-mask success was
-confounded and is not a final learned result. The 92 passing tests cover both legacy
-and final paths.
+The runtime loads neural assets sequentially through one model slot to limit memory
+use on the Apple Silicon development machine. Default symbolic, WASI execution,
+and analytical physics paths do not require neural model loading.
 
-## Installation and execution
+See the [capability/evidence report](experiments/r5_kernel/REPORT.md) for selection
+rationale, checkpoint provenance, negative results and limitations.
 
-Python 3.11+; the core has no runtime dependencies and requires no paid service.
+## Unified interface
+
+The stable contract identifier is **`mindscape.kernel/1`**:
+
+```text
+observation → state representation → action → prediction
+            → execution / verification → trace
+```
+
+Requests specify `version`, `domain`, `operation`, `mode`, `observation` and
+`action`. Supported modes are `validated`, `experimental_neural` and
+`experimental_shared`. Here, `validated` identifies the selected tool pathway;
+it is not a claim of perfect predictions or calibrated uncertainty.
+
+Responses preserve the original prediction, execution outcome, verification,
+model/tool provenance and ordered trace hashes. They distinguish neural inference,
+symbolic computation, procedural prediction and actual execution. Private verifier
+context is supplied separately from public observations. Unsupported requests are
+rejected; a verifier never silently replaces a neural prediction with a reference
+answer. Specialist routing is always labeled `learned_transfer=false`.
+
+See the [interface and operation guide](configs/r5_kernel/README.md).
+
+## Run examples
+
+Run from the repository root using the existing project Python environment.
+The examples below perform inference or tool execution, not training.
+
+```sh
+export PYTHONPATH=src:work/physics-deps/site-packages
+python -m mindscape.r5_kernel --capabilities
+python -m mindscape.r5_kernel --request configs/r5_kernel/example-math.json
+python -m mindscape.r5_kernel --request configs/r5_kernel/example-coding.json
+python -m mindscape.r5_kernel --request configs/r5_kernel/example-physics.json --verifier configs/r5_kernel/example-physics-verifier.json
+```
+
+The committed CPU smoke evidence includes integer composition `−432`, fraction
+addition `3/2`, a verified matrix product, polynomial integral `14`, actual WASI
+execution returning `15`, and an approximate physics forecast followed by
+independent action replay. Forecast error remains visible rather than being
+replaced with simulator truth.
+
+### Environment and assets
+
+Python 3.11+ is required. The historical base package has no runtime dependencies;
+the current kernel's domain paths require additional packages. The focused CPU
+test workflow pins NumPy 2.3.5, SymPy 1.14.0 and Pymunk 7.2.0. Coding and neural
+paths additionally need the existing WASI/PyTorch/Transformers environment and
+locally preserved assets.
+
+For a basic editable installation and public CPU tests:
 
 ```sh
 python -m venv .venv
 . .venv/bin/activate
-python -m pip install -e '.[dev]'
-make test
-make demo
-PYTHONPATH=src python scripts/run_episode.py -123 45
+python -m pip install -e . numpy==2.3.5 sympy==1.14.0 pymunk==7.2.0
+PYTHONPATH=src python -m unittest discover -s tests/r5_kernel -v
 ```
 
-Offline execution without installation:
+A fresh clone does not include every large model or local artifact. Asset-dependent
+WASI/checkpoint tests skip when those assets are absent; this is not equivalent to
+the fully populated local run. The [asset registry](configs/r5_kernel/assets.json)
+records expected hashes and local paths. The native launcher targets the existing
+macOS development environment and is not a portable installer.
+
+### Native engineering smoke
+
+On the configured Apple Silicon machine:
 
 ```sh
-PYTHONPATH=src python -m unittest discover -s tests -v
-PYTHONPATH=src python scripts/run_episode.py 19 3
+./scripts/r5_kernel/native.command
 ```
 
-The demo prints initial state, actions, events, actual results, every before/after
-state, final answer, independent verification, and goal status as JSON.
+This bounded, nontraining smoke checks MPS gradient connectivity, action/relation
+sensitivity, shared parameter identity, unchanged weights, experimental model
+loading and preserved Qwen repair parity. It refuses an existing output directory
+and does not automatically rerun. These native checks remain pending; the launcher
+is not evidence that they passed.
 
-## Benchmark and historical references
-
-The completed benchmark measures exact accuracy, structural OOD, data efficiency,
-groundedness, trajectory validity, goal success and compute. Final protocols,
-results and controls are documented in `docs/final_results.md` and
-`docs/final_experimental_protocol.md`. Historical GPT-4/Gemini sources and
-comparability limits are retained in `docs/historical_references.md`.
-Their GSM8K scores are unsuitable for direct comparison to this multiplication task.
-
-## Remaining research directions
-
-The final multiplication build and validation are complete. Full pretrained-model
-fine-tuning, independently reserved carry-only holdouts, learned cursor planning,
-matched query budgets, a second learned environment and multimodal observations
-remain future work. None is implied by directory placeholders or by the existing
-architecture. See `docs/research_conclusions.md` and `docs/second_vertical.md`.
-
-## Reproducibility
-
-The environment is deterministic, frozen records prevent mutation, and verification
-replays the authoritative transition logic from the original observation.
-`scripts/run_episode.py --output PATH` exclusively creates a JSON artifact and
-refuses to overwrite an existing file. Tests require no network. Future experiments
-must record seeds, configurations, model/data versions, splits, hyperparameters,
-checkpoints, software, hardware, runtime and raw predictions. See
-`docs/experimental_protocol.md`.
-
-## Dataset and benchmark commands
-
-From the repository root, with Python 3.11+ and PYTHONPATH=src:
+Completed smoke receipts can be checked without another neural forward:
 
 ```sh
-export PYTHONPATH=src
-python scripts/generate_data.py --config configs/experiments/data_efficiency.toml --output datasets/generated/my_run
-python scripts/dataset.py validate datasets/generated/my_run
-python scripts/dataset.py inspect datasets/generated/my_run
-python scripts/dataset.py export datasets/generated/my_run --form answer_only --split train --output answer_train.jsonl
-python scripts/evaluate.py --dataset datasets/generated/my_run --split test --training-size 1000
-python scripts/evaluate.py --dataset datasets/generated/my_run --split ood_test --training-size 1000
+PYTHONPATH=src python scripts/r5_kernel/verify_smoke.py results/r5_kernel/native-smoke
 ```
 
-Use a new output path for generation/export. Config examples: iid.toml, ood.toml and
-data_efficiency.toml. Development v1 contains 1000 train, 250 validation, 500 IID test
-and 500 OOD test examples; its nested budgets are 10,25,50,100,250,500,1000.
-The CLI evaluator uses a deterministic procedural reference only. Models later plug
-into models/base.py and evaluation/runner.py. JSON results live under results/ and
-are never overwritten. Run IDs/times vary; datasets, predictions and scores reproduce.
-See docs/milestone_02.md for actual infrastructure checks and limitations.
+## Verification and scientific boundaries
 
-## Learned training and demonstration
+- [15 focused regression tests](experiments/r5_kernel/tests.txt): contract behavior,
+  bounded mathematics, numerical precision, real WASI isolation, Pymunk replay,
+  privacy boundaries, failed-prediction preservation, checkpoint integrity and
+  resource lifetime.
+- [CPU example receipts](experiments/r5_kernel/cpu-smoke-final/summary.json) and
+  [independent audit](experiments/r5_kernel/cpu-verification.json): six direct/kernel
+  comparisons, zero optimizer steps and 1,726 historical files preserved by hash.
+- [Frozen shared-learning proposal](configs/r5_kernel/shared-study-proposal.json):
+  proposed matched target exposure and baseline-headroom requirements only. No new
+  tasks, holdout inspection or optimizer execution is authorized by integration.
 
-Install `.[learning]` for NumPy and optionally `.[plots]` for ReportLab charts. No pretrained
-model download is required; this prototype is a small task classifier/decoder, not an LLM.
+The integration commit skips automatic CI because existing unconditional historical
+workflows run neural training and experiments. Local test receipts are available;
+remote CI is not claimed. The separate kernel-only workflow contains no training.
 
-```sh
-PYTHONPATH=src python scripts/run_learning_experiment.py --dataset datasets/generated/development_v1 --output results/new_learning_run
-PYTHONPATH=src python scripts/run_learned_episode.py 19 3 --checkpoint results/new_learning_run/mindscape_n50_seed0/checkpoint --unmasked
-PYTHONPATH=src python scripts/plot_learning_curves.py results/new_learning_run
-```
+Future learning requires explicit authorization, frozen data and gates, matched
+controls and independent verification. Repeated seeds are not independent tasks.
+Historical holdouts, raw predictions, thresholds and negative results remain intact.
 
-See `docs/training.md` for individual baseline/policy training and shared evaluation
-commands; `docs/modeling.md` documents features, architecture, memory and confounds.
-The unmasked learned policy succeeds on the saved 19×3 demonstration. The frozen
-preliminary protocol uses three seeds at 50 examples and one at 100/250. Raw measured
-curves and standalone SVGs are retained in `experiments/first_learned/`. Full checkpoints,
-logs and per-example predictions remain in `results/learned_development_v1/` locally.
-Regime C is explicitly unimplemented; no experiential learning claim is made.
+## Research evidence and history
 
-## Historical phase-4 controlled research study
+The current kernel supplements earlier work; it does not rewrite its conclusions.
 
-The numerical-claim study supersedes prior oracle-assisted performance interpretation.
-Each policy must predict its numerical result; primary execution never corrects it.
-All four conditions use identical 8,722-parameter models. Seven budgets, three seeds:
-90 trained models (including interventions), 204 evaluations, 86 tests passed.
-At 1000 examples, Mindscape B IID accuracy is 6.333% ± 1.443%; C is 6.000% ± 1.732%.
-Every primary OOD run has 0% measured accuracy; N*/DER targets are not reached.
-These results do not reproduce the earlier exploratory 82% OOD score or establish
-architecture superiority. See `docs/milestone_04.md` and `docs/research_protocol.md`.
+- [V3 integration](docs/v3_integration/README.md), [mathematics](docs/v3_math/README.md)
+  and [coding](docs/v3_coding/README.md).
+- [V4 scientific report](docs/v4/scientific-report.md) and
+  [V5 scientific report](docs/v5/scientific-report.md).
+- [R5.1 verified readiness](docs/r5_1/verified-readiness.md),
+  [learning-pilot handoff](docs/r5_1_pilot/handoff.md) and
+  [current interpretation](experiments/r5_kernel/REPORT.md).
+- [R5.2 post-hoc recovery](experiments/r5_2_math/recovery_v1/REPORT.md) and
+  [R5.3 post-hoc recovery](experiments/r5_3_physics/recovery_v1/REPORT.md).
+- Earlier [controlled-study results](docs/final_results.md),
+  [research conclusions](docs/research_conclusions.md),
+  [coding metrics](docs/final_metrics.md) and
+  [Research v2 reproduction](docs/research_v2/reproduction.md).
 
-```sh
-export PYTHONPATH=src
-export OPENBLAS_NUM_THREADS=1
-python scripts/generate_data.py --config configs/experiments/research_dataset.toml --output datasets/generated/new_research_set
-python scripts/run_research_study.py --dataset datasets/generated/new_research_set --output results/new_research_study
-python scripts/analyze_research_study.py results/new_research_study
-python scripts/audit_research_study.py results/new_research_study --dataset datasets/generated/new_research_set
-python scripts/run_dream_demo.py --depth 3 --goal 3
-```
-
-Individual training/evaluation commands are `scripts/train_research.py` and
-`scripts/evaluate_research.py` (`--help`). Regime C is self-generated scalar-feedback
-learning plus positive replay, not autonomous rule discovery. Pretrained encoder/head
-backend is optional and offline by default (`.[pretrained]`); it was not used in these
-experiments. Publication SVGs, raw summaries, confidence intervals, failures and fairness
-checks are committed under `experiments/research_claims_v1/`; full local records and
-checkpoints remain under `results/research_claims_v1/`. No UI was built.
-
-Cloud continuation and verified raw-artifact restoration: [migration instructions](docs/cloud_migration.md). Historical migration snapshot: primary evidence 400/400; learning 1,122/1,920 was partial. The completed release is described below.
-
-<!-- coding-completion-release -->
-
-## Completed coding research package
-
-The frozen Qwen2.5-Coder-1.5B study contains 400/400 locked condition/task cases (A100, structured100, B100, C100), 1,920/1,920 learning cases, independent replay of all 400 locked trajectories and 16 dedicated latency cases. See [actual metrics](docs/final_metrics.md), [claims](docs/final_claims.md), [limitations](docs/final_limitations.md), [package verification](docs/final_package_verification.md) and [recorded A/C playback](demo/coding/index.html). Completion describes experimental coverage, not a positive scientific result. Historical negative studies are preserved.
-
-## Research v2
-
-Canonical v1 preservation and clean restoration are verified. A real Linux CPU cloud validation and safe resume passed. See [reproduction](docs/research_v2/reproduction.md), [cloud workflow](docs/research_v2/cloud_workflow.md), [observed computation traces](docs/research_v2/computation_tracing.md), and [frozen numeric mechanism protocol](docs/research_v2/mechanism_study.md).
-
-The numeric-core study is a bounded intervention experiment, separate from coding-foundation telemetry and historical GPT/Gemini comparisons. Neither broad intelligence nor foundation-model superiority is established. Consult versioned stage receipts under `experiments/research_v2` for actual execution state.
+Historical training commands and protocols remain in their versioned documentation.
+They are not prerequisites for using the unified kernel and should not be rerun as
+part of an integration smoke check.
