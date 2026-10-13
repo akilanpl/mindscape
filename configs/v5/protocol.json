@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "seed": 2026101505,
+  "tasks_per_domain": {"train": 24, "qualification": 8, "composition": 12},
+  "maximum_tasks": 132,
+  "optimizer_seeds": [11, 23, 47],
+  "target_training_tasks": 12,
+  "updates": {"auxiliary_or_target": 60, "target": 60},
+  "batch_size": 16,
+  "learning_rate": 0.003,
+  "conditions": ["domain_only", "shared", "randomized_auxiliary", "persistence", "procedural"],
+  "primary": "mathematics+physics -> coding: composition masked normalized transition MSE",
+  "qualification_gates": {
+    "per_domain_first_12_training": {"minimum_valid": 6, "minimum_invalid": 3, "minimum_changed_valid": 6},
+    "per_domain_qualification": {"minimum_valid": 4, "minimum_invalid": 2, "minimum_changed_valid": 4, "minimum_persistence_normalized_mse": 0.002},
+    "execution_and_independent_replay": "All targets finite and independently reproduced; all valid tasks solvable by verified procedural executor, all identities/splits disjoint; every coding target requires real WASI execution. No qualification task replacement.",
+    "composition_policy": "Composition targets are sealed as opaque hashes and not read for qualification or training. No held-out model performance is used for task selection."
+  },
+  "scientific_gates": {
+    "primary_relative_mse_improvement_vs_each_control": 0.10,
+    "primary_each_seed_positive_gain": true,
+    "primary_relative_improvement_over_persistence": 0.20,
+    "primary_validity_balanced_accuracy": 0.70,
+    "maximum_mean_other_domain_relative_mse_regression": 0.10,
+    "all_predictions_finite": true
+  },
+  "decision": "Any qualification gate failure -> DATA_NO_GO and stop before neural execution. Any scientific gate failure -> NO_GO and stop; pass -> GO_TO_INDEPENDENT_CONFIRMATION only. No extra seed, tuning, candidate expansion or budget increase.",
+  "budget": "Nine fits per target? No: three targets x three learned conditions x three seeds = 27 fits; exactly 120 updates x 16 graphs per fit. First 60 updates: domain-only repeats target labels, shared/randomized alternate two source domains; final 60 use same first 12 target tasks. Randomized condition permutes source targets/validity within source domain, preserving input graphs. Same architecture and initial weights per seed; domain dimensions and active entities cause measured compute differences.",
+  "scope": "Fresh bounded register updates, small AST literal edits and one-step physical impulses. This is a new transition-generation mechanism, not specialist candidate scoring. No Qwen, backbone training or old sealed holdout access. Expert procedural executor can be perfect on this intentionally executable microdomain; headroom is over persistence, not that expert. Procedural ceiling must be reported. Synthetic task design is disclosed; coding and physics outcomes are actual independent runtime/simulator outputs. No whole-program-repair, numerical-rule-induction or general-physics claim.",
+  "mask_policy": "Only public observed values and public actions enter graph inputs. Missing/hidden values must be zeroed and accompanied by masks. Physics study uses fully observed parameters; no claim of hidden-state inference. Targets occur only after execution.",
+  "composition_split": "Train/qualification: two math registers, one binary coding AST, one physical object. Held-out: three registers, two-level coding AST, two physical objects. Also fresh operands/literals/scene seeds. Zero-update performance recorded before fit; training curves and per-seed outcomes use same frozen identities.",
+  "constraint_thresholds": {"integer_delta_distance": 0.1, "physics_kinematic_velocity_error": 0.25, "invalid_noop_normalized_mse": 0.001}
+}
