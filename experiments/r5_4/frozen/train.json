@@ -1,0 +1,7170 @@
+[
+  {
+    "family": "short_known",
+    "left": "3687",
+    "right": "4215",
+    "split": "train",
+    "task_id": "r54-train-short_known-0000"
+  },
+  {
+    "family": "short_known",
+    "left": "1714",
+    "right": "3063",
+    "split": "train",
+    "task_id": "r54-train-short_known-0001"
+  },
+  {
+    "family": "short_known",
+    "left": "969",
+    "right": "720",
+    "split": "train",
+    "task_id": "r54-train-short_known-0002"
+  },
+  {
+    "family": "short_known",
+    "left": "1794",
+    "right": "4860",
+    "split": "train",
+    "task_id": "r54-train-short_known-0003"
+  },
+  {
+    "family": "short_known",
+    "left": "4662",
+    "right": "2623",
+    "split": "train",
+    "task_id": "r54-train-short_known-0004"
+  },
+  {
+    "family": "short_known",
+    "left": "81",
+    "right": "77",
+    "split": "train",
+    "task_id": "r54-train-short_known-0005"
+  },
+  {
+    "family": "short_known",
+    "left": "19",
+    "right": "29",
+    "split": "train",
+    "task_id": "r54-train-short_known-0006"
+  },
+  {
+    "family": "short_known",
+    "left": "371",
+    "right": "198",
+    "split": "train",
+    "task_id": "r54-train-short_known-0007"
+  },
+  {
+    "family": "short_known",
+    "left": "646",
+    "right": "636",
+    "split": "train",
+    "task_id": "r54-train-short_known-0008"
+  },
+  {
+    "family": "short_known",
+    "left": "796",
+    "right": "766",
+    "split": "train",
+    "task_id": "r54-train-short_known-0009"
+  },
+  {
+    "family": "short_known",
+    "left": "334",
+    "right": "326",
+    "split": "train",
+    "task_id": "r54-train-short_known-0010"
+  },
+  {
+    "family": "short_known",
+    "left": "9274",
+    "right": "8917",
+    "split": "train",
+    "task_id": "r54-train-short_known-0011"
+  },
+  {
+    "family": "short_known",
+    "left": "68",
+    "right": "59",
+    "split": "train",
+    "task_id": "r54-train-short_known-0012"
+  },
+  {
+    "family": "short_known",
+    "left": "9968",
+    "right": "3920",
+    "split": "train",
+    "task_id": "r54-train-short_known-0013"
+  },
+  {
+    "family": "short_known",
+    "left": "470",
+    "right": "398",
+    "split": "train",
+    "task_id": "r54-train-short_known-0014"
+  },
+  {
+    "family": "short_known",
+    "left": "233",
+    "right": "134",
+    "split": "train",
+    "task_id": "r54-train-short_known-0015"
+  },
+  {
+    "family": "short_known",
+    "left": "6779",
+    "right": "9338",
+    "split": "train",
+    "task_id": "r54-train-short_known-0016"
+  },
+  {
+    "family": "short_known",
+    "left": "538",
+    "right": "437",
+    "split": "train",
+    "task_id": "r54-train-short_known-0017"
+  },
+  {
+    "family": "short_known",
+    "left": "19",
+    "right": "26",
+    "split": "train",
+    "task_id": "r54-train-short_known-0018"
+  },
+  {
+    "family": "short_known",
+    "left": "26",
+    "right": "10",
+    "split": "train",
+    "task_id": "r54-train-short_known-0019"
+  },
+  {
+    "family": "short_known",
+    "left": "5694",
+    "right": "4056",
+    "split": "train",
+    "task_id": "r54-train-short_known-0020"
+  },
+  {
+    "family": "short_known",
+    "left": "12",
+    "right": "25",
+    "split": "train",
+    "task_id": "r54-train-short_known-0021"
+  },
+  {
+    "family": "short_known",
+    "left": "51",
+    "right": "76",
+    "split": "train",
+    "task_id": "r54-train-short_known-0022"
+  },
+  {
+    "family": "short_known",
+    "left": "18",
+    "right": "12",
+    "split": "train",
+    "task_id": "r54-train-short_known-0023"
+  },
+  {
+    "family": "short_known",
+    "left": "7045",
+    "right": "9517",
+    "split": "train",
+    "task_id": "r54-train-short_known-0024"
+  },
+  {
+    "family": "short_known",
+    "left": "341",
+    "right": "706",
+    "split": "train",
+    "task_id": "r54-train-short_known-0025"
+  },
+  {
+    "family": "short_known",
+    "left": "6858",
+    "right": "5562",
+    "split": "train",
+    "task_id": "r54-train-short_known-0026"
+  },
+  {
+    "family": "short_known",
+    "left": "486",
+    "right": "904",
+    "split": "train",
+    "task_id": "r54-train-short_known-0027"
+  },
+  {
+    "family": "short_known",
+    "left": "5839",
+    "right": "7899",
+    "split": "train",
+    "task_id": "r54-train-short_known-0028"
+  },
+  {
+    "family": "short_known",
+    "left": "361",
+    "right": "448",
+    "split": "train",
+    "task_id": "r54-train-short_known-0029"
+  },
+  {
+    "family": "short_known",
+    "left": "59",
+    "right": "12",
+    "split": "train",
+    "task_id": "r54-train-short_known-0030"
+  },
+  {
+    "family": "short_known",
+    "left": "8903",
+    "right": "9273",
+    "split": "train",
+    "task_id": "r54-train-short_known-0031"
+  },
+  {
+    "family": "short_known",
+    "left": "526",
+    "right": "138",
+    "split": "train",
+    "task_id": "r54-train-short_known-0032"
+  },
+  {
+    "family": "short_known",
+    "left": "310",
+    "right": "956",
+    "split": "train",
+    "task_id": "r54-train-short_known-0033"
+  },
+  {
+    "family": "short_known",
+    "left": "20",
+    "right": "45",
+    "split": "train",
+    "task_id": "r54-train-short_known-0034"
+  },
+  {
+    "family": "short_known",
+    "left": "812",
+    "right": "940",
+    "split": "train",
+    "task_id": "r54-train-short_known-0035"
+  },
+  {
+    "family": "short_known",
+    "left": "71",
+    "right": "85",
+    "split": "train",
+    "task_id": "r54-train-short_known-0036"
+  },
+  {
+    "family": "short_known",
+    "left": "626",
+    "right": "126",
+    "split": "train",
+    "task_id": "r54-train-short_known-0037"
+  },
+  {
+    "family": "short_known",
+    "left": "3307",
+    "right": "5047",
+    "split": "train",
+    "task_id": "r54-train-short_known-0038"
+  },
+  {
+    "family": "short_known",
+    "left": "822",
+    "right": "945",
+    "split": "train",
+    "task_id": "r54-train-short_known-0039"
+  },
+  {
+    "family": "short_known",
+    "left": "5684",
+    "right": "2785",
+    "split": "train",
+    "task_id": "r54-train-short_known-0040"
+  },
+  {
+    "family": "short_known",
+    "left": "6766",
+    "right": "4879",
+    "split": "train",
+    "task_id": "r54-train-short_known-0041"
+  },
+  {
+    "family": "short_known",
+    "left": "83",
+    "right": "81",
+    "split": "train",
+    "task_id": "r54-train-short_known-0042"
+  },
+  {
+    "family": "short_known",
+    "left": "50",
+    "right": "95",
+    "split": "train",
+    "task_id": "r54-train-short_known-0043"
+  },
+  {
+    "family": "short_known",
+    "left": "48",
+    "right": "95",
+    "split": "train",
+    "task_id": "r54-train-short_known-0044"
+  },
+  {
+    "family": "short_known",
+    "left": "849",
+    "right": "863",
+    "split": "train",
+    "task_id": "r54-train-short_known-0045"
+  },
+  {
+    "family": "short_known",
+    "left": "260",
+    "right": "141",
+    "split": "train",
+    "task_id": "r54-train-short_known-0046"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "91",
+    "split": "train",
+    "task_id": "r54-train-short_known-0047"
+  },
+  {
+    "family": "short_known",
+    "left": "8020",
+    "right": "2339",
+    "split": "train",
+    "task_id": "r54-train-short_known-0048"
+  },
+  {
+    "family": "short_known",
+    "left": "251",
+    "right": "192",
+    "split": "train",
+    "task_id": "r54-train-short_known-0049"
+  },
+  {
+    "family": "short_known",
+    "left": "618",
+    "right": "749",
+    "split": "train",
+    "task_id": "r54-train-short_known-0050"
+  },
+  {
+    "family": "short_known",
+    "left": "9906",
+    "right": "5492",
+    "split": "train",
+    "task_id": "r54-train-short_known-0051"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "21",
+    "split": "train",
+    "task_id": "r54-train-short_known-0052"
+  },
+  {
+    "family": "short_known",
+    "left": "1514",
+    "right": "3567",
+    "split": "train",
+    "task_id": "r54-train-short_known-0053"
+  },
+  {
+    "family": "short_known",
+    "left": "18",
+    "right": "65",
+    "split": "train",
+    "task_id": "r54-train-short_known-0054"
+  },
+  {
+    "family": "short_known",
+    "left": "610",
+    "right": "258",
+    "split": "train",
+    "task_id": "r54-train-short_known-0055"
+  },
+  {
+    "family": "short_known",
+    "left": "5488",
+    "right": "5711",
+    "split": "train",
+    "task_id": "r54-train-short_known-0056"
+  },
+  {
+    "family": "short_known",
+    "left": "57",
+    "right": "67",
+    "split": "train",
+    "task_id": "r54-train-short_known-0057"
+  },
+  {
+    "family": "short_known",
+    "left": "11",
+    "right": "14",
+    "split": "train",
+    "task_id": "r54-train-short_known-0058"
+  },
+  {
+    "family": "short_known",
+    "left": "95",
+    "right": "45",
+    "split": "train",
+    "task_id": "r54-train-short_known-0059"
+  },
+  {
+    "family": "short_known",
+    "left": "2551",
+    "right": "4861",
+    "split": "train",
+    "task_id": "r54-train-short_known-0060"
+  },
+  {
+    "family": "short_known",
+    "left": "97",
+    "right": "94",
+    "split": "train",
+    "task_id": "r54-train-short_known-0061"
+  },
+  {
+    "family": "short_known",
+    "left": "2391",
+    "right": "3332",
+    "split": "train",
+    "task_id": "r54-train-short_known-0062"
+  },
+  {
+    "family": "short_known",
+    "left": "944",
+    "right": "742",
+    "split": "train",
+    "task_id": "r54-train-short_known-0063"
+  },
+  {
+    "family": "short_known",
+    "left": "31",
+    "right": "74",
+    "split": "train",
+    "task_id": "r54-train-short_known-0064"
+  },
+  {
+    "family": "short_known",
+    "left": "5948",
+    "right": "4876",
+    "split": "train",
+    "task_id": "r54-train-short_known-0065"
+  },
+  {
+    "family": "short_known",
+    "left": "20",
+    "right": "96",
+    "split": "train",
+    "task_id": "r54-train-short_known-0066"
+  },
+  {
+    "family": "short_known",
+    "left": "5054",
+    "right": "8574",
+    "split": "train",
+    "task_id": "r54-train-short_known-0067"
+  },
+  {
+    "family": "short_known",
+    "left": "800",
+    "right": "257",
+    "split": "train",
+    "task_id": "r54-train-short_known-0068"
+  },
+  {
+    "family": "short_known",
+    "left": "3186",
+    "right": "3562",
+    "split": "train",
+    "task_id": "r54-train-short_known-0069"
+  },
+  {
+    "family": "short_known",
+    "left": "59",
+    "right": "24",
+    "split": "train",
+    "task_id": "r54-train-short_known-0070"
+  },
+  {
+    "family": "short_known",
+    "left": "862",
+    "right": "251",
+    "split": "train",
+    "task_id": "r54-train-short_known-0071"
+  },
+  {
+    "family": "short_known",
+    "left": "3000",
+    "right": "5274",
+    "split": "train",
+    "task_id": "r54-train-short_known-0072"
+  },
+  {
+    "family": "short_known",
+    "left": "71",
+    "right": "78",
+    "split": "train",
+    "task_id": "r54-train-short_known-0073"
+  },
+  {
+    "family": "short_known",
+    "left": "5582",
+    "right": "7065",
+    "split": "train",
+    "task_id": "r54-train-short_known-0074"
+  },
+  {
+    "family": "short_known",
+    "left": "309",
+    "right": "916",
+    "split": "train",
+    "task_id": "r54-train-short_known-0075"
+  },
+  {
+    "family": "short_known",
+    "left": "780",
+    "right": "910",
+    "split": "train",
+    "task_id": "r54-train-short_known-0076"
+  },
+  {
+    "family": "short_known",
+    "left": "183",
+    "right": "883",
+    "split": "train",
+    "task_id": "r54-train-short_known-0077"
+  },
+  {
+    "family": "short_known",
+    "left": "190",
+    "right": "556",
+    "split": "train",
+    "task_id": "r54-train-short_known-0078"
+  },
+  {
+    "family": "short_known",
+    "left": "7950",
+    "right": "9285",
+    "split": "train",
+    "task_id": "r54-train-short_known-0079"
+  },
+  {
+    "family": "short_known",
+    "left": "38",
+    "right": "33",
+    "split": "train",
+    "task_id": "r54-train-short_known-0080"
+  },
+  {
+    "family": "short_known",
+    "left": "582",
+    "right": "886",
+    "split": "train",
+    "task_id": "r54-train-short_known-0081"
+  },
+  {
+    "family": "short_known",
+    "left": "239",
+    "right": "624",
+    "split": "train",
+    "task_id": "r54-train-short_known-0082"
+  },
+  {
+    "family": "short_known",
+    "left": "5955",
+    "right": "3747",
+    "split": "train",
+    "task_id": "r54-train-short_known-0083"
+  },
+  {
+    "family": "short_known",
+    "left": "3142",
+    "right": "4851",
+    "split": "train",
+    "task_id": "r54-train-short_known-0084"
+  },
+  {
+    "family": "short_known",
+    "left": "1185",
+    "right": "6574",
+    "split": "train",
+    "task_id": "r54-train-short_known-0085"
+  },
+  {
+    "family": "short_known",
+    "left": "7608",
+    "right": "3240",
+    "split": "train",
+    "task_id": "r54-train-short_known-0086"
+  },
+  {
+    "family": "short_known",
+    "left": "75",
+    "right": "81",
+    "split": "train",
+    "task_id": "r54-train-short_known-0087"
+  },
+  {
+    "family": "short_known",
+    "left": "2589",
+    "right": "9437",
+    "split": "train",
+    "task_id": "r54-train-short_known-0088"
+  },
+  {
+    "family": "short_known",
+    "left": "586",
+    "right": "297",
+    "split": "train",
+    "task_id": "r54-train-short_known-0089"
+  },
+  {
+    "family": "short_known",
+    "left": "5912",
+    "right": "7760",
+    "split": "train",
+    "task_id": "r54-train-short_known-0090"
+  },
+  {
+    "family": "short_known",
+    "left": "525",
+    "right": "346",
+    "split": "train",
+    "task_id": "r54-train-short_known-0091"
+  },
+  {
+    "family": "short_known",
+    "left": "3733",
+    "right": "7995",
+    "split": "train",
+    "task_id": "r54-train-short_known-0092"
+  },
+  {
+    "family": "short_known",
+    "left": "9247",
+    "right": "9643",
+    "split": "train",
+    "task_id": "r54-train-short_known-0093"
+  },
+  {
+    "family": "short_known",
+    "left": "934",
+    "right": "700",
+    "split": "train",
+    "task_id": "r54-train-short_known-0094"
+  },
+  {
+    "family": "short_known",
+    "left": "1267",
+    "right": "1910",
+    "split": "train",
+    "task_id": "r54-train-short_known-0095"
+  },
+  {
+    "family": "short_known",
+    "left": "848",
+    "right": "950",
+    "split": "train",
+    "task_id": "r54-train-short_known-0096"
+  },
+  {
+    "family": "short_known",
+    "left": "71",
+    "right": "43",
+    "split": "train",
+    "task_id": "r54-train-short_known-0097"
+  },
+  {
+    "family": "short_known",
+    "left": "6375",
+    "right": "5165",
+    "split": "train",
+    "task_id": "r54-train-short_known-0098"
+  },
+  {
+    "family": "short_known",
+    "left": "403",
+    "right": "283",
+    "split": "train",
+    "task_id": "r54-train-short_known-0099"
+  },
+  {
+    "family": "short_known",
+    "left": "5488",
+    "right": "5298",
+    "split": "train",
+    "task_id": "r54-train-short_known-0100"
+  },
+  {
+    "family": "short_known",
+    "left": "1845",
+    "right": "7566",
+    "split": "train",
+    "task_id": "r54-train-short_known-0101"
+  },
+  {
+    "family": "short_known",
+    "left": "91",
+    "right": "64",
+    "split": "train",
+    "task_id": "r54-train-short_known-0102"
+  },
+  {
+    "family": "short_known",
+    "left": "8014",
+    "right": "3873",
+    "split": "train",
+    "task_id": "r54-train-short_known-0103"
+  },
+  {
+    "family": "short_known",
+    "left": "116",
+    "right": "159",
+    "split": "train",
+    "task_id": "r54-train-short_known-0104"
+  },
+  {
+    "family": "short_known",
+    "left": "709",
+    "right": "105",
+    "split": "train",
+    "task_id": "r54-train-short_known-0105"
+  },
+  {
+    "family": "short_known",
+    "left": "179",
+    "right": "200",
+    "split": "train",
+    "task_id": "r54-train-short_known-0106"
+  },
+  {
+    "family": "short_known",
+    "left": "351",
+    "right": "147",
+    "split": "train",
+    "task_id": "r54-train-short_known-0107"
+  },
+  {
+    "family": "short_known",
+    "left": "5021",
+    "right": "2713",
+    "split": "train",
+    "task_id": "r54-train-short_known-0108"
+  },
+  {
+    "family": "short_known",
+    "left": "553",
+    "right": "613",
+    "split": "train",
+    "task_id": "r54-train-short_known-0109"
+  },
+  {
+    "family": "short_known",
+    "left": "826",
+    "right": "968",
+    "split": "train",
+    "task_id": "r54-train-short_known-0110"
+  },
+  {
+    "family": "short_known",
+    "left": "307",
+    "right": "728",
+    "split": "train",
+    "task_id": "r54-train-short_known-0111"
+  },
+  {
+    "family": "short_known",
+    "left": "42",
+    "right": "73",
+    "split": "train",
+    "task_id": "r54-train-short_known-0112"
+  },
+  {
+    "family": "short_known",
+    "left": "16",
+    "right": "11",
+    "split": "train",
+    "task_id": "r54-train-short_known-0113"
+  },
+  {
+    "family": "short_known",
+    "left": "355",
+    "right": "388",
+    "split": "train",
+    "task_id": "r54-train-short_known-0114"
+  },
+  {
+    "family": "short_known",
+    "left": "60",
+    "right": "46",
+    "split": "train",
+    "task_id": "r54-train-short_known-0115"
+  },
+  {
+    "family": "short_known",
+    "left": "5484",
+    "right": "9715",
+    "split": "train",
+    "task_id": "r54-train-short_known-0116"
+  },
+  {
+    "family": "short_known",
+    "left": "137",
+    "right": "384",
+    "split": "train",
+    "task_id": "r54-train-short_known-0117"
+  },
+  {
+    "family": "short_known",
+    "left": "397",
+    "right": "257",
+    "split": "train",
+    "task_id": "r54-train-short_known-0118"
+  },
+  {
+    "family": "short_known",
+    "left": "5422",
+    "right": "2910",
+    "split": "train",
+    "task_id": "r54-train-short_known-0119"
+  },
+  {
+    "family": "short_known",
+    "left": "12",
+    "right": "79",
+    "split": "train",
+    "task_id": "r54-train-short_known-0120"
+  },
+  {
+    "family": "short_known",
+    "left": "6879",
+    "right": "2275",
+    "split": "train",
+    "task_id": "r54-train-short_known-0121"
+  },
+  {
+    "family": "short_known",
+    "left": "8183",
+    "right": "9238",
+    "split": "train",
+    "task_id": "r54-train-short_known-0122"
+  },
+  {
+    "family": "short_known",
+    "left": "5439",
+    "right": "6677",
+    "split": "train",
+    "task_id": "r54-train-short_known-0123"
+  },
+  {
+    "family": "short_known",
+    "left": "411",
+    "right": "247",
+    "split": "train",
+    "task_id": "r54-train-short_known-0124"
+  },
+  {
+    "family": "short_known",
+    "left": "434",
+    "right": "677",
+    "split": "train",
+    "task_id": "r54-train-short_known-0125"
+  },
+  {
+    "family": "short_known",
+    "left": "6345",
+    "right": "5165",
+    "split": "train",
+    "task_id": "r54-train-short_known-0126"
+  },
+  {
+    "family": "short_known",
+    "left": "1538",
+    "right": "7017",
+    "split": "train",
+    "task_id": "r54-train-short_known-0127"
+  },
+  {
+    "family": "short_known",
+    "left": "5391",
+    "right": "2732",
+    "split": "train",
+    "task_id": "r54-train-short_known-0128"
+  },
+  {
+    "family": "short_known",
+    "left": "5748",
+    "right": "1152",
+    "split": "train",
+    "task_id": "r54-train-short_known-0129"
+  },
+  {
+    "family": "short_known",
+    "left": "8248",
+    "right": "9909",
+    "split": "train",
+    "task_id": "r54-train-short_known-0130"
+  },
+  {
+    "family": "short_known",
+    "left": "26",
+    "right": "46",
+    "split": "train",
+    "task_id": "r54-train-short_known-0131"
+  },
+  {
+    "family": "short_known",
+    "left": "9465",
+    "right": "9468",
+    "split": "train",
+    "task_id": "r54-train-short_known-0132"
+  },
+  {
+    "family": "short_known",
+    "left": "217",
+    "right": "473",
+    "split": "train",
+    "task_id": "r54-train-short_known-0133"
+  },
+  {
+    "family": "short_known",
+    "left": "13",
+    "right": "67",
+    "split": "train",
+    "task_id": "r54-train-short_known-0134"
+  },
+  {
+    "family": "short_known",
+    "left": "7100",
+    "right": "1115",
+    "split": "train",
+    "task_id": "r54-train-short_known-0135"
+  },
+  {
+    "family": "short_known",
+    "left": "860",
+    "right": "973",
+    "split": "train",
+    "task_id": "r54-train-short_known-0136"
+  },
+  {
+    "family": "short_known",
+    "left": "769",
+    "right": "622",
+    "split": "train",
+    "task_id": "r54-train-short_known-0137"
+  },
+  {
+    "family": "short_known",
+    "left": "694",
+    "right": "137",
+    "split": "train",
+    "task_id": "r54-train-short_known-0138"
+  },
+  {
+    "family": "short_known",
+    "left": "804",
+    "right": "593",
+    "split": "train",
+    "task_id": "r54-train-short_known-0139"
+  },
+  {
+    "family": "short_known",
+    "left": "194",
+    "right": "181",
+    "split": "train",
+    "task_id": "r54-train-short_known-0140"
+  },
+  {
+    "family": "short_known",
+    "left": "281",
+    "right": "161",
+    "split": "train",
+    "task_id": "r54-train-short_known-0141"
+  },
+  {
+    "family": "short_known",
+    "left": "26",
+    "right": "11",
+    "split": "train",
+    "task_id": "r54-train-short_known-0142"
+  },
+  {
+    "family": "short_known",
+    "left": "70",
+    "right": "76",
+    "split": "train",
+    "task_id": "r54-train-short_known-0143"
+  },
+  {
+    "family": "short_known",
+    "left": "5252",
+    "right": "9116",
+    "split": "train",
+    "task_id": "r54-train-short_known-0144"
+  },
+  {
+    "family": "short_known",
+    "left": "6541",
+    "right": "2225",
+    "split": "train",
+    "task_id": "r54-train-short_known-0145"
+  },
+  {
+    "family": "short_known",
+    "left": "5872",
+    "right": "3875",
+    "split": "train",
+    "task_id": "r54-train-short_known-0146"
+  },
+  {
+    "family": "short_known",
+    "left": "8715",
+    "right": "7338",
+    "split": "train",
+    "task_id": "r54-train-short_known-0147"
+  },
+  {
+    "family": "short_known",
+    "left": "1453",
+    "right": "2273",
+    "split": "train",
+    "task_id": "r54-train-short_known-0148"
+  },
+  {
+    "family": "short_known",
+    "left": "732",
+    "right": "813",
+    "split": "train",
+    "task_id": "r54-train-short_known-0149"
+  },
+  {
+    "family": "short_known",
+    "left": "51",
+    "right": "70",
+    "split": "train",
+    "task_id": "r54-train-short_known-0150"
+  },
+  {
+    "family": "short_known",
+    "left": "23",
+    "right": "45",
+    "split": "train",
+    "task_id": "r54-train-short_known-0151"
+  },
+  {
+    "family": "short_known",
+    "left": "868",
+    "right": "719",
+    "split": "train",
+    "task_id": "r54-train-short_known-0152"
+  },
+  {
+    "family": "short_known",
+    "left": "8556",
+    "right": "3660",
+    "split": "train",
+    "task_id": "r54-train-short_known-0153"
+  },
+  {
+    "family": "short_known",
+    "left": "73",
+    "right": "35",
+    "split": "train",
+    "task_id": "r54-train-short_known-0154"
+  },
+  {
+    "family": "short_known",
+    "left": "52",
+    "right": "31",
+    "split": "train",
+    "task_id": "r54-train-short_known-0155"
+  },
+  {
+    "family": "short_known",
+    "left": "64",
+    "right": "54",
+    "split": "train",
+    "task_id": "r54-train-short_known-0156"
+  },
+  {
+    "family": "short_known",
+    "left": "402",
+    "right": "503",
+    "split": "train",
+    "task_id": "r54-train-short_known-0157"
+  },
+  {
+    "family": "short_known",
+    "left": "769",
+    "right": "163",
+    "split": "train",
+    "task_id": "r54-train-short_known-0158"
+  },
+  {
+    "family": "short_known",
+    "left": "308",
+    "right": "277",
+    "split": "train",
+    "task_id": "r54-train-short_known-0159"
+  },
+  {
+    "family": "short_known",
+    "left": "158",
+    "right": "562",
+    "split": "train",
+    "task_id": "r54-train-short_known-0160"
+  },
+  {
+    "family": "short_known",
+    "left": "4592",
+    "right": "5059",
+    "split": "train",
+    "task_id": "r54-train-short_known-0161"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "14",
+    "split": "train",
+    "task_id": "r54-train-short_known-0162"
+  },
+  {
+    "family": "short_known",
+    "left": "54",
+    "right": "62",
+    "split": "train",
+    "task_id": "r54-train-short_known-0163"
+  },
+  {
+    "family": "short_known",
+    "left": "3366",
+    "right": "4325",
+    "split": "train",
+    "task_id": "r54-train-short_known-0164"
+  },
+  {
+    "family": "short_known",
+    "left": "3974",
+    "right": "7089",
+    "split": "train",
+    "task_id": "r54-train-short_known-0165"
+  },
+  {
+    "family": "short_known",
+    "left": "6098",
+    "right": "6865",
+    "split": "train",
+    "task_id": "r54-train-short_known-0166"
+  },
+  {
+    "family": "short_known",
+    "left": "86",
+    "right": "29",
+    "split": "train",
+    "task_id": "r54-train-short_known-0167"
+  },
+  {
+    "family": "short_known",
+    "left": "2932",
+    "right": "4399",
+    "split": "train",
+    "task_id": "r54-train-short_known-0168"
+  },
+  {
+    "family": "short_known",
+    "left": "44",
+    "right": "52",
+    "split": "train",
+    "task_id": "r54-train-short_known-0169"
+  },
+  {
+    "family": "short_known",
+    "left": "1824",
+    "right": "6322",
+    "split": "train",
+    "task_id": "r54-train-short_known-0170"
+  },
+  {
+    "family": "short_known",
+    "left": "62",
+    "right": "84",
+    "split": "train",
+    "task_id": "r54-train-short_known-0171"
+  },
+  {
+    "family": "short_known",
+    "left": "5826",
+    "right": "2522",
+    "split": "train",
+    "task_id": "r54-train-short_known-0172"
+  },
+  {
+    "family": "short_known",
+    "left": "65",
+    "right": "90",
+    "split": "train",
+    "task_id": "r54-train-short_known-0173"
+  },
+  {
+    "family": "short_known",
+    "left": "939",
+    "right": "738",
+    "split": "train",
+    "task_id": "r54-train-short_known-0174"
+  },
+  {
+    "family": "short_known",
+    "left": "73",
+    "right": "54",
+    "split": "train",
+    "task_id": "r54-train-short_known-0175"
+  },
+  {
+    "family": "short_known",
+    "left": "2985",
+    "right": "4733",
+    "split": "train",
+    "task_id": "r54-train-short_known-0176"
+  },
+  {
+    "family": "short_known",
+    "left": "44",
+    "right": "10",
+    "split": "train",
+    "task_id": "r54-train-short_known-0177"
+  },
+  {
+    "family": "short_known",
+    "left": "249",
+    "right": "410",
+    "split": "train",
+    "task_id": "r54-train-short_known-0178"
+  },
+  {
+    "family": "short_known",
+    "left": "134",
+    "right": "753",
+    "split": "train",
+    "task_id": "r54-train-short_known-0179"
+  },
+  {
+    "family": "short_known",
+    "left": "558",
+    "right": "951",
+    "split": "train",
+    "task_id": "r54-train-short_known-0180"
+  },
+  {
+    "family": "short_known",
+    "left": "748",
+    "right": "509",
+    "split": "train",
+    "task_id": "r54-train-short_known-0181"
+  },
+  {
+    "family": "short_known",
+    "left": "117",
+    "right": "413",
+    "split": "train",
+    "task_id": "r54-train-short_known-0182"
+  },
+  {
+    "family": "short_known",
+    "left": "5788",
+    "right": "4327",
+    "split": "train",
+    "task_id": "r54-train-short_known-0183"
+  },
+  {
+    "family": "short_known",
+    "left": "6140",
+    "right": "7175",
+    "split": "train",
+    "task_id": "r54-train-short_known-0184"
+  },
+  {
+    "family": "short_known",
+    "left": "1608",
+    "right": "5620",
+    "split": "train",
+    "task_id": "r54-train-short_known-0185"
+  },
+  {
+    "family": "short_known",
+    "left": "55",
+    "right": "75",
+    "split": "train",
+    "task_id": "r54-train-short_known-0186"
+  },
+  {
+    "family": "short_known",
+    "left": "442",
+    "right": "460",
+    "split": "train",
+    "task_id": "r54-train-short_known-0187"
+  },
+  {
+    "family": "short_known",
+    "left": "7706",
+    "right": "3586",
+    "split": "train",
+    "task_id": "r54-train-short_known-0188"
+  },
+  {
+    "family": "short_known",
+    "left": "4974",
+    "right": "7087",
+    "split": "train",
+    "task_id": "r54-train-short_known-0189"
+  },
+  {
+    "family": "short_known",
+    "left": "985",
+    "right": "986",
+    "split": "train",
+    "task_id": "r54-train-short_known-0190"
+  },
+  {
+    "family": "short_known",
+    "left": "336",
+    "right": "177",
+    "split": "train",
+    "task_id": "r54-train-short_known-0191"
+  },
+  {
+    "family": "short_known",
+    "left": "9958",
+    "right": "6521",
+    "split": "train",
+    "task_id": "r54-train-short_known-0192"
+  },
+  {
+    "family": "short_known",
+    "left": "946",
+    "right": "900",
+    "split": "train",
+    "task_id": "r54-train-short_known-0193"
+  },
+  {
+    "family": "short_known",
+    "left": "12",
+    "right": "70",
+    "split": "train",
+    "task_id": "r54-train-short_known-0194"
+  },
+  {
+    "family": "short_known",
+    "left": "17",
+    "right": "40",
+    "split": "train",
+    "task_id": "r54-train-short_known-0195"
+  },
+  {
+    "family": "short_known",
+    "left": "98",
+    "right": "23",
+    "split": "train",
+    "task_id": "r54-train-short_known-0196"
+  },
+  {
+    "family": "short_known",
+    "left": "868",
+    "right": "369",
+    "split": "train",
+    "task_id": "r54-train-short_known-0197"
+  },
+  {
+    "family": "short_known",
+    "left": "65",
+    "right": "20",
+    "split": "train",
+    "task_id": "r54-train-short_known-0198"
+  },
+  {
+    "family": "short_known",
+    "left": "67",
+    "right": "45",
+    "split": "train",
+    "task_id": "r54-train-short_known-0199"
+  },
+  {
+    "family": "short_known",
+    "left": "235",
+    "right": "633",
+    "split": "train",
+    "task_id": "r54-train-short_known-0200"
+  },
+  {
+    "family": "short_known",
+    "left": "2346",
+    "right": "1130",
+    "split": "train",
+    "task_id": "r54-train-short_known-0201"
+  },
+  {
+    "family": "short_known",
+    "left": "98",
+    "right": "81",
+    "split": "train",
+    "task_id": "r54-train-short_known-0202"
+  },
+  {
+    "family": "short_known",
+    "left": "98",
+    "right": "95",
+    "split": "train",
+    "task_id": "r54-train-short_known-0203"
+  },
+  {
+    "family": "short_known",
+    "left": "3086",
+    "right": "9082",
+    "split": "train",
+    "task_id": "r54-train-short_known-0204"
+  },
+  {
+    "family": "short_known",
+    "left": "751",
+    "right": "783",
+    "split": "train",
+    "task_id": "r54-train-short_known-0205"
+  },
+  {
+    "family": "short_known",
+    "left": "1020",
+    "right": "2994",
+    "split": "train",
+    "task_id": "r54-train-short_known-0206"
+  },
+  {
+    "family": "short_known",
+    "left": "119",
+    "right": "806",
+    "split": "train",
+    "task_id": "r54-train-short_known-0207"
+  },
+  {
+    "family": "short_known",
+    "left": "34",
+    "right": "10",
+    "split": "train",
+    "task_id": "r54-train-short_known-0208"
+  },
+  {
+    "family": "short_known",
+    "left": "9377",
+    "right": "3475",
+    "split": "train",
+    "task_id": "r54-train-short_known-0209"
+  },
+  {
+    "family": "short_known",
+    "left": "23",
+    "right": "15",
+    "split": "train",
+    "task_id": "r54-train-short_known-0210"
+  },
+  {
+    "family": "short_known",
+    "left": "96",
+    "right": "21",
+    "split": "train",
+    "task_id": "r54-train-short_known-0211"
+  },
+  {
+    "family": "short_known",
+    "left": "292",
+    "right": "392",
+    "split": "train",
+    "task_id": "r54-train-short_known-0212"
+  },
+  {
+    "family": "short_known",
+    "left": "1958",
+    "right": "5707",
+    "split": "train",
+    "task_id": "r54-train-short_known-0213"
+  },
+  {
+    "family": "short_known",
+    "left": "11",
+    "right": "68",
+    "split": "train",
+    "task_id": "r54-train-short_known-0214"
+  },
+  {
+    "family": "short_known",
+    "left": "508",
+    "right": "686",
+    "split": "train",
+    "task_id": "r54-train-short_known-0215"
+  },
+  {
+    "family": "short_known",
+    "left": "3987",
+    "right": "8905",
+    "split": "train",
+    "task_id": "r54-train-short_known-0216"
+  },
+  {
+    "family": "short_known",
+    "left": "374",
+    "right": "204",
+    "split": "train",
+    "task_id": "r54-train-short_known-0217"
+  },
+  {
+    "family": "short_known",
+    "left": "59",
+    "right": "29",
+    "split": "train",
+    "task_id": "r54-train-short_known-0218"
+  },
+  {
+    "family": "short_known",
+    "left": "453",
+    "right": "634",
+    "split": "train",
+    "task_id": "r54-train-short_known-0219"
+  },
+  {
+    "family": "short_known",
+    "left": "429",
+    "right": "922",
+    "split": "train",
+    "task_id": "r54-train-short_known-0220"
+  },
+  {
+    "family": "short_known",
+    "left": "30",
+    "right": "45",
+    "split": "train",
+    "task_id": "r54-train-short_known-0221"
+  },
+  {
+    "family": "short_known",
+    "left": "7631",
+    "right": "5443",
+    "split": "train",
+    "task_id": "r54-train-short_known-0222"
+  },
+  {
+    "family": "short_known",
+    "left": "62",
+    "right": "64",
+    "split": "train",
+    "task_id": "r54-train-short_known-0223"
+  },
+  {
+    "family": "short_known",
+    "left": "9497",
+    "right": "9161",
+    "split": "train",
+    "task_id": "r54-train-short_known-0224"
+  },
+  {
+    "family": "short_known",
+    "left": "777",
+    "right": "194",
+    "split": "train",
+    "task_id": "r54-train-short_known-0225"
+  },
+  {
+    "family": "short_known",
+    "left": "392",
+    "right": "446",
+    "split": "train",
+    "task_id": "r54-train-short_known-0226"
+  },
+  {
+    "family": "short_known",
+    "left": "4058",
+    "right": "2326",
+    "split": "train",
+    "task_id": "r54-train-short_known-0227"
+  },
+  {
+    "family": "short_known",
+    "left": "1629",
+    "right": "7834",
+    "split": "train",
+    "task_id": "r54-train-short_known-0228"
+  },
+  {
+    "family": "short_known",
+    "left": "38",
+    "right": "26",
+    "split": "train",
+    "task_id": "r54-train-short_known-0229"
+  },
+  {
+    "family": "short_known",
+    "left": "10",
+    "right": "10",
+    "split": "train",
+    "task_id": "r54-train-short_known-0230"
+  },
+  {
+    "family": "short_known",
+    "left": "902",
+    "right": "281",
+    "split": "train",
+    "task_id": "r54-train-short_known-0231"
+  },
+  {
+    "family": "short_known",
+    "left": "765",
+    "right": "557",
+    "split": "train",
+    "task_id": "r54-train-short_known-0232"
+  },
+  {
+    "family": "short_known",
+    "left": "69",
+    "right": "96",
+    "split": "train",
+    "task_id": "r54-train-short_known-0233"
+  },
+  {
+    "family": "short_known",
+    "left": "318",
+    "right": "541",
+    "split": "train",
+    "task_id": "r54-train-short_known-0234"
+  },
+  {
+    "family": "short_known",
+    "left": "384",
+    "right": "156",
+    "split": "train",
+    "task_id": "r54-train-short_known-0235"
+  },
+  {
+    "family": "short_known",
+    "left": "928",
+    "right": "355",
+    "split": "train",
+    "task_id": "r54-train-short_known-0236"
+  },
+  {
+    "family": "short_known",
+    "left": "1991",
+    "right": "6554",
+    "split": "train",
+    "task_id": "r54-train-short_known-0237"
+  },
+  {
+    "family": "short_known",
+    "left": "35",
+    "right": "87",
+    "split": "train",
+    "task_id": "r54-train-short_known-0238"
+  },
+  {
+    "family": "short_known",
+    "left": "526",
+    "right": "895",
+    "split": "train",
+    "task_id": "r54-train-short_known-0239"
+  },
+  {
+    "family": "short_known",
+    "left": "2606",
+    "right": "4409",
+    "split": "train",
+    "task_id": "r54-train-short_known-0240"
+  },
+  {
+    "family": "short_known",
+    "left": "45",
+    "right": "35",
+    "split": "train",
+    "task_id": "r54-train-short_known-0241"
+  },
+  {
+    "family": "short_known",
+    "left": "39",
+    "right": "49",
+    "split": "train",
+    "task_id": "r54-train-short_known-0242"
+  },
+  {
+    "family": "short_known",
+    "left": "1761",
+    "right": "8581",
+    "split": "train",
+    "task_id": "r54-train-short_known-0243"
+  },
+  {
+    "family": "short_known",
+    "left": "373",
+    "right": "810",
+    "split": "train",
+    "task_id": "r54-train-short_known-0244"
+  },
+  {
+    "family": "short_known",
+    "left": "410",
+    "right": "968",
+    "split": "train",
+    "task_id": "r54-train-short_known-0245"
+  },
+  {
+    "family": "short_known",
+    "left": "5463",
+    "right": "9473",
+    "split": "train",
+    "task_id": "r54-train-short_known-0246"
+  },
+  {
+    "family": "short_known",
+    "left": "995",
+    "right": "766",
+    "split": "train",
+    "task_id": "r54-train-short_known-0247"
+  },
+  {
+    "family": "short_known",
+    "left": "19",
+    "right": "48",
+    "split": "train",
+    "task_id": "r54-train-short_known-0248"
+  },
+  {
+    "family": "short_known",
+    "left": "150",
+    "right": "570",
+    "split": "train",
+    "task_id": "r54-train-short_known-0249"
+  },
+  {
+    "family": "short_known",
+    "left": "666",
+    "right": "972",
+    "split": "train",
+    "task_id": "r54-train-short_known-0250"
+  },
+  {
+    "family": "short_known",
+    "left": "3570",
+    "right": "3444",
+    "split": "train",
+    "task_id": "r54-train-short_known-0251"
+  },
+  {
+    "family": "short_known",
+    "left": "47",
+    "right": "93",
+    "split": "train",
+    "task_id": "r54-train-short_known-0252"
+  },
+  {
+    "family": "short_known",
+    "left": "6366",
+    "right": "2040",
+    "split": "train",
+    "task_id": "r54-train-short_known-0253"
+  },
+  {
+    "family": "short_known",
+    "left": "8893",
+    "right": "7687",
+    "split": "train",
+    "task_id": "r54-train-short_known-0254"
+  },
+  {
+    "family": "short_known",
+    "left": "67",
+    "right": "20",
+    "split": "train",
+    "task_id": "r54-train-short_known-0255"
+  },
+  {
+    "family": "short_known",
+    "left": "1266",
+    "right": "7391",
+    "split": "train",
+    "task_id": "r54-train-short_known-0256"
+  },
+  {
+    "family": "short_known",
+    "left": "2744",
+    "right": "2305",
+    "split": "train",
+    "task_id": "r54-train-short_known-0257"
+  },
+  {
+    "family": "short_known",
+    "left": "359",
+    "right": "230",
+    "split": "train",
+    "task_id": "r54-train-short_known-0258"
+  },
+  {
+    "family": "short_known",
+    "left": "65",
+    "right": "87",
+    "split": "train",
+    "task_id": "r54-train-short_known-0259"
+  },
+  {
+    "family": "short_known",
+    "left": "5424",
+    "right": "1994",
+    "split": "train",
+    "task_id": "r54-train-short_known-0260"
+  },
+  {
+    "family": "short_known",
+    "left": "892",
+    "right": "991",
+    "split": "train",
+    "task_id": "r54-train-short_known-0261"
+  },
+  {
+    "family": "short_known",
+    "left": "276",
+    "right": "831",
+    "split": "train",
+    "task_id": "r54-train-short_known-0262"
+  },
+  {
+    "family": "short_known",
+    "left": "75",
+    "right": "11",
+    "split": "train",
+    "task_id": "r54-train-short_known-0263"
+  },
+  {
+    "family": "short_known",
+    "left": "14",
+    "right": "49",
+    "split": "train",
+    "task_id": "r54-train-short_known-0264"
+  },
+  {
+    "family": "short_known",
+    "left": "31",
+    "right": "33",
+    "split": "train",
+    "task_id": "r54-train-short_known-0265"
+  },
+  {
+    "family": "short_known",
+    "left": "37",
+    "right": "84",
+    "split": "train",
+    "task_id": "r54-train-short_known-0266"
+  },
+  {
+    "family": "short_known",
+    "left": "332",
+    "right": "140",
+    "split": "train",
+    "task_id": "r54-train-short_known-0267"
+  },
+  {
+    "family": "short_known",
+    "left": "1033",
+    "right": "2424",
+    "split": "train",
+    "task_id": "r54-train-short_known-0268"
+  },
+  {
+    "family": "short_known",
+    "left": "677",
+    "right": "155",
+    "split": "train",
+    "task_id": "r54-train-short_known-0269"
+  },
+  {
+    "family": "short_known",
+    "left": "409",
+    "right": "967",
+    "split": "train",
+    "task_id": "r54-train-short_known-0270"
+  },
+  {
+    "family": "short_known",
+    "left": "430",
+    "right": "544",
+    "split": "train",
+    "task_id": "r54-train-short_known-0271"
+  },
+  {
+    "family": "short_known",
+    "left": "2902",
+    "right": "3558",
+    "split": "train",
+    "task_id": "r54-train-short_known-0272"
+  },
+  {
+    "family": "short_known",
+    "left": "761",
+    "right": "682",
+    "split": "train",
+    "task_id": "r54-train-short_known-0273"
+  },
+  {
+    "family": "short_known",
+    "left": "2530",
+    "right": "4095",
+    "split": "train",
+    "task_id": "r54-train-short_known-0274"
+  },
+  {
+    "family": "short_known",
+    "left": "920",
+    "right": "499",
+    "split": "train",
+    "task_id": "r54-train-short_known-0275"
+  },
+  {
+    "family": "short_known",
+    "left": "52",
+    "right": "69",
+    "split": "train",
+    "task_id": "r54-train-short_known-0276"
+  },
+  {
+    "family": "short_known",
+    "left": "462",
+    "right": "513",
+    "split": "train",
+    "task_id": "r54-train-short_known-0277"
+  },
+  {
+    "family": "short_known",
+    "left": "7787",
+    "right": "6871",
+    "split": "train",
+    "task_id": "r54-train-short_known-0278"
+  },
+  {
+    "family": "short_known",
+    "left": "71",
+    "right": "67",
+    "split": "train",
+    "task_id": "r54-train-short_known-0279"
+  },
+  {
+    "family": "short_known",
+    "left": "95",
+    "right": "35",
+    "split": "train",
+    "task_id": "r54-train-short_known-0280"
+  },
+  {
+    "family": "short_known",
+    "left": "4019",
+    "right": "5704",
+    "split": "train",
+    "task_id": "r54-train-short_known-0281"
+  },
+  {
+    "family": "short_known",
+    "left": "1184",
+    "right": "3075",
+    "split": "train",
+    "task_id": "r54-train-short_known-0282"
+  },
+  {
+    "family": "short_known",
+    "left": "609",
+    "right": "890",
+    "split": "train",
+    "task_id": "r54-train-short_known-0283"
+  },
+  {
+    "family": "short_known",
+    "left": "34",
+    "right": "33",
+    "split": "train",
+    "task_id": "r54-train-short_known-0284"
+  },
+  {
+    "family": "short_known",
+    "left": "6164",
+    "right": "9660",
+    "split": "train",
+    "task_id": "r54-train-short_known-0285"
+  },
+  {
+    "family": "short_known",
+    "left": "544",
+    "right": "369",
+    "split": "train",
+    "task_id": "r54-train-short_known-0286"
+  },
+  {
+    "family": "short_known",
+    "left": "628",
+    "right": "138",
+    "split": "train",
+    "task_id": "r54-train-short_known-0287"
+  },
+  {
+    "family": "short_known",
+    "left": "8278",
+    "right": "2338",
+    "split": "train",
+    "task_id": "r54-train-short_known-0288"
+  },
+  {
+    "family": "short_known",
+    "left": "47",
+    "right": "56",
+    "split": "train",
+    "task_id": "r54-train-short_known-0289"
+  },
+  {
+    "family": "short_known",
+    "left": "8533",
+    "right": "1673",
+    "split": "train",
+    "task_id": "r54-train-short_known-0290"
+  },
+  {
+    "family": "short_known",
+    "left": "493",
+    "right": "752",
+    "split": "train",
+    "task_id": "r54-train-short_known-0291"
+  },
+  {
+    "family": "short_known",
+    "left": "517",
+    "right": "166",
+    "split": "train",
+    "task_id": "r54-train-short_known-0292"
+  },
+  {
+    "family": "short_known",
+    "left": "37",
+    "right": "88",
+    "split": "train",
+    "task_id": "r54-train-short_known-0293"
+  },
+  {
+    "family": "short_known",
+    "left": "705",
+    "right": "560",
+    "split": "train",
+    "task_id": "r54-train-short_known-0294"
+  },
+  {
+    "family": "short_known",
+    "left": "33",
+    "right": "52",
+    "split": "train",
+    "task_id": "r54-train-short_known-0295"
+  },
+  {
+    "family": "short_known",
+    "left": "6172",
+    "right": "7135",
+    "split": "train",
+    "task_id": "r54-train-short_known-0296"
+  },
+  {
+    "family": "short_known",
+    "left": "7131",
+    "right": "3040",
+    "split": "train",
+    "task_id": "r54-train-short_known-0297"
+  },
+  {
+    "family": "short_known",
+    "left": "5206",
+    "right": "3986",
+    "split": "train",
+    "task_id": "r54-train-short_known-0298"
+  },
+  {
+    "family": "short_known",
+    "left": "33",
+    "right": "49",
+    "split": "train",
+    "task_id": "r54-train-short_known-0299"
+  },
+  {
+    "family": "short_known",
+    "left": "57",
+    "right": "80",
+    "split": "train",
+    "task_id": "r54-train-short_known-0300"
+  },
+  {
+    "family": "short_known",
+    "left": "5986",
+    "right": "6609",
+    "split": "train",
+    "task_id": "r54-train-short_known-0301"
+  },
+  {
+    "family": "short_known",
+    "left": "52",
+    "right": "38",
+    "split": "train",
+    "task_id": "r54-train-short_known-0302"
+  },
+  {
+    "family": "short_known",
+    "left": "52",
+    "right": "65",
+    "split": "train",
+    "task_id": "r54-train-short_known-0303"
+  },
+  {
+    "family": "short_known",
+    "left": "521",
+    "right": "731",
+    "split": "train",
+    "task_id": "r54-train-short_known-0304"
+  },
+  {
+    "family": "short_known",
+    "left": "2385",
+    "right": "9001",
+    "split": "train",
+    "task_id": "r54-train-short_known-0305"
+  },
+  {
+    "family": "short_known",
+    "left": "722",
+    "right": "915",
+    "split": "train",
+    "task_id": "r54-train-short_known-0306"
+  },
+  {
+    "family": "short_known",
+    "left": "99",
+    "right": "79",
+    "split": "train",
+    "task_id": "r54-train-short_known-0307"
+  },
+  {
+    "family": "short_known",
+    "left": "576",
+    "right": "745",
+    "split": "train",
+    "task_id": "r54-train-short_known-0308"
+  },
+  {
+    "family": "short_known",
+    "left": "53",
+    "right": "38",
+    "split": "train",
+    "task_id": "r54-train-short_known-0309"
+  },
+  {
+    "family": "short_known",
+    "left": "4555",
+    "right": "3599",
+    "split": "train",
+    "task_id": "r54-train-short_known-0310"
+  },
+  {
+    "family": "short_known",
+    "left": "179",
+    "right": "818",
+    "split": "train",
+    "task_id": "r54-train-short_known-0311"
+  },
+  {
+    "family": "short_known",
+    "left": "89",
+    "right": "18",
+    "split": "train",
+    "task_id": "r54-train-short_known-0312"
+  },
+  {
+    "family": "short_known",
+    "left": "792",
+    "right": "876",
+    "split": "train",
+    "task_id": "r54-train-short_known-0313"
+  },
+  {
+    "family": "short_known",
+    "left": "58",
+    "right": "88",
+    "split": "train",
+    "task_id": "r54-train-short_known-0314"
+  },
+  {
+    "family": "short_known",
+    "left": "214",
+    "right": "885",
+    "split": "train",
+    "task_id": "r54-train-short_known-0315"
+  },
+  {
+    "family": "short_known",
+    "left": "34",
+    "right": "80",
+    "split": "train",
+    "task_id": "r54-train-short_known-0316"
+  },
+  {
+    "family": "short_known",
+    "left": "392",
+    "right": "786",
+    "split": "train",
+    "task_id": "r54-train-short_known-0317"
+  },
+  {
+    "family": "short_known",
+    "left": "7827",
+    "right": "5328",
+    "split": "train",
+    "task_id": "r54-train-short_known-0318"
+  },
+  {
+    "family": "short_known",
+    "left": "13",
+    "right": "79",
+    "split": "train",
+    "task_id": "r54-train-short_known-0319"
+  },
+  {
+    "family": "short_known",
+    "left": "3134",
+    "right": "3411",
+    "split": "train",
+    "task_id": "r54-train-short_known-0320"
+  },
+  {
+    "family": "short_known",
+    "left": "59",
+    "right": "99",
+    "split": "train",
+    "task_id": "r54-train-short_known-0321"
+  },
+  {
+    "family": "short_known",
+    "left": "986",
+    "right": "297",
+    "split": "train",
+    "task_id": "r54-train-short_known-0322"
+  },
+  {
+    "family": "short_known",
+    "left": "1859",
+    "right": "4980",
+    "split": "train",
+    "task_id": "r54-train-short_known-0323"
+  },
+  {
+    "family": "short_known",
+    "left": "209",
+    "right": "663",
+    "split": "train",
+    "task_id": "r54-train-short_known-0324"
+  },
+  {
+    "family": "short_known",
+    "left": "6064",
+    "right": "7390",
+    "split": "train",
+    "task_id": "r54-train-short_known-0325"
+  },
+  {
+    "family": "short_known",
+    "left": "373",
+    "right": "155",
+    "split": "train",
+    "task_id": "r54-train-short_known-0326"
+  },
+  {
+    "family": "short_known",
+    "left": "591",
+    "right": "861",
+    "split": "train",
+    "task_id": "r54-train-short_known-0327"
+  },
+  {
+    "family": "short_known",
+    "left": "215",
+    "right": "325",
+    "split": "train",
+    "task_id": "r54-train-short_known-0328"
+  },
+  {
+    "family": "short_known",
+    "left": "221",
+    "right": "697",
+    "split": "train",
+    "task_id": "r54-train-short_known-0329"
+  },
+  {
+    "family": "short_known",
+    "left": "642",
+    "right": "476",
+    "split": "train",
+    "task_id": "r54-train-short_known-0330"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "41",
+    "split": "train",
+    "task_id": "r54-train-short_known-0331"
+  },
+  {
+    "family": "short_known",
+    "left": "7650",
+    "right": "4819",
+    "split": "train",
+    "task_id": "r54-train-short_known-0332"
+  },
+  {
+    "family": "short_known",
+    "left": "58",
+    "right": "20",
+    "split": "train",
+    "task_id": "r54-train-short_known-0333"
+  },
+  {
+    "family": "short_known",
+    "left": "8475",
+    "right": "8140",
+    "split": "train",
+    "task_id": "r54-train-short_known-0334"
+  },
+  {
+    "family": "short_known",
+    "left": "3604",
+    "right": "4112",
+    "split": "train",
+    "task_id": "r54-train-short_known-0335"
+  },
+  {
+    "family": "short_known",
+    "left": "79",
+    "right": "98",
+    "split": "train",
+    "task_id": "r54-train-short_known-0336"
+  },
+  {
+    "family": "short_known",
+    "left": "765",
+    "right": "840",
+    "split": "train",
+    "task_id": "r54-train-short_known-0337"
+  },
+  {
+    "family": "short_known",
+    "left": "1555",
+    "right": "6692",
+    "split": "train",
+    "task_id": "r54-train-short_known-0338"
+  },
+  {
+    "family": "short_known",
+    "left": "14",
+    "right": "21",
+    "split": "train",
+    "task_id": "r54-train-short_known-0339"
+  },
+  {
+    "family": "short_known",
+    "left": "527",
+    "right": "254",
+    "split": "train",
+    "task_id": "r54-train-short_known-0340"
+  },
+  {
+    "family": "short_known",
+    "left": "10",
+    "right": "83",
+    "split": "train",
+    "task_id": "r54-train-short_known-0341"
+  },
+  {
+    "family": "short_known",
+    "left": "6202",
+    "right": "1163",
+    "split": "train",
+    "task_id": "r54-train-short_known-0342"
+  },
+  {
+    "family": "short_known",
+    "left": "1346",
+    "right": "3131",
+    "split": "train",
+    "task_id": "r54-train-short_known-0343"
+  },
+  {
+    "family": "short_known",
+    "left": "1560",
+    "right": "2509",
+    "split": "train",
+    "task_id": "r54-train-short_known-0344"
+  },
+  {
+    "family": "short_known",
+    "left": "6394",
+    "right": "9935",
+    "split": "train",
+    "task_id": "r54-train-short_known-0345"
+  },
+  {
+    "family": "short_known",
+    "left": "48",
+    "right": "70",
+    "split": "train",
+    "task_id": "r54-train-short_known-0346"
+  },
+  {
+    "family": "short_known",
+    "left": "347",
+    "right": "709",
+    "split": "train",
+    "task_id": "r54-train-short_known-0347"
+  },
+  {
+    "family": "short_known",
+    "left": "81",
+    "right": "70",
+    "split": "train",
+    "task_id": "r54-train-short_known-0348"
+  },
+  {
+    "family": "short_known",
+    "left": "20",
+    "right": "36",
+    "split": "train",
+    "task_id": "r54-train-short_known-0349"
+  },
+  {
+    "family": "short_known",
+    "left": "58",
+    "right": "71",
+    "split": "train",
+    "task_id": "r54-train-short_known-0350"
+  },
+  {
+    "family": "short_known",
+    "left": "204",
+    "right": "496",
+    "split": "train",
+    "task_id": "r54-train-short_known-0351"
+  },
+  {
+    "family": "short_known",
+    "left": "434",
+    "right": "910",
+    "split": "train",
+    "task_id": "r54-train-short_known-0352"
+  },
+  {
+    "family": "short_known",
+    "left": "873",
+    "right": "680",
+    "split": "train",
+    "task_id": "r54-train-short_known-0353"
+  },
+  {
+    "family": "short_known",
+    "left": "811",
+    "right": "353",
+    "split": "train",
+    "task_id": "r54-train-short_known-0354"
+  },
+  {
+    "family": "short_known",
+    "left": "1875",
+    "right": "1594",
+    "split": "train",
+    "task_id": "r54-train-short_known-0355"
+  },
+  {
+    "family": "short_known",
+    "left": "364",
+    "right": "447",
+    "split": "train",
+    "task_id": "r54-train-short_known-0356"
+  },
+  {
+    "family": "short_known",
+    "left": "77",
+    "right": "65",
+    "split": "train",
+    "task_id": "r54-train-short_known-0357"
+  },
+  {
+    "family": "short_known",
+    "left": "258",
+    "right": "373",
+    "split": "train",
+    "task_id": "r54-train-short_known-0358"
+  },
+  {
+    "family": "short_known",
+    "left": "36",
+    "right": "29",
+    "split": "train",
+    "task_id": "r54-train-short_known-0359"
+  },
+  {
+    "family": "short_known",
+    "left": "34",
+    "right": "51",
+    "split": "train",
+    "task_id": "r54-train-short_known-0360"
+  },
+  {
+    "family": "short_known",
+    "left": "55",
+    "right": "77",
+    "split": "train",
+    "task_id": "r54-train-short_known-0361"
+  },
+  {
+    "family": "short_known",
+    "left": "3376",
+    "right": "5052",
+    "split": "train",
+    "task_id": "r54-train-short_known-0362"
+  },
+  {
+    "family": "short_known",
+    "left": "80",
+    "right": "29",
+    "split": "train",
+    "task_id": "r54-train-short_known-0363"
+  },
+  {
+    "family": "short_known",
+    "left": "6969",
+    "right": "5274",
+    "split": "train",
+    "task_id": "r54-train-short_known-0364"
+  },
+  {
+    "family": "short_known",
+    "left": "23",
+    "right": "53",
+    "split": "train",
+    "task_id": "r54-train-short_known-0365"
+  },
+  {
+    "family": "short_known",
+    "left": "18",
+    "right": "47",
+    "split": "train",
+    "task_id": "r54-train-short_known-0366"
+  },
+  {
+    "family": "short_known",
+    "left": "59",
+    "right": "26",
+    "split": "train",
+    "task_id": "r54-train-short_known-0367"
+  },
+  {
+    "family": "short_known",
+    "left": "3277",
+    "right": "2680",
+    "split": "train",
+    "task_id": "r54-train-short_known-0368"
+  },
+  {
+    "family": "short_known",
+    "left": "339",
+    "right": "942",
+    "split": "train",
+    "task_id": "r54-train-short_known-0369"
+  },
+  {
+    "family": "short_known",
+    "left": "5393",
+    "right": "4920",
+    "split": "train",
+    "task_id": "r54-train-short_known-0370"
+  },
+  {
+    "family": "short_known",
+    "left": "71",
+    "right": "12",
+    "split": "train",
+    "task_id": "r54-train-short_known-0371"
+  },
+  {
+    "family": "short_known",
+    "left": "473",
+    "right": "213",
+    "split": "train",
+    "task_id": "r54-train-short_known-0372"
+  },
+  {
+    "family": "short_known",
+    "left": "25",
+    "right": "83",
+    "split": "train",
+    "task_id": "r54-train-short_known-0373"
+  },
+  {
+    "family": "short_known",
+    "left": "563",
+    "right": "159",
+    "split": "train",
+    "task_id": "r54-train-short_known-0374"
+  },
+  {
+    "family": "short_known",
+    "left": "75",
+    "right": "73",
+    "split": "train",
+    "task_id": "r54-train-short_known-0375"
+  },
+  {
+    "family": "short_known",
+    "left": "362",
+    "right": "598",
+    "split": "train",
+    "task_id": "r54-train-short_known-0376"
+  },
+  {
+    "family": "short_known",
+    "left": "2690",
+    "right": "6884",
+    "split": "train",
+    "task_id": "r54-train-short_known-0377"
+  },
+  {
+    "family": "short_known",
+    "left": "50",
+    "right": "86",
+    "split": "train",
+    "task_id": "r54-train-short_known-0378"
+  },
+  {
+    "family": "short_known",
+    "left": "982",
+    "right": "563",
+    "split": "train",
+    "task_id": "r54-train-short_known-0379"
+  },
+  {
+    "family": "short_known",
+    "left": "6409",
+    "right": "2558",
+    "split": "train",
+    "task_id": "r54-train-short_known-0380"
+  },
+  {
+    "family": "short_known",
+    "left": "388",
+    "right": "388",
+    "split": "train",
+    "task_id": "r54-train-short_known-0381"
+  },
+  {
+    "family": "short_known",
+    "left": "7225",
+    "right": "3854",
+    "split": "train",
+    "task_id": "r54-train-short_known-0382"
+  },
+  {
+    "family": "short_known",
+    "left": "5629",
+    "right": "7212",
+    "split": "train",
+    "task_id": "r54-train-short_known-0383"
+  },
+  {
+    "family": "short_known",
+    "left": "6864",
+    "right": "9954",
+    "split": "train",
+    "task_id": "r54-train-short_known-0384"
+  },
+  {
+    "family": "short_known",
+    "left": "360",
+    "right": "841",
+    "split": "train",
+    "task_id": "r54-train-short_known-0385"
+  },
+  {
+    "family": "short_known",
+    "left": "360",
+    "right": "526",
+    "split": "train",
+    "task_id": "r54-train-short_known-0386"
+  },
+  {
+    "family": "short_known",
+    "left": "453",
+    "right": "171",
+    "split": "train",
+    "task_id": "r54-train-short_known-0387"
+  },
+  {
+    "family": "short_known",
+    "left": "4437",
+    "right": "4690",
+    "split": "train",
+    "task_id": "r54-train-short_known-0388"
+  },
+  {
+    "family": "short_known",
+    "left": "7838",
+    "right": "1528",
+    "split": "train",
+    "task_id": "r54-train-short_known-0389"
+  },
+  {
+    "family": "short_known",
+    "left": "496",
+    "right": "990",
+    "split": "train",
+    "task_id": "r54-train-short_known-0390"
+  },
+  {
+    "family": "short_known",
+    "left": "1351",
+    "right": "1086",
+    "split": "train",
+    "task_id": "r54-train-short_known-0391"
+  },
+  {
+    "family": "short_known",
+    "left": "48",
+    "right": "29",
+    "split": "train",
+    "task_id": "r54-train-short_known-0392"
+  },
+  {
+    "family": "short_known",
+    "left": "738",
+    "right": "757",
+    "split": "train",
+    "task_id": "r54-train-short_known-0393"
+  },
+  {
+    "family": "short_known",
+    "left": "7301",
+    "right": "1192",
+    "split": "train",
+    "task_id": "r54-train-short_known-0394"
+  },
+  {
+    "family": "short_known",
+    "left": "8175",
+    "right": "2188",
+    "split": "train",
+    "task_id": "r54-train-short_known-0395"
+  },
+  {
+    "family": "short_known",
+    "left": "3959",
+    "right": "8622",
+    "split": "train",
+    "task_id": "r54-train-short_known-0396"
+  },
+  {
+    "family": "short_known",
+    "left": "3294",
+    "right": "2667",
+    "split": "train",
+    "task_id": "r54-train-short_known-0397"
+  },
+  {
+    "family": "short_known",
+    "left": "1848",
+    "right": "7819",
+    "split": "train",
+    "task_id": "r54-train-short_known-0398"
+  },
+  {
+    "family": "short_known",
+    "left": "817",
+    "right": "835",
+    "split": "train",
+    "task_id": "r54-train-short_known-0399"
+  },
+  {
+    "family": "short_known",
+    "left": "4006",
+    "right": "5701",
+    "split": "train",
+    "task_id": "r54-train-short_known-0400"
+  },
+  {
+    "family": "short_known",
+    "left": "7520",
+    "right": "9155",
+    "split": "train",
+    "task_id": "r54-train-short_known-0401"
+  },
+  {
+    "family": "short_known",
+    "left": "856",
+    "right": "335",
+    "split": "train",
+    "task_id": "r54-train-short_known-0402"
+  },
+  {
+    "family": "short_known",
+    "left": "106",
+    "right": "462",
+    "split": "train",
+    "task_id": "r54-train-short_known-0403"
+  },
+  {
+    "family": "short_known",
+    "left": "29",
+    "right": "22",
+    "split": "train",
+    "task_id": "r54-train-short_known-0404"
+  },
+  {
+    "family": "short_known",
+    "left": "34",
+    "right": "89",
+    "split": "train",
+    "task_id": "r54-train-short_known-0405"
+  },
+  {
+    "family": "short_known",
+    "left": "683",
+    "right": "220",
+    "split": "train",
+    "task_id": "r54-train-short_known-0406"
+  },
+  {
+    "family": "short_known",
+    "left": "6454",
+    "right": "4685",
+    "split": "train",
+    "task_id": "r54-train-short_known-0407"
+  },
+  {
+    "family": "short_known",
+    "left": "2178",
+    "right": "8776",
+    "split": "train",
+    "task_id": "r54-train-short_known-0408"
+  },
+  {
+    "family": "short_known",
+    "left": "202",
+    "right": "311",
+    "split": "train",
+    "task_id": "r54-train-short_known-0409"
+  },
+  {
+    "family": "short_known",
+    "left": "2100",
+    "right": "9005",
+    "split": "train",
+    "task_id": "r54-train-short_known-0410"
+  },
+  {
+    "family": "short_known",
+    "left": "714",
+    "right": "722",
+    "split": "train",
+    "task_id": "r54-train-short_known-0411"
+  },
+  {
+    "family": "short_known",
+    "left": "765",
+    "right": "463",
+    "split": "train",
+    "task_id": "r54-train-short_known-0412"
+  },
+  {
+    "family": "short_known",
+    "left": "34",
+    "right": "90",
+    "split": "train",
+    "task_id": "r54-train-short_known-0413"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "90",
+    "split": "train",
+    "task_id": "r54-train-short_known-0414"
+  },
+  {
+    "family": "short_known",
+    "left": "168",
+    "right": "472",
+    "split": "train",
+    "task_id": "r54-train-short_known-0415"
+  },
+  {
+    "family": "short_known",
+    "left": "1737",
+    "right": "5613",
+    "split": "train",
+    "task_id": "r54-train-short_known-0416"
+  },
+  {
+    "family": "short_known",
+    "left": "924",
+    "right": "355",
+    "split": "train",
+    "task_id": "r54-train-short_known-0417"
+  },
+  {
+    "family": "short_known",
+    "left": "433",
+    "right": "438",
+    "split": "train",
+    "task_id": "r54-train-short_known-0418"
+  },
+  {
+    "family": "short_known",
+    "left": "46",
+    "right": "24",
+    "split": "train",
+    "task_id": "r54-train-short_known-0419"
+  },
+  {
+    "family": "short_known",
+    "left": "3805",
+    "right": "7933",
+    "split": "train",
+    "task_id": "r54-train-short_known-0420"
+  },
+  {
+    "family": "short_known",
+    "left": "2130",
+    "right": "9610",
+    "split": "train",
+    "task_id": "r54-train-short_known-0421"
+  },
+  {
+    "family": "short_known",
+    "left": "8377",
+    "right": "1753",
+    "split": "train",
+    "task_id": "r54-train-short_known-0422"
+  },
+  {
+    "family": "short_known",
+    "left": "489",
+    "right": "258",
+    "split": "train",
+    "task_id": "r54-train-short_known-0423"
+  },
+  {
+    "family": "short_known",
+    "left": "94",
+    "right": "20",
+    "split": "train",
+    "task_id": "r54-train-short_known-0424"
+  },
+  {
+    "family": "short_known",
+    "left": "230",
+    "right": "348",
+    "split": "train",
+    "task_id": "r54-train-short_known-0425"
+  },
+  {
+    "family": "short_known",
+    "left": "5624",
+    "right": "1455",
+    "split": "train",
+    "task_id": "r54-train-short_known-0426"
+  },
+  {
+    "family": "short_known",
+    "left": "10",
+    "right": "75",
+    "split": "train",
+    "task_id": "r54-train-short_known-0427"
+  },
+  {
+    "family": "short_known",
+    "left": "2868",
+    "right": "3922",
+    "split": "train",
+    "task_id": "r54-train-short_known-0428"
+  },
+  {
+    "family": "short_known",
+    "left": "332",
+    "right": "373",
+    "split": "train",
+    "task_id": "r54-train-short_known-0429"
+  },
+  {
+    "family": "short_known",
+    "left": "854",
+    "right": "335",
+    "split": "train",
+    "task_id": "r54-train-short_known-0430"
+  },
+  {
+    "family": "short_known",
+    "left": "7737",
+    "right": "5817",
+    "split": "train",
+    "task_id": "r54-train-short_known-0431"
+  },
+  {
+    "family": "short_known",
+    "left": "51",
+    "right": "27",
+    "split": "train",
+    "task_id": "r54-train-short_known-0432"
+  },
+  {
+    "family": "short_known",
+    "left": "751",
+    "right": "838",
+    "split": "train",
+    "task_id": "r54-train-short_known-0433"
+  },
+  {
+    "family": "short_known",
+    "left": "20",
+    "right": "81",
+    "split": "train",
+    "task_id": "r54-train-short_known-0434"
+  },
+  {
+    "family": "short_known",
+    "left": "248",
+    "right": "135",
+    "split": "train",
+    "task_id": "r54-train-short_known-0435"
+  },
+  {
+    "family": "short_known",
+    "left": "63",
+    "right": "89",
+    "split": "train",
+    "task_id": "r54-train-short_known-0436"
+  },
+  {
+    "family": "short_known",
+    "left": "985",
+    "right": "993",
+    "split": "train",
+    "task_id": "r54-train-short_known-0437"
+  },
+  {
+    "family": "short_known",
+    "left": "790",
+    "right": "863",
+    "split": "train",
+    "task_id": "r54-train-short_known-0438"
+  },
+  {
+    "family": "short_known",
+    "left": "482",
+    "right": "909",
+    "split": "train",
+    "task_id": "r54-train-short_known-0439"
+  },
+  {
+    "family": "short_known",
+    "left": "6521",
+    "right": "7506",
+    "split": "train",
+    "task_id": "r54-train-short_known-0440"
+  },
+  {
+    "family": "short_known",
+    "left": "85",
+    "right": "75",
+    "split": "train",
+    "task_id": "r54-train-short_known-0441"
+  },
+  {
+    "family": "short_known",
+    "left": "570",
+    "right": "362",
+    "split": "train",
+    "task_id": "r54-train-short_known-0442"
+  },
+  {
+    "family": "short_known",
+    "left": "409",
+    "right": "646",
+    "split": "train",
+    "task_id": "r54-train-short_known-0443"
+  },
+  {
+    "family": "short_known",
+    "left": "27",
+    "right": "99",
+    "split": "train",
+    "task_id": "r54-train-short_known-0444"
+  },
+  {
+    "family": "short_known",
+    "left": "6127",
+    "right": "4226",
+    "split": "train",
+    "task_id": "r54-train-short_known-0445"
+  },
+  {
+    "family": "short_known",
+    "left": "114",
+    "right": "283",
+    "split": "train",
+    "task_id": "r54-train-short_known-0446"
+  },
+  {
+    "family": "short_known",
+    "left": "11",
+    "right": "86",
+    "split": "train",
+    "task_id": "r54-train-short_known-0447"
+  },
+  {
+    "family": "short_known",
+    "left": "22",
+    "right": "95",
+    "split": "train",
+    "task_id": "r54-train-short_known-0448"
+  },
+  {
+    "family": "short_known",
+    "left": "692",
+    "right": "274",
+    "split": "train",
+    "task_id": "r54-train-short_known-0449"
+  },
+  {
+    "family": "short_known",
+    "left": "708",
+    "right": "556",
+    "split": "train",
+    "task_id": "r54-train-short_known-0450"
+  },
+  {
+    "family": "short_known",
+    "left": "796",
+    "right": "438",
+    "split": "train",
+    "task_id": "r54-train-short_known-0451"
+  },
+  {
+    "family": "short_known",
+    "left": "760",
+    "right": "959",
+    "split": "train",
+    "task_id": "r54-train-short_known-0452"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "20",
+    "split": "train",
+    "task_id": "r54-train-short_known-0453"
+  },
+  {
+    "family": "short_known",
+    "left": "4056",
+    "right": "5600",
+    "split": "train",
+    "task_id": "r54-train-short_known-0454"
+  },
+  {
+    "family": "short_known",
+    "left": "9113",
+    "right": "8215",
+    "split": "train",
+    "task_id": "r54-train-short_known-0455"
+  },
+  {
+    "family": "short_known",
+    "left": "7528",
+    "right": "7253",
+    "split": "train",
+    "task_id": "r54-train-short_known-0456"
+  },
+  {
+    "family": "short_known",
+    "left": "3770",
+    "right": "4186",
+    "split": "train",
+    "task_id": "r54-train-short_known-0457"
+  },
+  {
+    "family": "short_known",
+    "left": "5775",
+    "right": "7599",
+    "split": "train",
+    "task_id": "r54-train-short_known-0458"
+  },
+  {
+    "family": "short_known",
+    "left": "8115",
+    "right": "1868",
+    "split": "train",
+    "task_id": "r54-train-short_known-0459"
+  },
+  {
+    "family": "short_known",
+    "left": "8569",
+    "right": "5695",
+    "split": "train",
+    "task_id": "r54-train-short_known-0460"
+  },
+  {
+    "family": "short_known",
+    "left": "40",
+    "right": "66",
+    "split": "train",
+    "task_id": "r54-train-short_known-0461"
+  },
+  {
+    "family": "short_known",
+    "left": "55",
+    "right": "20",
+    "split": "train",
+    "task_id": "r54-train-short_known-0462"
+  },
+  {
+    "family": "short_known",
+    "left": "9672",
+    "right": "7679",
+    "split": "train",
+    "task_id": "r54-train-short_known-0463"
+  },
+  {
+    "family": "short_known",
+    "left": "78",
+    "right": "61",
+    "split": "train",
+    "task_id": "r54-train-short_known-0464"
+  },
+  {
+    "family": "short_known",
+    "left": "6419",
+    "right": "8659",
+    "split": "train",
+    "task_id": "r54-train-short_known-0465"
+  },
+  {
+    "family": "short_known",
+    "left": "577",
+    "right": "401",
+    "split": "train",
+    "task_id": "r54-train-short_known-0466"
+  },
+  {
+    "family": "short_known",
+    "left": "82",
+    "right": "34",
+    "split": "train",
+    "task_id": "r54-train-short_known-0467"
+  },
+  {
+    "family": "short_known",
+    "left": "3033",
+    "right": "4094",
+    "split": "train",
+    "task_id": "r54-train-short_known-0468"
+  },
+  {
+    "family": "short_known",
+    "left": "15",
+    "right": "69",
+    "split": "train",
+    "task_id": "r54-train-short_known-0469"
+  },
+  {
+    "family": "short_known",
+    "left": "800",
+    "right": "535",
+    "split": "train",
+    "task_id": "r54-train-short_known-0470"
+  },
+  {
+    "family": "short_known",
+    "left": "86",
+    "right": "36",
+    "split": "train",
+    "task_id": "r54-train-short_known-0471"
+  },
+  {
+    "family": "short_known",
+    "left": "654",
+    "right": "664",
+    "split": "train",
+    "task_id": "r54-train-short_known-0472"
+  },
+  {
+    "family": "short_known",
+    "left": "91",
+    "right": "33",
+    "split": "train",
+    "task_id": "r54-train-short_known-0473"
+  },
+  {
+    "family": "short_known",
+    "left": "15",
+    "right": "40",
+    "split": "train",
+    "task_id": "r54-train-short_known-0474"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "60",
+    "split": "train",
+    "task_id": "r54-train-short_known-0475"
+  },
+  {
+    "family": "short_known",
+    "left": "8884",
+    "right": "8764",
+    "split": "train",
+    "task_id": "r54-train-short_known-0476"
+  },
+  {
+    "family": "short_known",
+    "left": "19",
+    "right": "37",
+    "split": "train",
+    "task_id": "r54-train-short_known-0477"
+  },
+  {
+    "family": "short_known",
+    "left": "34",
+    "right": "24",
+    "split": "train",
+    "task_id": "r54-train-short_known-0478"
+  },
+  {
+    "family": "short_known",
+    "left": "43",
+    "right": "51",
+    "split": "train",
+    "task_id": "r54-train-short_known-0479"
+  },
+  {
+    "family": "short_known",
+    "left": "451",
+    "right": "578",
+    "split": "train",
+    "task_id": "r54-train-short_known-0480"
+  },
+  {
+    "family": "short_known",
+    "left": "73",
+    "right": "74",
+    "split": "train",
+    "task_id": "r54-train-short_known-0481"
+  },
+  {
+    "family": "short_known",
+    "left": "3972",
+    "right": "5480",
+    "split": "train",
+    "task_id": "r54-train-short_known-0482"
+  },
+  {
+    "family": "short_known",
+    "left": "3990",
+    "right": "4451",
+    "split": "train",
+    "task_id": "r54-train-short_known-0483"
+  },
+  {
+    "family": "short_known",
+    "left": "345",
+    "right": "990",
+    "split": "train",
+    "task_id": "r54-train-short_known-0484"
+  },
+  {
+    "family": "short_known",
+    "left": "4589",
+    "right": "7117",
+    "split": "train",
+    "task_id": "r54-train-short_known-0485"
+  },
+  {
+    "family": "short_known",
+    "left": "358",
+    "right": "900",
+    "split": "train",
+    "task_id": "r54-train-short_known-0486"
+  },
+  {
+    "family": "short_known",
+    "left": "86",
+    "right": "25",
+    "split": "train",
+    "task_id": "r54-train-short_known-0487"
+  },
+  {
+    "family": "short_known",
+    "left": "23",
+    "right": "81",
+    "split": "train",
+    "task_id": "r54-train-short_known-0488"
+  },
+  {
+    "family": "short_known",
+    "left": "7996",
+    "right": "6281",
+    "split": "train",
+    "task_id": "r54-train-short_known-0489"
+  },
+  {
+    "family": "short_known",
+    "left": "50",
+    "right": "56",
+    "split": "train",
+    "task_id": "r54-train-short_known-0490"
+  },
+  {
+    "family": "short_known",
+    "left": "545",
+    "right": "194",
+    "split": "train",
+    "task_id": "r54-train-short_known-0491"
+  },
+  {
+    "family": "short_known",
+    "left": "24",
+    "right": "50",
+    "split": "train",
+    "task_id": "r54-train-short_known-0492"
+  },
+  {
+    "family": "short_known",
+    "left": "150",
+    "right": "279",
+    "split": "train",
+    "task_id": "r54-train-short_known-0493"
+  },
+  {
+    "family": "short_known",
+    "left": "10",
+    "right": "30",
+    "split": "train",
+    "task_id": "r54-train-short_known-0494"
+  },
+  {
+    "family": "short_known",
+    "left": "57",
+    "right": "75",
+    "split": "train",
+    "task_id": "r54-train-short_known-0495"
+  },
+  {
+    "family": "short_known",
+    "left": "197",
+    "right": "608",
+    "split": "train",
+    "task_id": "r54-train-short_known-0496"
+  },
+  {
+    "family": "short_known",
+    "left": "8545",
+    "right": "1629",
+    "split": "train",
+    "task_id": "r54-train-short_known-0497"
+  },
+  {
+    "family": "short_known",
+    "left": "33",
+    "right": "97",
+    "split": "train",
+    "task_id": "r54-train-short_known-0498"
+  },
+  {
+    "family": "short_known",
+    "left": "3279",
+    "right": "1540",
+    "split": "train",
+    "task_id": "r54-train-short_known-0499"
+  },
+  {
+    "family": "short_known",
+    "left": "950",
+    "right": "459",
+    "split": "train",
+    "task_id": "r54-train-short_known-0500"
+  },
+  {
+    "family": "short_known",
+    "left": "299",
+    "right": "225",
+    "split": "train",
+    "task_id": "r54-train-short_known-0501"
+  },
+  {
+    "family": "short_known",
+    "left": "132",
+    "right": "793",
+    "split": "train",
+    "task_id": "r54-train-short_known-0502"
+  },
+  {
+    "family": "short_known",
+    "left": "43",
+    "right": "11",
+    "split": "train",
+    "task_id": "r54-train-short_known-0503"
+  },
+  {
+    "family": "short_known",
+    "left": "86",
+    "right": "54",
+    "split": "train",
+    "task_id": "r54-train-short_known-0504"
+  },
+  {
+    "family": "short_known",
+    "left": "9143",
+    "right": "7299",
+    "split": "train",
+    "task_id": "r54-train-short_known-0505"
+  },
+  {
+    "family": "short_known",
+    "left": "6729",
+    "right": "6517",
+    "split": "train",
+    "task_id": "r54-train-short_known-0506"
+  },
+  {
+    "family": "short_known",
+    "left": "3385",
+    "right": "8503",
+    "split": "train",
+    "task_id": "r54-train-short_known-0507"
+  },
+  {
+    "family": "short_known",
+    "left": "6578",
+    "right": "1167",
+    "split": "train",
+    "task_id": "r54-train-short_known-0508"
+  },
+  {
+    "family": "short_known",
+    "left": "495",
+    "right": "605",
+    "split": "train",
+    "task_id": "r54-train-short_known-0509"
+  },
+  {
+    "family": "short_known",
+    "left": "15",
+    "right": "26",
+    "split": "train",
+    "task_id": "r54-train-short_known-0510"
+  },
+  {
+    "family": "short_known",
+    "left": "594",
+    "right": "984",
+    "split": "train",
+    "task_id": "r54-train-short_known-0511"
+  },
+  {
+    "family": "short_known",
+    "left": "326",
+    "right": "987",
+    "split": "train",
+    "task_id": "r54-train-short_known-0512"
+  },
+  {
+    "family": "short_known",
+    "left": "53",
+    "right": "17",
+    "split": "train",
+    "task_id": "r54-train-short_known-0513"
+  },
+  {
+    "family": "short_known",
+    "left": "1278",
+    "right": "3116",
+    "split": "train",
+    "task_id": "r54-train-short_known-0514"
+  },
+  {
+    "family": "short_known",
+    "left": "7586",
+    "right": "6178",
+    "split": "train",
+    "task_id": "r54-train-short_known-0515"
+  },
+  {
+    "family": "short_known",
+    "left": "538",
+    "right": "798",
+    "split": "train",
+    "task_id": "r54-train-short_known-0516"
+  },
+  {
+    "family": "short_known",
+    "left": "87",
+    "right": "11",
+    "split": "train",
+    "task_id": "r54-train-short_known-0517"
+  },
+  {
+    "family": "short_known",
+    "left": "6707",
+    "right": "5675",
+    "split": "train",
+    "task_id": "r54-train-short_known-0518"
+  },
+  {
+    "family": "short_known",
+    "left": "13",
+    "right": "29",
+    "split": "train",
+    "task_id": "r54-train-short_known-0519"
+  },
+  {
+    "family": "short_known",
+    "left": "2896",
+    "right": "5931",
+    "split": "train",
+    "task_id": "r54-train-short_known-0520"
+  },
+  {
+    "family": "short_known",
+    "left": "690",
+    "right": "199",
+    "split": "train",
+    "task_id": "r54-train-short_known-0521"
+  },
+  {
+    "family": "short_known",
+    "left": "2745",
+    "right": "4057",
+    "split": "train",
+    "task_id": "r54-train-short_known-0522"
+  },
+  {
+    "family": "short_known",
+    "left": "138",
+    "right": "780",
+    "split": "train",
+    "task_id": "r54-train-short_known-0523"
+  },
+  {
+    "family": "short_known",
+    "left": "20",
+    "right": "19",
+    "split": "train",
+    "task_id": "r54-train-short_known-0524"
+  },
+  {
+    "family": "short_known",
+    "left": "96",
+    "right": "55",
+    "split": "train",
+    "task_id": "r54-train-short_known-0525"
+  },
+  {
+    "family": "short_known",
+    "left": "67",
+    "right": "14",
+    "split": "train",
+    "task_id": "r54-train-short_known-0526"
+  },
+  {
+    "family": "short_known",
+    "left": "196",
+    "right": "286",
+    "split": "train",
+    "task_id": "r54-train-short_known-0527"
+  },
+  {
+    "family": "short_known",
+    "left": "7847",
+    "right": "4234",
+    "split": "train",
+    "task_id": "r54-train-short_known-0528"
+  },
+  {
+    "family": "short_known",
+    "left": "9728",
+    "right": "6757",
+    "split": "train",
+    "task_id": "r54-train-short_known-0529"
+  },
+  {
+    "family": "short_known",
+    "left": "380",
+    "right": "196",
+    "split": "train",
+    "task_id": "r54-train-short_known-0530"
+  },
+  {
+    "family": "short_known",
+    "left": "1560",
+    "right": "8594",
+    "split": "train",
+    "task_id": "r54-train-short_known-0531"
+  },
+  {
+    "family": "short_known",
+    "left": "512",
+    "right": "151",
+    "split": "train",
+    "task_id": "r54-train-short_known-0532"
+  },
+  {
+    "family": "short_known",
+    "left": "601",
+    "right": "294",
+    "split": "train",
+    "task_id": "r54-train-short_known-0533"
+  },
+  {
+    "family": "short_known",
+    "left": "17",
+    "right": "56",
+    "split": "train",
+    "task_id": "r54-train-short_known-0534"
+  },
+  {
+    "family": "short_known",
+    "left": "3750",
+    "right": "4144",
+    "split": "train",
+    "task_id": "r54-train-short_known-0535"
+  },
+  {
+    "family": "short_known",
+    "left": "8500",
+    "right": "2700",
+    "split": "train",
+    "task_id": "r54-train-short_known-0536"
+  },
+  {
+    "family": "short_known",
+    "left": "499",
+    "right": "737",
+    "split": "train",
+    "task_id": "r54-train-short_known-0537"
+  },
+  {
+    "family": "short_known",
+    "left": "6405",
+    "right": "8432",
+    "split": "train",
+    "task_id": "r54-train-short_known-0538"
+  },
+  {
+    "family": "short_known",
+    "left": "836",
+    "right": "935",
+    "split": "train",
+    "task_id": "r54-train-short_known-0539"
+  },
+  {
+    "family": "short_known",
+    "left": "7056",
+    "right": "8342",
+    "split": "train",
+    "task_id": "r54-train-short_known-0540"
+  },
+  {
+    "family": "short_known",
+    "left": "7696",
+    "right": "8277",
+    "split": "train",
+    "task_id": "r54-train-short_known-0541"
+  },
+  {
+    "family": "short_known",
+    "left": "40",
+    "right": "41",
+    "split": "train",
+    "task_id": "r54-train-short_known-0542"
+  },
+  {
+    "family": "short_known",
+    "left": "2264",
+    "right": "9675",
+    "split": "train",
+    "task_id": "r54-train-short_known-0543"
+  },
+  {
+    "family": "short_known",
+    "left": "91",
+    "right": "28",
+    "split": "train",
+    "task_id": "r54-train-short_known-0544"
+  },
+  {
+    "family": "short_known",
+    "left": "5235",
+    "right": "1821",
+    "split": "train",
+    "task_id": "r54-train-short_known-0545"
+  },
+  {
+    "family": "short_known",
+    "left": "260",
+    "right": "650",
+    "split": "train",
+    "task_id": "r54-train-short_known-0546"
+  },
+  {
+    "family": "short_known",
+    "left": "88",
+    "right": "16",
+    "split": "train",
+    "task_id": "r54-train-short_known-0547"
+  },
+  {
+    "family": "short_known",
+    "left": "64",
+    "right": "79",
+    "split": "train",
+    "task_id": "r54-train-short_known-0548"
+  },
+  {
+    "family": "short_known",
+    "left": "9208",
+    "right": "6518",
+    "split": "train",
+    "task_id": "r54-train-short_known-0549"
+  },
+  {
+    "family": "short_known",
+    "left": "94",
+    "right": "91",
+    "split": "train",
+    "task_id": "r54-train-short_known-0550"
+  },
+  {
+    "family": "short_known",
+    "left": "746",
+    "right": "360",
+    "split": "train",
+    "task_id": "r54-train-short_known-0551"
+  },
+  {
+    "family": "short_known",
+    "left": "9171",
+    "right": "2044",
+    "split": "train",
+    "task_id": "r54-train-short_known-0552"
+  },
+  {
+    "family": "short_known",
+    "left": "315",
+    "right": "119",
+    "split": "train",
+    "task_id": "r54-train-short_known-0553"
+  },
+  {
+    "family": "short_known",
+    "left": "89",
+    "right": "62",
+    "split": "train",
+    "task_id": "r54-train-short_known-0554"
+  },
+  {
+    "family": "short_known",
+    "left": "1358",
+    "right": "2847",
+    "split": "train",
+    "task_id": "r54-train-short_known-0555"
+  },
+  {
+    "family": "short_known",
+    "left": "194",
+    "right": "872",
+    "split": "train",
+    "task_id": "r54-train-short_known-0556"
+  },
+  {
+    "family": "short_known",
+    "left": "605",
+    "right": "967",
+    "split": "train",
+    "task_id": "r54-train-short_known-0557"
+  },
+  {
+    "family": "short_known",
+    "left": "6473",
+    "right": "6137",
+    "split": "train",
+    "task_id": "r54-train-short_known-0558"
+  },
+  {
+    "family": "short_known",
+    "left": "438",
+    "right": "723",
+    "split": "train",
+    "task_id": "r54-train-short_known-0559"
+  },
+  {
+    "family": "short_known",
+    "left": "25",
+    "right": "18",
+    "split": "train",
+    "task_id": "r54-train-short_known-0560"
+  },
+  {
+    "family": "short_known",
+    "left": "8588",
+    "right": "7362",
+    "split": "train",
+    "task_id": "r54-train-short_known-0561"
+  },
+  {
+    "family": "short_known",
+    "left": "97",
+    "right": "49",
+    "split": "train",
+    "task_id": "r54-train-short_known-0562"
+  },
+  {
+    "family": "short_known",
+    "left": "608",
+    "right": "242",
+    "split": "train",
+    "task_id": "r54-train-short_known-0563"
+  },
+  {
+    "family": "short_known",
+    "left": "5983",
+    "right": "1899",
+    "split": "train",
+    "task_id": "r54-train-short_known-0564"
+  },
+  {
+    "family": "short_known",
+    "left": "7523",
+    "right": "3203",
+    "split": "train",
+    "task_id": "r54-train-short_known-0565"
+  },
+  {
+    "family": "short_known",
+    "left": "32",
+    "right": "11",
+    "split": "train",
+    "task_id": "r54-train-short_known-0566"
+  },
+  {
+    "family": "short_known",
+    "left": "204",
+    "right": "324",
+    "split": "train",
+    "task_id": "r54-train-short_known-0567"
+  },
+  {
+    "family": "short_known",
+    "left": "350",
+    "right": "250",
+    "split": "train",
+    "task_id": "r54-train-short_known-0568"
+  },
+  {
+    "family": "short_known",
+    "left": "43",
+    "right": "25",
+    "split": "train",
+    "task_id": "r54-train-short_known-0569"
+  },
+  {
+    "family": "short_known",
+    "left": "95",
+    "right": "74",
+    "split": "train",
+    "task_id": "r54-train-short_known-0570"
+  },
+  {
+    "family": "short_known",
+    "left": "511",
+    "right": "342",
+    "split": "train",
+    "task_id": "r54-train-short_known-0571"
+  },
+  {
+    "family": "short_known",
+    "left": "1095",
+    "right": "1981",
+    "split": "train",
+    "task_id": "r54-train-short_known-0572"
+  },
+  {
+    "family": "short_known",
+    "left": "395",
+    "right": "259",
+    "split": "train",
+    "task_id": "r54-train-short_known-0573"
+  },
+  {
+    "family": "short_known",
+    "left": "9375",
+    "right": "6417",
+    "split": "train",
+    "task_id": "r54-train-short_known-0574"
+  },
+  {
+    "family": "short_known",
+    "left": "17",
+    "right": "26",
+    "split": "train",
+    "task_id": "r54-train-short_known-0575"
+  },
+  {
+    "family": "short_known",
+    "left": "443",
+    "right": "495",
+    "split": "train",
+    "task_id": "r54-train-short_known-0576"
+  },
+  {
+    "family": "short_known",
+    "left": "793",
+    "right": "572",
+    "split": "train",
+    "task_id": "r54-train-short_known-0577"
+  },
+  {
+    "family": "short_known",
+    "left": "7434",
+    "right": "5799",
+    "split": "train",
+    "task_id": "r54-train-short_known-0578"
+  },
+  {
+    "family": "short_known",
+    "left": "63",
+    "right": "53",
+    "split": "train",
+    "task_id": "r54-train-short_known-0579"
+  },
+  {
+    "family": "short_known",
+    "left": "4195",
+    "right": "9726",
+    "split": "train",
+    "task_id": "r54-train-short_known-0580"
+  },
+  {
+    "family": "short_known",
+    "left": "1703",
+    "right": "3653",
+    "split": "train",
+    "task_id": "r54-train-short_known-0581"
+  },
+  {
+    "family": "short_known",
+    "left": "40",
+    "right": "33",
+    "split": "train",
+    "task_id": "r54-train-short_known-0582"
+  },
+  {
+    "family": "short_known",
+    "left": "51",
+    "right": "51",
+    "split": "train",
+    "task_id": "r54-train-short_known-0583"
+  },
+  {
+    "family": "short_known",
+    "left": "35",
+    "right": "93",
+    "split": "train",
+    "task_id": "r54-train-short_known-0584"
+  },
+  {
+    "family": "short_known",
+    "left": "54",
+    "right": "51",
+    "split": "train",
+    "task_id": "r54-train-short_known-0585"
+  },
+  {
+    "family": "short_known",
+    "left": "1583",
+    "right": "4480",
+    "split": "train",
+    "task_id": "r54-train-short_known-0586"
+  },
+  {
+    "family": "short_known",
+    "left": "1810",
+    "right": "5616",
+    "split": "train",
+    "task_id": "r54-train-short_known-0587"
+  },
+  {
+    "family": "short_known",
+    "left": "29",
+    "right": "29",
+    "split": "train",
+    "task_id": "r54-train-short_known-0588"
+  },
+  {
+    "family": "short_known",
+    "left": "7046",
+    "right": "7837",
+    "split": "train",
+    "task_id": "r54-train-short_known-0589"
+  },
+  {
+    "family": "short_known",
+    "left": "6470",
+    "right": "1552",
+    "split": "train",
+    "task_id": "r54-train-short_known-0590"
+  },
+  {
+    "family": "short_known",
+    "left": "19",
+    "right": "56",
+    "split": "train",
+    "task_id": "r54-train-short_known-0591"
+  },
+  {
+    "family": "short_known",
+    "left": "1835",
+    "right": "8589",
+    "split": "train",
+    "task_id": "r54-train-short_known-0592"
+  },
+  {
+    "family": "short_known",
+    "left": "888",
+    "right": "698",
+    "split": "train",
+    "task_id": "r54-train-short_known-0593"
+  },
+  {
+    "family": "short_known",
+    "left": "176",
+    "right": "332",
+    "split": "train",
+    "task_id": "r54-train-short_known-0594"
+  },
+  {
+    "family": "short_known",
+    "left": "32",
+    "right": "46",
+    "split": "train",
+    "task_id": "r54-train-short_known-0595"
+  },
+  {
+    "family": "short_known",
+    "left": "563",
+    "right": "513",
+    "split": "train",
+    "task_id": "r54-train-short_known-0596"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "45",
+    "split": "train",
+    "task_id": "r54-train-short_known-0597"
+  },
+  {
+    "family": "short_known",
+    "left": "4061",
+    "right": "6928",
+    "split": "train",
+    "task_id": "r54-train-short_known-0598"
+  },
+  {
+    "family": "short_known",
+    "left": "2397",
+    "right": "6179",
+    "split": "train",
+    "task_id": "r54-train-short_known-0599"
+  },
+  {
+    "family": "short_known",
+    "left": "36",
+    "right": "97",
+    "split": "train",
+    "task_id": "r54-train-short_known-0600"
+  },
+  {
+    "family": "short_known",
+    "left": "255",
+    "right": "864",
+    "split": "train",
+    "task_id": "r54-train-short_known-0601"
+  },
+  {
+    "family": "short_known",
+    "left": "82",
+    "right": "83",
+    "split": "train",
+    "task_id": "r54-train-short_known-0602"
+  },
+  {
+    "family": "short_known",
+    "left": "215",
+    "right": "128",
+    "split": "train",
+    "task_id": "r54-train-short_known-0603"
+  },
+  {
+    "family": "short_known",
+    "left": "72",
+    "right": "81",
+    "split": "train",
+    "task_id": "r54-train-short_known-0604"
+  },
+  {
+    "family": "short_known",
+    "left": "809",
+    "right": "898",
+    "split": "train",
+    "task_id": "r54-train-short_known-0605"
+  },
+  {
+    "family": "short_known",
+    "left": "43",
+    "right": "67",
+    "split": "train",
+    "task_id": "r54-train-short_known-0606"
+  },
+  {
+    "family": "short_known",
+    "left": "3906",
+    "right": "3045",
+    "split": "train",
+    "task_id": "r54-train-short_known-0607"
+  },
+  {
+    "family": "short_known",
+    "left": "2690",
+    "right": "5667",
+    "split": "train",
+    "task_id": "r54-train-short_known-0608"
+  },
+  {
+    "family": "short_known",
+    "left": "97",
+    "right": "96",
+    "split": "train",
+    "task_id": "r54-train-short_known-0609"
+  },
+  {
+    "family": "short_known",
+    "left": "2125",
+    "right": "6283",
+    "split": "train",
+    "task_id": "r54-train-short_known-0610"
+  },
+  {
+    "family": "short_known",
+    "left": "242",
+    "right": "658",
+    "split": "train",
+    "task_id": "r54-train-short_known-0611"
+  },
+  {
+    "family": "short_known",
+    "left": "3031",
+    "right": "3912",
+    "split": "train",
+    "task_id": "r54-train-short_known-0612"
+  },
+  {
+    "family": "short_known",
+    "left": "7403",
+    "right": "5252",
+    "split": "train",
+    "task_id": "r54-train-short_known-0613"
+  },
+  {
+    "family": "short_known",
+    "left": "388",
+    "right": "897",
+    "split": "train",
+    "task_id": "r54-train-short_known-0614"
+  },
+  {
+    "family": "short_known",
+    "left": "60",
+    "right": "50",
+    "split": "train",
+    "task_id": "r54-train-short_known-0615"
+  },
+  {
+    "family": "short_known",
+    "left": "537",
+    "right": "483",
+    "split": "train",
+    "task_id": "r54-train-short_known-0616"
+  },
+  {
+    "family": "short_known",
+    "left": "2678",
+    "right": "6957",
+    "split": "train",
+    "task_id": "r54-train-short_known-0617"
+  },
+  {
+    "family": "short_known",
+    "left": "166",
+    "right": "619",
+    "split": "train",
+    "task_id": "r54-train-short_known-0618"
+  },
+  {
+    "family": "short_known",
+    "left": "5655",
+    "right": "9780",
+    "split": "train",
+    "task_id": "r54-train-short_known-0619"
+  },
+  {
+    "family": "short_known",
+    "left": "4300",
+    "right": "4249",
+    "split": "train",
+    "task_id": "r54-train-short_known-0620"
+  },
+  {
+    "family": "short_known",
+    "left": "2807",
+    "right": "5599",
+    "split": "train",
+    "task_id": "r54-train-short_known-0621"
+  },
+  {
+    "family": "short_known",
+    "left": "301",
+    "right": "846",
+    "split": "train",
+    "task_id": "r54-train-short_known-0622"
+  },
+  {
+    "family": "short_known",
+    "left": "6084",
+    "right": "7124",
+    "split": "train",
+    "task_id": "r54-train-short_known-0623"
+  },
+  {
+    "family": "short_known",
+    "left": "48",
+    "right": "92",
+    "split": "train",
+    "task_id": "r54-train-short_known-0624"
+  },
+  {
+    "family": "short_known",
+    "left": "28",
+    "right": "95",
+    "split": "train",
+    "task_id": "r54-train-short_known-0625"
+  },
+  {
+    "family": "short_known",
+    "left": "78",
+    "right": "51",
+    "split": "train",
+    "task_id": "r54-train-short_known-0626"
+  },
+  {
+    "family": "short_known",
+    "left": "7625",
+    "right": "3260",
+    "split": "train",
+    "task_id": "r54-train-short_known-0627"
+  },
+  {
+    "family": "short_known",
+    "left": "337",
+    "right": "446",
+    "split": "train",
+    "task_id": "r54-train-short_known-0628"
+  },
+  {
+    "family": "short_known",
+    "left": "8293",
+    "right": "7324",
+    "split": "train",
+    "task_id": "r54-train-short_known-0629"
+  },
+  {
+    "family": "short_known",
+    "left": "9774",
+    "right": "8651",
+    "split": "train",
+    "task_id": "r54-train-short_known-0630"
+  },
+  {
+    "family": "short_known",
+    "left": "5447",
+    "right": "6764",
+    "split": "train",
+    "task_id": "r54-train-short_known-0631"
+  },
+  {
+    "family": "short_known",
+    "left": "16",
+    "right": "52",
+    "split": "train",
+    "task_id": "r54-train-short_known-0632"
+  },
+  {
+    "family": "short_known",
+    "left": "2020",
+    "right": "3097",
+    "split": "train",
+    "task_id": "r54-train-short_known-0633"
+  },
+  {
+    "family": "short_known",
+    "left": "156",
+    "right": "555",
+    "split": "train",
+    "task_id": "r54-train-short_known-0634"
+  },
+  {
+    "family": "short_known",
+    "left": "671",
+    "right": "676",
+    "split": "train",
+    "task_id": "r54-train-short_known-0635"
+  },
+  {
+    "family": "short_known",
+    "left": "5601",
+    "right": "5196",
+    "split": "train",
+    "task_id": "r54-train-short_known-0636"
+  },
+  {
+    "family": "short_known",
+    "left": "375",
+    "right": "262",
+    "split": "train",
+    "task_id": "r54-train-short_known-0637"
+  },
+  {
+    "family": "short_known",
+    "left": "9829",
+    "right": "9508",
+    "split": "train",
+    "task_id": "r54-train-short_known-0638"
+  },
+  {
+    "family": "short_known",
+    "left": "8118",
+    "right": "9203",
+    "split": "train",
+    "task_id": "r54-train-short_known-0639"
+  },
+  {
+    "family": "short_known",
+    "left": "91",
+    "right": "95",
+    "split": "train",
+    "task_id": "r54-train-short_known-0640"
+  },
+  {
+    "family": "short_known",
+    "left": "12",
+    "right": "42",
+    "split": "train",
+    "task_id": "r54-train-short_known-0641"
+  },
+  {
+    "family": "short_known",
+    "left": "5387",
+    "right": "6874",
+    "split": "train",
+    "task_id": "r54-train-short_known-0642"
+  },
+  {
+    "family": "short_known",
+    "left": "2711",
+    "right": "3461",
+    "split": "train",
+    "task_id": "r54-train-short_known-0643"
+  },
+  {
+    "family": "short_known",
+    "left": "5511",
+    "right": "4028",
+    "split": "train",
+    "task_id": "r54-train-short_known-0644"
+  },
+  {
+    "family": "short_known",
+    "left": "4326",
+    "right": "9185",
+    "split": "train",
+    "task_id": "r54-train-short_known-0645"
+  },
+  {
+    "family": "short_known",
+    "left": "753",
+    "right": "584",
+    "split": "train",
+    "task_id": "r54-train-short_known-0646"
+  },
+  {
+    "family": "short_known",
+    "left": "25",
+    "right": "95",
+    "split": "train",
+    "task_id": "r54-train-short_known-0647"
+  },
+  {
+    "family": "short_known",
+    "left": "623",
+    "right": "263",
+    "split": "train",
+    "task_id": "r54-train-short_known-0648"
+  },
+  {
+    "family": "short_known",
+    "left": "45",
+    "right": "59",
+    "split": "train",
+    "task_id": "r54-train-short_known-0649"
+  },
+  {
+    "family": "short_known",
+    "left": "593",
+    "right": "600",
+    "split": "train",
+    "task_id": "r54-train-short_known-0650"
+  },
+  {
+    "family": "short_known",
+    "left": "5874",
+    "right": "3643",
+    "split": "train",
+    "task_id": "r54-train-short_known-0651"
+  },
+  {
+    "family": "short_known",
+    "left": "9015",
+    "right": "6587",
+    "split": "train",
+    "task_id": "r54-train-short_known-0652"
+  },
+  {
+    "family": "short_known",
+    "left": "609",
+    "right": "713",
+    "split": "train",
+    "task_id": "r54-train-short_known-0653"
+  },
+  {
+    "family": "short_known",
+    "left": "6995",
+    "right": "9687",
+    "split": "train",
+    "task_id": "r54-train-short_known-0654"
+  },
+  {
+    "family": "short_known",
+    "left": "930",
+    "right": "379",
+    "split": "train",
+    "task_id": "r54-train-short_known-0655"
+  },
+  {
+    "family": "short_known",
+    "left": "1968",
+    "right": "7722",
+    "split": "train",
+    "task_id": "r54-train-short_known-0656"
+  },
+  {
+    "family": "short_known",
+    "left": "1734",
+    "right": "2137",
+    "split": "train",
+    "task_id": "r54-train-short_known-0657"
+  },
+  {
+    "family": "short_known",
+    "left": "8320",
+    "right": "5156",
+    "split": "train",
+    "task_id": "r54-train-short_known-0658"
+  },
+  {
+    "family": "short_known",
+    "left": "3696",
+    "right": "4132",
+    "split": "train",
+    "task_id": "r54-train-short_known-0659"
+  },
+  {
+    "family": "short_known",
+    "left": "92",
+    "right": "35",
+    "split": "train",
+    "task_id": "r54-train-short_known-0660"
+  },
+  {
+    "family": "short_known",
+    "left": "2773",
+    "right": "1459",
+    "split": "train",
+    "task_id": "r54-train-short_known-0661"
+  },
+  {
+    "family": "short_known",
+    "left": "69",
+    "right": "80",
+    "split": "train",
+    "task_id": "r54-train-short_known-0662"
+  },
+  {
+    "family": "short_known",
+    "left": "743",
+    "right": "748",
+    "split": "train",
+    "task_id": "r54-train-short_known-0663"
+  },
+  {
+    "family": "short_known",
+    "left": "45",
+    "right": "45",
+    "split": "train",
+    "task_id": "r54-train-short_known-0664"
+  },
+  {
+    "family": "short_known",
+    "left": "4620",
+    "right": "7460",
+    "split": "train",
+    "task_id": "r54-train-short_known-0665"
+  },
+  {
+    "family": "short_known",
+    "left": "517",
+    "right": "943",
+    "split": "train",
+    "task_id": "r54-train-short_known-0666"
+  },
+  {
+    "family": "short_known",
+    "left": "761",
+    "right": "163",
+    "split": "train",
+    "task_id": "r54-train-short_known-0667"
+  },
+  {
+    "family": "short_known",
+    "left": "686",
+    "right": "887",
+    "split": "train",
+    "task_id": "r54-train-short_known-0668"
+  },
+  {
+    "family": "short_known",
+    "left": "59",
+    "right": "79",
+    "split": "train",
+    "task_id": "r54-train-short_known-0669"
+  },
+  {
+    "family": "short_known",
+    "left": "5677",
+    "right": "1665",
+    "split": "train",
+    "task_id": "r54-train-short_known-0670"
+  },
+  {
+    "family": "short_known",
+    "left": "822",
+    "right": "926",
+    "split": "train",
+    "task_id": "r54-train-short_known-0671"
+  },
+  {
+    "family": "short_known",
+    "left": "783",
+    "right": "575",
+    "split": "train",
+    "task_id": "r54-train-short_known-0672"
+  },
+  {
+    "family": "short_known",
+    "left": "341",
+    "right": "246",
+    "split": "train",
+    "task_id": "r54-train-short_known-0673"
+  },
+  {
+    "family": "short_known",
+    "left": "345",
+    "right": "126",
+    "split": "train",
+    "task_id": "r54-train-short_known-0674"
+  },
+  {
+    "family": "short_known",
+    "left": "85",
+    "right": "38",
+    "split": "train",
+    "task_id": "r54-train-short_known-0675"
+  },
+  {
+    "family": "short_known",
+    "left": "5937",
+    "right": "6301",
+    "split": "train",
+    "task_id": "r54-train-short_known-0676"
+  },
+  {
+    "family": "short_known",
+    "left": "5756",
+    "right": "6340",
+    "split": "train",
+    "task_id": "r54-train-short_known-0677"
+  },
+  {
+    "family": "short_known",
+    "left": "18",
+    "right": "75",
+    "split": "train",
+    "task_id": "r54-train-short_known-0678"
+  },
+  {
+    "family": "short_known",
+    "left": "9301",
+    "right": "3247",
+    "split": "train",
+    "task_id": "r54-train-short_known-0679"
+  },
+  {
+    "family": "short_known",
+    "left": "58",
+    "right": "17",
+    "split": "train",
+    "task_id": "r54-train-short_known-0680"
+  },
+  {
+    "family": "short_known",
+    "left": "385",
+    "right": "372",
+    "split": "train",
+    "task_id": "r54-train-short_known-0681"
+  },
+  {
+    "family": "short_known",
+    "left": "5938",
+    "right": "9955",
+    "split": "train",
+    "task_id": "r54-train-short_known-0682"
+  },
+  {
+    "family": "short_known",
+    "left": "525",
+    "right": "649",
+    "split": "train",
+    "task_id": "r54-train-short_known-0683"
+  },
+  {
+    "family": "short_known",
+    "left": "59",
+    "right": "10",
+    "split": "train",
+    "task_id": "r54-train-short_known-0684"
+  },
+  {
+    "family": "short_known",
+    "left": "818",
+    "right": "866",
+    "split": "train",
+    "task_id": "r54-train-short_known-0685"
+  },
+  {
+    "family": "short_known",
+    "left": "25",
+    "right": "51",
+    "split": "train",
+    "task_id": "r54-train-short_known-0686"
+  },
+  {
+    "family": "short_known",
+    "left": "53",
+    "right": "47",
+    "split": "train",
+    "task_id": "r54-train-short_known-0687"
+  },
+  {
+    "family": "short_known",
+    "left": "29",
+    "right": "26",
+    "split": "train",
+    "task_id": "r54-train-short_known-0688"
+  },
+  {
+    "family": "short_known",
+    "left": "4856",
+    "right": "1194",
+    "split": "train",
+    "task_id": "r54-train-short_known-0689"
+  },
+  {
+    "family": "short_known",
+    "left": "246",
+    "right": "512",
+    "split": "train",
+    "task_id": "r54-train-short_known-0690"
+  },
+  {
+    "family": "short_known",
+    "left": "7307",
+    "right": "4469",
+    "split": "train",
+    "task_id": "r54-train-short_known-0691"
+  },
+  {
+    "family": "short_known",
+    "left": "12",
+    "right": "33",
+    "split": "train",
+    "task_id": "r54-train-short_known-0692"
+  },
+  {
+    "family": "short_known",
+    "left": "4900",
+    "right": "4496",
+    "split": "train",
+    "task_id": "r54-train-short_known-0693"
+  },
+  {
+    "family": "short_known",
+    "left": "3810",
+    "right": "9706",
+    "split": "train",
+    "task_id": "r54-train-short_known-0694"
+  },
+  {
+    "family": "short_known",
+    "left": "9202",
+    "right": "2513",
+    "split": "train",
+    "task_id": "r54-train-short_known-0695"
+  },
+  {
+    "family": "short_known",
+    "left": "474",
+    "right": "602",
+    "split": "train",
+    "task_id": "r54-train-short_known-0696"
+  },
+  {
+    "family": "short_known",
+    "left": "232",
+    "right": "118",
+    "split": "train",
+    "task_id": "r54-train-short_known-0697"
+  },
+  {
+    "family": "short_known",
+    "left": "77",
+    "right": "47",
+    "split": "train",
+    "task_id": "r54-train-short_known-0698"
+  },
+  {
+    "family": "short_known",
+    "left": "180",
+    "right": "407",
+    "split": "train",
+    "task_id": "r54-train-short_known-0699"
+  },
+  {
+    "family": "short_known",
+    "left": "647",
+    "right": "504",
+    "split": "train",
+    "task_id": "r54-train-short_known-0700"
+  },
+  {
+    "family": "short_known",
+    "left": "525",
+    "right": "847",
+    "split": "train",
+    "task_id": "r54-train-short_known-0701"
+  },
+  {
+    "family": "short_known",
+    "left": "13",
+    "right": "71",
+    "split": "train",
+    "task_id": "r54-train-short_known-0702"
+  },
+  {
+    "family": "short_known",
+    "left": "555",
+    "right": "471",
+    "split": "train",
+    "task_id": "r54-train-short_known-0703"
+  },
+  {
+    "family": "short_known",
+    "left": "966",
+    "right": "717",
+    "split": "train",
+    "task_id": "r54-train-short_known-0704"
+  },
+  {
+    "family": "short_known",
+    "left": "5937",
+    "right": "4987",
+    "split": "train",
+    "task_id": "r54-train-short_known-0705"
+  },
+  {
+    "family": "short_known",
+    "left": "799",
+    "right": "636",
+    "split": "train",
+    "task_id": "r54-train-short_known-0706"
+  },
+  {
+    "family": "short_known",
+    "left": "488",
+    "right": "298",
+    "split": "train",
+    "task_id": "r54-train-short_known-0707"
+  },
+  {
+    "family": "short_known",
+    "left": "2059",
+    "right": "8588",
+    "split": "train",
+    "task_id": "r54-train-short_known-0708"
+  },
+  {
+    "family": "short_known",
+    "left": "7187",
+    "right": "9880",
+    "split": "train",
+    "task_id": "r54-train-short_known-0709"
+  },
+  {
+    "family": "short_known",
+    "left": "506",
+    "right": "480",
+    "split": "train",
+    "task_id": "r54-train-short_known-0710"
+  },
+  {
+    "family": "short_known",
+    "left": "5886",
+    "right": "2984",
+    "split": "train",
+    "task_id": "r54-train-short_known-0711"
+  },
+  {
+    "family": "short_known",
+    "left": "21",
+    "right": "18",
+    "split": "train",
+    "task_id": "r54-train-short_known-0712"
+  },
+  {
+    "family": "short_known",
+    "left": "206",
+    "right": "140",
+    "split": "train",
+    "task_id": "r54-train-short_known-0713"
+  },
+  {
+    "family": "short_known",
+    "left": "634",
+    "right": "759",
+    "split": "train",
+    "task_id": "r54-train-short_known-0714"
+  },
+  {
+    "family": "short_known",
+    "left": "250",
+    "right": "632",
+    "split": "train",
+    "task_id": "r54-train-short_known-0715"
+  },
+  {
+    "family": "short_known",
+    "left": "642",
+    "right": "871",
+    "split": "train",
+    "task_id": "r54-train-short_known-0716"
+  },
+  {
+    "family": "short_known",
+    "left": "2458",
+    "right": "1956",
+    "split": "train",
+    "task_id": "r54-train-short_known-0717"
+  },
+  {
+    "family": "short_known",
+    "left": "42",
+    "right": "98",
+    "split": "train",
+    "task_id": "r54-train-short_known-0718"
+  },
+  {
+    "family": "short_known",
+    "left": "739",
+    "right": "656",
+    "split": "train",
+    "task_id": "r54-train-short_known-0719"
+  },
+  {
+    "family": "short_known",
+    "left": "46",
+    "right": "17",
+    "split": "train",
+    "task_id": "r54-train-short_known-0720"
+  },
+  {
+    "family": "short_known",
+    "left": "78",
+    "right": "87",
+    "split": "train",
+    "task_id": "r54-train-short_known-0721"
+  },
+  {
+    "family": "short_known",
+    "left": "12",
+    "right": "30",
+    "split": "train",
+    "task_id": "r54-train-short_known-0722"
+  },
+  {
+    "family": "short_known",
+    "left": "7990",
+    "right": "9586",
+    "split": "train",
+    "task_id": "r54-train-short_known-0723"
+  },
+  {
+    "family": "short_known",
+    "left": "110",
+    "right": "561",
+    "split": "train",
+    "task_id": "r54-train-short_known-0724"
+  },
+  {
+    "family": "short_known",
+    "left": "998",
+    "right": "767",
+    "split": "train",
+    "task_id": "r54-train-short_known-0725"
+  },
+  {
+    "family": "short_known",
+    "left": "48",
+    "right": "53",
+    "split": "train",
+    "task_id": "r54-train-short_known-0726"
+  },
+  {
+    "family": "short_known",
+    "left": "75",
+    "right": "74",
+    "split": "train",
+    "task_id": "r54-train-short_known-0727"
+  },
+  {
+    "family": "short_known",
+    "left": "94",
+    "right": "43",
+    "split": "train",
+    "task_id": "r54-train-short_known-0728"
+  },
+  {
+    "family": "short_known",
+    "left": "4124",
+    "right": "2354",
+    "split": "train",
+    "task_id": "r54-train-short_known-0729"
+  },
+  {
+    "family": "short_known",
+    "left": "794",
+    "right": "655",
+    "split": "train",
+    "task_id": "r54-train-short_known-0730"
+  },
+  {
+    "family": "short_known",
+    "left": "913",
+    "right": "785",
+    "split": "train",
+    "task_id": "r54-train-short_known-0731"
+  },
+  {
+    "family": "short_known",
+    "left": "82",
+    "right": "79",
+    "split": "train",
+    "task_id": "r54-train-short_known-0732"
+  },
+  {
+    "family": "short_known",
+    "left": "9550",
+    "right": "5402",
+    "split": "train",
+    "task_id": "r54-train-short_known-0733"
+  },
+  {
+    "family": "short_known",
+    "left": "36",
+    "right": "19",
+    "split": "train",
+    "task_id": "r54-train-short_known-0734"
+  },
+  {
+    "family": "short_known",
+    "left": "38",
+    "right": "45",
+    "split": "train",
+    "task_id": "r54-train-short_known-0735"
+  },
+  {
+    "family": "short_known",
+    "left": "79",
+    "right": "33",
+    "split": "train",
+    "task_id": "r54-train-short_known-0736"
+  },
+  {
+    "family": "short_known",
+    "left": "138",
+    "right": "652",
+    "split": "train",
+    "task_id": "r54-train-short_known-0737"
+  },
+  {
+    "family": "short_known",
+    "left": "49",
+    "right": "43",
+    "split": "train",
+    "task_id": "r54-train-short_known-0738"
+  },
+  {
+    "family": "short_known",
+    "left": "2136",
+    "right": "1741",
+    "split": "train",
+    "task_id": "r54-train-short_known-0739"
+  },
+  {
+    "family": "short_known",
+    "left": "529",
+    "right": "100",
+    "split": "train",
+    "task_id": "r54-train-short_known-0740"
+  },
+  {
+    "family": "short_known",
+    "left": "416",
+    "right": "524",
+    "split": "train",
+    "task_id": "r54-train-short_known-0741"
+  },
+  {
+    "family": "short_known",
+    "left": "55",
+    "right": "41",
+    "split": "train",
+    "task_id": "r54-train-short_known-0742"
+  },
+  {
+    "family": "short_known",
+    "left": "5263",
+    "right": "3822",
+    "split": "train",
+    "task_id": "r54-train-short_known-0743"
+  },
+  {
+    "family": "short_known",
+    "left": "11",
+    "right": "52",
+    "split": "train",
+    "task_id": "r54-train-short_known-0744"
+  },
+  {
+    "family": "short_known",
+    "left": "5901",
+    "right": "9291",
+    "split": "train",
+    "task_id": "r54-train-short_known-0745"
+  },
+  {
+    "family": "short_known",
+    "left": "33",
+    "right": "43",
+    "split": "train",
+    "task_id": "r54-train-short_known-0746"
+  },
+  {
+    "family": "short_known",
+    "left": "4591",
+    "right": "3791",
+    "split": "train",
+    "task_id": "r54-train-short_known-0747"
+  },
+  {
+    "family": "short_known",
+    "left": "42",
+    "right": "61",
+    "split": "train",
+    "task_id": "r54-train-short_known-0748"
+  },
+  {
+    "family": "short_known",
+    "left": "25",
+    "right": "14",
+    "split": "train",
+    "task_id": "r54-train-short_known-0749"
+  },
+  {
+    "family": "short_known",
+    "left": "351",
+    "right": "331",
+    "split": "train",
+    "task_id": "r54-train-short_known-0750"
+  },
+  {
+    "family": "short_known",
+    "left": "614",
+    "right": "842",
+    "split": "train",
+    "task_id": "r54-train-short_known-0751"
+  },
+  {
+    "family": "short_known",
+    "left": "8969",
+    "right": "8563",
+    "split": "train",
+    "task_id": "r54-train-short_known-0752"
+  },
+  {
+    "family": "short_known",
+    "left": "2610",
+    "right": "4980",
+    "split": "train",
+    "task_id": "r54-train-short_known-0753"
+  },
+  {
+    "family": "short_known",
+    "left": "594",
+    "right": "125",
+    "split": "train",
+    "task_id": "r54-train-short_known-0754"
+  },
+  {
+    "family": "short_known",
+    "left": "540",
+    "right": "599",
+    "split": "train",
+    "task_id": "r54-train-short_known-0755"
+  },
+  {
+    "family": "short_known",
+    "left": "502",
+    "right": "209",
+    "split": "train",
+    "task_id": "r54-train-short_known-0756"
+  },
+  {
+    "family": "short_known",
+    "left": "73",
+    "right": "90",
+    "split": "train",
+    "task_id": "r54-train-short_known-0757"
+  },
+  {
+    "family": "short_known",
+    "left": "56",
+    "right": "12",
+    "split": "train",
+    "task_id": "r54-train-short_known-0758"
+  },
+  {
+    "family": "short_known",
+    "left": "50",
+    "right": "85",
+    "split": "train",
+    "task_id": "r54-train-short_known-0759"
+  },
+  {
+    "family": "short_known",
+    "left": "508",
+    "right": "799",
+    "split": "train",
+    "task_id": "r54-train-short_known-0760"
+  },
+  {
+    "family": "short_known",
+    "left": "814",
+    "right": "363",
+    "split": "train",
+    "task_id": "r54-train-short_known-0761"
+  },
+  {
+    "family": "short_known",
+    "left": "55",
+    "right": "92",
+    "split": "train",
+    "task_id": "r54-train-short_known-0762"
+  },
+  {
+    "family": "short_known",
+    "left": "5273",
+    "right": "3287",
+    "split": "train",
+    "task_id": "r54-train-short_known-0763"
+  },
+  {
+    "family": "short_known",
+    "left": "57",
+    "right": "46",
+    "split": "train",
+    "task_id": "r54-train-short_known-0764"
+  },
+  {
+    "family": "short_known",
+    "left": "80",
+    "right": "83",
+    "split": "train",
+    "task_id": "r54-train-short_known-0765"
+  },
+  {
+    "family": "short_known",
+    "left": "6018",
+    "right": "4271",
+    "split": "train",
+    "task_id": "r54-train-short_known-0766"
+  },
+  {
+    "family": "short_known",
+    "left": "24",
+    "right": "53",
+    "split": "train",
+    "task_id": "r54-train-short_known-0767"
+  },
+  {
+    "family": "short_known",
+    "left": "5647",
+    "right": "8265",
+    "split": "train",
+    "task_id": "r54-train-short_known-0768"
+  },
+  {
+    "family": "short_known",
+    "left": "474",
+    "right": "366",
+    "split": "train",
+    "task_id": "r54-train-short_known-0769"
+  },
+  {
+    "family": "short_known",
+    "left": "9213",
+    "right": "9349",
+    "split": "train",
+    "task_id": "r54-train-short_known-0770"
+  },
+  {
+    "family": "short_known",
+    "left": "289",
+    "right": "882",
+    "split": "train",
+    "task_id": "r54-train-short_known-0771"
+  },
+  {
+    "family": "short_known",
+    "left": "312",
+    "right": "550",
+    "split": "train",
+    "task_id": "r54-train-short_known-0772"
+  },
+  {
+    "family": "short_known",
+    "left": "51",
+    "right": "74",
+    "split": "train",
+    "task_id": "r54-train-short_known-0773"
+  },
+  {
+    "family": "short_known",
+    "left": "94",
+    "right": "54",
+    "split": "train",
+    "task_id": "r54-train-short_known-0774"
+  },
+  {
+    "family": "short_known",
+    "left": "536",
+    "right": "204",
+    "split": "train",
+    "task_id": "r54-train-short_known-0775"
+  },
+  {
+    "family": "short_known",
+    "left": "905",
+    "right": "721",
+    "split": "train",
+    "task_id": "r54-train-short_known-0776"
+  },
+  {
+    "family": "short_known",
+    "left": "3662",
+    "right": "1495",
+    "split": "train",
+    "task_id": "r54-train-short_known-0777"
+  },
+  {
+    "family": "short_known",
+    "left": "7356",
+    "right": "8949",
+    "split": "train",
+    "task_id": "r54-train-short_known-0778"
+  },
+  {
+    "family": "short_known",
+    "left": "3215",
+    "right": "2888",
+    "split": "train",
+    "task_id": "r54-train-short_known-0779"
+  },
+  {
+    "family": "short_known",
+    "left": "22",
+    "right": "66",
+    "split": "train",
+    "task_id": "r54-train-short_known-0780"
+  },
+  {
+    "family": "short_known",
+    "left": "2644",
+    "right": "8835",
+    "split": "train",
+    "task_id": "r54-train-short_known-0781"
+  },
+  {
+    "family": "short_known",
+    "left": "892",
+    "right": "746",
+    "split": "train",
+    "task_id": "r54-train-short_known-0782"
+  },
+  {
+    "family": "short_known",
+    "left": "1300",
+    "right": "2917",
+    "split": "train",
+    "task_id": "r54-train-short_known-0783"
+  },
+  {
+    "family": "short_known",
+    "left": "457",
+    "right": "424",
+    "split": "train",
+    "task_id": "r54-train-short_known-0784"
+  },
+  {
+    "family": "short_known",
+    "left": "35",
+    "right": "48",
+    "split": "train",
+    "task_id": "r54-train-short_known-0785"
+  },
+  {
+    "family": "short_known",
+    "left": "60",
+    "right": "89",
+    "split": "train",
+    "task_id": "r54-train-short_known-0786"
+  },
+  {
+    "family": "short_known",
+    "left": "643",
+    "right": "105",
+    "split": "train",
+    "task_id": "r54-train-short_known-0787"
+  },
+  {
+    "family": "short_known",
+    "left": "1609",
+    "right": "5979",
+    "split": "train",
+    "task_id": "r54-train-short_known-0788"
+  },
+  {
+    "family": "short_known",
+    "left": "4992",
+    "right": "3064",
+    "split": "train",
+    "task_id": "r54-train-short_known-0789"
+  },
+  {
+    "family": "short_known",
+    "left": "6668",
+    "right": "8929",
+    "split": "train",
+    "task_id": "r54-train-short_known-0790"
+  },
+  {
+    "family": "short_known",
+    "left": "35",
+    "right": "59",
+    "split": "train",
+    "task_id": "r54-train-short_known-0791"
+  },
+  {
+    "family": "short_known",
+    "left": "90",
+    "right": "35",
+    "split": "train",
+    "task_id": "r54-train-short_known-0792"
+  },
+  {
+    "family": "short_known",
+    "left": "451",
+    "right": "254",
+    "split": "train",
+    "task_id": "r54-train-short_known-0793"
+  },
+  {
+    "family": "short_known",
+    "left": "165",
+    "right": "393",
+    "split": "train",
+    "task_id": "r54-train-short_known-0794"
+  },
+  {
+    "family": "short_known",
+    "left": "14",
+    "right": "83",
+    "split": "train",
+    "task_id": "r54-train-short_known-0795"
+  },
+  {
+    "family": "short_known",
+    "left": "311",
+    "right": "460",
+    "split": "train",
+    "task_id": "r54-train-short_known-0796"
+  },
+  {
+    "family": "short_known",
+    "left": "5050",
+    "right": "6712",
+    "split": "train",
+    "task_id": "r54-train-short_known-0797"
+  },
+  {
+    "family": "short_known",
+    "left": "1013",
+    "right": "7451",
+    "split": "train",
+    "task_id": "r54-train-short_known-0798"
+  },
+  {
+    "family": "short_known",
+    "left": "6183",
+    "right": "2251",
+    "split": "train",
+    "task_id": "r54-train-short_known-0799"
+  },
+  {
+    "family": "short_known",
+    "left": "57",
+    "right": "16",
+    "split": "train",
+    "task_id": "r54-train-short_known-0800"
+  },
+  {
+    "family": "short_known",
+    "left": "65",
+    "right": "75",
+    "split": "train",
+    "task_id": "r54-train-short_known-0801"
+  },
+  {
+    "family": "short_known",
+    "left": "47",
+    "right": "16",
+    "split": "train",
+    "task_id": "r54-train-short_known-0802"
+  },
+  {
+    "family": "short_known",
+    "left": "458",
+    "right": "278",
+    "split": "train",
+    "task_id": "r54-train-short_known-0803"
+  },
+  {
+    "family": "short_known",
+    "left": "24",
+    "right": "87",
+    "split": "train",
+    "task_id": "r54-train-short_known-0804"
+  },
+  {
+    "family": "short_known",
+    "left": "9209",
+    "right": "4318",
+    "split": "train",
+    "task_id": "r54-train-short_known-0805"
+  },
+  {
+    "family": "short_known",
+    "left": "9769",
+    "right": "3614",
+    "split": "train",
+    "task_id": "r54-train-short_known-0806"
+  },
+  {
+    "family": "short_known",
+    "left": "115",
+    "right": "607",
+    "split": "train",
+    "task_id": "r54-train-short_known-0807"
+  },
+  {
+    "family": "short_known",
+    "left": "9171",
+    "right": "9383",
+    "split": "train",
+    "task_id": "r54-train-short_known-0808"
+  },
+  {
+    "family": "short_known",
+    "left": "50",
+    "right": "36",
+    "split": "train",
+    "task_id": "r54-train-short_known-0809"
+  },
+  {
+    "family": "short_known",
+    "left": "55",
+    "right": "12",
+    "split": "train",
+    "task_id": "r54-train-short_known-0810"
+  },
+  {
+    "family": "short_known",
+    "left": "30",
+    "right": "59",
+    "split": "train",
+    "task_id": "r54-train-short_known-0811"
+  },
+  {
+    "family": "short_known",
+    "left": "1120",
+    "right": "4117",
+    "split": "train",
+    "task_id": "r54-train-short_known-0812"
+  },
+  {
+    "family": "short_known",
+    "left": "3508",
+    "right": "8272",
+    "split": "train",
+    "task_id": "r54-train-short_known-0813"
+  },
+  {
+    "family": "short_known",
+    "left": "48",
+    "right": "41",
+    "split": "train",
+    "task_id": "r54-train-short_known-0814"
+  },
+  {
+    "family": "short_known",
+    "left": "593",
+    "right": "138",
+    "split": "train",
+    "task_id": "r54-train-short_known-0815"
+  },
+  {
+    "family": "short_known",
+    "left": "118",
+    "right": "259",
+    "split": "train",
+    "task_id": "r54-train-short_known-0816"
+  },
+  {
+    "family": "short_known",
+    "left": "156",
+    "right": "871",
+    "split": "train",
+    "task_id": "r54-train-short_known-0817"
+  },
+  {
+    "family": "short_known",
+    "left": "517",
+    "right": "339",
+    "split": "train",
+    "task_id": "r54-train-short_known-0818"
+  },
+  {
+    "family": "short_known",
+    "left": "144",
+    "right": "720",
+    "split": "train",
+    "task_id": "r54-train-short_known-0819"
+  },
+  {
+    "family": "short_known",
+    "left": "9190",
+    "right": "3693",
+    "split": "train",
+    "task_id": "r54-train-short_known-0820"
+  },
+  {
+    "family": "short_known",
+    "left": "48",
+    "right": "17",
+    "split": "train",
+    "task_id": "r54-train-short_known-0821"
+  },
+  {
+    "family": "short_known",
+    "left": "39",
+    "right": "50",
+    "split": "train",
+    "task_id": "r54-train-short_known-0822"
+  },
+  {
+    "family": "short_known",
+    "left": "631",
+    "right": "608",
+    "split": "train",
+    "task_id": "r54-train-short_known-0823"
+  },
+  {
+    "family": "short_known",
+    "left": "15",
+    "right": "33",
+    "split": "train",
+    "task_id": "r54-train-short_known-0824"
+  },
+  {
+    "family": "short_known",
+    "left": "179",
+    "right": "387",
+    "split": "train",
+    "task_id": "r54-train-short_known-0825"
+  },
+  {
+    "family": "short_known",
+    "left": "50",
+    "right": "99",
+    "split": "train",
+    "task_id": "r54-train-short_known-0826"
+  },
+  {
+    "family": "short_known",
+    "left": "879",
+    "right": "584",
+    "split": "train",
+    "task_id": "r54-train-short_known-0827"
+  },
+  {
+    "family": "short_known",
+    "left": "51",
+    "right": "30",
+    "split": "train",
+    "task_id": "r54-train-short_known-0828"
+  },
+  {
+    "family": "short_known",
+    "left": "233",
+    "right": "133",
+    "split": "train",
+    "task_id": "r54-train-short_known-0829"
+  },
+  {
+    "family": "short_known",
+    "left": "65",
+    "right": "23",
+    "split": "train",
+    "task_id": "r54-train-short_known-0830"
+  },
+  {
+    "family": "short_known",
+    "left": "86",
+    "right": "87",
+    "split": "train",
+    "task_id": "r54-train-short_known-0831"
+  },
+  {
+    "family": "short_known",
+    "left": "5830",
+    "right": "5848",
+    "split": "train",
+    "task_id": "r54-train-short_known-0832"
+  },
+  {
+    "family": "short_known",
+    "left": "415",
+    "right": "633",
+    "split": "train",
+    "task_id": "r54-train-short_known-0833"
+  },
+  {
+    "family": "short_known",
+    "left": "221",
+    "right": "367",
+    "split": "train",
+    "task_id": "r54-train-short_known-0834"
+  },
+  {
+    "family": "short_known",
+    "left": "147",
+    "right": "578",
+    "split": "train",
+    "task_id": "r54-train-short_known-0835"
+  },
+  {
+    "family": "short_known",
+    "left": "284",
+    "right": "197",
+    "split": "train",
+    "task_id": "r54-train-short_known-0836"
+  },
+  {
+    "family": "short_known",
+    "left": "101",
+    "right": "238",
+    "split": "train",
+    "task_id": "r54-train-short_known-0837"
+  },
+  {
+    "family": "short_known",
+    "left": "217",
+    "right": "286",
+    "split": "train",
+    "task_id": "r54-train-short_known-0838"
+  },
+  {
+    "family": "short_known",
+    "left": "6702",
+    "right": "9485",
+    "split": "train",
+    "task_id": "r54-train-short_known-0839"
+  },
+  {
+    "family": "short_known",
+    "left": "89",
+    "right": "93",
+    "split": "train",
+    "task_id": "r54-train-short_known-0840"
+  },
+  {
+    "family": "short_known",
+    "left": "827",
+    "right": "836",
+    "split": "train",
+    "task_id": "r54-train-short_known-0841"
+  },
+  {
+    "family": "short_known",
+    "left": "460",
+    "right": "779",
+    "split": "train",
+    "task_id": "r54-train-short_known-0842"
+  },
+  {
+    "family": "short_known",
+    "left": "32",
+    "right": "75",
+    "split": "train",
+    "task_id": "r54-train-short_known-0843"
+  },
+  {
+    "family": "short_known",
+    "left": "42",
+    "right": "10",
+    "split": "train",
+    "task_id": "r54-train-short_known-0844"
+  },
+  {
+    "family": "short_known",
+    "left": "273",
+    "right": "144",
+    "split": "train",
+    "task_id": "r54-train-short_known-0845"
+  },
+  {
+    "family": "short_known",
+    "left": "36",
+    "right": "16",
+    "split": "train",
+    "task_id": "r54-train-short_known-0846"
+  },
+  {
+    "family": "short_known",
+    "left": "3640",
+    "right": "1748",
+    "split": "train",
+    "task_id": "r54-train-short_known-0847"
+  },
+  {
+    "family": "short_known",
+    "left": "3109",
+    "right": "4164",
+    "split": "train",
+    "task_id": "r54-train-short_known-0848"
+  },
+  {
+    "family": "short_known",
+    "left": "9940",
+    "right": "9033",
+    "split": "train",
+    "task_id": "r54-train-short_known-0849"
+  },
+  {
+    "family": "short_known",
+    "left": "737",
+    "right": "745",
+    "split": "train",
+    "task_id": "r54-train-short_known-0850"
+  },
+  {
+    "family": "short_known",
+    "left": "274",
+    "right": "950",
+    "split": "train",
+    "task_id": "r54-train-short_known-0851"
+  },
+  {
+    "family": "short_known",
+    "left": "5818",
+    "right": "1210",
+    "split": "train",
+    "task_id": "r54-train-short_known-0852"
+  },
+  {
+    "family": "short_known",
+    "left": "889",
+    "right": "969",
+    "split": "train",
+    "task_id": "r54-train-short_known-0853"
+  },
+  {
+    "family": "short_known",
+    "left": "34",
+    "right": "53",
+    "split": "train",
+    "task_id": "r54-train-short_known-0854"
+  },
+  {
+    "family": "short_known",
+    "left": "50",
+    "right": "96",
+    "split": "train",
+    "task_id": "r54-train-short_known-0855"
+  },
+  {
+    "family": "short_known",
+    "left": "487",
+    "right": "509",
+    "split": "train",
+    "task_id": "r54-train-short_known-0856"
+  },
+  {
+    "family": "short_known",
+    "left": "68",
+    "right": "28",
+    "split": "train",
+    "task_id": "r54-train-short_known-0857"
+  },
+  {
+    "family": "short_known",
+    "left": "7114",
+    "right": "4629",
+    "split": "train",
+    "task_id": "r54-train-short_known-0858"
+  },
+  {
+    "family": "short_known",
+    "left": "269",
+    "right": "810",
+    "split": "train",
+    "task_id": "r54-train-short_known-0859"
+  },
+  {
+    "family": "short_known",
+    "left": "5781",
+    "right": "9670",
+    "split": "train",
+    "task_id": "r54-train-short_known-0860"
+  },
+  {
+    "family": "short_known",
+    "left": "6616",
+    "right": "2289",
+    "split": "train",
+    "task_id": "r54-train-short_known-0861"
+  },
+  {
+    "family": "short_known",
+    "left": "7199",
+    "right": "3867",
+    "split": "train",
+    "task_id": "r54-train-short_known-0862"
+  },
+  {
+    "family": "short_known",
+    "left": "7537",
+    "right": "4471",
+    "split": "train",
+    "task_id": "r54-train-short_known-0863"
+  },
+  {
+    "family": "short_known",
+    "left": "2674",
+    "right": "9016",
+    "split": "train",
+    "task_id": "r54-train-short_known-0864"
+  },
+  {
+    "family": "short_known",
+    "left": "589",
+    "right": "359",
+    "split": "train",
+    "task_id": "r54-train-short_known-0865"
+  },
+  {
+    "family": "short_known",
+    "left": "777",
+    "right": "130",
+    "split": "train",
+    "task_id": "r54-train-short_known-0866"
+  },
+  {
+    "family": "short_known",
+    "left": "1592",
+    "right": "3079",
+    "split": "train",
+    "task_id": "r54-train-short_known-0867"
+  },
+  {
+    "family": "short_known",
+    "left": "6681",
+    "right": "1284",
+    "split": "train",
+    "task_id": "r54-train-short_known-0868"
+  },
+  {
+    "family": "short_known",
+    "left": "8555",
+    "right": "2173",
+    "split": "train",
+    "task_id": "r54-train-short_known-0869"
+  },
+  {
+    "family": "short_known",
+    "left": "9506",
+    "right": "4080",
+    "split": "train",
+    "task_id": "r54-train-short_known-0870"
+  },
+  {
+    "family": "short_known",
+    "left": "9453",
+    "right": "2711",
+    "split": "train",
+    "task_id": "r54-train-short_known-0871"
+  },
+  {
+    "family": "short_known",
+    "left": "3644",
+    "right": "9004",
+    "split": "train",
+    "task_id": "r54-train-short_known-0872"
+  },
+  {
+    "family": "short_known",
+    "left": "988",
+    "right": "800",
+    "split": "train",
+    "task_id": "r54-train-short_known-0873"
+  },
+  {
+    "family": "short_known",
+    "left": "84",
+    "right": "97",
+    "split": "train",
+    "task_id": "r54-train-short_known-0874"
+  },
+  {
+    "family": "short_known",
+    "left": "548",
+    "right": "716",
+    "split": "train",
+    "task_id": "r54-train-short_known-0875"
+  },
+  {
+    "family": "short_known",
+    "left": "133",
+    "right": "273",
+    "split": "train",
+    "task_id": "r54-train-short_known-0876"
+  },
+  {
+    "family": "short_known",
+    "left": "1095",
+    "right": "6048",
+    "split": "train",
+    "task_id": "r54-train-short_known-0877"
+  },
+  {
+    "family": "short_known",
+    "left": "78",
+    "right": "90",
+    "split": "train",
+    "task_id": "r54-train-short_known-0878"
+  },
+  {
+    "family": "short_known",
+    "left": "974",
+    "right": "871",
+    "split": "train",
+    "task_id": "r54-train-short_known-0879"
+  },
+  {
+    "family": "short_known",
+    "left": "86",
+    "right": "77",
+    "split": "train",
+    "task_id": "r54-train-short_known-0880"
+  },
+  {
+    "family": "short_known",
+    "left": "63",
+    "right": "28",
+    "split": "train",
+    "task_id": "r54-train-short_known-0881"
+  },
+  {
+    "family": "short_known",
+    "left": "67",
+    "right": "47",
+    "split": "train",
+    "task_id": "r54-train-short_known-0882"
+  },
+  {
+    "family": "short_known",
+    "left": "136",
+    "right": "209",
+    "split": "train",
+    "task_id": "r54-train-short_known-0883"
+  },
+  {
+    "family": "short_known",
+    "left": "569",
+    "right": "267",
+    "split": "train",
+    "task_id": "r54-train-short_known-0884"
+  },
+  {
+    "family": "short_known",
+    "left": "9702",
+    "right": "6576",
+    "split": "train",
+    "task_id": "r54-train-short_known-0885"
+  },
+  {
+    "family": "short_known",
+    "left": "76",
+    "right": "87",
+    "split": "train",
+    "task_id": "r54-train-short_known-0886"
+  },
+  {
+    "family": "short_known",
+    "left": "7344",
+    "right": "8093",
+    "split": "train",
+    "task_id": "r54-train-short_known-0887"
+  },
+  {
+    "family": "short_known",
+    "left": "593",
+    "right": "195",
+    "split": "train",
+    "task_id": "r54-train-short_known-0888"
+  },
+  {
+    "family": "short_known",
+    "left": "2912",
+    "right": "8653",
+    "split": "train",
+    "task_id": "r54-train-short_known-0889"
+  },
+  {
+    "family": "short_known",
+    "left": "68",
+    "right": "99",
+    "split": "train",
+    "task_id": "r54-train-short_known-0890"
+  },
+  {
+    "family": "short_known",
+    "left": "2919",
+    "right": "8258",
+    "split": "train",
+    "task_id": "r54-train-short_known-0891"
+  },
+  {
+    "family": "short_known",
+    "left": "76",
+    "right": "52",
+    "split": "train",
+    "task_id": "r54-train-short_known-0892"
+  },
+  {
+    "family": "short_known",
+    "left": "1644",
+    "right": "6162",
+    "split": "train",
+    "task_id": "r54-train-short_known-0893"
+  },
+  {
+    "family": "short_known",
+    "left": "363",
+    "right": "842",
+    "split": "train",
+    "task_id": "r54-train-short_known-0894"
+  },
+  {
+    "family": "short_known",
+    "left": "14",
+    "right": "30",
+    "split": "train",
+    "task_id": "r54-train-short_known-0895"
+  },
+  {
+    "family": "short_known",
+    "left": "8325",
+    "right": "6015",
+    "split": "train",
+    "task_id": "r54-train-short_known-0896"
+  },
+  {
+    "family": "short_known",
+    "left": "26",
+    "right": "60",
+    "split": "train",
+    "task_id": "r54-train-short_known-0897"
+  },
+  {
+    "family": "short_known",
+    "left": "119",
+    "right": "700",
+    "split": "train",
+    "task_id": "r54-train-short_known-0898"
+  },
+  {
+    "family": "short_known",
+    "left": "7639",
+    "right": "7954",
+    "split": "train",
+    "task_id": "r54-train-short_known-0899"
+  },
+  {
+    "family": "short_known",
+    "left": "8802",
+    "right": "2824",
+    "split": "train",
+    "task_id": "r54-train-short_known-0900"
+  },
+  {
+    "family": "short_known",
+    "left": "494",
+    "right": "576",
+    "split": "train",
+    "task_id": "r54-train-short_known-0901"
+  },
+  {
+    "family": "short_known",
+    "left": "401",
+    "right": "455",
+    "split": "train",
+    "task_id": "r54-train-short_known-0902"
+  },
+  {
+    "family": "short_known",
+    "left": "16",
+    "right": "30",
+    "split": "train",
+    "task_id": "r54-train-short_known-0903"
+  },
+  {
+    "family": "short_known",
+    "left": "70",
+    "right": "73",
+    "split": "train",
+    "task_id": "r54-train-short_known-0904"
+  },
+  {
+    "family": "short_known",
+    "left": "72",
+    "right": "75",
+    "split": "train",
+    "task_id": "r54-train-short_known-0905"
+  },
+  {
+    "family": "short_known",
+    "left": "931",
+    "right": "777",
+    "split": "train",
+    "task_id": "r54-train-short_known-0906"
+  },
+  {
+    "family": "short_known",
+    "left": "59",
+    "right": "73",
+    "split": "train",
+    "task_id": "r54-train-short_known-0907"
+  },
+  {
+    "family": "short_known",
+    "left": "2030",
+    "right": "8241",
+    "split": "train",
+    "task_id": "r54-train-short_known-0908"
+  },
+  {
+    "family": "short_known",
+    "left": "879",
+    "right": "568",
+    "split": "train",
+    "task_id": "r54-train-short_known-0909"
+  },
+  {
+    "family": "short_known",
+    "left": "2106",
+    "right": "3506",
+    "split": "train",
+    "task_id": "r54-train-short_known-0910"
+  },
+  {
+    "family": "short_known",
+    "left": "5985",
+    "right": "3226",
+    "split": "train",
+    "task_id": "r54-train-short_known-0911"
+  },
+  {
+    "family": "short_known",
+    "left": "9864",
+    "right": "8567",
+    "split": "train",
+    "task_id": "r54-train-short_known-0912"
+  },
+  {
+    "family": "short_known",
+    "left": "5854",
+    "right": "6972",
+    "split": "train",
+    "task_id": "r54-train-short_known-0913"
+  },
+  {
+    "family": "short_known",
+    "left": "99",
+    "right": "74",
+    "split": "train",
+    "task_id": "r54-train-short_known-0914"
+  },
+  {
+    "family": "short_known",
+    "left": "5993",
+    "right": "3082",
+    "split": "train",
+    "task_id": "r54-train-short_known-0915"
+  },
+  {
+    "family": "short_known",
+    "left": "606",
+    "right": "415",
+    "split": "train",
+    "task_id": "r54-train-short_known-0916"
+  },
+  {
+    "family": "short_known",
+    "left": "350",
+    "right": "272",
+    "split": "train",
+    "task_id": "r54-train-short_known-0917"
+  },
+  {
+    "family": "short_known",
+    "left": "5835",
+    "right": "5271",
+    "split": "train",
+    "task_id": "r54-train-short_known-0918"
+  },
+  {
+    "family": "short_known",
+    "left": "515",
+    "right": "378",
+    "split": "train",
+    "task_id": "r54-train-short_known-0919"
+  },
+  {
+    "family": "short_known",
+    "left": "1396",
+    "right": "6758",
+    "split": "train",
+    "task_id": "r54-train-short_known-0920"
+  },
+  {
+    "family": "short_known",
+    "left": "854",
+    "right": "222",
+    "split": "train",
+    "task_id": "r54-train-short_known-0921"
+  },
+  {
+    "family": "short_known",
+    "left": "571",
+    "right": "175",
+    "split": "train",
+    "task_id": "r54-train-short_known-0922"
+  },
+  {
+    "family": "short_known",
+    "left": "747",
+    "right": "433",
+    "split": "train",
+    "task_id": "r54-train-short_known-0923"
+  },
+  {
+    "family": "short_known",
+    "left": "2429",
+    "right": "4026",
+    "split": "train",
+    "task_id": "r54-train-short_known-0924"
+  },
+  {
+    "family": "short_known",
+    "left": "853",
+    "right": "662",
+    "split": "train",
+    "task_id": "r54-train-short_known-0925"
+  },
+  {
+    "family": "short_known",
+    "left": "525",
+    "right": "666",
+    "split": "train",
+    "task_id": "r54-train-short_known-0926"
+  },
+  {
+    "family": "short_known",
+    "left": "4106",
+    "right": "6745",
+    "split": "train",
+    "task_id": "r54-train-short_known-0927"
+  },
+  {
+    "family": "short_known",
+    "left": "371",
+    "right": "594",
+    "split": "train",
+    "task_id": "r54-train-short_known-0928"
+  },
+  {
+    "family": "short_known",
+    "left": "326",
+    "right": "410",
+    "split": "train",
+    "task_id": "r54-train-short_known-0929"
+  },
+  {
+    "family": "short_known",
+    "left": "746",
+    "right": "427",
+    "split": "train",
+    "task_id": "r54-train-short_known-0930"
+  },
+  {
+    "family": "short_known",
+    "left": "20",
+    "right": "40",
+    "split": "train",
+    "task_id": "r54-train-short_known-0931"
+  },
+  {
+    "family": "short_known",
+    "left": "879",
+    "right": "668",
+    "split": "train",
+    "task_id": "r54-train-short_known-0932"
+  },
+  {
+    "family": "short_known",
+    "left": "7005",
+    "right": "6867",
+    "split": "train",
+    "task_id": "r54-train-short_known-0933"
+  },
+  {
+    "family": "short_known",
+    "left": "7085",
+    "right": "7695",
+    "split": "train",
+    "task_id": "r54-train-short_known-0934"
+  },
+  {
+    "family": "short_known",
+    "left": "6728",
+    "right": "1488",
+    "split": "train",
+    "task_id": "r54-train-short_known-0935"
+  },
+  {
+    "family": "short_known",
+    "left": "132",
+    "right": "852",
+    "split": "train",
+    "task_id": "r54-train-short_known-0936"
+  },
+  {
+    "family": "short_known",
+    "left": "975",
+    "right": "353",
+    "split": "train",
+    "task_id": "r54-train-short_known-0937"
+  },
+  {
+    "family": "short_known",
+    "left": "9417",
+    "right": "4755",
+    "split": "train",
+    "task_id": "r54-train-short_known-0938"
+  },
+  {
+    "family": "short_known",
+    "left": "301",
+    "right": "922",
+    "split": "train",
+    "task_id": "r54-train-short_known-0939"
+  },
+  {
+    "family": "short_known",
+    "left": "842",
+    "right": "612",
+    "split": "train",
+    "task_id": "r54-train-short_known-0940"
+  },
+  {
+    "family": "short_known",
+    "left": "84",
+    "right": "12",
+    "split": "train",
+    "task_id": "r54-train-short_known-0941"
+  },
+  {
+    "family": "short_known",
+    "left": "358",
+    "right": "766",
+    "split": "train",
+    "task_id": "r54-train-short_known-0942"
+  },
+  {
+    "family": "short_known",
+    "left": "5472",
+    "right": "2975",
+    "split": "train",
+    "task_id": "r54-train-short_known-0943"
+  },
+  {
+    "family": "short_known",
+    "left": "4527",
+    "right": "1535",
+    "split": "train",
+    "task_id": "r54-train-short_known-0944"
+  },
+  {
+    "family": "short_known",
+    "left": "34",
+    "right": "49",
+    "split": "train",
+    "task_id": "r54-train-short_known-0945"
+  },
+  {
+    "family": "short_known",
+    "left": "797",
+    "right": "139",
+    "split": "train",
+    "task_id": "r54-train-short_known-0946"
+  },
+  {
+    "family": "short_known",
+    "left": "931",
+    "right": "981",
+    "split": "train",
+    "task_id": "r54-train-short_known-0947"
+  },
+  {
+    "family": "short_known",
+    "left": "129",
+    "right": "710",
+    "split": "train",
+    "task_id": "r54-train-short_known-0948"
+  },
+  {
+    "family": "short_known",
+    "left": "4044",
+    "right": "7417",
+    "split": "train",
+    "task_id": "r54-train-short_known-0949"
+  },
+  {
+    "family": "short_known",
+    "left": "7077",
+    "right": "8190",
+    "split": "train",
+    "task_id": "r54-train-short_known-0950"
+  },
+  {
+    "family": "short_known",
+    "left": "46",
+    "right": "36",
+    "split": "train",
+    "task_id": "r54-train-short_known-0951"
+  },
+  {
+    "family": "short_known",
+    "left": "1625",
+    "right": "7490",
+    "split": "train",
+    "task_id": "r54-train-short_known-0952"
+  },
+  {
+    "family": "short_known",
+    "left": "4501",
+    "right": "3311",
+    "split": "train",
+    "task_id": "r54-train-short_known-0953"
+  },
+  {
+    "family": "short_known",
+    "left": "534",
+    "right": "384",
+    "split": "train",
+    "task_id": "r54-train-short_known-0954"
+  },
+  {
+    "family": "short_known",
+    "left": "304",
+    "right": "267",
+    "split": "train",
+    "task_id": "r54-train-short_known-0955"
+  },
+  {
+    "family": "short_known",
+    "left": "42",
+    "right": "76",
+    "split": "train",
+    "task_id": "r54-train-short_known-0956"
+  },
+  {
+    "family": "short_known",
+    "left": "791",
+    "right": "865",
+    "split": "train",
+    "task_id": "r54-train-short_known-0957"
+  },
+  {
+    "family": "short_known",
+    "left": "741",
+    "right": "778",
+    "split": "train",
+    "task_id": "r54-train-short_known-0958"
+  },
+  {
+    "family": "short_known",
+    "left": "1167",
+    "right": "7063",
+    "split": "train",
+    "task_id": "r54-train-short_known-0959"
+  },
+  {
+    "family": "short_known",
+    "left": "55",
+    "right": "71",
+    "split": "train",
+    "task_id": "r54-train-short_known-0960"
+  },
+  {
+    "family": "short_known",
+    "left": "9369",
+    "right": "5318",
+    "split": "train",
+    "task_id": "r54-train-short_known-0961"
+  },
+  {
+    "family": "short_known",
+    "left": "3881",
+    "right": "5915",
+    "split": "train",
+    "task_id": "r54-train-short_known-0962"
+  },
+  {
+    "family": "short_known",
+    "left": "3065",
+    "right": "9002",
+    "split": "train",
+    "task_id": "r54-train-short_known-0963"
+  },
+  {
+    "family": "short_known",
+    "left": "57",
+    "right": "76",
+    "split": "train",
+    "task_id": "r54-train-short_known-0964"
+  },
+  {
+    "family": "short_known",
+    "left": "6568",
+    "right": "5667",
+    "split": "train",
+    "task_id": "r54-train-short_known-0965"
+  },
+  {
+    "family": "short_known",
+    "left": "9559",
+    "right": "7977",
+    "split": "train",
+    "task_id": "r54-train-short_known-0966"
+  },
+  {
+    "family": "short_known",
+    "left": "8044",
+    "right": "3445",
+    "split": "train",
+    "task_id": "r54-train-short_known-0967"
+  },
+  {
+    "family": "short_known",
+    "left": "4588",
+    "right": "9785",
+    "split": "train",
+    "task_id": "r54-train-short_known-0968"
+  },
+  {
+    "family": "short_known",
+    "left": "7821",
+    "right": "1310",
+    "split": "train",
+    "task_id": "r54-train-short_known-0969"
+  },
+  {
+    "family": "short_known",
+    "left": "31",
+    "right": "37",
+    "split": "train",
+    "task_id": "r54-train-short_known-0970"
+  },
+  {
+    "family": "short_known",
+    "left": "557",
+    "right": "497",
+    "split": "train",
+    "task_id": "r54-train-short_known-0971"
+  },
+  {
+    "family": "short_known",
+    "left": "329",
+    "right": "297",
+    "split": "train",
+    "task_id": "r54-train-short_known-0972"
+  },
+  {
+    "family": "short_known",
+    "left": "8463",
+    "right": "7009",
+    "split": "train",
+    "task_id": "r54-train-short_known-0973"
+  },
+  {
+    "family": "short_known",
+    "left": "771",
+    "right": "152",
+    "split": "train",
+    "task_id": "r54-train-short_known-0974"
+  },
+  {
+    "family": "short_known",
+    "left": "2479",
+    "right": "6485",
+    "split": "train",
+    "task_id": "r54-train-short_known-0975"
+  },
+  {
+    "family": "short_known",
+    "left": "1717",
+    "right": "3126",
+    "split": "train",
+    "task_id": "r54-train-short_known-0976"
+  },
+  {
+    "family": "short_known",
+    "left": "21",
+    "right": "42",
+    "split": "train",
+    "task_id": "r54-train-short_known-0977"
+  },
+  {
+    "family": "short_known",
+    "left": "5401",
+    "right": "3682",
+    "split": "train",
+    "task_id": "r54-train-short_known-0978"
+  },
+  {
+    "family": "short_known",
+    "left": "773",
+    "right": "997",
+    "split": "train",
+    "task_id": "r54-train-short_known-0979"
+  },
+  {
+    "family": "short_known",
+    "left": "9183",
+    "right": "7392",
+    "split": "train",
+    "task_id": "r54-train-short_known-0980"
+  },
+  {
+    "family": "short_known",
+    "left": "57",
+    "right": "29",
+    "split": "train",
+    "task_id": "r54-train-short_known-0981"
+  },
+  {
+    "family": "short_known",
+    "left": "453",
+    "right": "678",
+    "split": "train",
+    "task_id": "r54-train-short_known-0982"
+  },
+  {
+    "family": "short_known",
+    "left": "29",
+    "right": "97",
+    "split": "train",
+    "task_id": "r54-train-short_known-0983"
+  },
+  {
+    "family": "short_known",
+    "left": "14",
+    "right": "79",
+    "split": "train",
+    "task_id": "r54-train-short_known-0984"
+  },
+  {
+    "family": "short_known",
+    "left": "1979",
+    "right": "4883",
+    "split": "train",
+    "task_id": "r54-train-short_known-0985"
+  },
+  {
+    "family": "short_known",
+    "left": "7888",
+    "right": "9597",
+    "split": "train",
+    "task_id": "r54-train-short_known-0986"
+  },
+  {
+    "family": "short_known",
+    "left": "13",
+    "right": "48",
+    "split": "train",
+    "task_id": "r54-train-short_known-0987"
+  },
+  {
+    "family": "short_known",
+    "left": "98",
+    "right": "53",
+    "split": "train",
+    "task_id": "r54-train-short_known-0988"
+  },
+  {
+    "family": "short_known",
+    "left": "3036",
+    "right": "3159",
+    "split": "train",
+    "task_id": "r54-train-short_known-0989"
+  },
+  {
+    "family": "short_known",
+    "left": "749",
+    "right": "846",
+    "split": "train",
+    "task_id": "r54-train-short_known-0990"
+  },
+  {
+    "family": "short_known",
+    "left": "347",
+    "right": "498",
+    "split": "train",
+    "task_id": "r54-train-short_known-0991"
+  },
+  {
+    "family": "short_known",
+    "left": "949",
+    "right": "619",
+    "split": "train",
+    "task_id": "r54-train-short_known-0992"
+  },
+  {
+    "family": "short_known",
+    "left": "42",
+    "right": "41",
+    "split": "train",
+    "task_id": "r54-train-short_known-0993"
+  },
+  {
+    "family": "short_known",
+    "left": "9426",
+    "right": "8317",
+    "split": "train",
+    "task_id": "r54-train-short_known-0994"
+  },
+  {
+    "family": "short_known",
+    "left": "5094",
+    "right": "2795",
+    "split": "train",
+    "task_id": "r54-train-short_known-0995"
+  },
+  {
+    "family": "short_known",
+    "left": "533",
+    "right": "539",
+    "split": "train",
+    "task_id": "r54-train-short_known-0996"
+  },
+  {
+    "family": "short_known",
+    "left": "5603",
+    "right": "2767",
+    "split": "train",
+    "task_id": "r54-train-short_known-0997"
+  },
+  {
+    "family": "short_known",
+    "left": "8012",
+    "right": "5029",
+    "split": "train",
+    "task_id": "r54-train-short_known-0998"
+  },
+  {
+    "family": "short_known",
+    "left": "1046",
+    "right": "7627",
+    "split": "train",
+    "task_id": "r54-train-short_known-0999"
+  },
+  {
+    "family": "short_known",
+    "left": "258",
+    "right": "642",
+    "split": "train",
+    "task_id": "r54-train-short_known-1000"
+  },
+  {
+    "family": "short_known",
+    "left": "6843",
+    "right": "6770",
+    "split": "train",
+    "task_id": "r54-train-short_known-1001"
+  },
+  {
+    "family": "short_known",
+    "left": "5137",
+    "right": "8889",
+    "split": "train",
+    "task_id": "r54-train-short_known-1002"
+  },
+  {
+    "family": "short_known",
+    "left": "311",
+    "right": "424",
+    "split": "train",
+    "task_id": "r54-train-short_known-1003"
+  },
+  {
+    "family": "short_known",
+    "left": "621",
+    "right": "603",
+    "split": "train",
+    "task_id": "r54-train-short_known-1004"
+  },
+  {
+    "family": "short_known",
+    "left": "4293",
+    "right": "7653",
+    "split": "train",
+    "task_id": "r54-train-short_known-1005"
+  },
+  {
+    "family": "short_known",
+    "left": "5135",
+    "right": "1491",
+    "split": "train",
+    "task_id": "r54-train-short_known-1006"
+  },
+  {
+    "family": "short_known",
+    "left": "656",
+    "right": "862",
+    "split": "train",
+    "task_id": "r54-train-short_known-1007"
+  },
+  {
+    "family": "short_known",
+    "left": "8800",
+    "right": "8881",
+    "split": "train",
+    "task_id": "r54-train-short_known-1008"
+  },
+  {
+    "family": "short_known",
+    "left": "39",
+    "right": "56",
+    "split": "train",
+    "task_id": "r54-train-short_known-1009"
+  },
+  {
+    "family": "short_known",
+    "left": "1899",
+    "right": "7158",
+    "split": "train",
+    "task_id": "r54-train-short_known-1010"
+  },
+  {
+    "family": "short_known",
+    "left": "1840",
+    "right": "3014",
+    "split": "train",
+    "task_id": "r54-train-short_known-1011"
+  },
+  {
+    "family": "short_known",
+    "left": "55",
+    "right": "44",
+    "split": "train",
+    "task_id": "r54-train-short_known-1012"
+  },
+  {
+    "family": "short_known",
+    "left": "733",
+    "right": "347",
+    "split": "train",
+    "task_id": "r54-train-short_known-1013"
+  },
+  {
+    "family": "short_known",
+    "left": "56",
+    "right": "34",
+    "split": "train",
+    "task_id": "r54-train-short_known-1014"
+  },
+  {
+    "family": "short_known",
+    "left": "67",
+    "right": "84",
+    "split": "train",
+    "task_id": "r54-train-short_known-1015"
+  },
+  {
+    "family": "short_known",
+    "left": "8964",
+    "right": "5784",
+    "split": "train",
+    "task_id": "r54-train-short_known-1016"
+  },
+  {
+    "family": "short_known",
+    "left": "16",
+    "right": "26",
+    "split": "train",
+    "task_id": "r54-train-short_known-1017"
+  },
+  {
+    "family": "short_known",
+    "left": "6652",
+    "right": "1194",
+    "split": "train",
+    "task_id": "r54-train-short_known-1018"
+  },
+  {
+    "family": "short_known",
+    "left": "939",
+    "right": "387",
+    "split": "train",
+    "task_id": "r54-train-short_known-1019"
+  },
+  {
+    "family": "short_known",
+    "left": "3949",
+    "right": "5622",
+    "split": "train",
+    "task_id": "r54-train-short_known-1020"
+  },
+  {
+    "family": "short_known",
+    "left": "7118",
+    "right": "5278",
+    "split": "train",
+    "task_id": "r54-train-short_known-1021"
+  },
+  {
+    "family": "short_known",
+    "left": "30",
+    "right": "46",
+    "split": "train",
+    "task_id": "r54-train-short_known-1022"
+  },
+  {
+    "family": "short_known",
+    "left": "6366",
+    "right": "1884",
+    "split": "train",
+    "task_id": "r54-train-short_known-1023"
+  }
+]

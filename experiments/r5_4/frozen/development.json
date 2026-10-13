@@ -1,0 +1,450 @@
+[
+  {
+    "family": "short_known",
+    "left": "3915",
+    "right": "2659",
+    "split": "development",
+    "task_id": "r54-development-short_known-0000"
+  },
+  {
+    "family": "short_known",
+    "left": "285",
+    "right": "507",
+    "split": "development",
+    "task_id": "r54-development-short_known-0001"
+  },
+  {
+    "family": "short_known",
+    "left": "67",
+    "right": "53",
+    "split": "development",
+    "task_id": "r54-development-short_known-0002"
+  },
+  {
+    "family": "short_known",
+    "left": "3296",
+    "right": "5955",
+    "split": "development",
+    "task_id": "r54-development-short_known-0003"
+  },
+  {
+    "family": "short_known",
+    "left": "569",
+    "right": "192",
+    "split": "development",
+    "task_id": "r54-development-short_known-0004"
+  },
+  {
+    "family": "short_known",
+    "left": "172",
+    "right": "189",
+    "split": "development",
+    "task_id": "r54-development-short_known-0005"
+  },
+  {
+    "family": "short_known",
+    "left": "45",
+    "right": "97",
+    "split": "development",
+    "task_id": "r54-development-short_known-0006"
+  },
+  {
+    "family": "short_known",
+    "left": "577",
+    "right": "934",
+    "split": "development",
+    "task_id": "r54-development-short_known-0007"
+  },
+  {
+    "family": "short_known",
+    "left": "359",
+    "right": "702",
+    "split": "development",
+    "task_id": "r54-development-short_known-0008"
+  },
+  {
+    "family": "short_known",
+    "left": "536",
+    "right": "526",
+    "split": "development",
+    "task_id": "r54-development-short_known-0009"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "23",
+    "split": "development",
+    "task_id": "r54-development-short_known-0010"
+  },
+  {
+    "family": "short_known",
+    "left": "87",
+    "right": "26",
+    "split": "development",
+    "task_id": "r54-development-short_known-0011"
+  },
+  {
+    "family": "short_known",
+    "left": "29",
+    "right": "46",
+    "split": "development",
+    "task_id": "r54-development-short_known-0012"
+  },
+  {
+    "family": "short_known",
+    "left": "7590",
+    "right": "7838",
+    "split": "development",
+    "task_id": "r54-development-short_known-0013"
+  },
+  {
+    "family": "short_known",
+    "left": "1385",
+    "right": "7282",
+    "split": "development",
+    "task_id": "r54-development-short_known-0014"
+  },
+  {
+    "family": "short_known",
+    "left": "7081",
+    "right": "3824",
+    "split": "development",
+    "task_id": "r54-development-short_known-0015"
+  },
+  {
+    "family": "short_known",
+    "left": "96",
+    "right": "28",
+    "split": "development",
+    "task_id": "r54-development-short_known-0016"
+  },
+  {
+    "family": "short_known",
+    "left": "1938",
+    "right": "8808",
+    "split": "development",
+    "task_id": "r54-development-short_known-0017"
+  },
+  {
+    "family": "short_known",
+    "left": "82",
+    "right": "70",
+    "split": "development",
+    "task_id": "r54-development-short_known-0018"
+  },
+  {
+    "family": "short_known",
+    "left": "4102",
+    "right": "5189",
+    "split": "development",
+    "task_id": "r54-development-short_known-0019"
+  },
+  {
+    "family": "short_known",
+    "left": "6888",
+    "right": "8057",
+    "split": "development",
+    "task_id": "r54-development-short_known-0020"
+  },
+  {
+    "family": "short_known",
+    "left": "540",
+    "right": "651",
+    "split": "development",
+    "task_id": "r54-development-short_known-0021"
+  },
+  {
+    "family": "short_known",
+    "left": "236",
+    "right": "402",
+    "split": "development",
+    "task_id": "r54-development-short_known-0022"
+  },
+  {
+    "family": "short_known",
+    "left": "309",
+    "right": "392",
+    "split": "development",
+    "task_id": "r54-development-short_known-0023"
+  },
+  {
+    "family": "short_known",
+    "left": "397",
+    "right": "844",
+    "split": "development",
+    "task_id": "r54-development-short_known-0024"
+  },
+  {
+    "family": "short_known",
+    "left": "477",
+    "right": "673",
+    "split": "development",
+    "task_id": "r54-development-short_known-0025"
+  },
+  {
+    "family": "short_known",
+    "left": "4717",
+    "right": "3116",
+    "split": "development",
+    "task_id": "r54-development-short_known-0026"
+  },
+  {
+    "family": "short_known",
+    "left": "7350",
+    "right": "8758",
+    "split": "development",
+    "task_id": "r54-development-short_known-0027"
+  },
+  {
+    "family": "short_known",
+    "left": "340",
+    "right": "130",
+    "split": "development",
+    "task_id": "r54-development-short_known-0028"
+  },
+  {
+    "family": "short_known",
+    "left": "85",
+    "right": "64",
+    "split": "development",
+    "task_id": "r54-development-short_known-0029"
+  },
+  {
+    "family": "short_known",
+    "left": "58",
+    "right": "87",
+    "split": "development",
+    "task_id": "r54-development-short_known-0030"
+  },
+  {
+    "family": "short_known",
+    "left": "5246",
+    "right": "9271",
+    "split": "development",
+    "task_id": "r54-development-short_known-0031"
+  },
+  {
+    "family": "short_known",
+    "left": "15",
+    "right": "61",
+    "split": "development",
+    "task_id": "r54-development-short_known-0032"
+  },
+  {
+    "family": "short_known",
+    "left": "225",
+    "right": "893",
+    "split": "development",
+    "task_id": "r54-development-short_known-0033"
+  },
+  {
+    "family": "short_known",
+    "left": "171",
+    "right": "530",
+    "split": "development",
+    "task_id": "r54-development-short_known-0034"
+  },
+  {
+    "family": "short_known",
+    "left": "5162",
+    "right": "2745",
+    "split": "development",
+    "task_id": "r54-development-short_known-0035"
+  },
+  {
+    "family": "short_known",
+    "left": "295",
+    "right": "697",
+    "split": "development",
+    "task_id": "r54-development-short_known-0036"
+  },
+  {
+    "family": "short_known",
+    "left": "93",
+    "right": "29",
+    "split": "development",
+    "task_id": "r54-development-short_known-0037"
+  },
+  {
+    "family": "short_known",
+    "left": "79",
+    "right": "88",
+    "split": "development",
+    "task_id": "r54-development-short_known-0038"
+  },
+  {
+    "family": "short_known",
+    "left": "947",
+    "right": "845",
+    "split": "development",
+    "task_id": "r54-development-short_known-0039"
+  },
+  {
+    "family": "short_known",
+    "left": "98",
+    "right": "72",
+    "split": "development",
+    "task_id": "r54-development-short_known-0040"
+  },
+  {
+    "family": "short_known",
+    "left": "2774",
+    "right": "8550",
+    "split": "development",
+    "task_id": "r54-development-short_known-0041"
+  },
+  {
+    "family": "short_known",
+    "left": "14",
+    "right": "13",
+    "split": "development",
+    "task_id": "r54-development-short_known-0042"
+  },
+  {
+    "family": "short_known",
+    "left": "1584",
+    "right": "3795",
+    "split": "development",
+    "task_id": "r54-development-short_known-0043"
+  },
+  {
+    "family": "short_known",
+    "left": "114",
+    "right": "549",
+    "split": "development",
+    "task_id": "r54-development-short_known-0044"
+  },
+  {
+    "family": "short_known",
+    "left": "865",
+    "right": "306",
+    "split": "development",
+    "task_id": "r54-development-short_known-0045"
+  },
+  {
+    "family": "short_known",
+    "left": "885",
+    "right": "759",
+    "split": "development",
+    "task_id": "r54-development-short_known-0046"
+  },
+  {
+    "family": "short_known",
+    "left": "1470",
+    "right": "5467",
+    "split": "development",
+    "task_id": "r54-development-short_known-0047"
+  },
+  {
+    "family": "short_known",
+    "left": "8320",
+    "right": "8533",
+    "split": "development",
+    "task_id": "r54-development-short_known-0048"
+  },
+  {
+    "family": "short_known",
+    "left": "73",
+    "right": "60",
+    "split": "development",
+    "task_id": "r54-development-short_known-0049"
+  },
+  {
+    "family": "short_known",
+    "left": "303",
+    "right": "829",
+    "split": "development",
+    "task_id": "r54-development-short_known-0050"
+  },
+  {
+    "family": "short_known",
+    "left": "9408",
+    "right": "3157",
+    "split": "development",
+    "task_id": "r54-development-short_known-0051"
+  },
+  {
+    "family": "short_known",
+    "left": "6938",
+    "right": "1821",
+    "split": "development",
+    "task_id": "r54-development-short_known-0052"
+  },
+  {
+    "family": "short_known",
+    "left": "914",
+    "right": "517",
+    "split": "development",
+    "task_id": "r54-development-short_known-0053"
+  },
+  {
+    "family": "short_known",
+    "left": "65",
+    "right": "16",
+    "split": "development",
+    "task_id": "r54-development-short_known-0054"
+  },
+  {
+    "family": "short_known",
+    "left": "9115",
+    "right": "9161",
+    "split": "development",
+    "task_id": "r54-development-short_known-0055"
+  },
+  {
+    "family": "short_known",
+    "left": "1259",
+    "right": "6413",
+    "split": "development",
+    "task_id": "r54-development-short_known-0056"
+  },
+  {
+    "family": "short_known",
+    "left": "383",
+    "right": "262",
+    "split": "development",
+    "task_id": "r54-development-short_known-0057"
+  },
+  {
+    "family": "short_known",
+    "left": "6775",
+    "right": "2141",
+    "split": "development",
+    "task_id": "r54-development-short_known-0058"
+  },
+  {
+    "family": "short_known",
+    "left": "43",
+    "right": "12",
+    "split": "development",
+    "task_id": "r54-development-short_known-0059"
+  },
+  {
+    "family": "short_known",
+    "left": "209",
+    "right": "694",
+    "split": "development",
+    "task_id": "r54-development-short_known-0060"
+  },
+  {
+    "family": "short_known",
+    "left": "41",
+    "right": "73",
+    "split": "development",
+    "task_id": "r54-development-short_known-0061"
+  },
+  {
+    "family": "short_known",
+    "left": "81",
+    "right": "97",
+    "split": "development",
+    "task_id": "r54-development-short_known-0062"
+  },
+  {
+    "family": "short_known",
+    "left": "418",
+    "right": "985",
+    "split": "development",
+    "task_id": "r54-development-short_known-0063"
+  }
+]

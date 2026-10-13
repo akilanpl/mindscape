@@ -1,0 +1,1346 @@
+[
+  {
+    "family": "length_known",
+    "left": "803620622",
+    "right": "242244806",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0000"
+  },
+  {
+    "family": "length_known",
+    "left": "7790938047674398",
+    "right": "1707776323087982",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0001"
+  },
+  {
+    "family": "length_known",
+    "left": "199893674",
+    "right": "194542492",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0002"
+  },
+  {
+    "family": "length_known",
+    "left": "8017594212580",
+    "right": "8508065619067",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0003"
+  },
+  {
+    "family": "length_known",
+    "left": "121012612233",
+    "right": "507461161827",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0004"
+  },
+  {
+    "family": "length_known",
+    "left": "34123425627078",
+    "right": "95821221640039",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0005"
+  },
+  {
+    "family": "length_known",
+    "left": "8576012556",
+    "right": "7271346389",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0006"
+  },
+  {
+    "family": "length_known",
+    "left": "590057603",
+    "right": "366980002",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0007"
+  },
+  {
+    "family": "length_known",
+    "left": "894080853",
+    "right": "133860230",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0008"
+  },
+  {
+    "family": "length_known",
+    "left": "96490751718294",
+    "right": "30234928853031",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0009"
+  },
+  {
+    "family": "length_known",
+    "left": "944538659081807",
+    "right": "359738160053235",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0010"
+  },
+  {
+    "family": "length_known",
+    "left": "7244685588757",
+    "right": "5556087022186",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0011"
+  },
+  {
+    "family": "length_known",
+    "left": "3266848559",
+    "right": "7471037597",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0012"
+  },
+  {
+    "family": "length_known",
+    "left": "4088641361690481",
+    "right": "7312926588487928",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0013"
+  },
+  {
+    "family": "length_known",
+    "left": "4491965927374",
+    "right": "3025917713282",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0014"
+  },
+  {
+    "family": "length_known",
+    "left": "770911578148",
+    "right": "683200571112",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0015"
+  },
+  {
+    "family": "length_known",
+    "left": "803088918005",
+    "right": "893306042658",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0016"
+  },
+  {
+    "family": "length_known",
+    "left": "816680104",
+    "right": "384987437",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0017"
+  },
+  {
+    "family": "length_known",
+    "left": "1638447071",
+    "right": "7221276235",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0018"
+  },
+  {
+    "family": "length_known",
+    "left": "4365465348275",
+    "right": "4575211131547",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0019"
+  },
+  {
+    "family": "length_known",
+    "left": "5587755524",
+    "right": "2633569697",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0020"
+  },
+  {
+    "family": "length_known",
+    "left": "3936635978505864",
+    "right": "9294214863157054",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0021"
+  },
+  {
+    "family": "length_known",
+    "left": "3945829383371",
+    "right": "4778144511500",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0022"
+  },
+  {
+    "family": "length_known",
+    "left": "76576914413",
+    "right": "65892716607",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0023"
+  },
+  {
+    "family": "length_known",
+    "left": "228221102930919",
+    "right": "915807250824655",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0024"
+  },
+  {
+    "family": "length_known",
+    "left": "871269137654724",
+    "right": "316504299250542",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0025"
+  },
+  {
+    "family": "length_known",
+    "left": "8155484660865",
+    "right": "3501629424344",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0026"
+  },
+  {
+    "family": "length_known",
+    "left": "844815763792",
+    "right": "711736194343",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0027"
+  },
+  {
+    "family": "length_known",
+    "left": "791700090469137",
+    "right": "464540386553217",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0028"
+  },
+  {
+    "family": "length_known",
+    "left": "752345747339",
+    "right": "668253928019",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0029"
+  },
+  {
+    "family": "length_known",
+    "left": "135615754365490",
+    "right": "452852691113047",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0030"
+  },
+  {
+    "family": "length_known",
+    "left": "7703076655014575",
+    "right": "6434104583467964",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0031"
+  },
+  {
+    "family": "length_known",
+    "left": "7872118150",
+    "right": "1382488360",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0032"
+  },
+  {
+    "family": "length_known",
+    "left": "123075747404",
+    "right": "805802164520",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0033"
+  },
+  {
+    "family": "length_known",
+    "left": "227278588",
+    "right": "349687693",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0034"
+  },
+  {
+    "family": "length_known",
+    "left": "757206959",
+    "right": "724467684",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0035"
+  },
+  {
+    "family": "length_known",
+    "left": "8614687958925",
+    "right": "6901598829501",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0036"
+  },
+  {
+    "family": "length_known",
+    "left": "57550068570613",
+    "right": "57717695460753",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0037"
+  },
+  {
+    "family": "length_known",
+    "left": "14632599316473",
+    "right": "29850864451455",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0038"
+  },
+  {
+    "family": "length_known",
+    "left": "150972305960517",
+    "right": "859288412052485",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0039"
+  },
+  {
+    "family": "length_known",
+    "left": "320052255",
+    "right": "293085567",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0040"
+  },
+  {
+    "family": "length_known",
+    "left": "15740939",
+    "right": "54822836",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0041"
+  },
+  {
+    "family": "length_known",
+    "left": "91696297493",
+    "right": "90528028478",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0042"
+  },
+  {
+    "family": "length_known",
+    "left": "1117740960462232",
+    "right": "7569177643680836",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0043"
+  },
+  {
+    "family": "length_known",
+    "left": "57504340",
+    "right": "29179378",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0044"
+  },
+  {
+    "family": "length_known",
+    "left": "6893518958812284",
+    "right": "1658028385861562",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0045"
+  },
+  {
+    "family": "length_known",
+    "left": "60472234246",
+    "right": "69436531230",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0046"
+  },
+  {
+    "family": "length_known",
+    "left": "528798630392392",
+    "right": "396873423976063",
+    "split": "ood",
+    "task_id": "r54-ood-length_known-0047"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "809999195051089",
+    "right": "190000804948912",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0000"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "41001455948940549",
+    "right": "58998544051059458",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0001"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "4815809055115817",
+    "right": "5184190944884186",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0002"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "149415841085005448",
+    "right": "850584158914994553",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0003"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "8410958490140040858584",
+    "right": "1589041509859959141416",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0004"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "8881049950013",
+    "right": "1118950049988",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0005"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "558185859941048",
+    "right": "441814140058953",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0006"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "448449090001995088",
+    "right": "551550909998004916",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0007"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "140480550199",
+    "right": "859519449804",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0008"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "5185588058011400189557",
+    "right": "4814411941988599810445",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0009"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "51908810051509054586",
+    "right": "48091189948490945419",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0010"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "5488818509884846",
+    "right": "4511181490115158",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0011"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "8040509511018505506",
+    "right": "1959490488981494496",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0012"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "111941511919141480189559",
+    "right": "888058488080858519810444",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0013"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "80489195954959108598415",
+    "right": "19510804045040891401588",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0014"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "10019889055958150086",
+    "right": "89980110944041849917",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0015"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "11049094598541498",
+    "right": "88950905401458505",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0016"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "4451414948159115",
+    "right": "5548585051840887",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0017"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "445585005810559994",
+    "right": "554414994189440006",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0018"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "899498085458545895556",
+    "right": "100501914541454104448",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0019"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "41451094044490545094",
+    "right": "58548905955509454906",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0020"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "185949084919595005954443",
+    "right": "814050915080404994045557",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0021"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "8945888805059898",
+    "right": "1054111194940107",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0022"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "854599841451054508819",
+    "right": "145400158548945491189",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0023"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "594450855541990588182",
+    "right": "405549144458009411818",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0024"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "44915001949408418858",
+    "right": "55084998050591581149",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0025"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "51408555409995881095047",
+    "right": "48591444590004118904957",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0026"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "1019001198499596",
+    "right": "8980998801500408",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0027"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "14494549514117",
+    "right": "85505450485883",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0028"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "5049151409109909841414",
+    "right": "4950848590890090158589",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0029"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "109441014904",
+    "right": "890558985099",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0030"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "180419084555585",
+    "right": "819580915444415",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0031"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "5145441554908158118",
+    "right": "4854558445091841887",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0032"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "441080811545401008",
+    "right": "558919188454598999",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0033"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "814985448855084199",
+    "right": "185014551144915809",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0034"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "45481004418998498051849",
+    "right": "54518995581001501948159",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0035"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "84915499948554988444057",
+    "right": "15084500051445011555944",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0036"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "184108015181009",
+    "right": "815891984818999",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0037"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "5150089850184944049458",
+    "right": "4849910149815055950546",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0038"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "499404588904",
+    "right": "500595411096",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0039"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "499005049400184849099",
+    "right": "500994950599815150909",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0040"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "58410585001419551982",
+    "right": "41589414998580448018",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0041"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "155555414446",
+    "right": "844444585554",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0042"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "1155044841958082",
+    "right": "8844955158041919",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0043"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "5500041414058",
+    "right": "4499958585943",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0044"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "1498184198940188941086",
+    "right": "8501815801059811058916",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0045"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "5811048584855596",
+    "right": "4188951415144409",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0046"
+  },
+  {
+    "family": "long_carry_known",
+    "left": "814504049189410919058596",
+    "right": "185495950810589080941405",
+    "split": "ood",
+    "task_id": "r54-ood-long_carry_known-0047"
+  },
+  {
+    "family": "mixed_known",
+    "left": "91655064818",
+    "right": "90425253945",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0000"
+  },
+  {
+    "family": "mixed_known",
+    "left": "707051916035849",
+    "right": "917186458771523",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0001"
+  },
+  {
+    "family": "mixed_known",
+    "left": "927170818",
+    "right": "903086802",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0002"
+  },
+  {
+    "family": "mixed_known",
+    "left": "547762815260348",
+    "right": "938053835244737",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0003"
+  },
+  {
+    "family": "mixed_known",
+    "left": "326470809541208",
+    "right": "759341278192863",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0004"
+  },
+  {
+    "family": "mixed_known",
+    "left": "80969681415",
+    "right": "76716022966",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0005"
+  },
+  {
+    "family": "mixed_known",
+    "left": "4271613362505",
+    "right": "6080748274945",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0006"
+  },
+  {
+    "family": "mixed_known",
+    "left": "28190728132819",
+    "right": "25654603092939",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0007"
+  },
+  {
+    "family": "mixed_known",
+    "left": "62948594556",
+    "right": "52609170606",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0008"
+  },
+  {
+    "family": "mixed_known",
+    "left": "26370415191959",
+    "right": "14174718426202",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0009"
+  },
+  {
+    "family": "mixed_known",
+    "left": "57171509095804",
+    "right": "27192964360379",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0010"
+  },
+  {
+    "family": "mixed_known",
+    "left": "1646320624681739",
+    "right": "2616394616052509",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0011"
+  },
+  {
+    "family": "mixed_known",
+    "left": "619171859290906",
+    "right": "942373206040328",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0012"
+  },
+  {
+    "family": "mixed_known",
+    "left": "26391817",
+    "right": "56396744",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0013"
+  },
+  {
+    "family": "mixed_known",
+    "left": "70939282513",
+    "right": "33906321827",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0014"
+  },
+  {
+    "family": "mixed_known",
+    "left": "2426375255",
+    "right": "4629380829",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0015"
+  },
+  {
+    "family": "mixed_known",
+    "left": "216254525",
+    "right": "939393915",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0016"
+  },
+  {
+    "family": "mixed_known",
+    "left": "915690928260717",
+    "right": "337065202297303",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0017"
+  },
+  {
+    "family": "mixed_known",
+    "left": "546475279",
+    "right": "935280907",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0018"
+  },
+  {
+    "family": "mixed_known",
+    "left": "5183825223607",
+    "right": "8382856282927",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0019"
+  },
+  {
+    "family": "mixed_known",
+    "left": "34863682808",
+    "right": "81218185933",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0020"
+  },
+  {
+    "family": "mixed_known",
+    "left": "133519590923",
+    "right": "372857263558",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0021"
+  },
+  {
+    "family": "mixed_known",
+    "left": "3381224260709",
+    "right": "7455907580656",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0022"
+  },
+  {
+    "family": "mixed_known",
+    "left": "75557371619",
+    "right": "72606356455",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0023"
+  },
+  {
+    "family": "mixed_known",
+    "left": "172606172809",
+    "right": "582814052946",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0024"
+  },
+  {
+    "family": "mixed_known",
+    "left": "4616246508366548",
+    "right": "1469560859170506",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0025"
+  },
+  {
+    "family": "mixed_known",
+    "left": "523392906",
+    "right": "737161379",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0026"
+  },
+  {
+    "family": "mixed_known",
+    "left": "56752864570815",
+    "right": "17052516171809",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0027"
+  },
+  {
+    "family": "mixed_known",
+    "left": "5371727195707",
+    "right": "5146754231579",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0028"
+  },
+  {
+    "family": "mixed_known",
+    "left": "54548070507",
+    "right": "71826244748",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0029"
+  },
+  {
+    "family": "mixed_known",
+    "left": "422061818",
+    "right": "609290853",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0030"
+  },
+  {
+    "family": "mixed_known",
+    "left": "703033537545953",
+    "right": "548592635172917",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0031"
+  },
+  {
+    "family": "mixed_known",
+    "left": "1916690248021835",
+    "right": "6426161807490626",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0032"
+  },
+  {
+    "family": "mixed_known",
+    "left": "738562525386969",
+    "right": "308284709491704",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0033"
+  },
+  {
+    "family": "mixed_known",
+    "left": "627290433174408",
+    "right": "808477738282978",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0034"
+  },
+  {
+    "family": "mixed_known",
+    "left": "39271748465405",
+    "right": "16590306191605",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0035"
+  },
+  {
+    "family": "mixed_known",
+    "left": "5202363708174515",
+    "right": "2949474918190705",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0036"
+  },
+  {
+    "family": "mixed_known",
+    "left": "208083539175618",
+    "right": "829064848142742",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0037"
+  },
+  {
+    "family": "mixed_known",
+    "left": "81927571647",
+    "right": "25438251416",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0038"
+  },
+  {
+    "family": "mixed_known",
+    "left": "1928080619",
+    "right": "3617186735",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0039"
+  },
+  {
+    "family": "mixed_known",
+    "left": "1409183716",
+    "right": "4938391964",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0040"
+  },
+  {
+    "family": "mixed_known",
+    "left": "51526050954",
+    "right": "56648491629",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0041"
+  },
+  {
+    "family": "mixed_known",
+    "left": "284816290329",
+    "right": "223217162826",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0042"
+  },
+  {
+    "family": "mixed_known",
+    "left": "7454746352726",
+    "right": "8281708475555",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0043"
+  },
+  {
+    "family": "mixed_known",
+    "left": "480858062707",
+    "right": "222312642559",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0044"
+  },
+  {
+    "family": "mixed_known",
+    "left": "50509296234",
+    "right": "52808060809",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0045"
+  },
+  {
+    "family": "mixed_known",
+    "left": "93655693817",
+    "right": "73705072546",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0046"
+  },
+  {
+    "family": "mixed_known",
+    "left": "38287915",
+    "right": "45330737",
+    "split": "ood",
+    "task_id": "r54-ood-mixed_known-0047"
+  },
+  {
+    "family": "unseen_short",
+    "left": "93",
+    "right": "14",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0000"
+  },
+  {
+    "family": "unseen_short",
+    "left": "678",
+    "right": "234",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0001"
+  },
+  {
+    "family": "unseen_short",
+    "left": "1996",
+    "right": "5106",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0002"
+  },
+  {
+    "family": "unseen_short",
+    "left": "46",
+    "right": "81",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0003"
+  },
+  {
+    "family": "unseen_short",
+    "left": "8223",
+    "right": "7270",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0004"
+  },
+  {
+    "family": "unseen_short",
+    "left": "951",
+    "right": "789",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0005"
+  },
+  {
+    "family": "unseen_short",
+    "left": "9695",
+    "right": "1987",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0006"
+  },
+  {
+    "family": "unseen_short",
+    "left": "7850",
+    "right": "2997",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0007"
+  },
+  {
+    "family": "unseen_short",
+    "left": "24",
+    "right": "28",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0008"
+  },
+  {
+    "family": "unseen_short",
+    "left": "87",
+    "right": "62",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0009"
+  },
+  {
+    "family": "unseen_short",
+    "left": "817",
+    "right": "435",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0010"
+  },
+  {
+    "family": "unseen_short",
+    "left": "75",
+    "right": "22",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0011"
+  },
+  {
+    "family": "unseen_short",
+    "left": "817",
+    "right": "791",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0012"
+  },
+  {
+    "family": "unseen_short",
+    "left": "372",
+    "right": "507",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0013"
+  },
+  {
+    "family": "unseen_short",
+    "left": "388",
+    "right": "174",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0014"
+  },
+  {
+    "family": "unseen_short",
+    "left": "72",
+    "right": "22",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0015"
+  },
+  {
+    "family": "unseen_short",
+    "left": "2134",
+    "right": "6718",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0016"
+  },
+  {
+    "family": "unseen_short",
+    "left": "4418",
+    "right": "8125",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0017"
+  },
+  {
+    "family": "unseen_short",
+    "left": "9445",
+    "right": "1411",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0018"
+  },
+  {
+    "family": "unseen_short",
+    "left": "385",
+    "right": "340",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0019"
+  },
+  {
+    "family": "unseen_short",
+    "left": "730",
+    "right": "253",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0020"
+  },
+  {
+    "family": "unseen_short",
+    "left": "5438",
+    "right": "6815",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0021"
+  },
+  {
+    "family": "unseen_short",
+    "left": "71",
+    "right": "99",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0022"
+  },
+  {
+    "family": "unseen_short",
+    "left": "47",
+    "right": "32",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0023"
+  },
+  {
+    "family": "unseen_short",
+    "left": "60",
+    "right": "37",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0024"
+  },
+  {
+    "family": "unseen_short",
+    "left": "97",
+    "right": "16",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0025"
+  },
+  {
+    "family": "unseen_short",
+    "left": "8475",
+    "right": "4401",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0026"
+  },
+  {
+    "family": "unseen_short",
+    "left": "6872",
+    "right": "7436",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0027"
+  },
+  {
+    "family": "unseen_short",
+    "left": "772",
+    "right": "826",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0028"
+  },
+  {
+    "family": "unseen_short",
+    "left": "76",
+    "right": "25",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0029"
+  },
+  {
+    "family": "unseen_short",
+    "left": "902",
+    "right": "257",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0030"
+  },
+  {
+    "family": "unseen_short",
+    "left": "896",
+    "right": "485",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0031"
+  },
+  {
+    "family": "unseen_short",
+    "left": "8632",
+    "right": "7666",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0032"
+  },
+  {
+    "family": "unseen_short",
+    "left": "6870",
+    "right": "6626",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0033"
+  },
+  {
+    "family": "unseen_short",
+    "left": "1438",
+    "right": "8767",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0034"
+  },
+  {
+    "family": "unseen_short",
+    "left": "6130",
+    "right": "2924",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0035"
+  },
+  {
+    "family": "unseen_short",
+    "left": "44",
+    "right": "82",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0036"
+  },
+  {
+    "family": "unseen_short",
+    "left": "17",
+    "right": "72",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0037"
+  },
+  {
+    "family": "unseen_short",
+    "left": "89",
+    "right": "21",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0038"
+  },
+  {
+    "family": "unseen_short",
+    "left": "697",
+    "right": "922",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0039"
+  },
+  {
+    "family": "unseen_short",
+    "left": "8323",
+    "right": "3617",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0040"
+  },
+  {
+    "family": "unseen_short",
+    "left": "32",
+    "right": "97",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0041"
+  },
+  {
+    "family": "unseen_short",
+    "left": "337",
+    "right": "242",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0042"
+  },
+  {
+    "family": "unseen_short",
+    "left": "64",
+    "right": "68",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0043"
+  },
+  {
+    "family": "unseen_short",
+    "left": "162",
+    "right": "534",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0044"
+  },
+  {
+    "family": "unseen_short",
+    "left": "7395",
+    "right": "2347",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0045"
+  },
+  {
+    "family": "unseen_short",
+    "left": "842",
+    "right": "767",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0046"
+  },
+  {
+    "family": "unseen_short",
+    "left": "7688",
+    "right": "2672",
+    "split": "ood",
+    "task_id": "r54-ood-unseen_short-0047"
+  }
+]
