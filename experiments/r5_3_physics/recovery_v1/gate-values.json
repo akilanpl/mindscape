@@ -1,0 +1,50 @@
+{
+  "motion": {
+    "ood_mse_ratio": 1.2139066905748666,
+    "iid_mse_ratio": 1.3165260883899215,
+    "velocity_mse_ratio": 1.2438015775335258,
+    "coverage": 0.9713541666666666,
+    "interval_score_ratio": 1.0405859277481824,
+    "contact_accuracy": 0.9620535714285714,
+    "floor_penetration": 0.0,
+    "planning_gain": -0.023809523809523725,
+    "stress_mse": 0.15655174013186293,
+    "ood_ratio_ci95": [
+      0.9977816759589191,
+      2.330006389001899
+    ],
+    "planning_difference_ci95": [
+      -0.26190476190476186,
+      0.04761904761904778
+    ],
+    "seed_structured_minus_matched_mse": {
+      "11": 0.003383408802334495,
+      "23": -0.0024299587996852723,
+      "47": 0.0025475727665002362
+    }
+  },
+  "interaction": {
+    "ood_mse_ratio": 1.1892076623416752,
+    "iid_mse_ratio": 2.498269712645802,
+    "velocity_mse_ratio": 1.1881285100838173,
+    "coverage": 0.9405381944444445,
+    "interval_score_ratio": 1.040673735719252,
+    "contact_accuracy": 0.96875,
+    "floor_penetration": 0.0,
+    "planning_gain": 0.0,
+    "stress_mse": 0.23900463810522318,
+    "ood_ratio_ci95": [
+      1.044259694458173,
+      3.19337955222952
+    ],
+    "planning_difference_ci95": [
+      0.0,
+      0.0
+    ],
+    "seed_structured_minus_matched_mse": {
+      "11": 0.007583580512595327,
+      "23": 0.007811109542520928,
+      "47": 0.008493020150602555
+    }
+  }
+}

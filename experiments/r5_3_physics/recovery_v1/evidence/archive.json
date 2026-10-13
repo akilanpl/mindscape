@@ -1,0 +1,22 @@
+{
+  "parts": [
+    {
+      "file": "part-000.bin",
+      "bytes": 33554432,
+      "sha256": "00d36d99f58e866a7375d0b6862be73e80919b92c4851118116d70629c1ac5f3"
+    },
+    {
+      "file": "part-001.bin",
+      "bytes": 33554432,
+      "sha256": "51e7bb293a44ea8ea61a38b9caa3605056db54d0d6ba15e7081f2de3cdd0f43a"
+    },
+    {
+      "file": "part-002.bin",
+      "bytes": 26428934,
+      "sha256": "614f369ed3250655fde365a75856f7b131ca66dc7fef801308156e56f93a2bf0"
+    }
+  ],
+  "archive_sha256": "022c849455c5dbf947b4ffcdf70b0b38aae3fbe19e097468ad0393f29c19894b",
+  "bytes": 93537798,
+  "concatenation_restore": "PASS"
+}

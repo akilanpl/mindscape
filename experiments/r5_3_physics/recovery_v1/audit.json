@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "original_files": 1266,
+  "original_bytes_unchanged": true,
+  "forecasts": 624,
+  "planning_executions": 624,
+  "metric_cells": 2496,
+  "metric_comparisons": 19968,
+  "numerical_discrepancies": 1245,
+  "native_dtype_metrics_exact": 2496,
+  "independent_scenes": 52,
+  "independent_ood_scenes": 28,
+  "independent_iid_scenes": 24,
+  "checkpoints": [
+    {
+      "file": "structured-s11.pt",
+      "sha256": "555ae9d136375c01a4161f37f34a703a9831147b0633a442924fe85d83b5cd22",
+      "updates": 160,
+      "optimizer_parameters": 8,
+      "parameters": 703
+    },
+    {
+      "file": "matched-s11.pt",
+      "sha256": "5e916f22d3013ddf5a31ff1a425ca51778cc0e61249254acd44bc0a39eacd404",
+      "updates": 160,
+      "optimizer_parameters": 8,
+      "parameters": 703
+    },
+    {
+      "file": "structured-s23.pt",
+      "sha256": "c22786bc13896ff509f93ef506df666f65bfe822b1655371e60efd0b12b50a03",
+      "updates": 160,
+      "optimizer_parameters": 8,
+      "parameters": 703
+    },
+    {
+      "file": "matched-s23.pt",
+      "sha256": "7efb8b7f70600f3f9d67cc61f72fe8f1c6f528d20ca382df27415c442746586e",
+      "updates": 160,
+      "optimizer_parameters": 8,
+      "parameters": 703
+    },
+    {
+      "file": "structured-s47.pt",
+      "sha256": "51e5e0c9e3e20d8d9f4bb09dd4c48a08772c94135854572237ea3b8fc5ceb0d9",
+      "updates": 160,
+      "optimizer_parameters": 8,
+      "parameters": 703
+    },
+    {
+      "file": "matched-s47.pt",
+      "sha256": "f2178ce8a69ef15613984a9c8156205129c8799e916d426fd44b1bc0e28065c2",
+      "updates": 160,
+      "optimizer_parameters": 8,
+      "parameters": 703
+    }
+  ],
+  "optimizer_updates": 960,
+  "neural_forwards": 0,
+  "new_scene_identities": 0,
+  "qualification": {
+    "decision": "DATA_READY",
+    "training_scenes": 48,
+    "contact_frames": 175,
+    "spring_scenes": 12,
+    "baseline_mse": 0.026223445401887535
+  },
+  "qualification_baseline_mse": "Authenticated original receipt only; no baseline forecast regenerated",
+  "limitations": [
+    "Archived forecasts are not regenerated from weights; correspondence relies on hashed native provenance.",
+    "Forecast targets were not separately archived originally; repeated deterministic Pymunk reconstruction from authenticated scene manifests is exact and recorded here.",
+    "32 uncertainty particles and14 OOD scenes per family limit tail/coverage and bootstrap precision."
+  ]
+}
