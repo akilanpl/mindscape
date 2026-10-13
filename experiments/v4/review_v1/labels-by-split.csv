@@ -1,0 +1,16 @@
+domain,split,positive,negative
+mathematics,train,7,25
+mathematics,target_four,4,12
+physics,train,1,71
+physics,target_four,0,36
+coding,train,8,16
+coding,target_four,4,8
+mathematics,auxiliary_only_train,3,13
+physics,auxiliary_only_train,1,35
+coding,auxiliary_only_train,4,8
+mathematics,iid,3,13
+physics,iid,0,36
+coding,iid,4,8
+mathematics,ood,2,30
+physics,ood,9,63
+coding,ood,10,14

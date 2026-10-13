@@ -1,0 +1,34 @@
+{
+  "status": "PROPOSED_NOT_EXECUTED",
+  "scope": "One data-qualification experiment only; no training authorized or scheduled by this file.",
+  "seed": 2026101404,
+  "maximum_requests": 36,
+  "per_domain": {"training": 8, "qualification": 4},
+  "inference_only": true,
+  "frozen_assets": "Reuse V4 original specialist checkpoint hashes and candidate budgets: math 4, coding <=3, physics 9.",
+  "freshness": "Generate and commit a complete public task/private scorer manifest before candidate inference. Reject exact V4 identities, canonical math states, coding ASTs and physics scene seeds/indices used in the original run. Do not read or select historical sealed holdouts. No observed V4 OOD identity can enter any new split.",
+  "minimal_data_corrections": {
+    "mathematics": "Balance incoming=0 and incoming=1 within each split; sample fresh legal states with seed above, retaining fixed top-two digit/carry proposals. Do not expand candidates or inject answers after seeing labels.",
+    "physics": "Use new scene seed above and indices 2000..2011; alternate horizons 8 and 16 within both splits. Set target from latest masked public observed position plus offset [(0,0),(0.5,0),(0,0.5),(-0.5,0)][index modulo 4], before rollout or verification. Remove absolute-target/short-horizon mismatch without selecting targets using actual future states.",
+    "coding": "Use fresh literals >=101 and fresh task names. Cycle four small repair families: inclusive boundary, exclusive boundary, one-literal error, sum/count contract mismatch. Keep actual Qwen proposals and unchanged control; normalize AST-equivalent duplicates before scoring. Deterministically shuffle candidate order for every condition with task hash, preserving specialist score bindings. No hand-inserted correct repairs."
+  },
+  "qualification_gates": {
+    "every_domain_first_four_training_tasks": {"minimum_positive_candidates": 4, "minimum_negative_candidates": 4, "minimum_tasks_with_both_labels": 2},
+    "every_domain_four_qualification_tasks": {"minimum_solvable_tasks": 3, "minimum_tasks_with_both_labels": 3},
+    "coding_four_qualification_tasks": {"minimum_oracle_minus_specialist_correct_tasks": 1, "minimum_oracle_minus_first_candidate_correct_tasks": 1},
+    "integrity": "All identities disjoint, candidate features persisted before scores/outcomes, independent candidate replay PASS. Qualification labels are never used for training."
+  },
+  "exact_stop_conditions": [
+    "Stop after at most 36 requests. Any generation, integrity or replay failure stops the experiment.",
+    "If any label-mix, oracle or headroom gate fails, preserve DATA_NO_GO; no replacements, larger top-k, new seeds, extra requests or training.",
+    "If all gates pass, stop with DATA_READY. Do not train until a separate fresh evaluation manifest and training authorization exist.",
+    "Never change the original V4 gates, outcomes or NO_GO decision; this is a new development proposal, not a repaired original experiment."
+  ],
+  "conditional_later_training_plan": {
+    "status": "NOT_AUTHORIZED_NOT_EXECUTED",
+    "direction": "mathematics+physics -> coding only; 9 fits, three original optimizer seeds and B/C/D conditions, unchanged 4865-parameter network and 120x32 updates",
+    "evaluation": "Freeze 16 entirely fresh coding evaluation identities and their scorer before training; no selection by evaluation candidate labels, correctness, or model performance. All 16 remain in denominators. Evaluation must not reuse qualification tasks.",
+    "gates": "At least +2/16 mean correct selections versus each of domain-only and randomized-auxiliary, positive gain for all three seeds, shared target-training Brier improvement >=0.01 over both initialization and constant prevalence for every seed, mean evaluation Brier no worse than either control, and all independent integrity/replay checks pass. Otherwise STOP NO_GO. GO is to independent confirmation only.",
+    "limits": "No all-domain negative-transfer claim from a single target. No retuning, budget expansion or repeat seed search. Exact fresh generator/manifest implementation is still pending."
+  }
+}
