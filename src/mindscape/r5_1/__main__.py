@@ -31,6 +31,9 @@ def main():
     for name, expected in freeze["sources"].items():
         if sha(name) != expected:
             raise ValueError("Frozen source changed: " + name)
+    for name, expected in freeze["runtime_assets"].items():
+        if sha(name) != expected:
+            raise ValueError("Frozen runtime changed: " + name)
     # Deterministic attempt lock prevents repeat screens. No resume or alternate output option.
     root = Path("results/r5_1") / ("screen-" + sha(manifest_path)[:16])
     root.mkdir(parents=True, exist_ok=False)

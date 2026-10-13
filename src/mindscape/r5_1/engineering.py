@@ -157,6 +157,8 @@ def run(manifest):
     return {
         "status": "PASS",
         "device": "mps",
+        "torch_version": str(torch.__version__),
+        "dtype": str(next(model.parameters()).dtype),
         "parameters": parameters,
         "domain_checks": records,
         "optimizer_steps": 0,
