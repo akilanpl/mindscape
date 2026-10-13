@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "files": 7,
+  "history": {
+    "status": "PASS",
+    "files": 1726,
+    "scientific_status": {
+      "R5.1": {
+        "decision": "NO_GO",
+        "gates": {
+          "primary_both_control_gains": false,
+          "primary_seed_consistency": false,
+          "persistence_improvement": false,
+          "local_improvement": false,
+          "validity": true,
+          "whole_graph_guard": true,
+          "unchanged_guard": false,
+          "invalid_guard": false,
+          "other_domain_regression": false,
+          "learns_development": true,
+          "finite": true
+        },
+        "relative_changed_mse_gains": {
+          "mathematics": {
+            "domain_only": [
+              -0.14515784350543837,
+              -0.48777190388888136,
+              -3.8386777808701606
+            ],
+            "randomized_auxiliary": [
+              0.5320047616493884,
+              0.3183626954542268,
+              -0.015948761351567742
+            ]
+          },
+          "coding": {
+            "domain_only": [
+              -0.0007740916196457924,
+              0.006071260321184917,
+              0.008168688978464613
+            ],
+            "randomized_auxiliary": [
+              -0.004321128226506988,
+              0.006952053490171305,
+              0.007986811467138935
+            ]
+          },
+          "physics": {
+            "domain_only": [
+              -0.41785939160782676,
+              -1.7081874978392033,
+              -0.12201660653516049
+            ],
+            "randomized_auxiliary": [
+              0.5386046767596022,
+              -1.4447287757607532,
+              0.24319551122373856
+            ]
+          }
+        },
+        "independent_tasks_per_domain": 9,
+        "exposure_confound": "domain-only120 target updates versus shared60 target+60 auxiliary; no matched target exposure"
+      },
+      "R5.2": {
+        "decision": "NO_GO",
+        "provenance": "POST-HOC RECOVERY FROM FROZEN PREDICTIONS"
+      },
+      "R5.3": {
+        "decision": "NO_GO",
+        "provenance": "POST-HOC RECOVERY FROM FROZEN EVIDENCE"
+      },
+      "V3_runtime": "verified engineering integration; no transfer claim"
+    }
+  },
+  "neural_re_forward": false
+}

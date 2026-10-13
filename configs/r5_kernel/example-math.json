@@ -1,0 +1,18 @@
+{
+  "domain": "mathematics",
+  "operation": "integer",
+  "observation": {
+    "operands": [
+      -137,
+      29,
+      4
+    ],
+    "operations": [
+      "add",
+      "mul"
+    ]
+  },
+  "action": {},
+  "mode": "validated",
+  "version": "mindscape.kernel/1"
+}

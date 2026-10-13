@@ -1,0 +1,78 @@
+{
+  "request_id": "1a2340912f77b77ed80fe9efc5ab5f4b04d194ce76505bfa8bb4cbe4ffc11319",
+  "domain": "mathematics",
+  "state": {
+    "domain": "mathematics",
+    "representation": "domain-qualified public observation",
+    "value": {
+      "a": [
+        2,
+        3
+      ],
+      "b": [
+        5,
+        6
+      ],
+      "operation": "add"
+    },
+    "observation_hash": "2599f71e547953e86af9972eead2eb335147b2234513389505b59d4b511e5434"
+  },
+  "action": {},
+  "prediction": {
+    "kind": "symbolic_result",
+    "value": "3/2"
+  },
+  "execution": {
+    "kind": "tool_result",
+    "value": "3/2",
+    "steps": [
+      {
+        "normalized_left": "2/3",
+        "normalized_right": "5/6",
+        "operation": "add",
+        "independent_fraction_result": "3/2"
+      }
+    ]
+  },
+  "verification": {
+    "success": true,
+    "method": "SymPy+independent arithmetic checks"
+  },
+  "provenance": {
+    "method": "symbolic_tool",
+    "neural": false,
+    "tool": "SymPy+independent arithmetic checks",
+    "routing": "explicit_request",
+    "learned_transfer": false,
+    "optimizer_steps": 0,
+    "persistent_memory_updated": false,
+    "shared_parameters": false
+  },
+  "trace": [
+    {
+      "stage": "observation",
+      "value_hash": "2599f71e547953e86af9972eead2eb335147b2234513389505b59d4b511e5434"
+    },
+    {
+      "stage": "state",
+      "value_hash": "048f7ed9a66c46542a9bb61d20d9deefcc0f3c841047ce3ff9d171e7f437a9b3"
+    },
+    {
+      "stage": "action",
+      "value_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "stage": "prediction",
+      "value_hash": "10349c6bed7a291549407932b0d058010aeba4b19bc123ec348b659ab9647891"
+    },
+    {
+      "stage": "execution",
+      "value_hash": "61ee9ffee76acdcfcf24bb93771fc0c90d2847e5bdcc233992b426a72283865e"
+    },
+    {
+      "stage": "verification",
+      "value_hash": "3cfeed058ae4b8cf3ded2df5efc3ed469bd4143dc27cd341dd66282e29fea50f"
+    }
+  ],
+  "version": "mindscape.kernel/1"
+}

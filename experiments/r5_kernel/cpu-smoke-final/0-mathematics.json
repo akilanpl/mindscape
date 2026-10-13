@@ -1,0 +1,89 @@
+{
+  "request_id": "823ad1609f3b33a061713469baed3d55e2a3e424da6750eb7bbcfa3453d729d7",
+  "domain": "mathematics",
+  "state": {
+    "domain": "mathematics",
+    "operation": "integer",
+    "mode": "validated",
+    "version": "mindscape.kernel/1",
+    "representation": "domain-qualified public observation",
+    "value": {
+      "operands": [
+        -137,
+        29,
+        4
+      ],
+      "operations": [
+        "add",
+        "mul"
+      ]
+    },
+    "observation_hash": "3ee6befd083eda394d1333087e8870acafb9477f0cbb74cf5e6a8b0f11cf0c02"
+  },
+  "action": {},
+  "prediction": {
+    "kind": "symbolic_result",
+    "value": "-432"
+  },
+  "execution": {
+    "kind": "tool_result",
+    "value": "-432",
+    "steps": [
+      {
+        "before": "-137",
+        "operation": "add",
+        "operand": "29",
+        "after": "-108"
+      },
+      {
+        "before": "-108",
+        "operation": "mul",
+        "operand": "4",
+        "after": "-432"
+      }
+    ]
+  },
+  "verification": {
+    "success": true,
+    "method": "Python arbitrary-precision integers; independent Fraction replay"
+  },
+  "provenance": {
+    "method": "symbolic_tool",
+    "neural": false,
+    "tool": "Python arbitrary-precision integers; independent Fraction replay",
+    "runtime_source_sha256": "5985df98cef7370fd7892c889fb44a8a8990bbe9c65b634e5c52227937666bec",
+    "asset_registry_sha256": "078604e6a40d6b9fc74634f799908953023f687ebc9a10ad9da7928e0147c3b2",
+    "routing": "explicit_request",
+    "learned_transfer": false,
+    "optimizer_steps": 0,
+    "persistent_memory_updated": false,
+    "shared_parameters": false
+  },
+  "trace": [
+    {
+      "stage": "observation",
+      "value_hash": "3ee6befd083eda394d1333087e8870acafb9477f0cbb74cf5e6a8b0f11cf0c02"
+    },
+    {
+      "stage": "state",
+      "value_hash": "b5f8222f623524fdd831a5c826c0ba1d9d53c4654cf75ef52888922d81809853"
+    },
+    {
+      "stage": "action",
+      "value_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "stage": "prediction",
+      "value_hash": "4b5475591331c76cec59e91991c775a06851345b405f1899613f5414810c7db3"
+    },
+    {
+      "stage": "execution",
+      "value_hash": "a620a156f6d14f0e96d413ed9b1601dd9f41376d10daded39bde002ed0502ff9"
+    },
+    {
+      "stage": "verification",
+      "value_hash": "2782a528c216974fe1486ccb730d811092eebe37f83234e9e89d2c52fefb2421"
+    }
+  ],
+  "version": "mindscape.kernel/1"
+}

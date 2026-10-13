@@ -1,0 +1,57 @@
+{
+  "version": "mindscape.shared-study.proposal/1",
+  "status": "FROZEN_PROPOSAL_ONLY_REQUIRES_HUMAN_AUTHORIZATION",
+  "reason": "R5.1 gave domain-only120 target updates but shared/randomized60. Negative gains and absent primary superiority do not justify a transfer claim; matching target exposure is a defensible separately approved diagnostic.",
+  "architecture": "Unchanged6967-parameter V5 graph model. Domain-qualified adapters and heads; same initialized shared-core tensors across conditions. No specialist routing counted as transfer.",
+  "data": {
+    "seed": 2026101305,
+    "family": "Existing R5.1 deterministic register/AST-edit/impulse task grammar with new identities; exact manifests and scorer hashes must be committed before the single qualification screen, after approval.",
+    "tasks_per_domain": {
+      "train": 24,
+      "qualification": 12,
+      "composition": 24
+    },
+    "generation_policy": "One deterministic draw. No historical task reuse, no favorable filtering or regeneration. Composition labels remain unopened until one final evaluation. Current integration has generated none of these tasks.",
+    "qualification": {
+      "every_domain_has_valid_and_invalid_actions": true,
+      "minimum_valid_fraction": 0.5,
+      "minimum_invalid_fraction": 0.2,
+      "minimum_changed_entities_per_valid_task": 1,
+      "minimum_changed_effect_mse_persistence": 0.01,
+      "minimum_changed_effect_mse_public_local_heuristic": 0.01,
+      "procedural_oracle_exact_fraction": 1.0
+    }
+  },
+  "conditions": {
+    "domain_only": "Same one-model graph architecture. Every target step updates its encoder,shared core,target head. On auxiliary steps temporarily set core parameters requires_grad=False while preserving differentiation through core operations into auxiliary encoders. Auxiliary encoders/heads update; core gradients are None and optimizer must not update core parameters or moments. Re-enable core gradients on target slots. This is isolated target learning with matched auxiliary compute.",
+    "shared": "Same target steps and auxiliary schedule, with core gradients enabled for all domains.",
+    "randomized_auxiliary": "Same as shared but a single committed within-auxiliary-domain label permutation, applied only to training effects/validity pairs. No seed/permutation search."
+  },
+  "budget": {
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "target": "coding",
+    "fits": 9,
+    "target_updates_per_fit": 120,
+    "auxiliary_updates_per_fit": 120,
+    "auxiliary_updates_each_domain": 60,
+    "batch_size": 16,
+    "target_presentations_per_fit": 1920,
+    "total_update_slots": 2160,
+    "maximum_total_fits": 9
+  },
+  "matching": "Identical target minibatch identities/order,initial states,learning rate,loss,available observations and final-checkpoint rule across conditions. Persist per-step core/encoder/head gradient and optimizer-state change receipts; no auxiliary-slot core update in domain-only. Full optimizer/source/data freeze required before training.",
+  "metrics": "Original changed-entity,whole-graph,unchanged-entity,invalid-action and validity metrics; masks only in loss/scorer,never inference. Independent task denominators and other-domain regression reported. No qualification/composition targets in optimization.",
+  "gates": {
+    "coding_relative_changed_mse_gain_over_both_controls": 0.1,
+    "all_three_seed_gains_positive": true,
+    "paired_scene_or_task_bootstrap95_lower_gain_positive": true,
+    "minimum_action_validity_accuracy": 0.9,
+    "maximum_whole_graph_regression_fraction": 0.05,
+    "maximum_other_domain_changed_mse_regression_fraction": 0.05
+  },
+  "stop": "No execution under integration authorization. After separate human approval, first freeze full task/scorer/loss/optimizer specification. One qualification screen only; any failed gate means DATA_NO_GO and stop without training. On passing qualification request explicit training approval unless that subsequent authorization explicitly includes it. One final checkpoint per fit; no retries,extra fits,hyperparameter searches or posthoc threshold changes. Success could only support GO_TO_CONFIRMATION."
+}
