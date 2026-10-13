@@ -103,3 +103,21 @@ def test_architecture_contains_shared_effect_generator_and_domain_heads():
     assert "self.core = TransitionCore()" in source
     assert "self.heads" in source and "self.encoders" in source
     assert "target" not in {n.arg for n in ast.walk(tree) if isinstance(n, ast.arg)}
+
+
+def test_data_no_go_blocks_native_training_before_device_access():
+    from mindscape.v5.__main__ import main
+
+    with pytest.raises(RuntimeError, match="training forbidden"):
+        main()
+    assert not Path("results/v5/native-pilot").exists()
+
+
+def test_json_provenance_replay_keeps_exact_numeric_effects():
+    from mindscape.v3.schema import digest
+
+    task = next(r for r in tasks(protocol()) if r["domain"] == "physics")
+    original = execute(task)
+    saved = json.loads(json.dumps(original))
+    assert digest(original) == digest(saved)
+    assert original["delta"] == saved["delta"]

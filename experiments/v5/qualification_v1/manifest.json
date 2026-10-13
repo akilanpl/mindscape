@@ -1,0 +1,2899 @@
+{
+  "protocol": {
+    "version": 1,
+    "seed": 2026101505,
+    "tasks_per_domain": {
+      "train": 24,
+      "qualification": 8,
+      "composition": 12
+    },
+    "maximum_tasks": 132,
+    "optimizer_seeds": [
+      11,
+      23,
+      47
+    ],
+    "target_training_tasks": 12,
+    "updates": {
+      "auxiliary_or_target": 60,
+      "target": 60
+    },
+    "batch_size": 16,
+    "learning_rate": 0.003,
+    "conditions": [
+      "domain_only",
+      "shared",
+      "randomized_auxiliary",
+      "persistence",
+      "procedural"
+    ],
+    "primary": "mathematics+physics -> coding: composition masked normalized transition MSE",
+    "qualification_gates": {
+      "per_domain_first_12_training": {
+        "minimum_valid": 6,
+        "minimum_invalid": 3,
+        "minimum_changed_valid": 6
+      },
+      "per_domain_qualification": {
+        "minimum_valid": 4,
+        "minimum_invalid": 2,
+        "minimum_changed_valid": 4,
+        "minimum_persistence_normalized_mse": 0.002
+      },
+      "execution_and_independent_replay": "All targets finite and independently reproduced; all valid tasks solvable by verified procedural executor, all identities/splits disjoint; every coding target requires real WASI execution. No qualification task replacement.",
+      "composition_policy": "Composition targets are sealed as opaque hashes and not read for qualification or training. No held-out model performance is used for task selection."
+    },
+    "scientific_gates": {
+      "primary_relative_mse_improvement_vs_each_control": 0.1,
+      "primary_each_seed_positive_gain": true,
+      "primary_relative_improvement_over_persistence": 0.2,
+      "primary_validity_balanced_accuracy": 0.7,
+      "maximum_mean_other_domain_relative_mse_regression": 0.1,
+      "all_predictions_finite": true
+    },
+    "decision": "Any qualification gate failure -> DATA_NO_GO and stop before neural execution. Any scientific gate failure -> NO_GO and stop; pass -> GO_TO_INDEPENDENT_CONFIRMATION only. No extra seed, tuning, candidate expansion or budget increase.",
+    "budget": "Nine fits per target? No: three targets x three learned conditions x three seeds = 27 fits; exactly 120 updates x 16 graphs per fit. First 60 updates: domain-only repeats target labels, shared/randomized alternate two source domains; final 60 use same first 12 target tasks. Randomized condition permutes source targets/validity within source domain, preserving input graphs. Same architecture and initial weights per seed; domain dimensions and active entities cause measured compute differences.",
+    "scope": "Fresh bounded register updates, small AST literal edits and one-step physical impulses. This is a new transition-generation mechanism, not specialist candidate scoring. No Qwen, backbone training or old sealed holdout access. Expert procedural executor can be perfect on this intentionally executable microdomain; headroom is over persistence, not that expert. Procedural ceiling must be reported. Synthetic task design is disclosed; coding and physics outcomes are actual independent runtime/simulator outputs. No whole-program-repair, numerical-rule-induction or general-physics claim.",
+    "mask_policy": "Only public observed values and public actions enter graph inputs. Missing/hidden values must be zeroed and accompanied by masks. Physics study uses fully observed parameters; no claim of hidden-state inference. Targets occur only after execution.",
+    "composition_split": "Train/qualification: two math registers, one binary coding AST, one physical object. Held-out: three registers, two-level coding AST, two physical objects. Also fresh operands/literals/scene seeds. Zero-update performance recorded before fit; training curves and per-seed outcomes use same frozen identities.",
+    "constraint_thresholds": {
+      "integer_delta_distance": 0.1,
+      "physics_kinematic_velocity_error": 0.25,
+      "invalid_noop_normalized_mse": 0.001
+    }
+  },
+  "protocol_hash": "1df95f10aa93edf1b73d588cc06358abadf7f17af9b7d2e828194fa09680cf66",
+  "tasks": [
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          45,
+          11
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 4
+      },
+      "identity": "a492d915666668f53e3f24b34b8cf678e803c7656dad49efd57ff66a9b7f1f03"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          45,
+          11
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 4
+      },
+      "identity": "9258d8a4363d6ccedf2dbe81300bc16087329f1a8f2671a29f0d0a47e6010d96"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          40,
+          17
+        ],
+        "operation": "add",
+        "destination": 2,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "d68d12a3e9d60489a19c2f63a6bc64176db63b2994037a113fbc4a4d583cd253"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          12,
+          34
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 2
+      },
+      "identity": "62086acb88005401950fc6eb1e5895a5c7492258dace4fa55195028d2f575415"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          17,
+          20
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "da903c4d161edec0894893a94315779d262064b1370eda2f2e633ef0e25a91da"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          35,
+          45
+        ],
+        "operation": "sub",
+        "destination": 2,
+        "source": 1,
+        "amount": 1
+      },
+      "identity": "6d325c5e6f15be9ea2e3bf7e3091cd6f60c9994a70b2b64ac7c570687c06618e"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          44,
+          26
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 2
+      },
+      "identity": "8d5558762909c95a6e2439d5adb572c614def523f336f0e03116adecf9f2cc65"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          23,
+          45
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 2
+      },
+      "identity": "73ac1b9c67eb2112f1986e849572dcad7ceb0f3a0f864fd4d1a471cca74729ac"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          24,
+          16
+        ],
+        "operation": "add",
+        "destination": 2,
+        "source": 1,
+        "amount": 4
+      },
+      "identity": "2c261453c14b1b336758b9c7a7f85ecdb60a53de22ab3a0fe60f30c59cd9ae7b"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          27,
+          12
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 2
+      },
+      "identity": "cd68584339bced5b8ffead49240afed3322a7aca20cd9a09ccf372a756c9db25"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          18,
+          32
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 2
+      },
+      "identity": "384f018e5d595daf7bb287259acf998ec7eba8d3f958bed5c3652ddc9fd26ef7"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          17,
+          22
+        ],
+        "operation": "sub",
+        "destination": 2,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "6e5233f2738590a83e8d832c37d13026f0f149185fd60b54e5a26a909de26e3d"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          21,
+          18
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 4
+      },
+      "identity": "78d9d7c5b66da08ea9becc356ff5104ef5498b8515c6ab11cce0b184e57844b2"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          28,
+          30
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "36643912a4a3c19bf1f7580aae456ddf7fedd560c1cb24ea817c1d63a2102560"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          13,
+          16
+        ],
+        "operation": "add",
+        "destination": 2,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "cd8610fe7e577de1a78d51c7971e9fa81603e8f5fb131e5e294260b5dec9e442"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          43,
+          30
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "0c84962bd0c66a25458899acda45a39a41c6d46a0df170095601ca3f7dd53884"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          36,
+          14
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 2
+      },
+      "identity": "30c29d4e1e2b6979a04579b6294b915e64a9d8878a3ea108d8b67ba0189b0ac8"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          11,
+          13
+        ],
+        "operation": "sub",
+        "destination": 2,
+        "source": 1,
+        "amount": 4
+      },
+      "identity": "e26108ec88caba489ca60de53daeafee61b1c533102fc1e43bb2dfdbd731df1e"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          15,
+          17
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 1
+      },
+      "identity": "0843440ff2f1c5c440e5ee947ae5530f9b4e9f3544bb7c0d23fb99bd3fa9b20d"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          19,
+          31
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 1
+      },
+      "identity": "a90f762a0bb2d6f6f5431b816ef9a58eebebd126ca7b2e3769722d730078b1f9"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          41,
+          44
+        ],
+        "operation": "add",
+        "destination": 2,
+        "source": 1,
+        "amount": 1
+      },
+      "identity": "bd4b4c8855a8adfa34e85c3a3e6fb720ebd3d65247c99f6af1993f3a585daa5f"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          11,
+          20
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "6da217c5c9e23772485755ef5ee7167e5886f68cc55ff2d1ea2870ab8884d6f8"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          15,
+          13
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "96bb295e6879a16e661c1f720daa56d6c6d9cfff46c545322c47b9b8bf06b49c"
+    },
+    {
+      "domain": "mathematics",
+      "split": "train",
+      "public": {
+        "values": [
+          22,
+          44
+        ],
+        "operation": "sub",
+        "destination": 2,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "0ee940f2687b979ca085eb7891fd3476c2c1ae185d0e2e54212da266e5660886"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": -4,
+        "constants": [
+          8
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": 2,
+        "entry": "v5_2026101505_train_0"
+      },
+      "identity": "8df28d786102399206d7d0bff122393b4eb68fd32446dc47898be8c8a23b312c"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": -2,
+        "constants": [
+          2
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "v5_2026101505_train_1"
+      },
+      "identity": "5482e013c0e1722415efc2c75d4b044e97107ccd85acfe4341a12ce2d2dde96e"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 5,
+        "constants": [
+          7
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": -4,
+        "entry": "v5_2026101505_train_2"
+      },
+      "identity": "d9c818499e4d4502466a3218c62c1f672da2c45e928d7eeb6f31c36504b05526"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": -4,
+        "constants": [
+          4
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": -2,
+        "entry": "v5_2026101505_train_3"
+      },
+      "identity": "7a82e4449294eca698df96b2bcce88359dd8edea700ce32f53217aa9a7454f7b"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 4,
+        "constants": [
+          2
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": 4,
+        "entry": "v5_2026101505_train_4"
+      },
+      "identity": "3d2ea823dc34070b5b088c87a35090c9f96eb15a335e113a31ff769fc5685a18"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 5,
+        "constants": [
+          4
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": 4,
+        "entry": "v5_2026101505_train_5"
+      },
+      "identity": "2aa9420e3380a8f3e2256c30f02c0e546aa4015dae7ed46140a6ce1dd558a7b3"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 9,
+        "constants": [
+          9
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": -2,
+        "entry": "v5_2026101505_train_6"
+      },
+      "identity": "431535a8bb2fd618a3657697e863dc9e5c0c739489c63867c7b25211475c4b52"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": -5,
+        "constants": [
+          7
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": 2,
+        "entry": "v5_2026101505_train_7"
+      },
+      "identity": "ec8fc8d0cb618fe59b1e9411c059eeda4edaecb4a723c60721745295706ce06e"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 4,
+        "constants": [
+          2
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": -4,
+        "entry": "v5_2026101505_train_8"
+      },
+      "identity": "ca831acb1a2a00a5295b15ca88c804568402982c684b41ecfe5a8e5e32a90218"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": -1,
+        "constants": [
+          5
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "v5_2026101505_train_9"
+      },
+      "identity": "1b21fc227b7ecc65665b6e9eb586d4f6dcc1ec79b74a9c709a8c18a9451ec11c"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 7,
+        "constants": [
+          3
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": -2,
+        "entry": "v5_2026101505_train_10"
+      },
+      "identity": "a23d4511d14c720eeffcc567fe21d803553215999a64d792e43355e0239db055"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 2,
+        "constants": [
+          4
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": 2,
+        "entry": "v5_2026101505_train_11"
+      },
+      "identity": "474a804e453e824361cdf16b91c5993c4deffc44ff9b4009d037a458a1e22281"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 8,
+        "constants": [
+          9
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "v5_2026101505_train_12"
+      },
+      "identity": "0af77114dc07408f1d5130b57ca0f7bcbcf74e8f33b7a11e5cf36b1e65f630af"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": -2,
+        "constants": [
+          2
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "v5_2026101505_train_13"
+      },
+      "identity": "c56f877dea04237b9ddd4c54edb2e1dd5efed8cc700e190c050838dee66c481c"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 8,
+        "constants": [
+          5
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": -4,
+        "entry": "v5_2026101505_train_14"
+      },
+      "identity": "925ce45ec6084f93d3787a2b5cdc8f7aa1f21ca3e13c6095104d910f712d4bbf"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 1,
+        "constants": [
+          7
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": 2,
+        "entry": "v5_2026101505_train_15"
+      },
+      "identity": "012040c09077e76d983385433a097e1154bb86aaf2898d07e406ebd52eb6837b"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 8,
+        "constants": [
+          7
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "v5_2026101505_train_16"
+      },
+      "identity": "913b2aec7af9513bf26f842c09181832ff38c52f11eac05ae98420985029623c"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 9,
+        "constants": [
+          3
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": -2,
+        "entry": "v5_2026101505_train_17"
+      },
+      "identity": "9717aaa01314d7ae127135ed1a62fe8c6bc72662168259b712dd48a9fb5e0cd0"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 0,
+        "constants": [
+          2
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": -2,
+        "entry": "v5_2026101505_train_18"
+      },
+      "identity": "47aaf6cc1f0ae30421866e738e7c81782e8d054a3d3d9a0661d2e3e1577969e9"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 5,
+        "constants": [
+          4
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "v5_2026101505_train_19"
+      },
+      "identity": "fb152d821814f6599d6243ec4def9603c76c1ca223d39037c03e03ba495d2c8a"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": -1,
+        "constants": [
+          7
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": 4,
+        "entry": "v5_2026101505_train_20"
+      },
+      "identity": "46cb8b1b5dcb07abb57a263d878def004ca0788a2f35e33c6545d20fc6ec05fa"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": -6,
+        "constants": [
+          7
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "v5_2026101505_train_21"
+      },
+      "identity": "2cfd5312b634255784c3ec27c9dd0fac41a0fbea2e06c625df60bb3d33358d26"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": 2,
+        "constants": [
+          3
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": 4,
+        "entry": "v5_2026101505_train_22"
+      },
+      "identity": "2858cb80d5e9ce1507a8b186f00d71776f3747a4487ba517118ffc2840650be7"
+    },
+    {
+      "domain": "coding",
+      "split": "train",
+      "public": {
+        "x": -1,
+        "constants": [
+          3
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": -2,
+        "entry": "v5_2026101505_train_23"
+      },
+      "identity": "bdf9bab8dcdae60e654d2e122e3e418c09870e4de50bb56219758a1795b32c1a"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.5355029275385257
+          ]
+        ],
+        "velocities": [
+          [
+            0.4185382797787005,
+            0.266495859493896
+          ]
+        ],
+        "masses": [
+          1.4131656996195878
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101505
+      },
+      "identity": "15b6602309f2578bd6648eb1b35049135d518ae7307076bf5005b539398748c7"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.0729522086058028
+          ]
+        ],
+        "velocities": [
+          [
+            -0.6149988802409452,
+            0.752728373800116
+          ]
+        ],
+        "masses": [
+          1.0472697219293001
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101506
+      },
+      "identity": "3028ee4cf67747710f90104bc544a00a4acff6184ceb4671b2e7e827744b5522"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.0833373335027225
+          ]
+        ],
+        "velocities": [
+          [
+            0.7125658608790657,
+            -0.05775023370023891
+          ]
+        ],
+        "masses": [
+          0.9773133392857603
+        ],
+        "destination": 1,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101507
+      },
+      "identity": "9c9d0c796ec605817caea4c07d983dcd471f1fcdb03f54ac1d78c62c011b25c6"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.318983645276471
+          ]
+        ],
+        "velocities": [
+          [
+            -0.5091996166401893,
+            0.7234927655875392
+          ]
+        ],
+        "masses": [
+          1.04511208266778
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101508
+      },
+      "identity": "01afda30c194e64bc4f2bad450f6ec9ee3648a1dd3c1bc817db9e00f551e1437"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.746902690683307
+          ]
+        ],
+        "velocities": [
+          [
+            -0.25329909297665676,
+            0.8584147723472209
+          ]
+        ],
+        "masses": [
+          1.2070674030489155
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101509
+      },
+      "identity": "61563a299f5f63d1589a5153fd2ddb49d64c747168a9cdedfcfd0d807b65abfa"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.8062953416033225
+          ]
+        ],
+        "velocities": [
+          [
+            -0.2556469272343407,
+            0.8484307897291568
+          ]
+        ],
+        "masses": [
+          1.3662189450345341
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101510
+      },
+      "identity": "7341f0a97210536c7d9d503410047be50dc904f943f6f8fe523408624dffc12b"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.804648468266343
+          ]
+        ],
+        "velocities": [
+          [
+            0.40215685701191206,
+            0.6803795274566893
+          ]
+        ],
+        "masses": [
+          1.2067982081562836
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101511
+      },
+      "identity": "d806071e28f1ce9d0c9636d74861dc4b52ea8751a0375ed3f43264843b2b4b22"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.7825633039521374
+          ]
+        ],
+        "velocities": [
+          [
+            -0.6083594848493286,
+            0.34099701297036145
+          ]
+        ],
+        "masses": [
+          0.9058850681347204
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101512
+      },
+      "identity": "d428733773f675a807f2f98e7fee5b75d6a467428a5491ef75ca2879837885bc"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.431803070199675
+          ]
+        ],
+        "velocities": [
+          [
+            0.2733259099579268,
+            -0.47947958483619746
+          ]
+        ],
+        "masses": [
+          1.336860836775962
+        ],
+        "destination": 1,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101513
+      },
+      "identity": "256510273e95d77672df77f18b20c3b0fc3d1d7e029c891048815a3e2dac5171"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.808896997575574
+          ]
+        ],
+        "velocities": [
+          [
+            0.6222261775342142,
+            -0.7266716720116813
+          ]
+        ],
+        "masses": [
+          1.0700371689926582
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101514
+      },
+      "identity": "321fa14edc50a692f9006dc28cc039f2dd0d4755d61beffe22cc8fe83ba6e360"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.120738476090148
+          ]
+        ],
+        "velocities": [
+          [
+            -0.9955770972737259,
+            0.502794687154658
+          ]
+        ],
+        "masses": [
+          1.1988189624056051
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101515
+      },
+      "identity": "4252b06566df94c98e72a801ec9817f49129f4f12acedda0b00d2a86ec554eff"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.288541388901342
+          ]
+        ],
+        "velocities": [
+          [
+            -0.41309818024653255,
+            0.11589178829571001
+          ]
+        ],
+        "masses": [
+          1.098138803296576
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101516
+      },
+      "identity": "36c2579e8822cc151b12cf01c1d49e9733376a6b7882d3121e091004e44d7ffc"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.215091247551076
+          ]
+        ],
+        "velocities": [
+          [
+            0.6875812086629614,
+            -0.1146083954031214
+          ]
+        ],
+        "masses": [
+          0.8816096332984619
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101517
+      },
+      "identity": "db15a2a7248fc2999cd1d910c444bec026dbeaad951e002ace43f3e9be819c83"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.7662528823720947
+          ]
+        ],
+        "velocities": [
+          [
+            -0.9949828445337465,
+            -0.1012241101250686
+          ]
+        ],
+        "masses": [
+          1.6473000767843837
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101518
+      },
+      "identity": "f274cf4280fe760857a481163646283308070920b671737d442940340a7cba41"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.299973454753118
+          ]
+        ],
+        "velocities": [
+          [
+            -0.5511823340645385,
+            0.1671105511606139
+          ]
+        ],
+        "masses": [
+          1.4382459386454678
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101519
+      },
+      "identity": "3de8934057e81f1fcaafd78cd2a4311d5509a1097390d284eb234e3b0ce9eaab"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.3305615437743317
+          ]
+        ],
+        "velocities": [
+          [
+            -0.39826418875942005,
+            0.7806874973182025
+          ]
+        ],
+        "masses": [
+          0.9575735216671546
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101520
+      },
+      "identity": "6efeb3c270d82612dc815ca6e025d5321d487f3971f889191a39ab6b680899a1"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.2309930294695413
+          ]
+        ],
+        "velocities": [
+          [
+            0.7377670768655715,
+            -0.755672169658405
+          ]
+        ],
+        "masses": [
+          1.703229091182081
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101521
+      },
+      "identity": "73deb98b6a18d1f568a2e664b02ed42cae12e74ff37103d4a2e76aadfcc6d45d"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.253449356290173
+          ]
+        ],
+        "velocities": [
+          [
+            -0.7165916219577717,
+            -0.8666148954330675
+          ]
+        ],
+        "masses": [
+          1.5157798979332926
+        ],
+        "destination": 1,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101522
+      },
+      "identity": "4a8410d3d66dc8899290dda295e12cf63fedd75026e5e8cddc664569bb3f2165"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.608912226380805
+          ]
+        ],
+        "velocities": [
+          [
+            -0.637911113358957,
+            -0.11889086200072274
+          ]
+        ],
+        "masses": [
+          0.8153151843135288
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101523
+      },
+      "identity": "eee3b9a2142d90640f7214a52293d401265b43de084277f2930c196237b63c05"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.9430143134152855
+          ]
+        ],
+        "velocities": [
+          [
+            0.626481364449716,
+            0.27334165210344685
+          ]
+        ],
+        "masses": [
+          1.6898170767730931
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101524
+      },
+      "identity": "fb01ad1ffde8e3edb9fc5095d987456e3946d0fb28e3377390bea3200c1c52fa"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.8403748836132694
+          ]
+        ],
+        "velocities": [
+          [
+            -0.8942114979355296,
+            -0.28713949371557
+          ]
+        ],
+        "masses": [
+          1.395822818682617
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101525
+      },
+      "identity": "8de7f580e7b0dc4437f021d29c05e4de32438d993828d86f415a1ef8f1207032"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.0783311631411365
+          ]
+        ],
+        "velocities": [
+          [
+            0.10189002072195108,
+            0.25854210423045276
+          ]
+        ],
+        "masses": [
+          1.3422808672525564
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101526
+      },
+      "identity": "031832e5eccc78b22ebae15e48f0f9d2844faee4fd2bcf73c574df1ad397ee60"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.0737000112500072
+          ]
+        ],
+        "velocities": [
+          [
+            -0.8346074302538216,
+            0.2908018460104729
+          ]
+        ],
+        "masses": [
+          1.3049998239605316
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101527
+      },
+      "identity": "f5ae55f717d3e0bb74e6725b542754fff0f1cf1749e415f34f75a90b4d59e787"
+    },
+    {
+      "domain": "physics",
+      "split": "train",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.728339113586336
+          ]
+        ],
+        "velocities": [
+          [
+            -0.4667438845780778,
+            -0.9648308113945614
+          ]
+        ],
+        "masses": [
+          1.5463146348760914
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101528
+      },
+      "identity": "23f7ce5d6ef0e61224a39a9cda86c88fbb5a2d3e8aa560680b930928cd96956a"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "public": {
+        "values": [
+          28,
+          34
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 1
+      },
+      "identity": "7637d3b6e366f145a687127a5691e55a5ccc2a59a88e20c34e814545614a597e"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "public": {
+        "values": [
+          20,
+          27
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 3
+      },
+      "identity": "653bb6b60a56a7bb7c4ab4dc683f979ad3906e53f363622976f136736e4968d3"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "public": {
+        "values": [
+          33,
+          23
+        ],
+        "operation": "add",
+        "destination": 2,
+        "source": 1,
+        "amount": 1
+      },
+      "identity": "c6df2156103f58d08c75fa1e014c6b450dd983c17e50c06da99eceb9b51d63f4"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "public": {
+        "values": [
+          14,
+          27
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 2
+      },
+      "identity": "69f84aaa65c985960f7cbe7ef1e6c9287be249b9498aea76b84adc9708b96900"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "public": {
+        "values": [
+          20,
+          14
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 4
+      },
+      "identity": "f6e0968193181858113c94f764ccf478146555a275e8ab864c5d795ab16b9e2b"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "public": {
+        "values": [
+          23,
+          20
+        ],
+        "operation": "sub",
+        "destination": 2,
+        "source": 1,
+        "amount": 1
+      },
+      "identity": "87354f50a23a5d6324927497841bdd5c3a2cc511c20a3c5b0e74e83c12d2fe8f"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "public": {
+        "values": [
+          35,
+          17
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 1,
+        "amount": 4
+      },
+      "identity": "f1e742ad9e2f83691d7ef10f055f3f88080891b67d01256ca88f044b8f0a8ffc"
+    },
+    {
+      "domain": "mathematics",
+      "split": "qualification",
+      "public": {
+        "values": [
+          25,
+          19
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 1,
+        "amount": 4
+      },
+      "identity": "bcac630b114473d7ce7953cd9a20dbd96967ee10a9858eccc2daeb4fed3975c5"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "public": {
+        "x": 6,
+        "constants": [
+          6
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": 4,
+        "entry": "v5_2026101505_qualification_0"
+      },
+      "identity": "3f22629cc54cffac2d0ed9cc914ab2bd368d6860211e78f9b3a8f202b4ea35af"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "public": {
+        "x": 3,
+        "constants": [
+          7
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": 4,
+        "entry": "v5_2026101505_qualification_1"
+      },
+      "identity": "7c1732bf3ede05fa361f3437b65afe0a36c1f10db4fae4409f1d7670b5ff3cf4"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "public": {
+        "x": 7,
+        "constants": [
+          3
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": 2,
+        "entry": "v5_2026101505_qualification_2"
+      },
+      "identity": "b4d25962f988c60372779bcf21185f5d337aa99ce500691818157edeecd5a747"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "public": {
+        "x": 1,
+        "constants": [
+          7
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": 2,
+        "entry": "v5_2026101505_qualification_3"
+      },
+      "identity": "871cb56d04bd188c454faa370a29d55dcf587579cb9d7c5628c16d2e35055763"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "public": {
+        "x": 4,
+        "constants": [
+          9
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": 2,
+        "entry": "v5_2026101505_qualification_4"
+      },
+      "identity": "1c2987102bc76dc9a28e0907d7747faf47a7fba45654c0daad3185fff6a8db37"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "public": {
+        "x": 8,
+        "constants": [
+          2
+        ],
+        "operations": [
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": 4,
+        "entry": "v5_2026101505_qualification_5"
+      },
+      "identity": "f7e7a4ef210071ccc968da39b939bde2336fd7dec5931b8ec068379d3537fb27"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "public": {
+        "x": -1,
+        "constants": [
+          9
+        ],
+        "operations": [
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": -2,
+        "entry": "v5_2026101505_qualification_6"
+      },
+      "identity": "31827a3d9f55be6eaee09ff44855bafdea0f061b25580f52a3204aa1ad278933"
+    },
+    {
+      "domain": "coding",
+      "split": "qualification",
+      "public": {
+        "x": -5,
+        "constants": [
+          7
+        ],
+        "operations": [
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": 2,
+        "entry": "v5_2026101505_qualification_7"
+      },
+      "identity": "6cd54302bb5012a3c381603578ebf4a59c0d7427525e279327676cb76292e50d"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.0197257877786603
+          ]
+        ],
+        "velocities": [
+          [
+            -0.1781702466015198,
+            0.7859876120795619
+          ]
+        ],
+        "masses": [
+          1.6304221531409857
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101605
+      },
+      "identity": "8dca277f74de0aa88d58cff8cb101b45d0c3698503d1a68d22a9b7732389df61"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.1466809256620536
+          ]
+        ],
+        "velocities": [
+          [
+            -0.3008419787632901,
+            -0.44566783476595373
+          ]
+        ],
+        "masses": [
+          1.2608800215309817
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101606
+      },
+      "identity": "3f3234867b3c9b9030f55cc94d0a6901be4164dbceae5888cb212ee49842de2e"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.968139507271432
+          ]
+        ],
+        "velocities": [
+          [
+            0.05268034036003777,
+            0.18888253921878606
+          ]
+        ],
+        "masses": [
+          0.9745563960891453
+        ],
+        "destination": 1,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101607
+      },
+      "identity": "22adae5c7e1a5afc87ec9976eeb1dce9458c5114f61862e77f383f5b653a34d6"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.79681405383639
+          ]
+        ],
+        "velocities": [
+          [
+            -0.9429713629971042,
+            -0.4188063455404487
+          ]
+        ],
+        "masses": [
+          1.1931690713444452
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101608
+      },
+      "identity": "4e0e4d5e310b1fcff28c6a56bcf562d2e835017dd2f4485b286e66bcfbcecf65"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.5342708404140244
+          ]
+        ],
+        "velocities": [
+          [
+            0.6436708818785866,
+            -0.4030025844268337
+          ]
+        ],
+        "masses": [
+          0.8943256593840678
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101609
+      },
+      "identity": "5acad8454602f0259c45395300de154cd598ee9a9b8a1ae345951e4bd925b939"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.727283030491621
+          ]
+        ],
+        "velocities": [
+          [
+            0.4104516103096949,
+            -0.7535219935594568
+          ]
+        ],
+        "masses": [
+          1.7557673949169184
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101610
+      },
+      "identity": "f280d59a2294937a89c364e4a7048b58c418db6124a01bbb036f99d8c8a1b4d5"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.3660734619910864
+          ]
+        ],
+        "velocities": [
+          [
+            0.01825144056239525,
+            -0.3333691254324378
+          ]
+        ],
+        "masses": [
+          1.1443380339074332
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101611
+      },
+      "identity": "e8618100e19f3261187e72598d3efc309149456940e9e5e7ea642a25e1defdce"
+    },
+    {
+      "domain": "physics",
+      "split": "qualification",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.7359454760174358
+          ]
+        ],
+        "velocities": [
+          [
+            0.606250868513545,
+            -0.6125085348868855
+          ]
+        ],
+        "masses": [
+          0.9732066363403166
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101612
+      },
+      "identity": "09631d6d0b70e0b31f914a77b9a2793c9c553e0621285350bc0946b3e922cf47"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          43,
+          30,
+          25
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 2,
+        "amount": 1
+      },
+      "identity": "5ae468a41258c7fdd959dd455d61039c54d92976a5928a6c3f7a942d4537c561"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          29,
+          33,
+          39
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 2,
+        "amount": 3
+      },
+      "identity": "a385f16ccf55e806b04a26b21b4e3dce0b22062db20029813bcecd3266264584"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          32,
+          23,
+          44
+        ],
+        "operation": "add",
+        "destination": 3,
+        "source": 2,
+        "amount": 1
+      },
+      "identity": "3d69285943b275d76d422030683f5931961b09b10015be1ab2fb8015dba76b94"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          33,
+          21,
+          17
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 2,
+        "amount": 1
+      },
+      "identity": "0076cf9c45729b9714d3399094120dc35066cafc7d5efdcff45dc8d8beb81e13"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          25,
+          14,
+          11
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 2,
+        "amount": 4
+      },
+      "identity": "86020d33eb0441a6435aa252d73366172cfe71a893106a4939bad92e63e804de"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          35,
+          17,
+          44
+        ],
+        "operation": "sub",
+        "destination": 3,
+        "source": 2,
+        "amount": 2
+      },
+      "identity": "165767b093b3c76e12649d765d00921127a4dd8493cddf26ef3f846a84752349"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          28,
+          15,
+          31
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 2,
+        "amount": 1
+      },
+      "identity": "875e83487f5b13519adb80ded5d4cefd9ff44631510ce2c679ac9b9fb4820487"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          19,
+          31,
+          30
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 2,
+        "amount": 1
+      },
+      "identity": "70da41c826f8a7412109c2d38455c92dec796c4a4213b7b4c3fb6a4bb281cfc0"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          45,
+          43,
+          30
+        ],
+        "operation": "add",
+        "destination": 3,
+        "source": 2,
+        "amount": 2
+      },
+      "identity": "d71fcaed52e15b5dfbab24a75c0ec07c87f8f4f3d316f507ee9a416e29d3693e"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          13,
+          19,
+          40
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 2,
+        "amount": 1
+      },
+      "identity": "35422b26fc52b887897667f89c907315410f4bad54a58c0e7a8acea818d4c587"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          44,
+          25,
+          28
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 2,
+        "amount": 3
+      },
+      "identity": "c050bb67f3863a6694423a3f40e8160620a27d18666893836d331a3b6e730ffd"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          31,
+          26,
+          19
+        ],
+        "operation": "sub",
+        "destination": 3,
+        "source": 2,
+        "amount": 3
+      },
+      "identity": "8cdbff62f95ea73ec28ae26cc8f4cd43df997de9d7ca6a312f4deef5ca9c5269"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 7,
+        "constants": [
+          7,
+          3
+        ],
+        "operations": [
+          "add",
+          "mul"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "v5_2026101505_composition_0"
+      },
+      "identity": "9d479650187f6bb2783e36c365d9282bd755bede464e0fb106421b089e378c29"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 7,
+        "constants": [
+          8,
+          5
+        ],
+        "operations": [
+          "sub",
+          "add"
+        ],
+        "target_leaf": 1,
+        "increment": 2,
+        "entry": "v5_2026101505_composition_1"
+      },
+      "identity": "e50589f1779772f40d6bd0843cbd3ce2b903f73ef1d483f9857c60b5f83894b1"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -3,
+        "constants": [
+          8,
+          9
+        ],
+        "operations": [
+          "mul",
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": 4,
+        "entry": "v5_2026101505_composition_2"
+      },
+      "identity": "d214589da674bc45a1cedceae5b52b63f05fde3baab4fa3d09209c03637d96db"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 1,
+        "constants": [
+          8,
+          4
+        ],
+        "operations": [
+          "add",
+          "add"
+        ],
+        "target_leaf": 1,
+        "increment": 2,
+        "entry": "v5_2026101505_composition_3"
+      },
+      "identity": "886e8d29f6813a310acb028e7e4699dee5763d7559664a9080fd312acc41a0c7"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -4,
+        "constants": [
+          3,
+          8
+        ],
+        "operations": [
+          "sub",
+          "mul"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "v5_2026101505_composition_4"
+      },
+      "identity": "d09a37a4f20aad0953b39e714790b19f4f0c7f571499062806c15fcc5546c176"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -3,
+        "constants": [
+          7,
+          4
+        ],
+        "operations": [
+          "mul",
+          "add"
+        ],
+        "target_leaf": 9,
+        "increment": -2,
+        "entry": "v5_2026101505_composition_5"
+      },
+      "identity": "9344d43cff56d4afb84c32d944575ea890f24eb33525ba60537e87a5225e0898"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 5,
+        "constants": [
+          6,
+          3
+        ],
+        "operations": [
+          "add",
+          "mul"
+        ],
+        "target_leaf": 0,
+        "increment": 2,
+        "entry": "v5_2026101505_composition_6"
+      },
+      "identity": "b1aac57c303862eeb55b0fdf39fb276171df38d14a6b2cab7d996017dcec76ee"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 9,
+        "constants": [
+          8,
+          3
+        ],
+        "operations": [
+          "sub",
+          "add"
+        ],
+        "target_leaf": 1,
+        "increment": 2,
+        "entry": "v5_2026101505_composition_7"
+      },
+      "identity": "9cb39f0fe84af90d58197f329bfd96645d513d6fd81704e4a382516671a7d573"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 6,
+        "constants": [
+          4,
+          6
+        ],
+        "operations": [
+          "mul",
+          "mul"
+        ],
+        "target_leaf": 9,
+        "increment": 2,
+        "entry": "v5_2026101505_composition_8"
+      },
+      "identity": "7250ea35384122db1ae76695cea5dc0bb1ff0e1f2bccad2ed47cc954181fcc3b"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 1,
+        "constants": [
+          5,
+          7
+        ],
+        "operations": [
+          "add",
+          "add"
+        ],
+        "target_leaf": 1,
+        "increment": 4,
+        "entry": "v5_2026101505_composition_9"
+      },
+      "identity": "1a80382cf12f22dd7c23d444e661788a31c94edf39fce80f2841d0d8f67401dd"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 1,
+        "constants": [
+          5,
+          3
+        ],
+        "operations": [
+          "sub",
+          "mul"
+        ],
+        "target_leaf": 0,
+        "increment": 2,
+        "entry": "v5_2026101505_composition_10"
+      },
+      "identity": "ee9e3ab4d5039c9767e2cea4e771bdfabe1818f0aec9cec4789976f25fe91ca3"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -3,
+        "constants": [
+          3,
+          5
+        ],
+        "operations": [
+          "mul",
+          "add"
+        ],
+        "target_leaf": 9,
+        "increment": -2,
+        "entry": "v5_2026101505_composition_11"
+      },
+      "identity": "a6d6a3d0df32465937c609a860cb0c62ec3213eca44712dbad231cccc4d9bb2a"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.584854668310696
+          ],
+          [
+            2.0,
+            2.923600596585668
+          ]
+        ],
+        "velocities": [
+          [
+            0.17803274232253208,
+            0.8940648360419501
+          ],
+          [
+            0.8187911136746371,
+            0.8918872281232473
+          ]
+        ],
+        "masses": [
+          1.390902760314284,
+          1.0099363796145258
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101705
+      },
+      "identity": "190a7cd49f2ca50fc714013349eb43413f155fda2a06281d06215df4946639dd"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.899725010899302
+          ],
+          [
+            2.0,
+            2.717460820475696
+          ]
+        ],
+        "velocities": [
+          [
+            -0.303779851307733,
+            0.7515232847385878
+          ],
+          [
+            0.9461708446794335,
+            0.2959446353839177
+          ]
+        ],
+        "masses": [
+          1.502571604945144,
+          1.1409400778728611
+        ],
+        "destination": 1,
+        "impulse": [
+          2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101706
+      },
+      "identity": "6b0f9472b68e812b9b54730c298ad2ce50e5d1db8a47f24e15b3f33b50156dc3"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.625042312078093
+          ],
+          [
+            2.0,
+            2.1470821642508655
+          ]
+        ],
+        "velocities": [
+          [
+            -0.867808785987837,
+            -0.05353640147778593
+          ],
+          [
+            -0.04746089853303537,
+            0.8912249563794143
+          ]
+        ],
+        "masses": [
+          1.6464909508708794,
+          1.073148137828544
+        ],
+        "destination": 2,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101707
+      },
+      "identity": "d17f563e17d33bcb7a608e874a641980c95fdd08379e6bf08e04f2c224d5da61"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.5632282437114355
+          ],
+          [
+            2.0,
+            2.079688603723545
+          ]
+        ],
+        "velocities": [
+          [
+            0.02585553363114257,
+            -0.5160989044100961
+          ],
+          [
+            -0.8438945859845612,
+            -0.3981033503312661
+          ]
+        ],
+        "masses": [
+          1.4464085985763644,
+          1.3545346114232857
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101708
+      },
+      "identity": "f8a70dda55853b2373a8e342c903aaa86621736b9216e2577145d62dbcc4e8f3"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.8207889362007266
+          ],
+          [
+            2.0,
+            2.212227643542986
+          ]
+        ],
+        "velocities": [
+          [
+            -0.17534679499269634,
+            0.8371932793417465
+          ],
+          [
+            0.8799117756550903,
+            0.6815528566344244
+          ]
+        ],
+        "masses": [
+          1.5882173505404853,
+          1.1314789906582554
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101709
+      },
+      "identity": "2c6d39169600e6d6a456fa69693e545e232cc92668820a08bb4faaa754a2b834"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.6148066091340416
+          ],
+          [
+            2.0,
+            2.2778168677539945
+          ]
+        ],
+        "velocities": [
+          [
+            -0.47589147364616013,
+            0.4042498718341352
+          ],
+          [
+            -0.26466279309603014,
+            -0.08114272637933095
+          ]
+        ],
+        "masses": [
+          0.8879080808810486,
+          1.0710842267706417
+        ],
+        "destination": 2,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101710
+      },
+      "identity": "8b5965996ec5583c28e5f862e09a8cd9196ee105078da1b09f219f2a7c98f692"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.8087589973532983
+          ],
+          [
+            2.0,
+            2.8663388677937696
+          ]
+        ],
+        "velocities": [
+          [
+            0.983022606675062,
+            0.9645808828529683
+          ],
+          [
+            -0.7736399274081751,
+            -0.417726032336317
+          ]
+        ],
+        "masses": [
+          1.2558247691897841,
+          1.3236604285822635
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101711
+      },
+      "identity": "9c167c5e019b32cc798f6ff005a130f498a5c012a5fa2b948904e2df71ac0b1a"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.9582154671158984
+          ],
+          [
+            2.0,
+            2.0779547433198986
+          ]
+        ],
+        "velocities": [
+          [
+            -0.29906695740316414,
+            0.06410383312998325
+          ],
+          [
+            -0.596964882692868,
+            -0.6012757759081566
+          ]
+        ],
+        "masses": [
+          0.8297998948865015,
+          1.4263946858719911
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101712
+      },
+      "identity": "e1fd41e39c05d731c6656a680e55138f2d824172a5c4637cdda020746ee9aa47"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.332669295502467
+          ],
+          [
+            2.0,
+            2.835062395238434
+          ]
+        ],
+        "velocities": [
+          [
+            -0.13558491687319285,
+            0.8461478259029822
+          ],
+          [
+            -0.5922809656913794,
+            0.7854544093920666
+          ]
+        ],
+        "masses": [
+          0.9702508963236015,
+          0.9047707317111896
+        ],
+        "destination": 2,
+        "impulse": [
+          2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101713
+      },
+      "identity": "c14bc75e7639d40f726f861b3831789fd4ca68caf2b8170d6460964e4215a0fb"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.1546087652026205
+          ],
+          [
+            2.0,
+            2.498310824778933
+          ]
+        ],
+        "velocities": [
+          [
+            -0.8815442439265875,
+            -0.8455353697402928
+          ],
+          [
+            0.227320026008202,
+            0.822071482298061
+          ]
+        ],
+        "masses": [
+          1.382153749450509,
+          1.1982344939193088
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101714
+      },
+      "identity": "1f612a3a437349e17dc15b880339e086a1a23ad2e0c1610b1981804d13e5dd83"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.25555883422163
+          ],
+          [
+            2.0,
+            2.9645561771287245
+          ]
+        ],
+        "velocities": [
+          [
+            -0.6898406664094927,
+            0.16159928806783808
+          ],
+          [
+            -0.4988780419223555,
+            0.4926925673564626
+          ]
+        ],
+        "masses": [
+          0.8876936403793403,
+          1.1287588973669718
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101715
+      },
+      "identity": "2e1fda8b9b06a5f860b54efd76b74c2f624b932d9b2c51dfada84e507d0eaed3"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.850493375861487
+          ],
+          [
+            2.0,
+            2.217664873826402
+          ]
+        ],
+        "velocities": [
+          [
+            0.6053764193605775,
+            0.5578686318645147
+          ],
+          [
+            0.2124816614856757,
+            0.5754286041392687
+          ]
+        ],
+        "masses": [
+          1.6489557584082872,
+          1.5595112173622265
+        ],
+        "destination": 2,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 2026101716
+      },
+      "identity": "b7853014a46f7afc691d7664fa24d5cfd9780c8f42cc8a7f525f748f156a883b"
+    }
+  ],
+  "task_hash": "3a4a38c224d1dab1c3f754c0ba8776a2f4f0037a7d6a904bf5d56bececafaaa7",
+  "information": "Graphs computed only from public inputs; targets independently executed afterward.",
+  "historical_scope": "New V5 microtasks; no historical sealed task files read. Domain-qualified identities differ from V3/V4 task schemas."
+}

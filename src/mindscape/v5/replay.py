@@ -6,6 +6,8 @@ from pathlib import Path
 
 import numpy as np
 
+from mindscape.v3.schema import digest
+
 from .data import graph
 from .execute import execute
 
@@ -28,7 +30,7 @@ def replay(root, qualification):
     for row in rows:
         if (
             graph(tasks[row["identity"]]) != row["graph"]
-            or execute(tasks[row["identity"]]) != row["target"]
+            or digest(execute(tasks[row["identity"]])) != digest(row["target"])
         ):
             raise ValueError("Independent graph/target replay mismatch")
     summary = json.loads((root / "summary.json").read_text())
