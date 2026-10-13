@@ -1,0 +1,29 @@
+{
+  "domain": "coding",
+  "operation": "execute",
+  "observation": {
+    "repository": {
+      "solution.py": "def total(values):\n    return sum(v for v in values if v >= 7)\n"
+    },
+    "visible_tests": {
+      "entry": "solution.total",
+      "cases": [
+        {
+          "args": [
+            [
+              3,
+              7,
+              8
+            ]
+          ],
+          "expected": 15,
+          "expected_type": "int",
+          "unchanged": true
+        }
+      ]
+    }
+  },
+  "action": {},
+  "mode": "validated",
+  "version": "mindscape.kernel/1"
+}

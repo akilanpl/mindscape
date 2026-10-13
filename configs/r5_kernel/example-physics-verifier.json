@@ -1,0 +1,94 @@
+{
+  "scene": {
+    "family": "motion",
+    "split": "integration",
+    "index": 0,
+    "seed": 2026101304,
+    "mechanism": "freeflight",
+    "objects": [
+      {
+        "position": [
+          0.0,
+          4.0
+        ],
+        "velocity": [
+          1.0,
+          0.0
+        ],
+        "mass": 1.0,
+        "radius": 0.25,
+        "friction": 0.2,
+        "restitution": 0.5
+      }
+    ],
+    "gravity": 9.0,
+    "noise": 0.0,
+    "hidden_parameters": false,
+    "velocity_dropout": false,
+    "spring": 0.0,
+    "horizon": 8,
+    "ood_condition": "none"
+  },
+  "prior_actions": [
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ]
+  ]
+}

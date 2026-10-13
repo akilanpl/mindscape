@@ -1,0 +1,89 @@
+{
+  "request_id": "5f8e4ad7d3e5f615b534406cfe3549974e820292bbfebcc6588ceaa749ffa154",
+  "domain": "mathematics",
+  "state": {
+    "domain": "mathematics",
+    "operation": "calculus",
+    "mode": "validated",
+    "version": "mindscape.kernel/1",
+    "representation": "domain-qualified public observation",
+    "value": {
+      "coefficients": [
+        1,
+        2,
+        3
+      ],
+      "lower": 0,
+      "upper": 2
+    },
+    "observation_hash": "a672a09557f01c47870e6318fd053b57e5aad7a50afa8eb6b542538d6039a39e"
+  },
+  "action": {},
+  "prediction": {
+    "kind": "symbolic_result",
+    "value": {
+      "derivative": "6*x + 2",
+      "definite_integral": "14"
+    }
+  },
+  "execution": {
+    "kind": "tool_result",
+    "value": {
+      "derivative": "6*x + 2",
+      "definite_integral": "14"
+    },
+    "steps": [
+      {
+        "polynomial": "3*x**2 + 2*x + 1",
+        "derivative": "6*x + 2",
+        "antiderivative": "x**3 + x**2 + x",
+        "lower": "0",
+        "upper": "2",
+        "independent_integral": "14"
+      }
+    ]
+  },
+  "verification": {
+    "success": true,
+    "method": "SymPy+independent arithmetic checks"
+  },
+  "provenance": {
+    "method": "symbolic_tool",
+    "neural": false,
+    "tool": "SymPy+independent arithmetic checks",
+    "runtime_source_sha256": "5985df98cef7370fd7892c889fb44a8a8990bbe9c65b634e5c52227937666bec",
+    "asset_registry_sha256": "078604e6a40d6b9fc74634f799908953023f687ebc9a10ad9da7928e0147c3b2",
+    "routing": "explicit_request",
+    "learned_transfer": false,
+    "optimizer_steps": 0,
+    "persistent_memory_updated": false,
+    "shared_parameters": false
+  },
+  "trace": [
+    {
+      "stage": "observation",
+      "value_hash": "a672a09557f01c47870e6318fd053b57e5aad7a50afa8eb6b542538d6039a39e"
+    },
+    {
+      "stage": "state",
+      "value_hash": "ea3f6fcbb71978c1ef566ead9752aba534329c230b9ae8a97fca88f4bad3a778"
+    },
+    {
+      "stage": "action",
+      "value_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "stage": "prediction",
+      "value_hash": "a5fe72760ed268a95e282d7a4c22d3b43f2830434896710c17577f2c7dbcfb83"
+    },
+    {
+      "stage": "execution",
+      "value_hash": "71d5e703b5d88d7a15ebbd08f451818384d0f58eca4549dfde4b634b554984b5"
+    },
+    {
+      "stage": "verification",
+      "value_hash": "3cfeed058ae4b8cf3ded2df5efc3ed469bd4143dc27cd341dd66282e29fea50f"
+    }
+  ],
+  "version": "mindscape.kernel/1"
+}

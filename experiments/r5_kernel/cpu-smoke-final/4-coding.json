@@ -1,0 +1,117 @@
+{
+  "request_id": "ec4c486062915798e0e15dcd322705e832952d7ea36f7369639f49389e18206d",
+  "domain": "coding",
+  "state": {
+    "domain": "coding",
+    "operation": "execute",
+    "mode": "validated",
+    "version": "mindscape.kernel/1",
+    "representation": "domain-qualified public observation",
+    "value": {
+      "repository": {
+        "solution.py": "def total(values):\n    return sum(v for v in values if v >= 7)\n"
+      },
+      "visible_tests": {
+        "entry": "solution.total",
+        "cases": [
+          {
+            "args": [
+              [
+                3,
+                7,
+                8
+              ]
+            ],
+            "expected": 15,
+            "expected_type": "int",
+            "unchanged": true
+          }
+        ]
+      }
+    },
+    "observation_hash": "7c8073e698793eed37bf49d825fff0cceae04e1f000331c7dae60e8854f4b2a9"
+  },
+  "action": {},
+  "prediction": {
+    "kind": "submitted_program",
+    "value": {
+      "solution.py": "def total(values):\n    return sum(v for v in values if v >= 7)\n"
+    }
+  },
+  "execution": {
+    "kind": "actual_execution",
+    "value": {
+      "all_passed": true,
+      "passed": 1,
+      "total": 1,
+      "case_passes": [
+        true
+      ],
+      "observed": [
+        {
+          "value": 15,
+          "type": "int",
+          "args_after": [
+            [
+              3,
+              7,
+              8
+            ]
+          ]
+        }
+      ],
+      "execution": {
+        "stdout": "86d9489d80a7d28d96dc9898c2e5a9b6[{\"value\": 15, \"type\": \"int\", \"args_after\": [[3, 7, 8]]}]\n",
+        "stderr": "",
+        "returncode": 0,
+        "duration": 0.3015555830206722,
+        "timeout": false
+      },
+      "actual_vm_call": true
+    }
+  },
+  "verification": {
+    "success": true,
+    "execution_verified": true,
+    "method": "WASI execution against caller-visible suite; not unseen-task evidence"
+  },
+  "provenance": {
+    "method": "WASI",
+    "neural": false,
+    "sandbox": "unchanged mindscape.v3.coding_learning.execution.Executor",
+    "runtime_source_sha256": "5985df98cef7370fd7892c889fb44a8a8990bbe9c65b634e5c52227937666bec",
+    "asset_registry_sha256": "078604e6a40d6b9fc74634f799908953023f687ebc9a10ad9da7928e0147c3b2",
+    "routing": "explicit_request",
+    "learned_transfer": false,
+    "optimizer_steps": 0,
+    "persistent_memory_updated": false,
+    "shared_parameters": false
+  },
+  "trace": [
+    {
+      "stage": "observation",
+      "value_hash": "7c8073e698793eed37bf49d825fff0cceae04e1f000331c7dae60e8854f4b2a9"
+    },
+    {
+      "stage": "state",
+      "value_hash": "1c22ebdb0c0727b95c82f0e605949886eef4f495128ba25a010162c9681187bd"
+    },
+    {
+      "stage": "action",
+      "value_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "stage": "prediction",
+      "value_hash": "3c62582e697aaa7f4528ef1cb7521916857e72aa73b84296d8a93e28a8a0c501"
+    },
+    {
+      "stage": "execution",
+      "value_hash": "5da52d2cfd324d487a51c14ce3f1fb70e7f73aadaa015cc3ff24f9268d593f76"
+    },
+    {
+      "stage": "verification",
+      "value_hash": "e85935a3e971e6da00ec43bbdc241b7f2e0d2675b314c293c53dddc41153bfd1"
+    }
+  ],
+  "version": "mindscape.kernel/1"
+}

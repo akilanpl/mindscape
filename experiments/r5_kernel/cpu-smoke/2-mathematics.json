@@ -1,0 +1,105 @@
+{
+  "request_id": "798aa77d67c2bce50b226ac8799a6d9c8ef9ea11872e3df0fe9b14dd3f6e7bad",
+  "domain": "mathematics",
+  "state": {
+    "domain": "mathematics",
+    "representation": "domain-qualified public observation",
+    "value": {
+      "a": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "b": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    "observation_hash": "0ab8072039ca841385e177671d9517e5b526698a242e22de9761939d013e0dc5"
+  },
+  "action": {},
+  "prediction": {
+    "kind": "symbolic_result",
+    "value": [
+      [
+        "2",
+        "4"
+      ],
+      [
+        "6",
+        "8"
+      ]
+    ]
+  },
+  "execution": {
+    "kind": "tool_result",
+    "value": [
+      [
+        "2",
+        "4"
+      ],
+      [
+        "6",
+        "8"
+      ]
+    ],
+    "steps": [
+      {
+        "operation": "matrix",
+        "independent_check": true
+      }
+    ]
+  },
+  "verification": {
+    "success": true,
+    "method": "SymPy+independent arithmetic checks"
+  },
+  "provenance": {
+    "method": "symbolic_tool",
+    "neural": false,
+    "tool": "SymPy+independent arithmetic checks",
+    "routing": "explicit_request",
+    "learned_transfer": false,
+    "optimizer_steps": 0,
+    "persistent_memory_updated": false,
+    "shared_parameters": false
+  },
+  "trace": [
+    {
+      "stage": "observation",
+      "value_hash": "0ab8072039ca841385e177671d9517e5b526698a242e22de9761939d013e0dc5"
+    },
+    {
+      "stage": "state",
+      "value_hash": "0585089efcd85129ddd46efb13766b03e4da5508a58f51b52a14daafbd22bb8c"
+    },
+    {
+      "stage": "action",
+      "value_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "stage": "prediction",
+      "value_hash": "31a2f6404749d2c3f5e39a6de6f20d678f619d93e437707dd79cf1c6959aec3f"
+    },
+    {
+      "stage": "execution",
+      "value_hash": "165006741379a7b71738f203f4b23df07f4db08c18790f902b5b98ec438a7efa"
+    },
+    {
+      "stage": "verification",
+      "value_hash": "3cfeed058ae4b8cf3ded2df5efc3ed469bd4143dc27cd341dd66282e29fea50f"
+    }
+  ],
+  "version": "mindscape.kernel/1"
+}

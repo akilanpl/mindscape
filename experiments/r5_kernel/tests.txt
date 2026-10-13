@@ -1,0 +1,20 @@
+test_all_bounded_math_families (test_runtime.RuntimeTests.test_all_bounded_math_families) ... ok
+test_bad_neural_prediction_is_preserved (test_runtime.RuntimeTests.test_bad_neural_prediction_is_preserved) ... ok
+test_checkpoint_cpu_inventory_and_tamper_rejection (test_runtime.RuntimeTests.test_checkpoint_cpu_inventory_and_tamper_rejection) ... ok
+test_coding_private_context_not_request (test_runtime.RuntimeTests.test_coding_private_context_not_request) ... ok
+test_coding_real_wasi_parity_and_isolation (test_runtime.RuntimeTests.test_coding_real_wasi_parity_and_isolation) ... ok
+test_exact_symbolic_integer_and_direct_parity (test_runtime.RuntimeTests.test_exact_symbolic_integer_and_direct_parity) ... ok
+test_hidden_shared_values_reject_before_model_loading (test_runtime.RuntimeTests.test_hidden_shared_values_reject_before_model_loading) ... ok
+test_observation_mutation_is_copied (test_runtime.RuntimeTests.test_observation_mutation_is_copied) ... ok
+test_one_model_slot_releases_prior_asset (test_runtime.RuntimeTests.test_one_model_slot_releases_prior_asset) ... ok
+test_physics_executed_parity_and_unverified_forecast (test_runtime.RuntimeTests.test_physics_executed_parity_and_unverified_forecast) ... ok
+test_precision_and_json_reproducibility (test_runtime.RuntimeTests.test_precision_and_json_reproducibility) ... ok
+test_private_physics_never_enters_predictor (test_runtime.RuntimeTests.test_private_physics_never_enters_predictor) ... ok
+test_proposal_is_frozen_and_has_no_training_endpoint (test_runtime.RuntimeTests.test_proposal_is_frozen_and_has_no_training_endpoint) ... ok
+test_shared_adapters_and_hidden_fields (test_runtime.RuntimeTests.test_shared_adapters_and_hidden_fields) ... ok
+test_unsupported_private_and_invalid_requests (test_runtime.RuntimeTests.test_unsupported_private_and_invalid_requests) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.853s
+
+OK
