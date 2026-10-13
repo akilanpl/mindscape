@@ -14,6 +14,11 @@ Metadata, sitemap, robots and a meta CSP are generated. `_headers` is a portable
 
 Research v1 is preserved. Research v2 has unresolved generalization and measurement gaps; this website does not imply a v2 completion release or broad model superiority.
 
-## Vercel
 
-`vercel.json` declares the static build, six directory routes and response security headers. From this directory, authenticate with the official Vercel CLI and run `vercel --prod`. Canonical URLs use `SITE_ORIGIN` when supplied, otherwise Vercel’s `VERCEL_PROJECT_PRODUCTION_URL` in hosted builds. `.vercel` account/project state is ignored and never published to Git.
+## Hosting boundary
+
+This research repository is not a Vercel deployment project. Keep local build and
+validation tools for the preserved website source. Automated Vercel deployments
+require disconnecting this repository in the associated project’s Git settings;
+removing a configuration file alone does not disconnect the hosting integration.
+Use `SITE_ORIGIN` explicitly when building for another host.
