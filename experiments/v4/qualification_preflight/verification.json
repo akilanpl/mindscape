@@ -1,0 +1,15 @@
+{
+  "status": "PREPARED_NOT_RUN",
+  "prior_pr7_research_ci": "PASS",
+  "prior_pr7_head": "0c78568da683410a46c6e9465458646d92cdee6e",
+  "vercel": "SEPARATE_DEPLOYMENT_FAILURE",
+  "focused_qualification_tests": 7,
+  "all_v4_tests": 17,
+  "ruff": "PASS",
+  "zsh_syntax": "PASS",
+  "original_v4_run_files_unchanged": 120,
+  "manifest_sha256": "88ea319a9b5e1caa198f276011a956803e343a6eedc32428ab5072d1e0634bb3",
+  "fresh_requests_frozen": 36,
+  "requests_executed": 0,
+  "new_training_executed": false
+}
