@@ -1,0 +1,245 @@
+{
+  "readiness_manifest_sha256": "2cac9d0fcef076dfcd43d167583437b19ceac19c4199ae1ea7854166f3b28f00",
+  "readiness_evidence_archive_sha256": "97c4a803d86da59b0c3964aff5b01b0e66278a3e9dcef67a5fe5675cf36637e4",
+  "development_rows_sha256": "77f4eba9c7d848e1ed596b2ec24ad57da9c30fa118cbe2b3191108afbe0cd9c0",
+  "development_identities": {
+    "mathematics": [
+      "0a9806e61f4703ae1ca057627444c143174e1496b8805b11ad53def6cd2e8093",
+      "f538f6200a1ed225339abc98abc00b542ad614837e5f0989c2455b8ef06c316a",
+      "7749c3f5db2ed403012140eb67aa6ae0eb4d91fc86ef95c8c9d32801979dd4ef",
+      "fe4eb75857398a8afc762b063100c6119b12491bc02ceb0657c93dbf540d4d7d",
+      "456d08a2a330880d63e1fbf891f829e66d451aabc6c0e6eed785507b9ac0d5f5",
+      "f2b264de6885305d8e7506aef641f769a7f195c2951cb3b12b6def06d7d822bc",
+      "1c3ca0d70da047bf5c2642e2e994fa223b212d67a3cc93671a4b69e813b8ba14",
+      "4e9ed4a123146c95bcc9c5e57200020b2293016170c19ccb9d035fc01138588f",
+      "f3ba8e5301933aaa74ddc41ba7cb8dddfc6e54326d3e26b624bdea397ff23035",
+      "e0d2d605259a86938789901808ebc050e5bb9b922d85d6b33134289f42626ccc",
+      "d8570e86e63d86e5d368f615c1931b3950953cc514a3f93e0247120d62acf5bb",
+      "5e3b6050f0fcef8094bfacf16f40ab4e3ca21d926c2fc37319ea39d6aff4e7f8",
+      "783c0ba409296d7275bfb8625b565652f622dc0e9dba10be982907653a915d28",
+      "7f0256f49f6ce9a4de99b189bd2d28dd268127ed9d6cd5c1d701fa27934347be",
+      "1802982cd4295024345984118cca484d08f4903c1a0fa851f490c423841902f9",
+      "618126fd60e6fa1b54d469812b097b196fe1cf1f6b9d1ebd1e765a1a7addbb71",
+      "2b91bbdcc1047266d47b57882364dc43558956d9b9245da2aed6c144f03e7b20",
+      "3fdd483ee01b91b6dd30864eea0e22d36bd930ac7e7188cab653da01768d07e4"
+    ],
+    "coding": [
+      "eccabd6bb6f054ccc9fe81c0b3203d9070483d0ccf6ff92e76d98bb6d86357e2",
+      "b6cb074c57d4bfeac08bd4039edabcf0c02748afd7ffcf3708c2e02a1f306503",
+      "f6b23a56710e62c21d5e66606d18c84f65ccb8701e1237138c7ee3d3ebc7bf55",
+      "301d6579ba7098c77e80c32a710ff82b06350a740cb5e4c61346129310fb1e86",
+      "68499d678bdbaede641cd7f1a44b48d39cac94d7b170880d8c1a7194db78eebe",
+      "d6a0e888ed900d6cf25ceb728f0b7270e3964362ca599bfbc68de542cae00d03",
+      "147ba143b61fbda78eb84a868d637d965332e7e62c2b1697ad5a4a6b84ab7bfa",
+      "ba7ad176c6964009be87c928738bd94d50123d8a3a181c1d3ffefd392733f904",
+      "c13c6986e2c067e6533601f758b2f2209f0ec670e1d07da582bcf92b47496e43",
+      "a9b53ee874e02dc5c38064a2bce1e1a62e06fb691df4a8ef04a47c8a04533ff1",
+      "ae776b36a7b02287d5b42d452eec61370aea2082ced2b9cecf667958ed93c931",
+      "a741da6c4f62a1d675e2c88040651c43b331c6a3b9b0bb03cc09db86f15f2361",
+      "ca57788684db5d71ec2171886daf66629eca2f0512fe1872f785b3bf0536883d",
+      "ddb00e7cf1af61ec155634c8781b888af03bc0c6516314d54bacfb374f23175d",
+      "d81f7275bfe331861fe783b4bf19ff8fbca5418a811cf96bb5ef64871927d388",
+      "9362ca6a37dd6a589a1b12def9ebccba4ee25c7fdfb021c6f2e9cdb6bdfec169",
+      "282f7a6d5eea41422e449c3ad9397efc2de3d08f282fcf70a829b1ced860aca1",
+      "cc5b7d87c1bfb4fd56c9090f6ea9e142aaa1fcb6fac2f78d33df6fe589dc2eb5"
+    ],
+    "physics": [
+      "39246b90b8add664c6f3a6108b7085286ed179d304413c06dea67775c315a0b3",
+      "d8e9350c70555c2603f4568beaff079dc34d79bc8c13a6afd75ca8a3fbe6c134",
+      "b020b0063501e39e8863d9ca8f5eb7b9566403d404febfc004f458859dee26fd",
+      "faa3ca7267681dbdc2e3f331d36e820ed75f18348462a398ebcb1691a83d5b67",
+      "882a74592bfd60ee37418c8459565b3e790a1269949a7940a31f6d82c3c8e3fe",
+      "e871e569da03b600c52f04dfa5300528012363a551a2fa652d76be0b75317cec",
+      "13a1a1e6f14cd6a87182b8d055f2fd3e0300b322f45b752362296ad50697e2aa",
+      "dd572cb824cde0e8eb8c6e57276ff511b8db9b6da29424d6c8fa65590744c3b9",
+      "3d38a82c0e148e6abe7418d8fb5e67f03aba5ea93f681b796e08f33647151ebb",
+      "958e0a668da5a67233c903b92a61bc485824d49d0ba4ebfa667ca656a885924f",
+      "0e3f0baf69420d8aeb01dd149e177fc0b344ddafba42215afd678c196dcacdb1",
+      "edd7a2dee724a4bb0aa0a7a2b6be7e48d7b26b3ada43354db2f5556304d1205b",
+      "81145259c741f3133b8dbff6ed946847fcddf386f9fa996a3502f946f13861e7",
+      "28e6d0d9981ab61cd27af9142a547aba4a3597644e3f7df7cfc6a81ec40065ed",
+      "379e1f23cbe357014ce614eca6c934ddd7ed49ddb6e62d01b16b8856640d4015",
+      "4487caac861242780f69b3b802be101c2253faaaab0f957b9ec2ea6c5c85c087",
+      "4a63e7c07f3956e99b94ea663ddc7c88e3002f4f27af7d055d0621f9437b3574",
+      "22faa78d964afee45fb04525d1bea166a6ace6ff6829b8e0aa1a3eea180c54d8"
+    ]
+  },
+  "composition_coding_tasks": [
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 7,
+        "constants": [
+          18,
+          11
+        ],
+        "operations": [
+          "add",
+          "sub"
+        ],
+        "target_leaf": 9,
+        "increment": -2,
+        "entry": "r51_20261016051_composition_0"
+      },
+      "identity": "7ca2c1e611e7120a92859feb85d4a2d80655bd61959d08d8c7db31cb70d7bd05"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -7,
+        "constants": [
+          18,
+          11
+        ],
+        "operations": [
+          "sub",
+          "mul"
+        ],
+        "target_leaf": 1,
+        "increment": -4,
+        "entry": "r51_20261016051_composition_1"
+      },
+      "identity": "9d2e48c46922e3492f3d9230fe73a4f7534fe3736cb56ad6b84293f1ed09ee4b"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -7,
+        "constants": [
+          14,
+          12
+        ],
+        "operations": [
+          "mul",
+          "add"
+        ],
+        "target_leaf": 9,
+        "increment": -2,
+        "entry": "r51_20261016051_composition_2"
+      },
+      "identity": "2223a7290dd4a1569e3c88eb53537f77ca21f0ec410330942e01bfa9a28cb503"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 9,
+        "constants": [
+          17,
+          11
+        ],
+        "operations": [
+          "sub",
+          "sub"
+        ],
+        "target_leaf": 1,
+        "increment": 4,
+        "entry": "r51_20261016051_composition_3"
+      },
+      "identity": "a9550ecb2d411e2790a24864f0dfebc1026706ad5fdf1bbc150e62326fd3b415"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 10,
+        "constants": [
+          19,
+          18
+        ],
+        "operations": [
+          "add",
+          "mul"
+        ],
+        "target_leaf": 0,
+        "increment": -2,
+        "entry": "r51_20261016051_composition_4"
+      },
+      "identity": "8a7af844d4d01f5ca64086c7c69fdb61354a2f2f20b213644e0b7ca874aca7ce"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 9,
+        "constants": [
+          16,
+          15
+        ],
+        "operations": [
+          "sub",
+          "add"
+        ],
+        "target_leaf": 9,
+        "increment": 2,
+        "entry": "r51_20261016051_composition_5"
+      },
+      "identity": "c94fca88efb2518b85fd2edceeaaa29fcd716fb237244bba54910344aa7938af"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 8,
+        "constants": [
+          16,
+          11
+        ],
+        "operations": [
+          "mul",
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "r51_20261016051_composition_6"
+      },
+      "identity": "9acbbd2d3895ea8c0d2b155a97ee7e00ce87593a6e74059cad36c894365d6593"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 10,
+        "constants": [
+          11,
+          19
+        ],
+        "operations": [
+          "mul",
+          "mul"
+        ],
+        "target_leaf": 1,
+        "increment": -2,
+        "entry": "r51_20261016051_composition_7"
+      },
+      "identity": "0d86060351f2650b91e460f93faee2befacbc3f2d78871e8751dcfb493ad22af"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -8,
+        "constants": [
+          13,
+          15
+        ],
+        "operations": [
+          "add",
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": 4,
+        "entry": "r51_20261016051_composition_8"
+      },
+      "identity": "43a83226aa85874730c12b1de9935ea3c520ce77553f89109b1026a3d2ff4d51"
+    }
+  ],
+  "composition_outputs_generated": false,
+  "unused_composition_targets": 18,
+  "source_commit": "ed47341",
+  "protocol_sha256": "3baf6fb69bf7d1e5ec00834663a26b5a2ce269c16ec891c6bc930b077e2c4f2d",
+  "training_executed": false
+}

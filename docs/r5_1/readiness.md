@@ -1,4 +1,6 @@
-# R5.1 — separate readiness screen for unchanged V5
+# R5.1 — original pre-execution readiness handoff
+
+**Completed:** native run returned verified DATA_READY. See `verified-readiness.md`. Do not rerun the command below. The separately frozen learning pilot awaits authorization.
 
 Status: frozen preparation, **native engineering and qualification NOT RUN**. V5 `851815f`, PR #9, original .002 gate and DATA_NO_GO remain unchanged.
 

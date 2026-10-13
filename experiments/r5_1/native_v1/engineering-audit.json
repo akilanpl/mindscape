@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "engineering_receipts_audited": [
+    {
+      "domain": "mathematics",
+      "actual_input_shape": [
+        2,
+        7,
+        6
+      ],
+      "actual_effect_shape": [
+        2,
+        7,
+        1
+      ],
+      "permutation_error": 0.0,
+      "action_sensitivity": 0.005513191223144531,
+      "relation_sensitivity": 0.03160887956619263,
+      "minimum_recorded_parameter_gradient": 0.002406249986961484
+    },
+    {
+      "domain": "coding",
+      "actual_input_shape": [
+        2,
+        7,
+        10
+      ],
+      "actual_effect_shape": [
+        2,
+        7,
+        1
+      ],
+      "permutation_error": 0.0,
+      "action_sensitivity": 0.006195351481437683,
+      "relation_sensitivity": 0.04124484956264496,
+      "minimum_recorded_parameter_gradient": 0.0013379353331401944
+    },
+    {
+      "domain": "physics",
+      "actual_input_shape": [
+        2,
+        7,
+        8
+      ],
+      "actual_effect_shape": [
+        2,
+        7,
+        4
+      ],
+      "permutation_error": 0.0,
+      "action_sensitivity": 0.021052256226539612,
+      "relation_sensitivity": 0.06825841963291168,
+      "minimum_recorded_parameter_gradient": 0.0014446084387600422
+    }
+  ],
+  "native_parameter_count": 6967,
+  "native_device": "mps",
+  "torch_version": "2.14.1",
+  "archive_restore": "PASS",
+  "archive_files": 168,
+  "archive_sha256": "97c4a803d86da59b0c3964aff5b01b0e66278a3e9dcef67a5fe5675cf36637e4",
+  "new_neural_execution": false,
+  "training": false,
+  "limits": [
+    "Audit checks saved gradient/shape/norm receipts and exact tested source; gradients and native forwards were not regenerated. Mask isolation, precondition permutation error and initial/final weight comparison are status assertions from the frozen native code; underlying tensors are not separately archived."
+  ]
+}
