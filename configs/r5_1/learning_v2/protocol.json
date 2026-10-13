@@ -1,0 +1,73 @@
+{
+  "version": "R5.1-learning-2",
+  "status": "AUTHORIZED_ONE_NATIVE_EXPERIMENT",
+  "architecture": "Unchanged V5 GraphTransition, 6967 parameters, same schema/encoders/core/heads verified in R5.1 engineering. No extra features or weight reuse from an engineering probe.",
+  "direction": "Primary mathematics+physics -> coding; secondary other-domain pairs -> mathematics and physics",
+  "qualification_required": {
+    "run": "results/r5_1/screen-2cac9d0fcef076df",
+    "decision": "DATA_READY",
+    "independent_replay": "PASS"
+  },
+  "conditions": [
+    "domain_only",
+    "shared",
+    "randomized_auxiliary",
+    "persistence",
+    "local_action",
+    "procedural_reference"
+  ],
+  "optimizer_seeds": [
+    11,
+    23,
+    47
+  ],
+  "fits": 27,
+  "maximum_updates_per_fit": 120,
+  "batch_size": 16,
+  "graph_presentations_per_fit": 1920,
+  "total_maximum_updates": 3240,
+  "total_maximum_graph_presentations": 51840,
+  "optimizer": {
+    "name": "Adam",
+    "learning_rate": 0.003,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "epsilon": 1e-08,
+    "weight_decay": 0
+  },
+  "initialization": "Fresh model from seed; identical initial state hashes for B/C/R within seed. No engineering gradients or prior model weights carried forward.",
+  "training_data": "All 18 qualified development tasks per domain only. Same 18 target identities and labels for every condition for each target. Auxiliary domains supply their own 18 development tasks. Qualification/composition labels are excluded from optimization.",
+  "schedule": "For each target, updates1..60: B repeats target data, C/R alternate the other two domains (30 each); updates61..120 all use target. Same architecture, initialization,120x16 presentations per fit. B target encoder/head gets120 updates; C/R gets60. Record actual differences; auxiliary information is intentionally available only to C/R.",
+  "randomized_control": "Before fit, permute paired source delta+validity targets separately within each auxiliary domain using a frozen PCG64 permutation keyed by optimizer seed+sum(ord(domain)). Preserve graph inputs; move masks with their permuted effect targets. Save exact permutations, original/permuted target hashes and remaining true-association counts. No permutation seed search; record rather than retune degenerate permutations.",
+  "loss": "For each graph: squared error per entity = mean over output coordinates. Changed target mask = any abs(true normalized delta)>1e-8. Compute .5*mean entity error for changed entities (0 contribution if none) plus .5*mean entity error for unchanged active entities (0 contribution if none), then mean over batch plus .1*BCEWithLogits(validity). Exclude padded nodes. Changed mask is training-only supervision derived from labels; inference sees no mask/validity/outcome labels and all output effects remain uncorrected.",
+  "evaluation": {
+    "primary": "Macro changed-entity MSE on all9 originally frozen coding composition tasks. All27 originally frozen compositions evaluated (9/domain);3 optimizer seeds repeat those27 independent identities, not81 tasks.",
+    "retained": "Macro and scalar-pooled whole-graph MSE, changed-entity and unchanged-entity MSE, invalid-noop MSE, precondition balanced accuracy/Brier, integer consistency, rounded full-transition accuracy, per-task raw outputs/probabilities and compute.",
+    "timing": "Persist final composition predictions for all27 fits, hash-bind them and every final checkpoint BEFORE first composition outcome execution. Then execute and independently replay all27 composition tasks. Never execute extra evaluation tasks, optimize on outcomes or select a best checkpoint.",
+    "other_domains": "Measure secondary sharing regression for math and physics vs their domain-only controls, with same composition identities. Primary remains coding; do not retroactively promote a positive secondary result.",
+    "qualification_labels": "Never used for optimization, checkpoint selection or gate changes. Development curves only at updates 0,60,90,120; all final comparisons use update120.",
+    "baselines": "Persistence and local-action metrics from frozen R5.1 rules; precondition simple baseline uses only public action bounds, not executed validity. Procedural reference executor is perfect by construction and is an explicit ceiling, not a learned competitor to be beaten. No claim above expert algorithm."
+  },
+  "scientific_gates_all_required": {
+    "mean_relative_changed_mse_improvement_over_each_of_B_and_R": 0.1,
+    "strict_positive_changed_mse_gain_over_each_control_for_every_seed": true,
+    "mean_shared_changed_mse_reduction_over_persistence": 0.2,
+    "mean_shared_changed_mse_reduction_over_local_action": 0.1,
+    "shared_validity_balanced_accuracy_every_seed": 0.7,
+    "shared_mean_whole_graph_mse_no_worse_than_either_B_or_R": true,
+    "shared_mean_unchanged_entity_mse_maximum": 0.0001,
+    "shared_mean_invalid_noop_mse_maximum": 0.0001,
+    "finite_predictions_and_gradients": true,
+    "all_identity_source_checkpoint_target_and_budget_audits": "PASS",
+    "maximum_mean_other_domain_relative_changed_mse_regression": 0.1,
+    "domain_only_development_changed_mse_reduction_from_initialization_each_target_each_seed": 0.2
+  },
+  "formulas": "Relative gain = (control_MSE-shared_MSE)/control_MSE per seed, then mean. If a control has zero changed error, positive improvement is impossible and that gain gate fails; do not invent an epsilon-assisted success. Baseline reductions compare mean shared MSE to baseline MSE. All nine tasks remain in whole/validity denominators; changed metric excludes only genuinely unchanged tasks per frozen definition, with excluded counts reported.",
+  "checkpoints": "Save immutable model+Adam states at update60 and update120 for each fit with seed/condition, complete optimizer/loss history, protocol/task/source/data hashes and measured time. Record initial state hashes, final checkpoint SHA-256, parameter/device counts, actual shared and domain gradient update counts. Only final update120 enters comparison. No resume/retry path or exact bitwise continuation claim.",
+  "verification": "Before optimizer: original readiness evidence/source/runtime hashes, saved native gradient receipts, complete committed protocol/task/sourcefreeze, fresh native engineering checks and independent replay of81 existing readiness outcomes. Duringfit: unchanged architecture6967 params,MPS placement,finite gradients,expected active and inactive domains,shared-core contribution from each domain,matchedinit hashes,exactupdate/presentationcounts. After: checkpoint+Adam tensor-only inspection,independent27 composition target replays,predictions before targets,independentmetrics/gate recomputation,full archive restoration. No exact continuation claim.",
+  "decision": "Integrity/engineering/nonfinite/budget failure -> FAILED_PILOT and stop, without extra fits. Any predefined scientific gate fails -> NO_GO. All gates pass -> GO_TO_CONFIRMATION only. No retries,hyperparameter tuning or extra training. INCONCLUSIVE reserved for preserved incomplete/invalid evidence; cannot rescue a failed numeric gate.",
+  "authorization": "Human explicitly authorized this one all-domain native pilot in the current conversation. No sandbox neural execution, second run, resume, new seed or further training authorized.",
+  "uncertainty": "Report paired per-task shared-control squared-error differences and a fixed2000-resample task bootstrap within domain/condition,seed2026101701,95%percentile interval. Reuse same sampled task indices across optimizer seeds; average seed effects within sampled task. Never bootstrap individual entities or treat seeds as independent tasks. Nine tasks/domain and six expected changed tasks yield exploratory intervals only; interval is descriptive,not a gate."
+}
