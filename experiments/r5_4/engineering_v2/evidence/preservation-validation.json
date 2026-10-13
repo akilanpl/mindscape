@@ -1,0 +1,21 @@
+{
+  "archive_sha256": "b6ef74587d3aa0f73a6afabe2dba6e4308dd9cf85c5fd34f0acf9880f8309e32",
+  "label": "R54_V2_PRESERVED_NATIVE_DIAGNOSTIC_V1",
+  "original_member_sha256": {
+    "RECEIPT.json": "ac61e5f3cec3b0fbdf2e439a068b882e783bdc936187f7b3dca6604381d19404",
+    "REPORT.json": "891a65271de296f8ab1afe99f0014164e03ed8e27cfd04fb2a6303e2d29d6cca",
+    "START.json": "f2744aea9f504e1bd741aa6ed29c7ff8810f4add58cb81bc421257cbe7b2653f",
+    "diagnostic-source.py": "157fb7611514381e154f72f8e1bb60abf6b30f5353cb399a1f6c0f5661c1d97c",
+    "schedule.json": "12b61e51a401031999769bea3e65f8f7fd9a623fb2de0afec921ab53d0750205",
+    "worker-0.json": "9ba1b6276826a0e56b69b7dc7e2fb665abf08023f3f086f58e85f7d138d315b9",
+    "worker-0.progress.jsonl": "f455aad92b8bebe6d94fd2b85f1908722540bdeb6b2d82a5cce81bbcfca8cc8c",
+    "worker-1.json": "618de009458f6c0937e0f7f115aa8775d6225dafdbedf7e7177a9f276af94c64",
+    "worker-1.progress.jsonl": "1a4b99d925e4e7ed31a3d8f0f32edc8d39d19cdc30be4e6b7ae52287a0569ce1",
+    "worker-2.json": "cd4b0f67b8726bfe7e2aafd110ead2702458afdb0956f9507689db989ce28467",
+    "worker-2.progress.jsonl": "ce119e0ee8832eaa8127381643d1c37576318c3901f26f27bf9214f40bc805fb",
+    "worker-3.json": "c03096fe9b119f776c5287243efc7b53a0467dd0c9a61da508527f71d3b75e43",
+    "worker-3.progress.jsonl": "de44aa22c0a505d0224cfeeef39f54327fd1e85dcda7940c4bb7f8045febcea0"
+  },
+  "original_receipt_sha256": "ac61e5f3cec3b0fbdf2e439a068b882e783bdc936187f7b3dca6604381d19404",
+  "original_records_modified": false
+}
