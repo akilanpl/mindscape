@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "tasks": 60,
+  "candidate_executions": 320,
+  "rows_digest": "3cb48c66ebd6426822c28495097038c6ae56bdc705b62207acb704e506842843",
+  "fits": 27,
+  "metric_replay": "PASS",
+  "decision": "NO_GO"
+}

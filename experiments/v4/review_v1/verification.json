@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "original_files_unchanged": 120,
+  "candidate_replay": {
+    "tasks": 60,
+    "candidates": 320
+  },
+  "checkpoints_inspected": 27,
+  "evaluation_metric_sets_recomputed": 54,
+  "focused_tests": 10,
+  "ruff": "PASS",
+  "archive_restore": "PASS",
+  "neural_forward_or_training_performed": false,
+  "review_script_sha256": "1bea0e6beeaf00a7ded0b51896ee8a270dfe9173418ae0cfdfb76af1b1807b38",
+  "preservation_script_sha256": "98c6588379cb3e5552a62d0f410094540e6ee4728f7cbc1db2e5c935e1f2123e",
+  "derived_csv_line_endings": "LF; parsed records unchanged"
+}

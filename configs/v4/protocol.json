@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "target_training_tasks": 4,
+  "pretrain_updates": 60,
+  "target_updates": 60,
+  "learning_rate": 0.003,
+  "primary": "coding ood: mathematics+physics to coding with four target training tasks",
+  "conditions": [
+    "specialist",
+    "domain_only",
+    "shared",
+    "randomized_auxiliary"
+  ],
+  "gate": {
+    "primary_gain_percentage_points": 10,
+    "all_seed_gains_positive": true,
+    "maximum_other_domain_regression_percentage_points": 10,
+    "minimum_solvable_ood_tasks_per_domain": 2,
+    "minimum_training_brier_improvement": 0.01,
+    "minimum_training_brier_improvement_over_constant": 0.01
+  },
+  "decision": "All gates required for GO to independent confirmation only; otherwise NO-GO for scaling this mechanism. No retuning or extra runs.",
+  "budget": "Every fit uses 120 updates of exactly 32 candidates (replacement sampling), same architecture and learning rate. Domain-only uses the same four target tasks throughout; shared uses other-domain training tasks for first 60 steps, then the same four target tasks for 60 steps. Randomized auxiliary uses identical source rows with within-domain label permutations. Domain input dimensions differ, so measured time and costs remain reported.",
+  "scope": "Fresh development pilot only. Math endpoint is local digit/carry transition correctness, not full arithmetic task correctness. Coding OOD changes sum to count; physics OOD doubles planning horizon; math OOD introduces incoming carry/borrow. Historical specialists may have prior exposure to generic structures. No final generalization claim.",
+  "architecture": "Separate fixed public domain encodings and domain-specific 16-unit trainable input projections; shared 16-to-8-to-1 evaluator. All conditions have identical architecture and initialization. Auxiliary gradients update shared layers and source projections only; target projection receives four target tasks. No private results in encodings.",
+  "batch_size": 32
+}
