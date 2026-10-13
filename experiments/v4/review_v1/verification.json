@@ -11,6 +11,7 @@
   "ruff": "PASS",
   "archive_restore": "PASS",
   "neural_forward_or_training_performed": false,
-  "review_script_sha256": "59969e1a4831120ddaf5d4503f82f9ede78729047ad9af94e7b3fef056a4f34d",
-  "preservation_script_sha256": "98c6588379cb3e5552a62d0f410094540e6ee4728f7cbc1db2e5c935e1f2123e"
+  "review_script_sha256": "1bea0e6beeaf00a7ded0b51896ee8a270dfe9173418ae0cfdfb76af1b1807b38",
+  "preservation_script_sha256": "98c6588379cb3e5552a62d0f410094540e6ee4728f7cbc1db2e5c935e1f2123e",
+  "derived_csv_line_endings": "LF; parsed records unchanged"
 }
