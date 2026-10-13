@@ -1,0 +1,289 @@
+{
+  "status": "PASS",
+  "device": "mps",
+  "torch_version": "2.14.1",
+  "dtype": "torch.float32",
+  "parameters": 6967,
+  "domain_checks": [
+    {
+      "domain": "mathematics",
+      "input_shape": [
+        2,
+        7,
+        6
+      ],
+      "masked_encoder_width": 12,
+      "effect_shape": [
+        2,
+        7,
+        1
+      ],
+      "precondition_shape": [
+        2
+      ],
+      "gradients": {
+        "effect": {
+          "parameters": {
+            "encoders.mathematics.weight": 8.323455810546875,
+            "encoders.mathematics.bias": 3.011401414871216,
+            "encoders.coding.weight": null,
+            "encoders.coding.bias": null,
+            "encoders.physics.weight": null,
+            "encoders.physics.bias": null,
+            "core.action.weight": 0.8718923330307007,
+            "core.action.bias": 0.6449080109596252,
+            "core.message.0.weight": 1.371735692024231,
+            "core.message.0.bias": 0.43187618255615234,
+            "core.message.2.weight": 0.9436058402061462,
+            "core.message.2.bias": 0.8753200769424438,
+            "core.effect.0.weight": 6.225498199462891,
+            "core.effect.0.bias": 2.4952566623687744,
+            "core.effect.2.weight": 5.992312431335449,
+            "core.effect.2.bias": 6.610523223876953,
+            "core.precondition.0.weight": null,
+            "core.precondition.0.bias": null,
+            "core.precondition.2.weight": null,
+            "core.precondition.2.bias": null,
+            "heads.mathematics.weight": 15.668266296386719,
+            "heads.mathematics.bias": 7.1811723709106445,
+            "heads.coding.weight": null,
+            "heads.coding.bias": null,
+            "heads.physics.weight": null,
+            "heads.physics.bias": null
+          },
+          "input_norms": {
+            "entity_input": 0.39330044388771057,
+            "relation_input": 0.018801413476467133,
+            "action_input": 0.24346795678138733
+          }
+        },
+        "precondition": {
+          "parameters": {
+            "encoders.mathematics.weight": 0.04239003360271454,
+            "encoders.mathematics.bias": 0.015213589183986187,
+            "encoders.coding.weight": null,
+            "encoders.coding.bias": null,
+            "encoders.physics.weight": null,
+            "encoders.physics.bias": null,
+            "core.action.weight": 0.02712642401456833,
+            "core.action.bias": 0.02006446197628975,
+            "core.message.0.weight": 0.007652269676327705,
+            "core.message.0.bias": 0.002406249986961484,
+            "core.message.2.weight": 0.005552830174565315,
+            "core.message.2.bias": 0.005146248731762171,
+            "core.effect.0.weight": 0.03012103959918022,
+            "core.effect.0.bias": 0.012052739039063454,
+            "core.effect.2.weight": 0.031146325170993805,
+            "core.effect.2.bias": 0.0342731736600399,
+            "core.precondition.0.weight": 0.12391471117734909,
+            "core.precondition.0.bias": 0.046374425292015076,
+            "core.precondition.2.weight": 0.05615341663360596,
+            "core.precondition.2.bias": 0.0835501030087471,
+            "heads.mathematics.weight": null,
+            "heads.mathematics.bias": null,
+            "heads.coding.weight": null,
+            "heads.coding.bias": null,
+            "heads.physics.weight": null,
+            "heads.physics.bias": null
+          },
+          "input_norms": {
+            "entity_input": 0.008248886093497276,
+            "relation_input": 0.00020561132987495512,
+            "action_input": 0.02593565732240677
+          }
+        }
+      },
+      "action_sensitivity": 0.005513191223144531,
+      "relation_sensitivity": 0.03160887956619263,
+      "permutation_error": 0.0
+    },
+    {
+      "domain": "coding",
+      "input_shape": [
+        2,
+        7,
+        10
+      ],
+      "masked_encoder_width": 20,
+      "effect_shape": [
+        2,
+        7,
+        1
+      ],
+      "precondition_shape": [
+        2
+      ],
+      "gradients": {
+        "effect": {
+          "parameters": {
+            "encoders.mathematics.weight": null,
+            "encoders.mathematics.bias": null,
+            "encoders.coding.weight": 2.2893283367156982,
+            "encoders.coding.bias": 0.6913986802101135,
+            "encoders.physics.weight": null,
+            "encoders.physics.bias": null,
+            "core.action.weight": 0.5780271887779236,
+            "core.action.bias": 0.3936656713485718,
+            "core.message.0.weight": 0.7688621878623962,
+            "core.message.0.bias": 0.2122204303741455,
+            "core.message.2.weight": 0.45869147777557373,
+            "core.message.2.bias": 0.4549641013145447,
+            "core.effect.0.weight": 3.446970224380493,
+            "core.effect.0.bias": 1.1940513849258423,
+            "core.effect.2.weight": 1.783392071723938,
+            "core.effect.2.bias": 1.905714511871338,
+            "core.precondition.0.weight": null,
+            "core.precondition.0.bias": null,
+            "core.precondition.2.weight": null,
+            "core.precondition.2.bias": null,
+            "heads.mathematics.weight": null,
+            "heads.mathematics.bias": null,
+            "heads.coding.weight": 4.779290199279785,
+            "heads.coding.bias": 1.7628662586212158,
+            "heads.physics.weight": null,
+            "heads.physics.bias": null
+          },
+          "input_norms": {
+            "entity_input": 0.11199569702148438,
+            "relation_input": 0.009173393249511719,
+            "action_input": 0.21706067025661469
+          }
+        },
+        "precondition": {
+          "parameters": {
+            "encoders.mathematics.weight": null,
+            "encoders.mathematics.bias": null,
+            "encoders.coding.weight": 0.023596521466970444,
+            "encoders.coding.bias": 0.006597755942493677,
+            "encoders.physics.weight": null,
+            "encoders.physics.bias": null,
+            "core.action.weight": 0.04006208851933479,
+            "core.action.bias": 0.008494358509778976,
+            "core.message.0.weight": 0.007133245933800936,
+            "core.message.0.bias": 0.0013379353331401944,
+            "core.message.2.weight": 0.004136983770877123,
+            "core.message.2.bias": 0.0024588843807578087,
+            "core.effect.0.weight": 0.03218526393175125,
+            "core.effect.0.bias": 0.005729766562581062,
+            "core.effect.2.weight": 0.031887203454971313,
+            "core.effect.2.bias": 0.015802444890141487,
+            "core.precondition.0.weight": 0.1310761272907257,
+            "core.precondition.0.bias": 0.02054489590227604,
+            "core.precondition.2.weight": 0.06796637177467346,
+            "core.precondition.2.bias": 0.03993230313062668,
+            "heads.mathematics.weight": null,
+            "heads.mathematics.bias": null,
+            "heads.coding.weight": null,
+            "heads.coding.bias": null,
+            "heads.physics.weight": null,
+            "heads.physics.bias": null
+          },
+          "input_norms": {
+            "entity_input": 0.006376221310347319,
+            "relation_input": 0.00012838887050747871,
+            "action_input": 0.0232224203646183
+          }
+        }
+      },
+      "action_sensitivity": 0.006195351481437683,
+      "relation_sensitivity": 0.04124484956264496,
+      "permutation_error": 0.0
+    },
+    {
+      "domain": "physics",
+      "input_shape": [
+        2,
+        7,
+        8
+      ],
+      "masked_encoder_width": 16,
+      "effect_shape": [
+        2,
+        7,
+        4
+      ],
+      "precondition_shape": [
+        2
+      ],
+      "gradients": {
+        "effect": {
+          "parameters": {
+            "encoders.mathematics.weight": null,
+            "encoders.mathematics.bias": null,
+            "encoders.coding.weight": null,
+            "encoders.coding.bias": null,
+            "encoders.physics.weight": 7.4369683265686035,
+            "encoders.physics.bias": 2.3351893424987793,
+            "core.action.weight": 1.0405113697052002,
+            "core.action.bias": 0.9876708388328552,
+            "core.message.0.weight": 1.3929446935653687,
+            "core.message.0.bias": 0.4420877993106842,
+            "core.message.2.weight": 0.9280216097831726,
+            "core.message.2.bias": 0.804842472076416,
+            "core.effect.0.weight": 7.1709370613098145,
+            "core.effect.0.bias": 2.9139015674591064,
+            "core.effect.2.weight": 4.289791584014893,
+            "core.effect.2.bias": 4.662518501281738,
+            "core.precondition.0.weight": null,
+            "core.precondition.0.bias": null,
+            "core.precondition.2.weight": null,
+            "core.precondition.2.bias": null,
+            "heads.mathematics.weight": null,
+            "heads.mathematics.bias": null,
+            "heads.coding.weight": null,
+            "heads.coding.bias": null,
+            "heads.physics.weight": 10.240897178649902,
+            "heads.physics.bias": 4.479782581329346
+          },
+          "input_norms": {
+            "entity_input": 0.44062861800193787,
+            "relation_input": 0.032348256558179855,
+            "action_input": 0.4044748842716217
+          }
+        },
+        "precondition": {
+          "parameters": {
+            "encoders.mathematics.weight": null,
+            "encoders.mathematics.bias": null,
+            "encoders.coding.weight": null,
+            "encoders.coding.bias": null,
+            "encoders.physics.weight": 0.03364435210824013,
+            "encoders.physics.bias": 0.0101007716730237,
+            "core.action.weight": 0.08051107078790665,
+            "core.action.bias": 0.012642012909054756,
+            "core.message.0.weight": 0.009436100721359253,
+            "core.message.0.bias": 0.0014446084387600422,
+            "core.message.2.weight": 0.006300558336079121,
+            "core.message.2.bias": 0.0033215826842933893,
+            "core.effect.0.weight": 0.048173047602176666,
+            "core.effect.0.bias": 0.008640522137284279,
+            "core.effect.2.weight": 0.045151036232709885,
+            "core.effect.2.bias": 0.02182614430785179,
+            "core.precondition.0.weight": 0.19878187775611877,
+            "core.precondition.0.bias": 0.028978511691093445,
+            "core.precondition.2.weight": 0.09335047006607056,
+            "core.precondition.2.bias": 0.04989274591207504,
+            "heads.mathematics.weight": null,
+            "heads.mathematics.bias": null,
+            "heads.coding.weight": null,
+            "heads.coding.bias": null,
+            "heads.physics.weight": null,
+            "heads.physics.bias": null
+          },
+          "input_norms": {
+            "entity_input": 0.013684597797691822,
+            "relation_input": 0.00019057755707763135,
+            "action_input": 0.024813219904899597
+          }
+        }
+      },
+      "action_sensitivity": 0.021052256226539612,
+      "relation_sensitivity": 0.06825841963291168,
+      "permutation_error": 0.0
+    }
+  ],
+  "optimizer_steps": 0,
+  "weights_unchanged": true,
+  "composition_targets_accessed": false,
+  "meaning": "Engineering connectivity only, not learning, accuracy or transfer evidence."
+}

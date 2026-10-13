@@ -1,0 +1,230 @@
+{
+  "status": "PASS",
+  "decision": "DATA_READY",
+  "executed_requests": 81,
+  "gates": {
+    "mathematics.development": {
+      "pass": true,
+      "checks": {
+        "valid": true,
+        "invalid": true,
+        "changed": true,
+        "persistence_headroom": true,
+        "local_headroom": true,
+        "simple_learnable_signal": true
+      },
+      "persistence": {
+        "tasks": 18,
+        "tasks_with_changed_entities": 12,
+        "positive_valid": 12,
+        "negative_invalid": 6,
+        "whole_graph_mse": 1.6207722222222223,
+        "changed_entity_mse": 4.862316666666667,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action": {
+        "tasks": 18,
+        "tasks_with_changed_entities": 12,
+        "positive_valid": 12,
+        "negative_invalid": 6,
+        "whole_graph_mse": 1.5810111111111111,
+        "changed_entity_mse": 4.743033333333334,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action_relative_reduction": 0.024532201728256986,
+      "operator_validity_balance": null,
+      "persistence_scalar_pooled_whole_graph_mse": 1.6207722222222223
+    },
+    "coding.development": {
+      "pass": true,
+      "checks": {
+        "valid": true,
+        "invalid": true,
+        "changed": true,
+        "persistence_headroom": true,
+        "local_headroom": true,
+        "simple_learnable_signal": true,
+        "operator_validity_balance": true
+      },
+      "persistence": {
+        "tasks": 18,
+        "tasks_with_changed_entities": 12,
+        "positive_valid": 12,
+        "negative_invalid": 6,
+        "whole_graph_mse": 0.004444444444444445,
+        "changed_entity_mse": 0.010000000000000002,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action": {
+        "tasks": 18,
+        "tasks_with_changed_entities": 12,
+        "positive_valid": 12,
+        "negative_invalid": 6,
+        "whole_graph_mse": 0.004222222222222223,
+        "changed_entity_mse": 0.009500000000000001,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action_relative_reduction": 0.05000000000000004,
+      "operator_validity_balance": {
+        "add": {
+          "valid": 4,
+          "invalid": 2
+        },
+        "sub": {
+          "valid": 4,
+          "invalid": 2
+        },
+        "mul": {
+          "valid": 4,
+          "invalid": 2
+        }
+      },
+      "persistence_scalar_pooled_whole_graph_mse": 0.0044444444444444444
+    },
+    "physics.development": {
+      "pass": true,
+      "checks": {
+        "valid": true,
+        "invalid": true,
+        "changed": true,
+        "persistence_headroom": true,
+        "local_headroom": true,
+        "simple_learnable_signal": true
+      },
+      "persistence": {
+        "tasks": 18,
+        "tasks_with_changed_entities": 12,
+        "positive_valid": 12,
+        "negative_invalid": 6,
+        "whole_graph_mse": 0.017017570314724652,
+        "changed_entity_mse": 0.025526355472086978,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action": {
+        "tasks": 18,
+        "tasks_with_changed_entities": 12,
+        "positive_valid": 12,
+        "negative_invalid": 6,
+        "whole_graph_mse": 0.009973230588093258,
+        "changed_entity_mse": 0.014959845882139887,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action_relative_reduction": 0.4139450930040346,
+      "operator_validity_balance": null,
+      "persistence_scalar_pooled_whole_graph_mse": 0.017017570314724652
+    },
+    "mathematics.qualification": {
+      "pass": true,
+      "checks": {
+        "valid": true,
+        "invalid": true,
+        "changed": true,
+        "persistence_headroom": true,
+        "local_headroom": true,
+        "simple_learnable_signal": true
+      },
+      "persistence": {
+        "tasks": 9,
+        "tasks_with_changed_entities": 6,
+        "positive_valid": 6,
+        "negative_invalid": 3,
+        "whole_graph_mse": 1.2425444444444445,
+        "changed_entity_mse": 3.7276333333333334,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action": {
+        "tasks": 9,
+        "tasks_with_changed_entities": 6,
+        "positive_valid": 6,
+        "negative_invalid": 3,
+        "whole_graph_mse": 1.2105111111111109,
+        "changed_entity_mse": 3.631533333333333,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action_relative_reduction": 0.025780432624811174,
+      "operator_validity_balance": null,
+      "persistence_scalar_pooled_whole_graph_mse": 1.2425444444444445
+    },
+    "coding.qualification": {
+      "pass": true,
+      "checks": {
+        "valid": true,
+        "invalid": true,
+        "changed": true,
+        "persistence_headroom": true,
+        "local_headroom": true,
+        "simple_learnable_signal": true,
+        "operator_validity_balance": true
+      },
+      "persistence": {
+        "tasks": 9,
+        "tasks_with_changed_entities": 6,
+        "positive_valid": 6,
+        "negative_invalid": 3,
+        "whole_graph_mse": 0.002,
+        "changed_entity_mse": 0.0045000000000000005,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action": {
+        "tasks": 9,
+        "tasks_with_changed_entities": 6,
+        "positive_valid": 6,
+        "negative_invalid": 3,
+        "whole_graph_mse": 0.0018222222222222225,
+        "changed_entity_mse": 0.0041,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action_relative_reduction": 0.08888888888888892,
+      "operator_validity_balance": {
+        "add": {
+          "valid": 2,
+          "invalid": 1
+        },
+        "sub": {
+          "valid": 2,
+          "invalid": 1
+        },
+        "mul": {
+          "valid": 2,
+          "invalid": 1
+        }
+      },
+      "persistence_scalar_pooled_whole_graph_mse": 0.002
+    },
+    "physics.qualification": {
+      "pass": true,
+      "checks": {
+        "valid": true,
+        "invalid": true,
+        "changed": true,
+        "persistence_headroom": true,
+        "local_headroom": true,
+        "simple_learnable_signal": true
+      },
+      "persistence": {
+        "tasks": 9,
+        "tasks_with_changed_entities": 6,
+        "positive_valid": 6,
+        "negative_invalid": 3,
+        "whole_graph_mse": 0.022071888300720578,
+        "changed_entity_mse": 0.033107832451080864,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action": {
+        "tasks": 9,
+        "tasks_with_changed_entities": 6,
+        "positive_valid": 6,
+        "negative_invalid": 3,
+        "whole_graph_mse": 0.00681202278043839,
+        "changed_entity_mse": 0.010218034170657584,
+        "unchanged_entity_mse": 0.0
+      },
+      "local_action_relative_reduction": 0.6913710921500087,
+      "operator_validity_balance": null,
+      "persistence_scalar_pooled_whole_graph_mse": 0.022071888300720578
+    }
+  },
+  "composition_targets_accessed": false,
+  "neural_execution": false,
+  "note": "Engineering values are recorded native receipts; this independent audit replays executed targets and gates, not neural forwards."
+}

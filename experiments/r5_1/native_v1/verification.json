@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "decision": "DATA_READY",
+  "native_run": "results/r5_1/screen-2cac9d0fcef076df",
+  "source_commit": "ed47341",
+  "executed_tasks": 81,
+  "unexecuted_compositions": 27,
+  "independent_effect_and_gate_replay": "PASS",
+  "native_engineering_receipts": "AUDITED_PASS",
+  "original_v5_qualification_files_unchanged": 92,
+  "v5_architecture_unchanged": true,
+  "source_archive_sha256": "3f7b42a26082dde0a4742c44208525a2bb6862eb6e9fee36a14a5ddd5d0ae4f0",
+  "source_archive_matches_every_native_source_hash": true,
+  "new_training_executed": false,
+  "pilot_specification": "FROZEN_AWAITING_EXPLICIT_AUTHORIZATION",
+  "nonneural_tests": 11
+}
