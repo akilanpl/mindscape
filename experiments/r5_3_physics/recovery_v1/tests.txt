@@ -1,0 +1,9 @@
+test_discrete_gates_remain_exact (test_recovery.RecoveryTests.test_discrete_gates_remain_exact) ... ok
+test_exact_equality_fails_lossless_json_roundtrip (test_recovery.RecoveryTests.test_exact_equality_fails_lossless_json_roundtrip) ... ok
+test_recovery_imports_no_predictor_or_training (test_recovery.RecoveryTests.test_recovery_imports_no_predictor_or_training) ... ok
+test_tolerance_does_not_accept_changed_evidence (test_recovery.RecoveryTests.test_tolerance_does_not_accept_changed_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+OK

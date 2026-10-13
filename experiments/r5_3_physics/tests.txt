@@ -1,0 +1,12 @@
+test_covariance_analytical_and_monte_carlo (test_public.PhysicsTests.test_covariance_analytical_and_monte_carlo) ... ok
+test_freeflight_against_pymunk (test_public.PhysicsTests.test_freeflight_against_pymunk) ... ok
+test_import_boundary_transitively (test_public.PhysicsTests.test_import_boundary_transitively) ... ok
+test_interval_score_penalizes_width_and_misses (test_public.PhysicsTests.test_interval_score_penalizes_width_and_misses) ... ok
+test_private_rejection_and_mask (test_public.PhysicsTests.test_private_rejection_and_mask) ... ok
+test_finite_outputs_and_wide_intervals_are_not_go (test_public.ScientificTests.test_finite_outputs_and_wide_intervals_are_not_go) ... ok
+test_serialization_preserves_metrics (test_public.ScientificTests.test_serialization_preserves_metrics) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.173s
+
+OK
