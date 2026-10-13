@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "original_files": {
+    "summary.json": "438b655abeab512e6d4fdfa649fe071a3012034c4982cfd79f608a1f65c54648",
+    "checkpoint-audit.json": "8e2d02bc5b47c920091580e6687e116142cb1f72899600345a3ae3b4109fe5f6",
+    "qualification.json": "8164be7114ab4b3be88d3955efb6428a1c527af03bb38660a1f41475ad53078c",
+    "memory.json": "7454e5799297fe8d24bd53837da4a5b97466712f4323a41667d4b60efe136ed6",
+    "predictions-s23.json": "bba4dac5a6d3941d12f9932fb26fbcbef79d3983a9f62caaf093031949203e67",
+    "training-demonstrations.json": "8f63a42ff3992630239690af3ed2deffbf5ebd586c034463e90b3ea4c8abfef0",
+    "reference.json": "82f040d387335a165bb8fa2e302dec2c5dd6c273a47660292f3f81d96a62cdad",
+    "manifest.json": "e19b969704964d6147dafbe40ae47bc3e1c9ef2402d47edc24dd2f4ee0b6f0bf",
+    "failure.json": "846109a1a71d8e0767da9ae6eff18deb42a8e3e4d6aba23b2713b5a8aecdb354",
+    "predictions-s11.json": "3ef6b9d28870495a8e5ebcaddaefacc673eff1bac64f3d3dab617dfbe99585ed",
+    "predictions-s47.json": "6e2831d9dd748c6d870e1d9da7a24625dc2e27a8e78cb1572d75abf103b50ebe",
+    "fits.json": "9d8c66cf6d9a976b16f86cc5c62a5ae8dccdd857e0a1a80c8c0e359518b6c930",
+    "freeze.json": "420d50656cda8a0191489a15a4954f37093e4d35b490c88a5933e0397ec0fd54",
+    "checkpoints/reset_hidden-s23.pt": "2580408d38f21049f54853be1a1ef454eeef790318880b6dc6bee2ef5f9258a7",
+    "checkpoints/recurrent-s47.pt": "d5200043858739e5b24d49c575f3782c7d2453d21b8dcef793db877283175428",
+    "checkpoints/recurrent-s23.pt": "b94e3546f66becb971ead02bd366c5f142d0660fa4efe688e7400bfddf5a03bc",
+    "checkpoints/reset_hidden-s47.pt": "2be995ef335e44618621490eef30a77f88b986f312782fb997c9bd3103e8bd1b",
+    "checkpoints/reset_hidden-s11-progress.jsonl": "30f3090474aec112abaa7b1e8ef0a05343eda408c558cf6f27776766587577da",
+    "checkpoints/recurrent-s11-progress.jsonl": "461e6eaa964af6694af08015164348c53bb3720ac9cfcddba00cc9c1e1810d9c",
+    "checkpoints/recurrent-s23-progress.jsonl": "a31e66bc18f090b06908f15653ef55224a0fb7bbe3632003be0ab93c550c5773",
+    "checkpoints/recurrent-s47-progress.jsonl": "109e156e86a3a126825188c31282f16f399508d9a8a0031e84f4598a3bda69ce",
+    "checkpoints/reset_hidden-s23-progress.jsonl": "cb628f37c84430b875de8a00cd62bbe7fd160760cda3e9218f0969f8bf8863f6",
+    "checkpoints/reset_hidden-s47-progress.jsonl": "3b389393aca7f8bee2de30d8dfffb07d4cfd46457f788846c86a52ef614500ec",
+    "checkpoints/reset_hidden-s11.pt": "f44783f9aadeb9e737444e98efdd98996de044e0ca65dfe5c2ea0df6284a62f5",
+    "checkpoints/recurrent-s11.pt": "c4c7c1938fd348fe7f64d4609cb02f0b1d82bf6aa6f3a4fe4df13a885dbd2c0e"
+  },
+  "external_files": {
+    "results/r5_2_math/native-one-campaign.preservation.json": "83a984610c0864ac831fd1973f7471c58084de4fcf577b4f3a10bbbcd5f5135c",
+    "results/r5_2_math/native-one-campaign.tar.gz": "61c24da38ffef4b0c3f7ba9d56bb71d201cd0a5ddc2d4751b6b0cded143e6c4c"
+  },
+  "checkpoints": {
+    "status": "PASS",
+    "checkpoints": 6,
+    "neural_re_forward": false
+  },
+  "fits": 6,
+  "optimizer_updates": 4800,
+  "prediction_records": 3060,
+  "independent_tasks": 204,
+  "independent_ood_tasks": 144,
+  "qualification": {
+    "decision": "DATA_READY",
+    "training_local_labels": {
+      "add": 3397,
+      "mul": 1726,
+      "sub": 815
+    },
+    "sign_labels": {
+      "1": 396,
+      "0": 372
+    },
+    "training_held_context_input_exposures": 38,
+    "ood_reference_contexts": 5497,
+    "ood_memory_misses": 364,
+    "ood_memory_miss_fraction": 0.06621793705657632,
+    "reference_exact_tasks": 204
+  },
+  "original_bytes_unchanged": true,
+  "reference_correct": 204,
+  "limitations": [
+    "No neural re-forward: checkpoint-to-prediction relationship is archived provenance, not regenerated output.",
+    "Neural condition attribution follows authenticated frozen insertion order; records lack intrinsic neural condition identifiers.",
+    "24 independent tasks per OOD family; three seeds do not triple task denominator."
+  ]
+}

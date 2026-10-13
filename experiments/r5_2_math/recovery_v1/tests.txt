@@ -1,0 +1,9 @@
+test_diagnostics_and_verifier_tampering (test_recovery.RecoveryTests.test_diagnostics_and_verifier_tampering) ... ok
+test_order_and_count_fail_closed (test_recovery.RecoveryTests.test_order_and_count_fail_closed) ... ok
+test_original_shadowing_and_zero_division (test_recovery.RecoveryTests.test_original_shadowing_and_zero_division) ... ok
+test_replay_extra_diagnostics_failure_and_repair (test_recovery.RecoveryTests.test_replay_extra_diagnostics_failure_and_repair) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
