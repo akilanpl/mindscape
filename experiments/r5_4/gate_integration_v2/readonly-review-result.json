@@ -1,0 +1,700 @@
+{
+  "gate_adopted": false,
+  "mode": "NONTRAINING_REVIEW_ONLY",
+  "neural_ood_predictions": 0,
+  "proof": {
+    "compatible_scientific_inventory": {
+      "docs/r5_4/protocol.md": "1b1111020003e31363627fbf67447c6347c7ac6a8186c5debb296a916888b2cb",
+      "experiments/r5_4/frozen/development.json": "c1e10c1df71ecffdc47eaa5c91499391d605aceb43d47d9a8134b7c435e7f4b2",
+      "experiments/r5_4/frozen/ood.json": "d17b2546ab715145e5b3e919dad2eb3ba0bd9987346f73cd1631d15ef58ce2ed",
+      "experiments/r5_4/frozen/outcomes.json": "c56c221233b7dee576ce70fd925ef64ea744256f83096459cbb5c3231d645440",
+      "experiments/r5_4/frozen/protocol.json": "8d94b1b6f495c5e4c2f4c57f31f8504ea2835d530a58779230cbc2b098090891",
+      "experiments/r5_4/frozen/train.json": "dcd104963987e2499d0cc6a1c91a4d7702674595fff41f05e834c1fb97f7d034",
+      "src/mindscape/r5_4/__init__.py": "678e2c828e45952e438eb6c1758008971f839f9f23ce3c29e2ae311eb73c2f37",
+      "src/mindscape/r5_4/__main__.py": "b54920b55dbed830baa99857e632a467bb3fc5c537abde1960d5d4a3898abd35",
+      "src/mindscape/r5_4/audit.py": "6c34417cf8f0e7a9de56e355874c79033c6499dbf85cca061e20744a16181d57",
+      "src/mindscape/r5_4/campaign.py": "4131182eb5ed9595feed03a28753feb69e39a7ef8596d74023d8bb992e2aa21e",
+      "src/mindscape/r5_4/data.py": "08429a6aae44aad7085e13f13eed802a54498d2680b842fd6a595988ddddf560",
+      "src/mindscape/r5_4/engineering.py": "8e041eda6425934d066165843d4eb1ae8927a828c1efb93f89c140f7819d4045",
+      "src/mindscape/r5_4/evaluate.py": "777e83e7b84e604a94b799289e7a38b2bfd67d6ff82e759979969a1fd96fc0a9",
+      "src/mindscape/r5_4/freeze.py": "d1e626b4a841b58dbd54ad9abf5e379cfceb740c948da82fe1cbec492d2382b0",
+      "src/mindscape/r5_4/inference.py": "83c4fac297c2de8ec281c73c814684313e890483e0083460a05879261d315062",
+      "src/mindscape/r5_4/model.py": "72e5f4c7ff040925a712d372ca597cbe98afeb118e4dce061be4545435921b34",
+      "src/mindscape/r5_4/preservation.py": "8d1a530f367fd7cdf1fbacafa4643aae4a61f787327640a2a15e0390e8a6a514",
+      "src/mindscape/r5_4/training.py": "c00349e27f216ef66edf446e472de49de94e5dacb70a23459aa2c16ef99b9f9f",
+      "tests/r5_4/test_experiment.py": "80b0043e8c9774d157cd4b7dfe02ee900a832f5ca8faeca9681bb356016703a6"
+    },
+    "disposable_steps": 144,
+    "engineering_approval": {
+      "provenance": "Original START.json local CLI approval assertion; not cryptographic human identity attestation",
+      "recorded_approved_engineering_only": true,
+      "recorded_training_authorized": false,
+      "scope": "144 disposable optimizer microbenchmarks only"
+    },
+    "final_receipt_sha256": "21ebe987767e541713d864156752751ae58d8cc7985c7f86bf649a1663bdd6a1",
+    "independent_audit": "VERIFIED",
+    "integration_lock_sha256": "35be4554909e822458f818be5dec845c10c2cf2062582151d9dc73e244fe03c7",
+    "original_evidence_path": "/Users/akilan/Documents/Codex/2026-10-12/you-are-gpt-6-1-sol/work/mindscape-r5.4/results/r5_4/engineering-v2-native",
+    "original_v1_readiness": "ENGINEERING_NO_GO",
+    "qualification_assessments": [
+      {
+        "by_batch": {
+          "first32": {
+            "cold": {
+              "maximum": 0.293249083,
+              "mean": 0.293249083,
+              "median": 0.293249083,
+              "minimum": 0.293249083,
+              "n": 1,
+              "p95": 0.293249083,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.293249083
+              ]
+            },
+            "measured": {
+              "maximum": 0.131087958,
+              "mean": 0.1302040105,
+              "median": 0.1301278545,
+              "minimum": 0.129256333,
+              "n": 8,
+              "p95": 0.1310366683,
+              "sample_stdev": 0.0006658429053615331,
+              "samples_seconds": [
+                0.130941416,
+                0.129256333,
+                0.129465792,
+                0.130030625,
+                0.130687417,
+                0.131087958,
+                0.130225084,
+                0.129937459
+              ]
+            },
+            "warmup": {
+              "maximum": 0.131762459,
+              "mean": 0.13055261133333335,
+              "median": 0.130409083,
+              "minimum": 0.129486292,
+              "n": 3,
+              "p95": 0.1316271214,
+              "sample_stdev": 0.001144851230433163,
+              "samples_seconds": [
+                0.131762459,
+                0.130409083,
+                0.129486292
+              ]
+            }
+          },
+          "first32_four_digit_training_tasks": {
+            "cold": {
+              "maximum": 0.171392792,
+              "mean": 0.171392792,
+              "median": 0.171392792,
+              "minimum": 0.171392792,
+              "n": 1,
+              "p95": 0.171392792,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.171392792
+              ]
+            },
+            "measured": {
+              "maximum": 0.166298,
+              "mean": 0.165561614625,
+              "median": 0.1654315,
+              "minimum": 0.165048375,
+              "n": 8,
+              "p95": 0.1662963081,
+              "sample_stdev": 0.0004850890434463523,
+              "samples_seconds": [
+                0.166298,
+                0.166293166,
+                0.165537209,
+                0.165156375,
+                0.165565459,
+                0.165268542,
+                0.165048375,
+                0.165325791
+              ]
+            },
+            "warmup": {
+              "maximum": 0.16629375,
+              "mean": 0.16607102766666668,
+              "median": 0.166063083,
+              "minimum": 0.16585625,
+              "n": 3,
+              "p95": 0.1662706833,
+              "sample_stdev": 0.0002188581750731027,
+              "samples_seconds": [
+                0.16629375,
+                0.16585625,
+                0.166063083
+              ]
+            }
+          }
+        },
+        "full_probe_worker_wall_seconds": 5.957014040992362,
+        "memory_pass": true,
+        "original_readiness": "ENGINEERING_NO_GO",
+        "process_peak_rss_bytes": 457146368,
+        "projected_fit_seconds": 208.49109078148857,
+        "timing_pass": true,
+        "worst_warm_p95_seconds": 0.1662963081
+      },
+      {
+        "by_batch": {
+          "first32": {
+            "cold": {
+              "maximum": 0.213647584,
+              "mean": 0.213647584,
+              "median": 0.213647584,
+              "minimum": 0.213647584,
+              "n": 1,
+              "p95": 0.213647584,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.213647584
+              ]
+            },
+            "measured": {
+              "maximum": 0.131359458,
+              "mean": 0.130537026125,
+              "median": 0.1304449375,
+              "minimum": 0.130056208,
+              "n": 8,
+              "p95": 0.13130306460000002,
+              "sample_stdev": 0.000507934556815975,
+              "samples_seconds": [
+                0.130546792,
+                0.130056208,
+                0.130343083,
+                0.1300785,
+                0.131359458,
+                0.131198334,
+                0.130629167,
+                0.130084667
+              ]
+            },
+            "warmup": {
+              "maximum": 0.132168542,
+              "mean": 0.129585264,
+              "median": 0.129711791,
+              "minimum": 0.126875459,
+              "n": 3,
+              "p95": 0.1319228669,
+              "sample_stdev": 0.0026488089252565974,
+              "samples_seconds": [
+                0.132168542,
+                0.126875459,
+                0.129711791
+              ]
+            }
+          },
+          "first32_four_digit_training_tasks": {
+            "cold": {
+              "maximum": 0.167758458,
+              "mean": 0.167758458,
+              "median": 0.167758458,
+              "minimum": 0.167758458,
+              "n": 1,
+              "p95": 0.167758458,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.167758458
+              ]
+            },
+            "measured": {
+              "maximum": 0.166939917,
+              "mean": 0.165988010125,
+              "median": 0.1660968745,
+              "minimum": 0.164788458,
+              "n": 8,
+              "p95": 0.16685180415,
+              "sample_stdev": 0.0006812303402188533,
+              "samples_seconds": [
+                0.166688166,
+                0.165537042,
+                0.166102708,
+                0.166163041,
+                0.165593708,
+                0.164788458,
+                0.166939917,
+                0.166091041
+              ]
+            },
+            "warmup": {
+              "maximum": 0.167124208,
+              "mean": 0.166815958,
+              "median": 0.166935125,
+              "minimum": 0.166388541,
+              "n": 3,
+              "p95": 0.1671052997,
+              "sample_stdev": 0.00038203673140026374,
+              "samples_seconds": [
+                0.167124208,
+                0.166388541,
+                0.166935125
+              ]
+            }
+          }
+        },
+        "full_probe_worker_wall_seconds": 5.022346624988131,
+        "memory_pass": true,
+        "original_readiness": "ENGINEERING_NO_GO",
+        "process_peak_rss_bytes": 458194944,
+        "projected_fit_seconds": 207.7556849174822,
+        "timing_pass": true,
+        "worst_warm_p95_seconds": 0.16685180415
+      },
+      {
+        "by_batch": {
+          "first32": {
+            "cold": {
+              "maximum": 0.210566583,
+              "mean": 0.210566583,
+              "median": 0.210566583,
+              "minimum": 0.210566583,
+              "n": 1,
+              "p95": 0.210566583,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.210566583
+              ]
+            },
+            "measured": {
+              "maximum": 0.131698708,
+              "mean": 0.130046968875,
+              "median": 0.13043162549999998,
+              "minimum": 0.125801833,
+              "n": 8,
+              "p95": 0.1313734999,
+              "sample_stdev": 0.001776251374876349,
+              "samples_seconds": [
+                0.131698708,
+                0.130393084,
+                0.130242125,
+                0.130470167,
+                0.130318167,
+                0.130682125,
+                0.125801833,
+                0.130769542
+              ]
+            },
+            "warmup": {
+              "maximum": 0.134875125,
+              "mean": 0.131727014,
+              "median": 0.131119375,
+              "minimum": 0.129186542,
+              "n": 3,
+              "p95": 0.13449955000000002,
+              "sample_stdev": 0.002892561667918778,
+              "samples_seconds": [
+                0.131119375,
+                0.129186542,
+                0.134875125
+              ]
+            }
+          },
+          "first32_four_digit_training_tasks": {
+            "cold": {
+              "maximum": 0.166449625,
+              "mean": 0.166449625,
+              "median": 0.166449625,
+              "minimum": 0.166449625,
+              "n": 1,
+              "p95": 0.166449625,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.166449625
+              ]
+            },
+            "measured": {
+              "maximum": 0.166698666,
+              "mean": 0.1658923905,
+              "median": 0.1661861665,
+              "minimum": 0.1644815,
+              "n": 8,
+              "p95": 0.16665589320000002,
+              "sample_stdev": 0.0007907214807832162,
+              "samples_seconds": [
+                0.165615083,
+                0.166361792,
+                0.166698666,
+                0.166576458,
+                0.1644815,
+                0.165033292,
+                0.166359583,
+                0.16601275
+              ]
+            },
+            "warmup": {
+              "maximum": 0.167203125,
+              "mean": 0.16672684733333334,
+              "median": 0.166801083,
+              "minimum": 0.166176334,
+              "n": 3,
+              "p95": 0.1671629208,
+              "sample_stdev": 0.0005174051991179944,
+              "samples_seconds": [
+                0.167203125,
+                0.166801083,
+                0.166176334
+              ]
+            }
+          }
+        },
+        "full_probe_worker_wall_seconds": 5.00200091698207,
+        "memory_pass": true,
+        "original_readiness": "ENGINEERING_NO_GO",
+        "process_peak_rss_bytes": 458686464,
+        "projected_fit_seconds": 207.49007321547313,
+        "timing_pass": true,
+        "worst_warm_p95_seconds": 0.16665589320000002
+      },
+      {
+        "by_batch": {
+          "first32": {
+            "cold": {
+              "maximum": 0.209334667,
+              "mean": 0.209334667,
+              "median": 0.209334667,
+              "minimum": 0.209334667,
+              "n": 1,
+              "p95": 0.209334667,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.209334667
+              ]
+            },
+            "measured": {
+              "maximum": 0.134406958,
+              "mean": 0.130830146,
+              "median": 0.1307985005,
+              "minimum": 0.128758,
+              "n": 8,
+              "p95": 0.13332887085,
+              "sample_stdev": 0.001672633824743135,
+              "samples_seconds": [
+                0.130736209,
+                0.134406958,
+                0.130860792,
+                0.130948791,
+                0.128758,
+                0.129565875,
+                0.131326709,
+                0.130037834
+              ]
+            },
+            "warmup": {
+              "maximum": 0.131522292,
+              "mean": 0.12918172233333333,
+              "median": 0.128553833,
+              "minimum": 0.127469042,
+              "n": 3,
+              "p95": 0.1312254461,
+              "sample_stdev": 0.002098307091874388,
+              "samples_seconds": [
+                0.128553833,
+                0.127469042,
+                0.131522292
+              ]
+            }
+          },
+          "first32_four_digit_training_tasks": {
+            "cold": {
+              "maximum": 0.166333375,
+              "mean": 0.166333375,
+              "median": 0.166333375,
+              "minimum": 0.166333375,
+              "n": 1,
+              "p95": 0.166333375,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.166333375
+              ]
+            },
+            "measured": {
+              "maximum": 0.174911458,
+              "mean": 0.16713355725,
+              "median": 0.165940833,
+              "minimum": 0.1643895,
+              "n": 8,
+              "p95": 0.17282379585,
+              "sample_stdev": 0.003406203890932783,
+              "samples_seconds": [
+                0.168946709,
+                0.174911458,
+                0.165887833,
+                0.165191584,
+                0.165993833,
+                0.166104291,
+                0.16564325,
+                0.1643895
+              ]
+            },
+            "warmup": {
+              "maximum": 0.166655208,
+              "mean": 0.16315751366666667,
+              "median": 0.162059,
+              "minimum": 0.160758333,
+              "n": 3,
+              "p95": 0.1661955872,
+              "sample_stdev": 0.0030981176379047187,
+              "samples_seconds": [
+                0.160758333,
+                0.162059,
+                0.166655208
+              ]
+            }
+          }
+        },
+        "full_probe_worker_wall_seconds": 5.005508125002962,
+        "memory_pass": true,
+        "original_readiness": "ENGINEERING_NO_GO",
+        "process_peak_rss_bytes": 456966144,
+        "projected_fit_seconds": 214.8968172075044,
+        "timing_pass": true,
+        "worst_warm_p95_seconds": 0.17282379585
+      },
+      {
+        "by_batch": {
+          "first32": {
+            "cold": {
+              "maximum": 0.207881541,
+              "mean": 0.207881541,
+              "median": 0.207881541,
+              "minimum": 0.207881541,
+              "n": 1,
+              "p95": 0.207881541,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.207881541
+              ]
+            },
+            "measured": {
+              "maximum": 0.130858834,
+              "mean": 0.1297160365,
+              "median": 0.130154979,
+              "minimum": 0.126290625,
+              "n": 8,
+              "p95": 0.13068473805,
+              "sample_stdev": 0.001429296949989555,
+              "samples_seconds": [
+                0.130858834,
+                0.126290625,
+                0.130361417,
+                0.129577041,
+                0.130139,
+                0.130170958,
+                0.130031792,
+                0.130298625
+              ]
+            },
+            "warmup": {
+              "maximum": 0.131204375,
+              "mean": 0.13036709733333335,
+              "median": 0.129996375,
+              "minimum": 0.129900542,
+              "n": 3,
+              "p95": 0.131083575,
+              "sample_stdev": 0.0007266852202269844,
+              "samples_seconds": [
+                0.131204375,
+                0.129996375,
+                0.129900542
+              ]
+            }
+          },
+          "first32_four_digit_training_tasks": {
+            "cold": {
+              "maximum": 0.166201042,
+              "mean": 0.166201042,
+              "median": 0.166201042,
+              "minimum": 0.166201042,
+              "n": 1,
+              "p95": 0.166201042,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.166201042
+              ]
+            },
+            "measured": {
+              "maximum": 0.165007792,
+              "mean": 0.16287967725,
+              "median": 0.164203667,
+              "minimum": 0.157749208,
+              "n": 8,
+              "p95": 0.16483616075,
+              "sample_stdev": 0.0026400625839870153,
+              "samples_seconds": [
+                0.157749208,
+                0.159855083,
+                0.163024834,
+                0.165007792,
+                0.164334334,
+                0.16447575,
+                0.164073,
+                0.164517417
+              ]
+            },
+            "warmup": {
+              "maximum": 0.164928417,
+              "mean": 0.16468898666666668,
+              "median": 0.164581459,
+              "minimum": 0.164557084,
+              "n": 3,
+              "p95": 0.1648937212,
+              "sample_stdev": 0.00020771061250290376,
+              "samples_seconds": [
+                0.164928417,
+                0.164557084,
+                0.164581459
+              ]
+            }
+          }
+        },
+        "full_probe_worker_wall_seconds": 4.993671541014919,
+        "memory_pass": true,
+        "original_readiness": "ENGINEERING_NO_GO",
+        "process_peak_rss_bytes": 456720384,
+        "projected_fit_seconds": 205.29390021152238,
+        "timing_pass": true,
+        "worst_warm_p95_seconds": 0.16483616075
+      },
+      {
+        "by_batch": {
+          "first32": {
+            "cold": {
+              "maximum": 0.209285791,
+              "mean": 0.209285791,
+              "median": 0.209285791,
+              "minimum": 0.209285791,
+              "n": 1,
+              "p95": 0.209285791,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.209285791
+              ]
+            },
+            "measured": {
+              "maximum": 0.131843667,
+              "mean": 0.130417125125,
+              "median": 0.13071210449999998,
+              "minimum": 0.127230125,
+              "n": 8,
+              "p95": 0.13157937325,
+              "sample_stdev": 0.0013792288089323613,
+              "samples_seconds": [
+                0.13013775,
+                0.131088542,
+                0.130703084,
+                0.130721125,
+                0.130563583,
+                0.127230125,
+                0.131843667,
+                0.131049125
+              ]
+            },
+            "warmup": {
+              "maximum": 0.132576208,
+              "mean": 0.130908042,
+              "median": 0.130989459,
+              "minimum": 0.129158459,
+              "n": 3,
+              "p95": 0.1324175331,
+              "sample_stdev": 0.0017103285072368397,
+              "samples_seconds": [
+                0.132576208,
+                0.130989459,
+                0.129158459
+              ]
+            }
+          },
+          "first32_four_digit_training_tasks": {
+            "cold": {
+              "maximum": 0.166328208,
+              "mean": 0.166328208,
+              "median": 0.166328208,
+              "minimum": 0.166328208,
+              "n": 1,
+              "p95": 0.166328208,
+              "sample_stdev": null,
+              "samples_seconds": [
+                0.166328208
+              ]
+            },
+            "measured": {
+              "maximum": 0.16713675,
+              "mean": 0.165911104,
+              "median": 0.165862937,
+              "minimum": 0.165016958,
+              "n": 8,
+              "p95": 0.16691499595,
+              "sample_stdev": 0.000715788670664544,
+              "samples_seconds": [
+                0.165446958,
+                0.166243833,
+                0.16713675,
+                0.165618708,
+                0.165215292,
+                0.166503167,
+                0.166107166,
+                0.165016958
+              ]
+            },
+            "warmup": {
+              "maximum": 0.166201208,
+              "mean": 0.16578593066666666,
+              "median": 0.165793,
+              "minimum": 0.165363584,
+              "n": 3,
+              "p95": 0.16616038719999998,
+              "sample_stdev": 0.00041885674514006033,
+              "samples_seconds": [
+                0.166201208,
+                0.165793,
+                0.165363584
+              ]
+            }
+          }
+        },
+        "full_probe_worker_wall_seconds": 5.004495250002947,
+        "memory_pass": true,
+        "original_readiness": "ENGINEERING_NO_GO",
+        "process_peak_rss_bytes": 458014720,
+        "projected_fit_seconds": 207.80473801500443,
+        "timing_pass": true,
+        "worst_warm_p95_seconds": 0.16691499595
+      }
+    ],
+    "qualification_run_commit": "NOT_RECORDED_IN_ORIGINAL_ARTIFACT",
+    "qualification_source_snapshot_commit": "e47239c0f84ca8147091faa2eacd8180b94b7079",
+    "qualification_status": "R54_V2_ENGINEERING_READY_TRAINING_NOT_AUTHORIZED",
+    "qualified_runtime": {
+      "cpu_fallback": false,
+      "machine": "arm64",
+      "mps_available": true,
+      "mps_built": true,
+      "platform": "macOS-27.0.1-arm64-arm-64bit",
+      "torch": "2.14.1"
+    },
+    "receipt_sha256": "2dcd247d5827d3fcb61264d4d614192c0857ec09a82cea2cce1884e64ff3c0a8",
+    "saved_audit_sha256": "78f586861f984f136bd5895e199c8effb65157cc73f95306b5f06650df1d5fe2",
+    "scientific_updates": 0,
+    "start_sha256": "a797d6438af88d674cc6b7bb1932237c5ddbdd09f192bbe2df28ce383baccd4f",
+    "v1_lock_sha256": "a771f8ae619fa080b09f49c52ebbad6f8eb2dbb37f6b4b6748fbd86700f6a30a",
+    "v2_lock_sha256": "ca6f9bf67ecf9fea9d3b0c8075cf3c0c0c4001f1a9049fef1cff28e5f7c585e5"
+  },
+  "science_reuse": {
+    "campaign_source_sha256": "4131182eb5ed9595feed03a28753feb69e39a7ef8596d74023d8bb992e2aa21e",
+    "original_science_first_line": 31,
+    "original_science_last_line": 96,
+    "replaced_preamble_statements": 6,
+    "scientific_suffix_ast_sha256": "0dff2e7d9244703599ed8e5554b7f170639a908ce00488c11dfd02613150ca13",
+    "scope": "Only authorization, source/data readiness and engineering preamble is replaced; exact frozen scientific AST is reused"
+  },
+  "scientific_optimizer_updates": 0,
+  "scientific_training_authorized": false,
+  "status": "R54_V2_GATE_INTEGRATION_REVIEW_READY"
+}
