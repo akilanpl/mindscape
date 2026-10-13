@@ -1,0 +1,20 @@
+{
+  "label": "USER_REPORTED_NATIVE_ENGINEERING_NO_GO",
+  "provenance": "Transcribed from user-reported Mac Terminal output; original JSON was not saved",
+  "independently_verified_native_artifact": false,
+  "byte_for_byte_original_json": false,
+  "command_reported": "python -m mindscape.r5_4 engineering",
+  "mps_available": true,
+  "mps_built": true,
+  "cpu_fallback": false,
+  "optimizer_updates": 0,
+  "measurements": [
+    {"model": "markov", "backward_seconds": 0.6119346670166124, "projected_fit_seconds": 734.3216004199348},
+    {"model": "recurrent", "backward_seconds": 0.21027987499837764, "projected_fit_seconds": 252.33584999805316}
+  ],
+  "status": "ENGINEERING_NO_GO",
+  "reason": "Frozen resource headroom insufficient",
+  "peak_process_rss_bytes": null,
+  "rss_limit_exceeded": null,
+  "missing_fields": "Terminal transcription does not establish RSS, GPU allocation, gradient metadata or complete original JSON"
+}
