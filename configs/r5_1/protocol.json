@@ -1,0 +1,25 @@
+{
+  "version": "R5.1",
+  "seed": 20261016051,
+  "model_commit": "851815fb82236a632228c61efe2bb6fb878404a1",
+  "architecture": "Unchanged mindscape.v5.model.GraphTransition. No optimizer, fitting or weight updates.",
+  "tasks_per_domain": {"development": 18, "qualification": 9, "composition": 9},
+  "maximum_qualification_executions": 81,
+  "held_out_policy": "27 composition tasks have only public specs/graphs frozen; their effects are never executed or read during this screen. No data selection based on held-out performance.",
+  "engineering": {"seed": 101, "batch": 2, "expected_parameters": 6967, "node_padding": 7, "relation_channels": 3, "action_width": 8, "encoder_feature_widths": {"mathematics": 6, "coding": 10, "physics": 8}, "effect_widths": {"mathematics": 1, "coding": 1, "physics": 4}, "minimum_gradient_norm": 1e-12, "minimum_action_or_relation_sensitivity": 1e-8, "maximum_permutation_error": 1e-5, "parameter_updates": 0},
+  "metrics": {
+    "changed_entity": "Post-execution entity mask: any normalized true component has abs(delta)>1e-8. Average squared error over all that entity's output coordinates, then over changed entities within task, then equally over tasks having any changed entities. Invalid/unchanged tasks contribute to whole-graph and unchanged-entity metrics, not invented zeros in changed metric. Mask never enters model or inference; future supervised use would require separate frozen loss design.",
+    "whole_graph": "Per-task mean over all active entity/output-coordinate squared errors; retain macro task average and scalar-pooled average to reproduce V5 dilution. Exclude padded nodes only.",
+    "baselines": "Persistence; domain-local public-action baseline (unit-source register delta, literal-only edit with no propagated AST effect, unit-mass velocity impulse with no position effect). Independently executed procedural expert is perfect by definition; report that ceiling. No claim of headroom above an expert algorithm."
+  },
+  "qualification_gates_per_domain_and_split": {
+    "development": {"minimum_valid": 12, "minimum_invalid": 6, "minimum_changed_valid": 10},
+    "qualification": {"minimum_valid": 6, "minimum_invalid": 3, "minimum_changed_valid": 5},
+    "both_splits": {"minimum_changed_entity_persistence_mse": 0.0005, "minimum_changed_entity_local_action_mse": 0.0002, "minimum_local_action_relative_reduction_vs_persistence": 0.02},
+    "coding_operator_balance": "Development exactly 4 valid +2 invalid tasks for each add/sub/mul; qualification exactly 2 valid +1 invalid for each operator. Assignment formed as Cartesian cells before seeded shuffling, independent of effects.",
+    "integrity": "All fresh canonical identities/physics scenes/AST specs disjoint from frozen V5 public manifest and across splits; public observation saved before effects; finite targets independently replayed; no model/state/parameter updates. Stop first completed cohort with any failed gate, no replacements."
+  },
+  "schedule": "Native MPS engineering tests first. Then development cohorts mathematics/coding/physics, then qualification cohorts same order. Exactly one attempt; stop at first completed failed cohort or execution/integrity error. No composition execution.",
+  "terminal": "Engineering failure -> ENGINEERING_NO_GO, do not qualify. Qualification failure -> DATA_NO_GO and stop. All six cohorts pass -> DATA_READY and stop; request explicit authorization for any learning pilot. No retry, new seed search, tuning or training.",
+  "scope": "Existing synthetic register/AST/one-step contact-free physics microdomains. Fully observed physical parameters; zeroed masked AST internal values. This screen tests learnability prerequisites and computational connectivity, not trained reasoning or semantic transfer."
+}
