@@ -1,0 +1,727 @@
+{
+  "development_hash": "c195b6a341016c30f1c95a12e941f4c068cae2aa7d1612134b5ce157fa23d6d1",
+  "development_identities": {
+    "mathematics": [
+      "0a9806e61f4703ae1ca057627444c143174e1496b8805b11ad53def6cd2e8093",
+      "f538f6200a1ed225339abc98abc00b542ad614837e5f0989c2455b8ef06c316a",
+      "7749c3f5db2ed403012140eb67aa6ae0eb4d91fc86ef95c8c9d32801979dd4ef",
+      "fe4eb75857398a8afc762b063100c6119b12491bc02ceb0657c93dbf540d4d7d",
+      "456d08a2a330880d63e1fbf891f829e66d451aabc6c0e6eed785507b9ac0d5f5",
+      "f2b264de6885305d8e7506aef641f769a7f195c2951cb3b12b6def06d7d822bc",
+      "1c3ca0d70da047bf5c2642e2e994fa223b212d67a3cc93671a4b69e813b8ba14",
+      "4e9ed4a123146c95bcc9c5e57200020b2293016170c19ccb9d035fc01138588f",
+      "f3ba8e5301933aaa74ddc41ba7cb8dddfc6e54326d3e26b624bdea397ff23035",
+      "e0d2d605259a86938789901808ebc050e5bb9b922d85d6b33134289f42626ccc",
+      "d8570e86e63d86e5d368f615c1931b3950953cc514a3f93e0247120d62acf5bb",
+      "5e3b6050f0fcef8094bfacf16f40ab4e3ca21d926c2fc37319ea39d6aff4e7f8",
+      "783c0ba409296d7275bfb8625b565652f622dc0e9dba10be982907653a915d28",
+      "7f0256f49f6ce9a4de99b189bd2d28dd268127ed9d6cd5c1d701fa27934347be",
+      "1802982cd4295024345984118cca484d08f4903c1a0fa851f490c423841902f9",
+      "618126fd60e6fa1b54d469812b097b196fe1cf1f6b9d1ebd1e765a1a7addbb71",
+      "2b91bbdcc1047266d47b57882364dc43558956d9b9245da2aed6c144f03e7b20",
+      "3fdd483ee01b91b6dd30864eea0e22d36bd930ac7e7188cab653da01768d07e4"
+    ],
+    "coding": [
+      "eccabd6bb6f054ccc9fe81c0b3203d9070483d0ccf6ff92e76d98bb6d86357e2",
+      "b6cb074c57d4bfeac08bd4039edabcf0c02748afd7ffcf3708c2e02a1f306503",
+      "f6b23a56710e62c21d5e66606d18c84f65ccb8701e1237138c7ee3d3ebc7bf55",
+      "301d6579ba7098c77e80c32a710ff82b06350a740cb5e4c61346129310fb1e86",
+      "68499d678bdbaede641cd7f1a44b48d39cac94d7b170880d8c1a7194db78eebe",
+      "d6a0e888ed900d6cf25ceb728f0b7270e3964362ca599bfbc68de542cae00d03",
+      "147ba143b61fbda78eb84a868d637d965332e7e62c2b1697ad5a4a6b84ab7bfa",
+      "ba7ad176c6964009be87c928738bd94d50123d8a3a181c1d3ffefd392733f904",
+      "c13c6986e2c067e6533601f758b2f2209f0ec670e1d07da582bcf92b47496e43",
+      "a9b53ee874e02dc5c38064a2bce1e1a62e06fb691df4a8ef04a47c8a04533ff1",
+      "ae776b36a7b02287d5b42d452eec61370aea2082ced2b9cecf667958ed93c931",
+      "a741da6c4f62a1d675e2c88040651c43b331c6a3b9b0bb03cc09db86f15f2361",
+      "ca57788684db5d71ec2171886daf66629eca2f0512fe1872f785b3bf0536883d",
+      "ddb00e7cf1af61ec155634c8781b888af03bc0c6516314d54bacfb374f23175d",
+      "d81f7275bfe331861fe783b4bf19ff8fbca5418a811cf96bb5ef64871927d388",
+      "9362ca6a37dd6a589a1b12def9ebccba4ee25c7fdfb021c6f2e9cdb6bdfec169",
+      "282f7a6d5eea41422e449c3ad9397efc2de3d08f282fcf70a829b1ced860aca1",
+      "cc5b7d87c1bfb4fd56c9090f6ea9e142aaa1fcb6fac2f78d33df6fe589dc2eb5"
+    ],
+    "physics": [
+      "39246b90b8add664c6f3a6108b7085286ed179d304413c06dea67775c315a0b3",
+      "d8e9350c70555c2603f4568beaff079dc34d79bc8c13a6afd75ca8a3fbe6c134",
+      "b020b0063501e39e8863d9ca8f5eb7b9566403d404febfc004f458859dee26fd",
+      "faa3ca7267681dbdc2e3f331d36e820ed75f18348462a398ebcb1691a83d5b67",
+      "882a74592bfd60ee37418c8459565b3e790a1269949a7940a31f6d82c3c8e3fe",
+      "e871e569da03b600c52f04dfa5300528012363a551a2fa652d76be0b75317cec",
+      "13a1a1e6f14cd6a87182b8d055f2fd3e0300b322f45b752362296ad50697e2aa",
+      "dd572cb824cde0e8eb8c6e57276ff511b8db9b6da29424d6c8fa65590744c3b9",
+      "3d38a82c0e148e6abe7418d8fb5e67f03aba5ea93f681b796e08f33647151ebb",
+      "958e0a668da5a67233c903b92a61bc485824d49d0ba4ebfa667ca656a885924f",
+      "0e3f0baf69420d8aeb01dd149e177fc0b344ddafba42215afd678c196dcacdb1",
+      "edd7a2dee724a4bb0aa0a7a2b6be7e48d7b26b3ada43354db2f5556304d1205b",
+      "81145259c741f3133b8dbff6ed946847fcddf386f9fa996a3502f946f13861e7",
+      "28e6d0d9981ab61cd27af9142a547aba4a3597644e3f7df7cfc6a81ec40065ed",
+      "379e1f23cbe357014ce614eca6c934ddd7ed49ddb6e62d01b16b8856640d4015",
+      "4487caac861242780f69b3b802be101c2253faaaab0f957b9ec2ea6c5c85c087",
+      "4a63e7c07f3956e99b94ea663ddc7c88e3002f4f27af7d055d0621f9437b3574",
+      "22faa78d964afee45fb04525d1bea166a6ace6ff6829b8e0aa1a3eea180c54d8"
+    ]
+  },
+  "composition_tasks": [
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          82,
+          60,
+          57
+        ],
+        "operation": "add",
+        "destination": 3,
+        "source": 2,
+        "amount": 3
+      },
+      "identity": "435a00b566b428c5f05f865069f25f6bf57a13e86236871615c373550dd737fc"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          81,
+          75,
+          57
+        ],
+        "operation": "add",
+        "destination": 3,
+        "source": 2,
+        "amount": 3
+      },
+      "identity": "f83c8ef6de9e4b9af1776702b903fb3200e7d22dd392c9c2cc6a95d87c17d42c"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          76,
+          55,
+          76
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 2,
+        "amount": 3
+      },
+      "identity": "049d5fa05cc802e1ba1862e60a3b960c426f22a26c28e54a21af07a830a49d68"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          77,
+          77,
+          81
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 2,
+        "amount": 3
+      },
+      "identity": "2c3c5143f785be4b2a363eaf8c0da1d3419feb17d9af50e68c2a6e7a8c0817bd"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          62,
+          75,
+          53
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 2,
+        "amount": 4
+      },
+      "identity": "7692f47d3d45c7fa36edf01fd908b76716d7a3cf47c9cfb1c047a5bdc41cd012"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          71,
+          58,
+          60
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 2,
+        "amount": 4
+      },
+      "identity": "33878bb6f0aea26e2368f03f78bf646966bd5af483555829d306d358044d5a1c"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          64,
+          81,
+          56
+        ],
+        "operation": "sub",
+        "destination": 3,
+        "source": 2,
+        "amount": 1
+      },
+      "identity": "17ad8ac8384a5b325ba180447a6e0af1918895b4ce38e3f96470a5eb3d4ae30f"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          52,
+          65,
+          73
+        ],
+        "operation": "add",
+        "destination": 0,
+        "source": 2,
+        "amount": 3
+      },
+      "identity": "cf06b874e7e421087b4189fea1949361f4714866655f3c1df9915a925ab8cda8"
+    },
+    {
+      "domain": "mathematics",
+      "split": "composition",
+      "public": {
+        "values": [
+          87,
+          84,
+          68
+        ],
+        "operation": "sub",
+        "destination": 0,
+        "source": 2,
+        "amount": 4
+      },
+      "identity": "64d88faeb40b5d0efc99858c014b44925b1c21a2a24620aa1b2178774b98367e"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 7,
+        "constants": [
+          18,
+          11
+        ],
+        "operations": [
+          "add",
+          "sub"
+        ],
+        "target_leaf": 9,
+        "increment": -2,
+        "entry": "r51_20261016051_composition_0"
+      },
+      "identity": "7ca2c1e611e7120a92859feb85d4a2d80655bd61959d08d8c7db31cb70d7bd05"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -7,
+        "constants": [
+          18,
+          11
+        ],
+        "operations": [
+          "sub",
+          "mul"
+        ],
+        "target_leaf": 1,
+        "increment": -4,
+        "entry": "r51_20261016051_composition_1"
+      },
+      "identity": "9d2e48c46922e3492f3d9230fe73a4f7534fe3736cb56ad6b84293f1ed09ee4b"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -7,
+        "constants": [
+          14,
+          12
+        ],
+        "operations": [
+          "mul",
+          "add"
+        ],
+        "target_leaf": 9,
+        "increment": -2,
+        "entry": "r51_20261016051_composition_2"
+      },
+      "identity": "2223a7290dd4a1569e3c88eb53537f77ca21f0ec410330942e01bfa9a28cb503"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 9,
+        "constants": [
+          17,
+          11
+        ],
+        "operations": [
+          "sub",
+          "sub"
+        ],
+        "target_leaf": 1,
+        "increment": 4,
+        "entry": "r51_20261016051_composition_3"
+      },
+      "identity": "a9550ecb2d411e2790a24864f0dfebc1026706ad5fdf1bbc150e62326fd3b415"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 10,
+        "constants": [
+          19,
+          18
+        ],
+        "operations": [
+          "add",
+          "mul"
+        ],
+        "target_leaf": 0,
+        "increment": -2,
+        "entry": "r51_20261016051_composition_4"
+      },
+      "identity": "8a7af844d4d01f5ca64086c7c69fdb61354a2f2f20b213644e0b7ca874aca7ce"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 9,
+        "constants": [
+          16,
+          15
+        ],
+        "operations": [
+          "sub",
+          "add"
+        ],
+        "target_leaf": 9,
+        "increment": 2,
+        "entry": "r51_20261016051_composition_5"
+      },
+      "identity": "c94fca88efb2518b85fd2edceeaaa29fcd716fb237244bba54910344aa7938af"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 8,
+        "constants": [
+          16,
+          11
+        ],
+        "operations": [
+          "mul",
+          "sub"
+        ],
+        "target_leaf": 0,
+        "increment": -4,
+        "entry": "r51_20261016051_composition_6"
+      },
+      "identity": "9acbbd2d3895ea8c0d2b155a97ee7e00ce87593a6e74059cad36c894365d6593"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": 10,
+        "constants": [
+          11,
+          19
+        ],
+        "operations": [
+          "mul",
+          "mul"
+        ],
+        "target_leaf": 1,
+        "increment": -2,
+        "entry": "r51_20261016051_composition_7"
+      },
+      "identity": "0d86060351f2650b91e460f93faee2befacbc3f2d78871e8751dcfb493ad22af"
+    },
+    {
+      "domain": "coding",
+      "split": "composition",
+      "public": {
+        "x": -8,
+        "constants": [
+          13,
+          15
+        ],
+        "operations": [
+          "add",
+          "add"
+        ],
+        "target_leaf": 0,
+        "increment": 4,
+        "entry": "r51_20261016051_composition_8"
+      },
+      "identity": "43a83226aa85874730c12b1de9935ea3c520ce77553f89109b1026a3d2ff4d51"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.161161350236277
+          ],
+          [
+            2.0,
+            2.1894912044299306
+          ]
+        ],
+        "velocities": [
+          [
+            -0.6849764746252609,
+            -0.7287441562967842
+          ],
+          [
+            -0.34015606985971725,
+            0.4061297203558223
+          ]
+        ],
+        "masses": [
+          1.6,
+          2.0
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 20261016251
+      },
+      "identity": "4ab7e8b6e419ffe8dd560d571bfa3d6b77fa03950df8168842dee396ef336432"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.305291056474291
+          ],
+          [
+            2.0,
+            2.1107910805018926
+          ]
+        ],
+        "velocities": [
+          [
+            -0.2695061771083953,
+            -0.9916846341321139
+          ],
+          [
+            0.504038466070359,
+            -0.862963898968024
+          ]
+        ],
+        "masses": [
+          1.4,
+          1.4
+        ],
+        "destination": 2,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 20261016252
+      },
+      "identity": "eb32bfe4367477a7bb17fe0284b46ee968460b997ee9b7950f2b3fc8d0122adf"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.040989149135225
+          ],
+          [
+            2.0,
+            2.972890610379584
+          ]
+        ],
+        "velocities": [
+          [
+            0.5772866555008971,
+            -0.9226744642412987
+          ],
+          [
+            -0.14784068819063068,
+            -0.04513767377318745
+          ]
+        ],
+        "masses": [
+          1.8,
+          1.6
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 20261016253
+      },
+      "identity": "247239d4524f28e677955dc3febe38ae794cc1f894b1491ef6575dc0f04a6bb8"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.236383466537804
+          ],
+          [
+            2.0,
+            2.379505462847475
+          ]
+        ],
+        "velocities": [
+          [
+            0.8953363272230921,
+            0.22635657110610952
+          ],
+          [
+            -0.4985922740502733,
+            0.5458112266401323
+          ]
+        ],
+        "masses": [
+          1.4,
+          2.0
+        ],
+        "destination": 2,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 20261016254
+      },
+      "identity": "87bc66fcb657669b05f47aaf8cdcba90c9c14f37e0caf18a20b2069ef9d2ee5b"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.276918765581307
+          ],
+          [
+            2.0,
+            2.551853399078375
+          ]
+        ],
+        "velocities": [
+          [
+            0.6750317198078986,
+            -0.6524182561714185
+          ],
+          [
+            -0.8704872883036523,
+            0.10729531667212955
+          ]
+        ],
+        "masses": [
+          2.0,
+          1.8
+        ],
+        "destination": 0,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 20261016255
+      },
+      "identity": "4772acde06a8151178bd5f8d129470b0a99e3b661e8d7b689f3b85637e89afa9"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.0806098084710736
+          ],
+          [
+            2.0,
+            2.5033522817144607
+          ]
+        ],
+        "velocities": [
+          [
+            -0.9088547248871799,
+            0.3992012959932163
+          ],
+          [
+            0.31598703747703616,
+            0.0024738120800127383
+          ]
+        ],
+        "masses": [
+          1.6,
+          1.6
+        ],
+        "destination": 2,
+        "impulse": [
+          2.0,
+          -1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 20261016256
+      },
+      "identity": "e1cfee04586ba786775fdd0822ac77ed67d51c1ebbc46f9b426d0916f88efad5"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.4286966438243525
+          ],
+          [
+            2.0,
+            2.475188371200189
+          ]
+        ],
+        "velocities": [
+          [
+            0.8486760871519465,
+            -0.4182616219017743
+          ],
+          [
+            -0.0772160552910397,
+            -0.7927319442911898
+          ]
+        ],
+        "masses": [
+          1.6,
+          2.0
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 20261016257
+      },
+      "identity": "aacf63e506d2af47a37e74fc5456ba0f7a6c381172c27bc8a3513194ffb254f6"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.846664313388124
+          ],
+          [
+            2.0,
+            2.8715409534916887
+          ]
+        ],
+        "velocities": [
+          [
+            0.9819998817180917,
+            -0.4293631222269505
+          ],
+          [
+            -0.6264892601464438,
+            0.6080852719661867
+          ]
+        ],
+        "masses": [
+          1.4,
+          2.0
+        ],
+        "destination": 1,
+        "impulse": [
+          -2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 20261016258
+      },
+      "identity": "2417168a2d437dd3684efd4bebdc690d293c44a4eba8671cd7bc7b90b606d24d"
+    },
+    {
+      "domain": "physics",
+      "split": "composition",
+      "public": {
+        "positions": [
+          [
+            0.0,
+            2.5301337152287715
+          ],
+          [
+            2.0,
+            2.3175898726143838
+          ]
+        ],
+        "velocities": [
+          [
+            -0.9467730350382699,
+            -0.8261468840091866
+          ],
+          [
+            -0.5872647544778138,
+            0.36013951401688127
+          ]
+        ],
+        "masses": [
+          1.6,
+          1.4
+        ],
+        "destination": 0,
+        "impulse": [
+          2.0,
+          1.0
+        ],
+        "gravity": 0.0,
+        "scene_seed": 20261016259
+      },
+      "identity": "b81734131f9bacf6e3601129a219199a43f8d5deaab35c0ce8f4b99008003246"
+    }
+  ],
+  "composition_targets_generated": false,
+  "qualified_native_archive_sha256": "97c4a803d86da59b0c3964aff5b01b0e66278a3e9dcef67a5fe5675cf36637e4",
+  "protocol_sha256": "fb8d73ca4ae12c371b75676b4f53e74f35a7a02e459a58cdfdaa92950a6acbaa"
+}
