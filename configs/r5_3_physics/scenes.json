@@ -1,0 +1,4635 @@
+{
+  "protocol": {
+    "version": "R5.3-physics-1",
+    "dataset_seed": 2026101303,
+    "optimizer_seeds": [
+      11,
+      23,
+      47
+    ],
+    "train_scenes_per_family": 24,
+    "development_scenes_per_family": 6,
+    "iid_scenes_per_family": 12,
+    "ood_scenes_per_family": 14,
+    "horizons": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "primary_horizon": 32,
+    "training_rollout": 4,
+    "updates_per_fit": 160,
+    "batch_size": 16,
+    "learning_rate": 0.001,
+    "kinds": [
+      "structured",
+      "matched"
+    ],
+    "maximum_fits": 6,
+    "maximum_updates": 960,
+    "particles": 32,
+    "qualification": {
+      "minimum_training_scenes": 48,
+      "minimum_contact_frames": 20,
+      "minimum_spring_scenes": 8,
+      "minimum_baseline_mse": 0.0001
+    },
+    "gate": {
+      "ood_mse_ratio": 0.8,
+      "iid_mse_ratio": 1.05,
+      "velocity_mse_ratio": 1.0,
+      "coverage_min": 0.85,
+      "coverage_max": 0.99,
+      "interval_score_ratio": 1.0,
+      "planning_gain": 0.1,
+      "maximum_floor_penetration": 0.05,
+      "contact_accuracy_min": 0.8,
+      "maximum_stress_mse": 100,
+      "all_seeds_ood_gain": true
+    },
+    "baseline_methods": [
+      "matched",
+      "v3_1_frozen",
+      "analytical_contacts",
+      "analytical_available",
+      "constant_velocity",
+      "persistence"
+    ],
+    "loss": "Four-step free-running position/velocity MSE using fixed scales [1,1,3,3], plus0.02 Gaussian innovation NLL on velocity residuals; no held-out labels or tuning. Gradient clip1, final update160, no checkpoint selection.",
+    "uncertainty": "32 fixed-seed trajectory particles with persistent hidden mass/material prior and observation noise; learned independent per-step velocity noise, paired position noise dt/2. Full empirical12x12 covariance and marginal quantiles, no posthoc widening. Terminal quadratic risk is squared mean distance plus positional covariance trace. Nonlinear contact uncertainty is sampled, not linearized. Monte Carlo resolution limits95% tails.",
+    "observations": "Four noisy public observations and masks; velocities missing are differenced from observed positions. Hidden mass/friction/restitution use nominal1/.2/.5 for learning and persistent priors uniform[.8,1.8]/[.1,.4]/[.4,.95] at prediction. Gravity,spring,dt,elapsed time,object radius and active status public. Training has future-state targets; inference does not. Prior actions are not supplied or inferred as hidden truth. Future action schedule is public hypothetical input.",
+    "planning": "Nine fixed initial impulses [-2,0,2]x[-2,0,2], horizon32, target [1.5,1.0], expected squared terminal position error plus trace covariance. One chosen action independently executed from public-history origin in Pymunk; success distance<=0.75. No simulator calls during selection. Compare per-scene seed-averaged success against strongest control on same scenes.",
+    "aggregation": "Independent scene as unit; average seeds within each scene before equal-weight scene means; separate family and OOD-stratum tables. 2000 fixed-seed paired scene bootstrap for OOD MSE ratio and planning difference. Primary gates require point criteria AND bootstrap upper ratio<1/lower planning difference>0. Horizons are correlated diagnostics, not extra scenes. All gates apply per family; no favorable family pooling.",
+    "scope": "1..3 circles,fixed floor,one explicitly indexed spring between objects0/1; known rest1.5,damping.3. Approximate contact prior and antisymmetric learned radial forces; momentum conservation only for internal pair forces, not gravity/floor/friction or hidden nominal-mass mismatch. Unsupported rotations/shapes/fluid/real-world regimes. Legacy reference uses motion memory and interaction concepts seeds11/23 final160 checkpoints, selected only from archived V3.1 development_stress horizon32 seed-mean MSE before new outcomes; different historical data/budget makes it a frozen-reference comparison, not matched retraining.",
+    "decision": "Fail integrity or qualification: stop without training, preserve DATA_NO_GO or FAILED_CAMPAIGN. All scientific gates pass: GO_TO_CONFIRMATION; otherwise NO_GO. No retries, extra fits, threshold changes, OOD calibration or holdout selection. Native MPS only."
+  },
+  "protocol_hash": "b0194547dc86e383f8b979f1576c0fe362110536d228815eb47e5677e51ae685",
+  "records": [
+    {
+      "identity": "b1edbba7ba164c404aef90836f274d0a1b398b94357e3482da2e931221c286ae",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 0,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.5782969536295544
+            ],
+            "velocity": [
+              1.7504288822781717,
+              1.0748246520174778
+            ],
+            "mass": 1.3979502568968232,
+            "radius": 0.25,
+            "friction": 0.15066507586229977,
+            "restitution": 0.8249435597036946
+          }
+        ],
+        "gravity": 8.051585217034768,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "a06137cfe6d0f7e7b92f9d2b9ba59ce6ef4eb39eac470a1d38e15d950aba9847",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 1,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.2654168081044315
+            ],
+            "velocity": [
+              2.2931881320550858,
+              2.874860008992161
+            ],
+            "mass": 1.3421498934323546,
+            "radius": 0.25,
+            "friction": 0.24943821898494425,
+            "restitution": 0.5724828982590682
+          }
+        ],
+        "gravity": 8.589196760078249,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "d31def155de9438f64bf9bba648d035e14121747f685e4b7604416f6755963cb",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 2,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.506118185236664
+            ],
+            "velocity": [
+              1.1170313808631092,
+              1.6606492518326408
+            ],
+            "mass": 0.9765124309145988,
+            "radius": 0.25,
+            "friction": 0.26738387628103494,
+            "restitution": 0.9406104965220946
+          }
+        ],
+        "gravity": 9.773638037706128,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "77eda29df496f0ece0528f073ffb50b590fe8c3daffa5f844188c90b88037568",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 3,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.6234127721950835
+            ],
+            "velocity": [
+              1.9628687879234603,
+              1.3900434258349945
+            ],
+            "mass": 1.62578146657663,
+            "radius": 0.25,
+            "friction": 0.1558391258625894,
+            "restitution": 0.4746223031929348
+          }
+        ],
+        "gravity": 8.281903638024652,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "5fb2825fed64fab96f58558d2eaf7ab3f4b4c3c9ca94ac3a28920e9bca578133",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 4,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.9980723819737678
+            ],
+            "velocity": [
+              1.6152651038838939,
+              1.3760557387283103
+            ],
+            "mass": 1.772234777751424,
+            "radius": 0.25,
+            "friction": 0.21150492130958035,
+            "restitution": 0.708249284700511
+          }
+        ],
+        "gravity": 8.893881656131411,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "c3999d279598433abf3f333690ce3a6d7b4f5db26a6d9d94c0d753d8d0f249fe",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 5,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.299930044436274
+            ],
+            "velocity": [
+              2.13217204040099,
+              2.0299164120401247
+            ],
+            "mass": 1.1183888974296146,
+            "radius": 0.25,
+            "friction": 0.13916958669191987,
+            "restitution": 0.5132938683519154
+          }
+        ],
+        "gravity": 9.293569851655018,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "e326a26ab56c9684d417221860f077e4855a54b4784f61b47aa62da759edfa43",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 6,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.0988954966097735
+            ],
+            "velocity": [
+              1.7175292354542098,
+              2.640897331070646
+            ],
+            "mass": 1.6330896463310456,
+            "radius": 0.25,
+            "friction": 0.22516142315052576,
+            "restitution": 0.6316394501916208
+          }
+        ],
+        "gravity": 8.408083888356753,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "4c1ed5715226aa7e5ed4b371008a9e208e8d3eff4015d0c5682b0af269db6277",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 7,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.396032748692316
+            ],
+            "velocity": [
+              2.208622854603255,
+              2.972962972041648
+            ],
+            "mass": 1.3989229335570856,
+            "radius": 0.25,
+            "friction": 0.3824682693319732,
+            "restitution": 0.48271125857663194
+          }
+        ],
+        "gravity": 8.428813857183341,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "bdc9faa18a83c05b2940bad4b63313e17b3c0d41b8898c7f20ca2ec8f1c858a6",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 8,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.8688190343233841
+            ],
+            "velocity": [
+              1.5172517107923726,
+              2.2344942831549064
+            ],
+            "mass": 1.015780392565115,
+            "radius": 0.25,
+            "friction": 0.33861175902071217,
+            "restitution": 0.6661573548786252
+          }
+        ],
+        "gravity": 9.529694091003904,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "ffc1ea1f7915eb1537fe2c825ad094e7ba0e452c85f2aaf015ea2487b2cbcc1d",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 9,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.378024107998286
+            ],
+            "velocity": [
+              2.279320445093206,
+              2.33605492295772
+            ],
+            "mass": 0.9453151233098459,
+            "radius": 0.25,
+            "friction": 0.29693719970810184,
+            "restitution": 0.5636422210277819
+          }
+        ],
+        "gravity": 9.294778273504079,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "8406ab83cdca04c16e35c03f5bfc793af987036a82e3758e3f8b7ffa36f02aef",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 10,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.88173507266425
+            ],
+            "velocity": [
+              1.594814132513245,
+              1.2961433204349253
+            ],
+            "mass": 0.9605601657272065,
+            "radius": 0.25,
+            "friction": 0.23064591999921447,
+            "restitution": 0.6170838949340125
+          }
+        ],
+        "gravity": 9.573552648124693,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "fa8ea4bea356c5dc925e2e003f8fb35be49dbcde2f0be2314ac5a26d810ee7e8",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 11,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.5976708456689144
+            ],
+            "velocity": [
+              2.6354438313023065,
+              1.9358381384006473
+            ],
+            "mass": 0.9242751073672837,
+            "radius": 0.25,
+            "friction": 0.24317481230753257,
+            "restitution": 0.5387706397823097
+          }
+        ],
+        "gravity": 9.527435773368907,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "198c9bde3e87f47ccfabf4a0ffb6ac7fa79e2763e25a38456abeece2779fe7e4",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 12,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.028139465164264
+            ],
+            "velocity": [
+              1.4760080171443088,
+              1.5202319121321755
+            ],
+            "mass": 1.0749927060945885,
+            "radius": 0.25,
+            "friction": 0.315782583030331,
+            "restitution": 0.46557991823817524
+          }
+        ],
+        "gravity": 8.707183846405488,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "3d304ec15238dc3d696caadf388fcae05a0183cf1b7d30139f1307753e478784",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 13,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.754386154660889
+            ],
+            "velocity": [
+              1.522642763602633,
+              2.706476746062931
+            ],
+            "mass": 1.1515475330292295,
+            "radius": 0.25,
+            "friction": 0.16102625656949415,
+            "restitution": 0.6293117308473081
+          }
+        ],
+        "gravity": 8.128992471949113,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "81b79544c3eebd33c48ba374f0bc86f77632e99b4eb6d47dd02a4abbb041d352",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 14,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.5819479544619495
+            ],
+            "velocity": [
+              1.0529376995300874,
+              2.3589394883981543
+            ],
+            "mass": 1.0829309404674827,
+            "radius": 0.25,
+            "friction": 0.17049252165126794,
+            "restitution": 0.9180599825804097
+          }
+        ],
+        "gravity": 8.614613514202084,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "42da72a282b6d631bdb20b847094aff21dbc569970b338c1e55f253a6ed51c9e",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 15,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.9171694355248823
+            ],
+            "velocity": [
+              1.6258593315429077,
+              1.3964432658869594
+            ],
+            "mass": 1.791180727500063,
+            "radius": 0.25,
+            "friction": 0.21557886096899131,
+            "restitution": 0.8018155417980608
+          }
+        ],
+        "gravity": 8.584869649261394,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "24d8395cdef7d6a15fc725dc597a4e8783f6ca16f32034eb75405b1c03ef68d4",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 16,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.9426688739808036
+            ],
+            "velocity": [
+              2.9447695364414477,
+              2.7054322487148568
+            ],
+            "mass": 1.575835835449445,
+            "radius": 0.25,
+            "friction": 0.21728344502737437,
+            "restitution": 0.6088053128151164
+          }
+        ],
+        "gravity": 8.237902513423691,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "10489d1109ee22e8ad19beef342bd514eb4180bd4afa708bf2ecc132fda4db55",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 17,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.6868656793981376
+            ],
+            "velocity": [
+              1.8068040381485535,
+              1.4178305132841655
+            ],
+            "mass": 1.4776764081815656,
+            "radius": 0.25,
+            "friction": 0.1711588819483121,
+            "restitution": 0.8959714909867272
+          }
+        ],
+        "gravity": 9.832944906788086,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "12ee7618f40c0910e088565984948d33daf825b95b3d671d3da35e7cf29260f1",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 18,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.4516661600783065
+            ],
+            "velocity": [
+              2.3955079226005997,
+              2.555291923173471
+            ],
+            "mass": 1.1860143463622397,
+            "radius": 0.25,
+            "friction": 0.39032372419625094,
+            "restitution": 0.41039429971529945
+          }
+        ],
+        "gravity": 8.941471492328937,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "27a81c67465234dc584f9dbc490439587c559162b36c38f34aea6a8a43bab9ba",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 19,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.657510827524344
+            ],
+            "velocity": [
+              2.1903527766396076,
+              1.477582312891147
+            ],
+            "mass": 1.193438312564295,
+            "radius": 0.25,
+            "friction": 0.20486012403059223,
+            "restitution": 0.537963836437997
+          }
+        ],
+        "gravity": 8.99526644343876,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "16037e483ea397cf41907e31b3adad427bfa8ed0c2e37da8549863f1a72bc309",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 20,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.7972804987053281
+            ],
+            "velocity": [
+              1.0404728475832274,
+              2.4094034062619745
+            ],
+            "mass": 1.6098574725302481,
+            "radius": 0.25,
+            "friction": 0.18599186488539657,
+            "restitution": 0.6118243743526431
+          }
+        ],
+        "gravity": 9.083995429640606,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "86451eebd8b86a7f816376918c30d0b00dd7ee9edd9574d9ab35550b41160cf9",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 21,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.9909734899370182
+            ],
+            "velocity": [
+              1.1749068084808827,
+              2.5179676563429023
+            ],
+            "mass": 1.0779547550853368,
+            "radius": 0.25,
+            "friction": 0.11938185550806253,
+            "restitution": 0.9407593281860432
+          }
+        ],
+        "gravity": 9.85597233780436,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "9b3115ae5ceb7948c2c0dac83ca12bb3e650077fd76ce6d8e5a7f840ae09e0ef",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 22,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.856492802024289
+            ],
+            "velocity": [
+              2.4750341241877187,
+              1.6332763749952357
+            ],
+            "mass": 0.875439033270421,
+            "radius": 0.25,
+            "friction": 0.3476609892311845,
+            "restitution": 0.6754590202956398
+          }
+        ],
+        "gravity": 8.545123555273758,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "b39e5b63415428bd99087ce4327781d9d90f6ac6ae605e2531a473dc40382905",
+      "scene": {
+        "family": "motion",
+        "split": "train",
+        "index": 23,
+        "seed": 55336739,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.4600132010317335
+            ],
+            "velocity": [
+              2.4106289838527037,
+              1.8476144537216623
+            ],
+            "mass": 1.5682834031042494,
+            "radius": 0.25,
+            "friction": 0.26940158479316983,
+            "restitution": 0.5503487529651366
+          }
+        ],
+        "gravity": 8.762424382806685,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "f97b450526f2bccb22d75178a12dea51375d824311ad07dae289002f1d62aa1f",
+      "scene": {
+        "family": "motion",
+        "split": "development",
+        "index": 0,
+        "seed": 3755473217,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.8052362871516023
+            ],
+            "velocity": [
+              1.954568837901066,
+              2.870203639149345
+            ],
+            "mass": 0.950992994118774,
+            "radius": 0.25,
+            "friction": 0.24466101741833193,
+            "restitution": 0.4334980607620041
+          }
+        ],
+        "gravity": 8.2065556089135,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "eaffdfd11cc88018e357f38c14b85c9161bce9cfe5f83e6b3ff77c6ebbb65074",
+      "scene": {
+        "family": "motion",
+        "split": "development",
+        "index": 1,
+        "seed": 3755473217,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.9538632066193973
+            ],
+            "velocity": [
+              2.4618646190954205,
+              1.1675656669477819
+            ],
+            "mass": 1.1230740256457705,
+            "radius": 0.25,
+            "friction": 0.17472950546948235,
+            "restitution": 0.7972337594980843
+          }
+        ],
+        "gravity": 9.193690875428862,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "5f07320fc89f7271d413d22e5f27e813840b8aa10e5aa3f297b3ac017e1a3289",
+      "scene": {
+        "family": "motion",
+        "split": "development",
+        "index": 2,
+        "seed": 3755473217,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.6267784687713491
+            ],
+            "velocity": [
+              1.6921309545385614,
+              2.2562582344281195
+            ],
+            "mass": 1.726513585038337,
+            "radius": 0.25,
+            "friction": 0.17287686072424846,
+            "restitution": 0.45204665940728067
+          }
+        ],
+        "gravity": 9.873057474914019,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "3c0e49843fe2198249a8ccb843f22fcbb3691f822edc79fb1bc4dc651066bded",
+      "scene": {
+        "family": "motion",
+        "split": "development",
+        "index": 3,
+        "seed": 3755473217,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.77066931474251
+            ],
+            "velocity": [
+              1.2149167348261565,
+              1.5389719025249193
+            ],
+            "mass": 1.2483408261240436,
+            "radius": 0.25,
+            "friction": 0.23929756436836422,
+            "restitution": 0.712278691491142
+          }
+        ],
+        "gravity": 9.922053383606983,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "20745e0b753f6a7c7e80125d58a166ceeb6f764e4e631860594418a7dc3043cd",
+      "scene": {
+        "family": "motion",
+        "split": "development",
+        "index": 4,
+        "seed": 3755473217,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.6501746311652843
+            ],
+            "velocity": [
+              1.8716067013316797,
+              2.9775041017402684
+            ],
+            "mass": 1.0259618386431062,
+            "radius": 0.25,
+            "friction": 0.15207793424788268,
+            "restitution": 0.9146631891150169
+          }
+        ],
+        "gravity": 8.510821281856478,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "943194cef999427a2e8045d051ce441c0ab22fef5faefc36b349def5d2818497",
+      "scene": {
+        "family": "motion",
+        "split": "development",
+        "index": 5,
+        "seed": 3755473217,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.378640499699532
+            ],
+            "velocity": [
+              2.8279401626959104,
+              1.4999451480548662
+            ],
+            "mass": 1.6012123868569328,
+            "radius": 0.25,
+            "friction": 0.223456430265628,
+            "restitution": 0.4539771237826702
+          }
+        ],
+        "gravity": 9.843834023008935,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "5f326a293ab9a2cab64369c8f379cb12e146c3ef0647af23ccd3ff2d45f061e5",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 0,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5699645855749902
+            ],
+            "velocity": [
+              1.8283169516825117,
+              1.7048539502433746
+            ],
+            "mass": 1.1690630483834705,
+            "radius": 0.25,
+            "friction": 0.24936093195671546,
+            "restitution": 0.4641379148648694
+          }
+        ],
+        "gravity": 8.180614628928355,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "80fca6fa2049bf1d057176a204188923430e6cd15bad7690d5f6951f4f0bd1e8",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 1,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.8483929423904457
+            ],
+            "velocity": [
+              1.5547522619640868,
+              2.1511837121445185
+            ],
+            "mass": 0.9421777709247707,
+            "radius": 0.25,
+            "friction": 0.3020655785198145,
+            "restitution": 0.8184453199494083
+          }
+        ],
+        "gravity": 9.286096646558288,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "f760a5f1b3c17291d010be336a06cdf44d1746094e6206d0f37255a7350ced53",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 2,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.491319363787236
+            ],
+            "velocity": [
+              1.3519350703421358,
+              2.19474630437102
+            ],
+            "mass": 0.9482272455218533,
+            "radius": 0.25,
+            "friction": 0.11036591143265947,
+            "restitution": 0.6623166100711703
+          }
+        ],
+        "gravity": 8.361210929100178,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "dec7e9c5de3ed232614d46c88988a3ee17a08e9b9fc50ff2d4149b03738c0459",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 3,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.360254823465941
+            ],
+            "velocity": [
+              2.0148300133805987,
+              1.5227091037685578
+            ],
+            "mass": 1.104906710313009,
+            "radius": 0.25,
+            "friction": 0.3812867284820452,
+            "restitution": 0.5868376898018381
+          }
+        ],
+        "gravity": 8.35886024294041,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "5d2d92014b86d1b08e9ab0fae24c83f830404c1b840feed7847d08a173bbe1fe",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 4,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.059295146640583
+            ],
+            "velocity": [
+              2.162647806060579,
+              2.9556871168323777
+            ],
+            "mass": 1.5450145660877497,
+            "radius": 0.25,
+            "friction": 0.3504940728629092,
+            "restitution": 0.7937656420138508
+          }
+        ],
+        "gravity": 9.890157496843816,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "c76dfc391e4b00dd60445fa596f73a1fe90ba5bab80fea8b5e696ffc2f41efdb",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 5,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.5500942798972726
+            ],
+            "velocity": [
+              2.43359740742308,
+              2.9196849426831926
+            ],
+            "mass": 1.1752841930076565,
+            "radius": 0.25,
+            "friction": 0.1196281583463011,
+            "restitution": 0.5422646153571409
+          }
+        ],
+        "gravity": 8.551050698312997,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "00b23ac1c917814671bc92bb5797ba5d57e9d8254e40183fd2d7b94cfddb0142",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 6,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.6865060983120643
+            ],
+            "velocity": [
+              1.0929085858147962,
+              1.8594712603839585
+            ],
+            "mass": 1.513901494665277,
+            "radius": 0.25,
+            "friction": 0.20238745643842806,
+            "restitution": 0.5354832744631915
+          }
+        ],
+        "gravity": 8.576140173021152,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "566acc30a18f12d7055dc2456c2bab82f908c97e0384d872e2e032f11d14fdb2",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 7,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.339854311540472
+            ],
+            "velocity": [
+              1.5955618031857564,
+              2.6083565073513686
+            ],
+            "mass": 1.1223333177967025,
+            "radius": 0.25,
+            "friction": 0.2659653209876239,
+            "restitution": 0.41670162944479483
+          }
+        ],
+        "gravity": 9.282789085754636,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "ccefe0d7a90710cd8ad6ff7aad6d7d13fcda54aee8e7331394c19fa9abb6e501",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 8,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.9228963502827319
+            ],
+            "velocity": [
+              2.97243276878333,
+              2.557628590997905
+            ],
+            "mass": 0.8507991257052845,
+            "radius": 0.25,
+            "friction": 0.2940246275852592,
+            "restitution": 0.5069281828357945
+          }
+        ],
+        "gravity": 9.028919124631528,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "b06f98f9ba4c1056c163a5b582aad31b089c4669df0688f257529f764d24cbd9",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 9,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.7599304018774093
+            ],
+            "velocity": [
+              1.6333642398689017,
+              2.5796912217290124
+            ],
+            "mass": 0.8546242322537893,
+            "radius": 0.25,
+            "friction": 0.11429155075447217,
+            "restitution": 0.7779235011203791
+          }
+        ],
+        "gravity": 9.443317992660354,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "ef380fd0b69f09270f94dcc29fa6f70ba0ca5e6916686df2814cecad0354618f",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 10,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5891802869961786
+            ],
+            "velocity": [
+              2.958936265192465,
+              1.6657848162513722
+            ],
+            "mass": 1.639028432390238,
+            "radius": 0.25,
+            "friction": 0.22718754212044626,
+            "restitution": 0.7496025008816226
+          }
+        ],
+        "gravity": 9.737306630502657,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "26942825b10af81d10769e83586f770560bd2fc368a099aaa3fffea65c5cc56e",
+      "scene": {
+        "family": "motion",
+        "split": "iid",
+        "index": 11,
+        "seed": 3441351303,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.85099930162441
+            ],
+            "velocity": [
+              1.2760096970458858,
+              2.9658671558091205
+            ],
+            "mass": 1.3848823152399072,
+            "radius": 0.25,
+            "friction": 0.3519716017970234,
+            "restitution": 0.7991074588203301
+          }
+        ],
+        "gravity": 9.579094533931325,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "e0f9b250aecfe67b114e547f2cffefa638ab2ed23bcf70831c7b83e4393ebcb6",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 0,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.827425726937098
+            ],
+            "velocity": [
+              1.6270800930445048,
+              1.7030079665031732
+            ],
+            "mass": 3.67698584956563,
+            "radius": 0.25,
+            "friction": 0.7314835469375062,
+            "restitution": 0.4459516500240459
+          }
+        ],
+        "gravity": 8.21459585659243,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "mass_friction"
+      }
+    },
+    {
+      "identity": "3693b54560ca9a64daa4828f6296265001d1a95817bd05398c8c61b68c823f57",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 1,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.2832831039651595
+            ],
+            "velocity": [
+              4.183150882746026,
+              1.1254897951632978
+            ],
+            "mass": 0.9361154995665263,
+            "radius": 0.25,
+            "friction": 0.13562737217087764,
+            "restitution": 0.8713808657433059
+          }
+        ],
+        "gravity": 8.733356953092862,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "velocity"
+      }
+    },
+    {
+      "identity": "02f07c729fbbdff3f56c77040bd26113c57ea072e5199a8406ef05085ffad57a",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 2,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.8010962173331113
+            ],
+            "velocity": [
+              2.2199234831726113,
+              1.1474831586302419
+            ],
+            "mass": 1.256788328918391,
+            "radius": 0.25,
+            "friction": 0.2891363318037212,
+            "restitution": 0.8673250135414121
+          }
+        ],
+        "gravity": 8.79716578431955,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "horizon"
+      }
+    },
+    {
+      "identity": "611152e71a27863de50912ff77bfacd5608ca3b487531533c534676577474ebd",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 3,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.619574735964966
+            ],
+            "velocity": [
+              1.7621212940227446,
+              2.8269049533147284
+            ],
+            "mass": 0.94081813724131,
+            "radius": 0.25,
+            "friction": 0.3128321197948294,
+            "restitution": 0.6686422937932278
+          },
+          {
+            "position": [
+              0.19999999999999996,
+              1.8415897148682994
+            ],
+            "velocity": [
+              -1.7621212940227446,
+              2.3672636569958394
+            ],
+            "mass": 1.114048131356977,
+            "radius": 0.25,
+            "friction": 0.3128321197948294,
+            "restitution": 0.9453971090889401
+          }
+        ],
+        "gravity": 8.874696945506322,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "configuration"
+      }
+    },
+    {
+      "identity": "91f508cd811b71975352fe54cbcdb91d6cc395c18bb85e74329ec15339b0347e",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 4,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.346140287443849
+            ],
+            "velocity": [
+              1.9888592842703747,
+              1.1807253776929476
+            ],
+            "mass": 1.6063379293237146,
+            "radius": 0.25,
+            "friction": 0.11612698095706402,
+            "restitution": 0.49805253027962204
+          }
+        ],
+        "gravity": 8.093140115876903,
+        "noise": 0.06,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "noise"
+      }
+    },
+    {
+      "identity": "7d984af3152daa2bc1297a916c87b7634eb244eb38f47fda7103e15c6cc553bd",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 5,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.8495141879605046
+            ],
+            "velocity": [
+              1.746069928110121,
+              2.599324597931333
+            ],
+            "mass": 1.072551211480945,
+            "radius": 0.25,
+            "friction": 0.36261098228519584,
+            "restitution": 0.6896162418273886
+          }
+        ],
+        "gravity": 14.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "parameters"
+      }
+    },
+    {
+      "identity": "f62ebb9162057f482713916f90eff35c825ff34d1605c7ddc8abe5bd388af150",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 6,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.9291106895702503
+            ],
+            "velocity": [
+              1.561049903978306,
+              2.4312975805269006
+            ],
+            "mass": 1.5657066804063673,
+            "radius": 0.25,
+            "friction": 0.3992672675465945,
+            "restitution": 0.8065476640946186
+          },
+          {
+            "position": [
+              0.19999999999999996,
+              1.954502262908369
+            ],
+            "velocity": [
+              -1.561049903978306,
+              2.826067642565558
+            ],
+            "mass": 1.3703569986105624,
+            "radius": 0.25,
+            "friction": 0.3992672675465945,
+            "restitution": 0.8342452546097421
+          }
+        ],
+        "gravity": 8.297995597215948,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "interaction"
+      }
+    },
+    {
+      "identity": "46b2156c9881b1a445488a04e69d588e7277515bf5ecab864bdd43bdecd9cd49",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 7,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.295955330423431
+            ],
+            "velocity": [
+              2.8760647300974522,
+              2.7576132907602795
+            ],
+            "mass": 3.4204272395573176,
+            "radius": 0.25,
+            "friction": 0.6827998329179903,
+            "restitution": 0.45383375553533245
+          }
+        ],
+        "gravity": 9.392713804330512,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "mass_friction"
+      }
+    },
+    {
+      "identity": "82cc72a33912f273229625242992e3b7af8b01880152ded8d9f1c514caafd456",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 8,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5007635544869224
+            ],
+            "velocity": [
+              4.971647667424492,
+              2.03523869770779
+            ],
+            "mass": 0.9422214582625231,
+            "radius": 0.25,
+            "friction": 0.30016611888872147,
+            "restitution": 0.7632882092452657
+          }
+        ],
+        "gravity": 9.699710068666873,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "velocity"
+      }
+    },
+    {
+      "identity": "9ab02ff6a6f4a19efe51cbb4bcc0f1478e034ecd270dc8d7248f5286dfd977af",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 9,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.0684474881454067
+            ],
+            "velocity": [
+              1.2754565129173454,
+              1.5152953754472434
+            ],
+            "mass": 0.8194271095688337,
+            "radius": 0.25,
+            "friction": 0.28133021899446425,
+            "restitution": 0.8391849473906318
+          }
+        ],
+        "gravity": 9.567153353895483,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "horizon"
+      }
+    },
+    {
+      "identity": "cd13b3ef7fa63a68594661ad3950c824c2c19f5f710d3817d5bb949f21d84108",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 10,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.250878521328733
+            ],
+            "velocity": [
+              1.0153308509228005,
+              1.234231339309186
+            ],
+            "mass": 1.1627671846870347,
+            "radius": 0.25,
+            "friction": 0.16126215010375575,
+            "restitution": 0.8095401053567108
+          },
+          {
+            "position": [
+              0.19999999999999996,
+              2.140325052530956
+            ],
+            "velocity": [
+              -1.0153308509228005,
+              2.1530223603452088
+            ],
+            "mass": 1.2402699329342597,
+            "radius": 0.25,
+            "friction": 0.16126215010375575,
+            "restitution": 0.8940511013787291
+          }
+        ],
+        "gravity": 8.21547881984581,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "configuration"
+      }
+    },
+    {
+      "identity": "9e8c0db4363bc611cb45216fc69d6773037e9c286737f0ca600d23892e144d67",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 11,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.1892672616290083
+            ],
+            "velocity": [
+              1.466627279853137,
+              2.7332495786035147
+            ],
+            "mass": 1.3293045470563123,
+            "radius": 0.25,
+            "friction": 0.21134359257029706,
+            "restitution": 0.6783548947547182
+          }
+        ],
+        "gravity": 9.345807771760784,
+        "noise": 0.06,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "noise"
+      }
+    },
+    {
+      "identity": "d45ad762eebe5dbf21489a0aa1f54c550adac5d65ca3277722dc7458d30f4e40",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 12,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.242219580780155
+            ],
+            "velocity": [
+              1.148767412043003,
+              2.0312179007770803
+            ],
+            "mass": 1.3759178374564347,
+            "radius": 0.25,
+            "friction": 0.3078529916643596,
+            "restitution": 0.4253549341344402
+          }
+        ],
+        "gravity": 14.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "parameters"
+      }
+    },
+    {
+      "identity": "bd659027b596149c8f3f72947b53a5c794bc9b1fcf6a5bf01beb3c89b6f3795e",
+      "scene": {
+        "family": "motion",
+        "split": "ood",
+        "index": 13,
+        "seed": 1147862903,
+        "mechanism": "projectile",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              2.4967276099357276
+            ],
+            "velocity": [
+              1.0829418381060183,
+              2.860224073522506
+            ],
+            "mass": 0.9671299480457548,
+            "radius": 0.25,
+            "friction": 0.2791959640097598,
+            "restitution": 0.8148446870010777
+          },
+          {
+            "position": [
+              0.19999999999999996,
+              1.9102584791999289
+            ],
+            "velocity": [
+              -1.0829418381060183,
+              1.8070941233192839
+            ],
+            "mass": 1.131904509811326,
+            "radius": 0.25,
+            "friction": 0.2791959640097598,
+            "restitution": 0.6412287029357475
+          }
+        ],
+        "gravity": 8.883804177004587,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "interaction"
+      }
+    },
+    {
+      "identity": "210eb5d915c289b1dffca6e2250e6c7d4c70a9fa4deee4622063750765f187fe",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 0,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.2129569487919785,
+              0.0
+            ],
+            "mass": 1.2598325279573193,
+            "radius": 0.25,
+            "friction": 0.24689241191666186,
+            "restitution": 0.7784713796669458
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.2129569487919785,
+              0.0
+            ],
+            "mass": 1.490695595210124,
+            "radius": 0.25,
+            "friction": 0.24689241191666186,
+            "restitution": 0.8367409501304125
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "c94fcc81e8fc5963f5529b0a2a85b9f9a80260c6c46e2c0aab96009cde36d06b",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 1,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.073821232605699,
+              0.0
+            ],
+            "mass": 0.9751829161903774,
+            "radius": 0.25,
+            "friction": 0.31204398029803787,
+            "restitution": 0.9110213474442409
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.073821232605699,
+              0.0
+            ],
+            "mass": 0.9720999378202765,
+            "radius": 0.25,
+            "friction": 0.31204398029803787,
+            "restitution": 0.5987841860595409
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 3.0158948051486925,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "b514de2d84f3ca447af9718ac9262061c81b243bd24a241c80283988d3af36af",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 2,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.1867095098929925,
+              0.0
+            ],
+            "mass": 0.9265055687889185,
+            "radius": 0.25,
+            "friction": 0.3017554580751161,
+            "restitution": 0.7171641685716393
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.1867095098929925,
+              0.0
+            ],
+            "mass": 0.7814111606521136,
+            "radius": 0.25,
+            "friction": 0.3017554580751161,
+            "restitution": 0.7508301367623412
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "0d357b76910fadeac53ca0bbe2c3dc238a1a8ff76d1ccf770b328a4612177a02",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 3,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.647818644651247,
+              0.0
+            ],
+            "mass": 1.0040103775313165,
+            "radius": 0.25,
+            "friction": 0.307240910259219,
+            "restitution": 0.8736195903750675
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.647818644651247,
+              0.0
+            ],
+            "mass": 1.1161508943727243,
+            "radius": 0.25,
+            "friction": 0.307240910259219,
+            "restitution": 0.4353553138626997
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 3.7268054390627974,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "b2623344429c4056fc2c6263bc44f654f0a74b9031a1262fe48812f0b32cba3e",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 4,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.1045985893772599,
+              0.0
+            ],
+            "mass": 1.1576061372336834,
+            "radius": 0.25,
+            "friction": 0.2031812637165755,
+            "restitution": 0.5386078851081669
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.1045985893772599,
+              0.0
+            ],
+            "mass": 1.1169542275924347,
+            "radius": 0.25,
+            "friction": 0.2031812637165755,
+            "restitution": 0.5404033615083985
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "762b85790b69ac6057009250a4d5554706cbeb5dd00d9c3958ea1cea8a057902",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 5,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.3146375473802672,
+              0.0
+            ],
+            "mass": 1.723358037123378,
+            "radius": 0.25,
+            "friction": 0.20894937767294974,
+            "restitution": 0.6903415421033545
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.3146375473802672,
+              0.0
+            ],
+            "mass": 2.0660915099878747,
+            "radius": 0.25,
+            "friction": 0.20894937767294974,
+            "restitution": 0.8116559554252722
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 3.9083092079392436,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "a1cff5add7c0030f4a6d04f7eed19595a1e6c6cf7bb8f7bbf32e781c2b06b017",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 6,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.0668967001444045,
+              0.0
+            ],
+            "mass": 1.2482470335147227,
+            "radius": 0.25,
+            "friction": 0.3118342967314578,
+            "restitution": 0.7279043574129511
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.0668967001444045,
+              0.0
+            ],
+            "mass": 1.4383558397382088,
+            "radius": 0.25,
+            "friction": 0.3118342967314578,
+            "restitution": 0.4499367778994387
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "cefff32156da0ba66506f1799bc78ac15e7a61d9489edee7e72a19d61bb73945",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 7,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.7881381224676574,
+              0.0
+            ],
+            "mass": 1.1543310540492318,
+            "radius": 0.25,
+            "friction": 0.3141204368844996,
+            "restitution": 0.44657268308930187
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.7881381224676574,
+              0.0
+            ],
+            "mass": 1.3142891209635312,
+            "radius": 0.25,
+            "friction": 0.3141204368844996,
+            "restitution": 0.7723389953859752
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 3.331112040830709,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "e81b599a0b4be251b4614ee5fde2e9ed49a4bb2376ec145b372ee73cc6179df8",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 8,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.9606953615660518,
+              0.0
+            ],
+            "mass": 0.8168755161716201,
+            "radius": 0.25,
+            "friction": 0.22766390318077712,
+            "restitution": 0.8652833834723197
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.9606953615660518,
+              0.0
+            ],
+            "mass": 0.8397010510395474,
+            "radius": 0.25,
+            "friction": 0.22766390318077712,
+            "restitution": 0.4236522667978257
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "2db3f659620fe9f4e508aae46b5cfd7f9fb93b47d2189b027d90b0a9c600fea3",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 9,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.8406578008787333,
+              0.0
+            ],
+            "mass": 0.9071714214581119,
+            "radius": 0.25,
+            "friction": 0.29728865499959717,
+            "restitution": 0.8255657895587148
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.8406578008787333,
+              0.0
+            ],
+            "mass": 1.0581017314843426,
+            "radius": 0.25,
+            "friction": 0.29728865499959717,
+            "restitution": 0.9408839118623189
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 3.7222282943485427,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "0e19059da94ed67f39bd7863fc185385bdaed42a1c3fd0af9f8253c5822fa0c4",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 10,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.005683851518201,
+              0.0
+            ],
+            "mass": 1.3925698333646084,
+            "radius": 0.25,
+            "friction": 0.19844871355104104,
+            "restitution": 0.4725730666343819
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.005683851518201,
+              0.0
+            ],
+            "mass": 1.5263371082720696,
+            "radius": 0.25,
+            "friction": 0.19844871355104104,
+            "restitution": 0.6340364201634472
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "2ed423c6f80001e52a6b80c8750c0e4a482f5e8b9acc83bb555043519068ac99",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 11,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.4129449192210408,
+              0.0
+            ],
+            "mass": 1.106248405428103,
+            "radius": 0.25,
+            "friction": 0.19913165852494935,
+            "restitution": 0.7576071057050943
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.4129449192210408,
+              0.0
+            ],
+            "mass": 0.897679993725802,
+            "radius": 0.25,
+            "friction": 0.19913165852494935,
+            "restitution": 0.6541459488017445
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 4.475329506662716,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "87455e0a68981459dd9d9ee7a6c846aacda0ee0b07f7843e00a79cfb20783e4e",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 12,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.773325169599134,
+              0.0
+            ],
+            "mass": 1.3478508862892027,
+            "radius": 0.25,
+            "friction": 0.3004440823343146,
+            "restitution": 0.7164784881581926
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.773325169599134,
+              0.0
+            ],
+            "mass": 1.2431963474599361,
+            "radius": 0.25,
+            "friction": 0.3004440823343146,
+            "restitution": 0.6629034027982783
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "8f8956e3561555e5a8fdf8a23ed5983277b830c31af5f541dfbe87258f1804d0",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 13,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.7207451724245897,
+              0.0
+            ],
+            "mass": 1.7459278736685584,
+            "radius": 0.25,
+            "friction": 0.1961081625605393,
+            "restitution": 0.9315381304453183
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.7207451724245897,
+              0.0
+            ],
+            "mass": 1.9730903521196665,
+            "radius": 0.25,
+            "friction": 0.1961081625605393,
+            "restitution": 0.8183693600947144
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 3.3648040671376007,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "58f0305c85100696cca26f472104995f49895f923b1218006ed836060fc79ef2",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 14,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.78395653947453,
+              0.0
+            ],
+            "mass": 1.0441004184732734,
+            "radius": 0.25,
+            "friction": 0.330427915636768,
+            "restitution": 0.8198083000808051
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.78395653947453,
+              0.0
+            ],
+            "mass": 1.217283729870373,
+            "radius": 0.25,
+            "friction": 0.330427915636768,
+            "restitution": 0.7761366280176597
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "19969192d1ae534bee6616a450637d552593a8fd59e761a286e600ad31a27cc8",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 15,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.8713155710036289,
+              0.0
+            ],
+            "mass": 1.0069855444779598,
+            "radius": 0.25,
+            "friction": 0.3899861890147001,
+            "restitution": 0.48644482324616134
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.8713155710036289,
+              0.0
+            ],
+            "mass": 0.8529276314016169,
+            "radius": 0.25,
+            "friction": 0.3899861890147001,
+            "restitution": 0.8609070427807828
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 4.658253017591725,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "bee089c94eb07e6ab89e44cd7de8b48351db73f398adde6515a51634150fb0dd",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 16,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.0984705495019251,
+              0.0
+            ],
+            "mass": 1.2863526428040344,
+            "radius": 0.25,
+            "friction": 0.22206059265926634,
+            "restitution": 0.5299162180729835
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.0984705495019251,
+              0.0
+            ],
+            "mass": 1.132729064549524,
+            "radius": 0.25,
+            "friction": 0.22206059265926634,
+            "restitution": 0.4266211759207863
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "3a61bc8a07518a735ce21b0d11a018a3de152adf3382422c486e84411d0eb278",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 17,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.760973611154707,
+              0.0
+            ],
+            "mass": 1.0149776641785104,
+            "radius": 0.25,
+            "friction": 0.10661604843712709,
+            "restitution": 0.7629203257846147
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.760973611154707,
+              0.0
+            ],
+            "mass": 1.1762678431545646,
+            "radius": 0.25,
+            "friction": 0.10661604843712709,
+            "restitution": 0.8480127973571179
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 4.220949068658536,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "0423f3ec30123925f7ad2e0313dd4fa3a2a187411061665be754dd4abcdaee7f",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 18,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.6786491796876637,
+              0.0
+            ],
+            "mass": 1.2915228404845698,
+            "radius": 0.25,
+            "friction": 0.3272572865752317,
+            "restitution": 0.5649650086520693
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.6786491796876637,
+              0.0
+            ],
+            "mass": 1.3625914056057775,
+            "radius": 0.25,
+            "friction": 0.3272572865752317,
+            "restitution": 0.5649880912749609
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "a5490de21f5364d52f931f63fa6cecd2fd5a1807b2fcb1135269b2baec25c022",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 19,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.0263079987723969,
+              0.0
+            ],
+            "mass": 1.3626537103216179,
+            "radius": 0.25,
+            "friction": 0.3708310388473724,
+            "restitution": 0.8793654068332245
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.0263079987723969,
+              0.0
+            ],
+            "mass": 1.501311959281174,
+            "radius": 0.25,
+            "friction": 0.3708310388473724,
+            "restitution": 0.7751529854624231
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 5.758368457818273,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "fc4e902762d75be98ec3895545e1c4729e246a0c90395f6d54546e59bef35af3",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 20,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.5324875533485263,
+              0.0
+            ],
+            "mass": 1.5326807084336203,
+            "radius": 0.25,
+            "friction": 0.2763531980225025,
+            "restitution": 0.9128449232316487
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.5324875533485263,
+              0.0
+            ],
+            "mass": 1.4434107640811475,
+            "radius": 0.25,
+            "friction": 0.2763531980225025,
+            "restitution": 0.4384869713333578
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "51c2fa92e68353ae7fb7ef6bade0ea78757e0060d636626f1bd9ae55a8e0ec98",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 21,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.6771443792316925,
+              0.0
+            ],
+            "mass": 1.4267286766149372,
+            "radius": 0.25,
+            "friction": 0.2867438963014798,
+            "restitution": 0.5959944136873608
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.6771443792316925,
+              0.0
+            ],
+            "mass": 1.3061150965555786,
+            "radius": 0.25,
+            "friction": 0.2867438963014798,
+            "restitution": 0.5989729324696097
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 4.1360022411621395,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "eab4258b9cb6015247c195105c34ebb2eb71c4188723cc216bd021e4209abba4",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 22,
+        "seed": 3150557269,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.328310630515449,
+              0.0
+            ],
+            "mass": 1.6733079135619495,
+            "radius": 0.25,
+            "friction": 0.3643912258842855,
+            "restitution": 0.911314165398572
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.328310630515449,
+              0.0
+            ],
+            "mass": 1.862732537675893,
+            "radius": 0.25,
+            "friction": 0.3643912258842855,
+            "restitution": 0.6553402043618773
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "492016398105dcfab71d6fc243cd638d70c2e758f4a64e0074cfb1ac4570186f",
+      "scene": {
+        "family": "interaction",
+        "split": "train",
+        "index": 23,
+        "seed": 3150557269,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.6155856829019657,
+              0.0
+            ],
+            "mass": 0.8468824706577401,
+            "radius": 0.25,
+            "friction": 0.30359430230733286,
+            "restitution": 0.5702045039235347
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.6155856829019657,
+              0.0
+            ],
+            "mass": 0.8570743108176362,
+            "radius": 0.25,
+            "friction": 0.30359430230733286,
+            "restitution": 0.75872037623836
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 3.8818123835335965,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "9bc09b2b86d6b66f0f6deeb20a0199ac7b6fcaabf63e692a16461bab532e3cd4",
+      "scene": {
+        "family": "interaction",
+        "split": "development",
+        "index": 0,
+        "seed": 3746509943,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.061992101098652,
+              0.0
+            ],
+            "mass": 0.963336528474853,
+            "radius": 0.25,
+            "friction": 0.27905003396000144,
+            "restitution": 0.4865993842356144
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.061992101098652,
+              0.0
+            ],
+            "mass": 0.9029750144057573,
+            "radius": 0.25,
+            "friction": 0.27905003396000144,
+            "restitution": 0.5234980495372623
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "27eb414da9ec7ddca9449b0f309bb6edef1ab960d355770bd8174d2bbb4bee45",
+      "scene": {
+        "family": "interaction",
+        "split": "development",
+        "index": 1,
+        "seed": 3746509943,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.253609493863467,
+              0.0
+            ],
+            "mass": 1.4816295846461385,
+            "radius": 0.25,
+            "friction": 0.34120919713133535,
+            "restitution": 0.7428386424774676
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.253609493863467,
+              0.0
+            ],
+            "mass": 1.3199818347482328,
+            "radius": 0.25,
+            "friction": 0.34120919713133535,
+            "restitution": 0.8788660616217483
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 3.7012667444775285,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "6350b18764827d954a5de9f19126b51eb6bdce9ab61033681a03838b363a72dc",
+      "scene": {
+        "family": "interaction",
+        "split": "development",
+        "index": 2,
+        "seed": 3746509943,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.0105978529998578,
+              0.0
+            ],
+            "mass": 1.1188099635364672,
+            "radius": 0.25,
+            "friction": 0.14277762356350626,
+            "restitution": 0.5583426571706673
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.0105978529998578,
+              0.0
+            ],
+            "mass": 1.2977233312388012,
+            "radius": 0.25,
+            "friction": 0.14277762356350626,
+            "restitution": 0.737315492807236
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "d427163dbeb62706a7748a5fc2117fd369ce16935fab6026d7ac90b5870273e2",
+      "scene": {
+        "family": "interaction",
+        "split": "development",
+        "index": 3,
+        "seed": 3746509943,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.4700097877986917,
+              0.0
+            ],
+            "mass": 0.8355619281672922,
+            "radius": 0.25,
+            "friction": 0.3767408513922322,
+            "restitution": 0.9228487131871173
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.4700097877986917,
+              0.0
+            ],
+            "mass": 0.7638465817258481,
+            "radius": 0.25,
+            "friction": 0.3767408513922322,
+            "restitution": 0.7903637389472948
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 5.091146577485671,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "199ebc0b8c1652587a7b23668b0dfa3bd3e90a7a2d23cc5a34b918a46785cf73",
+      "scene": {
+        "family": "interaction",
+        "split": "development",
+        "index": 4,
+        "seed": 3746509943,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.7500044968089283,
+              0.0
+            ],
+            "mass": 1.288299371735492,
+            "radius": 0.25,
+            "friction": 0.1463708837867483,
+            "restitution": 0.7832397442882195
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.7500044968089283,
+              0.0
+            ],
+            "mass": 1.4735841906010774,
+            "radius": 0.25,
+            "friction": 0.1463708837867483,
+            "restitution": 0.6870082880258347
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "a31d969fee987afef6fb34d18decac227951d61fca310c09598158fe48e5fd5f",
+      "scene": {
+        "family": "interaction",
+        "split": "development",
+        "index": 5,
+        "seed": 3746509943,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.0470498196571083,
+              0.0
+            ],
+            "mass": 1.1976929941155559,
+            "radius": 0.25,
+            "friction": 0.24441806353612008,
+            "restitution": 0.5796803946568397
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.0470498196571083,
+              0.0
+            ],
+            "mass": 1.0044667204327553,
+            "radius": 0.25,
+            "friction": 0.24441806353612008,
+            "restitution": 0.8403954017882799
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 3.5882508287427646,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "d68662ff7ee35d1c759f6c7e479be922e3bc900a1755061b231036493db442b0",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 0,
+        "seed": 3271277650,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.226827897339691,
+              0.0
+            ],
+            "mass": 1.4360049264967003,
+            "radius": 0.25,
+            "friction": 0.290171016261122,
+            "restitution": 0.8191890149100873
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.226827897339691,
+              0.0
+            ],
+            "mass": 1.3413790924152464,
+            "radius": 0.25,
+            "friction": 0.290171016261122,
+            "restitution": 0.7438196511174532
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "b8b921603e498ae75c47172bc4e06beaa4f16bed75ff30a2017a0e669772621d",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 1,
+        "seed": 3271277650,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.7421689419418873,
+              0.0
+            ],
+            "mass": 1.3680694778357192,
+            "radius": 0.25,
+            "friction": 0.2982290164672804,
+            "restitution": 0.48313738068242695
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.7421689419418873,
+              0.0
+            ],
+            "mass": 1.317450169473342,
+            "radius": 0.25,
+            "friction": 0.2982290164672804,
+            "restitution": 0.554442387004859
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 4.793244469124914,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "710922d86ddf3364b78302ba78c1396286eb7d90f4f1fb443c2713329d854d5c",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 2,
+        "seed": 3271277650,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.552546891300498,
+              0.0
+            ],
+            "mass": 1.6680579835031155,
+            "radius": 0.25,
+            "friction": 0.13291396572462846,
+            "restitution": 0.5469304796427817
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.552546891300498,
+              0.0
+            ],
+            "mass": 1.7229601793527907,
+            "radius": 0.25,
+            "friction": 0.13291396572462846,
+            "restitution": 0.5734436349578113
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "86b88d6ef42e1a607db95a2d4804d3df463b8dbad8494c0a0cc431d2924dfd4c",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 3,
+        "seed": 3271277650,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.6939781554771054,
+              0.0
+            ],
+            "mass": 1.6543859592587646,
+            "radius": 0.25,
+            "friction": 0.10470001758096703,
+            "restitution": 0.9257262987704142
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.6939781554771054,
+              0.0
+            ],
+            "mass": 1.9306840665057121,
+            "radius": 0.25,
+            "friction": 0.10470001758096703,
+            "restitution": 0.9179288173518467
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 4.555925308160505,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "deef52b493e216c49c2b81698feb80bd38c49b03e20ef597479c230a894e8efb",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 4,
+        "seed": 3271277650,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.2983196546375266,
+              0.0
+            ],
+            "mass": 1.2475184146328204,
+            "radius": 0.25,
+            "friction": 0.33597512021556314,
+            "restitution": 0.785914597839228
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.2983196546375266,
+              0.0
+            ],
+            "mass": 1.1961284484011907,
+            "radius": 0.25,
+            "friction": 0.33597512021556314,
+            "restitution": 0.5589397863665747
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "4da45a8b18d2969094102f86980a3c3a574cd93d38b0ccd69c429181b6488ad3",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 5,
+        "seed": 3271277650,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.8629024632403457,
+              0.0
+            ],
+            "mass": 0.9209928453863228,
+            "radius": 0.25,
+            "friction": 0.16847684726396514,
+            "restitution": 0.5728165051558441
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.8629024632403457,
+              0.0
+            ],
+            "mass": 0.9349658049983398,
+            "radius": 0.25,
+            "friction": 0.16847684726396514,
+            "restitution": 0.5354241700492022
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 3.889849274309419,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "d622408e47cff15b05844ad5ccaf2c64af8f3d1a4547f70b8c9e7f3991ae3c5f",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 6,
+        "seed": 3271277650,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.2070692314033638,
+              0.0
+            ],
+            "mass": 1.2435411167491839,
+            "radius": 0.25,
+            "friction": 0.24147293193327546,
+            "restitution": 0.5036361118989637
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.2070692314033638,
+              0.0
+            ],
+            "mass": 1.1569211729196798,
+            "radius": 0.25,
+            "friction": 0.24147293193327546,
+            "restitution": 0.9434034003331447
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "44116b5269121e13b7b6281889dd79491f1e15c994d401ffb51f1ca3833e507a",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 7,
+        "seed": 3271277650,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.3596723419928431,
+              0.0
+            ],
+            "mass": 1.5480799242352448,
+            "radius": 0.25,
+            "friction": 0.3598481857534974,
+            "restitution": 0.40318503075767387
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.3596723419928431,
+              0.0
+            ],
+            "mass": 1.266998303396887,
+            "radius": 0.25,
+            "friction": 0.3598481857534974,
+            "restitution": 0.598977970761834
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 3.688571452524505,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "ce183f8535a5c7cd20e8cc63cab40c13127514d1b13d284b7ecccead67f79763",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 8,
+        "seed": 3271277650,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.886519208211715,
+              0.0
+            ],
+            "mass": 0.9507583493944575,
+            "radius": 0.25,
+            "friction": 0.23977082249742984,
+            "restitution": 0.9402234853677314
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.886519208211715,
+              0.0
+            ],
+            "mass": 0.8763609080834677,
+            "radius": 0.25,
+            "friction": 0.23977082249742984,
+            "restitution": 0.8884134123120319
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "7e64f4801703e7451019a22fc46a641c6df4975d92fb2eaf78dbb32c8b12b9cb",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 9,
+        "seed": 3271277650,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.1546117674463146,
+              0.0
+            ],
+            "mass": 1.5010315232546856,
+            "radius": 0.25,
+            "friction": 0.13092026712386168,
+            "restitution": 0.5977447176907302
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.1546117674463146,
+              0.0
+            ],
+            "mass": 1.7795721272434781,
+            "radius": 0.25,
+            "friction": 0.13092026712386168,
+            "restitution": 0.9482011258107188
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 3.1911152343140414,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "071b159146f5f620dddb19ba366bb91a97d1476249097f88df7d28bef4db1bf4",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 10,
+        "seed": 3271277650,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.690509713045011,
+              0.0
+            ],
+            "mass": 0.8911847316265953,
+            "radius": 0.25,
+            "friction": 0.26623545671410187,
+            "restitution": 0.8346072301204226
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.690509713045011,
+              0.0
+            ],
+            "mass": 0.7574495010741936,
+            "radius": 0.25,
+            "friction": 0.26623545671410187,
+            "restitution": 0.7127275976390326
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "cc149146d9bee42476e894e92e40e90b6d03daf5938ccb94c71b08aba9ec8032",
+      "scene": {
+        "family": "interaction",
+        "split": "iid",
+        "index": 11,
+        "seed": 3271277650,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.0165276755087298,
+              0.0
+            ],
+            "mass": 1.0875111503416315,
+            "radius": 0.25,
+            "friction": 0.17695498994828157,
+            "restitution": 0.6920305409088716
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.0165276755087298,
+              0.0
+            ],
+            "mass": 1.2099383913404198,
+            "radius": 0.25,
+            "friction": 0.17695498994828157,
+            "restitution": 0.9119120438009785
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 4.8168066149859,
+        "horizon": 64,
+        "ood_condition": "none"
+      }
+    },
+    {
+      "identity": "2a2eb22ebe54069bc44c497fdafae72ae11712ed00ecd62ae7d68831caf7e130",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 0,
+        "seed": 2890219322,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.7384764733980993,
+              0.0
+            ],
+            "mass": 3.2369235189445025,
+            "radius": 0.25,
+            "friction": 0.697996870029136,
+            "restitution": 0.6916913199714132
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.7384764733980993,
+              0.0
+            ],
+            "mass": 0.8092308797361256,
+            "radius": 0.25,
+            "friction": 0.697996870029136,
+            "restitution": 0.4136662098223341
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "mass_friction"
+      }
+    },
+    {
+      "identity": "248c5d3105765f8ff0312b1e7fd1a9e7dad639f02559881687e83d99079d0f74",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 1,
+        "seed": 2890219322,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              5.2393092324593775,
+              0.0
+            ],
+            "mass": 1.3646242057916633,
+            "radius": 0.25,
+            "friction": 0.11424115072421086,
+            "restitution": 0.828677392861948
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -5.2393092324593775,
+              0.0
+            ],
+            "mass": 1.4931472438351818,
+            "radius": 0.25,
+            "friction": 0.11424115072421086,
+            "restitution": 0.586293793288204
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 3.268331411923359,
+        "horizon": 64,
+        "ood_condition": "velocity"
+      }
+    },
+    {
+      "identity": "f9f9b40a52bc9dbffc4e22eb01ca7a71348d969cf84d1bf3626318bb43cbeacb",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 2,
+        "seed": 2890219322,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.2129788542259567,
+              0.0
+            ],
+            "mass": 1.5206431586703695,
+            "radius": 0.25,
+            "friction": 0.2616738009448249,
+            "restitution": 0.6800131580679708
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.2129788542259567,
+              0.0
+            ],
+            "mass": 1.2386843010583177,
+            "radius": 0.25,
+            "friction": 0.2616738009448249,
+            "restitution": 0.501120360545293
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "horizon"
+      }
+    },
+    {
+      "identity": "3101566bf2fd267d5249941d9102e4ee8214d6a46a6c52abc58bf8e587eb4e0d",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 3,
+        "seed": 2890219322,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.3221543324541085,
+              0.0
+            ],
+            "mass": 1.3250261497403242,
+            "radius": 0.25,
+            "friction": 0.3878307361080201,
+            "restitution": 0.4699492173800013
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.3221543324541085,
+              0.0
+            ],
+            "mass": 1.0940017413038823,
+            "radius": 0.25,
+            "friction": 0.3878307361080201,
+            "restitution": 0.5161953779087726
+          },
+          {
+            "position": [
+              2.6,
+              1.5
+            ],
+            "velocity": [
+              -1.3221543324541085,
+              0.0
+            ],
+            "mass": 1.4052804018434777,
+            "radius": 0.25,
+            "friction": 0.3878307361080201,
+            "restitution": 0.6948108440972944
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 5.0992665168900295,
+        "horizon": 64,
+        "ood_condition": "configuration"
+      }
+    },
+    {
+      "identity": "673e591ab8eda583507a0f0b6852f91fc2469c706ed8eb90295375a4785ee98b",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 4,
+        "seed": 2890219322,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.1894785008054065,
+              0.0
+            ],
+            "mass": 1.6154156120711536,
+            "radius": 0.25,
+            "friction": 0.3740736659126927,
+            "restitution": 0.8368771168145809
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.1894785008054065,
+              0.0
+            ],
+            "mass": 1.877765777982858,
+            "radius": 0.25,
+            "friction": 0.3740736659126927,
+            "restitution": 0.47359779368234867
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.06,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "noise"
+      }
+    },
+    {
+      "identity": "c2f02b3d2369c29b7cafbff18a2750ee43d80e4c9ffe443d792312ecf5378962",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 5,
+        "seed": 2890219322,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.365579254820088,
+              0.0
+            ],
+            "mass": 1.2410435597120946,
+            "radius": 0.25,
+            "friction": 0.11092589275643924,
+            "restitution": 0.6733177993654548
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.365579254820088,
+              0.0
+            ],
+            "mass": 1.2966449342918007,
+            "radius": 0.25,
+            "friction": 0.11092589275643924,
+            "restitution": 0.5159288652326302
+          }
+        ],
+        "gravity": 0.8,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 2.2829039272258567,
+        "horizon": 64,
+        "ood_condition": "parameters"
+      }
+    },
+    {
+      "identity": "5c56f3d795fbc34b113be53cf630ce81666649a71801f8e60c03bd069a331403",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 6,
+        "seed": 2890219322,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.168137002831778,
+              0.0
+            ],
+            "mass": 1.2679810824369295,
+            "radius": 0.25,
+            "friction": 0.1555140368136235,
+            "restitution": 0.525053612512643
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.168137002831778,
+              0.0
+            ],
+            "mass": 1.4795514941311139,
+            "radius": 0.25,
+            "friction": 0.1555140368136235,
+            "restitution": 0.6843834217518012
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 9.0,
+        "horizon": 64,
+        "ood_condition": "interaction"
+      }
+    },
+    {
+      "identity": "2d509d5a7ff55b7e4aba7ac3353a901ed08dab43dab2fb1fc3d7cb93e301c0be",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 7,
+        "seed": 2890219322,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.3184034833068679,
+              0.0
+            ],
+            "mass": 3.61910062545357,
+            "radius": 0.25,
+            "friction": 0.7643257274020311,
+            "restitution": 0.6591765377968305
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.3184034833068679,
+              0.0
+            ],
+            "mass": 0.9047751563633925,
+            "radius": 0.25,
+            "friction": 0.7643257274020311,
+            "restitution": 0.6628747907657947
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 3.638015159243564,
+        "horizon": 64,
+        "ood_condition": "mass_friction"
+      }
+    },
+    {
+      "identity": "dd8dd651332bbce97c40201c6beef8384a1dbd124341bbb4f507dc82f779c1ca",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 8,
+        "seed": 2890219322,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              4.157405324725471,
+              0.0
+            ],
+            "mass": 1.5524330744695467,
+            "radius": 0.25,
+            "friction": 0.13697993053780105,
+            "restitution": 0.8642360993104881
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -4.157405324725471,
+              0.0
+            ],
+            "mass": 1.6361034692616165,
+            "radius": 0.25,
+            "friction": 0.13697993053780105,
+            "restitution": 0.5345245864822945
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "velocity"
+      }
+    },
+    {
+      "identity": "268eb121d9f919fb187898720a54456225fa87fff1410c49efe55e4430689af7",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 9,
+        "seed": 2890219322,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.1225222145435976,
+              0.0
+            ],
+            "mass": 1.0547831380058423,
+            "radius": 0.25,
+            "friction": 0.28688894644519786,
+            "restitution": 0.8262092151237846
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.1225222145435976,
+              0.0
+            ],
+            "mass": 0.9704337196330479,
+            "radius": 0.25,
+            "friction": 0.28688894644519786,
+            "restitution": 0.8876273464282053
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 5.7729666309614105,
+        "horizon": 64,
+        "ood_condition": "horizon"
+      }
+    },
+    {
+      "identity": "262a26b6c8fb72bc0abe7f6bdfbc8029c699094f1cb91f4392f7e08a9b0b2659",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 10,
+        "seed": 2890219322,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              2.0397620733538173,
+              0.0
+            ],
+            "mass": 1.7567966577130614,
+            "radius": 0.25,
+            "friction": 0.2494677661059795,
+            "restitution": 0.7775212853975301
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -2.0397620733538173,
+              0.0
+            ],
+            "mass": 1.7375518172006572,
+            "radius": 0.25,
+            "friction": 0.2494677661059795,
+            "restitution": 0.919079929215399
+          },
+          {
+            "position": [
+              2.6,
+              0.45
+            ],
+            "velocity": [
+              -2.0397620733538173,
+              0.0
+            ],
+            "mass": 1.6890017222494667,
+            "radius": 0.25,
+            "friction": 0.2494677661059795,
+            "restitution": 0.7147921867875103
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": true,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "configuration"
+      }
+    },
+    {
+      "identity": "4042ebdd2721390e6d3b4480d1ff847ab45003960c6507d60e87602cc3ce59a6",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 11,
+        "seed": 2890219322,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              2.1155221884704956,
+              0.0
+            ],
+            "mass": 1.5608958790237515,
+            "radius": 0.25,
+            "friction": 0.3287342304980113,
+            "restitution": 0.7842700038185472
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -2.1155221884704956,
+              0.0
+            ],
+            "mass": 1.5931614561613432,
+            "radius": 0.25,
+            "friction": 0.3287342304980113,
+            "restitution": 0.7949979170221152
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.06,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 2.269374675927117,
+        "horizon": 64,
+        "ood_condition": "noise"
+      }
+    },
+    {
+      "identity": "5d71078e963a1b7f805eb07a4ec7f3e42f66c3df3f7bf70c0dc5ef6dff209cdf",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 12,
+        "seed": 2890219322,
+        "mechanism": "collision",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              0.45
+            ],
+            "velocity": [
+              1.755672956563128,
+              0.0
+            ],
+            "mass": 1.135072833237303,
+            "radius": 0.25,
+            "friction": 0.2534517781277076,
+            "restitution": 0.6662535386266802
+          },
+          {
+            "position": [
+              0.8,
+              0.45
+            ],
+            "velocity": [
+              -1.755672956563128,
+              0.0
+            ],
+            "mass": 1.0728579510248824,
+            "radius": 0.25,
+            "friction": 0.2534517781277076,
+            "restitution": 0.563676795759511
+          }
+        ],
+        "gravity": 0.8,
+        "noise": 0.005,
+        "hidden_parameters": true,
+        "velocity_dropout": false,
+        "spring": 0.0,
+        "horizon": 64,
+        "ood_condition": "parameters"
+      }
+    },
+    {
+      "identity": "0331c100a4ea0f8933631d7d417663c7896e7f369334fb5424ca23bcbff8f594",
+      "scene": {
+        "family": "interaction",
+        "split": "ood",
+        "index": 13,
+        "seed": 2890219322,
+        "mechanism": "spring",
+        "objects": [
+          {
+            "position": [
+              -1.0,
+              1.5
+            ],
+            "velocity": [
+              1.910491858307623,
+              0.0
+            ],
+            "mass": 1.2824989123058719,
+            "radius": 0.25,
+            "friction": 0.2636414034051161,
+            "restitution": 0.5974853455180067
+          },
+          {
+            "position": [
+              0.8,
+              1.5
+            ],
+            "velocity": [
+              -1.910491858307623,
+              0.0
+            ],
+            "mass": 1.5187055726792895,
+            "radius": 0.25,
+            "friction": 0.2636414034051161,
+            "restitution": 0.6650169389979135
+          }
+        ],
+        "gravity": 0.0,
+        "noise": 0.005,
+        "hidden_parameters": false,
+        "velocity_dropout": false,
+        "spring": 9.0,
+        "horizon": 64,
+        "ood_condition": "interaction"
+      }
+    }
+  ],
+  "scene_hash": "4dc9b731e8d25fadc45b03e7fb90fd14db947513d104949cac8a66e075a1523e"
+}
