@@ -60,6 +60,13 @@ def verify_disjoint(splits, historical=()):
 
 def verify_fit_matching(receipts, seeds, conditions, updates, target_presentations):
     """Compare per-seed init, target sequence and optimizer configuration across conditions."""
+    if (not seeds or not conditions or len(set(seeds)) != len(seeds)
+            or len(set(conditions)) != len(conditions)
+            or any(type(s) is not int for s in seeds)
+            or any(not isinstance(c, str) or not c for c in conditions)
+            or type(updates) is not int or updates <= 0
+            or type(target_presentations) is not int or target_presentations <= 0):
+        raise AuditError("invalid frozen fit design")
     expected = {(s, c) for s in seeds for c in conditions}
     observed = {}
     for receipt in receipts:
@@ -96,6 +103,7 @@ def verify_event_chain(events, prediction_file):
     previous = "0" * 64
     sealed = False
     scored = False
+    references_opened = False
     for index, event in enumerate(events):
         if event.get("sequence") != index or event.get("previous_sha256") != previous:
             raise AuditError("broken event sequence")
@@ -108,10 +116,14 @@ def verify_event_chain(events, prediction_file):
             if sealed or scored or event.get("prediction_sha256") != file_hash(prediction_file):
                 raise AuditError("invalid prediction seal")
             sealed = True
-        if kind in ("REFERENCES_OPENED", "SCORED"):
-            if not sealed:
-                raise AuditError("references/scoring preceded prediction seal")
-            scored |= kind == "SCORED"
+        if kind == "REFERENCES_OPENED":
+            if not sealed or references_opened or scored:
+                raise AuditError("invalid reference-release order")
+            references_opened = True
+        if kind == "SCORED":
+            if not sealed or not references_opened or scored:
+                raise AuditError("invalid scoring order")
+            scored = True
         if sealed and kind in ("TRAINING", "PREDICTING", "CHECKPOINT_SELECTED"):
             raise AuditError("model/prediction mutation after seal")
     if not sealed or not scored:
@@ -130,6 +142,8 @@ def exact_metrics(predictions, references):
         observed = prediction["states"]
         if not isinstance(truth, list) or not truth or not isinstance(observed, list):
             raise AuditError("invalid trace")
+        if len(truth) != len(observed):
+            raise AuditError("incomplete/extra predicted trace")
         if any(type(x) is not int for x in truth + observed):
             raise AuditError("invalid/noninteger state")
         if type(prediction["answer"]) is not int or type(reference["answer"]) is not int:
