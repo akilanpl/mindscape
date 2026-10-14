@@ -20,6 +20,9 @@ def supplemental_protocol():
               'primary_grid_modified':False,'primary_fits':72,'primary_optimizer_steps':144000,
               'concept_controls':['embedding','context-vector','omitted','independent-corruption'],
               'memory_controls':['retain','reset','shuffled-past'],
+              'delayed_cue_heldout_delays':[0,1,4,8],
+              'delayed_cue_split':'disjoint cue/query combinations; longer delays4/8 held out from training',
+              'implementation_scope':'standalone original small probes; not original-R56 graph qualification',
               'claim_scope':'supplied relational context and delayed-cue recoverability; no discovered concepts',
               'metrics':['exact-class-count','paired-counterfactual-count','delayed-cue-query-count'],
               'selection':'fixed future budget; no held-out checkpoint selection',
@@ -143,5 +146,65 @@ def run_memory_episode(model,observations,*,control='retain',shuffled_past=None)
         result=model.step(pack_memory(observation,device),memory,control=control,shuffled_past=past)
         memory=result['memory']
         records.append({'prediction':result['logits'].argmax().item(),'logits':result['logits'],
-                        'memory':memory,'source':'original uncorrected model output'})
+                        'memory':memory,'source':'original uncorrected model output',
+                        'trace':{'episode_start':i==0,'incoming_state_reset':i==0 or control=='reset',
+                                 'donor_detached':control=='shuffled-past',
+                                 'within_episode_graph_retained':control=='retain' and i>0,
+                                 'hidden_feedback':'zero at episode boundary' if i==0 and control!='shuffled-past' else (
+                                     'zero; same GRU/fusion path' if control=='reset' else (
+                                     'independent donor hidden; detached across episodes' if control=='shuffled-past' else
+                                     'original prior hidden; same episode graph; no target correction'))}})
     return records
+
+
+def conditional_information_audit(rows):
+    """Empirical optimal-count audit, independent of model logits or fitting.
+
+    Majority counts upper-bound deterministic classification on this finite
+    empirical table, not on an unknown population. Conflicting labels prove
+    nonidentifiability from the grouped observed fields for those counterexamples.
+    """
+    import math
+    from collections import Counter,defaultdict
+    groups_without=defaultdict(Counter); groups_with=defaultdict(Counter)
+    for row in rows:
+        observations=row['observations']
+        pack_concept(observations)  # same strict input boundary, no label features
+        label=row['labels']['class']
+        if type(label)is not int or not 0<=label<10: raise ValueError('Audit requires protected class labels 0..9')
+        base=(tuple(observations['state']),tuple(observations['action']),observations['domain'])
+        groups_without[base][label]+=1
+        groups_with[(base,observations['concept_id'])][label]+=1
+    if not rows: raise ValueError('Audit requires nonempty observations')
+    count=len(rows)
+    def summarize(groups):
+        correct=sum(max(histogram.values()) for histogram in groups.values())
+        entropy=sum(-frequency/count*math.log2(frequency/sum(histogram.values()))
+                    for histogram in groups.values() for frequency in histogram.values())
+        conflicts=sum(len(histogram)>1 for histogram in groups.values())
+        return {'groups':len(groups),'empirical_bayes_correct_count':correct,
+                'empirical_bayes_accuracy':correct/count,'conditional_label_entropy_bits':entropy,
+                'conflicting_observation_groups':conflicts,'identifiable_on_empirical_support':conflicts==0}
+    without=summarize(groups_without); with_context=summarize(groups_with)
+    return {'examples':count,'without_context':without,'with_context':with_context,
+            'empirical_conditional_information_bits':without['conditional_label_entropy_bits']-with_context['conditional_label_entropy_bits'],
+            'scope':'finite supplied dataset; empirical counts only, no learned or population generalization claim'}
+
+
+def delayed_cue_variants(split='train',delay=None):
+    """Supplement-only held-out combinations and delays; legacy default unchanged."""
+    if split not in ('train','heldout'): raise ValueError('Unknown delayed-cue split')
+    delays=(0,1) if split=='train' else (0,1,4,8)
+    if delay is not None:
+        if type(delay)is not int or delay not in (0,1,4,8): raise ValueError('Allowed delays: 0,1,4,8')
+        delays=(delay,)
+    rows=[]
+    for cue in range(4):
+        for query in range(4):
+            if ((cue+2*query)%4==0)!=(split=='heldout'): continue
+            for length in delays:
+                observations=[{'phase':'cue','value':cue}]+[{'phase':'delay','value':0} for _ in range(length)]+[{'phase':'query','value':query}]
+                rows.append({'observations':observations,'labels':{'query_class':(cue+query)%4},
+                             'split':split,'cue_query_identity':[cue,query],'delay':length,
+                             'identity':f'{split}:cue{cue}:query{query}:delay{length}'})
+    return rows
