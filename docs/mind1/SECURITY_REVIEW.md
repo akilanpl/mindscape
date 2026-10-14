@@ -19,7 +19,7 @@ Review date: 2026-10-14. Scope: local Mind 1 provider, orchestration, tools and 
 3. Mode, domain and history role must be strings before set/dict membership tests; malformed arrays/objects should yield controlled request errors.
 4. Validate structured tool call IDs and argument types before running the selected tool.
 
-These findings were repaired in the integrated sources. Server review confirmed exact static-file allowlisting, strict loopback Host and Origin checks, cross-site fetch rejection, JSON-only POSTs, bounded request bodies, rejection of non-finite JSON, no-store caching, nosniff and a self-only content security policy. Error logging uses a fixed event rather than exception content. Cancellation is explicit: the frontend sends a request ID and POSTs /api/cancel before discarding the browser request. An in-flight provider request can continue until its configured socket timeout; the worker slot remains occupied until that call finishes.
+These findings were repaired in the integrated sources. Server review confirmed exact static-file allowlisting, strict loopback Host and Origin checks, cross-site fetch rejection, JSON-only POSTs, bounded request bodies, rejection of non-finite JSON, no-store caching, nosniff and a self-only content security policy. Error logging uses a fixed event rather than exception content. Cancellation is explicit: the frontend sends a request ID and POSTs /api/cancel and discards the browser request. An in-flight provider request can continue until its configured socket timeout; the worker slot remains occupied until that call finishes.
 
 ## Validation
 
