@@ -71,7 +71,7 @@ def test_verification_does_not_rewrite_prediction_or_update_parameters(monkeypat
 def test_training_source_calls_gate_before_model_and_optimizer():
     tree = ast.parse((ROOT/'src/mindscape/r56/learning.py').read_text())
     train = next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name == 'train')
-    gate = min(n.lineno for n in ast.walk(train) if isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id == 'validate_gate')
+    gate = min(n.lineno for n in ast.walk(train) if isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id == 'validate_scientific_gate')
     neural_lines = [n.lineno for n in ast.walk(train) if
         (isinstance(n,ast.Import) and any(a.name=='torch' for a in n.names)) or
         (isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id=='R56Model') or

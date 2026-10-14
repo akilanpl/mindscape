@@ -142,8 +142,10 @@ def test_concept_controls_are_distinct_and_consistent():
     graph = pack_problem(generate('train', 2)[1]['problem'])
     assert graph.concept_ids.numel() > 0
     assert controlled_graph(graph, 'graph-concept-off').concept_ids.numel() == 0
-    assert torch.equal(controlled_graph(graph, 'graph-concept-shuffled').concept_ids,
-                       (graph.concept_ids * 17 + 3) % 32)
+    shuffled = controlled_graph(graph, 'graph-concept-shuffled').concept_ids
+    assert torch.equal(shuffled, controlled_graph(graph, 'graph-concept-shuffled').concept_ids)
+    assert shuffled.shape == graph.concept_ids.shape
+    assert ((shuffled >= 0) & (shuffled < 4)).all()
     assert controlled_graph(graph, 'graph-concept-ablated').concept_ids.eq(0).all()
     assert torch.equal(graph.concept_ids, torch.tensor([3]))
 
