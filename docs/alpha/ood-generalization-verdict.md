@@ -124,10 +124,12 @@ signed decisions, never interpreted as self-authorization.
 
 ## Engineering verification
 
-18 synthetic tests pass under the existing final-venv Python: deterministic/disjoint
+24 synthetic tests pass under the existing final-venv Python: deterministic/disjoint
 unlabelled input construction, identity relabeling, historical overlap rejection,
 predicted-feedback controls, exact scoring denominators, uncertainty, failure retention,
 tampered/missing/duplicate predictions, absent precedence attestation, boolean/invalid
 labels, common initialization, near-matched capacity, temporal behavior, synthetic
 recurrent gradients, fail-closed preparation, protected callback exclusion and
-serialized failure preservation with fabricated fixture callbacks. This is engineering evidence only.
+serialized failure preservation with fabricated fixture callbacks, exact-boolean
+receipt verification and interruption sealing before KeyboardInterrupt/SystemExit
+propagate. This is engineering evidence only.

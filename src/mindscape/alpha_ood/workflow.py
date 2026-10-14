@@ -36,7 +36,7 @@ def execute_prepared_campaign(*, protocol: dict, source_hash: str, input_hash: s
         receipt = receipts.get(key)
         if not isinstance(receipt, dict) or receipt.get("binding") != binding:
             raise BoundaryError(f"missing/mismatched receipt: {key}")
-        if receipt.get("approved") is not True or not verify_receipt(key, receipt):
+        if receipt.get("approved") is not True or verify_receipt(key, receipt) is not True:
             raise BoundaryError(f"unverified independent approval: {key}")
     plan = fit_plan(protocol)
     if len(plan) != 6 or tuple(protocol["fit_seeds"]) != (11, 23, 47):
@@ -53,11 +53,13 @@ def execute_prepared_campaign(*, protocol: dict, source_hash: str, input_hash: s
             rows = predict(checkpoint, specification)
             predictions.extend(rows)
             completed.append(specification)
-    except Exception as exc:  # noqa: BLE001 - preserve any callback campaign failure, never retry
+    except BaseException as exc:  # Preserve interruptions and failures; never retry.
         failure = {"scientific_status": "FAILED_CAMPAIGN", "binding": binding,
                    "completed": completed, "predictions": predictions,
                    "failure": {"type": type(exc).__name__, "message": str(exc)}}
         persist_seal(failure)
+        if not isinstance(exc, Exception):
+            raise
         return failure
     sealed = {"scientific_status": "UNVERIFIED", "binding": binding,
               "completed": completed, "predictions": predictions,
