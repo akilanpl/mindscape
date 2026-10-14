@@ -13,7 +13,8 @@ FROZEN_V3 = '33c5b5657b2d19741b7b0ac84388d4f7997f9582'
 PR27_BASE = '8c141d8f1b237251d8fa9e5b4ccd87efbf3b3c96'
 # Existing product surfaces are mutable in this correction. All other baseline
 # blobs, including original R5.6 research sources, are protected byte-for-byte.
-PRODUCT_PREFIXES = ('src/mindscape/mind1/', 'mind1_web/', 'docs/mind1/')
+PRODUCT_PREFIXES = ('src/mindscape/mind1/', 'mind1_web/', 'docs/mind1/', 'tests_mind1/')
+PRODUCT_FILES = ('.env.mind1.example', 'requirements-mind1.txt')
 
 
 def git(root, *args):
@@ -46,7 +47,7 @@ def inventory(root, baseline=BASELINE):
 def verify(root, baseline=BASELINE):
     root = Path(root).resolve()
     protected = {name: value for name,value in inventory(root,baseline).items()
-                 if not name.startswith(PRODUCT_PREFIXES)}
+                 if not name.startswith(PRODUCT_PREFIXES) and name not in PRODUCT_FILES}
     changed = []
     for name,(mode,expected) in protected.items():
         path = root/name
@@ -67,7 +68,8 @@ def verify(root, baseline=BASELINE):
             'protected_baseline_unchanged': not changed and not tag_changes,
             'declared_historical_tags': len(expected_tags), 'changed_or_missing_tags': tag_changes, 'changed_or_missing': sorted(changed),
             'mutable_existing_product_prefixes': list(PRODUCT_PREFIXES),
-            'scope': 'Every baseline tracked file outside listed product prefixes; new additive files are not frozen baseline blobs.',
+            'mutable_existing_product_files': list(PRODUCT_FILES),
+            'scope': 'Every baseline tracked file outside listed product prefixes and files; new additive files are not frozen baseline blobs.',
             'historical_checks_replaced': False}
 
 

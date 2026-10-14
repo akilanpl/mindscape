@@ -49,8 +49,15 @@ protected, except existing product surfaces:
 - `src/mindscape/mind1/`
 - `mind1_web/`
 - `docs/mind1/`
+- `tests_mind1/`
 
-That protects 1,283 baseline files, including complete historical research/config/
+Two exact existing product files are also mutable: `.env.mind1.example` and
+`requirements-mind1.txt`. They were introduced for PR27 product configuration and
+dependencies, and are not historical research locks. These exceptions permit
+removal of obsolete external-provider tests/configuration and native Torch
+dependencies without weakening protection of historical research files.
+
+That protects 1,275 baseline files, including complete historical research/config/
 dataset/archive/script/test/workflow trees, root README and package metadata, and
 original `src/mindscape/r56/` research sources and `docs/r56/` report. Content and
 executable/symlink modes are checked against Git blob IDs. Missing files fail.
@@ -64,7 +71,13 @@ this audit does not claim those mutable surfaces are unchanged.
 `tests_native/test_preservation.py` checks the exact README evidence, the complete
 protected inventory, old CI source equality across base/head, and a temporary Git
 fixture that proves frozen-source deletion and lock mutation are detected while
-allowed product edits remain allowed. These are read-only audits against the real
+allowed product edits (including product-test deletion, product dependency and
+environment changes) remain allowed. An independent AST scanner additionally
+rejects cloud SDK/provider imports, old provider calls and known external inference
+endpoint literals across production Mind1 modules, and requires the provider
+tombstone to declare external inference disabled. This is static evidence, not a
+claim to prove arbitrary dynamic/transitive code cannot use a network. The native
+runtime audit root can be selected with `MIND1_AUDIT_ROOT` for pre-merge review. These are read-only audits against the real
 checkout; only the test fixture creates temporary commits.
 
 A dedicated native workflow must run a narrowly selected, nontraining contract
