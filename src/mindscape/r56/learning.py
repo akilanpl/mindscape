@@ -20,13 +20,24 @@ def source_locks(root):
 def freeze(root, directory):
     output = Path(directory)
     output.mkdir(parents=True, exist_ok=False)
+    from .benchmarks import matched_baseline_plan
     datasets = {str(seed): prepare_data(seed) for seed in SEEDS}
     manifest = {'version': 'r56-native-preparation-v1', 'source_locks': source_locks(root),
         'data_hash': digest(datasets), 'seeds': list(SEEDS), 'budgets': list(BUDGETS),
         'optimizer': 'Adam', 'learning_rate': .001, 'optimizer_steps': 2000,
         'batch_size': 1, 'model': 'R56Model', 'device': 'cpu',
-        'controls': ['exact-rule', 'memorization', 'mlp', 'gru', 'graph-concept-on',
-                     'graph-concept-off', 'graph-concept-shuffled', 'graph-concept-ablated'],
+        'controls': ['exact-rule', 'memorization', 'matched-mlp', 'matched-rnn', 'matched-gru',
+                     'graph-concept-on', 'graph-concept-off', 'graph-concept-shuffled',
+                     'graph-concept-ablated', 'graph-memory-recurrent'],
+        'capacity_target': 44962, 'capacity_relative_tolerance': .05,
+        'capacity_plan': matched_baseline_plan(),
+        'neural_run_count': 72, 'total_optimizer_steps': 144000,
+        'success_thresholds': {'classification_target_accuracy': .90,
+            'guided_accuracy_advantage_pp': 5, 'paired_ci95_lower_bound_gt': 0,
+            'lower_budgets': [32, 128], 'physics_absolute_error_tolerance': .1,
+            'physics_mse_target': .01, 'holm_alpha': .05},
+        'prepared_unexecuted_axes': ['composition-depth', 'OOD', 'cross-domain-transfer'],
+        'memory_control': 'graph-concept-on stateless versus graph-memory-recurrent detached state',
         'metrics': ['original-domain-accuracy', 'physics-mse', 'verifier-acceptance',
                     'wall-seconds', 'parameter-count'],
         'status': STATUS, 'authorization': 'UNISSUED'}
@@ -137,14 +148,14 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
     torch.use_deterministic_algorithms(True)
     if control in ('exact-rule', 'memorization'):
         raise ValueError('Non-neural controls require no optimizer and use benchmarks helpers')
-    if control in ('mlp', 'gru'):
-        from .benchmarks import pooled_baseline
-        model = pooled_baseline(control)
+    if control in ('matched-mlp', 'matched-rnn', 'matched-gru'):
+        from .benchmarks import matched_baseline
+        model = matched_baseline(control.removeprefix('matched-'), manifest['capacity_target'], seed)
     else:
         model = R56Model(ModelConfig())
     optimizer = torch.optim.Adam(model.parameters(), lr=manifest['learning_rate'])
     rows = datasets[str(seed)]['train'][:budget]
-    began, losses = time.monotonic(), []
+    began, losses, memory = time.monotonic(), [], None
     try:
         model.train()
         for step in range(manifest['optimizer_steps']):
@@ -152,7 +163,8 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
             graph = pack_problem(row['problem'], device='cpu')
             from .benchmarks import controlled_graph
             graph = controlled_graph(graph, control)
-            prediction = model(graph, stateless=True)
+            prediction = model(graph, memory=memory, stateless=control != 'graph-memory-recurrent')
+            memory = prediction['memory'].detach() if control == 'graph-memory-recurrent' else None
             labels, domain = row['labels'], row['problem']['domain']
             if domain == 'math':
                 loss = sum(torch.nn.functional.cross_entropy(prediction[key].reshape(1, -1),
@@ -208,12 +220,14 @@ def evaluate_model(model, rows, control='graph-concept-on'):
     from .native_domains import pack_problem
     if len(rows) > 4096:
         raise ValueError('Evaluation row budget exceeded')
-    began, records = time.monotonic(), []
+    began, records, memory = time.monotonic(), [], None
     model.eval()
     with torch.no_grad():
         for row in rows:
             from .benchmarks import controlled_graph
-            output = model(controlled_graph(pack_problem(row['problem'], device='cpu'), control), stateless=True)
+            output = model(controlled_graph(pack_problem(row['problem'], device='cpu'), control),
+                           memory=memory, stateless=control != 'graph-memory-recurrent')
+            memory = output['memory'].detach() if control == 'graph-memory-recurrent' else None
             labels, domain = row['labels'], row['problem']['domain']
             if domain == 'math':
                 prediction = {'math_digit': int(output['math_digit_logits'].argmax()),

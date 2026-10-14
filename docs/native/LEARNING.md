@@ -99,3 +99,39 @@ share the same architecture and parameter count. Pooled baselines are explicitly
 claiming an advantage. Accounting includes trainable/total parameters, tensor
 storage, observed gradients and estimated Adam moment storage (no Adam created
 for the measurement). No trained weights or performance claims were generated.
+
+## Frozen matched-capacity candidates
+
+The success-comparison candidates now use shared observable input tokens containing
+all node features/types, edge endpoint indices/relations, action, domain and explicit
+concept IDs. No labels enter tokens. MLP pools tokens; basic RNN and GRU read the
+observed sequence. These architectural bottlenecks remain part of the comparison;
+parameter parity does not establish equal FLOPs or latency. The earlier eight-feature
+pooled MLP/GRU remain legacy informational controls, excluded from success comparisons.
+
+Widths are selected solely by deterministic parameter arithmetic before seeing any
+loss or performance: MLP163 and basic RNN163 each have 45,022 parameters; GRU85 has
+44,744, versus graph44,962. Gaps are 0.134%, 0.134%, 0.485%, below the frozen5% limit.
+Actual constructors verify these counts. All graph concept variants share capacity.
+
+The preparation manifest freezes eight neural controls: matched MLP/RNN/GRU,
+graph concept-on/off/shuffled/ablated, and graph recurrent memory. Concept-on uses
+stateless memory; the recurrent control carries detached hidden state in frozen
+sample order, resetting at run/evaluation start. The primary comparison has three
+seeds × three exposure budgets × eight neural controls = **72 runs**, each with
+**2,000 optimizer steps**, totaling **144,000 steps** if externally authorized.
+Deterministic/memorization controls have no optimizer. No original historical
+experiment workload is replaced or reduced by this proposal.
+
+Proposed qualification thresholds are frozen in the preparation manifest:
+classification target90%, guided advantage at least5 percentage points at budgets32
+and128, paired95% CI lower bound above0 with Holm alpha.05; physics is separate,
+absolute error tolerance.1 in stated units and MSE target.01. These are candidate
+criteria requiring independent preregistration review/power analysis, not approved
+claims or measured outcomes. Composition-depth, OOD and cross-domain-transfer axes
+are designated preparation only; full datasets and independent qualification for
+those studies are not implemented or implied by the IID curriculum.
+
+Current additional evidence: ten tests pass, including matched constructor counts,
+observed action/domain/concept sensitivity, stateless deterministic replay and
+RNN/GRU hidden-state effects. No optimizer was constructed or stepped in these tests.
