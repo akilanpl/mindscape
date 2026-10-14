@@ -14,7 +14,7 @@ Baseline: `6c558caa3c3a1a09ec15e286a408cbb6d5076b03`.
 | Submission | Reviewed source commit | Scope |
 |---|---|---|
 | A R5.4 | `950a17519f43fbc887e41f29ce2e24d4b6036ead` | Additional preparation and checkpoint storage guards; explicit PR18 dependency `988657be83fc4582218a840150e5230f335ca930` |
-| B OOD | `ad31f481944133c6372253d607be64c6ec99497b` | New unadopted protocol, source inventory, baseline adapters, replay and callback boundary |
+| B OOD | `d457428540b34a96e16c31fc4ffe3d13e8cba3fa` | New unadopted protocol, source inventory, baseline adapters, replay and callback boundary |
 | C transfer | `03fc481192dca47410dd809de1303658c2f556cb` | Proposal-bound manifest/receipt review, routing helper and callback controller; includes `28bab617f1c26843f82c1274882dda5edf69e26d` |
 | Root audit primitives | `2ee1aa8` after `0c2fee5` | Generic integrity checks; no scientific numerical models |
 
@@ -27,7 +27,7 @@ modifications/deletions. This covers frozen historical protocols/statuses withou
 rerunning historical science. Existing evidence was read only for byte comparison.
 
 B's 14-file source inventory verified at the reviewed commit. Canonical inventory
-digest: `e8887cd09264346500561cc93b627635aabc82a394c416f27cc7e6d80584d9ba`.
+digest: `26ee80b01a75b022faaeff8b96cfa5310339c401d6e7bb63e3e571392c02ad1b`.
 Selected independently hashed sources:
 
 | Source | SHA256 |
@@ -35,14 +35,14 @@ Selected independently hashed sources:
 | A checkpoint guard | `0a177cb62ef378cfca7d1d3705d068454f54c4ee8bed32876ec81d9355f1adf2` |
 | A preparation | `bca8dffb3d7d0ff6cad541728fd8d8acb43d36af429f905ee34ff73e935b4813` |
 | B protocol | `70deef2ae0c667378a541d1948780fe3e78c06f421097518feebf2576fe0ea69` |
-| B workflow | `b6bdc4d8934de9eabc19a2b2ff0c464b9976936083e93565e146ca7da0df604d` |
+| B workflow | `813d117381ff7d11ee9121993485869bce1533f73a4c349666fb0ae446a36ab2` |
 | C readiness | `6d65fa9db6a2ed69aa81d204bfcfb4fd7ea0f020eb9acf1f19cc5596d6020524` |
 | C controller | `2cf97a429fe3e66838dc7142524889dadfb09edaff8319b9d5610d8d68671f79` |
 
 ## Independent tests and findings
 
 Runtime: existing final-venv Python. Independently reproduced: A's 24 synthetic
-storage tests; B's 2 synthetic workflow callback tests; C's 9 synthetic
+storage tests; B's 8 synthetic workflow callback tests; C's 9 synthetic
 receipt/controller tests; root's 8 primitive tests plus D's 5 independently
 authored adversarial tests, 13 total. These counts are separate suites, not
 scientific task denominators. The root reports broader author/lead validation;
@@ -77,10 +77,12 @@ the training support and require an external eligibility certificate. Replay
 correctly keeps UNVERIFIED and averages repeated seeds within tasks for paired
 uncertainty. Boolean custodian attestation and signed-receipt verifier callbacks
 are interfaces to externally reviewed custody, not proof supplied by this code.
-D also notified B that its receipt verifier accepts truthy nonboolean returns
-and its exception branch does not preserve KeyboardInterrupt/SystemExit. Those
-findings apply to the exact reviewed commit; any correction requires a new source
-inventory and review. Neither issue justifies scientific execution.
+D also found truthy nonboolean receipt verification and missing interruption
+retention in the initial B submission. B corrected both in `d457428`: verification
+requires exactly True, and KeyboardInterrupt/SystemExit persist partial failure
+receipts before re-raising. D inspected the correction, independently reproduced
+all eight callback tests and reverified the refreshed 14-file source inventory.
+No real scientific callback was invoked; execution prerequisites remain unmet.
 
 ## Remaining evidence required
 
