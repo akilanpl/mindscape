@@ -241,3 +241,17 @@ def test_audit_verdict_requires_complete_bool_gates_with_external_boundary(monke
     report['gates']['bootstrap']=False; report['scientific_status']='NO_GO_UNVERIFIED'
     result=e.independently_audited_verdict(report,{},None,{})
     assert result['scientific_status']=='INDEPENDENT_SCIENTIFIC_FAIL'
+
+
+def test_corrupt_committed_labels_rejected_against_postrelease_reference(tmp_path):
+    # Tiny fabricated training fixture only; no real OOD labels/data/predictions.
+    tasks=tuple(Task(i+2,(('add',1),),'train',family) for i,family in enumerate(e.FAMILIES))
+    labels={task.identity:[task.start+2] for task in tasks} # Deliberately wrong.
+    b=binding(); b['label_commitment']=digest(labels)
+    private,keys=trust(); receipts={p:signed(private,p,b) for p in (*c.REQUIRED,'independent_eligibility')}
+    access=c.authorize('evaluate',b,receipts,keys)
+    rows=[{'identity':task.identity,'condition':condition,'seed':seed,'result':None,'failure':{'type':'fabricated_fixture_failure'}} for condition in e.SEALED_CONDITIONS for seed in e.SEEDS for task in tasks]
+    seal=e.seal_predictions(tasks,rows,b,tmp_path/'synthetic-wrong-labels.json')
+    release_binding={**b,'prediction_hash':seal['prediction_hash'],'ordered_identity_hash':seal['ordered_identity_hash']}
+    with pytest.raises(ValueError,match='executed procedural reference'):
+        e._score_released(tasks=tasks,seal=seal,labels=labels,release_receipt=signed(private,'seal_before_label_release',release_binding,sequence=2),access=access,binding=b,trusted_keys=keys)

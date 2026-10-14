@@ -120,10 +120,15 @@ def _score_released(*,tasks,seal,labels,release_receipt,access,binding,trusted_k
             values=[int(s['answer']) for s in result['stages']]
             if result['answer']!=str(values[-1]): raise ValueError('answer/stages mismatch')
         compact.append({'identity':task.identity,'condition':row['condition'],'seed':row['seed'],'states':values})
-    # Procedural reference is constructed ONLY after independently verified label
-    # release. It is not a preseal prediction and never enters learned execution.
+    # Execute a separate arithmetic reference ONLY after signed label release.
+    # Checking against committed labels is meaningful: labels are not copied
+    # into the procedural condition, and corrupt custodian traces fail closed.
+    from ..benchmark import reference
+    procedural_states={task.identity:list(reference(task)) for task in tasks}
+    if labels!=procedural_states:
+        raise ValueError('released label trace disagrees with executed procedural reference')
     for seed in SEEDS:
-        compact.extend({'identity':t.identity,'condition':'procedural','seed':seed,'states':labels[t.identity]} for t in tasks)
+        compact.extend({'identity':t.identity,'condition':'procedural','seed':seed,'states':procedural_states[t.identity]} for t in tasks)
     report=replay(tuple(tasks),compact,labels,{'prediction_hash':digest(compact),
                     'label_commitment':digest(labels),'custodian_attested_precedence':True},CONDITIONS,SEEDS)
     metrics=report['metrics']; comparisons=report['comparisons']
