@@ -28,6 +28,8 @@ def exercise(model,g):
     return out
 
 def measure(device='cpu'):
+    from scripts.native.mps_preflight import block_optimizers
+    block_optimizers(torch)
     torch.manual_seed(17);torch.use_deterministic_algorithms(True)
     records=[]
     for condition in ('graph-concept-on','graph-concept-off','matched-gru'):
@@ -50,10 +52,22 @@ def measure(device='cpu'):
                 gpu=matched_baseline('gru') if condition=='matched-gru' else R56Model()
                 gpu.load_state_dict(new.state_dict());gpu.to('mps');gg=g.to('mps')
                 gpu_before={k:v.detach().cpu().clone() for k,v in gpu.state_dict().items()}
-                times=[]
+                times=[];previous=None
                 for i in range(4):
                     torch.mps.synchronize();start=time.perf_counter();out=exercise(gpu,gg);torch.mps.synchronize()
                     if i:times.append(time.perf_counter()-start)
+                    current=({k:v.detach().cpu().clone() for k,v in out.items()},
+                             [p.grad.detach().cpu().clone() if p.grad is not None else None for p in gpu.parameters()])
+                    if previous is not None:
+                        assert all(torch.equal(current[0][k],previous[0][k]) for k in current[0])
+                        assert all(x is None or torch.equal(x,y) for x,y in zip(current[1],previous[1]))
+                    previous=current
+                gpu_forward=max(float((a[k].detach()-current[0][k]).abs().max()) for k in a)
+                gpu_grad=max(float((p.grad-current[1][i]).abs().max()) for i,p in enumerate(old.parameters()) if p.grad is not None)
+                for k in a:torch.testing.assert_close(a[k].detach(),current[0][k],atol=2e-4,rtol=2e-3)
+                for i,p in enumerate(old.parameters()):
+                    if p.grad is not None:torch.testing.assert_close(p.grad,current[1][i],atol=2e-4,rtol=2e-3)
+                record.update(mps_cpu_forward_max_abs=gpu_forward,mps_cpu_gradient_max_abs=gpu_grad,mps_cpu_atol=2e-4,mps_cpu_rtol=2e-3,mps_repeated_outputs_gradients_exact=True)
                 assert all(v.device.type=='mps' for v in out.values())
                 assert all(p.grad.device.type=='mps' for p in gpu.parameters() if p.grad is not None)
                 assert all(torch.equal(v.detach().cpu(),gpu_before[k]) for k,v in gpu.state_dict().items())
