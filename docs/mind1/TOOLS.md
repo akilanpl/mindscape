@@ -34,3 +34,15 @@ The API caller must impose a process wall deadline on each tool request, especia
 symbolic operations. Parser bounds reduce resource exposure but do not replace a
 wall deadline for computer algebra. Optional package installation is explicit;
 missing SymPy does not disable physics or static analysis.
+
+`math_numerical` adds two bounded numerical methods using the same expression parser
+and optional SymPy. `operation=ode` treats the expression as `dx/dt=f(t,x)` with
+initial (default 1), start/end (0/1), steps (1–400), and returns a fixed-step RK4
+trajectory. There is no adaptive accuracy certificate or stiff-equation guarantee.
+`operation=minimize` takes an expression in x and lower/upper bounds and runs at
+most 100 golden-section iterations plus endpoint checks. This assumes a unimodal
+objective; it does not certify a global minimum for multimodal objectives.
+
+WASI compiled `.cwasm` caches are runtime/platform dependent. When migrating a
+runtime, copy its `python.wasm` and `lib` into a fresh local directory and let the
+current wasmtime build its own cache. Do not reuse an unverified historical cache.
