@@ -78,3 +78,31 @@ def test_random_checkpoint_read_only_replay_and_tamper_rejection(tmp_path):
     assert path.read_bytes()==before
     path.write_text(path.read_text()+' ')
     with pytest.raises(ValueError): replay_language_checkpoint(path,digest,data['train'][:2])
+
+
+def test_preparation_binds_evaluation_and_issues_only_unsigned_templates(tmp_path):
+    from mindscape.r56.language_learning import _digest
+    root=Path(__file__).resolve().parents[1]
+    package=tmp_path/'prepared'; manifest=prepare_language_package(root,package)
+    datasets=json.loads((package/'datasets.json').read_text())
+    assert manifest['deterministic_algorithms'] is True
+    assert manifest['split_hashes']=={name:_digest(rows) for name,rows in datasets.items()}
+    assert manifest['evaluation']['selection'].startswith('fixed final checkpoint')
+    for role in ('authorization','qualification'):
+        artifact=json.loads((package/f'{role}.UNISSUED.json').read_text())
+        assert artifact['issued'] is False and artifact['signature_hex']==''
+        assert artifact['freeze_hash']==manifest['freeze_hash']
+    frozen=dict(manifest); claimed=frozen.pop('freeze_hash')
+    assert _digest(frozen)==claimed
+
+
+def test_finite_gradient_validation_without_optimizer():
+    from mindscape.r56.language_learning import validate_finite_gradients
+    data=build_language_dataset(); vocab=training_vocabulary(data)
+    model=build_language_encoder(vocab,embedding_size=8,hidden_size=8)
+    with pytest.raises(ValueError): validate_finite_gradients(model)
+    batch=batch_examples(data['train'],vocab)
+    language_loss(model(**batch['inputs']),batch['labels'])['loss'].backward()
+    validate_finite_gradients(model)
+    next(model.parameters()).grad.flatten()[0]=float('nan')
+    with pytest.raises(ValueError): validate_finite_gradients(model)

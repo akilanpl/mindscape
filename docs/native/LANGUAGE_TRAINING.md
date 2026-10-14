@@ -45,3 +45,20 @@ Tests run random forward/backward connectivity, split/vocabulary isolation,
 protected-label separation, pre-optimizer gate rejection and deterministic random
 checkpoint replay with tamper rejection. No optimizer is constructed during these
 tests and no training campaign is run.
+
+The frozen manifest also binds deterministic algorithm use, each evaluation split
+hash, fixed final-checkpoint selection, exact intent/span counting metrics, and the
+limited synthetic-language scientific scope. Preparation creates unsigned
+`authorization.UNISSUED.json` and `qualification.UNISSUED.json` templates with
+`issued=false`, empty issuers/signatures, and the exact freeze hash. Existing
+`native-r56-training` signature scope is reused; the signed manifest separately
+binds the language stage. Templates grant no permission.
+
+The guarded future fitting loop rejects nonfinite losses, missing/nonfinite
+gradients, and nonfinite post-update parameters. Failures record the exact number
+of completed optimizer steps, freeze identity and error type in a failure sidecar.
+No failure is reported as success. Read-only replay reports checkpoint and evaluated
+split hashes and scores both all slots and present slots separately, so absent-slot
+null predictions cannot obscure argument extraction errors. These facilities were
+tested using random backward and replay fixtures only; the optimization loop and
+its failure evidence remain unexecuted because training has not been authorized.
