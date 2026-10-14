@@ -81,3 +81,60 @@ def test_supplement_never_changes_primary_grid():
     assert protocol['primary_grid_modified'] is False
     assert protocol['primary_fits']==72 and protocol['primary_optimizer_steps']==144000
     assert protocol['authorization']=='UNISSUED' and protocol['qualification']=='UNISSUED'
+
+
+def test_independent_empirical_information_audit_proves_missing_context_conflicts():
+    from mindscape.r56.identifiability import conditional_information_audit
+    rows=concept_curriculum()
+    audit=conditional_information_audit(rows)
+    assert audit['without_context']['empirical_bayes_accuracy']<1
+    assert audit['without_context']['conflicting_observation_groups']>0
+    assert not audit['without_context']['identifiable_on_empirical_support']
+    assert audit['with_context']['empirical_bayes_accuracy']==1
+    assert audit['with_context']['identifiable_on_empirical_support']
+    assert audit['with_context']['conditional_label_entropy_bits']==0
+    assert audit['empirical_conditional_information_bits']>0
+    # Independent hand-counted counterexample: four labels, one identical base input.
+    pair=[r for r in rows if r['observations']['state']==[0,1]]
+    tiny=conditional_information_audit(pair)
+    assert tiny['without_context']['empirical_bayes_correct_count']==1
+    assert tiny['without_context']['empirical_bayes_accuracy']==.25
+    assert tiny['without_context']['conditional_label_entropy_bits']==2
+    assert tiny['empirical_conditional_information_bits']==2
+
+
+def test_delayed_cue_heldout_combinations_longer_delays_and_protected_labels():
+    from mindscape.r56.identifiability import delayed_cue_variants
+    train=delayed_cue_variants('train'); heldout=delayed_cue_variants('heldout')
+    assert {tuple(r['cue_query_identity']) for r in train}.isdisjoint(tuple(r['cue_query_identity']) for r in heldout)
+    assert {r['delay'] for r in train}=={0,1}
+    assert {r['delay'] for r in heldout}=={0,1,4,8}
+    assert len(delayed_cue_curriculum())==16
+    for row in heldout:
+        assert len(row['observations'])==row['delay']+2
+        expected=pack_memory(row['observations'][-1])
+        changed=copy.deepcopy(row); changed['labels']['query_class']=999
+        assert torch.equal(expected,pack_memory(changed['observations'][-1]))
+        with pytest.raises(ValueError): pack_memory(row)
+    model=DelayedCueProbe()
+    for length in (0,1,4,8):
+        episode=delayed_cue_variants('heldout',delay=length)[0]
+        output=run_memory_episode(model,episode['observations'])
+        assert output[0]['trace']['episode_start'] and output[0]['trace']['incoming_state_reset']
+        assert output[-1]['trace']['within_episode_graph_retained']
+        assert not output[-1]['trace']['donor_detached']
+
+
+def test_trace_separates_same_episode_gradient_and_detached_donor():
+    model=DelayedCueProbe(); observations=delayed_cue_curriculum()[0]['observations']
+    retain=run_memory_episode(model,observations)
+    retain[0]['memory'].retain_grad()
+    retain[-1]['logits'].sum().backward()
+    assert retain[0]['memory'].grad is not None
+    donors=[torch.randn(model.width,requires_grad=True) for _ in observations]
+    shuffled=run_memory_episode(model,observations,control='shuffled-past',shuffled_past=donors)
+    shuffled[-1]['logits'].sum().backward()
+    assert all(donor.grad is None for donor in donors)
+    assert all(r['trace']['donor_detached'] for r in shuffled)
+    reset=run_memory_episode(model,observations,control='reset')
+    assert all(r['trace']['incoming_state_reset'] for r in reset)

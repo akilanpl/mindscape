@@ -63,3 +63,38 @@ weights before forward/backward and verify unchanged parameters afterward, and
 install an optimizer-construction tripwire for the concept probe. No optimizer
 construction, optimizer step, training campaign, historical rerun or self-issued
 signature occurs. Full learning/evaluation of this supplement remains unrun.
+
+The independent `conditional_information_audit` groups protected target counts by
+observed numeric state/action/domain, then by those inputs plus supplied concept.
+It reports empirical Bayes-optimal correct counts, conditional target entropy,
+conflicting groups and their conditional information difference. For (0,1), the
+four context classes require four distinct labels: without context, any fixed
+prediction can satisfy at most one of four examples (25% empirical accuracy and
+2 bits conditional entropy). With context, the four observations identify their
+labels uniquely (100% empirical ceiling and zero conditional entropy). These are
+finite-table identifiability facts, not model accuracies, training evidence or
+population guarantees. Other state collisions are counted rather than hidden.
+
+`delayed_cue_variants` leaves the original 16 default episodes unchanged and adds a
+separate combination split. Training and held-out cue/query pairs are disjoint;
+training delays are zero/one, while held-out evaluation includes delays zero, one,
+four and eight. The latter separate combination generalization from increased
+retention length. Labels stay outside `pack_memory` under every delay. The split
+alone does not prevent a learner exploiting the supplied cue/query encoding, and
+no learning result is asserted.
+
+Trace records explicitly identify episode start, incoming-state reset, detached
+donor use, within-episode graph retention and hidden-feedback source. Retain feeds
+the original previous hidden tensor with its same-episode autograd graph intact;
+reset replaces that incoming state with zeros while retaining the identical GRU
+and fusion computation; shuffled-past detaches an explicitly supplied donor state
+across episode boundaries. Tests demonstrate a gradient path to retained early
+hidden state and no gradient path into donor episode tensors. Every new helper
+call starts a new episode with no retained state. No label, verifier result or
+corrected prediction enters these paths.
+
+All these checks concern small standalone original probes. They neither execute
+nor qualify the original R56 graph model, and they do not establish that its
+concept or memory mechanisms work. Such a claim requires separately frozen,
+authorized model-specific experiments. Nine engineering tests pass; optimizer
+steps and all learning studies remain unrun.
