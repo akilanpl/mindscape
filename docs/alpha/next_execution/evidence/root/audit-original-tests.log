@@ -1,0 +1,18 @@
+test_empty_and_duplicate_fit_designs_rejected (test_independent_submissions.IndependentReviewTests.test_empty_and_duplicate_fit_designs_rejected) ... ok
+test_engineering_cannot_promote_unrun (test_independent_submissions.IndependentReviewTests.test_engineering_cannot_promote_unrun) ... ok
+test_extra_trace_and_boolean_state_rejected (test_independent_submissions.IndependentReviewTests.test_extra_trace_and_boolean_state_rejected) ... ok
+test_inventory_rejects_symlink_ancestor (test_independent_submissions.IndependentReviewTests.test_inventory_rejects_symlink_ancestor) ... ok
+test_release_and_scoring_order_adversarial (test_independent_submissions.IndependentReviewTests.test_release_and_scoring_order_adversarial) ... ok
+test_disjoint (test_verify.AuditTests.test_disjoint) ... ok
+test_inventory (test_verify.AuditTests.test_inventory) ... ok
+test_matching (test_verify.AuditTests.test_matching) ... ok
+test_missing_frozen_gate (test_verify.AuditTests.test_missing_frozen_gate) ... ok
+test_partial_accuracy (test_verify.AuditTests.test_partial_accuracy) ... ok
+test_sealing (test_verify.AuditTests.test_sealing) ... ok
+test_status (test_verify.AuditTests.test_status) ... ok
+test_wilson (test_verify.AuditTests.test_wilson) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.003s
+
+OK

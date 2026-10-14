@@ -1,0 +1,15 @@
+{
+  "source_receipt_hash_entries_verified": {
+    "receipts-sha256.txt": 16,
+    "source-evidence-sha256.txt": 32
+  },
+  "A_B_readiness_exact_equal": true,
+  "native_script_exit": 1,
+  "native_MPS": false,
+  "baseline_checkout_clean": true,
+  "Python_original_version_authenticated": false,
+  "limitations": [
+    "Saved engineering evidence verification does not establish fresh native execution.",
+    "Script stopped before tests; 77 tests passed separately."
+  ]
+}

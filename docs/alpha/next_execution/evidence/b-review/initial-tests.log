@@ -1,0 +1,86 @@
+FFFFF.F...                                                               [100%]
+=================================== FAILURES ===================================
+_______________________ test_nonbinary_truth_rejected[2] _______________________
+
+valid = 2
+
+    @pytest.mark.parametrize('valid',[2,-1,True,0.5,'1'])
+    def test_nonbinary_truth_rejected(valid):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+work/sprint-evidence/b-review/test_independent_scoring.py:6: Failed
+______________________ test_nonbinary_truth_rejected[-1] _______________________
+
+valid = -1
+
+    @pytest.mark.parametrize('valid',[2,-1,True,0.5,'1'])
+    def test_nonbinary_truth_rejected(valid):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+work/sprint-evidence/b-review/test_independent_scoring.py:6: Failed
+_____________________ test_nonbinary_truth_rejected[True] ______________________
+
+valid = True
+
+    @pytest.mark.parametrize('valid',[2,-1,True,0.5,'1'])
+    def test_nonbinary_truth_rejected(valid):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+work/sprint-evidence/b-review/test_independent_scoring.py:6: Failed
+______________________ test_nonbinary_truth_rejected[0.5] ______________________
+
+valid = 0.5
+
+    @pytest.mark.parametrize('valid',[2,-1,True,0.5,'1'])
+    def test_nonbinary_truth_rejected(valid):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+work/sprint-evidence/b-review/test_independent_scoring.py:6: Failed
+_______________________ test_nonbinary_truth_rejected[1] _______________________
+
+valid = '1'
+
+    @pytest.mark.parametrize('valid',[2,-1,True,0.5,'1'])
+    def test_nonbinary_truth_rejected(valid):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+work/sprint-evidence/b-review/test_independent_scoring.py:6: Failed
+___________________ test_empty_denominator_rejected[delta1] ____________________
+
+delta = [[]]
+
+    @pytest.mark.parametrize('delta',[[],[[]]])
+    def test_empty_denominator_rejected(delta):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+work/sprint-evidence/b-review/test_independent_scoring.py:11: Failed
+=============================== warnings summary ===============================
+work/sprint-evidence/b-review/test_independent_scoring.py::test_empty_denominator_rejected[delta1]
+  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/next-transfer-numerical/src/mindscape/alpha_transfer/numerical_scoring.py:25: RuntimeWarning: Mean of empty slice.
+    squared=((estimate-actual)**2).mean(axis=1); changed=np.abs(actual).sum(axis=1)>0
+
+work/sprint-evidence/b-review/test_independent_scoring.py::test_empty_denominator_rejected[delta1]
+  /Users/akilan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/_methods.py:136: RuntimeWarning: invalid value encountered in divide
+    ret = um.true_divide(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED work/sprint-evidence/b-review/test_independent_scoring.py::test_nonbinary_truth_rejected[2]
+FAILED work/sprint-evidence/b-review/test_independent_scoring.py::test_nonbinary_truth_rejected[-1]
+FAILED work/sprint-evidence/b-review/test_independent_scoring.py::test_nonbinary_truth_rejected[True]
+FAILED work/sprint-evidence/b-review/test_independent_scoring.py::test_nonbinary_truth_rejected[0.5]
+FAILED work/sprint-evidence/b-review/test_independent_scoring.py::test_nonbinary_truth_rejected[1]
+FAILED work/sprint-evidence/b-review/test_independent_scoring.py::test_empty_denominator_rejected[delta1]
+6 failed, 4 passed, 2 warnings in 0.05s

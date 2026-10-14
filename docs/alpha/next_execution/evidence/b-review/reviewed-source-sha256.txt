@@ -1,0 +1,6 @@
+f33da50d0247d05bed6210d2d53d2caf6f4e09e7faddda427319054969b46437  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/next-transfer-numerical/src/mindscape/alpha_transfer/numerical.py
+1f6491d30e9ce719aab155b668c91bb6f24e6e9142c3762380c69baa7735c69e  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/next-transfer-numerical/src/mindscape/alpha_transfer/numerical_scoring.py
+7394b7a6d7799b368e30070135b326fe88d7d673153a044d809439aef2bf73d0  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/next-transfer-numerical/src/mindscape/alpha_transfer/numerical_authority.py
+e3d85cec8ab964618294f62782bb587a8a62e654de9f41e9eed2b73bfb09b6b4  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/next-transfer-numerical/src/mindscape/alpha_transfer/numerical_locks.py
+2cf97a429fe3e66838dc7142524889dadfb09edaff8319b9d5610d8d68671f79  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/next-transfer-numerical/src/mindscape/alpha_transfer/controller.py
+6d65fa9db6a2ed69aa81d204bfcfb4fd7ea0f020eb9acf1f19cc5596d6020524  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/next-transfer-numerical/src/mindscape/alpha_transfer/readiness.py

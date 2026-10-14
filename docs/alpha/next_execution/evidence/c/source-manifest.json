@@ -1,0 +1,39 @@
+{
+  "base": "d457428540b34a96e16c31fc4ffe3d13e8cba3fa",
+  "candidate": "690e989ea59bc48cc6c9b424f774c7ae8292018e",
+  "historical_tracked_preserved": 1204,
+  "changed_historical_files": [],
+  "git_changes": [
+    "A\tconfigs/alpha_ood/numerical-v2-runtime-policy-candidate.json",
+    "A\tconfigs/alpha_ood/numerical-v2-source-manifest-candidate.json",
+    "A\tdocs/alpha/next_execution/OOD_APPROVAL_AND_CUSTODY_GATES.md",
+    "A\tdocs/alpha/next_execution/OOD_NUMERICAL_FREEZE_CANDIDATE.md",
+    "A\tdocs/alpha/next_execution/OOD_TEST_LEDGER.md",
+    "A\tsrc/mindscape/alpha_ood/numerical_v2/__init__.py",
+    "A\tsrc/mindscape/alpha_ood/numerical_v2/adapter.py",
+    "A\tsrc/mindscape/alpha_ood/numerical_v2/boundary.py",
+    "A\tsrc/mindscape/alpha_ood/numerical_v2/campaign.py",
+    "A\tsrc/mindscape/alpha_ood/numerical_v2/custody.py",
+    "A\tsrc/mindscape/alpha_ood/numerical_v2/evaluation.py",
+    "A\ttests/alpha_ood/numerical_v2/test_numerical.py"
+  ],
+  "new_inventory": {
+    "configs/alpha_ood/numerical-v2-runtime-policy-candidate.json": "cfb4b2794530194f61729d799be60f7c019aa95262dc2625bbe57dced989938e",
+    "configs/alpha_ood/numerical-v2-source-manifest-candidate.json": "6d2cce8bfb4c411329fdffe3b961d682cdd2ac7af9cece789f10a313205afa18",
+    "docs/alpha/next_execution/OOD_APPROVAL_AND_CUSTODY_GATES.md": "332761a7062a22e50e978596fb56eef65b9480f197ed08001feb06683e11b170",
+    "docs/alpha/next_execution/OOD_NUMERICAL_FREEZE_CANDIDATE.md": "8374c7289724b179b870e4e4cf57944fab327e6b0531370926ff5ac00df83901",
+    "docs/alpha/next_execution/OOD_TEST_LEDGER.md": "83f55511cf666b9c4d9378abb07e00a0b24d042a10bb2e372577e829ad4f8fa7",
+    "src/mindscape/alpha_ood/numerical_v2/__init__.py": "61c4f1052680bfbf1568766714cfc999a129096236e8cabfd9234d79b427e0c6",
+    "src/mindscape/alpha_ood/numerical_v2/adapter.py": "c28b95dbc6e6897515eb880d8d16ca00b51542311c91cbbc70e333d5f6bfe439",
+    "src/mindscape/alpha_ood/numerical_v2/boundary.py": "de18a1d0a89eb29d1b1625f9ca798b6ad921972de127c92e1a5f01c005298224",
+    "src/mindscape/alpha_ood/numerical_v2/campaign.py": "aef81ac7cc7d1d5af5ad2fda1208db67bdbb5b464c2add0c792003d49613f498",
+    "src/mindscape/alpha_ood/numerical_v2/custody.py": "7cfa0d77c9d2c9b14dd1336a9e6edc057821e657f212d0de74be7cc04fd7d120",
+    "src/mindscape/alpha_ood/numerical_v2/evaluation.py": "87f90cdd674be41a0392af74ddc26455cdb69cabdcdc3a3064c1da91f5573dde",
+    "tests/alpha_ood/numerical_v2/test_numerical.py": "8ee2d0269db8f2bbaaf15da0f22b8e1ecd20c747778fdea1d1af0931926a6c2e"
+  },
+  "numerical_source_manifest_hash": "3ed8bb7fe15bbea8792f22b9dcec723b5215faef70dfebe5bfc519647e11e0d4",
+  "scientific_status": "UNRUN",
+  "optimizer_steps_executed": 0,
+  "protected_data_draws": 0,
+  "tests": "58 passed"
+}

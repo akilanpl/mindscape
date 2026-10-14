@@ -1,0 +1,27 @@
+# Next execution-readiness sprint — Research Alpha NO-GO
+
+Scientific learning, unseen-composition generalization and reusable cross-domain transfer remain **UNRUN**. Numerical preparation has advanced from callback scaffolds to reviewable real numerical candidates, but no protected scientific optimizer step, real dataset draw, neural OOD prediction or final evaluation has occurred. Research Alpha remains **NO-GO**.
+
+The live remote verification found the unchanged development integration baseline `6c558caa3c3a1a09ec15e286a408cbb6d5076b03`, PR18 `988657be83fc4582218a840150e5230f335ca930`, PR20 `950a17519f43fbc887e41f29ce2e24d4b6036ead`, PR19 `d457428540b34a96e16c31fc4ffe3d13e8cba3fa`, PR21 `03fc481192dca47410dd809de1303658c2f556cb` and PR22 `c7b6638d434b9a5a597e49f9217ee57905ca11a8`. Separate clean worktrees preserve each reviewed parent. New review PRs are stacked, preserving the unmerged dependency graph. Main, tags, old protocols/results, frontend and deployment remain unchanged.
+
+## Observed engineering status
+
+- **R5.4 Decision A package: REVIEW_READY / PENDING_HUMAN_DECISION.** The exact AST scientific suffix and explicit v2-to-generic readiness mapping were reviewed; original v1 ENGINEERING_NO_GO remains intact. The approval template is unissued, approved:false. Decision A is not inferred from this request.
+- **Native preflight: BLOCKED_HOST_UNAVAILABLE.** The supplied script executed once on a clean detached PR20 pin and exited1 at genuine MPS availability=false. Darwin/arm64, macOS27.0.1 and Torch2.14.1 are observed. Separate read-only readiness and 77 nontraining checks passed; these are not a native PASS. Original qualification is saved VERIFIED evidence, with 144 historical disposable steps and zero scientific updates. Original Python version/device/runHEAD were not recorded. Fresh native gradient checks, actual800-update duration and live AST numerical equivalence remain UNTESTED.
+- **OOD numerical candidate: PROPOSED_REQUIRES_REVIEW / DATA_UNQUALIFIED.** Real differentiable digit/carry/sign loss, masked teacher trace, native guarded800-step optimizer path, shared-input learned baseline initialization, full predicted-feedback trajectories, independent semantic/custody interfaces, seals/replay and gate evaluation are implemented. New numerical choices are versioned; no real labels, dataset or training results qualify them. Four nonprocedural prediction conditions must seal before procedural OOD reference release. Successful gate computation still requires a separately signed independent metric audit.
+- **Transfer numerical candidate: PROPOSED_REQUIRES_FREEZE_AND_REVIEW.** The unchanged6967-parameter shared V5 architecture has a real native adapter, matched schedules and target commitments, domain-only core/Adam isolation, raw parameter/gradient/Adam archives, final checkpoints, prediction custody, actual locked register/WASI/Pymunk executor integration and task-paired statistics. New loss/Adam/permutation/bootstrap choices remain proposals. No approved task draw or qualification screen occurred. Success could support only GO_TO_CONFIRMATION after independent audit.
+- **Research Alpha candidate: NO.** Engineering/source tests cannot satisfy the mandatory scientific gates; full native and independent custody/executor performance remain unmeasured.
+
+`FROZEN_SCOPE_CHECK.json` records every original workload, mandatory gate, protocol digest, preserved baseline inventory and committed candidate source SHA. It fails on reduced scope, mutated pinned files, wrong ancestry, dirty additions and symlink paths. Numerical source/runtime manifests are independently signed and checked at future protected boundaries; no production keys or live approval records are supplied.
+
+## Full workload preserved
+
+R5.4 remains six fits, seeds11/23/47, Markov/recurrent, exactly800 updates/fit (4800 total), batch32,192 independent OOD tasks/four48-task families and all original statistical/resource gates. OOD remains768 train/96 validation/216 OOD, six36-task families, six learned fits ×800 updates, batch32 and every memorization/transition-lookup/feedforward/recurrent/procedural comparison. Transfer remains nine fits/three conditions/three seeds,120 coding+60 mathematics+60 physics slots/fit,240 each/2160 total, batch16,1920 target presentations/fit and24/12/24 tasks per domain. No threshold, confidence interval, baseline, family, seed or checkpoint policy is relaxed.
+
+## Review and evidence limits
+
+Root independently reviewed/reproduced each submission. A independently challenged root scope tools and verified B's native evidence; B independently challenged transfer scoring. Review findings and corrected tests are retained, including the initial failing adversarial scorer results. Authors are not their sole reviewers. Future actual scientific evidence still needs a distinct uninvolved auditor.
+
+Hashes establish stored consistency. Ed25519 verifies possession of externally pinned purpose-specific keys, not human identity, trusted wall-clock custody or honesty of omitted events. No production signer/keys/authorization is provisioned. Neither raw state archives nor passing synthetic fixtures prove a protected experiment occurred. Native paths, external custody services and complete workloads remain unexecuted until separately authorized.
+
+Exact final source heads, log hashes, reviewer-specific test scopes and outstanding decisions are recorded in the sprint audit and exported source ledger. No scientific PASS or Alpha release is declared.

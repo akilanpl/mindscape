@@ -1,0 +1,35 @@
+/Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/next-transfer-numerical/src/mindscape/alpha_transfer/numerical_scoring.py:25: RuntimeWarning: Mean of empty slice.
+  squared=((estimate-actual)**2).mean(axis=1); changed=np.abs(actual).sum(axis=1)>0
+/Users/akilan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/_methods.py:136: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+[
+  {
+    "case": "nonbinary_valid",
+    "rejected": false,
+    "result": {
+      "changed": 0.0,
+      "unchanged": null,
+      "whole": 0.0,
+      "invalid": null,
+      "valid": 1,
+      "valid_class": 2
+    }
+  },
+  {
+    "case": "empty_graph",
+    "rejected": true,
+    "exception": "Invalid raw predictions"
+  },
+  {
+    "case": "zero_coordinates",
+    "rejected": false,
+    "result": {
+      "changed": null,
+      "unchanged": NaN,
+      "whole": NaN,
+      "invalid": null,
+      "valid": 1,
+      "valid_class": 1
+    }
+  }
+]
