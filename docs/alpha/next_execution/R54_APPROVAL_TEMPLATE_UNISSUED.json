@@ -1,0 +1,14 @@
+{
+  "approved": false,
+  "approved_by": null,
+  "decision_id": null,
+  "expires_at_utc": null,
+  "integration_lock_sha256": null,
+  "issued_at_utc": null,
+  "purpose": "R54_V2_GATE_ADOPTION",
+  "qualification_final_receipt_sha256": null,
+  "source_commit": null,
+  "statement": "I approve adoption of the reviewed R5.4 v2 gate integration.",
+  "v1_lock_sha256": null,
+  "v2_lock_sha256": null
+}
