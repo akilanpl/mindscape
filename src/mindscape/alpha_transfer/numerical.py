@@ -106,6 +106,12 @@ def snapshot(model,opt):
     return result
 
 
+def raw_state(model,opt):
+    return dict(parameters={n:p.detach().cpu().clone() for n,p in model.named_parameters()},
+                gradients={n:None if p.grad is None else p.grad.detach().cpu().clone() for n,p in model.named_parameters()},
+                adam={n:{k:v.detach().cpu().clone() for k,v in opt.state.get(p,{}).items()} for n,p in model.named_parameters()})
+
+
 class NativeCallbacks:
     """External authority/custodian must verify signatures, locks and stage scope.
 
@@ -157,36 +163,45 @@ class NativeCallbacks:
             if digest(row['target'])!=spec['training_target_sha256'].get(row['identity']): raise ValueError('Training target commitment')
         model,opt=context['model'],context['opt']
         opt.zero_grad(set_to_none=True)
-        before=snapshot(model,opt)
+        before=snapshot(model,opt); raw_before=raw_state(model,opt)
         inputs=tensors([r['graph'] for r in rows]); target,valid=target_tensors(labels,inputs[1].device)
         with route_core(model,condition,slot['domain']):
             effect,logits=model(*inputs)
             loss=balanced_loss(effect,logits,target,valid,inputs[4]); loss.backward()
-            gradients=snapshot(model,opt)
+            gradients=snapshot(model,opt); raw_gradients=raw_state(model,opt)
             opt.step()  # Reachable only after independent authorization and native MPS guard.
-        after=snapshot(model,opt)
+        after=snapshot(model,opt); raw_after=raw_state(model,opt)
         for g in before:
             enabled=(g=='core' and (condition!='domain_only' or slot['domain']=='coding')) or g.endswith('.'+slot['domain'])
             if any(after[g]['counters'][n]!=count+int(enabled) for n,count in before[g]['counters'].items()): raise ValueError('Adam actual counter differs')
         receipts={g:dict(gradient=gradients[g]['gradient'],parameters_changed=before[g]['parameters']!=after[g]['parameters'],optimizer_changed=before[g]['optimizer']!=after[g]['optimizer']) for g in before}
         validate_slot(receipts,condition,slot['domain'])
         context['next']+=1
-        self.pending_evidence[context['seed'],condition,slot['index']]=dict(before=before,after=after,gradients=gradients,loss=float(loss.detach()))
+        self.pending_evidence[context['seed'],condition,slot['index']]=dict(before=before,after=after,gradients=gradients,loss=float(loss.detach()),raw=dict(before=raw_before,backward=raw_gradients,after=raw_after))
         return receipts
 
     def persist_slot(self,seed,condition,slot,groups,output):
         # Custody must retain raw tensor hashes; receipt booleans are never science evidence.
         evidence=self.pending_evidence.pop((seed,condition,slot['index']))
-        self.custodian.persist_slot(seed,condition,slot,groups,evidence,output)
+        archive=Path(output)/f'{seed}-{condition}-{slot["index"]:03d}.tensors.pt'
+        with archive.open('xb') as stream:
+            torch.save(evidence.pop('raw'),stream); stream.flush(); os.fsync(stream.fileno())
+        evidence['raw_archive_sha256']=hashlib.sha256(archive.read_bytes()).hexdigest()
+        self.custodian.persist_slot(seed,condition,slot,groups,evidence,archive,output)
 
     def seal_final(self,context,seed,condition,update,spec,output):
         self._check(spec)
         if type(update) is not int or update!=240 or context['next']!=240: raise ValueError('Truncated fit')
+        final=snapshot(context['model'],context['opt'])
+        for g,record in final.items():
+            expected=120 if g=='core' and condition=='domain_only' else 240 if g=='core' else 120 if g.endswith('.coding') else 60
+            if any(v!=expected for v in record['counters'].values()): raise ValueError('Final Adam counters differ')
         path=Path(output)/f'{seed}-{condition}.pt'
         if path.exists(): raise ValueError('No overwrite/retry')
         with path.open('xb') as stream:
             torch.save(dict(model=context['model'].state_dict(),optimizer=context['opt'].state_dict(),update=240,spec=digest(spec),seed=seed,condition=condition,initial=context['initial'],schedule_sha256=digest(spec['schedules'][str(seed)]),bindings=spec['bindings']),stream)
             stream.flush(); os.fsync(stream.fileno())
+        if self.authority.verify_stage('prediction',spec,[]) is not True: raise ValueError('Separate prediction authorization missing')
         public=self.provider.composition_public()
         if len(public)!=72 or any(set(r)!={'identity','domain','graph'} for r in public): raise ValueError('Composition public contract')
         expected={i for i,r in self.registry.items() if r['split']=='composition'}

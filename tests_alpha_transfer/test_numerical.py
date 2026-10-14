@@ -51,3 +51,21 @@ class NumericalTests(unittest.TestCase):
             model=GraphTransition(11); opt=torch.optim.Adam(model.parameters()); p=next(model.parameters())
             opt.state[p]=dict(step=step,exp_avg=torch.zeros_like(p),exp_avg_sq=torch.full_like(p,variance))
             with self.assertRaises(ValueError): snapshot(model,opt)
+    def test_external_signatures_purpose_content_and_key(self):
+        # Ephemeral TEST key only; no scientific authorizations persisted.
+        import base64,json
+        from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
+        from cryptography.hazmat.primitives.serialization import Encoding,PublicFormat
+        from mindscape.alpha_transfer.numerical_authority import verify_signed
+        key=Ed25519PrivateKey.generate(); public=key.public_key().public_bytes(Encoding.Raw,PublicFormat.Raw)
+        payload=dict(purpose='TEST_ONLY',binding={'synthetic':'fixture'},signer='TEST',decision_id='TEST',sequence=1,decision='AUTHORIZE')
+        receipt=dict(payload=payload,signature=base64.b64encode(key.sign(json.dumps(payload,sort_keys=True,separators=(',',':')).encode())).decode())
+        verify_signed(receipt,'TEST_ONLY',payload['binding'],{('TEST_ONLY','TEST'):public})
+        for purpose,binding,keys in [('training',payload['binding'],{}),('TEST_ONLY',{'synthetic':'changed'},{('TEST_ONLY','TEST'):public}),('TEST_ONLY',payload['binding'],{})]:
+            with self.assertRaises(ValueError): verify_signed(receipt,purpose,binding,keys)
+    def test_raw_clone_cannot_follow_mutation(self):
+        from mindscape.alpha_transfer.numerical import raw_state
+        model=GraphTransition(11); opt=torch.optim.Adam(model.parameters()); raw=raw_state(model,opt)
+        name,p=next(iter(model.named_parameters())); before=raw['parameters'][name].clone()
+        with torch.no_grad(): p.add_(1)
+        self.assertTrue(torch.equal(before,raw['parameters'][name]))

@@ -1,6 +1,6 @@
 """Proposed task-paired scorer and real executors; never called on this sprint data."""
 import numpy as np
-from .readiness import DOMAINS, SEEDS, CONDITIONS
+from .readiness import DOMAINS, SEEDS, CONDITIONS, validate_manifest
 from mindscape.v5.execute import execute
 
 
@@ -18,9 +18,10 @@ def independent_outcomes(tasks, runtime_lock, executor=None):
 
 
 def task_metrics(prediction,target):
+    if type(target['valid']) is not int or target['valid'] not in (0,1): raise ValueError('Binary executed validity')
     actual=np.asarray(target['delta'],dtype=float); estimate=np.asarray(prediction['delta'],dtype=float)
     probability=prediction['valid_probability']
-    if actual.shape!=estimate.shape or actual.ndim!=2 or not np.isfinite(actual).all() or not np.isfinite(estimate).all() or type(probability) not in (int,float) or not np.isfinite(probability) or not 0<=probability<=1:
+    if actual.shape!=estimate.shape or actual.ndim!=2 or 0 in actual.shape or not np.isfinite(actual).all() or not np.isfinite(estimate).all() or type(probability) not in (int,float) or not np.isfinite(probability) or not 0<=probability<=1:
         raise ValueError('Invalid raw predictions')
     squared=((estimate-actual)**2).mean(axis=1); changed=np.abs(actual).sum(axis=1)>0
     return dict(changed=float(squared[changed].mean()) if changed.any() else None,
@@ -31,6 +32,7 @@ def task_metrics(prediction,target):
 
 def score_campaign(predictions,truth,manifest,replicates=10000):
     """Candidate: task macro MSE; paired task bootstrap, seeds never count as tasks."""
+    validate_manifest(manifest)
     if replicates!=10000: raise ValueError('Bootstrap freeze differs')
     expected={(s,c) for s in SEEDS for c in CONDITIONS}
     if set(predictions)!=expected: raise ValueError('Nine raw predictions required')
@@ -40,6 +42,10 @@ def score_campaign(predictions,truth,manifest,replicates=10000):
     metrics={}
     for fit,rows in predictions.items():
         if len(rows)!=72 or len({r['identity'] for r in rows})!=72 or {r['identity'] for r in rows}!=all_ids: raise ValueError('Missing prediction identity')
+        from mindscape.v5.schema import OUTPUTS
+        for row in rows:
+            domain=next(d for d in DOMAINS if row['identity'] in ids[d])
+            if row.get('domain')!=domain or any(len(a)!=OUTPUTS[domain] for a in row['delta']): raise ValueError('Prediction domain/output binding')
         metrics[fit]={r['identity']:task_metrics(r,truth[r['identity']]) for r in rows}
     gates={}; gains={}; intervals={}; regressions={}
     def values(seed,condition,domain,key):
@@ -75,4 +81,4 @@ def score_campaign(predictions,truth,manifest,replicates=10000):
             classes=[[r['valid'] for r in selected if r['valid_class']==label] for label in (0,1)]
             if not all(classes): raise ValueError('Both validity classes required')
             gates[f'validity_{seed}_{domain}']=np.mean([np.mean(c) for c in classes])>=.90
-    return dict(status='GO_TO_CONFIRMATION' if all(gates.values()) else 'NO_GO',gates={k:bool(v) for k,v in gates.items()},gains=gains,bootstrap_lower=intervals,regressions=regressions,metrics={f'{s}-{c}':v for (s,c),v in metrics.items()})
+    return dict(status='GATES_PASS_PENDING_INDEPENDENT_AUDIT' if all(gates.values()) else 'NO_GO',gates={k:bool(v) for k,v in gates.items()},gains=gains,bootstrap_lower=intervals,regressions=regressions,metrics={f'{s}-{c}':v for (s,c),v in metrics.items()})
