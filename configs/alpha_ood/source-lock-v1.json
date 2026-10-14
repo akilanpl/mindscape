@@ -1,0 +1,20 @@
+{
+  "baseline": "6c558caa3c3a1a09ec15e286a408cbb6d5076b03",
+  "files": {
+    "configs/alpha_ood/protocol-v1.json": "70deef2ae0c667378a541d1948780fe3e78c06f421097518feebf2576fe0ea69",
+    "docs/alpha/ood-generalization-verdict.md": "b5104c88e6206e924003e1e665854d8c79ff1a2cc4cb8564032697885ce93aa1",
+    "src/mindscape/alpha_ood/__init__.py": "f486f8429346dcba8b991c72f11b1521d38e16e21f042e1ba1f95e39254243f9",
+    "src/mindscape/alpha_ood/benchmark.py": "5a66700db109c92589307a1bd0bf874728d786b744ed15a6cf49e9a53bcc85bb",
+    "src/mindscape/alpha_ood/models.py": "94801949b35ab0e108f03da5e3e9f4b1fc91b8adca1072fd5db0a13571911045",
+    "src/mindscape/alpha_ood/preparation.py": "41ad8b35d5381bb3c252174ccb127201fbc47344b63080ae8465b552e875e0dc",
+    "src/mindscape/alpha_ood/scoring.py": "53260ef3fd03260f6b8f2cebd08f2fa96bd1323ce3f72c83fe08a91cb50e12fc",
+    "src/mindscape/alpha_ood/workflow.py": "b6bdc4d8934de9eabc19a2b2ff0c464b9976936083e93565e146ca7da0df604d",
+    "src/mindscape/r5_2_math/arithmetic.py": "986402ddd364bc242de9e08b8fc9bb55d6aaa89a87b7aba28329781adc406c74",
+    "src/mindscape/r5_2_math/model.py": "7ad58a78338413f917b45605bb6dea0fafe7040d10b1b0b4baa12998ac65ecb3",
+    "src/mindscape/v3/physics_world/accelerator.py": "718e85fcf609741baff8074c355966e7f7bfb802ada1f62b27c2fde7f5a6578e",
+    "tests/alpha_ood/test_benchmark.py": "49e558ab0a811a59f0884a1c28a57ab79e8e34c3f740540dc397ca534eea5581",
+    "tests/alpha_ood/test_models.py": "22fcf591fbc404970dbf7a6bbe324ddd3d64ec61ddb833feb686969b32238d07",
+    "tests/alpha_ood/test_workflow.py": "892cae64b3f7b9f51dedf7a1d9fd41d0ed78494576b2a551b3317a8d98bb4678"
+  },
+  "status": "FROZEN_PROPOSAL_UNADOPTED"
+}

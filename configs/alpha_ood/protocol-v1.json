@@ -1,0 +1,17 @@
+{
+  "version": "alpha-ood-v1",
+  "status": "FROZEN_PROPOSAL_UNADOPTED",
+  "generation_seed": 520054,
+  "counts": {"train": 768, "validation": 96, "ood_per_family": 36},
+  "families": ["operand_combinations", "long_sequences", "carry_chains", "borrow_chains", "operation_compositions", "transition_combinations"],
+  "conditions": ["recurrent", "feedforward", "memorization", "transition_lookup", "procedural"],
+  "fit_seeds": [11, 23, 47],
+  "learned_fits": 6,
+  "updates_per_fit": 800,
+  "batch_size": 32,
+  "optimizer": {"name": "Adam", "learning_rate": 0.003},
+  "checkpoint": "final_only",
+  "bootstrap": {"unit": "task_after_mean_over_matched_seeds", "draws": 10000, "seed": 540052, "interval": "percentile_95"},
+  "gates": {"mean_overall_exact_min": 0.80, "each_family_mean_exact_min": 0.70, "intermediate_accuracy_min": 0.90, "gain_over_each_nonprocedural_baseline_min": 0.10, "each_seed_feedforward_gain_strictly_positive": true, "paired_task_bootstrap_lower_strictly_positive": true},
+  "required_before_execution": ["human_protocol_adoption", "human_separate_training_authorization", "independent_source_lock_review", "historical_identity_registry", "custodian_context_eligibility_certificate", "frozen_learned_model_adapter_and_initialization_receipts", "dataset_input_and_label_commitments", "independent_prediction_seal_before_label_release"]
+}
