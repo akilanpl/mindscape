@@ -8,6 +8,7 @@ import io
 import json
 from pathlib import Path
 import random
+import os
 
 import torch
 from torch.nn import functional as F
@@ -64,7 +65,7 @@ def target_tensors(rows, device):
 def balanced_loss(effect, logits, target, valid, active):
     if effect.shape != target.shape or active.shape != effect.shape[:2] or logits.shape != valid.shape:
         raise ValueError('Loss dimensions')
-    if any(not torch.isfinite(t).all() for t in (effect,logits,target,valid,active)):
+    if any(not torch.isfinite(t).all() for t in (effect,logits,target,valid,active)) or not ((valid==0)|(valid==1)).all() or not ((active==0)|(active==1)).all():
         raise ValueError('Nonfinite loss input')
     error=(effect-target).square().mean(-1)
     changed=target.abs().sum(-1)>0
@@ -95,13 +96,13 @@ def snapshot(model,opt):
             if state and set(state)!={'step','exp_avg','exp_avg_sq'}: raise ValueError('Unexpected Adam state')
             for key,value in state.items():
                 if not isinstance(value,torch.Tensor) or not torch.isfinite(value).all(): raise ValueError('Corrupt Adam state')
-                if key=='step' and (value.numel()!=1 or float(value)!=int(float(value)) or float(value)<0): raise ValueError('Invalid Adam step')
-                if key!='step' and value.shape!=p.shape: raise ValueError('Adam shape')
+                if key=='step' and (value.shape!=torch.Size([]) or value.dtype!=torch.float32 or float(value)!=int(float(value)) or float(value)<0): raise ValueError('Invalid Adam step')
+                if key!='step' and (value.shape!=p.shape or value.dtype!=p.dtype or (key=='exp_avg_sq' and (value<0).any())): raise ValueError('Adam shape/dtype/nonnegative variance')
                 states[name+'.'+key]=value
         grads=[p.grad for _,p in params]
         if any(g is not None and not torch.isfinite(g).all() for g in grads): raise ValueError('Nonfinite gradient')
         result[group]=dict(parameters=tensor_hash(dict(params)), optimizer=tensor_hash(states),
-                           gradient=None if all(g is None for g in grads) else float(sum(g.square().sum() for g in grads if g is not None).sqrt()))
+                           gradient=None if all(g is None for g in grads) else float(sum(g.square().sum() for g in grads if g is not None).sqrt()), counters={name:int(float(opt.state[p]['step'])) if opt.state.get(p) else 0 for name,p in params})
     return result
 
 
@@ -119,6 +120,8 @@ class NativeCallbacks:
     def verify_bindings(self,spec,manifest):
         if spec.get('candidate_sha256')!=digest(CANDIDATE) or spec.get('permutation')!=permutation(manifest) or spec.get('schedules')!=schedules(manifest): return False
         if self.authority.verify(spec,manifest,CANDIDATE) is not True: return False
+        targets=spec.get('training_target_sha256',{})
+        if set(targets)!={r['identity'] for r in manifest if r['split']=='train'} or any(not isinstance(v,str) or len(v)!=64 or any(c not in '0123456789abcdef' for c in v) for v in targets.values()): return False
         if self.custodian.verify_source_runtime_locks(spec) is not True: return False
         self.registry={r['identity']:r for r in manifest}
         self.verified=digest(spec)
@@ -131,10 +134,12 @@ class NativeCallbacks:
         self._check(spec)
         from mindscape.v3.physics_world.accelerator import require_mps
         require_mps()
-        with torch.device('mps'): model=GraphTransition(seed)
+        with torch.random.fork_rng(devices=[]): model=GraphTransition(seed)
+        model=model.to('mps')
         if sum(p.numel() for p in model.parameters())!=6967: raise ValueError('Architecture changed')
         opt=torch.optim.Adam(model.parameters(),lr=.001,betas=(.9,.999),eps=1e-8,weight_decay=0.,amsgrad=False,foreach=False)
-        return dict(model=model,opt=opt,next=0,seed=seed,condition=condition),tensor_hash(model.state_dict())
+        initial=tensor_hash(model.state_dict())
+        return dict(model=model,opt=opt,next=0,seed=seed,condition=condition,initial=initial),initial
 
     def step(self,context,condition,slot,spec):
         self._check(spec)
@@ -147,7 +152,9 @@ class NativeCallbacks:
         labels=rows
         if condition=='randomized_auxiliary' and slot['domain']!='coding':
             labels=self.provider.training_rows([spec['permutation'][i] for i in slot['batch_ids']])
-            if len(labels)!=16 or any(r['domain']!=slot['domain'] or r['split']!='train' for r in labels): raise ValueError('Permutation escaped auxiliary training')
+            if len(labels)!=16 or [r['identity'] for r in labels]!=[spec['permutation'][i] for i in slot['batch_ids']] or any(r['domain']!=slot['domain'] or r['split']!='train' for r in labels): raise ValueError('Permutation escaped auxiliary training')
+        for row in labels:
+            if digest(row['target'])!=spec['training_target_sha256'].get(row['identity']): raise ValueError('Training target commitment')
         model,opt=context['model'],context['opt']
         opt.zero_grad(set_to_none=True)
         before=snapshot(model,opt)
@@ -158,6 +165,9 @@ class NativeCallbacks:
             gradients=snapshot(model,opt)
             opt.step()  # Reachable only after independent authorization and native MPS guard.
         after=snapshot(model,opt)
+        for g in before:
+            enabled=(g=='core' and (condition!='domain_only' or slot['domain']=='coding')) or g.endswith('.'+slot['domain'])
+            if any(after[g]['counters'][n]!=count+int(enabled) for n,count in before[g]['counters'].items()): raise ValueError('Adam actual counter differs')
         receipts={g:dict(gradient=gradients[g]['gradient'],parameters_changed=before[g]['parameters']!=after[g]['parameters'],optimizer_changed=before[g]['optimizer']!=after[g]['optimizer']) for g in before}
         validate_slot(receipts,condition,slot['domain'])
         context['next']+=1
@@ -174,7 +184,9 @@ class NativeCallbacks:
         if type(update) is not int or update!=240 or context['next']!=240: raise ValueError('Truncated fit')
         path=Path(output)/f'{seed}-{condition}.pt'
         if path.exists(): raise ValueError('No overwrite/retry')
-        torch.save(dict(model=context['model'].state_dict(),optimizer=context['opt'].state_dict(),update=240,spec=digest(spec)),path)
+        with path.open('xb') as stream:
+            torch.save(dict(model=context['model'].state_dict(),optimizer=context['opt'].state_dict(),update=240,spec=digest(spec),seed=seed,condition=condition,initial=context['initial'],schedule_sha256=digest(spec['schedules'][str(seed)]),bindings=spec['bindings']),stream)
+            stream.flush(); os.fsync(stream.fileno())
         public=self.provider.composition_public()
         if len(public)!=72 or any(set(r)!={'identity','domain','graph'} for r in public): raise ValueError('Composition public contract')
         expected={i for i,r in self.registry.items() if r['split']=='composition'}
@@ -188,7 +200,8 @@ class NativeCallbacks:
                 effect,valid=context['model'](*tensors([row['graph']]))
                 predictions.append(dict(identity=row['identity'],domain=row['domain'],delta=effect[0,:len(row['graph']['entities'])].cpu().tolist(),valid_probability=float(valid.sigmoid()[0])))
         prediction_path=path.with_suffix('.predictions.json')
-        prediction_path.write_text(json.dumps(predictions,allow_nan=False))
+        with prediction_path.open('x') as stream:
+            stream.write(json.dumps(predictions,allow_nan=False)); stream.flush(); os.fsync(stream.fileno())
         return self.custodian.seal(seed,condition,update,path,prediction_path,spec)
 
     def verify_all_seals(self,seals,spec):
@@ -196,5 +209,7 @@ class NativeCallbacks:
         return self.custodian.verify_nine_signed_seals(seals,spec)
 
     def independent_evaluate(self,seals,spec,manifest,output):
+        self._check(spec)
+        if self.authority.verify_stage('final_evaluation',spec,seals) is not True: raise ValueError('Separate final evaluation authorization missing')
         if self.verify_all_seals(seals,spec) is not True: raise ValueError('Custody missing')
         return self.custodian.evaluate_with_locked_v5_executors(seals,spec,manifest,output)

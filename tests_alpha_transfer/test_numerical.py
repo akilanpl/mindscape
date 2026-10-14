@@ -43,3 +43,11 @@ class NumericalTests(unittest.TestCase):
     def test_source_retains_native_guard(self):
         import inspect
         self.assertIn('require_mps()',inspect.getsource(NativeCallbacks.initialize))
+    def test_loss_rejects_fractional_active_or_label(self):
+        for active,valid in [(torch.tensor([[.5]]),torch.ones(1)),(torch.ones(1,1),torch.tensor([.5]))]:
+            with self.assertRaises(ValueError): balanced_loss(torch.ones(1,1,1),torch.zeros(1),torch.zeros(1,1,1),valid,active)
+    def test_adam_rejects_boolean_step_negative_variance(self):
+        for step,variance in [(torch.tensor(True),0.),(torch.tensor(1.),-1.)]:
+            model=GraphTransition(11); opt=torch.optim.Adam(model.parameters()); p=next(model.parameters())
+            opt.state[p]=dict(step=step,exp_avg=torch.zeros_like(p),exp_avg_sq=torch.full_like(p,variance))
+            with self.assertRaises(ValueError): snapshot(model,opt)
