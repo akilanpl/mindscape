@@ -5,7 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import time
-from .curriculum import BUDGETS, SEEDS, digest, prepare_data
+from .curriculum import BUDGETS, SEEDS, digest, prepare_data, exposure_summary
 
 STATUS = 'EXPERIMENTAL — GENERALIZATION NOT YET DEMONSTRATED'
 
@@ -14,7 +14,11 @@ def source_locks(root):
     root = Path(root).resolve()
     return {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in sorted([*(root / 'src/mindscape/r56').rglob('*.py'),
-                             *(root / 'src/mindscape/mind1').rglob('*.py')])}
+                             *(root / 'src/mindscape/mind1').rglob('*.py'),
+                             *(root / 'tests_native').rglob('*.py'),
+                             *(root / 'configs/r56_native').rglob('*.json'),
+                             *(root / 'scripts/native').rglob('*.py'),
+                             *(root / 'scripts').glob('*native*.py')])}
 
 
 def freeze(root, directory):
@@ -23,7 +27,11 @@ def freeze(root, directory):
     from .benchmarks import matched_baseline_plan
     datasets = {str(seed): prepare_data(seed) for seed in SEEDS}
     manifest = {'version': 'r56-native-preparation-v1', 'source_locks': source_locks(root),
-        'data_hash': digest(datasets), 'seeds': list(SEEDS), 'budgets': list(BUDGETS),
+        'data_hash': digest(datasets),
+        'exposure_summary': {seed: {str(budget): exposure_summary(data['train'][:budget])
+            for budget in BUDGETS} for seed, data in datasets.items()},
+        'success_threshold_status': 'CANDIDATE_REQUIRES_INDEPENDENT_REVIEW',
+        'seeds': list(SEEDS), 'budgets': list(BUDGETS),
         'optimizer': 'Adam', 'learning_rate': .001, 'optimizer_steps': 2000,
         'batch_size': 1, 'model': 'R56Model', 'device': 'cpu',
         'controls': ['exact-rule', 'memorization', 'matched-mlp', 'matched-rnn', 'matched-gru',
@@ -101,8 +109,10 @@ def save_checkpoint(model, path, metadata):
                for name, value in model.state_dict().items()}
     payload = {'format': 'r56-json-tensors-v1', 'metadata': metadata,
                'tensors': tensors, 'scientifically_qualified': False}
-    Path(path).write_text(json.dumps(payload, allow_nan=False, sort_keys=True))
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    encoded = json.dumps(payload, allow_nan=False, sort_keys=True).encode()
+    with Path(path).open('xb') as stream:
+        stream.write(encoded)
+    return hashlib.sha256(encoded).hexdigest()
 
 
 def load_checkpoint(model, path, expected_hash):
@@ -134,6 +144,8 @@ def load_checkpoint(model, path, expected_hash):
 
 
 def train(root, package, authorization, qualification, trusted_keys, output, seed=17, budget=32, control='graph-concept-on'):
+    if Path(output).exists() or Path(str(output) + '.failure.json').exists():
+        raise FileExistsError('Refuse to overwrite checkpoint or failure evidence')
     package = Path(package)
     manifest = json.loads((package / 'manifest.json').read_text())
     datasets = json.loads((package / 'datasets.json').read_text())
@@ -196,8 +208,9 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
             'device': 'cpu', 'torch_version': torch.__version__, 'status': STATUS, 'qualification': 'TRAINED_NOT_INDEPENDENTLY_EVALUATED'}
         return {'checkpoint_sha256': save_checkpoint(model, output, metadata), 'metadata': metadata}
     except Exception as exc:
-        Path(str(output) + '.failure.json').write_text(json.dumps({'freeze_hash': freeze_hash,
-            'completed_steps': len(losses), 'error_type': type(exc).__name__, 'status': 'FAILED'}))
+        with Path(str(output) + '.failure.json').open('x') as stream:
+            stream.write(json.dumps({'freeze_hash': freeze_hash,
+                'completed_steps': len(losses), 'error_type': type(exc).__name__, 'status': 'FAILED'}))
         raise
 
 

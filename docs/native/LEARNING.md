@@ -135,3 +135,22 @@ those studies are not implemented or implied by the IID curriculum.
 Current additional evidence: ten tests pass, including matched constructor counts,
 observed action/domain/concept sensitivity, stateless deterministic replay and
 RNN/GRU hidden-state effects. No optimizer was constructed or stepped in these tests.
+
+## Exposure and evidence integrity
+
+Budgets32/128/512 are **sample exposures**, not promises of that many distinct
+problems. The finite digit-state space causes within-split repeats. Freeze now
+records per-seed/per-budget actual domain exposures, distinct problem identities
+and repeated exposures. All candidate controls receive the identical ordered
+prefix and repeated training cycle; optimizer steps do not create new examples.
+This limitation must accompany any data-efficiency claim.
+
+Source locks additionally cover tests_native evaluation/qualification tests,
+configs/r56_native JSON and scripts/native Python evaluators (plus native-named
+scripts). Altering any of these invalidates signed qualification. Freeze marks
+success thresholds as candidates requiring independent review. Training refuses
+existing checkpoint or failure destinations; tensor checkpoints and failure
+records use exclusive creation to preserve previous evidence.
+
+Current evidence: twelve nontraining tests pass, including repeated-exposure
+reporting and rejection of checkpoint/failure overwrites.

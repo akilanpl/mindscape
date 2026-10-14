@@ -189,3 +189,27 @@ def test_matched_capacity_baselines_observed_features_and_memory():
             recurrent = model(graph, memory=result['memory'].detach(), stateless=False)
             assert not torch.equal(result['physics_delta'], recurrent['physics_delta'])
         assert torch.equal(result['physics_delta'], model(graph, memory=result['memory'], stateless=True)['physics_delta'])
+
+
+def test_exposure_summary_reports_repeats_and_frozen_counts():
+    from mindscape.r56.curriculum import exposure_summary
+    rows = generate('train', 512)
+    summary = exposure_summary(rows)
+    assert summary['total_exposures'] == 512
+    assert summary['domains']['math']['distinct_problems'] < summary['domains']['math']['exposures']
+    assert summary['domains']['coding']['distinct_problems'] == summary['domains']['coding']['exposures']
+    assert sum(v['exposures'] for v in summary['domains'].values()) == 512
+
+
+def test_train_refuses_existing_checkpoint_or_failure(tmp_path):
+    output = tmp_path / 'weights.json'
+    output.write_text('preserve')
+    with pytest.raises(FileExistsError):
+        train(tmp_path, tmp_path, {}, {}, {}, output)
+    assert output.read_text() == 'preserve'
+    output.unlink()
+    failure = tmp_path / 'weights.json.failure.json'
+    failure.write_text('preserve failure')
+    with pytest.raises(FileExistsError):
+        train(tmp_path, tmp_path, {}, {}, {}, output)
+    assert failure.read_text() == 'preserve failure'
