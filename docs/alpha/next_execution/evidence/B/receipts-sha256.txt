@@ -1,0 +1,16 @@
+62d9f6ef1a9743cf74989ef636aee783cd413fccd76e6235a3ca5df35986bf0e  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/R54_NATIVE_PREFLIGHT.md
+4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/approved-script.exit
+8ecee74d433452b27b1bfd55e660ceba67e293b47131c4d1da1ed0c66fb00126  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/approved-script.log
+a5005a122eb4314fcee62a2d68db440b65257abb4e03e48ff1a5c022f7605195  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/archive-inspection.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/final-git-status.txt
+9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/nontraining-tests.exit
+d16d7231f4492a0b584f2d79e989c021bf352977d5689deaa321d62f735b9e46  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/nontraining-tests.log
+88351988ac11e53c3125fbc812d345a11c4e2dccee3831e699fddec5f27e810c  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/python-identity.json
+9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/readiness.exit
+558a730f8a359de2b9e9b17e8446f95fad083ea137b59234c2520971a1ff23a7  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/readiness.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/readiness.stderr
+296bc699c99e190fdd25aa624705e0dbff4c16e0b015895a85d700c0043d197c  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/B/source-evidence-sha256.txt
+aae57edf9b3422883ee700ba01acc800b407a9689467c524c1fb3183fe18d083  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/native/EXECUTION_SCOPE.txt
+26ebf3946e4a3bf7db9702ae417bb1bb099d3be8386061f17f79e3296d97b4be  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/native/commit.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/native/initial-git-status.txt
+5eea022081e36b8a4bd31ad9dbe59bc9390c7f2e989d809a8aae7eebe104fc67  /Users/akilan/Documents/Codex/2026-10-14/files-pasted-by-the-user-mindscape/work/sprint-evidence/native/native-runtime.json

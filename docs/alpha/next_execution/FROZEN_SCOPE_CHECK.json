@@ -1,0 +1,178 @@
+{
+  "ood": {
+    "baseline_files_verified": 1204,
+    "baseline_inventory_sha256": "5db4f4073671d124d4406003a46c9237cb5884869286296c8ef97823cadf7696",
+    "candidate_file_sha256": {
+      "configs/alpha_ood/numerical-v2-runtime-policy-candidate.json": "cfb4b2794530194f61729d799be60f7c019aa95262dc2625bbe57dced989938e",
+      "configs/alpha_ood/numerical-v2-source-manifest-candidate.json": "6d2cce8bfb4c411329fdffe3b961d682cdd2ac7af9cece789f10a313205afa18",
+      "docs/alpha/next_execution/OOD_APPROVAL_AND_CUSTODY_GATES.md": "332761a7062a22e50e978596fb56eef65b9480f197ed08001feb06683e11b170",
+      "docs/alpha/next_execution/OOD_NUMERICAL_FREEZE_CANDIDATE.md": "8374c7289724b179b870e4e4cf57944fab327e6b0531370926ff5ac00df83901",
+      "docs/alpha/next_execution/OOD_TEST_LEDGER.md": "83f55511cf666b9c4d9378abb07e00a0b24d042a10bb2e372577e829ad4f8fa7",
+      "src/mindscape/alpha_ood/numerical_v2/__init__.py": "61c4f1052680bfbf1568766714cfc999a129096236e8cabfd9234d79b427e0c6",
+      "src/mindscape/alpha_ood/numerical_v2/adapter.py": "c28b95dbc6e6897515eb880d8d16ca00b51542311c91cbbc70e333d5f6bfe439",
+      "src/mindscape/alpha_ood/numerical_v2/boundary.py": "de18a1d0a89eb29d1b1625f9ca798b6ad921972de127c92e1a5f01c005298224",
+      "src/mindscape/alpha_ood/numerical_v2/campaign.py": "aef81ac7cc7d1d5af5ad2fda1208db67bdbb5b464c2add0c792003d49613f498",
+      "src/mindscape/alpha_ood/numerical_v2/custody.py": "7cfa0d77c9d2c9b14dd1336a9e6edc057821e657f212d0de74be7cc04fd7d120",
+      "src/mindscape/alpha_ood/numerical_v2/evaluation.py": "87f90cdd674be41a0392af74ddc26455cdb69cabdcdc3a3064c1da91f5573dde",
+      "tests/alpha_ood/numerical_v2/test_numerical.py": "8ee2d0269db8f2bbaaf15da0f22b8e1ecd20c747778fdea1d1af0931926a6c2e"
+    },
+    "head": "690e989ea59bc48cc6c9b424f774c7ae8292018e",
+    "limitation": "Stored-byte/scope consistency only; not approval, execution or scientific success.",
+    "mandatory_gates": {
+      "each_family_mean_exact_min": 0.7,
+      "each_seed_feedforward_gain_strictly_positive": true,
+      "gain_over_each_nonprocedural_baseline_min": 0.1,
+      "intermediate_accuracy_min": 0.9,
+      "mean_overall_exact_min": 0.8,
+      "paired_task_bootstrap_lower_strictly_positive": true
+    },
+    "protocol_sha256": "70deef2ae0c667378a541d1948780fe3e78c06f421097518feebf2576fe0ea69",
+    "review_pin": "d457428540b34a96e16c31fc4ffe3d13e8cba3fa",
+    "scientific_status": "UNRUN",
+    "scope_status": "VERIFIED_UNCHANGED_FULL_WORKLOAD",
+    "source_lock_checks": [],
+    "workload": {
+      "batch_size": 32,
+      "conditions": [
+        "recurrent",
+        "feedforward",
+        "memorization",
+        "transition_lookup",
+        "procedural"
+      ],
+      "family_counts": {
+        "borrow_chains": 36,
+        "carry_chains": 36,
+        "long_sequences": 36,
+        "operand_combinations": 36,
+        "operation_compositions": 36,
+        "transition_combinations": 36
+      },
+      "fits": 6,
+      "ood": 216,
+      "seeds": [
+        11,
+        23,
+        47
+      ],
+      "total_updates": 4800,
+      "train": 768,
+      "updates_per_fit": 800,
+      "validation": 96
+    }
+  },
+  "r54": {
+    "baseline_files_verified": 1267,
+    "baseline_inventory_sha256": "0593faddae69d7ca3abba2e39354df18b15cf2887d5c0354c40d01b114ba6a49",
+    "candidate_file_sha256": {
+      "docs/alpha/next_execution/R54_APPROVAL_TEMPLATE_UNISSUED.json": "dd0dac086e12e820b6a0b9610127d98c4f96abad973a7e3bb76d9b791b4e25b2",
+      "docs/alpha/next_execution/R54_GATE_DECISION_A_REVIEW.md": "b628b95960bd0f1bcbc56718a1a9b401cbeada44d2f04ba498471c0ddb233b32"
+    },
+    "head": "7d022a53154e06ac8e7eca2e605d986a8218390e",
+    "limitation": "Stored-byte/scope consistency only; not approval, execution or scientific success.",
+    "mandatory_gates": {
+      "each_known_family_exact_min": 0.95,
+      "held_context_probe_accuracy_min": 0.9,
+      "long_carry_exact_min": 0.95,
+      "ood_exact_min": 0.95,
+      "ood_gain_over_memory_min": 0.15,
+      "ood_wilson95_lower_min": 0.9,
+      "paired_p_max": 0.004166666666666667,
+      "unseen_gain_over_memory_min": 0.75,
+      "unseen_short_exact_min": 0.9,
+      "unseen_short_wilson95_lower_min": 0.78
+    },
+    "protocol_sha256": "8d94b1b6f495c5e4c2f4c57f31f8504ea2835d530a58779230cbc2b098090891",
+    "review_pin": "950a17519f43fbc887e41f29ce2e24d4b6036ead",
+    "scientific_status": "UNRUN",
+    "scope_status": "VERIFIED_UNCHANGED_FULL_WORKLOAD",
+    "source_lock_checks": [
+      {
+        "members": 19,
+        "path": "experiments/r5_4/frozen/LOCK.json",
+        "sha256": "a771f8ae619fa080b09f49c52ebbad6f8eb2dbb37f6b4b6748fbd86700f6a30a"
+      },
+      {
+        "members": 18,
+        "path": "engineering/r5_4_v2/LOCK.json",
+        "sha256": "ca6f9bf67ecf9fea9d3b0c8075cf3c0c0c4001f1a9049fef1cff28e5f7c585e5"
+      },
+      {
+        "members": 17,
+        "path": "integration/r5_4_gate_v2/LOCK.json",
+        "sha256": "35be4554909e822458f818be5dec845c10c2cf2062582151d9dc73e244fe03c7"
+      }
+    ],
+    "workload": {
+      "batch_size": 32,
+      "counts": {
+        "context_probes": 200,
+        "development": 64,
+        "ood": 192,
+        "ood_per_family": 48,
+        "train": 1024
+      },
+      "fits": 6,
+      "seeds": [
+        11,
+        23,
+        47
+      ],
+      "total_updates": 4800,
+      "updates_per_fit": 800
+    }
+  },
+  "transfer": {
+    "baseline_files_verified": 1198,
+    "baseline_inventory_sha256": "8591234992067740f923850d7c458c2aa9abb2aa8ef61bd9ccc21455997abe0f",
+    "candidate_file_sha256": {
+      "docs/alpha/next_execution/TRANSFER_APPROVAL_MATRIX.md": "46a5cf4cb20c97bdf5e6650c54574bd899ead4452a194089405e0980c02f9779",
+      "docs/alpha/next_execution/TRANSFER_NUMERICAL_FREEZE_CANDIDATE.md": "e049ca25575aaa65ecf8e02f5e656c1d9c1c2fa7441e0ff53434f00a244447c5",
+      "docs/alpha/next_execution/TRANSFER_NUMERICAL_SOURCE_LOCK.json": "b1fa06d64c482b3af90d9a0b647612135bff0629bf6c2cfe93338981b018c85a",
+      "docs/alpha/next_execution/TRANSFER_TEST_LEDGER.md": "047c9a688ee55a67af8761b759c872e64e68ef4a4e1b245a24a8c93dfdf99a1c",
+      "src/mindscape/alpha_transfer/numerical.py": "f33da50d0247d05bed6210d2d53d2caf6f4e09e7faddda427319054969b46437",
+      "src/mindscape/alpha_transfer/numerical_authority.py": "7394b7a6d7799b368e30070135b326fe88d7d673153a044d809439aef2bf73d0",
+      "src/mindscape/alpha_transfer/numerical_locks.py": "e3d85cec8ab964618294f62782bb587a8a62e654de9f41e9eed2b73bfb09b6b4",
+      "src/mindscape/alpha_transfer/numerical_scoring.py": "1f6491d30e9ce719aab155b668c91bb6f24e6e9142c3762380c69baa7735c69e",
+      "tests_alpha_transfer/test_numerical.py": "5fb008a130f32e34e8345eaa55685dac2bb3ea83e7dd690e9a3d4da38b4b9a2c"
+    },
+    "head": "0d2b25c43df003b4879e63f28c43847c1ab2abce",
+    "limitation": "Stored-byte/scope consistency only; not approval, execution or scientific success.",
+    "mandatory_gates": {
+      "all_three_seed_gains_positive": true,
+      "coding_relative_changed_mse_gain_over_both_controls": 0.1,
+      "maximum_other_domain_changed_mse_regression_fraction": 0.05,
+      "maximum_whole_graph_regression_fraction": 0.05,
+      "minimum_action_validity_accuracy": 0.9,
+      "paired_scene_or_task_bootstrap95_lower_gain_positive": true
+    },
+    "protocol_sha256": "a49a05def8cf588e82e0aa62fd32f988266fac3917cc06b8e3c61ca8b05adc64",
+    "review_pin": "03fc481192dca47410dd809de1303658c2f556cb",
+    "scientific_status": "UNRUN",
+    "scope_status": "VERIFIED_UNCHANGED_FULL_WORKLOAD",
+    "source_lock_checks": [],
+    "workload": {
+      "architecture_parameters": 6967,
+      "auxiliary_updates_each_domain": 60,
+      "auxiliary_updates_per_fit": 120,
+      "batch_size": 16,
+      "fits": 9,
+      "maximum_total_fits": 9,
+      "per_fit_slots": 240,
+      "seeds": [
+        11,
+        23,
+        47
+      ],
+      "target": "coding",
+      "target_presentations_per_fit": 1920,
+      "target_updates_per_fit": 120,
+      "tasks_per_domain": {
+        "composition": 24,
+        "qualification": 12,
+        "train": 24
+      },
+      "total_update_slots": 2160
+    }
+  }
+}

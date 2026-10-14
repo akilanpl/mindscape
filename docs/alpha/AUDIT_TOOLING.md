@@ -1,0 +1,9 @@
+# Storage-only audit tooling
+
+`mindscape.alpha_audit.verify` is independent of experimental models and training entry points. It checks SHA256 inventories (rejecting symlinks and traversal), identity-disjoint splits including historical identities, complete fit grids and matched initialization/target minibatch order/optimizer configuration, fixed optimizer budgets, final-checkpoint attribution, hash-chained prediction seals before recorded reference access, replayed whole-answer and intermediate accuracy, Wilson intervals using unique task denominators, and explicit mandatory gate coverage.
+
+The tools never authorize execution or promote engineering evidence to scientific success. `scientific_status` returns UNRUN before execution, FAILED_CAMPAIGN for incomplete runs, UNVERIFIED without independent verification, and VERIFIED_PASS only for complete independently checked evidence and every supplied mandatory gate. The caller must bind the mandatory gate list to the exact frozen protocol. These generic checks supplement each frozen study's own independent auditor; they cannot replace it.
+
+Prediction chains are tamper-evident local receipts, not trusted clocks, signed custody, process-isolation proof or proof that references were never read outside the recorded process. Hashes establish stored-byte consistency; matched receipt claims require underlying checkpoint/tensor/log review. No statistical interval may treat repeated model seeds as new independent tasks. Original evidence, unsuccessful seeds and failure traces must be retained.
+
+Eight independent synthetic/adversarial tests pass with `PYTHONPATH=src python3 -m unittest discover -s tests_alpha_audit -p test_verify.py -v`. Fixtures are engineering evidence only. No model construction, optimizer steps, scientific data generation, reference lockbox access or neural prediction is part of this suite.

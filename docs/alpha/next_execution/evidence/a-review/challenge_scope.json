@@ -1,0 +1,30 @@
+[
+  {
+    "case": "exact baseline",
+    "rejected": false
+  },
+  {
+    "case": "dirty baseline",
+    "rejected": true
+  },
+  {
+    "case": "committed modification",
+    "rejected": true
+  },
+  {
+    "case": "committed addition",
+    "rejected": false
+  },
+  {
+    "case": "dirty added candidate currently not checked",
+    "rejected": false
+  },
+  {
+    "case": "wrong ancestry",
+    "rejected": true
+  },
+  {
+    "case": "supplied symlink root currently accepted",
+    "rejected": false
+  }
+]

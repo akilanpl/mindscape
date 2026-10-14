@@ -1,0 +1,79 @@
+{
+  "authorization_decisions_required": [
+    "Explicit adoption of reviewed AST boundary and legacy status mapping",
+    "Separate explicit six-fit scientific training authorization"
+  ],
+  "disposable_engineering_steps": 144,
+  "engineering_status": "R54_V2_ENGINEERING_READY_TRAINING_NOT_AUTHORIZED",
+  "execution_commit": "950a17519f43fbc887e41f29ce2e24d4b6036ead",
+  "gate_adopted": false,
+  "independent_engineering_audit": "VERIFIED",
+  "integration_status": "R54_V2_GATE_INTEGRATION_REVIEW_READY",
+  "limitations": [
+    "No scientific fit or neural OOD prediction exists.",
+    "Runtime identity and local authorization are not cryptographic hardware/human attestations.",
+    "An 800-update fit runtime and live AST execution equivalence remain untested."
+  ],
+  "maximum_qualification_projection_seconds": 214.8968172075044,
+  "maximum_qualification_rss_bytes": 458686464,
+  "neural_ood_predictions": 0,
+  "observed_runtime": {
+    "machine": "arm64",
+    "mps_available": false,
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "torch": "2.14.1"
+  },
+  "protocol_sha256": "8d94b1b6f495c5e4c2f4c57f31f8504ea2835d530a58779230cbc2b098090891",
+  "qualification_final_receipt_sha256": "21ebe987767e541713d864156752751ae58d8cc7985c7f86bf649a1663bdd6a1",
+  "qualified_runtime_match": false,
+  "science_reuse": {
+    "campaign_source_sha256": "4131182eb5ed9595feed03a28753feb69e39a7ef8596d74023d8bb992e2aa21e",
+    "original_science_first_line": 31,
+    "original_science_last_line": 96,
+    "replaced_preamble_statements": 6,
+    "scientific_suffix_ast_sha256": "0dff2e7d9244703599ed8e5554b7f170639a908ce00488c11dfd02613150ca13",
+    "scope": "Only authorization, source/data readiness and engineering preamble is replaced; exact frozen scientific AST is reused"
+  },
+  "scientific_training_authorized": false,
+  "scientific_updates": 0,
+  "source_locks": {
+    "integration_lock_sha256": "35be4554909e822458f818be5dec845c10c2cf2062582151d9dc73e244fe03c7",
+    "v1_lock_sha256": "a771f8ae619fa080b09f49c52ebbad6f8eb2dbb37f6b4b6748fbd86700f6a30a",
+    "v2_lock_sha256": "ca6f9bf67ecf9fea9d3b0c8075cf3c0c0c4001f1a9049fef1cff28e5f7c585e5"
+  },
+  "status": "UNRUN",
+  "workload": {
+    "batch_size": 32,
+    "counts": {
+      "context_probes": 200,
+      "development": 64,
+      "ood": 192,
+      "ood_per_family": 48,
+      "train": 1024
+    },
+    "fits": 6,
+    "gates_per_seed_per_model": {
+      "each_known_family_exact_min": 0.95,
+      "held_context_probe_accuracy_min": 0.9,
+      "long_carry_exact_min": 0.95,
+      "ood_exact_min": 0.95,
+      "ood_gain_over_memory_min": 0.15,
+      "ood_wilson95_lower_min": 0.9,
+      "paired_p_max": 0.004166666666666667,
+      "unseen_gain_over_memory_min": 0.75,
+      "unseen_short_exact_min": 0.9,
+      "unseen_short_wilson95_lower_min": 0.78
+    },
+    "max_fit_seconds": 900,
+    "models": {
+      "markov": 2188,
+      "recurrent": 2124
+    },
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "updates_per_fit": 800
+  }
+}
