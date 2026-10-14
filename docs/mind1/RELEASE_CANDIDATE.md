@@ -8,7 +8,7 @@ Reviewed integration baseline: 8c141d8 (research/alpha-r54, PR23).
 | Status | Evidence and scope |
 |---|---|
 | IMPLEMENTED | Loopback API, configurable Groq/OpenAI-compatible provider, bounded multi-step tool routing, context handling, cancellation, responsive persistent chat, safe Markdown/MathML/tables, actual data charts, provenance, capabilities page |
-| TESTED | 145 passing tests, 14 skips, 9 passing subtests across product/R5.6 plus preserved kernel and authorization safeguards. Test XML supplied. |
+| TESTED | 146 passing tests, 14 skips, 9 passing subtests across product/R5.6 plus preserved kernel and authorization safeguards. Test XML supplied. |
 | VERIFIED | Browser → API → symbolic integration → derivative residual 0 → displayed result and provenance. Desktop 1440×900 and mobile 390×844 inspected. Actual WASI print/sum and host-file denial checked. Matrix/ODE/physics tests check objective expectations. |
 | EXPERIMENTAL | R5.6 concept/state/action/composition/verifier interfaces, bounded carry/AST/impulse examples, candidate untrained neural core, matched-control protocol. Generalization NOT demonstrated. No training executed. |
 | UNAVAILABLE | Live provider credential, streaming, public accounts/authentication, formal theorem proving, non-Python guest execution, full repository patch/test writeback, broad expert-reviewed advanced coverage. Live arXiv request returned unavailable. |
@@ -56,6 +56,10 @@ silently treated as passing. Kernel physics initially lacked pymunk; installing
 its historical pin 7.2.0 allowed the final kernel regression suite to pass.
 Protected training/optimizer campaigns and historical full workloads were not run
 or reduced. No R5.5 historical release was invented.
+
+Final end-to-end evidence found and repaired an inherited file-size limit mismatch
+between the product tool worker and nested WASI worker. A regression now executes
+actual guest source through the complete product worker path.
 
 ## Handoff
 

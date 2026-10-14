@@ -76,3 +76,12 @@ def test_disabled_retrieval_is_not_a_success(monkeypatch):
     result = execute_tool("research_retrieve", {"query": "quantum gravity"})
     assert result["ok"] is False
     assert result["result"]["status"] == "disabled"
+
+
+def test_wasi_through_product_worker_when_configured():
+    import os
+    if not os.getenv("MIND1_WASI_RUNTIME"):
+        pytest.skip("Trusted WASI runtime not configured")
+    result = execute_tool("coding_execute", {"source": "print(sum(range(10)))"})
+    assert result["ok"], result
+    assert result["result"]["stdout"].strip() == "45"

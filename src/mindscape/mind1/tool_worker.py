@@ -7,7 +7,7 @@ def main():
     try:
         import resource
         resource.setrlimit(resource.RLIMIT_CPU, (12, 13))
-        resource.setrlimit(resource.RLIMIT_FSIZE, (8_000_000, 8_000_000))
+        resource.setrlimit(resource.RLIMIT_FSIZE, (16 * 1024 * 1024, 16 * 1024 * 1024))
     except (ImportError, ValueError, OSError):
         pass
     from .engines import run_tool
