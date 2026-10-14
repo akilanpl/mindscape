@@ -12,7 +12,7 @@ def result(name, **args):
 
 def test_schema_matches_dispatch():
     names = [s['function']['name'] for s in tool_specs()]
-    assert len(set(names)) == 5
+    assert len(set(names)) == 6
     assert not run_tool('unknown', {})['ok']
     assert capabilities()['host_source_execution'] is False
 
@@ -71,3 +71,21 @@ def test_wasi_fails_closed_when_missing(monkeypatch, tmp_path):
 def test_reject_invalid_inputs():
     for name, args in [('physics_simulate', {'model': 'projectile', 'parameters': {'speed': float('nan')}}), ('coding_analyze', {'source': 'x'*64001}), ('math_matrix', {'matrix': [[1], [1, 2]]})]:
         assert not run_tool(name, args)['ok']
+
+
+@pytest.mark.skipif(not capabilities()['symbolic_math'], reason='optional sympy absent')
+def test_numerical_ode_and_optimization():
+    r = result('math_numerical', operation='ode', expression='-x', initial=1, end=2, steps=100)
+    assert r['samples'][-1]['x'] == pytest.approx(math.exp(-2), abs=1e-8)
+    r = result('math_numerical', operation='minimize', expression='(x-3)**2+2', lower=-10, upper=10)
+    assert r['x'] == pytest.approx(3, abs=1e-6)
+    assert r['value'] == pytest.approx(2, abs=1e-10)
+    assert not run_tool('math_numerical', {'operation': 'ode', 'expression': 'y', 'steps': 100})['ok']
+
+
+@pytest.mark.skipif(not capabilities()['wasi_python'], reason='configured WASI runtime absent')
+def test_real_wasi_execution_and_capability_denial():
+    r = result('coding_execute', source='print(sum(range(10)))')
+    assert r['returncode'] == 0 and r['stdout'].strip() == '45'
+    r = result('coding_execute', source="try:\n open('/etc/passwd').read()\n print('UNSAFE')\nexcept OSError:\n print('DENIED')")
+    assert r['returncode'] == 0 and r['stdout'].strip() == 'DENIED'

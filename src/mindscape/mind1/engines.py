@@ -116,6 +116,61 @@ def _number(value):
     return float(value)
 
 
+def _numerical(args):
+    """Bounded scalar ODE integration and interval minimization."""
+    expression = _expression(args['expression'])
+    operation = args.get('operation', 'minimize')
+    x, t = _variable('x'), _variable('t')
+    if expression.free_symbols - {x, t}:
+        raise ValueError('Numerical tools support x and t only')
+    def evaluate(value, time=0):
+        result = float(expression.subs({x: value, t: time}).evalf())
+        if not math.isfinite(result) or abs(result) > 1e100:
+            raise ValueError('Numerical trajectory became nonfinite or exceeded magnitude 1e100')
+        return result
+    if operation == 'minimize':
+        if t in expression.free_symbols: raise ValueError('Minimization supports x only')
+        left, right = _number(args['lower']), _number(args['upper'])
+        if left >= right: raise ValueError('Require lower < upper')
+        original = (left, right)
+        ratio = (math.sqrt(5) - 1) / 2
+        c, d = right-ratio*(right-left), left+ratio*(right-left)
+        fc, fd = evaluate(c), evaluate(d)
+        iterations = 0
+        for iterations in range(1, 101):
+            if abs(right-left) <= 1e-8 * max(1, abs(left), abs(right)): break
+            if fc < fd:
+                right, d, fd = d, c, fc
+                c = right-ratio*(right-left); fc = evaluate(c)
+            else:
+                left, c, fc = c, d, fd
+                d = left+ratio*(right-left); fd = evaluate(d)
+        candidates = [(evaluate(v), v) for v in (original[0], original[1], (left+right)/2)]
+        value, point = min(candidates)
+        return {'operation': operation, 'x': point, 'value': value, 'iterations': iterations,
+                'method': 'golden-section interval minimization',
+                'assumption': 'Unimodal objective on the supplied interval; no global optimality guarantee for multimodal functions.'}
+    if operation == 'ode':
+        initial, start, end = _number(args.get('initial', 1)), _number(args.get('start', 0)), _number(args.get('end', 1))
+        steps = args.get('steps', 100)
+        if type(steps) is not int or not 1 <= steps <= 400 or not 0 < end-start <= 10000:
+            raise ValueError('ODE requires 1..400 steps and time span in (0,10000]')
+        dt, value = (end-start)/steps, initial
+        samples = [{'t': start, 'x': value}]
+        for i in range(steps):
+            time = start+i*dt
+            a = evaluate(value, time)
+            b = evaluate(value+dt*a/2, time+dt/2)
+            c = evaluate(value+dt*b/2, time+dt/2)
+            d = evaluate(value+dt*c, time+dt)
+            value += dt*(a+2*b+2*c+d)/6
+            if not math.isfinite(value) or abs(value) > 1e100: raise ValueError('ODE solution diverged')
+            samples.append({'t': start+(i+1)*dt, 'x': value})
+        return {'operation': operation, 'samples': samples, 'method': 'fixed-step RK4 for dx/dt = expression',
+                'limitations': 'No adaptive error estimate; stiff equations may require smaller steps or another solver.'}
+    raise ValueError('Unknown numerical operation')
+
+
 def _matrix(args):
     s = _sympy()
     rows = args['matrix']
@@ -207,7 +262,7 @@ def _execute(args):
     return {'isolation': 'WASI', **asdict(sandbox.execute({}, source))}
 
 
-_HANDLERS = {'math_calculate': _math, 'math_matrix': _matrix, 'physics_simulate': _physics, 'coding_analyze': _code, 'coding_execute': _execute}
+_HANDLERS = {'math_calculate': _math, 'math_matrix': _matrix, 'math_numerical': _numerical, 'physics_simulate': _physics, 'coding_analyze': _code, 'coding_execute': _execute}
 
 
 def run_tool(name: str, args: dict) -> dict:
@@ -225,6 +280,7 @@ def run_tool(name: str, args: dict) -> dict:
 def tool_specs() -> list:
     definitions = [
         ('math_calculate', 'Bounded symbolic evaluation, differentiation, polynomial integration and solving (expression = 0).', {'expression': {'type': 'string'}, 'operation': {'type': 'string', 'enum': ['evaluate', 'differentiate', 'integrate', 'solve', 'simplify']}, 'variable': {'type': 'string', 'enum': ['x', 'y', 'z', 't']}, 'values': {'type': 'object', 'additionalProperties': {'type': 'number'}}}, ['expression']),
+        ('math_numerical', 'Bounded scalar ODE RK4 integration or golden-section interval minimization. ODE expression is dx/dt with x,t; minimization expression uses x.', {'expression': {'type': 'string'}, 'operation': {'type': 'string', 'enum': ['ode', 'minimize']}, 'lower': {'type': 'number'}, 'upper': {'type': 'number'}, 'initial': {'type': 'number'}, 'start': {'type': 'number'}, 'end': {'type': 'number'}, 'steps': {'type': 'integer', 'minimum': 1, 'maximum': 400}}, ['expression', 'operation']),
         ('math_matrix', 'Determinant, inverse or rank for matrices up to 6 by 6.', {'matrix': {'type': 'array', 'items': {'type': 'array', 'items': {'type': 'number'}}}, 'operation': {'type': 'string', 'enum': ['determinant', 'inverse', 'rank']}}, ['matrix']),
         ('physics_simulate', 'SI-unit projectile, oscillator and RC circuit models with stated assumptions.', {'model': {'type': 'string', 'enum': ['projectile', 'oscillator', 'rc_circuit']}, 'parameters': {'type': 'object', 'additionalProperties': {'type': 'number'}}, 'steps': {'type': 'integer', 'minimum': 1, 'maximum': 1000}}, ['model']),
         ('coding_analyze', 'Parse Python or inspect lexical risk patterns in seven languages without executing code.', {'source': {'type': 'string'}, 'language': {'type': 'string', 'enum': capabilities()['static_analysis']}}, ['source']),
