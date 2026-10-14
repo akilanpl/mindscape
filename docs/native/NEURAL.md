@@ -21,7 +21,7 @@ physics_delta[2], action_scores[4], memory[width], pooled[width], node_states[N,
 post-hoc verification. `model.predict(problem)` is a convenience wrapper.
 
 - Math: domain math, operation add_digit or borrow_digit, left/right digits,
-  incoming carry/borrow 0/1 (carry_in alias supported). The learned heads predict
+  incoming carry/borrow 0/1 (carry_in/borrow_in aliases supported). The learned heads predict
   digit and outgoing binary carry/borrow. Operation add accepts unsigned decimal
   strings left/right through 128 digits and uses supplied LSD traversal, padding,
   stopping and output serialization. Every subsequent transition receives the

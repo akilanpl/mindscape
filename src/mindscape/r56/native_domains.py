@@ -49,7 +49,7 @@ def pack_problem(problem: dict, device='cpu') -> GraphInput:
         operation = problem.get('operation', 'add_digit')
         if operation not in ('add_digit', 'borrow_digit'): raise ValueError('Graph packing accepts local digit transitions')
         left, right = _digit(problem['left']), _digit(problem['right'])
-        incoming = _incoming(problem.get('incoming', problem.get('carry_in', 0)))
+        incoming = _incoming(problem.get('incoming', problem.get('carry_in', problem.get('borrow_in', 0))))
         rows = [[left/9, 0, 0, 0, 0, 0, 0, 0], [right/9, 0, 0, 0, 0, 0, 0, 0],
                 [incoming, 0, 0, 0, 0, 0, 0, 0]]
         types = [0, 1, 2]
@@ -59,9 +59,9 @@ def pack_problem(problem: dict, device='cpu') -> GraphInput:
     elif domain == 'coding':
         source, old = problem['source'], problem['old_name']
         candidates = problem['candidates']
-        if not isinstance(source, str) or len(source.encode()) > 16000 or not isinstance(old, str) or not old.isidentifier():
+        if not isinstance(source, str) or len(source.encode()) > 16000 or not isinstance(old, str) or not old.isidentifier() or len(old)>64:
             raise ValueError('Coding requires <=16KB Python source and an identifier old_name')
-        if not isinstance(candidates, list) or not 1 <= len(candidates) <= 16 or any(not isinstance(v, str) or not v.isidentifier() for v in candidates):
+        if not isinstance(candidates, list) or not 1 <= len(candidates) <= 16 or any(not isinstance(v, str) or not v.isidentifier() or len(v)>64 for v in candidates):
             raise ValueError('Supply 1..16 identifier candidate classes')
         tree = ast.parse(source)
         nodes = list(ast.walk(tree))
@@ -82,7 +82,7 @@ def pack_problem(problem: dict, device='cpu') -> GraphInput:
             edges.append((0,len(rows)-1)); relations.append(5)
         requested = problem.get('requested_name')
         if requested is not None:
-            if not isinstance(requested, str) or not requested.isidentifier(): raise ValueError('requested_name must be an identifier task input')
+            if not isinstance(requested, str) or not requested.isidentifier() or len(requested)>64: raise ValueError('requested_name must be an identifier task input')
             if len(rows) >= 256: raise ValueError('Requested-name node exceeds node budget')
             digest = hashlib.sha256(requested.encode()).digest()
             rows.append([min(len(requested),64)/64, 0, digest[0]/255, digest[1]/255, 0,0,0,0]); types.append(9)
@@ -129,7 +129,7 @@ def verify_prediction(problem, prediction):
         if problem.get('operation') == 'add':
             expected = str(int(_decimal(problem['left'])) + int(_decimal(problem['right'])))
             return {'passed': prediction['answer'] == expected, 'expected': expected, 'scope': 'exact full answer; post-hoc only'}
-        left, right, incoming = _digit(problem['left']), _digit(problem['right']), _incoming(problem.get('incoming',problem.get('carry_in',0)))
+        left, right, incoming = _digit(problem['left']), _digit(problem['right']), _incoming(problem.get('incoming',problem.get('carry_in',problem.get('borrow_in',0))))
         value = left-right-incoming if problem.get('operation') == 'borrow_digit' else left+right+incoming
         expected = {'digit': value%10, 'outgoing': int(value<0) if problem.get('operation')=='borrow_digit' else value//10}
         return {'passed': all(prediction[k]==v for k,v in expected.items()), 'expected': expected, 'scope': 'post-hoc local arithmetic'}
