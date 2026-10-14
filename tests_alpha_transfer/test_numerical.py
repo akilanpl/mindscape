@@ -69,3 +69,25 @@ class NumericalTests(unittest.TestCase):
         name,p=next(iter(model.named_parameters())); before=raw['parameters'][name].clone()
         with torch.no_grad(): p.add_(1)
         self.assertTrue(torch.equal(before,raw['parameters'][name]))
+    def test_source_lock_corruption_omission_traversal(self):
+        from pathlib import Path
+        import hashlib
+        from mindscape.alpha_transfer.numerical_locks import MANDATORY,verify_source,checked_path
+        manifest={p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in MANDATORY}
+        verify_source('.',manifest)
+        broken=manifest.copy(); broken[MANDATORY[0]]='0'*64
+        with self.assertRaises(ValueError): verify_source('.',broken)
+        missing=manifest.copy(); missing.pop(MANDATORY[0])
+        with self.assertRaises(ValueError): verify_source('.',missing)
+        with self.assertRaises(ValueError): checked_path('.','../outside')
+    def test_source_lock_symlink(self):
+        import tempfile
+        from pathlib import Path
+        from mindscape.alpha_transfer.numerical_locks import checked_path
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); (root/'actual').write_text('fixture'); (root/'alias').symlink_to(root/'actual')
+            with self.assertRaises(ValueError): checked_path(root,'alias')
+    def test_verdict_empty_or_forged_status_rejected(self):
+        from mindscape.alpha_transfer.numerical_authority import verify_verdict
+        report=dict(status='GATES_PASS_PENDING_INDEPENDENT_AUDIT',gates={})
+        with self.assertRaises(ValueError): verify_verdict(report,dict(bindings=dict(source='0'*64)),[],{}, {})

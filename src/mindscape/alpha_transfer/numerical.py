@@ -137,9 +137,13 @@ class NativeCallbacks:
     def _check(self,spec):
         if self.verified!=digest(spec): raise ValueError('No independently authenticated frozen authorization')
         if self.authority.verify(spec,self.manifest,CANDIDATE) is not True: raise ValueError('Authorization recheck rejected')
+        from .numerical_locks import verify_locks
+        verify_locks(spec,'storage')
 
     def initialize(self,seed,condition,spec):
         self._check(spec)
+        from .numerical_locks import verify_locks
+        verify_locks(spec,'native')
         from mindscape.v3.physics_world.accelerator import require_mps
         require_mps()
         with torch.random.fork_rng(devices=[]): model=GraphTransition(seed)

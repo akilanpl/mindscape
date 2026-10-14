@@ -12,8 +12,11 @@ def independent_outcomes(tasks, runtime_lock, executor=None):
     required=('src/mindscape/v5/execute.py','src/mindscape/v3/coding_learning/execution.py','src/mindscape/v3/physics_world/environment.py')
     if any(p not in runtime_lock['source_files'] for p in required) or not runtime_lock['wasi_assets']: raise ValueError('Executor source/WASI locks missing')
     for relative,expected in runtime_lock['source_files'].items():
-        if hashlib.sha256((Path(runtime_lock['repository'])/relative).read_bytes()).hexdigest()!=expected: raise ValueError('Executor source hash differs')
+        from .numerical_locks import checked_path
+        if hashlib.sha256(checked_path(runtime_lock['repository'],relative).read_bytes()).hexdigest()!=expected: raise ValueError('Executor source hash differs')
     for asset,expected in runtime_lock['wasi_assets'].items():
+        if Path(asset).is_symlink() or '..' in Path(asset).parts or not Path(asset).is_absolute(): raise ValueError('Unsafe WASI asset path')
+        if any(p.is_symlink() for p in Path(asset).parents): raise ValueError('Symlink WASI asset parent')
         if hashlib.sha256(Path(asset).read_bytes()).hexdigest()!=expected: raise ValueError('WASI asset hash differs')
     if runtime_lock['pymunk_version'] != importlib.metadata.version('pymunk'):
         raise ValueError('Pinned Pymunk differs')

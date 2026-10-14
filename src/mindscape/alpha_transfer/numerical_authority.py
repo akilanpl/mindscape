@@ -43,5 +43,13 @@ class SignedAuthority:
 def verify_verdict(report,spec,seals,receipt,keys):
     """Gate computation alone cannot issue a scientific verdict."""
     binding=dict(report_sha256=digest(report),source_sha256=spec['bindings']['source'],nine_seals_sha256=digest(seals),spec_sha256=digest(spec))
+    gates=report.get('gates',{})
+    if not isinstance(gates,dict) or not gates or any(type(v) is not bool for v in gates.values()): raise ValueError('Exact boolean metric gates required')
+    required={f'{kind}_{control}' for kind in ('gain','seeds','bootstrap') for control in ('domain_only','randomized_auxiliary')}
+    required|={f'validity_{seed}_{domain}' for seed in (11,23,47) for domain in ('coding','mathematics','physics')}
+    required|={f'{d}_{k}_{c}' for d in ('coding','mathematics','physics') for k in ('whole','changed') if not (d=='coding' and k=='changed') for c in ('domain_only','randomized_auxiliary')}
+    if set(gates)!=required or not all(k in report for k in ('metrics','gains','bootstrap_lower','regressions')): raise ValueError('Complete metric gate coverage required')
+    if report['status']=='GATES_PASS_PENDING_INDEPENDENT_AUDIT' and not all(gates.values()): raise ValueError('Status contradicts gates')
+    if report['status'] not in ('GATES_PASS_PENDING_INDEPENDENT_AUDIT','NO_GO'): raise ValueError('Unknown scientific status')
     verify_signed(receipt,'independent_metric_audit',binding,keys)
     return dict(status='GO_TO_CONFIRMATION' if report['status']=='GATES_PASS_PENDING_INDEPENDENT_AUDIT' else 'NO_GO',independent_audit_sha256=digest(receipt))
