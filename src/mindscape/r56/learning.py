@@ -21,6 +21,8 @@ def source_locks(root):
                              *(root / 'scripts').glob('*native*.py'),
                              *(root / '.github/workflows').glob('mind1-native.yml'),
                              *(root / 'docs/qualification').glob('*.md'),
+                             *(root / 'docs/remediation').glob('*.md'),
+                             *[p for p in (root / 'deploy/r56-isolation').rglob('*') if p.is_file() and '__pycache__' not in p.parts],
                              *[root / name for name in ('requirements-mind1.txt','pyproject.toml') if (root / name).is_file()]])}
 
 
