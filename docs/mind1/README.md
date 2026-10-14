@@ -46,7 +46,8 @@ failed probes disable execution. No unrestricted host-source fallback exists.
 The runtime is not bundled in source archives.
 
 Set `MIND1_RETRIEVAL=1` for optional arXiv metadata retrieval. Only public-topic
-queries should be sent; retrieved metadata does not verify mathematical claims.
+queries should be sent; public-topic filtering is a model instruction, not an
+enforced privacy classifier. Keep retrieval disabled for private conversations; retrieved metadata does not verify mathematical claims.
 
 ```bash
 python -m pytest tests_mind1 tests_r56 -q
