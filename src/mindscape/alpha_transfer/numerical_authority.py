@@ -24,7 +24,7 @@ class SignedAuthority:
     def __init__(self,keys,receipts):
         self.keys=dict(keys); self.receipts=receipts
     def binding(self,spec):
-        return dict(proposal=spec['proposal_file_sha256'],bindings=spec['bindings'],candidate=spec['candidate_sha256'],training_targets=digest(spec['training_target_sha256']),permutation=digest(spec['permutation']),schedules=digest(spec['schedules']),qualification=spec['qualification'])
+        return dict(proposal=spec['proposal_file_sha256'],bindings=spec['bindings'],candidate=spec['candidate_sha256'],training_targets=digest(spec['training_target_sha256']),permutation=digest(spec['permutation']),schedules=digest(spec['schedules']),qualification=spec['qualification'],executor_runtime_lock=digest(spec['executor_runtime_lock']))
     def verify(self,spec,manifest,candidate):
         if spec['bindings']['data']!=digest(manifest) or spec['candidate_sha256']!=digest(candidate): raise ValueError('Candidate/data changed')
         binding=self.binding(spec); ids=[]

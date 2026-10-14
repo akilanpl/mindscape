@@ -2,9 +2,9 @@
   "status": "PROPOSED_REQUIRES_FREEZE_AND_REVIEW",
   "historical_base_sha": "03fc481192dca47410dd809de1303658c2f556cb",
   "files": {
-    "src/mindscape/alpha_transfer/numerical.py": "35a9b6a571be5980c6431ef72e3687940fb95006b63400312423ffdb4e37fec6",
+    "src/mindscape/alpha_transfer/numerical.py": "a2807ec2a7381d1bf63d71f5a56d3a5c172e86e151cb56fc8d57ef67bda8cb1a",
     "src/mindscape/alpha_transfer/numerical_scoring.py": "c123401a1fafd5c5747ee48178e5d989c7c1ea64700f40e45c15ac85ea1de588",
-    "src/mindscape/alpha_transfer/numerical_authority.py": "f3ed4ce2c89883c44b7d8f772c41fec2c443ddc1d6d6a4e7648d77d75c0075c2",
+    "src/mindscape/alpha_transfer/numerical_authority.py": "60394c4b2428bc40b77831b680db9803964ab1af09dc336c6b47af44a92a2f68",
     "tests_alpha_transfer/test_numerical.py": "fe8f68e540140a1da3528f7c9994e4d031e005cccc0b08be03d0562df68f8bf3"
   },
   "scientific_status": "UNRUN",

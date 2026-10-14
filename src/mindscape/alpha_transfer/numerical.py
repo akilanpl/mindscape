@@ -129,12 +129,14 @@ class NativeCallbacks:
         targets=spec.get('training_target_sha256',{})
         if set(targets)!={r['identity'] for r in manifest if r['split']=='train'} or any(not isinstance(v,str) or len(v)!=64 or any(c not in '0123456789abcdef' for c in v) for v in targets.values()): return False
         if self.custodian.verify_source_runtime_locks(spec) is not True: return False
+        self.manifest=manifest
         self.registry={r['identity']:r for r in manifest}
         self.verified=digest(spec)
         return True
 
     def _check(self,spec):
         if self.verified!=digest(spec): raise ValueError('No independently authenticated frozen authorization')
+        if self.authority.verify(spec,self.manifest,CANDIDATE) is not True: raise ValueError('Authorization recheck rejected')
 
     def initialize(self,seed,condition,spec):
         self._check(spec)
