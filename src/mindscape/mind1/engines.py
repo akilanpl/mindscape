@@ -103,11 +103,39 @@ def _math(args):
         if expression.free_symbols - {variable} or not expression.is_polynomial(variable):
             raise ValueError('Solve requires a univariate polynomial')
         if s.degree(expression, variable) > 4: raise ValueError('Solve supports degree at most four')
-        return {'solutions': [str(v) for v in s.solve(expression, variable)], 'variable': str(variable)}
-    elif operation == 'simplify': result = s.cancel(expression) if expression.is_rational_function() else expression
+        solutions = s.solve(expression, variable)
+        residuals = [s.simplify(expression.subs(variable, value)) for value in solutions]
+        return {'solutions': [str(v) for v in solutions], 'variable': str(variable),
+                'verification': {'method': 'symbolic substitution into original expression',
+                                 'residuals': [str(v) for v in residuals],
+                                 'passed': all(v == 0 for v in residuals), 'complete_solution_set_certified': False}}
+    elif operation == 'simplify': result = s.simplify(expression)
     else: raise ValueError('Unknown mathematics operation')
     if result.has(s.zoo, s.oo, -s.oo, s.nan): raise ValueError('Result is not finite')
-    return {'result': str(result), 'operation': operation}
+    verification = None
+    if operation == 'integrate':
+        residual = s.simplify(s.diff(result, variable) - expression)
+        verification = {'method': 'differentiate antiderivative and compare to input',
+                        'residual': str(residual), 'passed': residual == 0}
+    elif operation == 'differentiate':
+        # A separate numerical difference check is evidence, never a symbolic proof.
+        checks = []
+        for point in (0.25, 0.75, 1.25):
+            try:
+                values = {v: 0.5 for v in expression.free_symbols - {variable}}
+                f = expression.subs(values); derivative = result.subs(values)
+                delta = 1e-5
+                numerical = float((f.subs(variable, point + delta) - f.subs(variable, point - delta)) / (2 * delta))
+                exact = float(derivative.subs(variable, point))
+                residual = abs(numerical-exact)
+                if math.isfinite(residual):
+                    checks.append({'point': point, 'absolute_residual': residual,
+                                   'passed': residual <= 1e-5 * max(1, abs(exact))})
+            except (TypeError, ValueError, ArithmeticError):
+                continue
+        verification = {'method': 'central finite difference spot checks', 'is_proof': False,
+                        'checks': checks, 'passed': bool(checks) and all(c['passed'] for c in checks)}
+    return {'result': str(result), 'operation': operation, 'verification': verification}
 
 
 def _number(value):
@@ -178,12 +206,21 @@ def _matrix(args):
         raise ValueError('Matrix must contain 1 to 6 rows')
     width = len(rows[0])
     if not 1 <= width <= 6 or any(len(r) != width for r in rows): raise ValueError('Matrix must be rectangular with 1 to 6 columns')
-    matrix = s.Matrix([[s.Rational(str(_number(v))) for v in row] for row in rows])
+    for row in rows:
+        for value in row:
+            _number(value)
+    matrix = s.Matrix([[s.Rational(str(v)) for v in row] for row in rows])
     op = args.get('operation', 'determinant')
     if op in ('determinant', 'inverse') and matrix.rows != matrix.cols: raise ValueError('Square matrix required')
     if op == 'determinant': return {'result': str(matrix.det())}
     if op == 'rank': return {'result': matrix.rank()}
-    if op == 'inverse': return {'result': [[str(v) for v in row] for row in matrix.inv().tolist()]}
+    if op == 'inverse':
+        inverse = matrix.inv()
+        residual = matrix * inverse - s.eye(matrix.rows)
+        return {'result': [[str(v) for v in row] for row in inverse.tolist()],
+                'verification': {'method': 'original matrix times inverse minus identity',
+                                 'residual': [[str(v) for v in row] for row in residual.tolist()],
+                                 'passed': residual == s.zeros(matrix.rows)}}
     raise ValueError('Unknown matrix operation')
 
 
@@ -206,7 +243,11 @@ def _physics(args):
         for i in range(steps + 1):
             t = duration * i / steps
             samples.append({'t': t, 'x': vx * t, 'y': max(0., height + vy * t - gravity * t * t / 2)})
-        return {'model': model, 'samples': samples, 'impact_time': impact, 'range': vx * impact, 'method': 'analytic constant gravity; no drag', 'units': 'SI; angle in degrees'}
+        return {'model': model, 'samples': samples, 'impact_time': impact, 'range': vx * impact, 'method': 'analytic constant gravity; no drag', 'units': 'SI; angle in degrees',
+                'verification': {'method': 'energy conservation over trajectory and ground impact residual',
+                    'max_energy_per_mass_residual': max(abs((vx*vx+(vy-gravity*q['t'])**2)/2+gravity*q['y']-(speed*speed/2+gravity*height)) for q in samples),
+                    'impact_height_residual': abs(height+vy*impact-gravity*impact*impact/2),
+                    'passed': abs(height+vy*impact-gravity*impact*impact/2) <= 1e-7*max(1,height,speed*speed/gravity)}}
     if model == 'oscillator':
         mass, spring, damping = n('mass', 1), n('spring', 1), n('damping', 0)
         x, v = n('position', 1), n('velocity', 0)
@@ -218,7 +259,15 @@ def _physics(args):
             samples.append({'t': i * dt, 'position': x, 'velocity': v, 'energy': (mass * v*v + spring*x*x)/2})
             a,b = f(x,v); c,d = f(x+dt*a/2,v+dt*b/2); e,g = f(x+dt*c/2,v+dt*d/2); h,j = f(x+dt*e,v+dt*g)
             x += dt*(a+2*c+2*e+h)/6; v += dt*(b+2*d+2*g+j)/6
-        return {'model': model, 'samples': samples, 'method': 'fixed-step RK4', 'units': 'SI'}
+        initial_energy, final_energy = samples[0]['energy'], samples[-1]['energy']
+        verification = {'method': 'energy conservation for undamped motion; nonincrease for damped motion',
+                        'initial_energy': initial_energy, 'final_energy': final_energy,
+                        'energy_change': final_energy-initial_energy,
+                        'passed': all(b['energy'] <= a['energy'] + 1e-5*max(1,initial_energy) for a,b in zip(samples,samples[1:]))}
+        if damping == 0:
+            verification['max_energy_residual'] = max(abs(q['energy']-initial_energy) for q in samples)
+            verification['passed'] = verification['max_energy_residual'] <= 1e-5*max(1,initial_energy)
+        return {'model': model, 'samples': samples, 'method': 'fixed-step RK4', 'units': 'SI', 'verification': verification}
     if model == 'rc_circuit':
         resistance, capacitance, voltage, initial = n('resistance'), n('capacitance'), n('voltage'), n('initial_voltage', 0)
         if resistance <= 0 or capacitance <= 0: raise ValueError('Resistance/capacitance must be positive')
@@ -226,7 +275,10 @@ def _physics(args):
         for i in range(steps + 1):
             t = i * duration / steps
             samples.append({'t': t, 'voltage': voltage + (initial - voltage) * math.exp(-t/tau)})
-        return {'model': model, 'samples': samples, 'time_constant': tau, 'method': 'analytic ideal RC charging', 'units': 'SI'}
+        return {'model': model, 'samples': samples, 'time_constant': tau, 'method': 'analytic ideal RC charging', 'units': 'SI',
+                'verification': {'method': 'initial condition residual and bounded monotone approach to supply voltage',
+                    'initial_voltage_residual': abs(samples[0]['voltage']-initial),
+                    'passed': abs(samples[0]['voltage']-initial) <= 1e-8*max(1,abs(initial)) and all(min(initial,voltage)-1e-8 <= q['voltage'] <= max(initial,voltage)+1e-8 for q in samples)}}
     raise ValueError('Unknown physics model')
 
 
