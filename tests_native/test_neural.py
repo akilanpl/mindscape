@@ -104,3 +104,19 @@ def test_validation_limits_and_no_optional_training():
     with pytest.raises(ValueError): pack_problem(math_problem(concept_ids=[32]))
     with pytest.raises(ValueError): pack_problem({'domain':'physics','mass':0,'velocity':[0,0]})
     with pytest.raises(ValueError): infer_problem(model,{'domain':'math','operation':'add','left':'-1','right':'2'})
+
+
+def test_inference_never_constructs_optimizer_or_uses_verifier_target(monkeypatch):
+    def forbidden(*args,**kwargs):
+        raise AssertionError('Inference must not construct an optimizer')
+    monkeypatch.setattr(torch.optim,'Adam',forbidden)
+    monkeypatch.setattr(torch.optim,'AdamW',forbidden)
+    torch.manual_seed(17)
+    model=R56Model(ModelConfig(width=24))
+    problem={'domain':'coding','source':'x = 1\nprint(x)','old_name':'x',
+             'candidates':['value','count'],'requested_name':'value','target_name':'value'}
+    first=infer_problem(model,problem)
+    second=infer_problem(model,{**problem,'target_name':'count'})
+    assert first['prediction']==second['prediction']
+    assert first['verification']['passed'] != second['verification']['passed']
+    assert first['learned_claim'] is False
