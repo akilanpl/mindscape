@@ -81,3 +81,15 @@ def extension_fixtures():
                      'masses': [1.0, 1.0], 'velocities': [2.0, -1.0]},
          'labels': {'velocities': [-1.0, 2.0]}, 'primary_training_supported': False},
     ]
+
+
+def exposure_summary(rows):
+    """Count exposures versus actual distinct problems; repeats are not new data."""
+    result = {}
+    for domain in ('math', 'coding', 'physics'):
+        selected = [row for row in rows if row['problem']['domain'] == domain]
+        unique = len({row['problem_identity'] for row in selected})
+        result[domain] = {'exposures': len(selected), 'distinct_problems': unique,
+                          'repeated_exposures': len(selected) - unique}
+    return {'total_exposures': len(rows), 'domains': result,
+            'distinct_problems': sum(value['distinct_problems'] for value in result.values())}
