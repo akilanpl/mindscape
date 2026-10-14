@@ -1,0 +1,15 @@
+test_full_frozen_identity (test_scope_audit.ScopeTests) ... ok
+test_symlink_member_and_ancestor (test_scope_audit.ScopeTests) ... ok
+test_tampering_and_unsafe_paths (test_scope_audit.ScopeTests) ... ok
+test_baseline_and_addition_digest (test_scope_git_review.GitScopeReview) ... ok
+test_committed_baseline_change_rejected (test_scope_git_review.GitScopeReview) ... ok
+test_dirty_added_candidate_rejected (test_scope_git_review.GitScopeReview) ... ok
+test_dirty_baseline_rejected (test_scope_git_review.GitScopeReview) ... ok
+test_symlink_checkout_rejected (test_scope_git_review.GitScopeReview) ... ok
+test_untracked_candidate_rejected (test_scope_git_review.GitScopeReview) ... ok
+test_wrong_ancestry_rejected (test_scope_git_review.GitScopeReview) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.580s
+
+OK

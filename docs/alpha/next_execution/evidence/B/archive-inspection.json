@@ -1,0 +1,70 @@
+{
+  "scope": "ARCHIVE_INSPECTION_ONLY",
+  "workers": 6,
+  "archived_records": 144,
+  "campaign_optimizer_updates": 0,
+  "all_final_weights_restored": true,
+  "all_initial_final_hashes_match": true,
+  "runtime_examples": [
+    {
+      "runtime": {
+        "cpu_fallback": false,
+        "machine": "arm64",
+        "mps_available": true,
+        "mps_built": true,
+        "platform": "macOS-27.0.1-arm64-arm-64bit",
+        "torch": "2.14.1"
+      }
+    },
+    {
+      "runtime": {
+        "cpu_fallback": false,
+        "machine": "arm64",
+        "mps_available": true,
+        "mps_built": true,
+        "platform": "macOS-27.0.1-arm64-arm-64bit",
+        "torch": "2.14.1"
+      }
+    },
+    {
+      "runtime": {
+        "cpu_fallback": false,
+        "machine": "arm64",
+        "mps_available": true,
+        "mps_built": true,
+        "platform": "macOS-27.0.1-arm64-arm-64bit",
+        "torch": "2.14.1"
+      }
+    },
+    {
+      "runtime": {
+        "cpu_fallback": false,
+        "machine": "arm64",
+        "mps_available": true,
+        "mps_built": true,
+        "platform": "macOS-27.0.1-arm64-arm-64bit",
+        "torch": "2.14.1"
+      }
+    },
+    {
+      "runtime": {
+        "cpu_fallback": false,
+        "machine": "arm64",
+        "mps_available": true,
+        "mps_built": true,
+        "platform": "macOS-27.0.1-arm64-arm-64bit",
+        "torch": "2.14.1"
+      }
+    },
+    {
+      "runtime": {
+        "cpu_fallback": false,
+        "machine": "arm64",
+        "mps_available": true,
+        "mps_built": true,
+        "platform": "macOS-27.0.1-arm64-arm-64bit",
+        "torch": "2.14.1"
+      }
+    }
+  ]
+}

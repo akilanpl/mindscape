@@ -1,0 +1,32 @@
+test_all_gates_precede_initialization (test_controller.ControllerTests.test_all_gates_precede_initialization) ... ok
+test_all_prediction_seals_precede_scoring_and_no_retry (test_controller.ControllerTests.test_all_prediction_seals_precede_scoring_and_no_retry) ... ok
+test_initial_mismatch_and_failed_slot_preserved (test_controller.ControllerTests.test_initial_mismatch_and_failed_slot_preserved) ... ok
+test_adam_corrupt_shape (test_numerical.NumericalTests.test_adam_corrupt_shape) ... ok
+test_adam_corrupt_step (test_numerical.NumericalTests.test_adam_corrupt_step) ... ok
+test_adam_rejects_boolean_step_negative_variance (test_numerical.NumericalTests.test_adam_rejects_boolean_step_negative_variance) ... ok
+test_architecture_backward_frozen_aux (test_numerical.NumericalTests.test_architecture_backward_frozen_aux) ... ok
+test_balanced_strata_exact (test_numerical.NumericalTests.test_balanced_strata_exact) ... ok
+test_external_signatures_purpose_content_and_key (test_numerical.NumericalTests.test_external_signatures_purpose_content_and_key) ... ok
+test_invalid_effect_shape (test_numerical.NumericalTests.test_invalid_effect_shape) ... ok
+test_loss_rejects_fractional_active_or_label (test_numerical.NumericalTests.test_loss_rejects_fractional_active_or_label) ... ok
+test_nonfinite_loss (test_numerical.NumericalTests.test_nonfinite_loss) ... ok
+test_raw_clone_cannot_follow_mutation (test_numerical.NumericalTests.test_raw_clone_cannot_follow_mutation) ... ok
+test_raw_prediction_rejection (test_numerical.NumericalTests.test_raw_prediction_rejection) ... ok
+test_runtime_rejects_clean_other_repository (test_numerical.NumericalTests.test_runtime_rejects_clean_other_repository) ... ok
+test_runtime_rejects_symlink_repository (test_numerical.NumericalTests.test_runtime_rejects_symlink_repository) ... ok
+test_source_lock_corruption_omission_traversal (test_numerical.NumericalTests.test_source_lock_corruption_omission_traversal) ... ok
+test_source_lock_symlink (test_numerical.NumericalTests.test_source_lock_symlink) ... ok
+test_source_retains_native_guard (test_numerical.NumericalTests.test_source_retains_native_guard) ... ok
+test_unauthorized_no_initialization (test_numerical.NumericalTests.test_unauthorized_no_initialization) ... ok
+test_verdict_empty_or_forged_status_rejected (test_numerical.NumericalTests.test_verdict_empty_or_forged_status_rejected) ... ok
+test_complete_matched_receipts_and_confounds (test_readiness.ReadinessTests.test_complete_matched_receipts_and_confounds) ... ok
+test_frozen_plan (test_readiness.ReadinessTests.test_frozen_plan) ... ok
+test_inactive_and_active_groups (test_readiness.ReadinessTests.test_inactive_and_active_groups) ... ok
+test_public_manifest_only_disjoint_identity_and_content (test_readiness.ReadinessTests.test_public_manifest_only_disjoint_identity_and_content) ... ok
+test_routing_requires_no_core_moments_on_auxiliary (test_readiness.ReadinessTests.test_routing_requires_no_core_moments_on_auxiliary) ... ok
+test_routing_restores_flags_and_clears_stale_core_gradients (test_readiness.ReadinessTests.test_routing_restores_flags_and_clears_stale_core_gradients) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.819s
+
+OK

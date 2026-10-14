@@ -1,0 +1,13 @@
+.......F..                                                               [100%]
+=================================== FAILURES ===================================
+_______________________ test_missing_nine_fits_rejected ________________________
+
+    def test_missing_nine_fits_rejected():
+        with pytest.raises(ValueError):
+>           score_campaign({}, {}, [])
+E           TypeError: score_campaign() missing 1 required positional argument: 'public_graphs'
+
+work/sprint-evidence/b-review/test_independent_scoring.py:16: TypeError
+=========================== short test summary info ============================
+FAILED work/sprint-evidence/b-review/test_independent_scoring.py::test_missing_nine_fits_rejected
+1 failed, 9 passed in 0.07s

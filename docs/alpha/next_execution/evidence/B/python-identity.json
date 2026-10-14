@@ -1,0 +1,8 @@
+{
+  "executable": "/Users/akilan/Documents/Codex/2026-10-08/files-pasted-by-the-user-mindscape/outputs/mindscape/work/final-venv/bin/python",
+  "resolved_executable": "/Users/akilan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+  "sys_version": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "executable_sha256": "39bf33dd80ffd5e8c087cbd52164cbe0d8485f73b44687d0d466b0f49e197129",
+  "original_python_version_authenticated": false,
+  "limitation": "Original qualification records torch/platform/machine; Python version/chip identity/run HEAD were not recorded. Existing interpreter path provenance does not authenticate an original Python version match."
+}
