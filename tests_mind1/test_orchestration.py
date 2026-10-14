@@ -69,3 +69,10 @@ def test_groq_payload_hides_reasoning_and_attributes_model(monkeypatch):
     assert seen[0]["parallel_tool_calls"] is False
     assert receipt["model"] == "openai/gpt-oss-120b"
     assert "test-key" not in json.dumps(p.public())
+
+
+def test_disabled_retrieval_is_not_a_success(monkeypatch):
+    monkeypatch.delenv("MIND1_RETRIEVAL", raising=False)
+    result = execute_tool("research_retrieve", {"query": "quantum gravity"})
+    assert result["ok"] is False
+    assert result["result"]["status"] == "disabled"

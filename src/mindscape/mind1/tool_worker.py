@@ -14,7 +14,8 @@ def main():
     data = json.loads(sys.stdin.buffer.read(64001))
     if data["name"] == "research_retrieve":
         from .retrieval import retrieve_arxiv
-        result = {"ok": True, "tool": "research_retrieve", "result": retrieve_arxiv(**data["args"]).as_dict()}
+        retrieved = retrieve_arxiv(**data["args"]).as_dict()
+        result = {"ok": retrieved["status"] == "ok", "tool": "research_retrieve", "result": retrieved}
     elif data["name"] == "coding_repository":
         from .repository import analyze_repository
         result = analyze_repository(**data["args"])
