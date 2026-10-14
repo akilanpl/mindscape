@@ -25,7 +25,7 @@ Root reproduced **185 checks**, counting each suite once:
 
 Complete lead logs are under evidence/root; author logs under evidence/a, evidence/c and evidence/d. B's native evidence is under evidence/B and evidence/native; the approved script's raw exit1 is retained. A independently verified all48 B ledger hashes, runtime/readiness mismatch and77-unit-check log. B independently challenged transfer scoring with ten separate synthetic cases; its initial six failures and final corrected run remain in evidence/b-review. Reviewer-specific source identities are recorded there; this separate10-case review is not inflated into the lead185 count.
 
-Compile-only static checks cover every added Python source without importing models or running campaigns. Exact native/independent executor source/WASI asset hash guards and explicit workload locks are implemented; real executor outcomes were not run. New numerical choices are versioned PROPOSED_REQUIRES_REVIEW or PROPOSED_REQUIRES_FREEZE_AND_REVIEW.
+Compile-only static checks cover all12 added numerical implementation/test Python sources without importing models or running campaigns; the audit tools are exercised by the independent audit suites. Exact native/independent executor source/WASI asset hash guards and explicit workload locks are implemented; real executor outcomes were not run. New numerical choices are versioned PROPOSED_REQUIRES_REVIEW or PROPOSED_REQUIRES_FREEZE_AND_REVIEW.
 
 ## Findings and corrections
 
