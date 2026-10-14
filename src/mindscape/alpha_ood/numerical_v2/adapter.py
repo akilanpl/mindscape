@@ -181,7 +181,7 @@ def load_final_checkpoint(path: Path, receipt: dict, bindings: dict, device='mps
     payload=torch.load(path,map_location='cpu',weights_only=True)
     if type(payload['updates']) is not int or payload['updates']!=800 or len(payload['losses'])!=800 or payload['bindings']!=bindings or payload['spec_hash']!=digest(SPEC):
         raise ValueError('checkpoint metadata mismatch')
-    if payload['seed']!=receipt['seed'] or payload['kind']!=receipt['kind'] or payload['batch_plan']!=batch_plan(payload['seed']).tolist():
+    if type(payload['seed']) is not int or payload['seed'] not in (11,23,47) or payload['seed']!=receipt['seed'] or payload['kind']!=receipt['kind'] or payload['batch_plan']!=batch_plan(payload['seed']).tolist():
         raise ValueError('checkpoint schedule mismatch')
     if any(type(v) not in (int,float) or not np.isfinite(v) for v in payload['losses']):
         raise ValueError('checkpoint nonfinite losses')

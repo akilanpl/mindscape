@@ -80,6 +80,14 @@ def replay_neural(task,result):
         def sign(self,a,b,op):
             stage=result['stages'][self.stage]; self.stage+=1
             return stage['sign'],stage['sign_prediction']
+    for event in result['transitions']:
+        if any(type(event.get(name)) is not int or not 0<=event[name]<=9 for name in ('written_digit','written_carry')):
+            raise ValueError('strict integer digit/carry vocabulary')
+        state=event['state']
+        if any(type(state.get(name)) is not int for name in ('left','right','incoming','index')):
+            raise ValueError('strict integer observable state')
+    if any(type(stage.get('sign')) is not int or stage['sign'] not in (0,1) for stage in result['stages']):
+        raise ValueError('strict integer sign vocabulary')
     saved=Saved(); reconstructed=run(native_task(task),saved)
     if saved.event!=len(result['transitions']) or saved.stage!=len(result['stages']) or reconstructed!=result:
         raise ValueError('trajectory replay mismatch')

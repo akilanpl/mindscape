@@ -146,3 +146,9 @@ def test_scientific_scoring_rejects_miniature():
 def test_ood_prediction_requires_separate_access_before_forward():
     task=Task(1,(('add',1),),'ood','operand_combinations')
     with pytest.raises(ValueError): a.predict_task(task,None,'cpu')
+
+
+def test_boolean_prediction_vocabulary_rejected():
+    task=fixture()[0][0]; result=a.predict_task(task,LocalTransition('recurrent',11),'cpu')['result']
+    result['stages'][0]['sign']=True
+    with pytest.raises(ValueError): e.replay_neural(task,result)
