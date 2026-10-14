@@ -3,7 +3,7 @@
 **EXPERIMENTAL — GENERALIZATION NOT YET DEMONSTRATED**
 
 Implemented preparation generates deterministic bounded synthetic primary tasks
-for three domains: decimal single-digit addition/carry, AST rename dependency
+for three domains: decimal single-digit addition/carry and subtraction/borrow, AST rename dependency
 examples with an explicitly requested candidate, and two-dimensional force
 updates. Seeds are 17/29/43; exposure budgets are 32/128/512; Adam budget is 2,000
 steps, batch size one, CPU. Model agent supplies the actual typed graph R56Model
@@ -25,7 +25,7 @@ PYTHONPATH=src python -m mindscape.r56.learning freeze --root "$PWD" --output wo
 ```
 
 Preparation writes full deterministic datasets, their SHA256 identity, source
-locks for every r56 Python module, protocol hash, and clearly UNISSUED artifact
+locks for every r56 and mind1 Python module (including language/runtime/inference), protocol hash, and clearly UNISSUED artifact
 templates. Generate a freeze only after final model code is integrated. Freeze
 must be checked into review evidence before any approved campaign. No generated
 artifact confers permission or a scientifically qualified flag.
@@ -74,9 +74,28 @@ Callers must aggregate dependent samples to independent problem families before
 resampling. No p-values, significance, learning curves or transfer success are
 invented. Record original predictions, coverage, verifier acceptance separately,
 held-out metrics, model parameters, runtime and peak memory in actual approved
-runs. Peak-memory accounting and automated independent qualification remain pending.
+runs. Tensor-storage and process-lifetime peak RSS accounting are implemented; isolated
+campaign activation peak and automated independent qualification remain pending.
 
 Current nontraining evidence: curriculum replay, disjoint split identities,
 label/rule agreement, content locks, unissued/forged approval rejection,
 pre-neural-import gate rejection, memorization abstention and statistical fixtures.
 No scientific training or model optimizer execution was performed.
+
+## Additional zero-update verification
+
+With PyTorch 2.14.1, nine nontraining tests pass. Actual graph forward passes,
+domain losses and backward connectivity produce finite nonzero shared gradients;
+state-dict weights remain bitwise unchanged. Adam construction is blocked in the
+connectivity test. Safe checkpoint load reproduces original stateless predictions
+bitwise; zero optimizer updates are recorded. MLP/GRU output dimensions and
+concept intervention consistency are checked. These are architecture tests, not
+training experiments or demonstrations of learning.
+
+Measured default parameter counts: graph 44,962 (179,848 parameter bytes), pooled
+MLP 1,902 (7,608 bytes), pooled GRU 9,822 (39,288 bytes). Graph concept variants
+share the same architecture and parameter count. Pooled baselines are explicitly
+**not parameter matched**; scientific comparison must match these budgets before
+claiming an advantage. Accounting includes trainable/total parameters, tensor
+storage, observed gradients and estimated Adam moment storage (no Adam created
+for the measurement). No trained weights or performance claims were generated.

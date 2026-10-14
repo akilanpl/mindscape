@@ -24,12 +24,14 @@ def generate(split: str, count: int = 512, seed: int = 17) -> list[dict]:
         if domain == 'math':
             while True:
                 left, right, carry = rng.randrange(10), rng.randrange(10), rng.randrange(2)
-                problem = {'domain': 'math', 'operation': 'add_digit', 'left': left,
+                operation = rng.choice(('add_digit', 'borrow_digit'))
+                problem = {'domain': 'math', 'operation': operation, 'left': left,
                            'right': right, 'carry_in': carry}
                 if int(digest(problem), 16) % 3 == ('train', 'dev', 'test').index(split):
                     break
-            labels = {'math_digit': (left + right + carry) % 10,
-                      'math_carry': (left + right + carry) // 10}
+            total = left + right + carry if operation == 'add_digit' else left - right - carry
+            labels = {'math_digit': total % 10,
+                      'math_carry': total // 10 if operation == 'add_digit' else int(total < 0)}
         elif domain == 'coding':
             old = f'value_{index}'
             candidates = [f'{split}_candidate_{index}_{n}' for n in range(4)]
@@ -52,6 +54,7 @@ def generate(split: str, count: int = 512, seed: int = 17) -> list[dict]:
                 if int(digest(problem), 16) % 3 == ('train', 'dev', 'test').index(split):
                     break
             labels = {'physics_delta': [force[0] * dt / mass, force[1] * dt / mass]}
+        problem['concept_ids'] = ([0] if problem['operation'] == 'add_digit' else [1]) if domain == 'math' else ([2] if domain == 'physics' else [3])
         row = {'split': split, 'seed': seed, 'index': index, 'problem': problem,
                'labels': labels, 'paraphrase_family': f'{split}-wording-{index % 3}'}
         row['problem_identity'] = digest(problem)
