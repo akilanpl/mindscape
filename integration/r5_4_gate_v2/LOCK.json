@@ -1,0 +1,24 @@
+{
+  "adoption_approved": false,
+  "scientific_training_authorized": false,
+  "sha256": {
+    "experiments/r5_4/gate_integration_v2/evidence/native-qualification-v2.tar.gz": "d1475c4ef3fba4b18bcbabe4d8343b7cdeaa9341e6c0eca77d0be5f91239ed20",
+    "experiments/r5_4/gate_integration_v2/evidence/preservation-receipt.json": "cfa58556f97d055f5a94f910311a78d3c53f48a7655411dac4259a3064333d10",
+    "experiments/r5_4/gate_integration_v2/inventory-comparison.json": "72d9b7d08256df999c484bda9fe9362d2a4df91ffbf235655ebf43221f2b9526",
+    "experiments/r5_4/gate_integration_v2/native-qualification-independent-audit.json": "78f586861f984f136bd5895e199c8effb65157cc73f95306b5f06650df1d5fe2",
+    "experiments/r5_4/gate_integration_v2/nontraining-tests.txt": "a09d78ce6dcbc8a7cea7ca798f2edca9f9611974632b8f5443cdde22a3632acb",
+    "integration/r5_4_gate_v2/REVIEW.md": "94c5c277cb1be657f517a5e91d2028397257fc4260a46548666225f6976ae5ef",
+    "integration/r5_4_gate_v2/audit_future_campaign.py": "067e8b618f3e9fb825547077977f588d00f81e39b620c9adebd55502b24cda72",
+    "integration/r5_4_gate_v2/authorization.py": "b10324193b23d63cd9d2362307e71a0cf31772565e6f27dedf2fe94fe866005c",
+    "integration/r5_4_gate_v2/evidence.py": "5f33226cecf0f7a3601208aa06cef8ef21e8113a61a4f34c9fba85962eb71268",
+    "integration/r5_4_gate_v2/freeze_review.py": "8845e1d41c4b83ed595f4fb93be45d5b54a0d3c31f87f61234d34cead8f68950",
+    "integration/r5_4_gate_v2/gate-adoption-template.json": "dd0dac086e12e820b6a0b9610127d98c4f96abad973a7e3bb76d9b791b4e25b2",
+    "integration/r5_4_gate_v2/launcher.py": "5cfbab506a6edd8914b6f18c4c99b1d01963d0f1b9d4c3d3d6cbab30d50ffa06",
+    "integration/r5_4_gate_v2/qualification-pin.json": "50007d035fe1c1cfa79d073ef67ab96862d066321f17451671abca7041dcac67",
+    "integration/r5_4_gate_v2/science-equivalence.json": "2bb2bcc0ed71e711b59986bf6fc16e780943fd0647fa349992fa96715acdacb3",
+    "integration/r5_4_gate_v2/science_reuse.py": "1ae5d55d2c8c656a34793714dba69d9e77b6114483ed28cd74e75ff23b6eade5",
+    "integration/r5_4_gate_v2/scientific-authorization-template.json": "65d9db11047744548c4d294605cadb31e0e5cc63b1599b88226c91b041dcd9c0",
+    "integration/r5_4_gate_v2/test_safeguards.py": "6acd6513e514a2e8a034554da7c3c6113d75c9084435a3a1564f12eb0580e81d"
+  },
+  "version": "R54_V2_GATE_INTEGRATION_REVIEW-v1"
+}

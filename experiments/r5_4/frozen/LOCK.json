@@ -1,0 +1,25 @@
+{
+  "base_commit": "6c558caa3c3a1a09ec15e286a408cbb6d5076b03",
+  "sha256": {
+    "docs/r5_4/protocol.md": "1b1111020003e31363627fbf67447c6347c7ac6a8186c5debb296a916888b2cb",
+    "experiments/r5_4/frozen/development.json": "c1e10c1df71ecffdc47eaa5c91499391d605aceb43d47d9a8134b7c435e7f4b2",
+    "experiments/r5_4/frozen/ood.json": "d17b2546ab715145e5b3e919dad2eb3ba0bd9987346f73cd1631d15ef58ce2ed",
+    "experiments/r5_4/frozen/outcomes.json": "c56c221233b7dee576ce70fd925ef64ea744256f83096459cbb5c3231d645440",
+    "experiments/r5_4/frozen/protocol.json": "8d94b1b6f495c5e4c2f4c57f31f8504ea2835d530a58779230cbc2b098090891",
+    "experiments/r5_4/frozen/train.json": "dcd104963987e2499d0cc6a1c91a4d7702674595fff41f05e834c1fb97f7d034",
+    "src/mindscape/r5_4/__init__.py": "678e2c828e45952e438eb6c1758008971f839f9f23ce3c29e2ae311eb73c2f37",
+    "src/mindscape/r5_4/__main__.py": "b54920b55dbed830baa99857e632a467bb3fc5c537abde1960d5d4a3898abd35",
+    "src/mindscape/r5_4/audit.py": "6c34417cf8f0e7a9de56e355874c79033c6499dbf85cca061e20744a16181d57",
+    "src/mindscape/r5_4/campaign.py": "4131182eb5ed9595feed03a28753feb69e39a7ef8596d74023d8bb992e2aa21e",
+    "src/mindscape/r5_4/data.py": "08429a6aae44aad7085e13f13eed802a54498d2680b842fd6a595988ddddf560",
+    "src/mindscape/r5_4/engineering.py": "8e041eda6425934d066165843d4eb1ae8927a828c1efb93f89c140f7819d4045",
+    "src/mindscape/r5_4/evaluate.py": "777e83e7b84e604a94b799289e7a38b2bfd67d6ff82e759979969a1fd96fc0a9",
+    "src/mindscape/r5_4/freeze.py": "d1e626b4a841b58dbd54ad9abf5e379cfceb740c948da82fe1cbec492d2382b0",
+    "src/mindscape/r5_4/inference.py": "83c4fac297c2de8ec281c73c814684313e890483e0083460a05879261d315062",
+    "src/mindscape/r5_4/model.py": "72e5f4c7ff040925a712d372ca597cbe98afeb118e4dce061be4545435921b34",
+    "src/mindscape/r5_4/preservation.py": "8d1a530f367fd7cdf1fbacafa4643aae4a61f787327640a2a15e0390e8a6a514",
+    "src/mindscape/r5_4/training.py": "c00349e27f216ef66edf446e472de49de94e5dacb70a23459aa2c16ef99b9f9f",
+    "tests/r5_4/test_experiment.py": "80b0043e8c9774d157cd4b7dfe02ee900a832f5ca8faeca9681bb356016703a6"
+  },
+  "version": "R5.4-v1"
+}

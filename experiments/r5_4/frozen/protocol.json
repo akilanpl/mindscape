@@ -1,0 +1,62 @@
+{
+  "batch_size": 32,
+  "checkpoint": "final update 800 only; no selection, retries, early stopping or OOD tuning",
+  "counts": {
+    "context_probes": 200,
+    "development": 64,
+    "ood": 192,
+    "ood_per_family": 48,
+    "train": 1024
+  },
+  "data_order": "Python Random(seed); permutation every 32 updates; identical policy for both models",
+  "device": "native MPS float32, no downloads, no CPU fallback; qualification backward only",
+  "evaluation_order": "all free predictions and checkpoints sealed before outcomes read; TF diagnostic follows",
+  "family_order": [
+    "length_known",
+    "long_carry_known",
+    "mixed_known",
+    "unseen_short"
+  ],
+  "fits": 6,
+  "gates_per_seed_per_model": {
+    "each_known_family_exact_min": 0.95,
+    "held_context_probe_accuracy_min": 0.9,
+    "long_carry_exact_min": 0.95,
+    "ood_exact_min": 0.95,
+    "ood_gain_over_memory_min": 0.15,
+    "ood_wilson95_lower_min": 0.9,
+    "paired_p_max": 0.004166666666666667,
+    "unseen_gain_over_memory_min": 0.75,
+    "unseen_short_exact_min": 0.9,
+    "unseen_short_wilson95_lower_min": 0.78
+  },
+  "gradient": "BPTT through GRU hidden; detached argmax carry; no derivative through carry choice",
+  "inference_boundary": "Operands only; learned adapter has no reference import or label argument",
+  "intervals": "Wilson95 per seed; task denominator 192/48; repeated seeds never independent tasks",
+  "max_fit_seconds": 900,
+  "memory": "exact training-context map; miss -> (digit 0, carry 0); no answer retrieval",
+  "models": {
+    "markov": 2188,
+    "recurrent": 2124
+  },
+  "objective": "updates 1-400 TF CE(digit)+CE(carry); 401-800 equal TF and own-carry local CE",
+  "optimizer": {
+    "clip_norm": 1.0,
+    "kind": "AdamW",
+    "lr": 0.003,
+    "weight_decay": 0.0001
+  },
+  "paired_tests": "one-sided exact McNemar vs local memory, overall and unseen family; Bonferroni 12",
+  "qualification": "known families have no unseen contexts; memory overall <=75%; held exposures=0",
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "success": "all gates in all three seeds for a model; recurrence benefit exploratory paired comparison",
+  "terminal_readiness": "ENGINEERING_NO_GO until MPS backward and bounded resource qualification pass",
+  "updates_per_fit": 800,
+  "version": "R5.4-v1",
+  "whole_problem_memory": "commutation-normalized training identity map; miss -> answer 0",
+  "zero_weight": "same two architectures, all tensors zero, argmax first class"
+}

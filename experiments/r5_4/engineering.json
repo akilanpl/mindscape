@@ -1,0 +1,11 @@
+{
+  "cpu_fallback": false,
+  "machine": "arm64",
+  "mps_available": false,
+  "mps_built": true,
+  "optimizer_updates": 0,
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "reason": "Native arm64 MPS unavailable; gradient and feasibility checks unrun",
+  "status": "ENGINEERING_NO_GO",
+  "torch": "2.14.1"
+}

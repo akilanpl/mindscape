@@ -1,0 +1,233 @@
+{
+  "older_source_modified": false,
+  "original_no_go_changed": false,
+  "status": "ALL_ORIGINAL_INVENTORIES_BYTE_IDENTICAL",
+  "v1_inventory": [
+    {
+      "actual": "1b1111020003e31363627fbf67447c6347c7ac6a8186c5debb296a916888b2cb",
+      "expected": "1b1111020003e31363627fbf67447c6347c7ac6a8186c5debb296a916888b2cb",
+      "path": "docs/r5_4/protocol.md",
+      "unchanged": true
+    },
+    {
+      "actual": "c1e10c1df71ecffdc47eaa5c91499391d605aceb43d47d9a8134b7c435e7f4b2",
+      "expected": "c1e10c1df71ecffdc47eaa5c91499391d605aceb43d47d9a8134b7c435e7f4b2",
+      "path": "experiments/r5_4/frozen/development.json",
+      "unchanged": true
+    },
+    {
+      "actual": "d17b2546ab715145e5b3e919dad2eb3ba0bd9987346f73cd1631d15ef58ce2ed",
+      "expected": "d17b2546ab715145e5b3e919dad2eb3ba0bd9987346f73cd1631d15ef58ce2ed",
+      "path": "experiments/r5_4/frozen/ood.json",
+      "unchanged": true
+    },
+    {
+      "actual": "c56c221233b7dee576ce70fd925ef64ea744256f83096459cbb5c3231d645440",
+      "expected": "c56c221233b7dee576ce70fd925ef64ea744256f83096459cbb5c3231d645440",
+      "path": "experiments/r5_4/frozen/outcomes.json",
+      "unchanged": true
+    },
+    {
+      "actual": "8d94b1b6f495c5e4c2f4c57f31f8504ea2835d530a58779230cbc2b098090891",
+      "expected": "8d94b1b6f495c5e4c2f4c57f31f8504ea2835d530a58779230cbc2b098090891",
+      "path": "experiments/r5_4/frozen/protocol.json",
+      "unchanged": true
+    },
+    {
+      "actual": "dcd104963987e2499d0cc6a1c91a4d7702674595fff41f05e834c1fb97f7d034",
+      "expected": "dcd104963987e2499d0cc6a1c91a4d7702674595fff41f05e834c1fb97f7d034",
+      "path": "experiments/r5_4/frozen/train.json",
+      "unchanged": true
+    },
+    {
+      "actual": "678e2c828e45952e438eb6c1758008971f839f9f23ce3c29e2ae311eb73c2f37",
+      "expected": "678e2c828e45952e438eb6c1758008971f839f9f23ce3c29e2ae311eb73c2f37",
+      "path": "src/mindscape/r5_4/__init__.py",
+      "unchanged": true
+    },
+    {
+      "actual": "b54920b55dbed830baa99857e632a467bb3fc5c537abde1960d5d4a3898abd35",
+      "expected": "b54920b55dbed830baa99857e632a467bb3fc5c537abde1960d5d4a3898abd35",
+      "path": "src/mindscape/r5_4/__main__.py",
+      "unchanged": true
+    },
+    {
+      "actual": "6c34417cf8f0e7a9de56e355874c79033c6499dbf85cca061e20744a16181d57",
+      "expected": "6c34417cf8f0e7a9de56e355874c79033c6499dbf85cca061e20744a16181d57",
+      "path": "src/mindscape/r5_4/audit.py",
+      "unchanged": true
+    },
+    {
+      "actual": "4131182eb5ed9595feed03a28753feb69e39a7ef8596d74023d8bb992e2aa21e",
+      "expected": "4131182eb5ed9595feed03a28753feb69e39a7ef8596d74023d8bb992e2aa21e",
+      "path": "src/mindscape/r5_4/campaign.py",
+      "unchanged": true
+    },
+    {
+      "actual": "08429a6aae44aad7085e13f13eed802a54498d2680b842fd6a595988ddddf560",
+      "expected": "08429a6aae44aad7085e13f13eed802a54498d2680b842fd6a595988ddddf560",
+      "path": "src/mindscape/r5_4/data.py",
+      "unchanged": true
+    },
+    {
+      "actual": "8e041eda6425934d066165843d4eb1ae8927a828c1efb93f89c140f7819d4045",
+      "expected": "8e041eda6425934d066165843d4eb1ae8927a828c1efb93f89c140f7819d4045",
+      "path": "src/mindscape/r5_4/engineering.py",
+      "unchanged": true
+    },
+    {
+      "actual": "777e83e7b84e604a94b799289e7a38b2bfd67d6ff82e759979969a1fd96fc0a9",
+      "expected": "777e83e7b84e604a94b799289e7a38b2bfd67d6ff82e759979969a1fd96fc0a9",
+      "path": "src/mindscape/r5_4/evaluate.py",
+      "unchanged": true
+    },
+    {
+      "actual": "d1e626b4a841b58dbd54ad9abf5e379cfceb740c948da82fe1cbec492d2382b0",
+      "expected": "d1e626b4a841b58dbd54ad9abf5e379cfceb740c948da82fe1cbec492d2382b0",
+      "path": "src/mindscape/r5_4/freeze.py",
+      "unchanged": true
+    },
+    {
+      "actual": "83c4fac297c2de8ec281c73c814684313e890483e0083460a05879261d315062",
+      "expected": "83c4fac297c2de8ec281c73c814684313e890483e0083460a05879261d315062",
+      "path": "src/mindscape/r5_4/inference.py",
+      "unchanged": true
+    },
+    {
+      "actual": "72e5f4c7ff040925a712d372ca597cbe98afeb118e4dce061be4545435921b34",
+      "expected": "72e5f4c7ff040925a712d372ca597cbe98afeb118e4dce061be4545435921b34",
+      "path": "src/mindscape/r5_4/model.py",
+      "unchanged": true
+    },
+    {
+      "actual": "8d1a530f367fd7cdf1fbacafa4643aae4a61f787327640a2a15e0390e8a6a514",
+      "expected": "8d1a530f367fd7cdf1fbacafa4643aae4a61f787327640a2a15e0390e8a6a514",
+      "path": "src/mindscape/r5_4/preservation.py",
+      "unchanged": true
+    },
+    {
+      "actual": "c00349e27f216ef66edf446e472de49de94e5dacb70a23459aa2c16ef99b9f9f",
+      "expected": "c00349e27f216ef66edf446e472de49de94e5dacb70a23459aa2c16ef99b9f9f",
+      "path": "src/mindscape/r5_4/training.py",
+      "unchanged": true
+    },
+    {
+      "actual": "80b0043e8c9774d157cd4b7dfe02ee900a832f5ca8faeca9681bb356016703a6",
+      "expected": "80b0043e8c9774d157cd4b7dfe02ee900a832f5ca8faeca9681bb356016703a6",
+      "path": "tests/r5_4/test_experiment.py",
+      "unchanged": true
+    }
+  ],
+  "v1_lock_sha256": "a771f8ae619fa080b09f49c52ebbad6f8eb2dbb37f6b4b6748fbd86700f6a30a",
+  "v2_inventory": [
+    {
+      "actual": "157fb7611514381e154f72f8e1bb60abf6b30f5353cb399a1f6c0f5661c1d97c",
+      "expected": "157fb7611514381e154f72f8e1bb60abf6b30f5353cb399a1f6c0f5661c1d97c",
+      "path": "diagnostics/r5_4_mps_v1/run.py",
+      "unchanged": true
+    },
+    {
+      "actual": "98df43a16c11fede2cbb3f99c8c54188954c506b068a59614b2c8ae22eae71fd",
+      "expected": "98df43a16c11fede2cbb3f99c8c54188954c506b068a59614b2c8ae22eae71fd",
+      "path": "diagnostics/r5_4_mps_v1/schedule.json",
+      "unchanged": true
+    },
+    {
+      "actual": "fa23bfc840b5036b8f6a579b4de68c0ac921961bc40dbd6e378cb6a5dd9493c7",
+      "expected": "fa23bfc840b5036b8f6a579b4de68c0ac921961bc40dbd6e378cb6a5dd9493c7",
+      "path": "diagnostics/r5_4_mps_v1/user-reported-native-engineering.json",
+      "unchanged": true
+    },
+    {
+      "actual": "29c42e98628cfb7c436cc465e5aed105911243ec8f0502723e214559f2c85b47",
+      "expected": "29c42e98628cfb7c436cc465e5aed105911243ec8f0502723e214559f2c85b47",
+      "path": "engineering/r5_4_v2/AMENDMENT.md",
+      "unchanged": true
+    },
+    {
+      "actual": "dd7e24f9ced5323ccc25d5d87d9b3c3ce99032d18e6056179f59393e386075f6",
+      "expected": "dd7e24f9ced5323ccc25d5d87d9b3c3ce99032d18e6056179f59393e386075f6",
+      "path": "engineering/r5_4_v2/audit_diagnostic.py",
+      "unchanged": true
+    },
+    {
+      "actual": "ded9a36a6a3cc01f9e6f10be7d0b2e0cd7a33042f411412a0b881ba8071e3e85",
+      "expected": "ded9a36a6a3cc01f9e6f10be7d0b2e0cd7a33042f411412a0b881ba8071e3e85",
+      "path": "engineering/r5_4_v2/audit_qualification.py",
+      "unchanged": true
+    },
+    {
+      "actual": "42a892403b29b6f5e6302d4f8daf5023ed1b6a886b440accc4e05163a9e42e5b",
+      "expected": "42a892403b29b6f5e6302d4f8daf5023ed1b6a886b440accc4e05163a9e42e5b",
+      "path": "engineering/r5_4_v2/common.py",
+      "unchanged": true
+    },
+    {
+      "actual": "ed069fa4438f159507a1a6c98875bb5bd18209de74598fb8363d68e72540f650",
+      "expected": "ed069fa4438f159507a1a6c98875bb5bd18209de74598fb8363d68e72540f650",
+      "path": "engineering/r5_4_v2/freeze_amendment.py",
+      "unchanged": true
+    },
+    {
+      "actual": "8a8140bf4a65a44466a752e29a84053fcc095b357a691b619c3dc1fe5651c1c3",
+      "expected": "8a8140bf4a65a44466a752e29a84053fcc095b357a691b619c3dc1fe5651c1c3",
+      "path": "engineering/r5_4_v2/plan.json",
+      "unchanged": true
+    },
+    {
+      "actual": "43635fc94f559a3cd3d0211a7ad14fb578417797073d1f233d614747643cf0d5",
+      "expected": "43635fc94f559a3cd3d0211a7ad14fb578417797073d1f233d614747643cf0d5",
+      "path": "engineering/r5_4_v2/preserve.py",
+      "unchanged": true
+    },
+    {
+      "actual": "de54234c2ec83ede93f4e28ad656d1f06f37e1d360ac8c64847a2419ecff88c9",
+      "expected": "de54234c2ec83ede93f4e28ad656d1f06f37e1d360ac8c64847a2419ecff88c9",
+      "path": "engineering/r5_4_v2/qualify.py",
+      "unchanged": true
+    },
+    {
+      "actual": "a5b015888082d626d83cf2a0d0258f0284a8c258c3ab3f14d7f03b4515440a3f",
+      "expected": "a5b015888082d626d83cf2a0d0258f0284a8c258c3ab3f14d7f03b4515440a3f",
+      "path": "engineering/r5_4_v2/test_amendment.py",
+      "unchanged": true
+    },
+    {
+      "actual": "69722e38da85410c578224bca04e2ca59ac9297a77cda3d52f0c13c69366ec19",
+      "expected": "69722e38da85410c578224bca04e2ca59ac9297a77cda3d52f0c13c69366ec19",
+      "path": "experiments/r5_4/engineering.json",
+      "unchanged": true
+    },
+    {
+      "actual": "b8970b2c44dfd6e69556f1d8e6bb9cb86533763b927f5d5b492daa2bc77cd028",
+      "expected": "b8970b2c44dfd6e69556f1d8e6bb9cb86533763b927f5d5b492daa2bc77cd028",
+      "path": "experiments/r5_4/engineering_v2/diagnostic-independent-audit.json",
+      "unchanged": true
+    },
+    {
+      "actual": "80e2a0742ab4f57dcba9f22cab2eb7e36790113345c1a0113fa4d741651752e5",
+      "expected": "80e2a0742ab4f57dcba9f22cab2eb7e36790113345c1a0113fa4d741651752e5",
+      "path": "experiments/r5_4/engineering_v2/evidence/native-diagnostic-v1-preservation.json",
+      "unchanged": true
+    },
+    {
+      "actual": "b6ef74587d3aa0f73a6afabe2dba6e4308dd9cf85c5fd34f0acf9880f8309e32",
+      "expected": "b6ef74587d3aa0f73a6afabe2dba6e4308dd9cf85c5fd34f0acf9880f8309e32",
+      "path": "experiments/r5_4/engineering_v2/evidence/native-diagnostic-v1.tar.gz",
+      "unchanged": true
+    },
+    {
+      "actual": "80e2a0742ab4f57dcba9f22cab2eb7e36790113345c1a0113fa4d741651752e5",
+      "expected": "80e2a0742ab4f57dcba9f22cab2eb7e36790113345c1a0113fa4d741651752e5",
+      "path": "experiments/r5_4/engineering_v2/evidence/preservation-validation.json",
+      "unchanged": true
+    },
+    {
+      "actual": "e95c548ac93a43f6893d2db9c5b7a9a4f4c53bf7e36fbe9f2070b1bc56611df4",
+      "expected": "e95c548ac93a43f6893d2db9c5b7a9a4f4c53bf7e36fbe9f2070b1bc56611df4",
+      "path": "experiments/r5_4/engineering_v2/nontraining-tests.txt",
+      "unchanged": true
+    }
+  ],
+  "v2_lock_sha256": "ca6f9bf67ecf9fea9d3b0c8075cf3c0c0c4001f1a9049fef1cff28e5f7c585e5"
+}

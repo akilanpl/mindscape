@@ -1,0 +1,17 @@
+
+==================================== ERRORS ====================================
+____________ ERROR collecting tests/r5_3_recovery/test_recovery.py _____________
+ImportError while importing test module '/Users/akilan/Documents/Codex/2026-10-13/files-pasted-by-the-user-mindscape-2/work/mindscape/tests/r5_3_recovery/test_recovery.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+tests/r5_3_recovery/test_recovery.py:7: in <module>
+    from mindscape.r5_3_recovery.__main__ import compare_tree
+src/mindscape/r5_3_recovery/__main__.py:7: in <module>
+    from mindscape.v3.physics_world.environment import trajectory,Environment,ENGINE_VERSION,ENGINE_REVISION
+src/mindscape/v3/physics_world/environment.py:4: in <module>
+    import pymunk
+E   ModuleNotFoundError: No module named 'pymunk'
+=========================== short test summary info ============================
+ERROR tests/r5_3_recovery/test_recovery.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.55s
