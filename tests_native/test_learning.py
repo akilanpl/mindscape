@@ -65,3 +65,99 @@ def test_baselines_and_paired_statistics():
     assert holm([.01, .04, .2]) == [.03, .08, .2]
     with pytest.raises(ValueError):
         paired_bootstrap([], [])
+
+
+def test_actual_untrained_graph_gradients_and_safe_checkpoint_replay(tmp_path, monkeypatch):
+    torch = pytest.importorskip('torch')
+    from mindscape.r56.neural import R56Model, ModelConfig
+    from mindscape.r56.native_domains import pack_problem
+    from mindscape.r56.learning import save_checkpoint, load_checkpoint
+    from mindscape.r56.benchmarks import model_accounting
+    # Architectural connectivity check only: no optimizer creation or update.
+    monkeypatch.setattr(torch.optim, 'Adam', lambda *a, **k: (_ for _ in ()).throw(AssertionError('optimizer forbidden')))
+    torch.manual_seed(17)
+    model = R56Model(ModelConfig())
+    before = {k: v.clone() for k, v in model.state_dict().items()}
+    rows = generate('train', 6)
+    total_loss = 0
+    for row in rows:
+        output = model(pack_problem(row['problem']), stateless=True)
+        domain, labels = row['problem']['domain'], row['labels']
+        if domain == 'math':
+            total_loss = total_loss + torch.nn.functional.cross_entropy(output['math_digit_logits'].reshape(1, -1), torch.tensor([labels['math_digit']]))
+            total_loss = total_loss + torch.nn.functional.cross_entropy(output['math_carry_logits'].reshape(1, -1), torch.tensor([labels['math_carry']]))
+        elif domain == 'coding':
+            total_loss = total_loss + torch.nn.functional.cross_entropy(output['coding_logits'].reshape(1, -1), torch.tensor([labels['coding_index']]))
+        else:
+            total_loss = total_loss + torch.nn.functional.mse_loss(output['physics_delta'], torch.tensor(labels['physics_delta']))
+    total_loss.backward()
+    assert torch.isfinite(total_loss)
+    assert model.features.weight.grad is not None and model.features.weight.grad.abs().sum() > 0
+    assert all(torch.equal(before[k], v) for k, v in model.state_dict().items())
+    accounting = model_accounting(model)
+    assert accounting['parameter_count'] > 0 and accounting['gradient_bytes'] > 0
+    model.eval()
+    graph = pack_problem(rows[0]['problem'])
+    original = model(graph, stateless=True)['math_digit_logits'].detach()
+    path = tmp_path / 'weights.json'
+    identity = save_checkpoint(model, path, {'trained': False, 'optimizer_updates': 0})
+    replay = R56Model(ModelConfig())
+    metadata = load_checkpoint(replay, path, identity)
+    assert metadata['optimizer_updates'] == 0
+    assert torch.equal(original, replay(graph, stateless=True)['math_digit_logits'].detach())
+    with pytest.raises(ValueError, match='hash'):
+        load_checkpoint(replay, path, '0' * 64)
+
+
+def test_pooled_control_outputs_and_parameter_mismatch():
+    torch = pytest.importorskip('torch')
+    from mindscape.r56.native_domains import pack_problem
+    from mindscape.r56.benchmarks import pooled_baseline, model_accounting
+    graph = pack_problem(generate('train', 1)[0]['problem'])
+    counts = []
+    for kind in ('mlp', 'gru'):
+        torch.manual_seed(17)
+        model = pooled_baseline(kind)
+        output = model(graph, stateless=True)
+        assert output['math_digit_logits'].shape == (10,)
+        assert output['coding_logits'].shape == (16,)
+        assert output['physics_delta'].shape == (2,)
+        counts.append(model_accounting(model)['parameter_count'])
+    assert counts[0] != counts[1]  # Measured mismatch must not be concealed.
+
+
+def test_holm_independent_reference_and_bootstrap_pairing():
+    assert holm([.2, .001, .04]) == [.2, .003, .08]
+    assert holm([.03, .03, .03]) == [.09, .09, .09]
+    assert paired_bootstrap([0, 1, 0, 1], [0, 1, 0, 1], replicates=100)['ci95'] == [0.0, 0.0]
+    assert paired_bootstrap([1, 0, 1], [0, 0, 1], replicates=100) == paired_bootstrap([1, 0, 1], [0, 0, 1], replicates=100)
+    with pytest.raises(ValueError):
+        holm([float('nan')])
+
+
+def test_concept_controls_are_distinct_and_consistent():
+    torch = pytest.importorskip('torch')
+    from mindscape.r56.native_domains import pack_problem
+    from mindscape.r56.benchmarks import controlled_graph
+    graph = pack_problem(generate('train', 2)[1]['problem'])
+    assert graph.concept_ids.numel() > 0
+    assert controlled_graph(graph, 'graph-concept-off').concept_ids.numel() == 0
+    assert torch.equal(controlled_graph(graph, 'graph-concept-shuffled').concept_ids,
+                       (graph.concept_ids * 17 + 3) % 32)
+    assert controlled_graph(graph, 'graph-concept-ablated').concept_ids.eq(0).all()
+    assert torch.equal(graph.concept_ids, torch.tensor([3]))
+
+
+def test_source_locks_cover_language_runtime_and_inference(tmp_path):
+    from mindscape.r56.learning import source_locks
+    paths = ['src/mindscape/r56/learning.py', 'src/mindscape/r56/language_model.py',
+             'src/mindscape/r56/native_domains.py', 'src/mindscape/mind1/runtime.py',
+             'src/mindscape/mind1/provider.py']
+    for name in paths:
+        path = tmp_path / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('source = 1')
+    before = source_locks(tmp_path)
+    assert set(before) == set(paths)
+    (tmp_path / paths[3]).write_text('runtime = 2')
+    assert source_locks(tmp_path) != before

@@ -13,7 +13,8 @@ STATUS = 'EXPERIMENTAL — GENERALIZATION NOT YET DEMONSTRATED'
 def source_locks(root):
     root = Path(root).resolve()
     return {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted((root / 'src/mindscape/r56').glob('*.py'))}
+            for p in sorted([*(root / 'src/mindscape/r56').rglob('*.py'),
+                             *(root / 'src/mindscape/mind1').rglob('*.py')])}
 
 
 def freeze(root, directory):
@@ -149,14 +150,8 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
         for step in range(manifest['optimizer_steps']):
             row = rows[step % len(rows)]
             graph = pack_problem(row['problem'], device='cpu')
-            if control != 'graph-concept-on' and control not in ('mlp', 'gru'):
-                from dataclasses import replace
-                if control == 'graph-concept-off':
-                    graph = replace(graph, concept_ids=graph.concept_ids[:0])
-                elif control == 'graph-concept-shuffled':
-                    graph = replace(graph, concept_ids=(graph.concept_ids * 17 + 3) % 32)
-                elif control == 'graph-concept-ablated':
-                    graph = replace(graph, concept_ids=torch.zeros_like(graph.concept_ids))
+            from .benchmarks import controlled_graph
+            graph = controlled_graph(graph, control)
             prediction = model(graph, stateless=True)
             labels, domain = row['labels'], row['problem']['domain']
             if domain == 'math':
@@ -175,7 +170,14 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
             loss.backward()
             optimizer.step()
             losses.append(float(loss.detach()))
-        metadata = {'freeze_hash': freeze_hash, 'seed': seed, 'budget': budget, 'control': control,
+        from .benchmarks import model_accounting
+        import resource
+        import sys
+        peak_rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        metadata = {'model_accounting': model_accounting(model),
+            'process_lifetime_peak_rss_bytes': int(peak_rss if sys.platform == 'darwin' else peak_rss * 1024),
+            'peak_memory_note': 'Process lifetime RSS, not isolated campaign activation peak.',
+            'freeze_hash': freeze_hash, 'seed': seed, 'budget': budget, 'control': control,
             'optimizer_steps': len(losses), 'losses': losses,
             'wall_seconds': time.monotonic() - began,
             'parameter_count': sum(p.numel() for p in model.parameters()),
@@ -200,7 +202,7 @@ if __name__ == '__main__':
     main()
 
 
-def evaluate_model(model, rows):
+def evaluate_model(model, rows, control='graph-concept-on'):
     """Original held-out outputs only. No repair, optimizer, or success declaration."""
     import torch
     from .native_domains import pack_problem
@@ -210,7 +212,8 @@ def evaluate_model(model, rows):
     model.eval()
     with torch.no_grad():
         for row in rows:
-            output = model(pack_problem(row['problem'], device='cpu'), stateless=True)
+            from .benchmarks import controlled_graph
+            output = model(controlled_graph(pack_problem(row['problem'], device='cpu'), control), stateless=True)
             labels, domain = row['labels'], row['problem']['domain']
             if domain == 'math':
                 prediction = {'math_digit': int(output['math_digit_logits'].argmax()),

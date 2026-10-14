@@ -11,8 +11,9 @@ BASELINES = ('exact-rule', 'memorization', 'mlp', 'gru', 'graph-concept-on',
 def exact_rule(problem):
     domain = problem['domain']
     if domain == 'math':
-        total = problem['left'] + problem['right'] + problem.get('carry_in', 0)
-        return {'math_digit': total % 10, 'math_carry': total // 10}
+        incoming = problem.get('carry_in', problem.get('incoming', 0))
+        total = problem['left'] + problem['right'] + incoming if problem['operation'] == 'add_digit' else problem['left'] - problem['right'] - incoming
+        return {'math_digit': total % 10, 'math_carry': total // 10 if problem['operation'] == 'add_digit' else int(total < 0)}
     if domain == 'coding':
         return {'coding_index': problem['candidates'].index(problem['requested_name'])}
     return {'physics_delta': [f * problem['dt'] / problem['mass'] for f in problem['force']]}
@@ -76,3 +77,31 @@ def pooled_baseline(kind, width=48):
                     'coding_logits': self.coding(pooled), 'physics_delta': self.physics(pooled),
                     'pooled': pooled, 'memory': pooled}
     return PooledControl()
+
+
+def model_accounting(model):
+    """Exact tensor storage accounting, not total process/device peak memory."""
+    parameters = list(model.parameters())
+    buffers = list(model.buffers())
+    return {'parameter_count': sum(p.numel() for p in parameters),
+            'trainable_parameter_count': sum(p.numel() for p in parameters if p.requires_grad),
+            'parameter_bytes': sum(p.numel() * p.element_size() for p in parameters),
+            'buffer_bytes': sum(p.numel() * p.element_size() for p in buffers),
+            'gradient_bytes': sum(p.grad.numel() * p.grad.element_size() for p in parameters if p.grad is not None),
+            'estimated_adam_moment_bytes': 2 * sum(p.numel() * p.element_size() for p in parameters if p.requires_grad),
+            'note': 'Tensor storage only; excludes allocator overhead, activations, and process peak RSS.'}
+
+
+def controlled_graph(graph, control):
+    """Apply frozen control consistently to training and evaluation."""
+    from dataclasses import replace
+    import torch
+    if control in ('graph-concept-on', 'mlp', 'gru'):
+        return graph
+    if control == 'graph-concept-off':
+        return replace(graph, concept_ids=graph.concept_ids[:0])
+    if control == 'graph-concept-shuffled':
+        return replace(graph, concept_ids=(graph.concept_ids * 17 + 3) % 32)
+    if control == 'graph-concept-ablated':
+        return replace(graph, concept_ids=torch.zeros_like(graph.concept_ids))
+    raise ValueError('Unsupported neural control')
