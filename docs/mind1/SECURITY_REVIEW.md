@@ -30,3 +30,6 @@ These findings were repaired in the integrated sources. Server review confirmed 
 ## Residual limits
 
 This application is intended for a loopback, single-user workspace. Browser-local history is readable by anyone with the same browser profile. A configured provider receives submitted conversation text. Static code findings and successful symbolic computations do not establish general code safety or mathematical correctness. No public deployment or authentication security claim is made.
+
+## Native correction
+Hosted inference has been removed. See docs/native/INDEPENDENT_REVIEW.md for the native no-network/no-optimizer, target-isolation and checkpoint review. Prior provider-specific findings refer to archived PR27 only.

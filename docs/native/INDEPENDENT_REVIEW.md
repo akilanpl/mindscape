@@ -87,3 +87,5 @@ roundtrip/finiteness/size boundaries, and learned-language unavailability. Resul
 are engineering evidence only; a passing verifier on one case is not scientific
 qualification. The pre-merge run selected the parent integration source tree via
 `MIND1_AUDIT_ROOT` and pytest's Python path override.
+
+Parent follow-up: checkpoint payload/metadata mapping and bounded optimizer-step validation, plus nonfinite JSON rejection, were added with five rejection-before-weight-application regressions. The prior robustness finding is repaired; this is engineering validation, not scientific qualification.

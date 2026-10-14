@@ -26,10 +26,12 @@ def freeze(root, directory):
     output.mkdir(parents=True, exist_ok=False)
     from .benchmarks import matched_baseline_plan
     datasets = {str(seed): prepare_data(seed) for seed in SEEDS}
+    from .evaluation import axis_datasets
+    datasets['evaluation_axes'] = axis_datasets()
     manifest = {'version': 'r56-native-preparation-v1', 'source_locks': source_locks(root),
         'data_hash': digest(datasets),
         'exposure_summary': {seed: {str(budget): exposure_summary(data['train'][:budget])
-            for budget in BUDGETS} for seed, data in datasets.items()},
+            for budget in BUDGETS} for seed, data in datasets.items() if seed != 'evaluation_axes'},
         'success_threshold_status': 'CANDIDATE_REQUIRES_INDEPENDENT_REVIEW',
         'seeds': list(SEEDS), 'budgets': list(BUDGETS),
         'optimizer': 'Adam', 'learning_rate': .001, 'optimizer_steps': 2000,
@@ -122,7 +124,12 @@ def load_checkpoint(model, path, expected_hash):
     raw = path.read_bytes()
     if hashlib.sha256(raw).hexdigest() != expected_hash:
         raise ValueError('Checkpoint hash mismatch')
-    payload = json.loads(raw)
+    payload = json.loads(raw, parse_constant=lambda value: (_ for _ in ()).throw(ValueError('Nonfinite JSON constant')))
+    if not isinstance(payload, dict) or not isinstance(payload.get('metadata'), dict) or not isinstance(payload.get('tensors'), dict):
+        raise ValueError('Checkpoint payload, metadata and tensors must be mappings')
+    steps = payload['metadata'].get('optimizer_steps', 0)
+    if type(steps) is not int or not 0 <= steps <= 10000000:
+        raise ValueError('Checkpoint optimizer_steps must be a bounded nonnegative integer')
     if payload.get('format') != 'r56-json-tensors-v1' or payload.get('scientifically_qualified') is not False:
         raise ValueError('Invalid checkpoint format/status')
     import torch
@@ -132,6 +139,8 @@ def load_checkpoint(model, path, expected_hash):
     restored = {}
     for name, expected in state.items():
         entry = payload['tensors'][name]
+        if not isinstance(entry, dict):
+            raise ValueError('Checkpoint tensor entry must be a mapping')
         if entry['shape'] != list(expected.shape) or entry['dtype'] != str(expected.dtype):
             raise ValueError('Checkpoint tensor schema differs')
         tensor = torch.tensor(entry['values'], dtype=expected.dtype)
@@ -167,7 +176,7 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
         model = R56Model(ModelConfig())
     optimizer = torch.optim.Adam(model.parameters(), lr=manifest['learning_rate'])
     rows = datasets[str(seed)]['train'][:budget]
-    began, losses, memory = time.monotonic(), [], None
+    began, losses, memory, prior_episode = time.monotonic(), [], None, None
     try:
         model.train()
         for step in range(manifest['optimizer_steps']):
@@ -175,6 +184,10 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
             graph = pack_problem(row['problem'], device='cpu')
             from .benchmarks import controlled_graph
             graph = controlled_graph(graph, control)
+            episode = row.get('episode_id')
+            if episode is None or episode != prior_episode:
+                memory = None
+            prior_episode = episode
             prediction = model(graph, memory=memory, stateless=control != 'graph-memory-recurrent')
             memory = prediction['memory'].detach() if control == 'graph-memory-recurrent' else None
             labels, domain = row['labels'], row['problem']['domain']
@@ -233,11 +246,15 @@ def evaluate_model(model, rows, control='graph-concept-on'):
     from .native_domains import pack_problem
     if len(rows) > 4096:
         raise ValueError('Evaluation row budget exceeded')
-    began, records, memory = time.monotonic(), [], None
+    began, records, memory, prior_episode = time.monotonic(), [], None, None
     model.eval()
     with torch.no_grad():
         for row in rows:
             from .benchmarks import controlled_graph
+            episode = row.get('episode_id')
+            if episode is None or episode != prior_episode:
+                memory = None
+            prior_episode = episode
             output = model(controlled_graph(pack_problem(row['problem'], device='cpu'), control),
                            memory=memory, stateless=control != 'graph-memory-recurrent')
             memory = output['memory'].detach() if control == 'graph-memory-recurrent' else None

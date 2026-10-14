@@ -1,73 +1,46 @@
-# Mind 1 / R5.6 review candidate — 2026-10-14
+# Native architecture correction — engineering review
 
-**Acceptance verdict: INCOMPLETE. This is a working local review build, not a qualified full product release.**
+This replaces PR27's external reasoning architecture on the separate branch
+`development/mind1-native-r56`, from exact head
+`3cefed2a2cc4e6a5867602822fcd35bc8d19bc96`. PR27 remains unmerged.
 
-Source branch: development/mind1-r56. Draft PR: https://github.com/akilanpl/mindscape/pull/27
-Reviewed integration baseline: 8c141d8 (research/alpha-r54, PR23).
-
-| Status | Evidence and scope |
+| Gate | Status |
 |---|---|
-| IMPLEMENTED | Loopback API, configurable Groq/OpenAI-compatible provider, bounded multi-step tool routing, context handling, cancellation, responsive persistent chat, safe Markdown/MathML/tables, actual data charts, provenance, capabilities page |
-| TESTED | 146 passing tests, 14 skips, 9 passing subtests across product/R5.6 plus preserved kernel and authorization safeguards. Test XML supplied. |
-| VERIFIED | Browser → API → symbolic integration → derivative residual 0 → displayed result and provenance. Desktop 1440×900 and mobile 390×844 inspected. Actual WASI print/sum and host-file denial checked. Matrix/ODE/physics tests check objective expectations. |
-| EXPERIMENTAL | R5.6 concept/state/action/composition/verifier interfaces, bounded carry/AST/impulse examples, candidate untrained neural core, matched-control protocol. Generalization NOT demonstrated. No training executed. |
-| UNAVAILABLE | Live provider credential, streaming, public accounts/authentication, formal theorem proving, non-Python guest execution, full repository patch/test writeback, broad expert-reviewed advanced coverage. Live arXiv request returned unavailable. |
-| BLOCKED | Credential-backed Groq acceptance: MIND1_API_KEY absent in agent environment. Twelve live cases are explicitly skipped; no external-model answers are presented as verified. |
+| ARCHITECTURE IMPLEMENTED | Implemented bounded original graph transition model, trainable concept embeddings, relation processing, action conditioning, bounded memory, typed domain adapters and separate verifiers |
+| NATIVE INFERENCE TESTED | Real CPU random-weight predictions travel through browser/API/native runtime/model/verifier; wrong predictions preserved |
+| LEARNED MODEL QUALIFIED | NO — no scientific training campaign or qualified checkpoint |
+| COMPOSITIONAL GENERALIZATION VERIFIED | NO — evaluation preparation and engineering tests only |
+| CROSS-DOMAIN TRANSFER VERIFIED | NO — shared parameters and core-transfer preparation are not transfer evidence |
+| PRODUCT RELEASE READY | NO — bounded engineering candidate; broad native language and scientific qualification remain unresolved |
 
-## Product and scientific boundaries
+R5.6 EXPERIMENTAL — SCIENTIFIC GENERALIZATION UNVERIFIED
 
-Groq endpoint defaults to https://api.groq.com/openai/v1, model openai/gpt-oss-120b,
-reasoning_effort high. Credentials are read only from server environment and never
-sent to browser or tool workers. Foundation-model capabilities are not attributed
-to R5.6. Live model access, quality, quota and latency are not established by the
-configuration or contract fixtures. Graduate and research responses require expert
-review; live tests do not automatically certify those answers as correct.
+No third-party inference account is required. Hosted/pretrained inference removed;
+normal chat does not use an external provider or hidden fallback. Deterministic
+parsing, supplied concepts/schedules, neural proposals, reference verification and
+scientific tools have separate attribution. StageB language encoder is original
+but untrained; synthetic paraphrase/intent/span learning infrastructure is prepared.
 
-Local symbolic tools deliberately bound syntax, polynomial degrees and dimensions.
-Numerical minimization assumes a unimodal bounded interval. Fixed-step ODE/physics
-results are approximate; residuals are evidence of specific checks, not general
-physical truth. Static analysis outside Python uses limited patterns and inventory,
-not full compiler semantics. Only WASI Python is executable. A passing isolation
-probe is required before source execution. Operator must supply a trusted runtime;
-no WASI runtime or compiled cache is bundled in the source zip.
+Native demo observed 27+18 -> original prediction166, verifier expected45 false.
+This is intentionally recorded as failure of the random prediction and successful
+engineering evidence separation, never as a learned success. Real WASI execution
+and symbolic checks remain tools, not native neural intelligence.
 
-Provider contract fixtures are used only in tests. The application never substitutes
-a mock answer backend when inference is unavailable. No private verifier data is
-available to provider integration. Optional public retrieval uses a fixed arXiv API;
-its public-query restriction is instructional, not a semantic privacy classifier.
-Leave it disabled for private conversations.
+The protected inventory audit checks 1,275 historical baseline files and two tags.
+Old foundation README and research-v2 test-collection CI failures predate PR27;
+exact hashes/logs are documented in docs/native/CI_AUDIT.md. Old checks and files
+are not disabled or rewritten. New native CI contains only engineering checks;
+local passing tests do not establish a successful hosted CI run.
 
-## Security and preservation
+Training infrastructure is implemented but optimizer loops are unexecuted here.
+Frozen candidate budgets32/128/512 and seeds17/29/43 are retained. Eight neural
+controls imply72 candidate fits/144000 updates, pending review and authorization.
+Matched baseline parameter counts differ by less than0.5%; compute is measured,
+not presumed matched. Distinct task counts and repeated exposures are reported.
+Source/data/evaluation locks and external independent qualification plus human
+scientific authorization are required before optimization. Unissued templates
+are not authorization. Historical study approval never authorizes R5.6.
 
-Loopback binding only; Host/Origin checks, JSON/size limits, four concurrency slots,
-rate limiting, CSP, safe DOM rendering, allowlisted tool dispatch, resource ceilings,
-redacted errors/logs. Backend does not retain conversations; browser localStorage
-provides persistence and is shared by users of the same browser profile. No public
-account isolation claim. Cancellation terminates tool workers; in-flight provider
-calls can continue until bounded socket timeout.
-
-Dependency audit: nine resolved requirement packages, zero known vulnerabilities
-at audit time. This does not establish absence of vulnerabilities. Historical
-website/, configs/, experiments/, research_checkpoint/ and protected evidence have
-zero diff against baseline. No merge, tag or deployment occurred.
-
-Initial broader historical test collection could not import torch; it was not
-silently treated as passing. Kernel physics initially lacked pymunk; installing
-its historical pin 7.2.0 allowed the final kernel regression suite to pass.
-Protected training/optimizer campaigns and historical full workloads were not run
-or reduced. No R5.5 historical release was invented.
-
-Final end-to-end evidence found and repaired an inherited file-size limit mismatch
-between the product tool worker and nested WASI worker. A regression now executes
-actual guest source through the complete product worker path.
-
-## Handoff
-
-See README.md for reproducible setup, API and limits, COVERAGE.md for the tiered
-live evaluation, SECURITY_REVIEW.md for independent review, and ../r56/RESEARCH.md
-for protocol/status. The source zip is a standalone product subset; the Git branch
-preserves the complete research repository. A baseline-relative patch is supplied.
-
-Next qualification requires setting MIND1_API_KEY in the server/test environment,
-restarting the server, running all twelve live cases, reviewing advanced answers,
-and resolving the unavailable acceptance items before a release claim.
+Unresolved: independent scientific qualification, approved training, real heldout
+learning curves, learned language integration qualification, broad task coverage,
+and hosted CI verification. No merge, tag, release or public deployment occurred.

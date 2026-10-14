@@ -154,3 +154,5 @@ records use exclusive creation to preserve previous evidence.
 
 Current evidence: twelve nontraining tests pass, including repeated-exposure
 reporting and rejection of checkpoint/failure overwrites.
+
+Independent rows now reset recurrent memory; only shared explicit episode_id preserves detached memory. Read-only composition/OOD episodes and core-only transfer initialization are implemented in evaluation.py; no transfer training occurred.

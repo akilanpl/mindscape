@@ -12,7 +12,10 @@ def main():
         pass
     from .engines import run_tool
     data = json.loads(sys.stdin.buffer.read(64001))
-    if data["name"] == "research_retrieve":
+    if data["name"] == "native_transition":
+        from .native_runtime import predict_native
+        result = predict_native(**data["args"])
+    elif data["name"] == "research_retrieve":
         from .retrieval import retrieve_arxiv
         retrieved = retrieve_arxiv(**data["args"]).as_dict()
         result = {"ok": retrieved["status"] == "ok", "tool": "research_retrieve", "result": retrieved}
