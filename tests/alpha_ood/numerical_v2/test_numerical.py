@@ -1,0 +1,148 @@
+import copy
+import inspect
+import json
+import base64
+import pytest
+import torch
+from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
+from cryptography.hazmat.primitives import serialization
+from mindscape.alpha_ood.benchmark import Task,digest
+from mindscape.alpha_ood.models import LocalTransition
+from mindscape.alpha_ood.numerical_v2 import adapter as a
+from mindscape.alpha_ood.numerical_v2 import custody as c
+from mindscape.alpha_ood.numerical_v2 import evaluation as e
+from mindscape.r5_2_math.verification import demonstration
+
+# Every fixture is fabricated, tiny and training-only. No protected dataset draw.
+def fixture():
+    tasks=(Task(9,(('add',2),('sub',3)),'train','familiar'),Task(3,(('mul',2),),'train','familiar'))
+    traces=[demonstration(a.native_task(t)) for t in tasks]
+    return tasks,traces
+
+@pytest.mark.parametrize('kind',['recurrent','feedforward'])
+def test_real_loss_backward_no_update(kind):
+    tasks,traces=fixture(); model=LocalTransition(kind,11)
+    before={k:v.clone() for k,v in model.state_dict().items()}
+    value=a.loss(model,a.package_training(tasks,traces),'cpu'); value.backward()
+    assert value.isfinite() and value.item()>0
+    assert all(p.grad is not None and torch.isfinite(p.grad).all() for p in model.parameters())
+    assert all(torch.equal(v,model.state_dict()[k]) for k,v in before.items())
+
+def test_initialization_parity():
+    r=LocalTransition('recurrent',23); f=LocalTransition('feedforward',23)
+    for k,v in r.state_dict().items():
+        if not k.startswith('core.'):
+            assert torch.equal(v,f.state_dict()[k])
+
+def test_schedule_and_optimizer_static():
+    assert a.batch_plan(11).shape==(800,32)
+    assert (a.batch_plan(11)==a.batch_plan(11)).all()
+    assert not (a.batch_plan(11)==a.batch_plan(23)).all()
+    src=inspect.getsource(a.fit_native)
+    assert src.index('require_access(')<src.index('LocalTransition(')
+    assert src.count('optimizer.step()')==1 and 'for indices in plan' in src
+    assert "checkpoint.open('xb')" in src
+    with pytest.raises(ValueError): a.batch_plan(11,2)
+
+def test_no_eval_teacher_inputs():
+    tasks,traces=fixture()
+    with pytest.raises(ValueError):
+        a.package_training((Task(1,(('add',1),),'ood','operand_combinations'),),traces[:1])
+    source=inspect.getsource(a.Predictor)+inspect.getsource(a.predict_task)
+    assert 'verification' not in source and 'reference(' not in source
+
+def signed(private,purpose,binding,sequence=1,decision=None):
+    payload={'purpose':purpose,'binding':binding,'signer':'synthetic_test_signer',
+             'approved':True,'decision_id':decision or 'synthetic-'+purpose,'sequence':sequence}
+    raw=json.dumps(payload,sort_keys=True,separators=(',',':'),allow_nan=False).encode()
+    return {'payload':payload,'signature':base64.b64encode(private.sign(raw)).decode()}
+
+# Ephemeral private key generated only for fabricated test bindings, never saved
+# or used for real authorization. No approval records are written to repository.
+def trust():
+    private=Ed25519PrivateKey.generate()
+    public=private.public_key().public_bytes(serialization.Encoding.Raw,serialization.PublicFormat.Raw)
+    return private,{(p,'synthetic_test_signer'):public for p in (*c.REQUIRED,'independent_eligibility','seal_before_label_release')}
+
+def binding():
+    value={k:digest('synthetic-'+k) for k in c.BINDINGS}; value['numerical_spec_hash']=digest(a.SPEC)
+    return value
+
+def test_fail_closed_signatures_and_binding():
+    private,keys=trust(); b=binding()
+    receipts={p:signed(private,p,b) for p in (*c.REQUIRED,'independent_eligibility')}
+    access=c.authorize('fit',b,receipts,keys); c.require_access(access,'fit',b)
+    wrong=copy.deepcopy(receipts); wrong['fitting_authorization']['payload']['binding']['source_hash']=digest('wrong')
+    with pytest.raises(ValueError): c.authorize('fit',b,wrong,keys)
+    with pytest.raises(ValueError): c.authorize('fit',b,receipts,{})
+    with pytest.raises(ValueError): c.authorize('fit',b,{},keys)
+    with pytest.raises(ValueError): a.fit_native(tasks=(),traces=[],kind='recurrent',seed=11,bindings=b,authorization=None,checkpoint=None)
+
+def test_fabricated_boolean_not_signature():
+    b=binding(); receipts={p:{'payload':{'purpose':p,'binding':b,'signer':'invented','approved':True,'decision_id':p,'sequence':1},'signature':'true'} for p in (*c.REQUIRED,'independent_eligibility')}
+    with pytest.raises(ValueError): c.authorize('fit',b,receipts,{})
+
+def test_seal_order_missing_substitution(tmp_path):
+    task=fixture()[0][0]; memory={}; table={}
+    rows=[]
+    for condition in e.SEALED_CONDITIONS:
+        for seed in e.SEEDS:
+            rows.append({'identity':task.identity,'condition':condition,'seed':seed,'result':None,'failure':{'type':'synthetic_failure'}})
+    seal=e.seal_predictions((task,),rows,binding(),tmp_path/'synthetic.json')
+    assert seal['prediction_hash']==digest(rows) and seal['labels_released'] is False
+    for bad in (rows[:-1],list(reversed(rows)),[{**rows[0],'identity':'wrong'},*rows[1:]]):
+        with pytest.raises(ValueError): e.validate_records((task,),bad)
+    with pytest.raises(FileExistsError): e.seal_predictions((task,),rows,binding(),tmp_path/'synthetic.json')
+
+def test_prediction_feedback_replay_synthetic_only():
+    task=fixture()[0][0]; model=LocalTransition('recurrent',47)
+    row=a.predict_task(task,model,'cpu')
+    assert row['failure'] is None
+    e.replay_neural(task,row['result'])
+    result=copy.deepcopy(row['result']); result['transitions'][0]['state']['incoming']=7
+    with pytest.raises(ValueError): e.replay_neural(task,result)
+
+def test_public_support_requires_full_dataset():
+    with pytest.raises(ValueError): c.observable_report(fixture()[0],set())
+
+def test_frozen_proposal_unchanged():
+    protocol=json.load(open('configs/alpha_ood/protocol-v1.json'))
+    assert protocol['counts']=={'train':768,'validation':96,'ood_per_family':36}
+    assert protocol['updates_per_fit']==800 and protocol['batch_size']==32
+    assert protocol['gates']['gain_over_each_nonprocedural_baseline_min']==.10
+
+def test_full_synthetic_sealed_scoring_and_corruption(tmp_path):
+    # Explicit fixture train tasks are not protected OOD; scorer exercise retains
+    # six family denominators, never generates frozen benchmark identities.
+    tasks=tuple(Task(2+i,(('add',1),),'train',family) for i,family in enumerate(e.FAMILIES))
+    labels={t.identity:[t.start+1] for t in tasks}; b=binding(); b['label_commitment']=digest(labels)
+    private,keys=trust(); receipts={p:signed(private,p,b) for p in (*c.REQUIRED,'independent_eligibility')}
+    access=c.authorize('evaluate',b,receipts,keys)
+    rows=[]
+    for condition in e.SEALED_CONDITIONS:
+        for seed in e.SEEDS:
+            for task in tasks:
+                if condition in ('recurrent','feedforward'):
+                    row=a.predict_task(task,LocalTransition(condition,seed),'cpu')
+                else:
+                    row={'identity':task.identity,'result':{'answer':str(task.start+1),'stages':[{'answer':str(task.start+1)}],'transitions':[]},'failure':None}
+                rows.append({'condition':condition,'seed':seed,**row})
+    seal=e.seal_predictions(tasks,rows,b,tmp_path/'synthetic-full.json')
+    release_binding={**b,'prediction_hash':seal['prediction_hash'],'ordered_identity_hash':seal['ordered_identity_hash']}
+    release=signed(private,'seal_before_label_release',release_binding,sequence=2)
+    result=e._score_released(tasks=tasks,seal=seal,labels=labels,release_receipt=release,access=access,binding=b,trusted_keys=keys)
+    assert result['unique_tasks']==6
+    assert result['metrics']['recurrent']['11']['overall']['independent_tasks']==6
+    assert result['scientific_status']=='NO_GO_UNVERIFIED'
+    corrupt=copy.deepcopy(seal); corrupt['rows'][0]['result']['answer']='999'
+    with pytest.raises(ValueError): e._score_released(tasks=tasks,seal=corrupt,labels=labels,release_receipt=release,access=access,binding=b,trusted_keys=keys)
+    with pytest.raises(ValueError): e._score_released(tasks=tasks,seal=seal,labels=labels,release_receipt=signed(private,'seal_before_label_release',release_binding,sequence=1),access=access,binding=b,trusted_keys=keys)
+
+
+def test_scientific_scoring_rejects_miniature():
+    with pytest.raises(ValueError): e.score_released(tasks=fixture()[0])
+
+
+def test_ood_prediction_requires_separate_access_before_forward():
+    task=Task(1,(('add',1),),'ood','operand_combinations')
+    with pytest.raises(ValueError): a.predict_task(task,None,'cpu')
