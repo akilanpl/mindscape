@@ -12,16 +12,21 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'src'))
 
 
-def run():
-    import torch
+def block_optimizers(torch):
     # A preflight never constructs or steps an optimizer, even on a native host.
     def forbidden(*args, **kwargs):
-        raise RuntimeError('Optimizer construction forbidden in engineering preflight')
+        raise RuntimeError('Optimizer construction and updates forbidden in engineering preflight')
     optimizer_base = torch.optim.Optimizer
     for name in dir(torch.optim):
         value = getattr(torch.optim, name)
         if isinstance(value, type) and issubclass(value, optimizer_base):
-            setattr(torch.optim, name, forbidden)
+            value.__init__ = forbidden
+            value.step = forbidden
+
+
+def run():
+    import torch
+    block_optimizers(torch)
     receipt = {'kind': 'native-mps-engineering-preflight-v1', 'scientific_qualification': False,
                'optimizer_updates': 0, 'python': sys.version, 'executable': sys.executable,
                'os': platform.platform(), 'machine': platform.machine(),
