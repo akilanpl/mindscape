@@ -152,3 +152,49 @@ def test_boolean_prediction_vocabulary_rejected():
     task=fixture()[0][0]; result=a.predict_task(task,LocalTransition('recurrent',11),'cpu')['result']
     result['stages'][0]['sign']=True
     with pytest.raises(ValueError): e.replay_neural(task,result)
+
+def test_source_inventory_requires_coverage_and_current_bytes(tmp_path):
+    from mindscape.alpha_ood.numerical_v2 import boundary as boundary
+    import hashlib
+    manifest={}
+    for relative in boundary.MANDATORY:
+        path=tmp_path/relative; path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text('fabricated synthetic source fixture\n')
+        manifest[relative]=hashlib.sha256(path.read_bytes()).hexdigest()
+    b={'source_hash':digest(manifest)}
+    boundary.verify_source_manifest(manifest,b,root=tmp_path)
+    omitted=dict(manifest); omitted.pop(next(iter(omitted)))
+    with pytest.raises(ValueError): boundary.verify_source_manifest(omitted,{'source_hash':digest(omitted)},root=tmp_path)
+    path=tmp_path/next(iter(manifest)); path.write_text('changed synthetic bytes')
+    with pytest.raises(ValueError): boundary.verify_source_manifest(manifest,b,root=tmp_path)
+
+def test_source_paths_reject_traversal_and_symlinks(tmp_path):
+    from mindscape.alpha_ood.numerical_v2 import boundary
+    import hashlib
+    manifest={}
+    for relative in boundary.MANDATORY:
+        path=tmp_path/relative; path.parent.mkdir(parents=True,exist_ok=True); path.write_text('synthetic')
+        manifest[relative]=hashlib.sha256(path.read_bytes()).hexdigest()
+    traversal={**manifest,'../escaped':digest('synthetic')}
+    with pytest.raises(ValueError): boundary.verify_source_manifest(traversal,{'source_hash':digest(traversal)},root=tmp_path)
+    selected=next(iter(manifest)); target=tmp_path/'synthetic-target'; target.write_text('synthetic')
+    path=tmp_path/selected; path.unlink(); path.symlink_to(target)
+    with pytest.raises(ValueError): boundary.verify_source_manifest(manifest,{'source_hash':digest(manifest)},root=tmp_path)
+
+def test_runtime_policy_snapshot_mismatch_and_native_guard(monkeypatch):
+    from mindscape.alpha_ood.numerical_v2 import boundary
+    policy={'snapshot':boundary.runtime_snapshot(),'device':'mps','dtype':'float32','status':'PROPOSED_REQUIRES_REVIEW'}
+    bad=copy.deepcopy(policy); bad['snapshot']['torch_version']='fabricated-mismatch'
+    with pytest.raises(ValueError): boundary.verify_runtime_policy(bad,{'runtime_policy_hash':digest(bad)})
+    called=[]
+    import mindscape.v3.physics_world.accelerator as accelerator
+    def synthetic_native_rejection():
+        called.append(True); raise ValueError('synthetic native guard rejection')
+    monkeypatch.setattr(accelerator,'require_mps',synthetic_native_rejection)
+    with pytest.raises(ValueError): boundary.verify_runtime_policy(policy,{'runtime_policy_hash':digest(policy)})
+    assert called==[True]
+
+def test_protected_boundaries_static_source_runtime_order():
+    assert inspect.getsource(a.fit_native).index('verify_boundary(')<inspect.getsource(a.fit_native).index('LocalTransition(')
+    assert inspect.getsource(a.predict_task).index('verify_boundary(')<inspect.getsource(a.predict_task).index('Predictor(')
+    assert 'verify_boundary(' in inspect.getsource(e.score_released)

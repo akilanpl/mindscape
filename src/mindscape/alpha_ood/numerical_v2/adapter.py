@@ -15,7 +15,9 @@ from mindscape.r5_2_math.arithmetic import run, sign_features
 from mindscape.r5_2_math.model import features
 
 SPEC = {
-    'version': 'alpha-ood-numerical-v2', 'status': 'PROPOSED_REQUIRES_REVIEW',
+    'version': 'alpha-ood-numerical-v2',
+    'source_policy': 'flat mandatory source inventory hash rechecked at every protected numerical boundary',
+    'runtime_policy': 'external content-bound Python executable bytes/version, torch/numpy/platform/machine, fallback disabled, native MPS float32 freeze', 'status': 'PROPOSED_REQUIRES_REVIEW',
     'indices': ['operation[3]', 'left[10]', 'right[10]', 'incoming[10]'],
     'relations': 'R5.2 features: seven observable features only',
     'hidden': [48], 'heads': {'digit': 10, 'carry': 10, 'sign': 2},
@@ -115,11 +117,13 @@ class Predictor:
         return sign,diagnostics
 
 
-def predict_task(task, model, device, *, access=None, bindings=None):
+def predict_task(task, model, device, *, access=None, bindings=None, source_manifest=None, runtime_policy=None):
     """No label/reference imports. Retain invalid results as explicit failed rows."""
     if task.split=='ood':
         from .custody import require_access
         require_access(access,'evaluate',bindings)
+        from .boundary import verify_boundary
+        verify_boundary(source_manifest,runtime_policy,bindings)
         from mindscape.v3.physics_world.accelerator import require_mps
         require_mps()
         if device!='mps':
@@ -133,7 +137,7 @@ def predict_task(task, model, device, *, access=None, bindings=None):
             'partial_transitions':predictor.observed_events,'partial_signs':predictor.observed_signs}}
 
 
-def fit_native(*, tasks, traces, kind, seed, bindings, authorization, checkpoint: Path):
+def fit_native(*, tasks, traces, kind, seed, bindings, authorization, checkpoint: Path, source_manifest=None, runtime_policy=None):
     """Future complete optimizer path; external gate validates before allocation.
 
     authorization is an instance of custody.VerifiedAccess created only after
@@ -142,6 +146,8 @@ def fit_native(*, tasks, traces, kind, seed, bindings, authorization, checkpoint
     from .custody import require_access
     from mindscape.v3.physics_world.accelerator import require_mps, verify_placement
     require_access(authorization,'fit',bindings)
+    from .boundary import verify_boundary
+    verify_boundary(source_manifest,runtime_policy,bindings)
     require_mps()
     if len(tasks)!=768 or len(set(t.identity for t in tasks))!=768:
         raise ValueError('frozen train count')
@@ -174,8 +180,12 @@ def fit_native(*, tasks, traces, kind, seed, bindings, authorization, checkpoint
     return model,{'checkpoint_hash':hashlib.sha256(checkpoint.read_bytes()).hexdigest(),'updates':800,'seed':seed,'kind':kind}
 
 
-def load_final_checkpoint(path: Path, receipt: dict, bindings: dict, device='mps'):
+def load_final_checkpoint(path: Path, receipt: dict, bindings: dict, device='mps', *, access=None, source_manifest=None, runtime_policy=None):
     """Reload the single final checkpoint; exact bytes and complete plan required."""
+    from .custody import require_access
+    from .boundary import verify_boundary
+    require_access(access,'evaluate',bindings)
+    verify_boundary(source_manifest,runtime_policy,bindings)
     if hashlib.sha256(path.read_bytes()).hexdigest()!=receipt['checkpoint_hash']:
         raise ValueError('checkpoint byte substitution')
     payload=torch.load(path,map_location='cpu',weights_only=True)

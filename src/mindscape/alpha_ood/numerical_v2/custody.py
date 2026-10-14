@@ -16,7 +16,7 @@ from .adapter import SPEC
 REQUIRED = ('protocol_adoption','dataset_generation_qualification','numerical_adapter_freeze',
             'fitting_authorization','sealed_final_evaluation_authorization')
 BINDINGS = ('protocol_hash','source_hash','numerical_spec_hash','input_hash','label_commitment',
-            'train_input_hash','train_demonstration_hash','historical_registry_hash','qualification_hash')
+            'runtime_policy_hash','train_input_hash','train_demonstration_hash','historical_registry_hash','qualification_hash')
 
 @dataclass(frozen=True)
 class VerifiedAccess:

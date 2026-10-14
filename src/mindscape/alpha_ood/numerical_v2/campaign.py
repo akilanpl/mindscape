@@ -7,7 +7,7 @@ from .evaluation import CONDITIONS, SEEDS, baseline_row, training_baselines, sea
 
 
 def execute_native(*,tasks,traces,historical_ids,certificate,access,evaluation_access,binding,trusted_keys,
-                   checkpoints:Path,seal_path:Path):
+                   checkpoints:Path,seal_path:Path,source_manifest=None,runtime_policy=None):
     """Only future externally approved campaign. No generation or label reads.
 
     Procedural references are released only after the four-condition prediction
@@ -16,6 +16,8 @@ def execute_native(*,tasks,traces,historical_ids,certificate,access,evaluation_a
     """
     require_access(access,'fit',binding)
     require_access(evaluation_access,'evaluate',binding)
+    from .boundary import verify_boundary
+    verify_boundary(source_manifest,runtime_policy,binding)
     qualify(tasks,historical_ids,certificate,binding,trusted_keys)
     train=tuple(t for t in tasks if t.split=='train')
     ood=tuple(t for t in tasks if t.split=='ood')
@@ -34,10 +36,10 @@ def execute_native(*,tasks,traces,historical_ids,certificate,access,evaluation_a
         for condition in ('recurrent','feedforward'):
             for seed in SEEDS:
                 model,receipt=fit_native(tasks=train,traces=traces,kind=condition,seed=seed,
-                    bindings=binding,authorization=access,checkpoint=checkpoints/f'{condition}-s{seed}.pt')
+                    bindings=binding,authorization=access,checkpoint=checkpoints/f'{condition}-s{seed}.pt',source_manifest=source_manifest,runtime_policy=runtime_policy)
                 receipts.append(receipt)
                 for task in ood:
-                    rows.append({'condition':condition,'seed':seed,**predict_task(task,model,'mps',access=evaluation_access,bindings=binding)})
+                    rows.append({'condition':condition,'seed':seed,**predict_task(task,model,'mps',access=evaluation_access,bindings=binding,source_manifest=source_manifest,runtime_policy=runtime_policy)})
         for condition in ('memorization','transition_lookup'):
             for seed in SEEDS:
                 rows.extend(baseline_row(t,condition,seed,memory,table) for t in ood)

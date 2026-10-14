@@ -145,13 +145,18 @@ def score_released(**kwargs):
     tasks=kwargs['tasks']
     if len(tasks)!=216 or any(t.split!='ood' for t in tasks) or Counter(t.family for t in tasks)!=dict.fromkeys(FAMILIES,36):
         raise ValueError('scientific scoring requires exactly216 OOD tasks, six families of36')
+    require_access(kwargs['access'],'evaluate',kwargs['binding'])
+    from .boundary import verify_boundary
+    verify_boundary(kwargs.pop('source_manifest',None),kwargs.pop('runtime_policy',None),kwargs['binding'])
     return _score_released(**kwargs)
 
 
-def independently_audited_verdict(report,binding,audit_receipt,trusted_keys):
+def independently_audited_verdict(report,binding,audit_receipt,trusted_keys,*,source_manifest=None,runtime_policy=None):
     """Separate external metric audit, never self-issued by numerical scorer."""
     audit_binding={**binding,'report_hash':digest(report),'prediction_hash':report['raw_prediction_hash']}
     verify_signed(audit_receipt,'independent_metric_audit',audit_binding,trusted_keys)
+    from .boundary import verify_boundary
+    verify_boundary(source_manifest,runtime_policy,binding)
     passed=all(report['gates'].values())
     return {'report_hash':digest(report),'scientific_status':'INDEPENDENT_SCIENTIFIC_PASS' if passed else 'INDEPENDENT_SCIENTIFIC_FAIL',
             'release_status':'NO_RELEASE_AUTHORIZATION'}

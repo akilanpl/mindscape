@@ -1,0 +1,16 @@
+{
+  "configs/alpha_ood/numerical-v2-runtime-policy-candidate.json": "cfb4b2794530194f61729d799be60f7c019aa95262dc2625bbe57dced989938e",
+  "configs/alpha_ood/protocol-v1.json": "70deef2ae0c667378a541d1948780fe3e78c06f421097518feebf2576fe0ea69",
+  "src/mindscape/alpha_ood/benchmark.py": "5a66700db109c92589307a1bd0bf874728d786b744ed15a6cf49e9a53bcc85bb",
+  "src/mindscape/alpha_ood/models.py": "94801949b35ab0e108f03da5e3e9f4b1fc91b8adca1072fd5db0a13571911045",
+  "src/mindscape/alpha_ood/numerical_v2/__init__.py": "61c4f1052680bfbf1568766714cfc999a129096236e8cabfd9234d79b427e0c6",
+  "src/mindscape/alpha_ood/numerical_v2/adapter.py": "c28b95dbc6e6897515eb880d8d16ca00b51542311c91cbbc70e333d5f6bfe439",
+  "src/mindscape/alpha_ood/numerical_v2/boundary.py": "de18a1d0a89eb29d1b1625f9ca798b6ad921972de127c92e1a5f01c005298224",
+  "src/mindscape/alpha_ood/numerical_v2/campaign.py": "aef81ac7cc7d1d5af5ad2fda1208db67bdbb5b464c2add0c792003d49613f498",
+  "src/mindscape/alpha_ood/numerical_v2/custody.py": "7cfa0d77c9d2c9b14dd1336a9e6edc057821e657f212d0de74be7cc04fd7d120",
+  "src/mindscape/alpha_ood/numerical_v2/evaluation.py": "85852b38086a1c24afa658c51ff2e4e106595674a9f1d811d7b72ab7833207c4",
+  "src/mindscape/alpha_ood/scoring.py": "53260ef3fd03260f6b8f2cebd08f2fa96bd1323ce3f72c83fe08a91cb50e12fc",
+  "src/mindscape/r5_2_math/arithmetic.py": "986402ddd364bc242de9e08b8fc9bb55d6aaa89a87b7aba28329781adc406c74",
+  "src/mindscape/r5_2_math/model.py": "7ad58a78338413f917b45605bb6dea0fafe7040d10b1b0b4baa12998ac65ecb3",
+  "src/mindscape/v3/physics_world/accelerator.py": "718e85fcf609741baff8074c355966e7f7bfb802ada1f62b27c2fde7f5a6578e"
+}
