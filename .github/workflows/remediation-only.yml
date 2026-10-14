@@ -35,8 +35,41 @@ jobs:
           python scripts/native/ci_preservation.py --output work/remediation-ci/preservation.json
           python scripts/native/remediation_receipts.py --output work/remediation-ci/diagnostics
           python -m pip freeze > work/remediation-ci/runtime.txt
+      - name: Synthetic trainer/evaluator namespace probe only; no fitting
+        run: |
+          python - <<'PYPROBE'
+          import json, hashlib, secrets
+          from pathlib import Path
+          from mindscape.r56.curriculum import digest
+          from mindscape.r56.isolation import stage_training, run_isolation_pair, sha
+          root=Path('work/remediation-ci/boundary');root.mkdir()
+          package=root/'package';package.mkdir()
+          raw=json.dumps([{'split':'train','observation':i} for i in range(512)]).encode()
+          (package/'train.json').write_bytes(raw)
+          manifest={'index':{'17':{'training_file':'train.json','sha256':hashlib.sha256(raw).hexdigest()}},'kind':'synthetic-boundary-canary; no campaign'}
+          manifest['package_sha256']=digest(manifest)
+          (package/'manifest.json').write_text(json.dumps(manifest))
+          stage=root/'trainer';stage_training(package,stage,17,manifest['package_sha256'])
+          vault=root/'vault';vault.mkdir();checkpoints=root/'checkpoint-vault';checkpoints.mkdir()
+          (vault/'targets.json').write_text(secrets.token_hex(32))
+          (checkpoints/'checkpoint.json').write_text(secrets.token_hex(32))
+          for file in (vault/'targets.json',checkpoints/'checkpoint.json'):file.chmod(0o444)
+          probe=Path('deploy/r56-isolation/probe.py')
+          receipt=run_isolation_pair('python@sha256:2b4f19dae3a777dfc3b76730bda1e82e1f66ab2a2686fa93ca78edbfb4f04ffe',stage,probe,vault,checkpoints,sha(vault/'targets.json'),sha(checkpoints/'checkpoint.json'),sha(probe))
+          receipt['source_sha']='1e021994a51e9ba0abb008acb759678e19a2d87b'
+          receipt['scope']='Synthetic canary and checkpoint readability only; not a real model/evaluator qualification'
+          Path('work/remediation-ci/boundary-receipt.json').write_text(json.dumps(receipt,indent=2))
+          print(json.dumps(receipt))
+          assert receipt['boundary_probe_passed'] is True
+          assert receipt['qualified'] is False
+          PYPROBE
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: isolated-r56-remediation-receipts
-          path: work/remediation-ci
+          path: |
+            work/remediation-ci/tests.xml
+            work/remediation-ci/preservation.json
+            work/remediation-ci/runtime.txt
+            work/remediation-ci/diagnostics
+            work/remediation-ci/boundary-receipt.json
