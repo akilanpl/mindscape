@@ -96,7 +96,7 @@ def controlled_graph(graph, control):
     """Apply frozen control consistently to training and evaluation."""
     from dataclasses import replace
     import torch
-    if control in ('graph-concept-on', 'mlp', 'gru'):
+    if control in ('graph-concept-on', 'graph-memory-recurrent', 'mlp', 'gru', 'matched-mlp', 'matched-rnn', 'matched-gru'):
         return graph
     if control == 'graph-concept-off':
         return replace(graph, concept_ids=graph.concept_ids[:0])
@@ -105,3 +105,89 @@ def controlled_graph(graph, control):
     if control == 'graph-concept-ablated':
         return replace(graph, concept_ids=torch.zeros_like(graph.concept_ids))
     raise ValueError('Unsupported neural control')
+
+
+def matched_baseline_plan(target_parameters=44962, tolerance=.05):
+    """Deterministic capacity selection, no labels/losses/task tuning involved."""
+    if target_parameters < 1 or not 0 < tolerance <= .05:
+        raise ValueError('Invalid fixed capacity target')
+    plan = {}
+    for kind in ('mlp', 'rnn', 'gru'):
+        counts = lambda width: ((width * width + 113 * width + 34) if kind != 'gru'
+                                else (3 * width * width + 271 * width + 34))
+        width = min(range(8, 513), key=lambda w: (abs(counts(w) - target_parameters), w))
+        count = counts(width)
+        if abs(count - target_parameters) / target_parameters > tolerance:
+            raise ValueError('No allowed width meets frozen capacity tolerance')
+        plan[kind] = {'width': width, 'parameter_count': count,
+                      'relative_gap': abs(count - target_parameters) / target_parameters}
+    return plan
+
+
+def observed_tokens(graph):
+    """Same observable nodes/types/edges/relations/action/domain/concepts, no labels.
+
+    Token schema 77: node features8, node-type16, edge endpoints2,
+    relation8, action4, domain3, concept32, token-kind4. Integer endpoints
+    are normalized by fixed256. Padding is zero. Sequence order is observed
+    node/edge order, not an answer-derived ordering.
+    """
+    import torch
+    device = graph.node_features.device
+    tokens = []
+    for index in range(len(graph.node_features)):
+        token = torch.zeros(77, device=device)
+        token[:8] = graph.node_features[index]
+        token[8 + int(graph.node_types[index])] = 1
+        token[73] = 1
+        tokens.append(token)
+    for index in range(graph.edges.shape[1]):
+        token = torch.zeros(77, device=device)
+        token[24:26] = graph.edges[:, index].float() / 256
+        token[26 + int(graph.relation_types[index])] = 1
+        token[74] = 1
+        tokens.append(token)
+    context = torch.zeros(77, device=device)
+    context[34:38] = graph.action
+    context[38 + graph.domain] = 1
+    for concept in graph.concept_ids:
+        context[41 + int(concept)] += 1
+    context[75] = 1
+    tokens.append(context)
+    return torch.stack(tokens)
+
+
+def matched_baseline(kind, target_parameters=44962, seed=17):
+    """Untrained original MLP/basic RNN/GRU with observed-input parity and <=5% capacity gap."""
+    if kind not in ('mlp', 'rnn', 'gru'):
+        raise ValueError('Unsupported matched baseline')
+    import torch
+    from torch import nn
+    width = matched_baseline_plan(target_parameters)[kind]['width']
+    class ObservedControl(nn.Module):
+        def __init__(self):
+            super().__init__()
+            if kind == 'mlp':
+                self.core = nn.Sequential(nn.Linear(77, width), nn.Tanh(), nn.Linear(width, width), nn.Tanh())
+            else:
+                self.core = (nn.RNN if kind == 'rnn' else nn.GRU)(77, width, batch_first=True)
+            self.heads = nn.ModuleDict({name: nn.Linear(width, count) for name, count in
+                [('math_digit_logits', 10), ('math_carry_logits', 2), ('coding_logits', 16),
+                 ('physics_delta', 2), ('action_scores', 4)]})
+        def forward(self, graph, memory=None, stateless=False):
+            tokens = observed_tokens(graph)
+            if kind == 'mlp':
+                pooled = self.core(tokens).mean(0)
+            else:
+                initial = None if stateless or memory is None else memory.reshape(1, 1, -1)
+                _, hidden = self.core(tokens.unsqueeze(0), initial)
+                pooled = hidden[0, 0]
+            return {**{name: head(pooled) for name, head in self.heads.items()},
+                    'memory': pooled, 'pooled': pooled}
+    with torch.random.fork_rng():
+        torch.manual_seed(seed)
+        model = ObservedControl()
+    actual = model_accounting(model)['parameter_count']
+    if actual != matched_baseline_plan(target_parameters)[kind]['parameter_count']:
+        raise ValueError('Actual capacity differs from frozen constructor plan')
+    return model

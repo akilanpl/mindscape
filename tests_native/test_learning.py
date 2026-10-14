@@ -161,3 +161,31 @@ def test_source_locks_cover_language_runtime_and_inference(tmp_path):
     assert set(before) == set(paths)
     (tmp_path / paths[3]).write_text('runtime = 2')
     assert source_locks(tmp_path) != before
+
+
+def test_matched_capacity_baselines_observed_features_and_memory():
+    torch = pytest.importorskip('torch')
+    from dataclasses import replace
+    from mindscape.r56.neural import R56Model
+    from mindscape.r56.native_domains import pack_problem
+    from mindscape.r56.benchmarks import (matched_baseline, matched_baseline_plan,
+        model_accounting, observed_tokens)
+    target = model_accounting(R56Model())['parameter_count']
+    assert target == 44962
+    plans = matched_baseline_plan(target)
+    graph = pack_problem(generate('train', 3)[2]['problem'])
+    original_tokens = observed_tokens(graph)
+    assert original_tokens.shape[1] == 77
+    assert not torch.equal(original_tokens, observed_tokens(replace(graph, action=graph.action + 1)))
+    assert not torch.equal(original_tokens, observed_tokens(replace(graph, domain=(graph.domain + 1) % 3)))
+    assert not torch.equal(original_tokens, observed_tokens(replace(graph, concept_ids=torch.tensor([12]))))
+    for kind in ('mlp', 'rnn', 'gru'):
+        model = matched_baseline(kind, target)
+        assert model_accounting(model)['parameter_count'] == plans[kind]['parameter_count']
+        assert plans[kind]['relative_gap'] <= .05
+        result = model(graph, stateless=True)
+        assert result['physics_delta'].shape == (2,)
+        if kind != 'mlp':
+            recurrent = model(graph, memory=result['memory'].detach(), stateless=False)
+            assert not torch.equal(result['physics_delta'], recurrent['physics_delta'])
+        assert torch.equal(result['physics_delta'], model(graph, memory=result['memory'], stateless=True)['physics_delta'])
