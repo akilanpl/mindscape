@@ -132,6 +132,13 @@ def language_loss(outputs, labels):
     return {'loss':intent+(start+end)/2,'intent_loss':intent,'span_start_loss':start,'span_end_loss':end}
 
 
+def validate_finite_gradients(model):
+    import torch
+    gradients=[parameter.grad for parameter in model.parameters() if parameter.requires_grad]
+    if not gradients or any(gradient is None or not torch.isfinite(gradient).all() for gradient in gradients):
+        raise ValueError('Missing or nonfinite language gradients')
+
+
 def _digest(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 
@@ -143,10 +150,19 @@ def prepare_language_package(root,directory):
     manifest={'version':'r56-language-intent-spans-v1','stage':'language-intent-spans','source_locks':source_locks(root),
               'data_hash':_digest(datasets),'vocabulary':vocabulary.manifest(), 'seeds':[17], 'budgets':[len(datasets['train'])],
               'optimizer':'Adam','learning_rate':.001,'optimizer_steps':2000,'embedding_size':32,'hidden_size':48,
+              'deterministic_algorithms':True, 'split_hashes':{name:_digest(rows) for name,rows in datasets.items()},
+              'evaluation':{'splits':['paraphrase','structure','vocabulary'],
+                  'metrics':['intent-correct-count','slot-exact-count','present-slot-exact-count','all-spans-exact-examples'],
+                  'selection':'fixed final checkpoint; held-out labels never select weights, vocabulary or stopping',
+                  'scientific_scope':'synthetic-template intent and argument extraction only; no semantic or open-language qualification'},
               'status':STATUS,'authorization':'UNISSUED','qualification':'UNISSUED'}
     manifest['freeze_hash']=_digest(manifest)
     for filename,value in (('datasets.json',datasets),('manifest.json',manifest)):
         (output/filename).write_text(json.dumps(value,sort_keys=True,indent=2))
+    for role in ('authorization','qualification'):
+        template={'role':role,'freeze_hash':manifest['freeze_hash'],'issuer':'','issued':False,
+                  'scope':'native-r56-training','signature_hex':''}
+        (output/f'{role}.UNISSUED.json').write_text(json.dumps(template,sort_keys=True,indent=2))
     return manifest
 
 
@@ -163,21 +179,41 @@ def train_language(root,package,authorization,qualification,trusted_keys,output)
     steps=manifest.get('optimizer_steps'); rate=manifest.get('learning_rate')
     if type(steps)is not int or not 1<=steps<=50000 or type(rate)not in (int,float) or not 0<rate<=.1:
         raise PermissionError('Invalid frozen optimization budget')
+    if manifest.get('deterministic_algorithms') is not True or manifest.get('split_hashes')!={name:_digest(rows) for name,rows in datasets.items()}:
+        raise PermissionError('Determinism or evaluation split freeze mismatch')
     destination=Path(output)
-    if destination.exists(): raise FileExistsError('Refuse to overwrite language checkpoint')
+    if destination.exists() or Path(str(destination)+'.failure.json').exists(): raise FileExistsError('Refuse to overwrite language checkpoint')
     # All neural construction and optimizer operations are strictly below the gate.
-    import torch
-    torch.manual_seed(manifest['seeds'][0])
-    model=build_language_encoder(vocabulary,manifest['embedding_size'],manifest['hidden_size'])
-    optimizer=torch.optim.Adam(model.parameters(),lr=rate)
-    batch=batch_examples(datasets['train'],vocabulary)
-    for _ in range(steps):
-        optimizer.zero_grad(); losses=language_loss(model(**batch['inputs']),batch['labels'])
-        losses['loss'].backward(); optimizer.step()
-    metadata={'trained':True,'optimizer_steps':steps,'freeze_hash':freeze_hash,'stage':'language-intent-spans',
-              'vocabulary':vocabulary.manifest(),'embedding_size':manifest['embedding_size'],'hidden_size':manifest['hidden_size'],
-              'qualified':False,'status':'TRAINED BUT SCIENTIFICALLY UNQUALIFIED'}
-    return save_checkpoint(model,destination,metadata)
+    completed_steps=0
+    try:
+        import torch
+        torch.manual_seed(manifest['seeds'][0])
+        torch.use_deterministic_algorithms(True)
+        model=build_language_encoder(vocabulary,manifest['embedding_size'],manifest['hidden_size'])
+        model.train()
+        optimizer=torch.optim.Adam(model.parameters(),lr=rate)
+        batch=batch_examples(datasets['train'],vocabulary)
+        for _ in range(steps):
+            optimizer.zero_grad(set_to_none=True)
+            losses=language_loss(model(**batch['inputs']),batch['labels'])
+            if any(not torch.isfinite(value).all() for value in losses.values()):
+                raise ValueError('Nonfinite language loss')
+            losses['loss'].backward()
+            validate_finite_gradients(model)
+            optimizer.step()
+            completed_steps+=1
+            if any(not torch.isfinite(parameter).all() for parameter in model.parameters()):
+                raise ValueError('Nonfinite language parameters after update')
+        metadata={'trained':True,'optimizer_steps':completed_steps,'freeze_hash':freeze_hash,'stage':'language-intent-spans',
+                  'vocabulary':vocabulary.manifest(),'embedding_size':manifest['embedding_size'],'hidden_size':manifest['hidden_size'],
+                  'deterministic_algorithms':True,'split_hashes':manifest['split_hashes'],'evaluation':manifest['evaluation'],
+                  'qualified':False,'status':'TRAINED BUT SCIENTIFICALLY UNQUALIFIED'}
+        return save_checkpoint(model,destination,metadata)
+    except Exception as exc:
+        failure={'freeze_hash':freeze_hash,'stage':'language-intent-spans','completed_steps':completed_steps,
+                 'error_type':type(exc).__name__,'status':'FAILED; NO SUCCESS OR QUALIFICATION CLAIM'}
+        Path(str(destination)+'.failure.json').write_text(json.dumps(failure,sort_keys=True,indent=2))
+        raise
 
 
 def replay_language_checkpoint(path,expected_hash,rows):
@@ -201,6 +237,7 @@ def replay_language_checkpoint(path,expected_hash,rows):
     import torch
     with torch.no_grad():
         batch=batch_examples(rows,vocabulary); outputs=model(**batch['inputs']); losses=language_loss(outputs,batch['labels'])
+        if any(not torch.isfinite(value).all() for value in losses.values()): raise ValueError('Nonfinite read-only replay loss')
     intent_predictions=outputs['intent_logits'].argmax(-1)
     start_predictions=outputs['argument_start_logits'].argmax(-1)
     end_predictions=outputs['argument_end_logits'].argmax(-1)
@@ -208,7 +245,10 @@ def replay_language_checkpoint(path,expected_hash,rows):
     return {'intent_predictions':intent_predictions.tolist(),
             'metrics':{'examples':len(rows),'intent_correct':int((intent_predictions==batch['labels']['intent']).sum()),
                        'slot_exact_count':int(slot_exact.sum()),'slot_total':slot_exact.numel(),
+                       'present_slot_exact_count':int((slot_exact & (batch['labels']['start']!=0)).sum()),
+                       'present_slot_total':int((batch['labels']['start']!=0).sum()),
                        'all_spans_exact_examples':int(slot_exact.all(-1).sum())},
             'span_start_predictions':outputs['argument_start_logits'].argmax(-1).tolist(),
             'span_end_predictions':outputs['argument_end_logits'].argmax(-1).tolist(),
+            'split_sha256':_digest(rows),'checkpoint_sha256':expected_hash,
             'loss':float(losses['loss']),'qualified':False,'status':'READ-ONLY REPLAY; NOT A QUALIFICATION CLAIM'}
