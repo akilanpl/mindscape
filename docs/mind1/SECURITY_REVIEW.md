@@ -12,18 +12,18 @@ Review date: 2026-10-14. Scope: local Mind 1 provider, orchestration, tools and 
 - Browser answer rendering builds DOM nodes and textContent, never innerHTML. Links require HTTP(S) and use noopener. Code blocks are plain text. No remote fonts, scripts or runtime assets are required.
 - Native MathML renders a bounded LaTeX subset: fractions, square roots, subscripts/superscripts, common Greek symbols/operators. Unsupported commands remain text. No HTML, macros, eval, external URLs or TeX execution are supported. This is not a complete KaTeX implementation.
 
-## Findings communicated to integration owner
+## Findings repaired during integration
 
 1. Provider model discovery needs shape validation for non-object JSON and a null/non-list `data` field. Usage metadata needs type validation before price arithmetic. Otherwise malformed remote output can become an uncontrolled internal exception.
 2. Provider endpoint validation should also require a hostname.
 3. Mode, domain and history role must be strings before set/dict membership tests; malformed arrays/objects should yield controlled request errors.
 4. Validate structured tool call IDs and argument types before running the selected tool.
 
-These findings are integration follow-ups; this document does not claim they have already been repaired. HTTP origin/host checks, static path traversal, content-type enforcement and response headers require review when the server implementation is available.
+These findings were repaired in the integrated sources. Server review confirmed exact static-file allowlisting, strict loopback Host and Origin checks, cross-site fetch rejection, JSON-only POSTs, bounded request bodies, rejection of non-finite JSON, no-store caching, nosniff and a self-only content security policy. Error logging uses a fixed event rather than exception content. Cancellation is explicit: the frontend sends a request ID and POSTs /api/cancel before discarding the browser request. An in-flight provider request can continue until its configured socket timeout; the worker slot remains occupied until that call finishes.
 
 ## Validation
 
-`tests_mind1/test_security.py`: 20 tests passed against the integrated source tree, covering provider secret/error/size boundaries, malformed completion, AST injection, exponent resource abuse, non-executing inspection, unavailable WASI, history role injection and history size.
+`tests_mind1/test_security.py`: 41 tests passed against the integrated source tree, covering provider secret/error/size boundaries, malformed completion, AST injection, exponent resource abuse, non-executing inspection, unavailable WASI, history role injection and history size; malformed selectors/discovery payloads; HTTP host/origin/fetch-site rejection; path traversal; CSP and response headers; malformed JSON, content type and size; explicit cancellation. HTTP tests exercise the real handler in memory. A live socket test was blocked by sandbox permissions, so these tests do not claim live-network verification.
 
 `node --check mind1_web/app.js` and `node --check mind1_web/math.js` passed. A headless browser smoke test could not run because the bundled Playwright browser executable is absent; no browser was downloaded. Native MathML rendering still needs visual browser verification.
 
