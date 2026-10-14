@@ -32,3 +32,14 @@ is approved. Filesystem separation alone does not qualify an OS access boundary.
 Four bookkeeping tests pass. Exact-rule fixture predictors are explicitly labelled
 engineering fixtures, not learned or product backends. No fitted checkpoint was
 evaluated and no optimizer was constructed or updated during this implementation.
+
+Supplemental protected coding permutations cover all four candidate target
+positions for each novel AST structure, with independently hashed problem identities
+and matching protected class references. Actual packed-graph observation hashes
+report training duplicates and train/dev/test/held-out overlap without deleting
+conflicting records. Full-addition and repeated-physics episodes are explicitly
+excluded from a misleading one-step encoding comparison. Summary keys include
+domain, axis and metric, so mathematics and coding accuracy are never pooled just
+because their split names match. Checkpoint provenance also requires equal 2,000
+`optimizer_steps`/`optimizer_updates` and the exact frozen training-data hash.
+Six nontraining evaluator tests pass; fitted-checkpoint evaluation remains unrun.

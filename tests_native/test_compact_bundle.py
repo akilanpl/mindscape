@@ -38,7 +38,7 @@ problems=[{'domain':'math','operation':'add_digit','left':7,'right':8,'incoming'
 torch.set_num_threads(1);torch.manual_seed(17);model=R56Model().eval();baseline=matched_baseline('gru').eval();rows=[]
 with torch.no_grad():
  for p in problems:
-  g=pack_problem(p);a=model(g,stateless=True);b=baseline(g,stateless=True)
+  g=pack_problem(p);a=model(g,memory=None,stateless=False);b=baseline(g,memory=None,stateless=False)
   rows.append({'graph':{k:getattr(g,k).tolist() for k in ('node_features','node_types','edges','relation_types','action','concept_ids')},'model':{k:a[k].tolist() for k in ('math_digit_logits','math_carry_logits','coding_logits','physics_delta')},'baseline':{k:b[k].tolist() for k in ('math_digit_logits','math_carry_logits','coding_logits','physics_delta')}})
 print(json.dumps(rows,sort_keys=True))'''
     def run(path):

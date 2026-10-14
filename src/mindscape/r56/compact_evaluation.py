@@ -22,6 +22,20 @@ def build_protected_evaluation(training_rows,dev,test):
             copied['problem']['carry_in']=copied['problem'].get('incoming',copied['problem'].get('carry_in',0))
         canonical.append(copied)
     suite,references=heldout_suite(canonical)
+    # Supplement only: cover every observed candidate position for each novel AST.
+    existing={row['identity'] for row in suite['single_transitions']}
+    coding_sources={row['problem']['source'] for row in suite['single_transitions'] if row['problem']['domain']=='coding'}
+    names=['alpha','beta','gamma','delta']
+    for source in sorted(coding_sources):
+        for shift in range(4):
+            candidates=names[shift:]+names[:shift]
+            problem={'domain':'coding','operation':'rename','source':source,'old_name':'x',
+                     'requested_name':'gamma','candidates':candidates,'concept_ids':[3]}
+            identity=digest(problem)
+            if identity not in existing:
+                suite['single_transitions'].append({'axis':'novel-coding-structure-candidate-permutation','identity':identity,'problem':problem})
+                references[identity]={'candidate_index':candidates.index('gamma')}
+                existing.add(identity)
     repeats=[]
     for row in suite['single_transitions']:
         if row['problem']['domain']=='physics':
@@ -32,7 +46,39 @@ def build_protected_evaluation(training_rows,dev,test):
             expected=[v+4*f*p['dt']/p['mass'] for v,f in zip(p['velocity'],p['force'])]
             references[identity]={'velocity':expected}
     suite['repeated_physics']=repeats
-    return {'dev':dev,'test':test,'heldout_suite':[suite,references]}
+    protected={'dev':dev,'test':test,'heldout_suite':[suite,references]}
+    protected['encoded_overlap_audit']=encoded_overlap_audit(training_rows,protected)
+    return protected
+
+
+def encoded_overlap_audit(training_rows,protected):
+    """Hash actual model graph tensors; report conflicts and repeats without deleting."""
+    from collections import Counter
+    from .native_domains import pack_problem
+    def identity(problem):
+        if problem.get('operation')=='add' or 'repeat_steps' in problem: return None
+        graph=pack_problem(problem)
+        return digest({name:getattr(graph,name).tolist() for name in
+                       ('node_features','node_types','edges','relation_types','action','concept_ids')}|{'domain':graph.domain})
+    train=Counter(identity(row['problem']) for row in training_rows)
+    train.pop(None,None)
+    splits={name:[row['problem'] for row in protected[name]] for name in ('dev','test')}
+    suite,_=protected['heldout_suite']
+    splits['heldout-single-transitions']=[row['problem'] for row in suite['single_transitions']]
+    reports={}
+    for name,problems in splits.items():
+        counts=Counter(identity(problem) for problem in problems);counts.pop(None,None)
+        overlap=sorted(set(train)&set(counts))
+        reports[name]={'records':len(problems),'unique_encoded_observations':len(counts),
+                       'duplicate_exposures':sum(counts.values())-len(counts),
+                       'encoded_overlap_unique_count':len(overlap),
+                       'encoded_overlap_exposures':sum(counts[key] for key in overlap),
+                       'overlap_encoded_sha256':overlap}
+    return {'train_records':len(training_rows),'train_unique_encoded_observations':len(train),
+            'train_duplicate_exposures':sum(train.values())-len(train),'splits':reports,
+            'policy':'report actual encoded overlap and duplicates; no records removed or repaired',
+            'excluded_episode_level_forms':'full additions and repeated physics are scored as compositions, not one local encoded observation',
+            'scientifically_qualified':False}
 
 
 def _local_prediction(model,problem,condition,device='cpu'):
@@ -89,30 +135,57 @@ def evaluate_records(predictor,protected):
             prediction=predictor(row['problem']); labels=row['labels']; domain=row['problem']['domain']
             expected=({'digit':labels['math_digit'],'outgoing':labels['math_carry']} if domain=='math' else
                       {'candidate_index':labels['coding_index']} if domain=='coding' else {'delta':labels['physics_delta']})
-            records.append(_score(row.get('identity',digest(row['problem'])),split,domain,prediction,expected))
+            records.append(_score(row.get('identity',digest(row['problem'])),split,domain,prediction,expected,row['problem']))
     suite,references=protected['heldout_suite']
     for row in suite['single_transitions']:
-        records.append(_score(row['identity'],row['axis'],row['problem']['domain'],predictor(row['problem']),references[row['identity']]))
+        records.append(_score(row['identity'],row['axis'],row['problem']['domain'],predictor(row['problem']),references[row['identity']],row['problem']))
     for row in suite['compositions']:
-        records.append(_score(row['identity'],row['axis'],'math',compose_addition(predictor,row['problem']),references[row['identity']]))
+        records.append(_score(row['identity'],row['axis'],'math',compose_addition(predictor,row['problem']),references[row['identity']],row['problem']))
     for row in suite.get('repeated_physics',[]):
-        records.append(_score(row['identity'],row['axis'],'physics',repeat_physics(predictor,row['problem']),references[row['identity']]))
+        records.append(_score(row['identity'],row['axis'],'physics',repeat_physics(predictor,row['problem']),references[row['identity']],row['problem']))
     summaries={}
+    def tally(key,value):
+        group=summaries.setdefault(key,{'count':0,'metric_sum':0.})
+        group['count']+=1;group['metric_sum']+=value
     for record in records:
-        key=record['axis']+':'+record['metric_name']; group=summaries.setdefault(key,{'count':0,'metric_sum':0.})
-        group['count']+=1;group['metric_sum']+=record['metric']
+        base=record['domain']+':'+record['axis']
+        tally(base+':'+record['metric_name'],record['metric'])
+        for name,value in record.get('component_metrics',{}).items():tally(base+':'+name,value)
+        if record.get('composition_depth') is not None:
+            tally(base+':depth='+str(record['composition_depth'])+':'+record['metric_name'],record['metric'])
+        if record['domain']=='coding':
+            tally(base+':target-position='+str(record['expected_target_position'])+':'+record['metric_name'],record['metric'])
+            tally(base+':source='+record['observed_source_sha256']+':'+record['metric_name'],record['metric'])
     return {'records':records,'summaries':summaries,'status':STATUS,'scientifically_qualified':False,
             'selection':'final immutable checkpoint only; no feedback to trainer',
             'composition_policy':'reset hidden state every digit, preserve model carry feedback; differs from production infer_problem recurrent composition; future integration needs reviewed state-policy matching'}
 
 
-def _score(identity,axis,domain,prediction,expected):
+def _score(identity,axis,domain,prediction,expected,problem):
     if domain=='physics':
         key='velocity' if 'velocity' in expected else 'delta'
         metric=sum((float(a)-float(b))**2 for a,b in zip(prediction[key],expected[key]))/len(expected[key]); name='mean-squared-error'
     else:metric=float(all(prediction.get(key)==value for key,value in expected.items()));name='exact-accuracy'
-    return {'identity':identity,'axis':axis,'domain':domain,'original_prediction':prediction,'protected_reference':expected,
+    record={'identity':identity,'axis':axis,'domain':domain,'observed_problem':problem,
+            'original_prediction':prediction,'protected_reference':expected,
             'metric':metric,'metric_name':name,'repaired':False}
+    if domain=='math' and 'digit' in expected:
+        record['component_metrics']={'digit-accuracy':float(prediction.get('digit')==expected['digit']),
+                                     'carry-accuracy':float(prediction.get('outgoing')==expected['outgoing']),
+                                     'joint-accuracy':metric}
+    if domain=='math' and problem.get('operation')=='add':
+        record['composition_depth']=max(len(problem['left']),len(problem['right']))
+    if domain=='coding':
+        source=problem.get('source','')
+        record['observed_source_sha256']=hashlib.sha256(source.encode()).hexdigest()
+        record['expected_target_position']=expected['candidate_index']
+        record['predicted_target_position']=prediction['candidate_index']
+        # AST shape digest is independently derived from observed source, not label.
+        import ast
+        try: shape=ast.dump(ast.parse(source),include_attributes=False)
+        except SyntaxError: shape='INVALID_AST:'+source
+        record['observed_ast_sha256']=hashlib.sha256(shape.encode()).hexdigest()
+    return record
 
 
 def evaluate_checkpoint(root,manifest_path,protected_path,checkpoint_path,expected_checkpoint_hash,seed,condition):
@@ -139,8 +212,10 @@ def evaluate_checkpoint(root,manifest_path,protected_path,checkpoint_path,expect
         raise ValueError('Checkpoint architecture/source provenance differs')
     if metadata.get('package_sha256')!=identity or metadata.get('seed')!=seed or metadata.get('condition')!=condition:
         raise ValueError('Checkpoint attribution differs')
-    if metadata.get('optimizer_updates')!=2000 or metadata.get('forward_policy')!=FORWARD_POLICY:
+    if metadata.get('optimizer_updates')!=2000 or metadata.get('optimizer_steps')!=2000 or metadata.get('forward_policy')!=FORWARD_POLICY:
         raise ValueError('Checkpoint is not frozen final fit or forward policy differs')
+    if metadata.get('training_data_sha256')!=manifest['training_files_sha256'][str(seed)]:
+        raise ValueError('Checkpoint training data provenance differs')
     model.cpu().eval()
     protected=read_json(protected_path)
     with torch.no_grad():report=evaluate_records(lambda p:_local_prediction(model,p,condition),protected)

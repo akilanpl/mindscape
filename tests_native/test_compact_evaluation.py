@@ -53,3 +53,57 @@ def test_no_optimizer_and_immutable_artifact_gate(monkeypatch,tmp_path):
     monkeypatch.setattr(torch.optim,'Adam',forbidden);monkeypatch.setattr(torch.optim,'AdamW',forbidden)
     manifest=tmp_path/'bad.json';manifest.write_text('{}')
     with pytest.raises(ValueError):evaluate_checkpoint(tmp_path,manifest,tmp_path/'protected',tmp_path/'weights','bad',17,'graph-concept-on')
+
+
+def test_coding_permutations_cover_all_positions_and_encoded_overlap_report():
+    p={'domain':'math','operation':'add_digit','left':2,'right':3,'incoming':1,'concept_ids':[0]}
+    row={'problem':p,'labels':{'math_digit':6,'math_carry':0}}
+    protected=build_protected_evaluation([row,row],[row],[row])
+    suite,refs=protected['heldout_suite']
+    coding=[r for r in suite['single_transitions'] if r['problem']['domain']=='coding']
+    for source in {r['problem']['source'] for r in coding}:
+        positions={refs[r['identity']]['candidate_index'] for r in coding if r['problem']['source']==source}
+        assert positions=={0,1,2,3}
+    audit=protected['encoded_overlap_audit']
+    assert audit['train_duplicate_exposures']==1
+    assert audit['splits']['dev']['encoded_overlap_unique_count']==1
+    assert audit['splits']['test']['encoded_overlap_exposures']==1
+    assert audit['policy'].startswith('report')
+
+
+def test_summary_separates_domain_for_same_axis_accuracy():
+    protected={'dev':[],'test':[
+      {'problem':{'domain':'math'},'labels':{'math_digit':1,'math_carry':0}},
+      {'problem':{'domain':'coding'},'labels':{'coding_index':0}}],
+      'heldout_suite':[{'single_transitions':[],'compositions':[]},{}]}
+    def fixture(p):return {'digit':1,'outgoing':0} if p['domain']=='math' else {'candidate_index':0}
+    report=evaluate_records(fixture,protected)
+    assert report['summaries']['math:test:exact-accuracy']['count']==1
+    assert report['summaries']['coding:test:exact-accuracy']['count']==1
+    assert report['summaries']['math:test:digit-accuracy']['count']==1
+    assert report['summaries']['math:test:carry-accuracy']['count']==1
+    assert report['records'][0]['observed_problem']=={'domain':'math'}
+
+
+def test_component_depth_and_coding_position_structure_summaries():
+    coding={'domain':'coding','source':'x=1','candidates':['a','b'],'requested_name':'b'}
+    math={'domain':'math','operation':'add_digit','left':1,'right':1,'incoming':0}
+    add={'domain':'math','operation':'add','left':'99','right':'1'}
+    protected={'dev':[],'test':[
+      {'problem':math,'labels':{'math_digit':2,'math_carry':0}},
+      {'problem':coding,'labels':{'coding_index':1}}],
+      'heldout_suite':[{'single_transitions':[],'compositions':[{'identity':'add2','axis':'chain','problem':add}]},{'add2':{'answer':'100'}}]}
+    def fixture(p):
+        if p['domain']=='coding':return {'candidate_index':0}
+        if p.get('left')==1:return {'digit':2,'outgoing':1}
+        return fixture_predictor(p)
+    report=evaluate_records(fixture,protected);summary=report['summaries']
+    assert summary['math:test:digit-accuracy']=={'count':1,'metric_sum':1.}
+    assert summary['math:test:carry-accuracy']=={'count':1,'metric_sum':0.}
+    assert summary['math:test:joint-accuracy']=={'count':1,'metric_sum':0.}
+    assert summary['math:chain:depth=2:exact-accuracy']['count']==1
+    assert summary['coding:test:target-position=1:exact-accuracy']['count']==1
+    c=next(r for r in report['records'] if r['domain']=='coding')
+    assert c['observed_problem']['source']=='x=1' and c['expected_target_position']==1
+    assert len(c['observed_source_sha256'])==len(c['observed_ast_sha256'])==64
+    assert summary['coding:test:source='+c['observed_source_sha256']+':exact-accuracy']['count']==1
