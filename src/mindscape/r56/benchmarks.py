@@ -101,7 +101,16 @@ def controlled_graph(graph, control):
     if control == 'graph-concept-off':
         return replace(graph, concept_ids=graph.concept_ids[:0])
     if control == 'graph-concept-shuffled':
-        return replace(graph, concept_ids=(graph.concept_ids * 17 + 3) % 32)
+        # Explicit v2 amendment: stable per-observation random IDs, not a
+        # learnable one-to-one global relabeling. Uses no labels or references.
+        import hashlib
+        observed = {name: getattr(graph, name).detach().cpu().tolist() for name in
+                    ('node_features', 'node_types', 'edges', 'relation_types', 'action')}
+        observed['domain'] = graph.domain
+        import json
+        key = hashlib.sha256(json.dumps(observed, sort_keys=True).encode()).digest()
+        ids = [key[i % len(key)] % 4 for i in range(len(graph.concept_ids))]
+        return replace(graph, concept_ids=torch.tensor(ids,dtype=torch.long,device=graph.concept_ids.device))
     if control == 'graph-concept-ablated':
         return replace(graph, concept_ids=torch.zeros_like(graph.concept_ids))
     raise ValueError('Unsupported neural control')

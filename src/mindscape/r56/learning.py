@@ -18,7 +18,10 @@ def source_locks(root):
                              *(root / 'tests_native').rglob('*.py'),
                              *(root / 'configs/r56_native').rglob('*.json'),
                              *(root / 'scripts/native').rglob('*.py'),
-                             *(root / 'scripts').glob('*native*.py')])}
+                             *(root / 'scripts').glob('*native*.py'),
+                             *(root / '.github/workflows').glob('mind1-native.yml'),
+                             *(root / 'docs/qualification').glob('*.md'),
+                             *[root / name for name in ('requirements-mind1.txt','pyproject.toml') if (root / name).is_file()]])}
 
 
 def freeze(root, directory):
@@ -157,10 +160,16 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
         raise FileExistsError('Refuse to overwrite checkpoint or failure evidence')
     package = Path(package)
     manifest = json.loads((package / 'manifest.json').read_text())
-    datasets = json.loads((package / 'datasets.json').read_text())
-    freeze_hash = validate_gate(root, manifest, datasets, authorization, qualification, trusted_keys)
-    if seed not in manifest['seeds'] or budget not in manifest['budgets'] or control not in manifest['controls']:
-        raise PermissionError('Seed/budget outside frozen campaign')
+    # Legacy PR28 bundles include held-out labels and are not scientifically qualified.
+    # Do not decode them into the fitting process, even if old signatures exist.
+    from .qualification import validate_scientific_gate, load_training_only, CONTROLS
+    scientific = validate_scientific_gate(root, package, authorization, qualification, trusted_keys)
+    if seed not in SEEDS or budget not in BUDGETS or control not in CONTROLS:
+        raise PermissionError('Seed/budget/control outside frozen campaign')
+    training_rows = load_training_only(package, scientific, seed)
+    freeze_hash = scientific['package_sha256']
+    # Fixed scientific workload remains 2000 updates per fit, not a reduced pilot.
+    manifest = {**scientific, 'learning_rate': .001, 'optimizer_steps': 2000, 'capacity_target': 44962}
     # All neural imports/construction and optimizer steps are strictly below the gate.
     import torch
     from .neural import R56Model, ModelConfig
@@ -175,7 +184,7 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
     else:
         model = R56Model(ModelConfig())
     optimizer = torch.optim.Adam(model.parameters(), lr=manifest['learning_rate'])
-    rows = datasets[str(seed)]['train'][:budget]
+    rows = training_rows[:budget]
     began, losses, memory, prior_episode = time.monotonic(), [], None, None
     try:
         model.train()
@@ -196,7 +205,7 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
                     torch.tensor([labels[label]], dtype=torch.long)) for key, label in
                     [('math_digit_logits', 'math_digit'), ('math_carry_logits', 'math_carry')])
             elif domain == 'coding':
-                loss = torch.nn.functional.cross_entropy(prediction['coding_logits'].reshape(1, -1),
+                loss = torch.nn.functional.cross_entropy(prediction['coding_logits'][:len(row['problem']['candidates'])].reshape(1, -1),
                     torch.tensor([labels['coding_index']], dtype=torch.long))
             else:
                 loss = torch.nn.functional.mse_loss(prediction['physics_delta'],
@@ -205,6 +214,8 @@ def train(root, package, authorization, qualification, trusted_keys, output, see
                 raise ValueError('Nonfinite training loss')
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
+            if any(p.grad is not None and not torch.isfinite(p.grad).all() for p in model.parameters()):
+                raise ValueError('Nonfinite training gradient')
             optimizer.step()
             losses.append(float(loss.detach()))
         from .benchmarks import model_accounting
@@ -265,7 +276,7 @@ def evaluate_model(model, rows, control='graph-concept-on'):
                 metric = float(all(prediction[k] == labels[k] for k in prediction))
                 metric_name = 'exact-domain-accuracy'
             elif domain == 'coding':
-                prediction = {'coding_index': int(output['coding_logits'].argmax())}
+                prediction = {'coding_index': int(output['coding_logits'][:len(row['problem']['candidates'])].argmax())}
                 metric = float(prediction['coding_index'] == labels['coding_index'])
                 metric_name = 'exact-domain-accuracy'
             else:
