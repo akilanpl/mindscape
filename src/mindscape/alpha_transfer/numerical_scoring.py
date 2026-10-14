@@ -73,19 +73,19 @@ def score_campaign(predictions,truth,manifest,public_graphs,replicates=10000):
         for _ in range(replicates):
             indices=rng.integers(len(paired[0][0]),size=len(paired[0][0]))
             draws.append(np.mean([1-b[indices].mean()/a[indices].mean() if a[indices].mean()>0 else -np.inf for a,b in paired]))
-        lower=float(np.quantile(draws,.025)); intervals[control]=lower
+        lower=float(np.quantile(draws,.025)) if np.isfinite(draws).all() else None; intervals[control]=lower
         gates['gain_'+control]=np.mean(per_seed)>=.10
         gates['seeds_'+control]=all(v>0 for v in per_seed)
-        gates['bootstrap_'+control]=lower>0
+        gates['bootstrap_'+control]=lower is not None and lower>0
         for domain in DOMAINS:
             for key in ('whole','changed'):
                 if key=='changed' and domain=='coding': continue
                 fractions=[]
                 for seed in SEEDS:
                     a=values(seed,control,domain,key).mean(); b=values(seed,'shared',domain,key).mean()
-                    fractions.append(float((b-a)/a) if a>0 else (0. if b==0 else float('inf')))
+                    fractions.append(float((b-a)/a) if a>0 else (0. if b==0 else None))
                 name=f'{domain}_{key}_{control}'; regressions[name]=fractions
-                gates[name]=all(v<=.05 for v in fractions)
+                gates[name]=all(v is not None and v<=.05 for v in fractions)
     for seed in SEEDS:
         for domain in DOMAINS:
             selected=[metrics[seed,'shared'][i] for i in ids[domain]]
