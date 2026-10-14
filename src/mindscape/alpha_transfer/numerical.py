@@ -227,4 +227,14 @@ class NativeCallbacks:
         self._check(spec)
         if self.authority.verify_stage('final_evaluation',spec,seals) is not True: raise ValueError('Separate final evaluation authorization missing')
         if self.verify_all_seals(seals,spec) is not True: raise ValueError('Custody missing')
-        return self.custodian.evaluate_with_locked_v5_executors(seals,spec,manifest,output)
+        from .numerical_scoring import independent_outcomes, score_campaign
+        tasks=self.custodian.open_sealed_composition_tasks(seals,spec)
+        public=self.provider.composition_public()
+        graphs={r['identity']:r['graph'] for r in public}
+        predictions=self.custodian.load_verified_raw_predictions(seals,spec)
+        truth=independent_outcomes(tasks,spec['executor_runtime_lock'],self.custodian.locked_wasi_executor(spec))
+        report=score_campaign(predictions,truth,manifest,graphs)
+        report_path=Path(output)/'independent-gates.json'
+        with report_path.open('x') as stream:
+            stream.write(json.dumps(report,allow_nan=False)); stream.flush(); os.fsync(stream.fileno())
+        return report
