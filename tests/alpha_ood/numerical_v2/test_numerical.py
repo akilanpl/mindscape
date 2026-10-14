@@ -198,3 +198,46 @@ def test_protected_boundaries_static_source_runtime_order():
     assert inspect.getsource(a.fit_native).index('verify_boundary(')<inspect.getsource(a.fit_native).index('LocalTransition(')
     assert inspect.getsource(a.predict_task).index('verify_boundary(')<inspect.getsource(a.predict_task).index('Predictor(')
     assert 'verify_boundary(' in inspect.getsource(e.score_released)
+
+def audit_fixture():
+    metric={'independent_tasks':36,'exact_correct':36,'exact':1.,'full_trace_exact':1.,
+            'final_answer_exact':1.,'intermediate_accuracy':1.,'intermediate_correct':36,'intermediate_denominator':36}
+    overall={**metric,'independent_tasks':216,'exact_correct':216,'intermediate_correct':216,'intermediate_denominator':216}
+    metrics={condition:{str(seed):{'overall':copy.deepcopy(overall),**{family:copy.deepcopy(metric) for family in e.FAMILIES}} for seed in e.SEEDS} for condition in e.CONDITIONS}
+    rows=[{'identity':digest(('synthetic-audit-only',i)),'condition':condition,'seed':seed} for condition in e.SEALED_CONDITIONS for seed in e.SEEDS for i in range(216)]
+    comparisons={baseline+':'+family:{'independent_tasks':216 if family=='overall' else 36,'mean_gain':.2,'paired_task_bootstrap95':[.1,.3]} for baseline in ('feedforward','memorization','transition_lookup') for family in ('overall',*e.FAMILIES)}
+    return {'gates':dict.fromkeys(e.GATE_KEYS,True),'scientific_status':'GATES_PASS_PENDING_INDEPENDENT_AUDIT',
+            'unique_tasks':216,'metrics':metrics,'comparisons':comparisons,'raw_rows':rows,'raw_prediction_hash':digest(rows)}
+
+@pytest.mark.parametrize('corruption',['empty','partial','truthy','wrongstatus','wrongcount','missingcondition','missingseed','missingfamily','denominator','nonfinite','comparisons','rawhash','raworder'])
+def test_audit_report_cannot_vacuously_pass(corruption):
+    report=audit_fixture()
+    if corruption=='empty': report['gates']={}
+    elif corruption=='partial': report['gates'].pop('bootstrap')
+    elif corruption=='truthy': report['gates']['bootstrap']=1
+    elif corruption=='wrongstatus': report['scientific_status']='INDEPENDENT_SCIENTIFIC_PASS'
+    elif corruption=='wrongcount': report['unique_tasks']=215
+    elif corruption=='missingcondition': report['metrics'].pop('procedural')
+    elif corruption=='missingseed': report['metrics']['recurrent'].pop('47')
+    elif corruption=='missingfamily': report['metrics']['recurrent']['11'].pop('carry_chains')
+    elif corruption=='denominator': report['metrics']['recurrent']['11']['carry_chains']['independent_tasks']=35
+    elif corruption=='nonfinite': report['metrics']['recurrent']['11']['overall']['wilson95']=[0.,float('nan')]
+    elif corruption=='comparisons': report['comparisons']={}
+    elif corruption=='rawhash': report['raw_prediction_hash']=digest('corrupted')
+    elif corruption=='raworder':
+        report['raw_rows'].reverse(); report['raw_prediction_hash']=digest(report['raw_rows'])
+    with pytest.raises(ValueError): e.validate_audit_report(report)
+
+def test_audit_verdict_requires_complete_bool_gates_with_external_boundary(monkeypatch):
+    # Synthetic schema-only diagnostic; monkeypatch cannot create a production
+    # receipt, and this test does not invoke protected data/optimizer/native work.
+    calls=[]
+    monkeypatch.setattr(e,'verify_signed',lambda *args:calls.append('synthetic signature check'))
+    import mindscape.alpha_ood.numerical_v2.boundary as boundary
+    monkeypatch.setattr(boundary,'verify_boundary',lambda *args:calls.append('synthetic boundary check'))
+    report=audit_fixture()
+    result=e.independently_audited_verdict(report,{},None,{})
+    assert result['scientific_status']=='INDEPENDENT_SCIENTIFIC_PASS' and len(calls)==2
+    report['gates']['bootstrap']=False; report['scientific_status']='NO_GO_UNVERIFIED'
+    result=e.independently_audited_verdict(report,{},None,{})
+    assert result['scientific_status']=='INDEPENDENT_SCIENTIFIC_FAIL'

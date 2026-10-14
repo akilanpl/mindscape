@@ -151,12 +151,84 @@ def score_released(**kwargs):
     return _score_released(**kwargs)
 
 
+GATE_KEYS=frozenset({'mean_full_task','families','intermediate','absolute_gains',
+    'each_seed_feedforward','bootstrap','procedural_reference'})
+
+
+def validate_audit_report(report):
+    """A signed malformed report is still invalid; no vacuous/truthy pass."""
+    import math
+    gates=report.get('gates')
+    if not isinstance(gates,dict) or set(gates)!=GATE_KEYS or any(type(value) is not bool for value in gates.values()):
+        raise ValueError('complete exact-boolean seven-gate report required')
+    passed=all(gates.values())
+    status='GATES_PASS_PENDING_INDEPENDENT_AUDIT' if passed else 'NO_GO_UNVERIFIED'
+    if report.get('scientific_status')!=status or type(report.get('unique_tasks')) is not int or report['unique_tasks']!=216:
+        raise ValueError('scientific status/task denominator mismatch')
+    metrics=report.get('metrics')
+    if not isinstance(metrics,dict) or set(metrics)!=set(CONDITIONS):
+        raise ValueError('complete audited condition set required')
+    def finite_tree(value):
+        if isinstance(value,dict):
+            for child in value.values(): finite_tree(child)
+        elif isinstance(value,(list,tuple)):
+            for child in value: finite_tree(child)
+        elif type(value) in (int,float) and not math.isfinite(value):
+            raise ValueError('nonfinite metric')
+    for condition in CONDITIONS:
+        seeds=metrics[condition]
+        if not isinstance(seeds,dict) or set(seeds)!={str(seed) for seed in SEEDS}:
+            raise ValueError('complete audited seed set required')
+        for seed in SEEDS:
+            families=seeds[str(seed)]
+            if not isinstance(families,dict) or set(families)!={'overall',*FAMILIES}:
+                raise ValueError('complete audited family set required')
+            for family in ('overall',*FAMILIES):
+                metric=families[family]; total=216 if family=='overall' else 36
+                if not isinstance(metric,dict) or type(metric.get('independent_tasks')) is not int or metric['independent_tasks']!=total:
+                    raise ValueError('audited task denominator mismatch')
+                correct=metric.get('exact_correct'); exact=metric.get('exact')
+                if type(correct) is not int or not 0<=correct<=total or type(exact) not in (int,float) or exact!=correct/total:
+                    raise ValueError('audited exact metric mismatch')
+                if metric.get('full_trace_exact')!=exact:
+                    raise ValueError('full trace metric mismatch')
+                for key in ('full_trace_exact','final_answer_exact','intermediate_accuracy'):
+                    if type(metric.get(key)) not in (int,float) or not math.isfinite(metric[key]) or not 0<=metric[key]<=1:
+                        raise ValueError('invalid audited accuracy')
+                numerator=metric.get('intermediate_correct'); denominator=metric.get('intermediate_denominator')
+                if type(numerator) is not int or type(denominator) is not int or denominator<total or not 0<=numerator<=denominator or metric['intermediate_accuracy']!=numerator/denominator:
+                    raise ValueError('intermediate metric denominator mismatch')
+                finite_tree(metric)
+    comparisons=report.get('comparisons')
+    required_comparisons={baseline+':'+family for baseline in ('feedforward','memorization','transition_lookup') for family in ('overall',*FAMILIES)}
+    if not isinstance(comparisons,dict) or set(comparisons)!=required_comparisons:
+        raise ValueError('complete audited comparisons required')
+    for key,comparison in comparisons.items():
+        denominator=216 if key.endswith(':overall') else 36
+        if type(comparison.get('independent_tasks')) is not int or comparison['independent_tasks']!=denominator:
+            raise ValueError('comparison task denominator mismatch')
+        interval=comparison.get('paired_task_bootstrap95')
+        if type(comparison.get('mean_gain')) not in (int,float) or not -1<=comparison['mean_gain']<=1 or not isinstance(interval,(list,tuple)) or len(interval)!=2 or any(type(v) not in (int,float) or not math.isfinite(v) for v in interval) or not -1<=interval[0]<=interval[1]<=1:
+            raise ValueError('invalid audited comparison')
+    finite_tree(comparisons)
+    rows=report.get('raw_rows')
+    if not isinstance(rows,list) or len(rows)!=216*3*4 or digest(rows)!=report.get('raw_prediction_hash'):
+        raise ValueError('audited complete raw prediction hash mismatch')
+    identities=[row.get('identity') for row in rows[:216]]
+    if len(set(identities))!=216:
+        raise ValueError('raw prediction identity denominator mismatch')
+    expected=[(condition,seed,identity) for condition in SEALED_CONDITIONS for seed in SEEDS for identity in identities]
+    if any((row.get('condition'),row.get('seed'),row.get('identity'))!=key for row,key in zip(rows,expected,strict=True)):
+        raise ValueError('raw prediction coverage/order mismatch')
+    return passed
+
+
 def independently_audited_verdict(report,binding,audit_receipt,trusted_keys,*,source_manifest=None,runtime_policy=None):
     """Separate external metric audit, never self-issued by numerical scorer."""
+    passed=validate_audit_report(report)
     audit_binding={**binding,'report_hash':digest(report),'prediction_hash':report['raw_prediction_hash']}
     verify_signed(audit_receipt,'independent_metric_audit',audit_binding,trusted_keys)
     from .boundary import verify_boundary
     verify_boundary(source_manifest,runtime_policy,binding)
-    passed=all(report['gates'].values())
     return {'report_hash':digest(report),'scientific_status':'INDEPENDENT_SCIENTIFIC_PASS' if passed else 'INDEPENDENT_SCIENTIFIC_FAIL',
             'release_status':'NO_RELEASE_AUTHORIZATION'}
