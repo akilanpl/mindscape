@@ -7,9 +7,11 @@ from pathlib import Path
 import platform
 import sys
 import time
+import traceback
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'src'))
+sys.path.insert(0, str(ROOT))
 
 
 def block_optimizers(torch):
@@ -46,6 +48,18 @@ def run():
     torch.use_deterministic_algorithms(True)
     allocation = torch.ones(16, device='mps')
     assert allocation.device.type == 'mps'
+    # Capture the original failure on the actual native device, without changing
+    # determinism. This is a random-weight backward diagnostic, never a fit.
+    from scripts.native.original_neural_reference import R56Model as Original
+    try:
+        original = Original().to('mps')
+        probe = pack_problem({'domain':'math','left':2,'right':3,'carry_in':0}).to('mps')
+        original(probe, stateless=False)['math_digit_logits'].square().mean().backward()
+        receipt['original_aggregation_probe'] = {'status':'unexpectedly-passed'}
+    except RuntimeError as exc:
+        receipt['original_aggregation_probe'] = {'error':str(exc),'traceback':traceback.format_exc()}
+    from scripts.native.aggregation_equivalence import measure
+    receipt['aggregation_equivalence'] = measure('mps')
     problems = [
         {'domain':'math','operation':'add_digit','left':2,'right':3,'carry_in':0,'concept_ids':[0]},
         {'domain':'coding','operation':'rename','source':'x = 1\ny = x + x','old_name':'x','candidates':['a','b','c','d'],'requested_name':'c','concept_ids':[3]},
@@ -93,7 +107,7 @@ if __name__=='__main__':
         receipt=run()
     except Exception as exc:
         receipt={'status':'FAILED_ENGINEERING_PREFLIGHT','error_type':type(exc).__name__,
-                 'error':str(exc),'optimizer_updates':0,'scientific_qualification':False,
+                 'error':str(exc),'traceback':traceback.format_exc(),'optimizer_updates':0,'scientific_qualification':False,
                  'python':sys.version,'executable':sys.executable,'os':platform.platform(),
                  'machine':platform.machine(),'sandbox':os.environ.get('CODEX_SANDBOX'),
                  'fallback':os.environ.get('PYTORCH_ENABLE_MPS_FALLBACK')}

@@ -101,14 +101,18 @@ class R56Model(nn.Module):
         context = action + concept + self.domains.weight[graph.domain]
         h = torch.tanh(self.features(features) + self.types(graph.node_types) + context)
         source, target = graph.edges
+        # Fixed observation-only incidence; same-device dense reduction avoids
+        # MPS's nondeterministic indexed accumulation, including gather backward.
+        nodes = torch.arange(len(h), device=h.device)
+        incoming = (nodes[:, None] == target[None, :]).to(h.dtype)
+        outgoing = (nodes[:, None] == source[None, :]).to(h.dtype)
+        degree = incoming.sum(1, keepdim=True)
         for _ in range(c.message_steps):
             aggregate = torch.zeros_like(h)
-            degree = torch.zeros((len(h), 1), device=h.device, dtype=h.dtype)
             if source.numel():
-                message = self.message(torch.cat((h[source], h[target], self.relations(graph.relation_types),
+                message = self.message(torch.cat((outgoing.T @ h, incoming.T @ h, self.relations(graph.relation_types),
                                                    context.expand(len(source), -1)), dim=-1))
-                aggregate.index_add_(0, target, message)
-                degree.index_add_(0, target, torch.ones((len(target), 1), device=h.device, dtype=h.dtype))
+                aggregate = incoming @ message
             aggregate = aggregate / degree.clamp(min=1)
             h = self.norm(h + self.update(torch.cat((h, aggregate, context.expand(len(h), -1)), dim=-1)))
         pooled = h.mean(0)
