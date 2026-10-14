@@ -46,3 +46,14 @@ objective; it does not certify a global minimum for multimodal objectives.
 WASI compiled `.cwasm` caches are runtime/platform dependent. When migrating a
 runtime, copy its `python.wasm` and `lib` into a fresh local directory and let the
 current wasmtime build its own cache. Do not reuse an unverified historical cache.
+
+Verification metadata reports actual checks: polynomial integration differentiates
+the result against the original input; equation solving substitutes every returned
+root; matrix inversion checks the product against identity using exact rationals
+from validated original numeric literals. Differentiation includes central finite
+difference spot checks explicitly labeled as evidence rather than a proof.
+Symbolic simplification uses SymPy simplification under the caller's wall deadline.
+Physics reports projectile energy/impact residuals, oscillator energy conservation
+or dissipation checks, and RC initial-condition/bounded-limit checks. These checks
+can detect internal inconsistencies; they do not validate model assumptions against
+the physical world or certify numerical accuracy for every input.

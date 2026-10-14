@@ -89,3 +89,28 @@ def test_real_wasi_execution_and_capability_denial():
     assert r['returncode'] == 0 and r['stdout'].strip() == '45'
     r = result('coding_execute', source="try:\n open('/etc/passwd').read()\n print('UNSAFE')\nexcept OSError:\n print('DENIED')")
     assert r['returncode'] == 0 and r['stdout'].strip() == 'DENIED'
+
+
+@pytest.mark.skipif(not capabilities()['symbolic_math'], reason='optional sympy absent')
+def test_independent_symbolic_verification_and_exact_matrix_values():
+    r = result('math_calculate', expression='sin(x)**2+cos(x)**2', operation='simplify')
+    assert r['result'] == '1'
+    r = result('math_calculate', expression='x**3', operation='integrate')
+    assert r['verification']['passed'] and r['verification']['residual'] == '0'
+    r = result('math_calculate', expression='x**2-4', operation='solve')
+    assert r['verification']['passed'] and r['verification']['residuals'] == ['0', '0']
+    r = result('math_calculate', expression='sin(x)', operation='differentiate')
+    assert r['verification']['passed'] and r['verification']['is_proof'] is False
+    r = result('math_matrix', matrix=[[.1, .2], [.3, .4]], operation='inverse')
+    assert r['verification']['passed']
+    assert result('math_matrix', matrix=[[.1, .2], [.3, .4]])['result'] == '-1/50'
+
+
+def test_physics_verification_residuals():
+    r = result('physics_simulate', model='projectile', parameters={'speed': 20, 'duration': 1})
+    assert r['verification']['max_energy_per_mass_residual'] < 1e-10
+    assert r['verification']['impact_height_residual'] < 1e-10
+    r = result('physics_simulate', model='oscillator', parameters={'duration': 2}, steps=100)
+    assert r['verification']['passed'] and r['verification']['max_energy_residual'] < 1e-7
+    r = result('physics_simulate', model='rc_circuit', parameters={'resistance': 100, 'capacitance': .01, 'voltage': 5})
+    assert r['verification']['passed']
