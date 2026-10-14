@@ -8,7 +8,8 @@ import numpy as np
 import torch
 from .readiness import digest
 
-MANDATORY=('src/mindscape/alpha_transfer/numerical.py','src/mindscape/alpha_transfer/numerical_scoring.py','src/mindscape/alpha_transfer/numerical_authority.py','src/mindscape/alpha_transfer/numerical_locks.py','src/mindscape/alpha_transfer/readiness.py','src/mindscape/alpha_transfer/controller.py','src/mindscape/v5/model.py','src/mindscape/v5/schema.py','src/mindscape/v5/execute.py','src/mindscape/v5/data.py','src/mindscape/v3/physics_world/accelerator.py','configs/r5_kernel/shared-study-proposal.json')
+MANDATORY=('src/mindscape/alpha_transfer/numerical.py','src/mindscape/alpha_transfer/numerical_scoring.py','src/mindscape/alpha_transfer/numerical_authority.py','src/mindscape/alpha_transfer/numerical_locks.py','src/mindscape/alpha_transfer/readiness.py','src/mindscape/alpha_transfer/controller.py','src/mindscape/v5/model.py','src/mindscape/v5/schema.py','src/mindscape/v5/execute.py','src/mindscape/v5/data.py','src/mindscape/v3/physics_world/accelerator.py','configs/r5_kernel/shared-study-proposal.json','src/mindscape/v3/coding_learning/execution.py','src/mindscape/v3/physics_world/environment.py')
+REPOSITORY=Path(__file__).resolve().parents[3]
 
 
 def checked_path(root,relative):
@@ -26,22 +27,28 @@ def checked_path(root,relative):
 def verify_source(root,manifest):
     if not isinstance(manifest,dict) or not set(MANDATORY)<=set(manifest): raise ValueError('Mandatory source coverage missing')
     for relative,sha in manifest.items():
+        if not isinstance(sha,str) or len(sha)!=64 or any(c not in '0123456789abcdef' for c in sha): raise ValueError('Invalid source SHA256')
         if hashlib.sha256(checked_path(root,relative).read_bytes()).hexdigest()!=sha: raise ValueError('Source byte substitution')
     return True
 
 
 def runtime_snapshot():
+    if torch.get_default_dtype()!=torch.float32: raise ValueError('Default dtype must float32')
     fallback=os.environ.get('PYTORCH_ENABLE_MPS_FALLBACK','0')
     if fallback!='0': raise ValueError('MPS fallback forbidden')
     executable=Path(sys.executable).resolve()
-    return dict(python_executable_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),python_version=sys.version,torch_version=torch.__version__,numpy_version=np.__version__,platform=platform.platform(),machine=platform.machine(),mps_fallback='0')
+    return dict(python_executable_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),python_version=sys.version,torch_version=torch.__version__,numpy_version=np.__version__,platform=platform.platform(),machine=platform.machine(),mps_fallback='0',torch_default_dtype='torch.float32')
 
 
 def verify_locks(spec,mode='storage'):
     if mode not in ('storage','native'): raise ValueError('Runtime mode')
+    supplied=Path(spec['repository'])
+    if not supplied.is_absolute() or '..' in supplied.parts: raise ValueError('Absolute executing repository required')
+    if supplied.is_symlink() or any(p.is_symlink() for p in supplied.parents): raise ValueError('Symlink repository root')
+    if supplied.resolve()!=REPOSITORY: raise ValueError('Repository differs from executing source')
     manifest=spec['source_manifest']
     if digest(manifest)!=spec['bindings']['source']: raise ValueError('Source manifest binding')
-    verify_source(spec['repository'],manifest)
+    verify_source(REPOSITORY,manifest)
     observed=runtime_snapshot()
     if observed!=spec['runtime_snapshot'] or digest(observed)!=spec['bindings']['runtime']: raise ValueError('Runtime substitution')
     if mode=='native':

@@ -91,3 +91,13 @@ class NumericalTests(unittest.TestCase):
         from mindscape.alpha_transfer.numerical_authority import verify_verdict
         report=dict(status='GATES_PASS_PENDING_INDEPENDENT_AUDIT',gates={})
         with self.assertRaises(ValueError): verify_verdict(report,dict(bindings=dict(source='0'*64)),[],{}, {})
+    def test_runtime_rejects_clean_other_repository(self):
+        from mindscape.alpha_transfer.numerical_locks import verify_locks
+        with self.assertRaises(ValueError): verify_locks({'repository':'/tmp'},'storage')
+    def test_runtime_rejects_symlink_repository(self):
+        import tempfile
+        from pathlib import Path
+        from mindscape.alpha_transfer.numerical_locks import verify_locks,REPOSITORY
+        with tempfile.TemporaryDirectory() as directory:
+            alias=Path(directory)/'repo'; alias.symlink_to(REPOSITORY,target_is_directory=True)
+            with self.assertRaises(ValueError): verify_locks({'repository':str(alias)},'storage')
