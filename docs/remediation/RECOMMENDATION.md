@@ -18,7 +18,8 @@ PR27/28/29, all old evidence and public/product frontends remain preserved.
   required answers. Retain/reset/donor-past controls execute identical encoder, GRU,
   fusion and head parameters. Traces expose resets, same-episode gradient retention,
   detached donor states and original-hidden-state feedback. Train/heldout cue/query
-  combinations are disjoint; delay shifts0/1/4/8 are separately exposed. This repairs
+  combinations are disjoint (the heldout algebraic partition uses even cues0/2;
+  this is not broad cue generalization); delay shifts0/1/4/8 are separately exposed. This repairs
   a supplemental memory identifiability design, not the reserved non-episodic arm.
 - Separate program-output semantics proposal has heldout loop/branch/function
   structures, source-only train vocabulary, bounded independent AST interpretation

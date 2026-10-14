@@ -119,3 +119,9 @@ def test_manifest_rehash_cannot_override_external_proposal_pin(tmp_path):
     (package/'manifest.json').write_text(json.dumps(manifest))
     with pytest.raises(ValueError,match='identity'):
         stage_training(package,tmp_path/'stage',17,pinned)
+
+
+def test_probe_missing_symlink_exercise_is_failure_not_success():
+    source=(Path(__file__).resolve().parents[1]/'deploy/r56-isolation/probe.py').read_text()
+    assert "except OSError:result['symlink_denied']=False" in source
+    assert "'checkpoint_denied':denied('/checkpoints/checkpoint.json')" in source

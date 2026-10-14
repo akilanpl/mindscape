@@ -28,6 +28,7 @@ def main():
         with open('/training/train.json','rb') as stream: readable=bool(stream.read(1))
     except OSError:readable=False
     result={'training_readable':readable,'heldout_denied':all(denied(p) for p in targets),
+            'checkpoint_denied':denied('/checkpoints/checkpoint.json'),
             'traversal_denied':denied('/training/../sealed-evaluation/targets.json'),
             'environment_clean':not any(any(token in key.upper() for token in ('TOKEN','SECRET','API_KEY','EVAL')) for key in os.environ),
             'nonroot':os.getuid()!=0}
@@ -35,7 +36,7 @@ def main():
     try:
         link.symlink_to('/sealed-evaluation/targets.json')
         result['symlink_denied']=denied(link)
-    except OSError:result['symlink_denied']=True
+    except OSError:result['symlink_denied']=False
     try:
         with open('/training/train.json','ab') as stream:stream.write(b'!')
         result['readonly_training']=False

@@ -120,7 +120,7 @@ def run_probe(image, stage, probe):
     if completed.returncode:
         return {'qualified':False,'status':'FAILED','exit_code':completed.returncode,'stderr':completed.stderr[:2000]}
     result=json.loads(completed.stdout)
-    required=('heldout_denied','traversal_denied','symlink_denied','environment_clean',
+    required=('heldout_denied','checkpoint_denied','traversal_denied','symlink_denied','environment_clean',
               'inherited_descriptors_clean','readonly_training','nonroot','no_network','training_readable')
     passed=all(result.get(name) is True for name in required)
     return {'qualified':False,'boundary_probe_passed':passed,'status':'TRAINER_PROBE_ONLY' if passed else 'FAILED',
