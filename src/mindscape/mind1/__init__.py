@@ -1,1 +1,1 @@
-"""Mind 1 product orchestration, separate from experimental R5.6."""
+"""Mind 1 native Mindscape orchestration and independently attributed tools."""

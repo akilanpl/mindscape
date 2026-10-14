@@ -1,68 +1,6 @@
-"""Boundary regression checks; run against the integrated Mind1 source tree."""
+"""Retained tool/HTTP security regressions; external-inference tests replaced by native no-network gates."""
 import json
-from urllib import error
-
 import pytest
-
-from mindscape.mind1.provider import CompatibleProvider, ProviderConfig, ProviderError
-
-
-@pytest.mark.parametrize('url', [
-    'http://example.com/v1', 'file:///etc/passwd', 'https://user:secret@example.com/v1',
-    'https://example.com/v1?api_key=secret', 'https://example.com/v1#secret',
-])
-def test_provider_rejects_unsafe_endpoint(url):
-    with pytest.raises(ValueError):
-        CompatibleProvider(ProviderConfig(base_url=url))
-
-
-def test_public_configuration_excludes_secret():
-    p = CompatibleProvider(ProviderConfig(api_key='SECRET-SENTINEL', model='configured-model'))
-    public = json.dumps(p.public())
-    assert 'SECRET-SENTINEL' not in public
-    assert 'api_key' not in public
-
-
-def test_completion_rejects_malformed_message(monkeypatch):
-    p = CompatibleProvider(ProviderConfig(model='configured-model', api_key='test-key'))
-    monkeypatch.setattr(p, '_request', lambda *args: {'choices': [{'message': 'not a mapping'}]})
-    with pytest.raises(ProviderError, match='Malformed'):
-        p.complete([{'role': 'user', 'content': 'test'}])
-
-
-def test_context_limit_checked_before_network(monkeypatch):
-    p = CompatibleProvider(ProviderConfig(model='configured-model', api_key='test-key', context_chars=1000))
-    monkeypatch.setattr(p, '_request', lambda *args: pytest.fail('Network must not be called'))
-    with pytest.raises(ProviderError, match='Context ceiling'):
-        p.complete([{'role': 'user', 'content': 'x' * 1001}])
-
-
-def test_provider_error_body_not_exposed(monkeypatch):
-    class Opener:
-        def open(self, *args, **kwargs):
-            raise error.HTTPError('https://example.com', 401, 'SECRET-SENTINEL', {}, None)
-    import mindscape.mind1.provider as module
-    monkeypatch.setattr(module.request, 'build_opener', lambda *args: Opener())
-    p = CompatibleProvider(ProviderConfig(model='configured-model', api_key='test-key'))
-    with pytest.raises(ProviderError) as caught:
-        p._request('/models')
-    assert 'SECRET-SENTINEL' not in str(caught.value)
-    assert 'authentication failed' in str(caught.value)
-
-
-def test_oversized_provider_response_rejected(monkeypatch):
-    class Response:
-        def __enter__(self): return self
-        def __exit__(self, *args): pass
-        def read(self, size): return b'x' * size
-    class Opener:
-        def open(self, *args, **kwargs): return Response()
-    import mindscape.mind1.provider as module
-    monkeypatch.setattr(module.request, 'build_opener', lambda *args: Opener())
-    p = CompatibleProvider(ProviderConfig(model='configured-model', api_key='test-key'))
-    with pytest.raises(ProviderError, match='size limit'):
-        p._request('/models')
-
 
 @pytest.mark.parametrize('source', [
     "__import__('os').system('echo unsafe')", 'x.__class__', '[x for x in (1,2)]',
@@ -201,11 +139,3 @@ def test_malformed_selection_types_are_controlled(field, value):
     from mindscape.mind1.orchestrator import validate
     with pytest.raises(ValueError):
         validate({'message': 'hello', field: value})
-
-
-@pytest.mark.parametrize('payload', [[], None, {'data': None}, {'data': {}}])
-def test_malformed_model_discovery_is_controlled(monkeypatch, payload):
-    p = CompatibleProvider(ProviderConfig(model='configured-model', api_key='test-key'))
-    monkeypatch.setattr(p, '_request', lambda *args: payload)
-    with pytest.raises(ProviderError):
-        p.discover()

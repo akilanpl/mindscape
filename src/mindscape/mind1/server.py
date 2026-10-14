@@ -76,10 +76,7 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/health":
             return self._json(200, {"status": "ok", "product": "Mind 1", "public_hosting": False})
         if path == "/api/models":
-            try:
-                return self._json(200, self.server.orchestrator.provider.discover())
-            except Exception:
-                return self._json(502, {"error": "Provider model discovery unavailable"})
+            return self._json(200, {"external_inference": False, "native": self.server.orchestrator.capabilities()['native']})
         files = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/math.js": "math.js", "/science.js": "science.js"}
         if path not in files:
             return self._json(404, {"error": "Not found"})
