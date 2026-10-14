@@ -1,12 +1,20 @@
 """Proposed task-paired scorer and real executors; never called on this sprint data."""
 import numpy as np
-from .readiness import DOMAINS, SEEDS, CONDITIONS, validate_manifest
+from .readiness import DOMAINS, SEEDS, CONDITIONS, validate_manifest, digest
 from mindscape.v5.execute import execute
 
 
 def independent_outcomes(tasks, runtime_lock, executor=None):
     """Invoke actual register/WASI/Pymunk executors after caller verifies nine seals."""
     import importlib.metadata
+    import hashlib
+    from pathlib import Path
+    required=('src/mindscape/v5/execute.py','src/mindscape/v3/coding_learning/execution.py','src/mindscape/v3/physics_world/environment.py')
+    if any(p not in runtime_lock['source_files'] for p in required) or not runtime_lock['wasi_assets']: raise ValueError('Executor source/WASI locks missing')
+    for relative,expected in runtime_lock['source_files'].items():
+        if hashlib.sha256((Path(runtime_lock['repository'])/relative).read_bytes()).hexdigest()!=expected: raise ValueError('Executor source hash differs')
+    for asset,expected in runtime_lock['wasi_assets'].items():
+        if hashlib.sha256(Path(asset).read_bytes()).hexdigest()!=expected: raise ValueError('WASI asset hash differs')
     if runtime_lock['pymunk_version'] != importlib.metadata.version('pymunk'):
         raise ValueError('Pinned Pymunk differs')
     if executor is None: raise ValueError('Locked WASI Executor required')
@@ -21,7 +29,7 @@ def task_metrics(prediction,target):
     if type(target['valid']) is not int or target['valid'] not in (0,1): raise ValueError('Binary executed validity')
     actual=np.asarray(target['delta'],dtype=float); estimate=np.asarray(prediction['delta'],dtype=float)
     probability=prediction['valid_probability']
-    if actual.shape!=estimate.shape or actual.ndim!=2 or 0 in actual.shape or not np.isfinite(actual).all() or not np.isfinite(estimate).all() or type(probability) not in (int,float) or not np.isfinite(probability) or not 0<=probability<=1:
+    if actual.shape!=estimate.shape or actual.ndim!=2 or 0 in actual.shape or actual.shape[0]>7 or not np.isfinite(actual).all() or not np.isfinite(estimate).all() or type(probability) not in (int,float) or not np.isfinite(probability) or not 0<=probability<=1:
         raise ValueError('Invalid raw predictions')
     squared=((estimate-actual)**2).mean(axis=1); changed=np.abs(actual).sum(axis=1)>0
     return dict(changed=float(squared[changed].mean()) if changed.any() else None,
@@ -30,7 +38,7 @@ def task_metrics(prediction,target):
                 valid=int((probability>=.5)==bool(target['valid'])),valid_class=target['valid'])
 
 
-def score_campaign(predictions,truth,manifest,replicates=10000):
+def score_campaign(predictions,truth,manifest,public_graphs,replicates=10000):
     """Candidate: task macro MSE; paired task bootstrap, seeds never count as tasks."""
     validate_manifest(manifest)
     if replicates!=10000: raise ValueError('Bootstrap freeze differs')
@@ -38,6 +46,9 @@ def score_campaign(predictions,truth,manifest,replicates=10000):
     if set(predictions)!=expected: raise ValueError('Nine raw predictions required')
     ids={d:sorted(r['identity'] for r in manifest if r['domain']==d and r['split']=='composition') for d in DOMAINS}
     all_ids=set(sum(ids.values(),[]))
+    if set(public_graphs)!=all_ids: raise ValueError('Bound public composition graphs required')
+    for row in manifest:
+        if row['split']=='composition' and digest(public_graphs[row['identity']])!=row['public_sha256']: raise ValueError('Scorer graph commitment differs')
     if any(len(v)!=24 for v in ids.values()) or set(truth)!=all_ids: raise ValueError('Composition denominator')
     metrics={}
     for fit,rows in predictions.items():
@@ -45,7 +56,7 @@ def score_campaign(predictions,truth,manifest,replicates=10000):
         from mindscape.v5.schema import OUTPUTS
         for row in rows:
             domain=next(d for d in DOMAINS if row['identity'] in ids[d])
-            if row.get('domain')!=domain or any(len(a)!=OUTPUTS[domain] for a in row['delta']): raise ValueError('Prediction domain/output binding')
+            if len(row['delta'])!=len(public_graphs[row['identity']]['entities']) or row.get('domain')!=domain or any(len(a)!=OUTPUTS[domain] for a in row['delta']): raise ValueError('Prediction domain/output binding')
         metrics[fit]={r['identity']:task_metrics(r,truth[r['identity']]) for r in rows}
     gates={}; gains={}; intervals={}; regressions={}
     def values(seed,condition,domain,key):
