@@ -31,7 +31,7 @@ def math_tool(p):
    if sum(pri)!=1:raise Unsupported('Exhaustive disjoint prior probabilities must sum to one.')
    den=sum(a*b for a,b in zip(pri,like))
    if den==0:raise Unsupported('Evidence probability must be positive.')
-   out=pri[i]*like[i]/den;steps=[f'P(E) = sum(P(H_i)P(E|H_i)) = {den}.',f'P(H_{i}|E) = {pri[i]}*{like[i]}/{den} = {out}.']
+   out=pri[i]*like[i]/den;steps=[f'P(E) = sum(P(H_i)P(E|H_i)) = {den}.',f'P(H_{i}|E) = ({pri[i]})*({like[i]})/({den}) = {out}.']
   else:raise Unsupported('Probability supports conditional and Bayes with explicit probabilities.')
   return _result(str(out),steps,'exact probability tool',{'passed':bool(0<=out<=1),'check':'Exact probability normalization and bounds; supplied event assumptions only.'})
  if t=='simultaneous':

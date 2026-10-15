@@ -36,3 +36,8 @@ def test_tables_before_query():
  p=supplied_parse('Evaluate SQL. Tables: {"a":[{"v":2},{"v":4}]}\nSQL: SELECT SUM(v) FROM a;')
  assert p and solve(p)['answer']['rows']==[[6]]
 def test_force_phrase():assert supplied_parse('Find electrostatic force between 1 uC and 2 uC separated by 1 m')['task']=='coulomb'
+
+def test_bayes_worked_equality_preserves_fraction_grouping():
+ r=solve(dict(subject='math',task='probability',operation='bayes',priors=['1/5','3/10','1/2'],likelihoods=['1/20','1/10','1/25'],index=1))
+ assert r['answer']=='1/2'
+ assert '(3/10)*(1/10)/(3/50) = 1/2' in r['steps'][-1]
