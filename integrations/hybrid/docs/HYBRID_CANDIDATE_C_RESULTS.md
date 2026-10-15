@@ -1,6 +1,6 @@
 # Candidate C release result
 
-**Select Candidate C for the documented bounded hybrid scope; keep Candidate B as the venue fallback.** No native architecture is replaced. Release code commit: `a23954a`; later commits add documentation/model hashes only.
+**Select Candidate C for the documented bounded hybrid scope; keep Candidate B as the venue fallback.** No native architecture is replaced. Release code commit: `a23954a`; later commits package the calibrated benchmark harness, documentation and model hashes; runtime modules are unchanged.
 
 - Matched hard36: B **14/36**, preformatter C **36/36** answers, gain **22 correct / +61.11 percentage points**. Consistent worked responses were B14/36, C35/36; C's Bayes equality formatter was corrected separately.
 - New protected release12: B **3/12**, C **12/12**, pretrained **1/12**; C worked text12/12. This is the fresh final evidence for the corrected formatter version.
