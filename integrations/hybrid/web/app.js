@@ -82,13 +82,14 @@ function highlighted(code,language) {
  const regex=/(#[^\n]*|--[^\n]*|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\b(?:def|return|if|else|elif|for|in|while|try|except|finally|raise|import|from|class|True|False|None|and|or|not|SELECT|FROM|WHERE|JOIN|ON|GROUP|BY|ORDER|HAVING|AS|SUM|AVG|COUNT|LIMIT|const|let|function)\b|\b\d+(?:\.\d+)?\b)/g;let offset=0;
  for(const m of code.matchAll(regex)){root.append(document.createTextNode(code.slice(offset,m.index)));const v=m[0];root.append(el('span',v,v.startsWith('#')||v.startsWith('--')?'token-comment':/^['"]/.test(v)?'token-string':/^\d/.test(v)?'token-number':'token-keyword'));offset=m.index+v.length;}root.append(document.createTextNode(code.slice(offset)));return root;
 }
-function markdown(text) {
+function markdown(text,literalProse=false) {
  const root=el('div',undefined,'message-body');let code=false,lines=[],lang='';
  function flush() { if(!lines.length)return;const content=lines.join('\n');lines=[];
   if(code){const block=el('div',undefined,'code-block');const head=el('div',undefined,'code-header');head.append(el('span',lang||'text'),action('Copy code','copy',e=>copyText(content,e.currentTarget)));const pre=el('pre');pre.append(highlighted(content,lang.toLowerCase()));block.append(head,pre);root.append(block);return;}
+  if(literalProse){root.append(el('p',content));return;}
   for(const block of content.split(/\n\s*\n/)){if(window.renderTable(root,block))continue;const ls=block.split('\n');if(ls.every(l=>/^\s*(?:[-*]|\d+\.)\s+/.test(l))){const list=el(/^\s*\d+\./.test(ls[0])?'ol':'ul');for(const l of ls){const li=el('li');inline(li,l.replace(/^\s*(?:[-*]|\d+\.)\s+/,''));list.append(li);}root.append(list);continue;}const h=block.match(/^(#{1,4})\s+([\s\S]*)$/);const p=el(h?'h'+Math.min(h[1].length+1,5):'p');inline(p,h?h[2]:block);root.append(p);}
  }
- for(const line of String(text??'').split('\n')){if(/^```/.test(line)){flush();code=!code;lang=line.slice(3).trim();}else lines.push(line);}flush();window.renderMind1Math(root);return root;
+ for(const line of String(text??'').split('\n')){if(/^```/.test(line)){flush();code=!code;lang=line.slice(3).trim();}else lines.push(line);}flush();if(!literalProse)window.renderMind1Math(root);return root;
 }
 async function copyText(text,button) {
  try { await navigator.clipboard.writeText(text);toast('Copied to clipboard.'); }
@@ -117,7 +118,7 @@ function renderMessage(message) {
   const body=el('div',undefined,'message-body');const block=el('div',undefined,'code-block');const header=el('div',undefined,'code-header');const output=message.result.solver_result.answer;
   header.append(el('span','Python output · exact text'),action('Copy output','copy',e=>copyText(output,e.currentTarget)));const pre=el('pre');pre.append(el('code',output));block.append(header,pre);body.append(block);
   const start=message.content.lastIndexOf('\n\nWorked solution:\n');if(start>=0){const details=el('details',undefined,'program-details');details.append(el('summary','Worked solution & execution trace'),el('pre',message.content.slice(start+2),'program-working'));body.append(details);}article.append(body);
- }else article.append(markdown(displayed));
+ }else article.append(markdown(displayed,message.role==='user'||!!message.result?.provenance?.tool_verified));
  if(message.role==='assistant'){
   if(message.result?.provenance?.tool_verified && message.result.domain==='math' && typeof message.result.solver_result?.answer==='string'){
    const visual=window.renderMindscapeExpression(message.result.solver_result.answer);
