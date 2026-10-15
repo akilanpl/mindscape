@@ -4,7 +4,7 @@ from dataclasses import dataclass
 import copy
 import torch
 from torch import nn
-from mindscape.r56.neural import R56Model
+from mindscape.r56.neural import R56Model, OneHotEmbedding
 from mindscape.r56.native_domains import pack_problem
 from mindscape.r56.benchmarks import observed_tokens
 
@@ -18,7 +18,7 @@ class Prepared:
     requested: str
 
 
-class GatedConcept(nn.Embedding):
+class GatedConcept(OneHotEmbedding):
     def __init__(self,num_embeddings,embedding_dim,off=False):
         super().__init__(num_embeddings,embedding_dim)
         self.gate=nn.Parameter(torch.tensor(0.))
@@ -45,11 +45,14 @@ class SequenceCore(nn.Module):
 class NameEncoder(nn.Module):
     """Learned character encoding; no equality flags, hashes, indices or targets."""
     def __init__(self):
-        super().__init__();self.embedding=nn.Embedding(129,12,padding_idx=0)
+        super().__init__();self.embedding=OneHotEmbedding(257,12)
         self.gru=nn.GRU(12,16,batch_first=True)
     def forward(self,name,device):
-        ids=torch.tensor([[min(ord(c),127)+1 for c in name[:64]]],dtype=torch.long,device=device)
-        if not name: ids=torch.zeros((1,1),dtype=torch.long,device=device)
+        if not isinstance(name,str) or not name.isidentifier() or not 1<=len(name)<=64:
+            raise ValueError('Require nonempty identifier of at most64 Unicode characters')
+        encoded=name.encode('utf-8')
+        if len(encoded)>256:raise ValueError('Identifier UTF8 budget exceeded')
+        ids=torch.tensor([[byte+1 for byte in encoded]],dtype=torch.long,device=device)
         _,hidden=self.gru(self.embedding(ids));return hidden[0,0]
 
 

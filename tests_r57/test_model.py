@@ -43,3 +43,22 @@ def test_names_use_learned_characters_not_equality_solver():
  # Alpha renaming is not mathematically enforced; measured difference is retained.
  changed=coding(['a','b','c','d'],requested='a')
  assert not torch.equal(out['coding_logits'],model.predict(changed)['coding_logits'])
+
+
+def test_unicode_bytes_preserved_dense_embedding_repeat_gradients():
+ from mindscape.r56.neural import OneHotEmbedding
+ model=make_model('graph-concept-on')
+ assert isinstance(model.name_encoder.embedding,OneHotEmbedding)
+ assert isinstance(model.core.concepts,OneHotEmbedding)
+ assert model.name_encoder.embedding.num_embeddings==257
+ device=next(model.parameters()).device
+ first=model.name_encoder('αα',device);second=model.name_encoder('ββ',device)
+ assert not torch.equal(first,second)
+ first.square().sum().backward()
+ assert torch.isfinite(model.name_encoder.embedding.weight.grad).all()
+ with pytest.raises(ValueError):model.name_encoder('',device)
+ with pytest.raises(ValueError):model.name_encoder('x'*65,device)
+ p=coding(['αα','ββ','γγ','δδ'],requested='αα')
+ base=model.predict(p)['coding_logits']
+ swapped=model.predict({**p,'candidates':list(reversed(p['candidates']))})['coding_logits']
+ assert torch.allclose(base.flip(0),swapped,atol=1e-7)
