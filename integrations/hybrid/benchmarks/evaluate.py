@@ -90,6 +90,11 @@ def grade(c,r):
  if r.get('status')=='unverified':
   raw=r.get('neural',{}).get('raw_answer','');matches=re.findall(r'(?:Answer|Final answer)\s*:\s*([^\n]+)',raw,re.I)
   if matches:a=matches[-1].strip().strip('`$').rstrip('.')
+ if c['answer_kind']=='numeric' and isinstance(a,str):
+  try:
+   symbolic=safe_symbolic(a)
+   if not symbolic.free_symbols:a=float(symbolic)
+  except Exception:pass
  return bool(answer_matches(c,a))
 
 if __name__=='__main__':
@@ -100,5 +105,5 @@ if __name__=='__main__':
    t=time.perf_counter();req=urllib.request.Request(f'http://127.0.0.1:{port}/api/chat',data=json.dumps({'message':c['question'],'mode':mode}).encode(),headers={'Content-Type':'application/json'})
    try:r=json.load(urllib.request.urlopen(req,timeout=120))
    except Exception as e:r={'status':'error','error':str(e)}
-   row={'case':c,'response':r,'correct':grade(c,r),'latency':time.perf_counter()-t};f.write(json.dumps(row)+'\n');f.flush()
+   row={'case':c,'response':r,'correct':grade(c,r),'latency':time.perf_counter()-t};f.write(json.dumps(row)+'\n');f.flush();time.sleep(.15)
  print(out)
