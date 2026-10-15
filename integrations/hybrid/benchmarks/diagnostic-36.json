@@ -1,0 +1,414 @@
+[
+  {
+    "id": "math-1",
+    "subject": "math",
+    "topic": "composite",
+    "question": "Differentiate sin(2*x^2)*exp(x) with respect to x",
+    "expected": "exp(x)*(sin(2*x**2)+4*x*cos(2*x**2))",
+    "answer_kind": "symbolic",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-2",
+    "subject": "math",
+    "topic": "composite",
+    "question": "Differentiate log(1+2*x^2) with respect to x",
+    "expected": "4*x/(1+2*x**2)",
+    "answer_kind": "symbolic",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-3",
+    "subject": "math",
+    "topic": "definite",
+    "question": "Integrate x^3-2*x from 0 to 2",
+    "expected": 0,
+    "answer_kind": "numeric",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-4",
+    "subject": "math",
+    "topic": "definite",
+    "question": "{\"subject\": \"math\", \"task\": \"integrate\", \"expression\": \"sin(2*x)\", \"variable\": \"x\", \"lower\": \"0\", \"upper\": \"pi/2\"}",
+    "expected": 1.0,
+    "answer_kind": "numeric",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-5",
+    "subject": "math",
+    "topic": "definite",
+    "question": "{\"subject\": \"math\", \"task\": \"integrate\", \"expression\": \"1/(x+2)\", \"variable\": \"x\", \"lower\": \"0\", \"upper\": \"2\"}",
+    "expected": "log(2)",
+    "answer_kind": "symbolic",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-6",
+    "subject": "math",
+    "topic": "matrix",
+    "question": "Find the inverse of [[1,2],[0,1]]",
+    "expected": [
+      [
+        1,
+        -2
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "answer_kind": "matrix",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-7",
+    "subject": "math",
+    "topic": "determinant",
+    "question": "Find the determinant of [[2,1,0],[0,3,1],[1,0,2]]",
+    "expected": 13,
+    "answer_kind": "numeric",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-8",
+    "subject": "math",
+    "topic": "simultaneous",
+    "question": "{\"subject\": \"math\", \"task\": \"simultaneous\", \"variables\": [\"x\", \"y\"], \"equations\": [\"x+y=5\", \"2*x-y=1\"]}",
+    "expected": {
+      "x": "2",
+      "y": "3"
+    },
+    "answer_kind": "mapping",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-9",
+    "subject": "math",
+    "topic": "simultaneous",
+    "question": "{\"subject\": \"math\", \"task\": \"simultaneous\", \"variables\": [\"x\", \"y\", \"z\"], \"equations\": [\"x+y+z=7\", \"x-y=0\", \"z=3\"]}",
+    "expected": {
+      "x": "2",
+      "y": "2",
+      "z": "3"
+    },
+    "answer_kind": "mapping",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-10",
+    "subject": "math",
+    "topic": "probability",
+    "question": "{\"subject\": \"math\", \"task\": \"probability\", \"operation\": \"conditional\", \"intersection\": \"1/5\", \"given\": \"1/2\"}",
+    "expected": "2/5",
+    "answer_kind": "symbolic",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-11",
+    "subject": "math",
+    "topic": "probability",
+    "question": "{\"subject\": \"math\", \"task\": \"probability\", \"operation\": \"bayes\", \"priors\": [\"1/3\", \"2/3\"], \"likelihoods\": [\"1/3\", \"1/4\"], \"index\": 0}",
+    "expected": "4/10",
+    "answer_kind": "symbolic",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "math-12",
+    "subject": "math",
+    "topic": "ode",
+    "question": "{\"subject\": \"math\", \"task\": \"linear_ode\", \"variable\": \"x\", \"coefficient\": \"2\", \"forcing\": \"0\", \"initial_x\": \"0\", \"initial_y\": \"3\"}",
+    "expected": "3*exp(-2*x)",
+    "answer_kind": "symbolic",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "physics-13",
+    "subject": "physics",
+    "topic": "coulomb",
+    "question": "Find the electrostatic force between 2 uC and -2 uC separated by 20 cm. k=9*10^9 N*m^2/C^2",
+    "expected": 0.9,
+    "answer_kind": "numeric",
+    "unit": "N",
+    "supported": true
+  },
+  {
+    "id": "physics-14",
+    "subject": "physics",
+    "topic": "optics",
+    "question": "Lens equation, f=20 cm and u=-40 cm",
+    "expected": 0.4,
+    "answer_kind": "numeric",
+    "unit": "m",
+    "supported": true
+  },
+  {
+    "id": "physics-15",
+    "subject": "physics",
+    "topic": "kirchhoff",
+    "question": "{\"subject\": \"physics\", \"task\": \"kirchhoff_loop\", \"values\": {\"emfs\": [{\"value\": 12, \"unit\": \"V\"}, {\"value\": -3, \"unit\": \"V\"}], \"resistors\": [{\"value\": 2, \"unit\": \"ohm\"}, {\"value\": 4, \"unit\": \"ohm\"}]}}",
+    "expected": 1.5,
+    "answer_kind": "numeric",
+    "unit": "A",
+    "supported": true
+  },
+  {
+    "id": "physics-16",
+    "subject": "physics",
+    "topic": "resistance",
+    "question": "Find equivalent resistance of 2 ohm and 4 ohm in parallel",
+    "expected": 1.3333333333333333,
+    "answer_kind": "numeric",
+    "unit": "ohm",
+    "supported": true
+  },
+  {
+    "id": "physics-17",
+    "subject": "physics",
+    "topic": "multi_charge",
+    "question": "{\"subject\": \"physics\", \"task\": \"field_vector\", \"point\": [{\"value\": 0, \"unit\": \"m\"}, {\"value\": 0, \"unit\": \"m\"}], \"charges\": [{\"q\": {\"value\": 2, \"unit\": \"uC\"}, \"position\": [{\"value\": -1, \"unit\": \"m\"}, {\"value\": 0, \"unit\": \"m\"}]}, {\"q\": {\"value\": -2, \"unit\": \"uC\"}, \"position\": [{\"value\": 1, \"unit\": \"m\"}, {\"value\": 0, \"unit\": \"m\"}]}], \"k\": {\"value\": 9000000000.0, \"unit\": \"N*m^2/C^2\"}}",
+    "expected": [
+      36000,
+      0
+    ],
+    "answer_kind": "vector",
+    "unit": "N/C",
+    "supported": true
+  },
+  {
+    "id": "physics-18",
+    "subject": "physics",
+    "topic": "multi_charge",
+    "question": "{\"subject\": \"physics\", \"task\": \"field_vector\", \"point\": [{\"value\": 0, \"unit\": \"m\"}, {\"value\": 0, \"unit\": \"m\"}], \"charges\": [{\"q\": {\"value\": 3, \"unit\": \"uC\"}, \"position\": [{\"value\": -1, \"unit\": \"m\"}, {\"value\": 0, \"unit\": \"m\"}]}, {\"q\": {\"value\": -3, \"unit\": \"uC\"}, \"position\": [{\"value\": 1, \"unit\": \"m\"}, {\"value\": 0, \"unit\": \"m\"}]}], \"k\": {\"value\": 9000000000.0, \"unit\": \"N*m^2/C^2\"}}",
+    "expected": [
+      54000,
+      0
+    ],
+    "answer_kind": "vector",
+    "unit": "N/C",
+    "supported": true
+  },
+  {
+    "id": "physics-19",
+    "subject": "physics",
+    "topic": "induction",
+    "question": "{\"subject\": \"physics\", \"task\": \"induction\", \"turns\": 50, \"flux_initial\": {\"value\": 0.02, \"unit\": \"Wb\"}, \"flux_final\": {\"value\": 0.04, \"unit\": \"Wb\"}, \"duration\": {\"value\": 0.1, \"unit\": \"s\"}}",
+    "expected": -10,
+    "answer_kind": "numeric",
+    "unit": "V",
+    "supported": true
+  },
+  {
+    "id": "physics-20",
+    "subject": "physics",
+    "topic": "induction",
+    "question": "{\"subject\": \"physics\", \"task\": \"induction\", \"turns\": 50, \"flux_initial\": {\"value\": 0.02, \"unit\": \"Wb\"}, \"flux_final\": {\"value\": 0.05, \"unit\": \"Wb\"}, \"duration\": {\"value\": 0.1, \"unit\": \"s\"}}",
+    "expected": -15,
+    "answer_kind": "numeric",
+    "unit": "V",
+    "supported": true
+  },
+  {
+    "id": "physics-21",
+    "subject": "physics",
+    "topic": "photoelectric",
+    "question": "{\"subject\": \"physics\", \"task\": \"photoelectric\", \"frequency\": {\"value\": 700000000000000.0, \"unit\": \"Hz\"}, \"work_function\": {\"value\": 2, \"unit\": \"eV\"}}",
+    "expected": 0.8949673878467013,
+    "answer_kind": "numeric",
+    "unit": "V",
+    "supported": true
+  },
+  {
+    "id": "physics-22",
+    "subject": "physics",
+    "topic": "photoelectric",
+    "question": "{\"subject\": \"physics\", \"task\": \"photoelectric\", \"frequency\": {\"value\": 800000000000000.0, \"unit\": \"Hz\"}, \"work_function\": {\"value\": 2, \"unit\": \"eV\"}}",
+    "expected": 1.308534157539087,
+    "answer_kind": "numeric",
+    "unit": "V",
+    "supported": true
+  },
+  {
+    "id": "physics-23",
+    "subject": "physics",
+    "topic": "network",
+    "question": "{\"subject\": \"physics\", \"task\": \"dc_network\", \"fixed_voltages\": {\"g\": {\"value\": 0, \"unit\": \"V\"}, \"s\": {\"value\": 12, \"unit\": \"V\"}}, \"resistors\": [{\"a\": \"s\", \"b\": \"m\", \"resistance\": {\"value\": 2, \"unit\": \"ohm\"}}, {\"a\": \"m\", \"b\": \"g\", \"resistance\": {\"value\": 4, \"unit\": \"ohm\"}}, {\"a\": \"m\", \"b\": \"g\", \"resistance\": {\"value\": 4, \"unit\": \"ohm\"}}], \"unknown\": \"m\"}",
+    "expected": 6.0,
+    "answer_kind": "numeric",
+    "unit": "V",
+    "supported": true
+  },
+  {
+    "id": "physics-24",
+    "subject": "physics",
+    "topic": "ohm",
+    "question": "Find current through a 2 ohm resistor with 24 V across it",
+    "expected": 12.0,
+    "answer_kind": "numeric",
+    "unit": "A",
+    "supported": true
+  },
+  {
+    "id": "coding-25",
+    "subject": "coding",
+    "topic": "nested_loops",
+    "question": "Predict the output:\n```python\ns=0\nfor i in range(4):\n for j in range(i):\n  s+=i+j\nprint(s)\n```",
+    "expected": "18",
+    "answer_kind": "stdout",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-26",
+    "subject": "coding",
+    "topic": "recursion",
+    "question": "Predict the output:\n```python\ndef f(k):\n if k<=1:\n  return 1\n return k*f(k-1)\nprint(f(4))\n```",
+    "expected": "24",
+    "answer_kind": "stdout",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-27",
+    "subject": "coding",
+    "topic": "exception",
+    "question": "Predict the output:\n```python\nx=2\ntry:\n x=10//0\nexcept ZeroDivisionError:\n x+=7\nfinally:\n x*=2\nprint(x)\n```",
+    "expected": "18",
+    "answer_kind": "stdout",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-28",
+    "subject": "coding",
+    "topic": "scope",
+    "question": "Predict the output:\n```python\nx=2\ndef f(y):\n x=y+1\n return x\nprint(f(4),x)\n```",
+    "expected": "5 2",
+    "answer_kind": "stdout",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-29",
+    "subject": "coding",
+    "topic": "stack",
+    "question": "Predict the output:\n```python\na=[2,3,4]\na.append(a.pop()+2)\nprint(a.pop(),len(a))\n```",
+    "expected": "6 2",
+    "answer_kind": "stdout",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-30",
+    "subject": "coding",
+    "topic": "nested_lists",
+    "question": "Predict the output:\n```python\na=[[2,2],[3,4]]\na[0][1]=a[1][0]+a[0][0]\nprint(a[0][1])\n```",
+    "expected": "5",
+    "answer_kind": "stdout",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-31",
+    "subject": "coding",
+    "topic": "csv",
+    "question": "{\"subject\": \"coding\", \"task\": \"csv_summary\", \"text\": \"name,marks\\nA,20\\nB,20\\nC,30\\n\", \"column\": \"marks\", \"operation\": \"sum\"}",
+    "expected": 70,
+    "answer_kind": "numeric",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-32",
+    "subject": "coding",
+    "topic": "csv",
+    "question": "{\"subject\": \"coding\", \"task\": \"csv_summary\", \"text\": \"name,marks\\nA,30\\nB,20\\nC,30\\n\", \"column\": \"marks\", \"operation\": \"sum\"}",
+    "expected": 80,
+    "answer_kind": "numeric",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-33",
+    "subject": "coding",
+    "topic": "sql_join",
+    "question": "{\"subject\": \"sql\", \"task\": \"select\", \"query\": \"SELECT s.name,SUM(m.score) AS total FROM students s JOIN marks m ON s.id=m.id GROUP BY s.name ORDER BY s.name\", \"tables\": {\"students\": [{\"id\": 1, \"name\": \"A\"}, {\"id\": 2, \"name\": \"B\"}], \"marks\": [{\"id\": 1, \"score\": 20}, {\"id\": 1, \"score\": 30}, {\"id\": 2, \"score\": 40}]}}",
+    "expected": [
+      [
+        "A",
+        50
+      ],
+      [
+        "B",
+        40
+      ]
+    ],
+    "answer_kind": "table",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-34",
+    "subject": "coding",
+    "topic": "sql_aggregate",
+    "question": "SELECT COUNT(*) AS n, SUM(score) AS total FROM marks tables: {\"marks\": [{\"id\": 1, \"score\": 20}, {\"id\": 1, \"score\": 30}, {\"id\": 2, \"score\": 40}]}",
+    "expected": [
+      [
+        3,
+        90
+      ]
+    ],
+    "answer_kind": "table",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-35",
+    "subject": "coding",
+    "topic": "sql_natural",
+    "question": "Table marks: [{\"id\": 1, \"score\": 20}, {\"id\": 1, \"score\": 30}, {\"id\": 2, \"score\": 40}]\nWhat does SELECT id,MAX(score) AS peak FROM marks GROUP BY id ORDER BY id; return?",
+    "expected": [
+      [
+        1,
+        30
+      ],
+      [
+        2,
+        40
+      ]
+    ],
+    "answer_kind": "table",
+    "unit": null,
+    "supported": true
+  },
+  {
+    "id": "coding-36",
+    "subject": "coding",
+    "topic": "sql_filter",
+    "question": "SELECT score FROM marks WHERE score >= 30 ORDER BY score DESC tables: {\"marks\": [{\"id\": 1, \"score\": 20}, {\"id\": 1, \"score\": 30}, {\"id\": 2, \"score\": 40}]}",
+    "expected": [
+      [
+        40
+      ],
+      [
+        30
+      ]
+    ],
+    "answer_kind": "table",
+    "unit": null,
+    "supported": true
+  }
+]
