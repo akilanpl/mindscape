@@ -33,8 +33,8 @@ class SequenceCore(nn.Module):
     """Original recurrent observed-token encoder, mean+last access, no rule outputs."""
     def __init__(self):
         super().__init__()
-        self.gru=nn.GRU(77,64,batch_first=True)
-        self.project=nn.Sequential(nn.Linear(128,48),nn.Tanh())
+        self.gru=nn.GRU(77,80,batch_first=True)
+        self.project=nn.Sequential(nn.Linear(160,48),nn.Tanh())
     def forward(self,graph,**kwargs):
         sequence,_=self.gru(observed_tokens(graph)[None])
         values=sequence[0]
@@ -97,7 +97,7 @@ class R57Candidate(nn.Module):
 
     def forward(self,prepared):
         out=self.core(prepared.graph,memory=None,stateless=False)
-        state=out['pooled']
+        state=out['pooled'] if self.condition=='matched-gru' else self.core.state_fusion(torch.cat((out['pooled'],out['memory'])))
         # Original core heads remain measurable; new heads use core state plus direct observations.
         if prepared.domain=='math':
             logits=self.math_head(torch.cat((state,prepared.numeric)))
