@@ -13,21 +13,32 @@ function hydrateIcons(root=document) { root.querySelectorAll('[data-icon]').forE
 function el(tag,text,cls) { const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);if(cls)e.className=cls;return e; }
 function action(label,name,fn,cls='') { const b=el('button',undefined,cls);b.type='button';if(name)b.append(icon(name));b.append(el('span',label));b.onclick=fn;return b; }
 const STORE='mindscape.workspace.v2';
-let storageAvailable=true;
+let storageAvailable=true,storageWritable=true;
+function validChat(c){return c&&typeof c.id==='string'&&typeof c.title==='string'&&Array.isArray(c.messages)&&c.messages.every(m=>m&&['user','assistant'].includes(m.role)&&typeof m.content==='string');}
 function readStore() {
- try { const value=JSON.parse(localStorage.getItem(STORE)||'null');if(value?.version===2&&Array.isArray(value.chats)&&Array.isArray(value.projects))return value; }
- catch { storageAvailable=false; }
+ try {
+  const raw=localStorage.getItem(STORE);let value;try{value=JSON.parse(raw||'null');}catch{value=null;}
+  if(value?.version===2&&Array.isArray(value.chats)&&value.chats.every(validChat)&&Array.isArray(value.projects)&&value.projects.every(p=>p&&typeof p.id==='string'&&typeof p.name==='string')){
+   value.chats.forEach(c=>c.messages.forEach(m=>{if(!m.id)m.id=crypto.randomUUID();}));
+   value.saved=Array.isArray(value.saved)?value.saved.filter(x=>typeof x==='string'):[];
+   value.deleted=Array.isArray(value.deleted)?value.deleted.filter(x=>validChat(x?.chat)).map(x=>({...x,saved:Array.isArray(x.saved)?x.saved:[]})):[];
+   return value;
+  }
+  if(raw){try{localStorage.setItem(STORE+'.recovery',raw);}catch{storageWritable=false;storageAvailable=false;}}
+ } catch { storageAvailable=false;storageWritable=false; }
  let legacy=[];
  try { const value=JSON.parse(localStorage.getItem('mind1.chats')||'[]');if(Array.isArray(value))legacy=value.filter(c=>typeof c.title==='string'&&Array.isArray(c.messages)).map(c=>({...c,id:c.id||crypto.randomUUID(),messages:c.messages.filter(m=>['user','assistant'].includes(m.role)&&typeof m.content==='string').map(m=>({...m,id:m.id||crypto.randomUUID(),state:'sent'}))})); }
  catch { /* Preserve malformed legacy data rather than deleting it. */ }
  return {version:2,chats:legacy,projects:['Research','CBSE Prep','Personal'].map(name=>({id:crypto.randomUUID(),name})),saved:[],collapsed:false};
 }
 const state=readStore();state.saved=Array.isArray(state.saved)?state.saved:[];state.deleted=Array.isArray(state.deleted)?state.deleted:[];
-let current=null,project=null,page='chat',active=null,lastFinished=0,modalReturn=null,traceReturn=null,toastTimer;
+let current=state.chats.some(c=>c.id===state.current)?state.current:null,project=state.chats.find(c=>c.id===state.current)?.projectId||null,page='chat',active=null,lastFinished=0,modalReturn=null,traceReturn=null,toastTimer;
+for(const c of state.chats)for(const m of c.messages)if(m.state==='pending')m.state='interrupted';
 const drafts=new Map();
 const prompts={math:'Differentiate exp(sin(2*x))*cos(x^3) with respect to x',physics:'Lens equation, f=20 cm and u=-30 cm',coding:'Predict the output:\n```python\ns=0\nfor i in range(5):\n s+=i\nprint(s)\n```'};
 function persist() {
- try { localStorage.setItem(STORE,JSON.stringify(state)); }
+ state.current=current;
+ try { if(!storageWritable)throw new Error('Protected unreadable storage');localStorage.setItem(STORE,JSON.stringify(state));storageAvailable=true; }
  catch { storageAvailable=false;showError('Browser storage is unavailable or full. This session still works; export important conversations.'); }
  $('storageNotice').textContent=storageAvailable?' Chats stay in this browser.':' Changes are not being saved.';
 }
@@ -36,20 +47,21 @@ function announce(text) { $('announcer').textContent=text; }
 function showError(text,retry) { $('error').replaceChildren(el('span',text));if(retry)$('error').append(action('Retry',null,retry));$('error').hidden=false; }
 function closeDialog() { $('modal').close();modalReturn?.focus(); }
 function openDialog(title,build) {
- modalReturn=document.activeElement;$('modalTitle').textContent=title;$('modalBody').replaceChildren();$('modalActions').replaceChildren();$('modalForm').onsubmit=e=>e.preventDefault();build($('modalBody'),$('modalActions'));$('modal').showModal();
+ modalReturn=document.activeElement;$('modalTitle').textContent=title;$('modalBody').replaceChildren();$('modalActions').replaceChildren();$('modalForm').onsubmit=e=>e.preventDefault();build($('modalBody'),$('modalActions'));$('modal').showModal();$('modalBody').querySelector('input,textarea')?.focus();
 }
 function info(title,text) { openDialog(title,(body,actions)=>{body.append(el('p',text,'dialog-copy'));actions.append(action('Got it',null,closeDialog,'primary'));}); }
 function projectName() { return state.projects.find(p=>p.id===project)?.name||null; }
 function currentChat() { return state.chats.find(c=>c.id===current); }
 function localDate() { return new Date().toISOString(); }
+function conversationTitle(text){const code=text.match(/```(?:python|py)?\s*\n([^\n]+)/i);return (code?'Python · '+code[1].trim():text.trim().split('\n')[0].replace(/^#+\s*/,'')).slice(0,60);}
 function setPage(next) {
- page=next;$('chatView').hidden=next!=='chat';$('collectionView').hidden=!['library','assistants','explore'].includes(next);$('researchView').hidden=next!=='research';
+ page=next;$('inspector').hidden=true;$('chatView').hidden=next!=='chat';$('collectionView').hidden=!['library','assistants','explore'].includes(next);$('researchView').hidden=next!=='research';
  document.querySelectorAll('.primary-nav .nav-item').forEach(b=>b.classList.remove('selected'));const id={chat:'newChat',library:'libraryPage',assistants:'assistantsPage',explore:'explorePage'}[next];if(id)$(id).classList.add('selected');
  if(['library','assistants','explore'].includes(next))renderCollection(next);
  closeDrawer();
 }
-function newChat() { if(page==='chat'&&current===null){$('prompt').focus();return;}if(current)drafts.set(current,$('prompt').value);current=null;$('prompt').value='';$('error').hidden=true;setPage('chat');render();$('prompt').focus(); }
-function selectChat(id) { if(current)drafts.set(current,$('prompt').value);const c=state.chats.find(c=>c.id===id);if(!c)return;current=id;project=c.projectId||null;$('error').hidden=true;setPage('chat');$('prompt').value=drafts.get(id)||'';render();$('prompt').focus(); }
+function newChat() { if(page==='chat'&&current===null){$('prompt').value='';$('error').hidden=true;render();$('prompt').focus();return;}if(current)drafts.set(current,$('prompt').value);current=null;$('prompt').value='';$('error').hidden=true;setPage('chat');render();persist();$('prompt').focus(); }
+function selectChat(id) { if(current)drafts.set(current,$('prompt').value);const c=state.chats.find(c=>c.id===id);if(!c)return;current=id;project=c.projectId||null;$('error').hidden=true;setPage('chat');$('prompt').value=drafts.get(id)||'';render();persist();$('prompt').focus(); }
 function renderSidebar() {
  const projects=$('projects');projects.replaceChildren();for(const p of state.projects){const b=action(p.name,'folder',()=>{project=p.id;current=null;$('prompt').value='';setPage('chat');render();$('prompt').focus();},'nav-item project-item'+(project===p.id?' selected':''));b.title=p.name;b.querySelector('span').classList.add('sidebar-label');projects.append(b);}
  $('projectEmpty').hidden=state.projects.length>0;
@@ -88,18 +100,29 @@ function provenance(result) {
  if(result.provenance?.tool_verified)return result.provenance.pretrained_used?'Hybrid · verified solver result':'Tools only · verified solver result';
  if(result.status==='unverified')return 'Pretrained inference · unverified';return result.status||'Response';
 }
+function structuredTable(answer){
+ if(!answer||!Array.isArray(answer.columns)||!Array.isArray(answer.rows)||answer.columns.length>20||answer.rows.length>500||!answer.rows.every(r=>Array.isArray(r)&&r.length===answer.columns.length))return null;
+ const wrap=el('div',undefined,'table-wrap');const table=el('table');const head=el('thead');const heading=el('tr');
+ for(const name of answer.columns){const th=el('th',name);th.scope='col';heading.append(th);}head.append(heading);table.append(head);const body=el('tbody');
+ for(const row of answer.rows){const tr=el('tr');for(const value of row)tr.append(el('td',value===null?'null':Object.is(value,-0)?'-0':String(value)));body.append(tr);}table.append(body);wrap.append(table);return wrap;
+}
 function renderMessage(message) {
  const article=el('article',undefined,'message '+message.role);article.dataset.messageId=message.id;
  if(message.role==='assistant'){const head=el('div',undefined,'message-head');head.append(el('span','m','brand-mark'),el('span','Mindscape'));article.append(head);}
- article.append(markdown(message.content));
+ let displayed=message.content;
+ if(message.role==='assistant'&&message.result?.status==='verified'&&message.result.provenance?.tool_verified){
+  const start=displayed.indexOf('\n\nAnswer: ');if(start>=0)displayed=displayed.slice(start+2);
+ }
+ article.append(markdown(displayed));
  if(message.role==='assistant'){
   if(message.result?.provenance?.tool_verified && message.result.domain==='math' && typeof message.result.solver_result?.answer==='string'){
    const visual=window.renderMindscapeExpression(message.result.solver_result.answer);
    if(visual){const summary=el('div',undefined,'answer-summary');summary.append(el('small','Verified result · original expression retained above'),visual);article.append(summary);}
   }
+  if(message.result?.provenance?.tool_verified&&message.result.domain==='sql'){const table=structuredTable(message.result.solver_result?.answer);if(table)article.append(table);}
   const meta=el('div',undefined,'provenance');meta.append(icon(message.result?.provenance?.tool_verified?'check':'info'),el('span',provenance(message.result)));article.append(meta);
   const actions=el('div',undefined,'message-actions');actions.append(action('Copy','copy',e=>copyText(message.content,e.currentTarget)),action('Activity','info',e=>openTrace(message.result,e.currentTarget)),action(state.saved.includes(message.id)?'Saved':'Save','bookmark',()=>{state.saved=state.saved.includes(message.id)?state.saved.filter(id=>id!==message.id):[...state.saved,message.id];persist();render();toast(state.saved.includes(message.id)?'Saved to your local Library.':'Removed from Library.');}));article.append(actions);
- }else if(['failed','stopped'].includes(message.state)){const note=el('div',message.state==='stopped'?'Request stopped':'Request not completed','sr-only');article.append(note);}
+ }else if(['failed','stopped','interrupted'].includes(message.state)){const note=el('div',message.state==='stopped'?'Request stopped':'Request not completed','sr-only');article.append(note);}
  return article;
 }
 function render() {
@@ -113,12 +136,13 @@ function syncComposer() {
  $('send').hidden=!!active;$('cancel').hidden=!active;$('cancel').disabled=!!active?.stopping;$('mode').disabled=!!active;$('send').disabled=!!active||!$('prompt').value.trim()||Date.now()-lastFinished<250;
  $('prompt').setAttribute('aria-busy',String(!!active));$('composerContext').textContent=active?'Local inference in progress':projectName()||'Ask, explore, understand';
 }
+function recoveryDraft(original,draft){return draft.trim()?draft:original;}
 async function send(text,retryId) {
  if(active||!text.trim()||Date.now()-lastFinished<250)return;
- const mode=$('mode').value;let chat=currentChat();if(!chat){chat={id:crypto.randomUUID(),title:text.trim().split('\n')[0].replace(/^#+\s*/, '').slice(0,60),messages:[],projectId:project,createdAt:localDate()};state.chats.unshift(chat);current=chat.id;}
- let user=chat.messages.find(m=>m.id===retryId);if(!user){const last=chat.messages.at(-1);if(last?.role==='user'&&last.state==='failed'&&last.content===text)user=last;}
+ const mode=$('mode').value;const retainedDraft=retryId&&$('prompt').value!==text?$('prompt').value:'';let chat=currentChat();if(!chat){chat={id:crypto.randomUUID(),title:conversationTitle(text),messages:[],projectId:project,createdAt:localDate()};state.chats.unshift(chat);current=chat.id;}
+ let user=chat.messages.find(m=>m.id===retryId);if(!user){const last=chat.messages.at(-1);if(last?.role==='user'&&['failed','stopped','interrupted'].includes(last.state)&&last.content===text)user=last;}
  const history=chat.messages.filter(m=>m!==user).map(({role,content})=>({role,content}));if(!user){user={id:crypto.randomUUID(),role:'user',content:text,state:'pending'};chat.messages.push(user);}else user.state='pending';
- const request={id:crypto.randomUUID(),chatId:chat.id,controller:new AbortController(),stopping:false};active=request;$('error').hidden=true;$('prompt').value='';drafts.delete(chat.id);persist();render();announce('Request sent. Mindscape is working.');
+ const request={id:crypto.randomUUID(),chatId:chat.id,controller:new AbortController(),stopping:false};active=request;$('error').hidden=true;$('prompt').value=retainedDraft;if(retainedDraft)drafts.set(chat.id,retainedDraft);else drafts.delete(chat.id);persist();render();announce('Request sent. Mindscape is working.');
  const timeout=setTimeout(()=>{request.timedOut=true;request.controller.abort();requestServerStop(request);},145000);
  try {
   const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,history,request_id:request.id,inference_mode:mode,native_demo:mode==='native'}),signal:request.controller.signal});
@@ -128,7 +152,7 @@ async function send(text,retryId) {
   user.state='sent';chat.messages.push({id:crypto.randomUUID(),role:'assistant',content:data.answer,result:data,createdAt:localDate()});announce(data.status==='verified'?'Verified result received.':'Response received. Check its provenance.');if(current!==chat.id)toast('Response ready in “'+chat.title+'”.');
  } catch(error) {
   user.state=request.stopping?'stopped':'failed';const note=request.timedOut?'The request took too long. A stop was requested; the model may finish its in-flight call.':error.name==='AbortError'?'Stopped waiting. A stop was requested; the model may finish its in-flight call.':error.message;
-  if(current===chat.id){$('prompt').value=text;drafts.set(chat.id,text);showError(note,()=>send(text,user.id));}else toast('Request incomplete in “'+chat.title+'”.');announce(note);
+  if(current===chat.id){const restored=recoveryDraft(text,$('prompt').value);$('prompt').value=restored;drafts.set(chat.id,restored);showError(note,()=>send(text,user.id));}else toast('Request incomplete in “'+chat.title+'”.');announce(note);
  } finally {
   clearTimeout(timeout);if(active===request)active=null;lastFinished=Date.now();persist();render();setTimeout(syncComposer,260);if(current===chat.id&&page==='chat')$('prompt').focus();
  }
@@ -141,22 +165,22 @@ function stop() { if(!active)return;active.stopping=true;const request=active;re
 function openTrace(result,button) {
  traceReturn=button;const root=$('traceContent');root.replaceChildren();
  if(!result)root.append(el('p','No execution metadata was stored for this imported answer.'));
- else for(const [label,value] of [['Status',result.status],['Method',result.method],['Returned execution events',result.trace],['Solver result',result.solver_result],['Neural plan — advisory, unverified',result.neural],['Provenance',result.provenance],['Timing',result.timing],['Limitations',result.limitations]]){if(value===undefined)continue;const section=el('section',undefined,'trace-event');section.append(el('b',label),el('pre',typeof value==='string'?value:JSON.stringify(value,null,2)));root.append(section);}
+ else for(const [label,value] of [['Status',result.status],['Method',result.method],['Interpreted problem',result.structured_problem],['Returned execution events',result.trace],['Solver result',result.solver_result],['Neural plan — advisory, unverified',result.neural],['Provenance',result.provenance],['Timing',result.timing],['Limitations',result.limitations]]){if(value===undefined)continue;const section=el('section',undefined,'trace-event');section.append(el('b',label),el('pre',typeof value==='string'?value:JSON.stringify(value,null,2)));root.append(section);}
  $('inspector').hidden=false;$('closeTrace').focus();
 }
 function closeTrace() { $('inspector').hidden=true;traceReturn?.focus(); }
-function closeDrawer() { document.body.classList.remove('drawer-open');$('drawerBackdrop').hidden=true;$('menu').setAttribute('aria-expanded','false');$('workspace').inert=false; }
-function openDrawer() { document.body.classList.add('drawer-open');$('drawerBackdrop').hidden=false;$('menu').setAttribute('aria-expanded','true');$('workspace').inert=true;$('collapseSidebar').focus(); }
+function closeDrawer() { document.body.classList.remove('drawer-open');$('drawerBackdrop').hidden=true;$('menu').setAttribute('aria-expanded','false');$('workspace').inert=false;$('sidebar').inert=matchMedia('(max-width: 800px)').matches; }
+function openDrawer() { document.body.classList.add('drawer-open');$('drawerBackdrop').hidden=false;$('menu').setAttribute('aria-expanded','true');$('workspace').inert=true;$('sidebar').inert=false;$('collapseSidebar').focus(); }
 function collapseSidebar() {
  if(matchMedia('(max-width: 800px)').matches){closeDrawer();$('menu').focus();return;}
- state.collapsed=!state.collapsed;document.body.classList.toggle('sidebar-collapsed',state.collapsed);$('collapseSidebar').setAttribute('aria-label',state.collapsed?'Expand sidebar':'Collapse sidebar');persist();
+ state.collapsed=!state.collapsed;document.body.classList.toggle('sidebar-collapsed',state.collapsed);$('collapseSidebar').setAttribute('aria-label',state.collapsed?'Expand sidebar':'Collapse sidebar');$('collapseSidebar').title=state.collapsed?'Expand sidebar':'Collapse sidebar';persist();
 }
 function search() {
  openDialog('Search conversations',(body)=>{const input=el('input',undefined,'dialog-input');input.placeholder='Search your local chats';input.setAttribute('aria-label','Search local conversations');const results=el('div',undefined,'search-results');body.append(input,results);
   const update=()=>{results.replaceChildren();const term=input.value.trim().toLowerCase();for(const c of state.chats.filter(c=>c.title.toLowerCase().includes(term)||c.messages.some(m=>m.content.toLowerCase().includes(term))))results.append(action(c.title,null,()=>{closeDialog();selectChat(c.id);}));if(!results.childElementCount)results.append(el('p','No conversations found.','dialog-copy'));};input.oninput=update;update();});
 }
 function createProject() {
- openDialog('Create a local project',(body,actions)=>{body.append(el('p','Projects and chats are stored only in this browser. No cloud sync or account is connected.','dialog-copy'));const input=el('input',undefined,'dialog-input');input.maxLength=40;input.required=true;input.placeholder='Project name';input.setAttribute('aria-label','Project name');body.append(input);const create=()=>{const name=input.value.trim();if(!name)return input.reportValidity();if(state.projects.some(p=>p.name.toLowerCase()===name.toLowerCase()))return input.setCustomValidity('A project with this name already exists.');const p={id:crypto.randomUUID(),name};state.projects.push(p);project=p.id;persist();closeDialog();current=null;setPage('chat');render();};input.oninput=()=>input.setCustomValidity('');actions.append(action('Cancel',null,closeDialog),action('Create project',null,create,'primary'));$('modalForm').onsubmit=e=>{e.preventDefault();create();};});
+ openDialog('Create a local project',(body,actions)=>{body.append(el('p','Projects and chats are stored only in this browser. No cloud sync or account is connected.','dialog-copy'));const input=el('input',undefined,'dialog-input');input.maxLength=40;input.required=true;input.placeholder='Project name';input.setAttribute('aria-label','Project name');body.append(input);const create=()=>{const name=input.value.trim();if(!name){input.setCustomValidity('Enter a project name.');return input.reportValidity();}if(state.projects.some(p=>p.name.toLowerCase()===name.toLowerCase())){input.setCustomValidity('A project with this name already exists.');return input.reportValidity();}const p={id:crypto.randomUUID(),name};state.projects.push(p);project=p.id;persist();closeDialog();current=null;setPage('chat');render();};input.oninput=()=>input.setCustomValidity('');actions.append(action('Cancel',null,closeDialog),action('Create project',null,create,'primary'));$('modalForm').onsubmit=e=>{e.preventDefault();create();};});
 }
 function exportChat() {
  const c=currentChat();if(!c)return toast('Start a conversation before exporting.');const a=el('a');const url=URL.createObjectURL(new Blob([JSON.stringify({version:2,conversation:c},null,2)],{type:'application/json'}));a.href=url;a.download='mindscape-conversation.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
@@ -193,9 +217,12 @@ function insert(text){$('actionMenu').hidden=true;$('addAction').setAttribute('a
 $('insertPython').onclick=()=>insert('Predict the output:\n```python\nprint(1 + 2)\n```');$('insertJSON').onclick=()=>insert('{"subject":"math","task":"differentiate","expression":"x**3","variable":"x"}');$('export').onclick=()=>{$('actionMenu').hidden=true;exportChat();};
 document.querySelectorAll('[data-suggestion]').forEach(b=>b.onclick=()=>insert(prompts[b.dataset.suggestion]));
 document.addEventListener('click',e=>{if(!$('addAction').contains(e.target)&&!$('actionMenu').contains(e.target)){$('actionMenu').hidden=true;$('addAction').setAttribute('aria-expanded','false');}});
-document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();newChat();}if(e.key==='Escape'){if(!$('inspector').hidden)closeTrace();if(document.body.classList.contains('drawer-open')){closeDrawer();$('menu').focus();}if(!$('actionMenu').hidden){$('actionMenu').hidden=true;$('addAction').setAttribute('aria-expanded','false');$('addAction').focus();}}});
+document.addEventListener('keydown',e=>{if(e.key==='Tab'&&document.body.classList.contains('drawer-open')){const items=[...$('sidebar').querySelectorAll('button:not(:disabled),a,input')].filter(n=>n.offsetParent!==null);const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();newChat();}if(e.key==='Escape'){if(!$('inspector').hidden)closeTrace();if(document.body.classList.contains('drawer-open')){closeDrawer();$('menu').focus();}if(!$('actionMenu').hidden){$('actionMenu').hidden=true;$('addAction').setAttribute('aria-expanded','false');$('addAction').focus();}}});
 $('history').addEventListener('keydown',e=>{if(!['ArrowDown','ArrowUp'].includes(e.key))return;const items=[...$('history').querySelectorAll('.history-item')];const i=items.indexOf(document.activeElement);if(i<0)return;e.preventDefault();items[(i+(e.key==='ArrowDown'?1:items.length-1))%items.length]?.focus();});
 $('runNative').onclick=async()=>{const b=$('runNative');b.disabled=true;$('nativeResult').textContent='Running the mounted research demonstration…';try{const r=await fetch('/api/native-demo');if(!r.ok)throw new Error('Native demonstration unavailable.');$('nativeResult').textContent=JSON.stringify(await r.json(),null,2);}catch(e){$('nativeResult').textContent=e.message;}finally{b.disabled=false;}};
 matchMedia('(max-width: 800px)').addEventListener('change',closeDrawer);
-render();persist();
+if(window.visualViewport){let frame;const fit=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>document.documentElement.style.setProperty('--visual-height',window.visualViewport.height+'px'));};window.visualViewport.addEventListener('resize',fit,{passive:true});fit();}
+closeDrawer();render();persist();
+const interrupted=currentChat()?.messages.at(-1);
+if(interrupted?.state==='interrupted'){$('prompt').value=interrupted.content;resizePrompt();syncComposer();showError('The previous page lost its request connection. The server may finish that call; your message is restored.',()=>send(interrupted.content,interrupted.id));}
 fetch('/api/health').then(r=>{if(!r.ok)throw new Error();return r.json();}).then(h=>{$('connection').lastChild.textContent=h.neural?.ready?'Local':'Tools available';$('connection').title=h.neural?.ready?'Local pretrained model ready':'No pretrained model loaded; tools-only mode is available';}).catch(()=>{$('connection').lastChild.textContent='Disconnected';$('connection').title='Local backend unavailable';});
