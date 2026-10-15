@@ -22,6 +22,8 @@ a973acfad24cb70575346f4dafdee6cfe8da6fc5 feat(hybrid): add bounded verified math
 57286adf1b2fc794f1b20b649da7bd1536954dc4 test(hybrid): cover domain unit sandbox and routing regressions
 5d0ab46e72ff726aa1be6218f3276d0d7f3dc5b8 test(hybrid): add reproducible 36 question diagnostic and independent grader
 a23954a5db5b9d9690af5c030edf622334ba4520 fix(hybrid): parenthesize rational probabilities in worked Bayes equality
+e00f832b92c595932be28737a1960c5541285f7d test(hybrid): package calibrated pacing and exact numeric benchmark grader
+ccc9874e9738c030bd6f4c79a7dd14a8484bf35d docs(hybrid): publish isolation matched results and offline rollback guides
 ```
 
 The B tag initially added for convenience conflicted with V3's exact archived release-tag set. Only the newly created tag was removed; original tags were restored exactly, and B uses its immutable SHA plus a dedicated baseline branch. Preservation code was not changed. The original baseline foundation CI failures are retained as evidence; corrected-tag runs/final-head checks are recorded separately. CPU validation and mathematics jobs passed on the baseline. Do not describe a pending final check as passing.

@@ -27,6 +27,14 @@ The checkout omits large archived research/dataset directories for transfer effi
 - `integrations/hybrid/benchmarks/evaluate.py`
 - `integrations/hybrid/candidate-b-source-identity.json`
 - `integrations/hybrid/docs/BASELINE.md`
+- `integrations/hybrid/docs/HYBRID_BASELINE_RESULTS.md`
+- `integrations/hybrid/docs/HYBRID_CANDIDATE_C_RESULTS.md`
+- `integrations/hybrid/docs/HYBRID_FAILURE_ANALYSIS.md`
+- `integrations/hybrid/docs/HYBRID_GITHUB_PUSH_REPORT.md`
+- `integrations/hybrid/docs/HYBRID_HARD_CBSE_BENCHMARK.md`
+- `integrations/hybrid/docs/HYBRID_ISOLATION_REPORT.md`
+- `integrations/hybrid/docs/HYBRID_OCT21_DEMO.md`
+- `integrations/hybrid/docs/HYBRID_REMOVAL_GUIDE.md`
 - `integrations/hybrid/mindscape_delivery/__init__.py`
 - `integrations/hybrid/mindscape_delivery/acceptance.py`
 - `integrations/hybrid/mindscape_delivery/advanced.py`
@@ -38,6 +46,7 @@ The checkout omits large archived research/dataset directories for transfer effi
 - `integrations/hybrid/mindscape_delivery/solvers.py`
 - `integrations/hybrid/mindscape_delivery/tool_worker.py`
 - `integrations/hybrid/model-lock.json`
+- `integrations/hybrid/model.SHA256SUMS`
 - `integrations/hybrid/requirements-dev.txt`
 - `integrations/hybrid/requirements.lock.txt`
 - `integrations/hybrid/requirements.txt`
@@ -61,6 +70,4 @@ The checkout omits large archived research/dataset directories for transfer effi
 - `integrations/hybrid/web/science.js`
 - `integrations/hybrid/web/style.css`
 
-Logs and exact changed-file list are in the local evidence directory. Final documentation/model hash manifest additions also remain within the extension.
-
-Final release removal was repeated at code commit a23954a: 146 passed, 22 skipped, 6 subtests; native no-site-packages entrypoint remained verified. Original two annotated release-tag objects match the archived values exactly after removing only the new hybrid tag.
+Final release removal at runtime commit a23954a: 146 passed, 22 skipped, 6 subtests; native no-site-packages entrypoint verified. Original two annotated release-tag objects match the archived values exactly. Runtime module hashes match the protected release freeze. The separately packaged benchmark harness is byte-identical to the calibrated harness used for hard/release predictions.
