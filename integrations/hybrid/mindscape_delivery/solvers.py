@@ -131,6 +131,15 @@ def _math(spec):
             if a.free_symbols or b.free_symbols or a.is_real is not True or b.is_real is not True: raise Unsupported('Finite real constant bounds required.')
             from sympy.calculus.util import continuous_domain
             interval=s.Interval(min(a,b),max(a,b))
+            # Preserve domain restrictions in submitted syntax before simplification.
+            for node in ast.walk(ast.parse(str(raw).replace('^','**'),mode='eval')):
+                if isinstance(node,ast.BinOp) and isinstance(node.op,ast.Div):
+                    denominator=_expr(ast.unparse(node.right))
+                    zeros=s.solveset(denominator,var,domain=interval)
+                    if zeros is not s.S.EmptySet:raise Unsupported('Original denominator may vanish on the interval.')
+                if isinstance(node,(ast.Call,ast.BinOp)):
+                    original=_expr(ast.unparse(node))
+                    if interval.is_subset(continuous_domain(original,var,s.S.Reals)) is not True:raise Unsupported('Original subexpression has an uncertified interval domain.')
             domain=continuous_domain(e,var,s.S.Reals)
             if interval.is_subset(domain) is not True: raise Unsupported('Integrand is not certified continuous on the closed integration interval.')
             value=s.simplify(out.subs(var,b)-out.subs(var,a))
@@ -223,6 +232,7 @@ def _physics(spec):
 
 
 def _trace(spec):
+    if spec.get('task')!='trace':raise Unsupported('Unsupported coding task; explicit trace or inline CSV schema required.')
     code=spec.get('code','')
     if not isinstance(code,str) or len(code)>10000: raise Unsupported('Code must be at most 10000 characters.')
     tree=ast.parse(code); env={}; outputs=[]; events=[]; budget=[0]
