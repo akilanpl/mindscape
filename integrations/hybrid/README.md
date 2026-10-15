@@ -47,3 +47,7 @@ Public diagnostic reproduction (not a fresh holdout):
 ```
 
 The original grader is conservative for free-form pretrained prose; final metrics include separate full-response reference review. The calibrated numeric grader accepts exact finite fractions under the declared tolerance. Raw protected final questions stay outside the repository. Baseline and C results, demo, rollback and removal instructions are under docs/.
+
+## Local chat interface
+
+The frontend has a responsive monochrome chat layout, real versioned browser-local chats/projects/saved answers, recoverable deletion, exact code/stdout copying, local MathML and SQL tables. Work and Scheduled are explicitly unavailable; no account, microphone or upload capability is simulated. The existing model/solver API and its numerical/verification behavior are unchanged. See [frontend implementation, screenshots and limits](docs/frontend/README.md), [test results](docs/frontend/TEST_RESULTS.md), and [frontend-only rollback](docs/frontend/ROLLBACK.md).
