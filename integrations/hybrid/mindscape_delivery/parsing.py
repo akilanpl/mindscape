@@ -38,6 +38,17 @@ def _python_source(question):
 def _sql_source(question):
     """Read one literal SELECT and explicit JSON or tuple-table data."""
     if not re.search(r'\bSELECT\b',question,re.I):return None
+    # Decode literal table mapping independently of question prose ordering.
+    data=re.search(r'\btables?\s*[:=]\s*(?=\{)',question,re.I)
+    if data:
+        try:
+            tables,used=json.JSONDecoder().raw_decode(question[data.end():])
+            remainder=question[:data.start()]+' '+question[data.end()+used:]
+            query=re.search(r'\bSELECT\b[^;?`]+',remainder,re.I)
+            if query and isinstance(tables,dict):
+                text=re.sub(r'\s+(?:with\s+)?$', '',query[0]).strip()
+                return {'subject':'sql','task':'select','query':text,'tables':tables}
+        except ValueError:pass
     old=re.search(r'\b(SELECT\b.*?)\s+(?:with\s+)?tables?\s*[:=]\s*(\{.*\})\s*$',question,re.I|re.S)
     if old:
         try:return {'subject':'sql','task':'select','query':old[1].strip().rstrip(';'),'tables':json.loads(old[2])}
@@ -153,7 +164,7 @@ def supplied_parse(question):
         else:unit='m'
         items.append(({'value':val,'unit':unit},m.start(),m.end()))
     by={u:[v for v,_,_ in items if v['unit']==u] for u in ('C','m','V','A','ohm')}
-    if re.search(r'coulomb|force.*charg|charg.*force',low) and len(by['C'])==2 and len(by['m'])==1:
+    if re.search(r'coulomb|electrostatic force|force.*charg|charg.*force',low) and len(by['C'])==2 and len(by['m'])==1:
         k,bad=_explicit_constant(q)
         if bad:return None
         return {'subject':'physics','task':'coulomb','values':{'q1':by['C'][0],'q2':by['C'][1],'r':by['m'][0],**({'k':k} if k else {})}}
