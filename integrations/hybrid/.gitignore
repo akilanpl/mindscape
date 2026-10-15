@@ -1,0 +1,10 @@
+models/
+.venv/
+.download-cache/
+model-receipt.json
+*.safetensors
+*.pt
+*.pth
+*.zip
+__pycache__/
+.pytest_cache/
