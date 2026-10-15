@@ -47,7 +47,13 @@ def original_predictor(source_root,condition,seed,checkpoint=None,expected_hash=
     from mindscape.r56.benchmarks import matched_baseline,controlled_graph
     from mindscape.r56.learning import load_checkpoint
     import mindscape.r56.neural as module
-    if Path(module.__file__).resolve()!=source_root/'src/mindscape/r56/neural.py':raise PermissionError('Original source import root differs')
+    # Integration may import identical preserved R5.6 files from its own tree.
+    import sys
+    for name,loaded in tuple(sys.modules.items()):
+        if name.startswith('mindscape.r56.') and getattr(loaded,'__file__',None):
+            actual=Path(loaded.__file__).resolve();relative=Path(*name.split('.')).with_suffix('.py')
+            original=source_root/'src'/relative
+            if not original.is_file() or sha(actual)!=sha(original):raise PermissionError('Imported R5.6 source differs: '+name)
     with torch.random.fork_rng():
         torch.manual_seed(seed);model=matched_baseline('gru',seed=seed) if condition=='matched-gru' else R56Model()
     if checkpoint:load_checkpoint(model,checkpoint,expected_hash)
@@ -116,10 +122,10 @@ def run(output,legacy,original_source,baseline_only=False):
         path=original_source/'src/mindscape/r56'/name
         expected=snapshot['sha256'].get(str(path))
         if not expected or sha(path)!=expected:raise PermissionError('Original source differs from frozen snapshot: '+name)
-    torch.set_num_threads(1)
+    torch.set_num_threads(1);torch.use_deterministic_algorithms(True)
     # Read final only after all candidate/source/data freeze checks above.
     destination=output/('scoreboard-baseline' if baseline_only else 'scoreboard-final');destination.mkdir(exist_ok=False)
-    summary=[];paired={};started=time.monotonic()
+    summary=[];paired={};fit_receipts=[];started=time.monotonic()
     for seed in SEEDS:
         rows=json.loads((output/f'data-v1/evaluator-only/final-{seed}.json').read_text());training=json.loads((output/f'data-v1/train/{seed}.json').read_text())
         # Frozen data manifest must explicitly bind each final/train file.
@@ -130,6 +136,8 @@ def run(output,legacy,original_source,baseline_only=False):
         write(destination/f'baselines-{seed}.json',{'results':baselines,'fit_metadata':fitmeta,'source':'deterministic_rule_or_training_fitted_baseline; never neural'})
         for condition in CONDITIONS:
             runs={};old=legacy_path(legacy,seed,condition);checkpoint=old/'checkpoint.json'
+            old_receipt=json.loads((old/'result.json').read_text())
+            if sha(checkpoint)!=snapshot['sha256'].get(str(checkpoint)) or sha(checkpoint)!=old_receipt.get('checkpoint_sha256'):raise PermissionError('Preserved original checkpoint hash mismatch')
             for phase in ('initial','final'):
                 predictor,meta=original_predictor(original_source,condition,seed,checkpoint if phase=='final' else None,sha(checkpoint) if phase=='final' else None)
                 result=evaluate(predictor,rows);result.update(metadata=meta,seed=seed,condition=condition,version='R56',phase=phase)
@@ -138,6 +146,7 @@ def run(output,legacy,original_source,baseline_only=False):
             if not baseline_only:
                 fit=output/f'checkpoints/{seed}-{condition}';receipt=json.loads((fit/'result.json').read_text())
                 if receipt.get('optimizer_updates')!=2000:raise ValueError('Incomplete R57 fit')
+                fit_receipts.append({'seed':seed,'condition':condition,'directory':str(fit),'checkpoint_sha256':receipt['checkpoint_sha256'],'optimizer_updates':receipt['optimizer_updates'],'seconds':receipt.get('seconds',receipt.get('wall_seconds'))})
                 for phase,key in [('initial','initial_sha256'),('final','checkpoint_sha256')]:
                     path=fit/f'{phase}.json';expected=receipt[key]
                     if sha(path)!=expected:raise ValueError('R57 checkpoint changed')
@@ -154,8 +163,44 @@ def run(output,legacy,original_source,baseline_only=False):
                 values=[r['metrics'][domain][key] for r in selected];entry[domain]={'mean':statistics.mean(values),'seed_sd':statistics.stdev(values) if len(values)>1 else None,'seeds':values}
             means[condition+'/'+runname]=entry
     result={'candidate_freeze':freeze,'summary':summary,'means':means,'paired':paired,'R57_status':'PENDING_NOT_SCORED' if baseline_only else 'EVALUATED_NO_SELECTION','evaluation_device':'cpu','seconds':time.monotonic()-started,'optimizer_updates_executed':0,'scientific_significance_claim':False}
+    result['fits']=fit_receipts
     write(destination/'scoreboard.json',result)
+    render_reports(output,destination,result,baseline_only)
     return result
+
+
+def render_reports(output,destination,result,baseline_only):
+    import csv
+    fields=['seed','condition','run','math_joint_accuracy','coding_accuracy','physics_mse']
+    with (destination/'comparison.csv').open('x',newline='') as file:
+        writer=csv.DictWriter(file,fieldnames=fields);writer.writeheader()
+        for r in result['summary']:
+            writer.writerow({'seed':r['seed'],'condition':r['condition'],'run':r['run'],'math_joint_accuracy':r['metrics']['math']['joint_accuracy'],'coding_accuracy':r['metrics']['coding']['accuracy'],'physics_mse':r['metrics']['physics']['mse']})
+    lines=['# Independent exploratory comparison','', 'CPU evaluation on identical frozen final cases. Descriptive intervals; no significance, product acceptance or scientific qualification.','', '| Seed | Condition | Run | Math joint | Coding exact | Physics MSE |','|---|---|---|---:|---:|---:|']
+    for r in result['summary']:
+        m=r['metrics'];lines.append(f"| {r['seed']} | {r['condition']} | {r['run']} | {m['math']['joint_accuracy']:.4f} | {m['coding']['accuracy']:.4f} | {m['physics']['mse']:.6f} |")
+    lines+=['','## Three-seed mean and sample standard deviation','','| Condition / run | Math | Coding | Physics MSE |','|---|---:|---:|---:|']
+    for key,m in result['means'].items():
+        fmt=lambda d:f"{m[d]['mean']:.6f} ± {m[d]['seed_sd']:.6f}" if m[d]['seed_sd'] is not None else str(m[d]['mean'])
+        lines.append(f"| {key} | {fmt('math')} | {fmt('coding')} | {fmt('physics')} |")
+    lines+=['','## Paired changes (R57 minus R56 final)','']
+    for key,domains in result['paired'].items():
+        lines.append('- '+key+': '+', '.join(f"{d} {v['status']} ({v['mean_right_minus_left']:+.6f})" for d,v in domains.items()))
+    lines+=['','Original predictions, failures, candidate permutation/alpha probes, physics perturbations and baselines are in adjacent JSON files. These derived probes do not repair scores.','',f"R57 status: {result['R57_status']}. Evaluation wall seconds: {result['seconds']:.3f}."]
+    with (destination/'COMPARISON.md').open('x') as f:f.write('\n'.join(lines)+'\n')
+    index=output/'predictions'/('scoreboard-baseline-index.json' if baseline_only else 'scoreboard-final-index.json')
+    write(index,{'directory':str(destination/'predictions'),'files':[str(p) for p in sorted((destination/'predictions').glob('*.json'))],'source':'unmodified neural predictions; no symbolic repair'})
+    if not baseline_only:
+        if len(result['fits'])!=9:raise ValueError('Nine independently verified fit receipts required')
+        text=['# R5.7 exploratory results','', 'Status: TRAINED_CHECKPOINTS_HASH_AND_UPDATE_COUNTS_VERIFIED; independent CPU final evaluation completed. No significance, production acceptance or scientific qualification claimed.','',f"Completed fits: {len(result['fits'])}/9. Actual recorded updates: {sum(x['optimizer_updates'] for x in result['fits'])}. Evaluation seconds: {result['seconds']:.3f}.",'','[Full comparison](scoreboard-final/COMPARISON.md) · [Machine-readable scoreboard](scoreboard-final/scoreboard.json) · [CSV](scoreboard-final/comparison.csv)','', 'Checkpoints and fit receipts:','']
+        for fit in result['fits']:text.append(f"- {fit['seed']} {fit['condition']}: {fit['directory']}; checkpoint {fit['checkpoint_sha256']}; fit seconds {fit['seconds']}")
+        path=output/'RESULTS.md'
+        # Preserve earlier pending report before publishing final evaluator results.
+        if path.exists():
+            backup=output/'RESULTS.before-final-evaluation.md'
+            if backup.exists():raise FileExistsError('Prior results backup already exists')
+            path.rename(backup)
+        with path.open('x') as f:f.write('\n'.join(text)+'\n')
 
 
 def main():
