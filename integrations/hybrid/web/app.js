@@ -113,7 +113,11 @@ function renderMessage(message) {
  if(message.role==='assistant'&&message.result?.status==='verified'&&message.result.provenance?.tool_verified){
   const start=displayed.indexOf('\n\nAnswer: ');if(start>=0)displayed=displayed.slice(start+2);
  }
- article.append(markdown(displayed));
+ if(message.role==='assistant'&&message.result?.provenance?.tool_verified&&message.result.structured_problem?.task==='trace'&&typeof message.result.solver_result?.answer==='string'){
+  const body=el('div',undefined,'message-body');const block=el('div',undefined,'code-block');const header=el('div',undefined,'code-header');const output=message.result.solver_result.answer;
+  header.append(el('span','Python output · exact text'),action('Copy output','copy',e=>copyText(output,e.currentTarget)));const pre=el('pre');pre.append(el('code',output));block.append(header,pre);body.append(block);
+  const start=message.content.lastIndexOf('\n\nWorked solution:\n');if(start>=0){const details=el('details',undefined,'program-details');details.append(el('summary','Worked solution & execution trace'),el('pre',message.content.slice(start+2),'program-working'));body.append(details);}article.append(body);
+ }else article.append(markdown(displayed));
  if(message.role==='assistant'){
   if(message.result?.provenance?.tool_verified && message.result.domain==='math' && typeof message.result.solver_result?.answer==='string'){
    const visual=window.renderMindscapeExpression(message.result.solver_result.answer);
