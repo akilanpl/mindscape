@@ -32,21 +32,33 @@ def test_source_hash_mutation_rejected(tmp_path):
         runner.verify_identity(tmp_path)
 
 
-def test_resume_requires_real_checkpoint_hash_and_steps(tmp_path):
-    (tmp_path/'initial.json').write_text('initial')
-    (tmp_path/'final.json').write_text('final')
-    result={'status':'COMPLETED_EXPLORATORY','optimizer_updates':2000,'step_post_hook_count':2000,
-            'initial_sha256':runner.sha(tmp_path/'initial.json'),
-            'checkpoint_sha256':runner.sha(tmp_path/'final.json')}
-    write(tmp_path/'result.json',result)
-    assert runner.completed(tmp_path)['optimizer_updates']==2000
-    result['optimizer_updates']=1999;write(tmp_path/'result.json',result)
-    with pytest.raises(RuntimeError,match='Incomplete'):
-        runner.completed(tmp_path)
-    result['optimizer_updates']=2000;write(tmp_path/'result.json',result)
-    (tmp_path/'final.json').write_text('mutated')
-    with pytest.raises(RuntimeError,match='checkpoint changed'):
-        runner.completed(tmp_path)
+def test_resume_requires_real_checkpoint_hash_and_steps(tmp_path,monkeypatch):
+    run=tmp_path/'checkpoints/17-graph-concept-on';run.mkdir(parents=True)
+    write(tmp_path/'candidate-freeze.json',{'source_commit':'fixed'})
+    write(tmp_path/'data-v1/train/17.json',{'data':'fixed'})
+    monkeypatch.setattr(runner,'verify_identity',lambda out:{'source_commit':'fixed'})
+    (run/'initial.json').write_text('initial');(run/'final.json').write_text('final')
+    log=tmp_path/'losses/17-graph-concept-on.jsonl';log.parent.mkdir()
+    log.write_text(''.join(json.dumps({'update':i})+'\n' for i in range(1,2001)))
+    result={'status':'COMPLETED_EXPLORATORY','optimizer_updates':2000,'optimizer_steps':2000,'step_post_hook_count':2000,
+            'seed':17,'condition':'graph-concept-on','source_commit':'fixed',
+            'candidate_freeze_sha256':runner.sha(tmp_path/'candidate-freeze.json'),
+            'training_sha256':runner.sha(tmp_path/'data-v1/train/17.json'),
+            'loss_sha256':runner.sha(log), 'initial_sha256':runner.sha(run/'initial.json'),
+            'checkpoint_sha256':runner.sha(run/'final.json')}
+    write(run/'result.json',result)
+    assert runner.completed(run)['optimizer_updates']==2000
+    result['optimizer_updates']=1999;write(run/'result.json',result)
+    with pytest.raises(RuntimeError,match='Incomplete'):runner.completed(run)
+    result['optimizer_updates']=2000;write(run/'result.json',result)
+    log.write_text(log.read_text()+'{}\n')
+    with pytest.raises(RuntimeError,match='Loss evidence changed'):runner.completed(run)
+    result['loss_sha256']=runner.sha(log);write(run/'result.json',result)
+    with pytest.raises(RuntimeError,match='Loss update sequence'):runner.completed(run)
+    log.write_text(''.join(json.dumps({'update':i})+'\n' for i in range(1,2001)))
+    result['loss_sha256']=runner.sha(log);write(run/'result.json',result)
+    (run/'final.json').write_text('mutated')
+    with pytest.raises(RuntimeError,match='checkpoint changed'):runner.completed(run)
 
 
 def test_fallback_opt_in_rejected_before_torch(tmp_path,monkeypatch):
