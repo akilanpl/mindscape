@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 
 SELECTIONS = {
- 'neural.py': ('ModelConfig','GraphInput','R56Model'),
+ 'neural.py': ('ModelConfig','GraphInput','OneHotEmbedding','R56Model'),
  'native_domains.py': ('DOMAIN_IDS','_finite','_digit','_incoming','_concepts','pack_problem'),
  'benchmarks.py': ('model_accounting','controlled_graph','matched_baseline_plan','observed_tokens','matched_baseline'),
  'learning.py': ('save_checkpoint','load_checkpoint'),

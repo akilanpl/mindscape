@@ -59,6 +59,12 @@ class GraphInput:
             raise ValueError('All graph tensors must share a device')
 
 
+class OneHotEmbedding(nn.Embedding):
+    """Same embedding weights; dense small-vocabulary backward accumulation."""
+    def forward(self, indices):
+        return (indices[..., None] == torch.arange(self.num_embeddings, device=indices.device)).to(self.weight.dtype) @ self.weight
+
+
 class R56Model(nn.Module):
     """Shared typed relation core with learned domain heads and optional GRU state.
 
@@ -73,8 +79,8 @@ class R56Model(nn.Module):
             raise ValueError('Require width 8..512 and message_steps 1..8')
         w = c.width
         self.features = nn.Linear(8, w)
-        self.types = nn.Embedding(c.node_types, w)
-        self.relations = nn.Embedding(c.relation_types, w)
+        self.types = OneHotEmbedding(c.node_types, w)
+        self.relations = OneHotEmbedding(c.relation_types, w)
         self.concepts = nn.Embedding(c.concepts, w)
         self.domains = nn.Embedding(3, w)
         self.action = nn.Linear(4, w)

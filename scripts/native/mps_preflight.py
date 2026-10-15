@@ -48,16 +48,6 @@ def run():
     torch.use_deterministic_algorithms(True)
     allocation = torch.ones(16, device='mps')
     assert allocation.device.type == 'mps'
-    # Capture the original failure on the actual native device, without changing
-    # determinism. This is a random-weight backward diagnostic, never a fit.
-    from scripts.native.original_neural_reference import R56Model as Original
-    try:
-        original = Original().to('mps')
-        probe = pack_problem({'domain':'math','left':2,'right':3,'carry_in':0}).to('mps')
-        original(probe, stateless=False)['math_digit_logits'].square().mean().backward()
-        receipt['original_aggregation_probe'] = {'status':'unexpectedly-passed'}
-    except RuntimeError as exc:
-        receipt['original_aggregation_probe'] = {'error':str(exc),'traceback':traceback.format_exc()}
     from scripts.native.aggregation_equivalence import measure
     receipt['aggregation_equivalence'] = measure('mps')
     problems = [
