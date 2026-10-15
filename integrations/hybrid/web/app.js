@@ -97,6 +97,7 @@ async function copyText(text,button) {
 }
 function provenance(result) {
  if(!result)return 'Imported answer · provenance unavailable';if(result.provenance?.native_neural_only)return 'Native research interface · unsupported chat input';
+ if(result.status==='explained')return 'Explanation · prior verified result · prose not independently verified';if(result.status==='clarification')return 'Clarification needed';
  if(result.status==='unsupported')return 'Unsupported · no verified answer';if(result.status==='cancelled')return 'Cancelled · no verified answer';
  if(result.provenance?.tool_verified)return result.provenance.pretrained_used?'Hybrid · verified solver result':'Tools only · verified solver result';
  if(result.status==='unverified')return 'Pretrained inference · unverified';return result.status||'Response';
@@ -118,7 +119,7 @@ function renderMessage(message) {
   const body=el('div',undefined,'message-body');const block=el('div',undefined,'code-block');const header=el('div',undefined,'code-header');const output=message.result.solver_result.answer;
   header.append(el('span','Python output · exact text'),action('Copy output','copy',e=>copyText(output,e.currentTarget)));const pre=el('pre');pre.append(el('code',output));block.append(header,pre);body.append(block);
   const start=message.content.lastIndexOf('\n\nWorked solution:\n');if(start>=0){const details=el('details',undefined,'program-details');details.append(el('summary','Worked solution & execution trace'),el('pre',message.content.slice(start+2),'program-working'));body.append(details);}article.append(body);
- }else article.append(markdown(displayed,message.role==='user'||!!message.result?.provenance?.tool_verified));
+ }else article.append(markdown(displayed,message.role==='user'||(!!message.result?.provenance?.tool_verified||message.result?.status==='explained')));
  if(message.role==='assistant'){
   if(message.result?.provenance?.tool_verified && message.result.domain==='math' && typeof message.result.solver_result?.answer==='string'){
    const visual=window.renderMindscapeExpression(message.result.solver_result.answer);
@@ -142,16 +143,24 @@ function syncComposer() {
  $('prompt').setAttribute('aria-busy',String(!!active));$('composerContext').textContent=active?'Local inference in progress':projectName()||'Ask, explore, understand';
 }
 function recoveryDraft(original,draft){return draft.trim()?draft:original;}
+function boundedHistory(messages,excluded) {
+ const history=[];let size=0;
+ for(const m of messages.filter(m=>m!==excluded).slice(-24).reverse()){
+  if(m.content.length>16000||size+m.content.length>64000)break;
+  history.unshift({role:m.role,content:m.content});size+=m.content.length;
+ }
+ return history;
+}
 async function send(text,retryId) {
  if(active||!text.trim()||Date.now()-lastFinished<250)return;
  const mode=$('mode').value;const retainedDraft=retryId&&$('prompt').value!==text?$('prompt').value:'';let chat=currentChat();if(!chat){chat={id:crypto.randomUUID(),title:conversationTitle(text),messages:[],projectId:project,createdAt:localDate()};state.chats.unshift(chat);current=chat.id;}
  let user=chat.messages.find(m=>m.id===retryId);if(!user){const last=chat.messages.at(-1);if(last?.role==='user'&&['failed','stopped','interrupted'].includes(last.state)&&last.content===text)user=last;}
- const history=chat.messages.filter(m=>m!==user).map(({role,content})=>({role,content}));if(!user){user={id:crypto.randomUUID(),role:'user',content:text,state:'pending'};chat.messages.push(user);}else user.state='pending';
+ const history=boundedHistory(chat.messages,user);if(!user){user={id:crypto.randomUUID(),role:'user',content:text,state:'pending'};chat.messages.push(user);}else user.state='pending';
  chat.updatedAt=localDate();state.chats=[chat,...state.chats.filter(c=>c.id!==chat.id)];
  const request={id:crypto.randomUUID(),chatId:chat.id,controller:new AbortController(),stopping:false};active=request;$('error').hidden=true;$('prompt').value=retainedDraft;if(retainedDraft)drafts.set(chat.id,retainedDraft);else drafts.delete(chat.id);persist();render();announce('Request sent. Mindscape is working.');
  const timeout=setTimeout(()=>{request.timedOut=true;request.controller.abort();requestServerStop(request);},145000);
  try {
-  const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,history,request_id:request.id,inference_mode:mode,native_demo:mode==='native'}),signal:request.controller.signal});
+  const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,history,conversation_id:chat.id,request_id:request.id,inference_mode:mode,native_demo:mode==='native'}),signal:request.controller.signal});
   let data;try{data=await response.json();}catch{throw new Error('The server returned an unreadable response. Your message is preserved.');}
   if(!response.ok){const detail=response.status===429?'The local model is still busy. Wait briefly, then retry.':data.error||`Request failed (${response.status}).`;throw new Error(detail);}
   if(typeof data.answer!=='string')throw new Error('The response did not contain an answer.');
@@ -200,7 +209,7 @@ function renderCollection(kind) {
   if(state.deleted.length){root.append(el('h2','Recently deleted'));for(const item of state.deleted){const card=el('section',undefined,'collection-card');card.append(el('h2',item.chat.title),el('p','Still stored in this browser. Restore the conversation to Recents.'),action('Restore conversation',null,()=>{state.chats.unshift(item.chat);state.saved=[...new Set([...state.saved,...item.saved])];state.deleted=state.deleted.filter(x=>x!==item);persist();renderSidebar();renderCollection('library');toast('Conversation restored.');},'secondary-button'));root.append(card);}}
 
  }else if(kind==='assistants'){
-  $('collectionTitle').textContent='One workspace. Clear methods.';$('collectionDescription').textContent='These are real inference modes, not autonomous agents. Each question is evaluated independently.';
+  $('collectionTitle').textContent='One workspace. Clear methods.';$('collectionDescription').textContent='These are real inference modes, not autonomous agents. Hybrid and Tools only modes support explanations of recent verified answers in the same chat.';
   for(const [mode,title,text] of [['hybrid','Hybrid','Local Qwen advisory interpretation with bounded, verified tools.'],['pretrained','Pretrained','Local Qwen only. Responses are explicitly unverified.'],['tools','Tools only','Deterministic tools without neural inference.'],['native','Native research limits','Reports the separate R6 research interface limitations.']]){const card=el('section',undefined,'collection-card');card.append(el('h2',title),el('p',text),action('Use '+title,null,()=>{$('mode').value=mode;setPage('chat');render();$('prompt').focus();},'secondary-button'));root.append(card);}
  }else{
   $('collectionTitle').textContent='A place to start';$('collectionDescription').textContent='Real examples for the supported tools. Choose one to edit it before sending.';
@@ -215,7 +224,7 @@ hydrateIcons();document.body.classList.toggle('sidebar-collapsed',!!state.collap
 $('composer').onsubmit=e=>{e.preventDefault();send($('prompt').value);};$('prompt').oninput=()=>{resizePrompt();syncComposer();};$('prompt').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();send($('prompt').value);}};
 $('cancel').onclick=stop;$('newChat').onclick=newChat;$('chatTab').onclick=()=>{setPage('chat');render();};$('collapseSidebar').onclick=collapseSidebar;$('menu').onclick=openDrawer;$('drawerBackdrop').onclick=()=>{closeDrawer();$('menu').focus();};$('addProject').onclick=createProject;$('searchButton').onclick=search;
 $('projectContext').onclick=()=>{project=null;render();};$('libraryPage').onclick=()=>setPage('library');$('assistantsPage').onclick=()=>setPage('assistants');$('explorePage').onclick=()=>setPage('explore');$('researchPage').onclick=research;
-const workspaceInfo=()=>info('A local Mindscape workspace','Chats, projects and saved answers stay in this browser, without cloud sync. Each backend request is evaluated independently; a chat thread does not add model memory. No account, subscription, voice, attachments, scheduled tasks or Work agent is connected. Pretrained/tool assistance is separate from native Mindscape research. Do not enter credentials or private research secrets. Export important chats before clearing browser data.');
+const workspaceInfo=()=>info('A local Mindscape workspace','Chats, projects and saved answers stay in this browser, without cloud sync. Recent verified answers can ground follow-up explanations for up to 30 minutes, until server restart or cache eviction. This is bounded context, not model memory. No account, subscription, voice, attachments, scheduled tasks or Work agent is connected. Pretrained/tool assistance is separate from native Mindscape research. Do not enter credentials or private research secrets. Export important chats before clearing browser data.');
 $('workspaceMenu').onclick=workspaceInfo;$('workspaceInfo').onclick=workspaceInfo;$('closeTrace').onclick=closeTrace;$('closeModal').onclick=closeDialog;
 $('modal').addEventListener('close',()=>modalReturn?.focus());
 $('addAction').onclick=()=>{const open=$('actionMenu').hidden;$('actionMenu').hidden=!open;$('addAction').setAttribute('aria-expanded',String(open));if(open)$('insertPython').focus();};

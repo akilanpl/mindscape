@@ -2,6 +2,7 @@
 import json,os,subprocess,sys,threading,time
 from pathlib import Path
 from .parsing import supplied_parse,ground_neural
+from .context import Contexts,validate,intent,explain,clarification
 
 def tool(spec):
     env=dict(os.environ);env['PYTHONPATH']=str(Path(__file__).resolve().parents[1])
@@ -15,9 +16,9 @@ def tool(spec):
 
 class Assistant:
     def __init__(self,neural=None):
-        self.neural=neural;self.started=time.perf_counter();self._lock=threading.Lock()
+        self.neural=neural;self.started=time.perf_counter();self._lock=threading.Lock();self._contexts=Contexts()
     def capabilities(self):
-        return {'product':'Mindscape STEM delivery candidate','external_inference':False,'pretrained':{'model':'Qwen/Qwen3-0.6B','ready':bool(self.neural and self.neural.model is not None),'backend':getattr(self.neural,'stats',{})},'tools':{'math':['differentiate','standard integration','matrix addition/multiplication/inverse/transpose','determinants','polynomial equations'],'physics':['Coulomb force','point-charge electric field','Ohm law','series/parallel resistance','signed lens/mirror equations','single series-loop Kirchhoff current'],'coding':['bounded Python tracing: functions, conditionals, loops, lists','restricted SQLite SELECT with explicit tables']},'native':{'status':'Research demonstration only; R6 math/coding collapse and weak physics OOD','separate_from_pretrained_and_tools':True},'limits':['No broad CBSE mastery claim','Tool checks verify the displayed interpretation; verify it matches your question','No arbitrary code execution, filesystem access or network tools','Local loopback serving; no public hosting','History is browser-local; backend does not persist conversations']}
+        return {'product':'Mindscape STEM delivery candidate','external_inference':False,'pretrained':{'model':'Qwen/Qwen3-0.6B','ready':bool(self.neural and self.neural.model is not None),'backend':getattr(self.neural,'stats',{})},'tools':{'math':['differentiate','standard integration','matrix addition/multiplication/inverse/transpose','determinants','polynomial equations'],'physics':['Coulomb force','point-charge electric field','Ohm law','series/parallel resistance','signed lens/mirror equations','single series-loop Kirchhoff current'],'coding':['bounded Python tracing: functions, conditionals, loops, lists','restricted SQLite SELECT with explicit tables']},'native':{'status':'Research demonstration only; R6 math/coding collapse and weak physics OOD','separate_from_pretrained_and_tools':True},'limits':['No broad CBSE mastery claim','Tool checks verify the displayed interpretation; verify it matches your question','No arbitrary code execution, filesystem access or network tools','Local loopback serving; no public hosting','Chat history is browser-local; up to 32 recent server-owned answers support follow-ups for 30 minutes, until restart or eviction']}
     def answer(self,question,mode='hybrid',cancel=None):
         if not isinstance(question,str) or not 1<=len(question.strip())<=6000:raise ValueError('Question must contain1–6000 characters')
         if mode not in ('hybrid','pretrained','tools','native'):raise ValueError('Unknown inference mode')
@@ -59,4 +60,22 @@ class Assistant:
         return {**result,'status':'verified' if verified else 'unsupported','answer':text,'domain':spec.get('subject'),'method':method,'structured_problem':spec,'solver_result':solver,'neural':neural,'tools':[solver.get('method')],'trace':trace,'timing':{'total_seconds':time.perf_counter()-started},'provenance':{'native_r6_used':False,'pretrained_used':bool(neural.get('raw')),'interpretation':parser,'tool_verified':bool(verified),'verification_scope':'Displayed structured problem; some checks use the same symbolic engine','optimizer_updates':0}}
     def chat(self,data,cancel=None):
         if not isinstance(data,dict):raise ValueError('JSON object required')
-        return self.answer(data.get('message',''),mode='native' if data.get('native_demo') else data.get('inference_mode',data.get('mode','hybrid')),cancel=cancel)
+        cid,history=validate(data)
+        question=data.get('message','')
+        mode='native' if data.get('native_demo') else data.get('inference_mode',data.get('mode','hybrid'))
+        if not isinstance(question,str) or not 1<=len(question.strip())<=6000:raise ValueError('Question must contain 1–6000 characters')
+        if mode not in ('hybrid','pretrained','tools','native'):raise ValueError('Unknown inference mode')
+        started=time.perf_counter()
+        with self._lock:
+            context=self._contexts.previous(cid,history)
+        if intent(question) and supplied_parse(question) is None:
+            if mode in ('native','pretrained'):
+                response=clarification('Grounded follow-up explanations are available in Hybrid or Tools only mode. Select one of those modes and resend the original problem if needed.')
+            elif cancel is not None and cancel.is_set():
+                response=clarification('The request was cancelled. Please resend the problem if you want an explanation.')
+            else:response=explain(question,context)
+        else:response=self.answer(question,mode=mode,cancel=cancel)
+        with self._lock:
+            self._contexts.remember(cid,question,response,context)
+        response.setdefault('timing',{})['total_seconds']=time.perf_counter()-started
+        return response
