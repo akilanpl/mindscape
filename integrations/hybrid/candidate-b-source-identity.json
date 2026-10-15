@@ -1,0 +1,51 @@
+{
+  "description": "Original delivered Candidate B hashes before portable adapter changes; no model or private checkpoint included.",
+  "files": {
+    "setup.sh": "dc53238cc5ccb720b73c385b5310d6b7822d2710d228e6da18d99cd270691455",
+    "model-lock.json": "5f37c91fadd4b0ea752de07c1d216d78822e2eb07a51aeb586f1136439afd4a9",
+    "ARCHITECTURE.md": "656e31dc0e73c797f552f526ef665e9fbefb7035438381f3c487cd07020acc83",
+    "requirements.txt": "c0977e7da43fe4b11b88fa3998628f228d7daec804e075cba55df31e2e023d2a",
+    "README.md": "b0cce570e03cb9a580d040b8d6ba5a6028daa3ed0e21e01482c44a83da74c28b",
+    "requirements-dev.txt": "8636f9ab1a075be9f3039e2a6471837259c4f36b625bcaf7a3d9a1edd2419c6d",
+    ".gitignore": "5eeaef4b7a6dbb6203783d8b0f4269f36981888f6856f364f4efa00a88c9723c",
+    "DEMO_5_MINUTES.md": "e1b3dcb91de1a7eb17034b8a4ad6e0f230cb9558c3f34bf963bc9144de82d6c6",
+    "requirements.lock.txt": "a53ff61660b3e8120982f80d68ba8c305dec6ebd0624a321ada4a488fc2548a0",
+    "start.sh": "3304aa21608f85646405eb5e91b7e94e816b80569f3ba1de09ac335562170bee",
+    "mindscape_delivery/server.py": "78b6cd58fc23bc22fe83a80d8ca089824ef6cd7feb277e1f066a6d0df01c8c0a",
+    "mindscape_delivery/neural.py": "9f07b20e85c5e012626e740ac7c31059c9dfcf00a37e6532d975e374ec593fa9",
+    "mindscape_delivery/parsing.py": "b145197fa9b04b01d7c640504c6443ee8b4110e2c174c4f6e53c010e9e829742",
+    "mindscape_delivery/assistant.py": "935583b72778cb87c9f653fa5601f2f00556ee112f36d9f6189cdd436d11602d",
+    "mindscape_delivery/acceptance.py": "a2ca4512ae3ece8cf3815f47f40a77e53d473553ad1664091ddc269abafe6465",
+    "mindscape_delivery/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mindscape_delivery/solvers.py": "078e73bfebad24aed50d8318ec2f61da607c0fb6580ad56142e2d376d78707c6",
+    "mindscape_delivery/native_demo.py": "e189f0259b4de240814a06a17a39aebf89a584819c781566445c9f9c163af917",
+    "mindscape_delivery/tool_worker.py": "330ad0ae16444ca4758253e4d679a020c4c3f143ffbf478fe232bf73ed65e695",
+    "web/index.html": "f1a5ca3c27067fa72826b4feea003e15e7d82d691d9a77319eecc4279ad1559a",
+    "web/math.js": "9bf3bf18788229c67cf1b070d5e47857d4c767b8915fa4d431c99916ad349633",
+    "web/style.css": "f8a00b14ae30c096b79042c7e6f320709eb2014fc9e72f03107454a19a84564e",
+    "web/science.js": "2f74fca2be8d14c59a3ab8f4964c22366db3726fba6099c6781e74e846ade915",
+    "web/app.js": "b8abed8193ff7e63425427c95c6c5791154ef5b3c21b594ad15febe833720c82",
+    "tests/test_neural_contract.py": "5fe89cd98b5638fc055f9c904a4afc3b2f2525a51348be8a042bbaf6e71c09d8",
+    "tests/test_solvers.py": "be05a9e70c48735ae0c2e96e8196ce2a0ed7efeb4197ef700ae025c131744b4e",
+    "tests/test_acceptance.py": "351bfc61be34fb517d41c74de6b11606ee666138edb11830d6890261bc43918c",
+    "tests/test_server.py": "50a1b02fee78a9f5ebabb8a9cd3e4889f93ec5f35c23efddd19c4e2c927ca4c6",
+    "tests/test_application.py": "0c8035089aa9f400233e653bb8a2ad162b8e7b91b56a39bc2a4e86e90385e632",
+    "tests/test_native_demo.py": "cb375b8000cd7e729c64a25686bdc3f88ef546452f82ebd92c3df198b5a0bfad",
+    "tests/test_extended_contract.py": "0044fb7972a7d4227331fbcc9ef5053ad338edc5b08006c064d444f9a362d98c",
+    "scripts/rehearse.py": "8374957f33d8d22e5114e243af88acd73f468a0db259f8d73ad97dda4b45475d",
+    "scripts/download_model.py": "26785ed13fbd8cd665b6323416aa633a0c7c5be8dfdb3becab184c9036b3501f",
+    "scripts/benchmark_neural.py": "6e159ddf412723f13ed7a28cc64eb09c8e3886eac800ff96e001e3552bd3b467"
+  },
+  "historical_results": {
+    "hybrid": "31/36",
+    "pretrained": "16/36",
+    "safe_refusals": "4/4",
+    "warm_p95_seconds": 3.45613975,
+    "tests": 147,
+    "accepted_topics": 13,
+    "excluded": [
+      "Coulomb",
+      "natural-language SQL"
+    ]
+  }
+}
