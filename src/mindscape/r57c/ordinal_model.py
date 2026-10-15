@@ -25,8 +25,9 @@ class OrdinalCandidate(R57Candidate):
         operation=prepared.ordinal_operation
         scalar=(self.ordinal_weights[operation]*prepared.ordinal_raw).sum()
         joint=-(scalar*20-self.ordinal_centers[operation]).square()
-        digit=torch.stack([torch.logsumexp(joint[self.ordinal_digits[operation]==index],dim=0) for index in range(10)])
-        carry=torch.stack([torch.logsumexp(joint[self.ordinal_carries[operation]==index],dim=0) for index in range(2)])
+        digit=joint.reshape(2,10).logsumexp(0)
+        carry=joint.reshape(2,10).logsumexp(1)
+        if operation:carry=carry.flip(0)
         return {'math_digit_logits':digit,'math_carry_logits':carry,'math_ordinal_scalar':scalar}
 
 
