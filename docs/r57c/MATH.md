@@ -52,3 +52,36 @@ The separate all9 audit executes backward measurements but zero optimizer update
 One unit test passes for original-state preservation, operand sensitivity and
 trainable connectivity. Passing that test is not learning success. Exact deterministic
 arithmetic remains a separate transparent product reference.
+
+## One separately authorized final ordinal-output probe
+
+A final fixed candidate uses operation-specific learned affine weights on raw
+left/9, right/9, incoming and constant1. Weights initialize Normal(0,.1), not the
+true rule. The sole math target is a bijective ordinal recoding of existing
+labels: (digit+10carry)/20 for addition, (digit−10borrow)/20 for subtraction.
+This supplies no new ground-truth information, but **explicitly changes the loss
+and encodes decimal output geometry**. Prediction decodes the learned scalar
+against fixed20 joint digit/carry centers with Gaussian scores and marginalizes
+to the usual logits. No arithmetic solver is applied to input operands.
+
+The fixed three-condition probe ran exactly2000 full-mixed Adam.001 updates each,
+seed17, same original128 records: **6000 additional CPU updates**. Combined with
+the rejected earlier probes, this workstream executed18000 CPU engineering updates.
+No more trials were run. Initial/trained development exact accuracy was3.75→13.75%
+for all three conditions, versus old trained R5.7 seed17 on2.5%, off3.75%, GRU5%.
+These are observed gains on80 unseen development cases, with no new final access.
+
+Decision: **retain as an explicitly structured ordinal-output-prior candidate**
+for parent review; not a qualified improvement or native-MPS result. Accuracy
+remains poor, arithmetic coefficients remain far from the full true rule, and
+one seed cannot establish generalization across seeds. The candidate bypasses
+shared-core math gradients, preserving initial coding/physics/core weights but
+changing task interference. All three conditions receive the same output prior.
+No unconstrained neural arithmetic or general reasoning claim is justified.
+
+Raw evidence: `evidence/math/ordinal-development-probe-6000.json` contains all
+initial/trained predictions, learned coefficients and6000 update accounting.
+`ordinal_model.make_model(condition,seed)` and its custom `domain_loss` must be
+used together: math uses scalar ordinal MSE; other tasks keep the old loss.
+One additional unit test passes for preserved old initial weights, gradient
+connectivity, removed shared math gradient and output shapes.
