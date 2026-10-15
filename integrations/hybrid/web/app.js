@@ -142,6 +142,7 @@ async function send(text,retryId) {
  const mode=$('mode').value;const retainedDraft=retryId&&$('prompt').value!==text?$('prompt').value:'';let chat=currentChat();if(!chat){chat={id:crypto.randomUUID(),title:conversationTitle(text),messages:[],projectId:project,createdAt:localDate()};state.chats.unshift(chat);current=chat.id;}
  let user=chat.messages.find(m=>m.id===retryId);if(!user){const last=chat.messages.at(-1);if(last?.role==='user'&&['failed','stopped','interrupted'].includes(last.state)&&last.content===text)user=last;}
  const history=chat.messages.filter(m=>m!==user).map(({role,content})=>({role,content}));if(!user){user={id:crypto.randomUUID(),role:'user',content:text,state:'pending'};chat.messages.push(user);}else user.state='pending';
+ chat.updatedAt=localDate();state.chats=[chat,...state.chats.filter(c=>c.id!==chat.id)];
  const request={id:crypto.randomUUID(),chatId:chat.id,controller:new AbortController(),stopping:false};active=request;$('error').hidden=true;$('prompt').value=retainedDraft;if(retainedDraft)drafts.set(chat.id,retainedDraft);else drafts.delete(chat.id);persist();render();announce('Request sent. Mindscape is working.');
  const timeout=setTimeout(()=>{request.timedOut=true;request.controller.abort();requestServerStop(request);},145000);
  try {
@@ -169,7 +170,7 @@ function openTrace(result,button) {
  $('inspector').hidden=false;$('closeTrace').focus();
 }
 function closeTrace() { $('inspector').hidden=true;traceReturn?.focus(); }
-function closeDrawer() { document.body.classList.remove('drawer-open');$('drawerBackdrop').hidden=true;$('menu').setAttribute('aria-expanded','false');$('workspace').inert=false;$('sidebar').inert=matchMedia('(max-width: 800px)').matches; }
+function closeDrawer() { document.body.classList.remove('drawer-open');$('drawerBackdrop').hidden=true;$('menu').setAttribute('aria-expanded','false');$('workspace').inert=false;const mobile=matchMedia('(max-width: 800px)').matches;$('sidebar').inert=mobile;const label=mobile?'Close sidebar':state.collapsed?'Expand sidebar':'Collapse sidebar';$('collapseSidebar').setAttribute('aria-label',label);$('collapseSidebar').title=label; }
 function openDrawer() { document.body.classList.add('drawer-open');$('drawerBackdrop').hidden=false;$('menu').setAttribute('aria-expanded','true');$('workspace').inert=true;$('sidebar').inert=false;$('collapseSidebar').focus(); }
 function collapseSidebar() {
  if(matchMedia('(max-width: 800px)').matches){closeDrawer();$('menu').focus();return;}
@@ -214,7 +215,7 @@ $('workspaceMenu').onclick=workspaceInfo;$('workspaceInfo').onclick=workspaceInf
 $('modal').addEventListener('close',()=>modalReturn?.focus());
 $('addAction').onclick=()=>{const open=$('actionMenu').hidden;$('actionMenu').hidden=!open;$('addAction').setAttribute('aria-expanded',String(open));if(open)$('insertPython').focus();};
 function insert(text){$('actionMenu').hidden=true;$('addAction').setAttribute('aria-expanded','false');$('prompt').value=text;resizePrompt();syncComposer();$('prompt').focus();}
-$('insertPython').onclick=()=>insert('Predict the output:\n```python\nprint(1 + 2)\n```');$('insertJSON').onclick=()=>insert('{"subject":"math","task":"differentiate","expression":"x**3","variable":"x"}');$('export').onclick=()=>{$('actionMenu').hidden=true;exportChat();};
+$('insertPython').onclick=()=>insert('Predict the output:\n```python\nprint(1 + 2)\n```');$('insertJSON').onclick=()=>insert('{"subject":"math","task":"differentiate","expression":"x**3","variable":"x"}');$('export').onclick=()=>{$('actionMenu').hidden=true;$('addAction').setAttribute('aria-expanded','false');exportChat();};
 document.querySelectorAll('[data-suggestion]').forEach(b=>b.onclick=()=>insert(prompts[b.dataset.suggestion]));
 document.addEventListener('click',e=>{if(!$('addAction').contains(e.target)&&!$('actionMenu').contains(e.target)){$('actionMenu').hidden=true;$('addAction').setAttribute('aria-expanded','false');}});
 document.addEventListener('keydown',e=>{if(e.key==='Tab'&&document.body.classList.contains('drawer-open')){const items=[...$('sidebar').querySelectorAll('button:not(:disabled),a,input')].filter(n=>n.offsetParent!==null);const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();newChat();}if(e.key==='Escape'){if(!$('inspector').hidden)closeTrace();if(document.body.classList.contains('drawer-open')){closeDrawer();$('menu').focus();}if(!$('actionMenu').hidden){$('actionMenu').hidden=true;$('addAction').setAttribute('aria-expanded','false');$('addAction').focus();}}});
