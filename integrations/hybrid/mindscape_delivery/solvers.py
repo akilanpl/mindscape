@@ -128,11 +128,13 @@ def _math(spec):
         if 'lower' in spec or 'upper' in spec:
             if 'lower' not in spec or 'upper' not in spec: raise Unsupported('Both integration bounds are required.')
             a,b=_expr(spec['lower']),_expr(spec['upper'])
-            # Restrict definite integration to polynomials: endpoint subtraction alone
-            # does not certify integrability across singularities.
-            if not e.is_polynomial(var): raise Unsupported('Definite integrals currently support polynomials only.')
+            if a.free_symbols or b.free_symbols or a.is_real is not True or b.is_real is not True: raise Unsupported('Finite real constant bounds required.')
+            from sympy.calculus.util import continuous_domain
+            interval=s.Interval(min(a,b),max(a,b))
+            domain=continuous_domain(e,var,s.S.Reals)
+            if interval.is_subset(domain) is not True: raise Unsupported('Integrand is not certified continuous on the closed integration interval.')
             value=s.simplify(out.subs(var,b)-out.subs(var,a))
-            return _result(str(value), [f'Antiderivative: {out}', f'F({b}) - F({a}) = {value}'], 'symbolic polynomial integration', {'passed':bool(check),'check':'Differentiate antiderivative; subtract endpoints.'})
+            return _result(str(value), [f'Antiderivative: {out}', f'F({b}) - F({a}) = {value}'], 'symbolic continuous-interval integration', {'passed':bool(check),'check':'Differentiate antiderivative; subtract endpoints.'})
         return _result(f'{out} + C', [f'Integrand: {e}', f'Antiderivative: {out} + C', 'Identity applies on intervals where the integrand and antiderivative are defined; no global continuity is asserted.'], 'symbolic integration', {'passed':bool(check),'check':'Differentiate antiderivative to recover integrand.'})
     raise Unsupported('Unsupported math task.')
 
@@ -368,6 +370,18 @@ def _trace(spec):
                 outputs.append(' '.join(str(expr(x)) for x in n.value.args))
                 if len(outputs)>100: raise Unsupported('Output bound exceeded.')
             elif isinstance(n,ast.Expr) and isinstance(n.value,ast.Call): expr(n.value)
+            elif isinstance(n,ast.Try):
+                allowed={'ZeroDivisionError':ZeroDivisionError,'IndexError':IndexError,'ValueError':ValueError,'TypeError':TypeError}
+                if any(h.name or not isinstance(h.type,ast.Name) or h.type.id not in allowed for h in n.handlers):raise Unsupported('Only explicit supported exception types without aliases.')
+                try:
+                    try: block(n.body)
+                    except (ZeroDivisionError,IndexError,ValueError,TypeError) as exc:
+                        if isinstance(exc,Unsupported):raise
+                        handler=next((h for h in n.handlers if isinstance(exc,allowed[h.type.id])),None)
+                        if handler is None:raise
+                        block(handler.body)
+                    else:block(n.orelse)
+                finally:block(n.finalbody)
             elif isinstance(n,ast.Pass): pass
             else: raise Unsupported('Unsupported Python statement.')
             if len(events)<80: events.append({'line':n.lineno,'variables':copy.deepcopy(scopes[-1]),'output_count':len(outputs),'call_depth':len(scopes)-1})
@@ -410,11 +424,14 @@ def solve(spec:dict)->dict:
     """Return explicit unsupported status; never substitute an unrelated answer."""
     try:
         if not isinstance(spec,dict): raise Unsupported('Task must be a mapping.')
+        from .advanced import advanced
+        extra=advanced(spec)
+        if extra is not None:return extra
         subject=spec.get('subject',spec.get('domain',''))
         if subject in ('math','mathematics'): return _math(spec)
         if subject=='physics': return _physics(spec)
         if subject in ('coding','python'): return _trace(spec)
         if subject=='sql': return _sql(spec)
         raise Unsupported('Supported subjects: math, physics, coding, sql.')
-    except (Unsupported,ValueError,TypeError,SyntaxError,ZeroDivisionError,OverflowError,IndexError,KeyError,RecursionError,sqlite3.Error) as exc:
+    except (Unsupported,ValueError,TypeError,SyntaxError,ZeroDivisionError,OverflowError,IndexError,KeyError,RecursionError,sqlite3.Error,NotImplementedError) as exc:
         return dict(supported=False,answer=None,steps=[],verification={'passed':False,'check':'Unsupported or invalid input.'},method='no solution',reason=str(exc))
