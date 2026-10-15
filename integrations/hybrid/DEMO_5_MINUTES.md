@@ -1,28 +1,61 @@
-# Five-minute evaluation demonstration
+# October 21 demonstration and offline operation
 
-Before entering the venue: charge the Mac, close heavy applications, retain the downloaded model weights, launch START_MINDSCAPE.command, open the loopback URL, confirm neural.ready=true, and run REHEARSE.command. This uses local CPU and cached weights, not Kaggle. Disable Wi-Fi for the offline rehearsal after dependencies are installed. If model initialization fails, use START_TOOLS_BACKUP.command and explicitly disclose solver-only operation.
+Use the final selection in HYBRID_CANDIDATE_C_RESULTS.md. Always retain the frozen Candidate B commit and original working offline delivery as fallback. The native research architecture and pretrained/tool extension are separate systems.
 
-0:00–0:30 — Explain the architecture. Mindscape combines a single pretrained Qwen model with verified computation. The custom native R6 network is separate research and did not learn these tool capabilities.
+## Reproducible installation
 
-0:30–1:20 — Ask: Differentiate x^3 + sin(x) with respect to x. Show the interpreted problem, symbolic answer and worked steps. Open View activity and show pretrained interpretation, supplied grammar/grounding and exact tool provenance. Avoid describing an advisory neural plan as a mathematical proof.
+Use Python 3.12 in the extension's independent environment. From the repository feature branch:
 
-1:20–2:10 — Ask: Find current through a 4 ohm resistor with 12 V across it. Show I=V/R,3 A and explicit dimensional checking. If optics is in the accepted scope, optionally show Lens equation, f=20 cm and u=-30 cm, emphasizing Cartesian signs.
-
-2:10–3:00 — Ask Predict the output with this exact code:
-
-```python
-def total(n):
-    s=0
-    for i in range(n):
-        s+=i
-    return s
-print(total(5))
+```sh
+cd integrations/hybrid
+./setup.sh
+# Check downloaded official revision/file identity:
+(cd models/Qwen3-0.6B && shasum -a 256 -c ../../model.SHA256SUMS)
+./start.sh
 ```
 
-Show10 and the bounded AST trace. It is an interpreter-backed result, not evidence that R6 learned Python execution.
+The single model is official `Qwen/Qwen3-0.6B`, revision `c1899de289a04d12100db370d81485cdf75e47ca`, Apache-2.0, 596,049,920 parameters. Download and dependency installation require network once. Keep its downloaded LICENSE. Weights are about 1.50 GB and are excluded from Git. The launcher uses local files, Hugging Face offline flags, CPU by default, and loopback port 8765. Stop another local service first or set `MINDSCAPE_PORT=8772`.
 
-3:00–3:35 — Ask a request outside the accepted scope (for example a missing-data circuit). Show explicit unsupported handling instead of fabricated certainty. If time permits demonstrate SELECT with an explicitly supplied table.
+Existing installed resources can be mounted without copying or downloading:
 
-3:35–4:25 — Open Model & research, then Run frozen native R6 demonstration. Show the54,014-parameter custom neural graph architecture and actual preserved checkpoint predictions alongside external reference answers. Acknowledge arithmetic/coding collapse and weak physics OOD. Native CBSE natural-language scores are unsupported, not zero or hybrid scores.
+```sh
+MINDSCAPE_PYTHON=/path/to/environment/bin/python \
+MINDSCAPE_MODEL_PATH=/path/to/Qwen3-0.6B ./start.sh
+```
 
-4:25–5:00 — Present the held-out acceptance summary and limitations. Scores apply to this small frozen question set; topics missing the predeclared threshold are excluded from guaranteed demo scope. Pretrained-only accuracy, hybrid accuracy, correctness of explanations and latency are reported separately. No broad Class12 mastery claim. State that no new training or paid resources were used.
+Open `http://127.0.0.1:8765/` (or the selected port). Confirm `/api/health` reports pretrained ready. For the backup use `MINDSCAPE_TOOLS_ONLY=1 ./start.sh` and explicitly disclose deterministic solver-only operation. No hybrid launcher runs during native research execution.
+
+Optional external R6 research demonstration requires `MINDSCAPE_R6_REPOSITORY` and `MINDSCAPE_R6_ARTIFACTS`. With no mounts it correctly reports unavailable. It is never needed for verified CBSE answers. The original offline delivery retains its separately packaged native demo.
+
+## Five minutes
+
+1. **0:00–0:40:** State that Qwen supplies advisory interpretation and deterministic tools verify a bounded structured problem. Original native research remains independent; no training was done.
+2. **0:40–1:30:** Ask `Differentiate exp(sin(2*x))*cos(x^3) with respect to x`. Show the literal interpretation, product/chain-rule answer, worked steps and tool provenance. Neural plans are advisory, not proofs.
+3. **1:30–2:20:** Submit the explicit induction schema below. Explain SI conversion, flux normal, average emf and Lenz sign.
+4. **2:20–3:15:** Submit the Python program below; show exception handling, final output and bounded trace. No CPython exec or host file/network access occurs.
+5. **3:15–4:00:** Ask for current without circuit measurements; show a safe refusal. State complex pathways need explicit schemas and no full syllabus mastery is claimed.
+6. **4:00–5:00:** Show matched hard benchmark subject totals and remaining limitations. Explain that native R6 cannot accept comparable general CBSE inputs. Demonstrate native independence using the original repository's `PYTHONPATH=src python -S scripts/run_episode.py 19 3` if needed; this verifies a deterministic foundation episode, not R6 neural learning.
+
+```json
+{"subject":"physics","task":"induction","turns":100,"flux_initial":{"value":2,"unit":"mWb"},"flux_final":{"value":-1,"unit":"mWb"},"duration":{"value":20,"unit":"ms"}}
+```
+
+Expected average emf: **+15 V** with respect to the supplied flux normal.
+
+```python
+s=0
+for x in [3,0,-2]:
+ try:
+  s+=18//x
+ except ZeroDivisionError:
+  s+=4
+ finally:
+  s+=1
+print(s)
+```
+
+Expected stdout: **4**. These are public development examples, separate from the protected benchmark.
+
+Pause briefly between programmatic requests. The inherited loopback server may reject an immediately following request before its previous request slot is released; the measured hard campaign uses 150 ms post-response spacing and never retries. Do not expose this classroom service publicly as a hostile-code execution service.
+
+Rollback/removal commands are in HYBRID_REMOVAL_GUIDE.md. Before the venue, install everything, verify hashes, rehearse with network disabled, retain B, and avoid last-minute core changes.
