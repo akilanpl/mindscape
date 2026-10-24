@@ -1,5 +1,16 @@
 # Mindscape
 
+## Portable recovery
+
+See [portable CPU setup](docs/portable_setup.md), the
+[recovery gates](docs/recovery_manifest.md), and the
+[research artifact map](docs/research_artifact_map.md).
+Use `scripts/bootstrap_portable.py` for an isolated minimal CPU environment and
+`scripts/verify_portable.py` for independently verified reasoning episodes.
+`scripts/verify_research_archives.py` validates archived evidence without changing it.
+These checks do not establish that every later local experiment is backed up;
+local cleanup requires separate per-path preservation and restoration approval.
+
 **Mindscape: A Multimodal Cognitive Architecture for Grounded Event Representation
 and Structured Goal-Directed Reasoning**
 
