@@ -27,6 +27,17 @@ caches. `requirements-cpu-dev.lock.txt` pins the three top-level CPU development
 packages; the preservation receipt also records the complete resolved environment.
 The lock is not a cross-platform hash-locked research environment. Preserve the
 receipt and create platform-specific locks for full neural research.
+The complete minimal macOS resolver snapshot is also recorded in
+`requirements-cpu-resolved-20261024.txt`; it contains no machine paths. A fresh
+Ubuntu 24.04 runner passed the minimal CPU path and all five historical archive
+checks at commit `c109c1fd7f65dbbd437a89575873ec932be45d06`:
+https://github.com/akilanpl/mindscape/actions/runs/40098362319.
+
+The same-device fresh model smoke used torch 2.8.0, transformers 4.57.6 and
+safetensors 0.8.0 on CPU. The pinned SmolLM2 revision and downloaded file digests
+are in `docs/pinned_model_download_20261024.json`. The three Qwen revision/LFS
+manifests are in `docs/pinned_qwen_upstream_20261024.json`; these were checked
+against upstream metadata, but full fresh Qwen downloads/inference were not run.
 
 For the versioned historical evidence, first verify without extracting:
 
@@ -51,3 +62,28 @@ is about 0.273 GB. These are observed local sizes, not guaranteed transfer sizes
 Offline operation requires previously verified model files and package wheels.
 Minimal core reasoning needs neither. No claim of full model recovery is made
 until a separate remote-download and inference receipt passes.
+
+## Continuing the preserved r6/r6.1 research state
+
+The independent working-state branch
+`preservation/working-20261024/mindscape-r61-82c6cf37f9` records commit
+`82c6cf37f9a5bac5c1e3604910a12edbc9e0fa3d`. A fresh remote clone of that branch
+passed 124 tests under `research/r61/tests` and `research/r6/tests` on macOS CPU
+with Python 3.12, NumPy 2.2.6, pytest 8.4.2 and torch 2.8.0. Install that clone
+editable into a new environment before testing it. This validates its code path,
+not every external campaign, private artifact or training continuation.
+
+```sh
+git clone --branch preservation/working-20261024/mindscape-r61-82c6cf37f9 \
+  --single-branch https://github.com/akilanpl/mindscape.git mindscape-r61
+cd mindscape-r61
+python3.12 -m venv .venv
+.venv/bin/python -m pip install numpy==2.2.6 pytest==8.4.2 torch==2.8.0
+.venv/bin/python -m pip install -e .
+.venv/bin/python -m pytest -q research/r61/tests research/r6/tests
+```
+
+On Linux, select the official CPU-only PyTorch distribution if no accelerator is
+needed. Preserve campaign checkpoints and map supplementary archive origins to
+the branch's expected relative artifact paths before resuming research. No
+historical architecture has been merged automatically into the default branch.

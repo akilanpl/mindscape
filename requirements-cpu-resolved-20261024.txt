@@ -1,0 +1,8 @@
+# Resolved minimal CPU environment; project itself installs separately.
+iniconfig==2.3.1
+numpy==2.2.6
+packaging==26.3
+pluggy==1.7.0
+Pygments==2.21.0
+pytest==8.4.2
+setuptools==80.9.0
