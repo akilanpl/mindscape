@@ -1,0 +1,30 @@
+{
+  "fit_id": "r6-p1-raw",
+  "seed": 61017,
+  "architecture": "native-relational",
+  "width": 48,
+  "updates": 600,
+  "batch_per_domain": 8,
+  "lr": 0.001,
+  "optimizer": "adam",
+  "schedule": "constant",
+  "weight_decay": 0.0,
+  "clip_norm": 1.0,
+  "physics_target_mean": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "physics_target_scale": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "max_seconds": 3600,
+  "dev_interval": 100,
+  "precision": "FP32",
+  "selection": "minimum-development-objective",
+  "no_auto_retry": true
+}

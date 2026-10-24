@@ -1,0 +1,30 @@
+{
+  "architecture": "native-relational",
+  "batch_per_domain": 8,
+  "clip_norm": 1.0,
+  "dev_interval": 100,
+  "fit_id": "r6-p1-scaled",
+  "lr": 0.001,
+  "max_seconds": 3600,
+  "no_auto_retry": true,
+  "optimizer": "adam",
+  "physics_target_mean": [
+    0.13665364583333334,
+    -0.031958007812499994,
+    -0.12517496744791667,
+    0.4232879638671875
+  ],
+  "physics_target_scale": [
+    7.4769755743564055,
+    7.135213688986849,
+    14.32222239602665,
+    13.266851435601385
+  ],
+  "precision": "FP32",
+  "schedule": "constant",
+  "seed": 61017,
+  "selection": "minimum-development-objective",
+  "updates": 600,
+  "weight_decay": 0.0,
+  "width": 48
+}
