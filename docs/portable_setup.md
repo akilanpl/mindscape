@@ -36,8 +36,10 @@ https://github.com/akilanpl/mindscape/actions/runs/40098362319.
 The same-device fresh model smoke used torch 2.8.0, transformers 4.57.6 and
 safetensors 0.8.0 on CPU. The pinned SmolLM2 revision and downloaded file digests
 are in `docs/pinned_model_download_20261024.json`. The three Qwen revision/LFS
-manifests are in `docs/pinned_qwen_upstream_20261024.json`; these were checked
-against upstream metadata, but full fresh Qwen downloads/inference were not run.
+manifests are in `docs/pinned_qwen_upstream_20261024.json`; all three pinned revisions were subsequently downloaded fresh, SHA-256 checked,
+and passed representative CPU inference on 2026-10-24. All 56 distinct preserved
+adapters also loaded against the pinned 1.5B base and passed finite-output forward
+checks. Qwen3 completed its answer with thinking disabled, matching the delivery configuration.
 
 For the versioned historical evidence, first verify without extracting:
 
@@ -87,3 +89,25 @@ On Linux, select the official CPU-only PyTorch distribution if no accelerator is
 needed. Preserve campaign checkpoints and map supplementary archive origins to
 the branch's expected relative artifact paths before resuming research. No
 historical architecture has been merged automatically into the default branch.
+
+## Final recovery selection and external evidence
+
+PR #32 remains a recovery branch because its dedicated Linux recovery check passed
+but other repository checks are failed or cancelled. Do not assume main contains
+these recovery tools. Clone `preservation/portable-recovery-20261024` for the portable
+setup; its executable code was validated at commit
+`8a8d0ea2ac56d6344cdfaaf2979498c10458df95`. The subsequent update is documentation only.
+For continued r6/r6.1 research select the independent working-state commit
+`82c6cf37f9a5bac5c1e3604910a12edbc9e0fa3d` as documented above, rather than main.
+The delivery snapshot is `5b8fe2957ea97483ee681cd0c86d71e38853c2fd`.
+
+The public preservation release contains independently retrieved and fully
+hash-verified scientific evidence (30,887 objects) and source snapshots (459 objects).
+Additional confidential evidence is held in an owner-private Google Drive backup:
+five ordered AES-256-GCM archive parts, authenticated and independently retrieved,
+containing 4,683 objects / 550,964,026 plaintext bytes. The private folder holds
+part SHA-256 manifests, relative-origin manifests, decrypt/restore tools, and
+recovery instructions. Obtain access and the separately held recovery key from
+the owner; never commit that key or credentials. Private key custody is owner-confirmed.
+Foundation-model weights remain reproducible from the pinned upstream revisions,
+not Git source alone. CPU smoke checks are not a full research retraining result.
