@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "training_platform": "kaggle",
+  "device": "cuda:0",
+  "requested_accelerator": "NvidiaTeslaT4",
+  "multiple_devices": false,
+  "cpu_fallback": false,
+  "internet": false,
+  "privacy": "private",
+  "package_installation": "disabled; use preinstalled torch and record runtime versions",
+  "dependencies": {"torch": "Kaggle preinstalled CUDA build; exact version recorded at execution"}
+}

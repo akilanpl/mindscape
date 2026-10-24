@@ -1,0 +1,12 @@
+{
+  "experiment": "mindscape-cloud-baseline-v1",
+  "device": "cuda:0",
+  "architecture": "graph-concept-on",
+  "seed": 43,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "batch_size": 1,
+  "optimizer_updates": 2000,
+  "dataset": "frozen-r57c-legacy128",
+  "checkpoint_policy": "final"
+}

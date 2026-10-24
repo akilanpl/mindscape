@@ -1,0 +1,2 @@
+# Kaggle supplies its CUDA-matched PyTorch. Do not replace it with a CPU wheel.
+# The probe and native R5.7c worker require only torch and the Python standard library.
