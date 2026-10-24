@@ -1,0 +1,12 @@
+{
+  "archive": "workspace-source-snapshots-20261024.tar.gz",
+  "bytes": 12395138,
+  "sha256": "5dc5b6c9ddcffefa856f63dd4951e4b264820f4d87fb0aed97c377ee190bec53",
+  "objects": 459,
+  "uncompressed_bytes": 18815093,
+  "excluded_counts": {
+    "outside-selected-scientific-scope": 62205,
+    "private-or-machine-specific-review": 52
+  },
+  "release_url": "https://github.com/akilanpl/mindscape/releases/tag/preservation-evidence-20261024"
+}

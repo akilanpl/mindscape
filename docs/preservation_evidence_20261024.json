@@ -1,0 +1,12 @@
+{
+  "archive": "scientific-evidence-20261024.tar.gz",
+  "bytes": 757961715,
+  "sha256": "26c1ecb0a14dffebc247fdc74e8830d28a33f4a8ece7618a3d53b90cf839d8dc",
+  "objects": 30887,
+  "uncompressed_bytes": 2295162801,
+  "excluded_counts": {
+    "outside-selected-scientific-scope": 31791,
+    "private-or-machine-specific-review": 38
+  },
+  "release_url": "https://github.com/akilanpl/mindscape/releases/tag/preservation-evidence-20261024"
+}
