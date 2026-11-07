@@ -180,4 +180,6 @@ Setup creates its own environment and downloads the pinned public model once. Su
 | `integrations/hybrid/` | Separately launched pretrained/tool assistant |
 | `docs/`, `demo/` | Methodology, reproduction guides and recorded evidence views |
 
+The V3 preservation check treats the root README as maintained documentation and records its baseline/current Git blob IDs. Frozen pre-V3 research files remain byte-checked; the original overview remains recoverable from the declared historical commit. Declared release tags must retain their exact targets, while additional preservation tags are reported separately. Regression tests exercise README edits, research tampering and deleted/retargeted release tags.
+
 Documentation basis: default-branch source [`5ad2de4313aba6a7468638ed5709876e0c406668`](https://github.com/akilanpl/mindscape/tree/5ad2de4313aba6a7468638ed5709876e0c406668). Study identities above refer to their own frozen protocols and receipts. Distributed under the [MIT license](LICENSE).

@@ -1,4 +1,4 @@
-"""Verify all pre-V3 tracked blobs and tag refs against the declared untouched base."""
+"""Verify frozen pre-V3 research and release tags; record maintained README changes."""
 
 import argparse
 import hashlib
@@ -16,6 +16,7 @@ def git(*args):
 def verify():
     tree = git("ls-tree", "-r", "-z", BASE).split(b"\0")
     protected = {}
+    documentation_updates = {}
     for entry in tree:
         if not entry:
             continue
@@ -26,21 +27,31 @@ def verify():
         path = Path(rawpath.decode())
         actual = git("hash-object", "--", str(path)).strip()
         if actual != expected:
-            raise ValueError(f"Historical file changed: {path}")
+            if path.as_posix() != "README.md":
+                raise ValueError(f"Historical file changed: {path}")
+            documentation_updates[str(path)] = {
+                "baseline_blob": expected.decode(),
+                "current_blob": actual.decode(),
+                "historical_source": f"{BASE}:{path.as_posix()}",
+            }
         protected[str(path)] = expected.decode()
     tags = {
         name: git("rev-parse", f"refs/tags/{name}").decode().strip()
         for name in git("tag", "--list").decode().splitlines()
     }
     expected_tags = json.loads(Path("configs/v3/preserved_tags.json").read_text())
-    if tags != expected_tags:
+    if any(tags.get(name) != expected for name, expected in expected_tags.items()):
         raise ValueError("Release tags changed")
     return {
         "base_commit": BASE,
-        "verified_pre_v3_files": len(protected),
+        "verified_pre_v3_files": len(protected) - len(documentation_updates),
         "tree_sha256": hashlib.sha256(json.dumps(protected, sort_keys=True).encode()).hexdigest(),
         "tags": tags,
-        "historical_files_unchanged": True,
+        "historical_files_unchanged": not documentation_updates,
+        "frozen_research_files_unchanged": True,
+        "documentation_updates": documentation_updates,
+        "verified_release_tags": expected_tags,
+        "additional_tags": {name: sha for name, sha in tags.items() if name not in expected_tags},
     }
 
 
